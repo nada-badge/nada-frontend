@@ -2,9 +2,13 @@ import { useMutation } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 
 const useUserMutation = () => {
-  return useMutation((username, password) =>
-    client.post('/user/signup', { username, password }),
-  );
+  return useMutation({
+    mutationFn: (username, password) =>
+      client.post('/user/signUp', { username, password }),
+    onSuccess: (data) => {
+      console.log('회원가입 완료', data);
+    },
+  });
 };
 
 export default useUserMutation;

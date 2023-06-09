@@ -7,7 +7,7 @@ import useUserMutation from '../../modules/queries/registerQuery';
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const mutation = useUserMutation();
+  const { mutate } = useUserMutation();
 
   const form = useSelector((state) => {
     return state.auth.register;
@@ -26,7 +26,7 @@ const RegisterForm = () => {
     e.preventDefault();
     const username = e.target.username.value;
     const password = e.target.password.value;
-    mutation(username, password);
+    mutate(username, password);
   };
 
   return (
