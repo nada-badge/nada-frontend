@@ -28,13 +28,49 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
           value={form.password}
         />
         {type === 'register' && (
-          <input
-            name="passwordConfirm"
-            placeholder="비밀번호 확인"
-            type="password"
-            onChange={onChange}
-            value={form.passwordConfirm}
-          />
+          <div>
+            <input
+              name="passwordConfirm"
+              placeholder="비밀번호 확인"
+              type="password"
+              onChange={onChange}
+              value={form.passwordConfirm}
+            />
+            <fieldset>
+              <label>
+                <input
+                  type="radio"
+                  value="개인"
+                  name="userType"
+                  onChange={onChange}
+                  defaultChecked={true}
+                />
+                개인
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="단체"
+                  name="userType"
+                  onChange={onChange}
+                  defaultChecked={false}
+                />
+                단체
+              </label>
+            </fieldset>
+            <input
+              name="username"
+              placeholder="닉네임"
+              onChange={onChange}
+              value={form.username}
+            />
+            <input
+              name="phoneNumber"
+              placeholder="폰번호"
+              onChange={onChange}
+              value={form.phoneNumber}
+            />
+          </div>
         )}
         <Button>{text}</Button>
       </form>
