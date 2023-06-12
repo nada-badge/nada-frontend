@@ -8,6 +8,9 @@ const useUserMutation = () => {
     onSuccess: (data) => {
       console.log('회원가입 완료', data);
     },
+    onError: (error) => {
+      console.log('오류발생!', error);
+    },
   });
 };
 
