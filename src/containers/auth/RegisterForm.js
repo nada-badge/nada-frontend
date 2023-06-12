@@ -26,7 +26,7 @@ const RegisterForm = () => {
     e.preventDefault();
     const username = e.target.username.value;
     const password = e.target.password.value;
-    mutate(username, password);
+    mutate({ username, password });
   };
 
   return (
