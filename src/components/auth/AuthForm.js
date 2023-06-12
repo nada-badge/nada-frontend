@@ -15,10 +15,10 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
       <h3>{text}</h3>
       <form onSubmit={onSubmit}>
         <input
-          name="username"
+          name="email"
           placeholder="아이디"
           onChange={onChange}
-          value={form.username}
+          value={form.email}
         />
         <input
           name="password"

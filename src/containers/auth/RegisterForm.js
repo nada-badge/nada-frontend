@@ -24,9 +24,9 @@ const RegisterForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const username = e.target.username.value;
+    const email = e.target.email.value;
     const password = e.target.password.value;
-    mutate({ username, password });
+    mutate({ email, password });
   };
 
   return (
