@@ -9,6 +9,9 @@ const initialState = {
     email: '',
     password: '',
     passwordConfirm: '',
+    userType: '개인',
+    username: '',
+    phoneNumber: '',
   },
 };
 
