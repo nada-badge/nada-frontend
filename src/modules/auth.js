@@ -9,9 +9,13 @@ const initialState = {
     email: '',
     password: '',
     passwordConfirm: '',
-    userType: '개인',
+    userType: 1,
     username: '',
     phoneNumber: '',
+  },
+  error: {
+    email: null,
+    password: null,
   },
 };
 
@@ -24,9 +28,17 @@ const authSlice = createSlice({
     },
     initializeForm: (state, { payload: form }) => {
       state[form] = initialState[form];
+      state.error = {
+        email: null,
+        password: null,
+      };
+    },
+    register_error: (state, { payload: { key, value } }) => {
+      state.error[key] = value;
     },
   },
 });
 
 export default authSlice;
-export const { changeField, initializeForm } = authSlice.actions;
+export const { changeField, initializeForm, register_error } =
+  authSlice.actions;
