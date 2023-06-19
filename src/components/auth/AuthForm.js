@@ -2,13 +2,21 @@
 
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
+import styled from 'styled-components';
 
 const textMap = {
   login: '로그인',
   register: '회원가입',
 };
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`;
+
+const AuthForm = ({ type, form, onChange, onSubmit, checkEmail, error }) => {
   const text = textMap[type];
   return (
     <div>
@@ -16,10 +24,12 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
       <form onSubmit={onSubmit}>
         <input
           name="email"
-          placeholder="아이디"
+          placeholder="이메일"
           onChange={onChange}
           value={form.email}
+          onBlur={checkEmail}
         />
+        {error.email && <ErrorMessage>{error.email}</ErrorMessage>}
         <input
           name="password"
           placeholder="비밀번호"
@@ -40,7 +50,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
               <label>
                 <input
                   type="radio"
-                  value="개인"
+                  value="1"
                   name="userType"
                   onChange={onChange}
                   defaultChecked={true}
@@ -50,7 +60,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
               <label>
                 <input
                   type="radio"
-                  value="단체"
+                  value="2"
                   name="userType"
                   onChange={onChange}
                   defaultChecked={false}
