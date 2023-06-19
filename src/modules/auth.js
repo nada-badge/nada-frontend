@@ -16,6 +16,7 @@ const initialState = {
   error: {
     email: null,
     password: null,
+    passwordConfirm: null,
   },
 };
 
