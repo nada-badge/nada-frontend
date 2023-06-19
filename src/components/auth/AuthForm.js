@@ -16,7 +16,16 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({ type, form, onChange, onSubmit, checkEmail, error }) => {
+const AuthForm = ({
+  type,
+  form,
+  onChange,
+  onSubmit,
+  checkEmail,
+  checkPassword,
+  checkPasswordConfirm,
+  error,
+}) => {
   const text = textMap[type];
   return (
     <div>
@@ -29,14 +38,16 @@ const AuthForm = ({ type, form, onChange, onSubmit, checkEmail, error }) => {
           value={form.email}
           onBlur={checkEmail}
         />
-        {error.email && <ErrorMessage>{error.email}</ErrorMessage>}
+        {error && <ErrorMessage>{error.email}</ErrorMessage>}
         <input
           name="password"
           placeholder="비밀번호"
           type="password"
           onChange={onChange}
           value={form.password}
+          onBlur={checkPassword}
         />
+        {error && <ErrorMessage>{error.password}</ErrorMessage>}
         {type === 'register' && (
           <div>
             <input
@@ -45,7 +56,9 @@ const AuthForm = ({ type, form, onChange, onSubmit, checkEmail, error }) => {
               type="password"
               onChange={onChange}
               value={form.passwordConfirm}
+              onBlur={checkPasswordConfirm}
             />
+            {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
             <fieldset>
               <label>
                 <input

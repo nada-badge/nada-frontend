@@ -37,13 +37,38 @@ const RegisterForm = () => {
     mutate({ email, password });
   };
 
-  const checkEmail = (e) => {
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!email.match(mailformat)) {
+  const checkEmail = () => {
+    const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegexp.test(email)) {
       const text = '올바른 이메일 형식이 아닙니다.';
       dispatch(register_error({ key: 'email', value: text }));
     } else {
       dispatch(register_error({ key: 'email', value: null }));
+    }
+  };
+
+  const checkPassword = () => {
+    const passwordRegexp =
+      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if (!passwordRegexp.test(password)) {
+      const text =
+        '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.';
+      dispatch(register_error({ key: 'password', value: text }));
+    } else {
+      dispatch(register_error({ key: 'password', value: null }));
+    }
+  };
+
+  const checkPasswordConfirm = () => {
+    if (password === passwordConfirm) {
+      dispatch(register_error({ key: 'passwordConfirm', value: null }));
+    } else {
+      dispatch(
+        register_error({
+          key: 'passwordConfirm',
+          value: '비밀번호가 일치하지 않습니다.',
+        }),
+      );
     }
   };
 
@@ -54,6 +79,8 @@ const RegisterForm = () => {
       onChange={onChange}
       onSubmit={onSubmit}
       checkEmail={checkEmail}
+      checkPassword={checkPassword}
+      checkPasswordConfirm={checkPasswordConfirm}
       error={error}
     />
   );
