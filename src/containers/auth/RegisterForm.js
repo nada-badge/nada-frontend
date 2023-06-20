@@ -49,7 +49,7 @@ const RegisterForm = () => {
 
   const checkPassword = () => {
     const passwordRegexp =
-      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
     if (!passwordRegexp.test(password)) {
       const text =
         '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.';
