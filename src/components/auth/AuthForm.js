@@ -16,16 +16,7 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({
-  type,
-  form,
-  onChange,
-  onSubmit,
-  checkEmail,
-  checkPassword,
-  checkPasswordConfirm,
-  error,
-}) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail,  }) => {
   const text = textMap[type];
   return (
     <div>
@@ -45,7 +36,6 @@ const AuthForm = ({
           type="password"
           onChange={onChange}
           value={form.password}
-          onBlur={checkPassword}
         />
         {error && <ErrorMessage>{error.password}</ErrorMessage>}
         {type === 'register' && (
@@ -56,7 +46,6 @@ const AuthForm = ({
               type="password"
               onChange={onChange}
               value={form.passwordConfirm}
-              onBlur={checkPasswordConfirm}
             />
             {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
             <fieldset>
