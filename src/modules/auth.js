@@ -34,12 +34,8 @@ const authSlice = createSlice({
         password: null,
       };
     },
-    register_error: (state, { payload: { key, value } }) => {
-      state.error[key] = value;
-    },
   },
 });
 
 export default authSlice;
-export const { changeField, initializeForm, register_error } =
-  authSlice.actions;
+export const { changeField, initializeForm } = authSlice.actions;
