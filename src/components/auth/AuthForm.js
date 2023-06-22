@@ -16,7 +16,7 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail,  }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
   const text = textMap[type];
   return (
     <div>
