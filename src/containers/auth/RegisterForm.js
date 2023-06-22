@@ -42,7 +42,7 @@ const RegisterForm = () => {
   };
 
   const checkEmail = () => {
-    const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     setError({
       ...error,
       email: emailRegexp.test(email) ? null : '올바른 이메일 형식이 아닙니다.',
@@ -51,7 +51,7 @@ const RegisterForm = () => {
 
   const checkPassword = (value) => {
     const passwordRegexp =
-      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+      /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
     setError({
       ...error,
       password: passwordRegexp.test(value)
