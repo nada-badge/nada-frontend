@@ -3,6 +3,7 @@ import AuthForm from '../../components/auth/AuthForm';
 import { changeField, initializeForm } from '../../modules/auth';
 import { useEffect, useState } from 'react';
 import useUserMutation from '../../modules/queries/registerQuery';
+import { produce } from 'immer';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const RegisterForm = () => {
     form: auth.register,
   }));
 
-  const { email, password } = form;
+  const { email, password, passwordConfirm } = form;
 
   useEffect(() => {
     dispatch(initializeForm('register'));
@@ -30,10 +31,14 @@ const RegisterForm = () => {
     dispatch(changeField({ form: 'register', key: name, value }));
     if (name === 'password') {
       checkPassword(value);
+      if (passwordConfirm) {
+        checkPasswordConfirm({ value, password });
+      }
     }
     if (name === 'passwordConfirm') {
-      checkPasswordConfirm(value);
+      checkPasswordConfirm({ password, value });
     }
+    console.log(error);
   };
 
   const onSubmit = (e) => {
@@ -43,29 +48,37 @@ const RegisterForm = () => {
 
   const checkEmail = () => {
     const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    setError({
-      ...error,
-      email: emailRegexp.test(email) ? null : '올바른 이메일 형식이 아닙니다.',
-    });
+    setError(
+      produce((draft) => {
+        draft['email'] = emailRegexp.test(email)
+          ? null
+          : '올바른 이메일 형식이 아닙니다.';
+      }),
+    );
   };
 
   const checkPassword = (value) => {
     const passwordRegexp =
       /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
-    setError({
-      ...error,
-      password: passwordRegexp.test(value)
-        ? null
-        : '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
-    });
+    const isValid = passwordRegexp.test(value);
+    setError(
+      produce((draft) => {
+        draft.password = isValid
+          ? null
+          : '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.';
+      }),
+    );
   };
 
-  const checkPasswordConfirm = (passwordConfirm) => {
-    setError({
-      ...error,
-      passwordConfirm:
-        password === passwordConfirm ? null : '비밀번호가 일치하지 않습니다.',
-    });
+  const checkPasswordConfirm = ({ password, value }) => {
+    setError(
+      produce((draft) => {
+        draft.passwordConfirm =
+          password === value
+            ? null
+            : password + ' : ' + value + '비밀번호가 일치하지 않습니다.';
+      }),
+    );
   };
 
   return (
