@@ -19,7 +19,7 @@ const RegisterForm = () => {
     form: auth.register,
   }));
 
-  const { email, password, userType, username, phoneNumber } = form;
+  const { email, password } = form;
 
   useEffect(() => {
     dispatch(initializeForm('register'));
@@ -38,9 +38,7 @@ const RegisterForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    mutate({ email, password });
+    mutate(form);
   };
 
   const checkEmail = () => {

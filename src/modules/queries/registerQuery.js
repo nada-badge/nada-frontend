@@ -3,8 +3,14 @@ import client from '../../lib/api/client';
 
 const useUserMutation = () => {
   return useMutation({
-    mutationFn: ({ email, password }) =>
-      client.post('/user/signUp', { email: email, password: password }),
+    mutationFn: ({ userType, email, password, username, phoneNumber }) =>
+      client.post('/user/signUp', {
+        userType: userType,
+        email: email,
+        password: password,
+        userName: username,
+        phoneNumber: phoneNumber,
+      }),
     onSuccess: (data) => {
       console.log('회원가입 완료', data);
     },
