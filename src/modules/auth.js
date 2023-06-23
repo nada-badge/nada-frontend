@@ -13,11 +13,6 @@ const initialState = {
     username: '',
     phoneNumber: '',
   },
-  error: {
-    email: null,
-    password: null,
-    passwordConfirm: null,
-  },
 };
 
 const authSlice = createSlice({
