@@ -8,10 +8,20 @@ import { produce } from 'immer';
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
+  const errorMessages = {
+    email: '올바른 이메일 형식이 아닙니다.',
+    password: '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
+    passwordConfirm: '비밀번호가 일치하지 않습니다.',
+    userName: '필수 입력 값입니다.',
+    phoneNumber: '필수 입력 값입니다.',
+  };
+
   const [error, setError] = useState({
     email: null,
     password: null,
     passwordConfirm: null,
+    userName: null,
+    phoneNumber: null,
   });
 
   const { mutate } = useUserMutation();
@@ -49,9 +59,7 @@ const RegisterForm = () => {
     const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     setError(
       produce((draft) => {
-        draft['email'] = emailRegexp.test(email)
-          ? null
-          : '올바른 이메일 형식이 아닙니다.';
+        draft['email'] = emailRegexp.test(email) ? null : errorMessages.email;
       }),
     );
   };
@@ -62,9 +70,7 @@ const RegisterForm = () => {
     const isValid = passwordRegexp.test(value);
     setError(
       produce((draft) => {
-        draft.password = isValid
-          ? null
-          : '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.';
+        draft.password = isValid ? null : errorMessages.password;
       }),
     );
   };
@@ -73,9 +79,7 @@ const RegisterForm = () => {
     setError(
       produce((draft) => {
         draft.passwordConfirm =
-          password === value
-            ? null
-            : password + ' : ' + value + '비밀번호가 일치하지 않습니다.';
+          password === value ? null : errorMessages.passwordConfirm;
       }),
     );
   };
