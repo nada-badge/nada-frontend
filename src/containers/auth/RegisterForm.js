@@ -38,7 +38,6 @@ const RegisterForm = () => {
     if (name === 'passwordConfirm') {
       checkPasswordConfirm({ password, value });
     }
-    console.log(error);
   };
 
   const onSubmit = (e) => {
