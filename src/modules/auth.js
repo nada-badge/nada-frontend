@@ -10,7 +10,7 @@ const initialState = {
     password: '',
     passwordConfirm: '',
     userType: 1,
-    username: '',
+    userName: '',
     phoneNumber: '',
   },
 };

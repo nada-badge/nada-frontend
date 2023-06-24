@@ -3,12 +3,12 @@ import client from '../../lib/api/client';
 
 const useUserMutation = () => {
   return useMutation({
-    mutationFn: ({ userType, email, password, username, phoneNumber }) =>
+    mutationFn: ({ userType, email, password, userName, phoneNumber }) =>
       client.post('/user/signUp', {
         userType: userType,
         email: email,
         password: password,
-        userName: username,
+        userName: userName,
         phoneNumber: phoneNumber,
       }),
     onSuccess: (data) => {

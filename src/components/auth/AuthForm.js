@@ -71,10 +71,10 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               </label>
             </fieldset>
             <input
-              name="username"
+              name="userName"
               placeholder="닉네임"
               onChange={onChange}
-              value={form.username}
+              value={form.userName}
             />
             <input
               name="phoneNumber"
