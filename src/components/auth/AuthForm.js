@@ -76,12 +76,14 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               onChange={onChange}
               value={form.userName}
             />
+            {error && <ErrorMessage>{error.userName}</ErrorMessage>}
             <input
               name="phoneNumber"
               placeholder="폰번호"
               onChange={onChange}
               value={form.phoneNumber}
             />
+            {error && <ErrorMessage>{error.phoneNumber}</ErrorMessage>}
           </div>
         )}
         <Button>{text}</Button>
