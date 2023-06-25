@@ -20,8 +20,6 @@ const RegisterForm = () => {
     email: null,
     password: null,
     passwordConfirm: null,
-    userName: null,
-    phoneNumber: null,
   });
 
   const { mutate } = useUserMutation();
