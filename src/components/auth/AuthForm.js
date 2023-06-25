@@ -28,6 +28,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
           onChange={onChange}
           value={form.email}
           onBlur={checkEmail}
+          required
         />
         {error && <ErrorMessage>{error.email}</ErrorMessage>}
         <input
@@ -36,6 +37,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
           type="password"
           onChange={onChange}
           value={form.password}
+          required
         />
         {error && <ErrorMessage>{error.password}</ErrorMessage>}
         {type === 'register' && (
@@ -46,6 +48,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               type="password"
               onChange={onChange}
               value={form.passwordConfirm}
+              required
             />
             {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
             <fieldset>
@@ -75,6 +78,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               placeholder="닉네임"
               onChange={onChange}
               value={form.userName}
+              required
             />
             {error && <ErrorMessage>{error.userName}</ErrorMessage>}
             <input
@@ -82,6 +86,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               placeholder="폰번호"
               onChange={onChange}
               value={form.phoneNumber}
+              required
             />
             {error && <ErrorMessage>{error.phoneNumber}</ErrorMessage>}
           </div>
