@@ -39,9 +39,6 @@ const RegisterForm = () => {
     dispatch(changeField({ form: 'register', key: name, value }));
     if (name === 'password') {
       checkPassword(value);
-      if (passwordConfirm) {
-        checkPasswordConfirm({ value, password });
-      }
     }
     if (name === 'passwordConfirm') {
       checkPasswordConfirm({ password, value });
@@ -71,6 +68,9 @@ const RegisterForm = () => {
         draft.password = isValid ? null : errorMessages.password;
       }),
     );
+    if (passwordConfirm) {
+      checkPasswordConfirm({ value, password });
+    }
   };
 
   const checkPasswordConfirm = ({ password, value }) => {
