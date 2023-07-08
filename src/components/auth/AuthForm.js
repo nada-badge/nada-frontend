@@ -88,7 +88,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               value={form.phoneNumber}
               required
             />
-            {error && <ErrorMessage>{error.phoneNumber}</ErrorMessage>}
           </div>
         )}
         <Button>{text}</Button>
