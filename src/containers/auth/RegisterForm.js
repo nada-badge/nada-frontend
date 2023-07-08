@@ -12,8 +12,6 @@ const RegisterForm = () => {
     email: '올바른 이메일 형식이 아닙니다.',
     password: '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
     passwordConfirm: '비밀번호가 일치하지 않습니다.',
-    userName: '필수 입력 값입니다.',
-    phoneNumber: '필수 입력 값입니다.',
   };
 
   const [error, setError] = useState({
