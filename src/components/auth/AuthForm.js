@@ -3,6 +3,9 @@
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 import styled from 'styled-components';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import client from '../../lib/api/client';
 
 const textMap = {
   login: '로그인',
@@ -16,8 +19,31 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
   const text = textMap[type];
+
+  const [isBlur, setBlur] = useState(false);
+
+  const { userName } = form;
+
+  const { data, refetch } = useQuery({
+    queryKey: ['getUserName'],
+    queryFn: async () => {
+      const { data } = await client.get('user/checkUserName', {
+        params: { userName: userName },
+      });
+      return data;
+    },
+    enabled: isBlur,
+  });
+
+  const onBlur = (e) => {
+    if (e) {
+      setBlur(true);
+      refetch();
+    }
+  };
+
   return (
     <div>
       <h3>{text}</h3>
@@ -30,7 +56,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
           onBlur={checkEmail}
           required
         />
-        {error && <ErrorMessage>{error.email}</ErrorMessage>}
+        {errorSet && <ErrorMessage>{errorSet.email}</ErrorMessage>}
         <input
           name="password"
           placeholder="비밀번호"
@@ -39,7 +65,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
           value={form.password}
           required
         />
-        {error && <ErrorMessage>{error.password}</ErrorMessage>}
+        {errorSet && <ErrorMessage>{errorSet.password}</ErrorMessage>}
         {type === 'register' && (
           <div>
             <input
@@ -50,7 +76,9 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               value={form.passwordConfirm}
               required
             />
-            {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
+            {errorSet && (
+              <ErrorMessage>{errorSet.passwordConfirm}</ErrorMessage>
+            )}
             <fieldset>
               <label>
                 <input
@@ -78,9 +106,12 @@ const AuthForm = ({ type, form, onChange, onSubmit, error, checkEmail }) => {
               placeholder="닉네임"
               onChange={onChange}
               value={form.userName}
+              onBlur={onBlur}
               required
             />
-            {error && <ErrorMessage>{error.userName}</ErrorMessage>}
+            {data && data.result === 0 && (
+              <ErrorMessage>중복된 닉네임 입니다.</ErrorMessage>
+            )}
             <input
               name="phoneNumber"
               placeholder="폰번호"
