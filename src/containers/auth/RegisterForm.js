@@ -87,7 +87,7 @@ const RegisterForm = () => {
       onChange={onChange}
       onSubmit={onSubmit}
       checkEmail={checkEmail}
-      error={error}
+      errorSet={error}
     />
   );
 };
