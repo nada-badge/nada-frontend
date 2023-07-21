@@ -3,9 +3,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 import styled from 'styled-components';
-import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
-import client from '../../lib/api/client';
+import UserNameInput from './UserNameInput';
 
 const textMap = {
   login: '로그인',
@@ -21,28 +19,6 @@ const ErrorMessage = styled.div`
 
 const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
   const text = textMap[type];
-
-  const [isBlur, setBlur] = useState(false);
-
-  const { userName } = form;
-
-  const { data, refetch } = useQuery({
-    queryKey: ['getUserName'],
-    queryFn: async () => {
-      const { data } = await client.get('user/checkUserName', {
-        params: { userName: userName },
-      });
-      return data;
-    },
-    enabled: isBlur,
-  });
-
-  const onBlur = (e) => {
-    if (e) {
-      setBlur(true);
-      refetch();
-    }
-  };
 
   return (
     <div>
@@ -101,17 +77,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
                 단체
               </label>
             </fieldset>
-            <input
-              name="userName"
-              placeholder="닉네임"
-              onChange={onChange}
-              value={form.userName}
-              onBlur={onBlur}
-              required
-            />
-            {data && data.result === 0 && (
-              <ErrorMessage>중복된 닉네임 입니다.</ErrorMessage>
-            )}
+            <UserNameInput form={form} onChange={onChange}></UserNameInput>
             <input
               name="phoneNumber"
               placeholder="폰번호"
