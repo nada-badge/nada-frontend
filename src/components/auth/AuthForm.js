@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 import styled from 'styled-components';
 import UserNameInput from './UserNameInput';
+import EmailInput from './EmailInput';
 
 const textMap = {
   login: '로그인',
@@ -24,14 +25,11 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
     <div>
       <h3>{text}</h3>
       <form onSubmit={onSubmit}>
-        <input
-          name="email"
-          placeholder="이메일"
+        <EmailInput
+          checkEmail={checkEmail}
+          form={form}
           onChange={onChange}
-          value={form.email}
-          onBlur={checkEmail}
-          required
-        />
+        ></EmailInput>
         {errorSet && <ErrorMessage>{errorSet.email}</ErrorMessage>}
         <input
           name="password"
