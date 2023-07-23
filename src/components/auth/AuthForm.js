@@ -27,7 +27,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
       <form onSubmit={onSubmit}>
         <EmailInput
           checkEmail={checkEmail}
-          form={form}
+          email={form.email}
           onChange={onChange}
         ></EmailInput>
         {errorSet && <ErrorMessage>{errorSet.email}</ErrorMessage>}
@@ -75,7 +75,10 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
                 단체
               </label>
             </fieldset>
-            <UserNameInput form={form} onChange={onChange}></UserNameInput>
+            <UserNameInput
+              userName={form.userName}
+              onChange={onChange}
+            ></UserNameInput>
             <input
               name="phoneNumber"
               placeholder="폰번호"

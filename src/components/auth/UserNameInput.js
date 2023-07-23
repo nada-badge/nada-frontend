@@ -1,7 +1,9 @@
+// 회원가입 input userName
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import client from '../../lib/api/client';
+
 const ErrorMessage = styled.div`
   color: red;
   text-align: center;
@@ -9,9 +11,8 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const UserNameInput = ({ form, onChange }) => {
+const UserNameInput = ({ userName, onChange }) => {
   const [isBlur, setBlur] = useState(false);
-  const { userName } = form;
 
   const { data, refetch } = useQuery({
     queryKey: ['getUserName'],
@@ -37,7 +38,7 @@ const UserNameInput = ({ form, onChange }) => {
         name="userName"
         placeholder="닉네임"
         onChange={onChange}
-        value={form.userName}
+        value={userName}
         onBlur={onBlur}
         required
       />
