@@ -1,3 +1,4 @@
+// 회원가입 input email
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
@@ -10,9 +11,8 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const EmailInput = ({ form, onChange, checkEmail }) => {
+const EmailInput = ({ email, onChange, checkEmail }) => {
   const [isBlur, setBlur] = useState(false);
-  const { email } = form;
 
   const { data, refetch } = useQuery({
     queryKey: ['getEmail'],
@@ -31,7 +31,7 @@ const EmailInput = ({ form, onChange, checkEmail }) => {
         name="email"
         placeholder="이메일"
         onChange={onChange}
-        value={form.email}
+        value={email}
         onBlur={() => {
           checkEmail();
           setBlur(true);
