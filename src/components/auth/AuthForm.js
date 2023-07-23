@@ -75,10 +75,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
                 단체
               </label>
             </fieldset>
-            <UserNameInput
-              userName={form.userName}
-              onChange={onChange}
-            ></UserNameInput>
+            <UserNameInput form={form} onChange={onChange}></UserNameInput>
             <input
               name="phoneNumber"
               placeholder="폰번호"
@@ -92,7 +89,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
       </form>
       <div>
         {type === 'login' ? (
-          <Link to="/register">회원가입</Link>
+          <Link to="/register/email">회원가입</Link>
         ) : (
           <Link to="/">로그인</Link>
         )}
