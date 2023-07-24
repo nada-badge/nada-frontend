@@ -1,4 +1,3 @@
-// 회원가입 input email
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
