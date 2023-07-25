@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import authSlice from './modules/auth';
 
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = configureStore({
@@ -17,7 +20,9 @@ const store = configureStore({
 root.render(
   <Provider store={store}>
     <BrowserRouter>
+      <Header />
       <App />
+      <Footer />
     </BrowserRouter>
   </Provider>,
 );
