@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import client from '../../lib/api/client';
 import { changeField, initializeForm } from '../../modules/auth';
+import { emailSelector } from '../../modules/auth';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -25,9 +26,7 @@ const EmailPage = () => {
     dispatch(changeField({ form: 'register', key: name, value }));
   };
 
-  const { email } = useSelector(({ auth }) => ({
-    email: auth.register.email,
-  }));
+  const email = useSelector(emailSelector);
 
   useEffect(() => {
     dispatch(initializeForm('register'));
