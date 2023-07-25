@@ -5,6 +5,7 @@ import { produce } from 'immer';
 import { changeField, initializeForm } from '../../modules/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/common/Button';
+import { passwordSelector } from '../../modules/auth';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -25,10 +26,7 @@ const PasswordPage = () => {
     dispatch(initializeForm('register'));
   }, [dispatch]);
 
-  const { password, passwordConfirm } = useSelector(({ auth }) => ({
-    password: auth.register.password,
-    passwordConfirm: auth.register.passwordConfirm,
-  }));
+  const { password, passwordConfirm } = useSelector(passwordSelector);
 
   const onChange = (e) => {
     const { value, name } = e.target;
