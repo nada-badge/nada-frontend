@@ -16,6 +16,8 @@ const Board = ({
   registeredAt,
   updatedAt,
 }) => {
+
+  
   return (
     <div>
       <h2>{scheduleName}</h2>

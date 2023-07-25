@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+import { changeField, initializeForm } from '../modules/schedule.js';
 
 const BoardList = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
 
@@ -27,7 +30,9 @@ const BoardList = () => {
         {boardList && boardList.map((schedule) => (
             // 4) map 함수로 데이터 출력
             <li key={schedule._id}>
-              <Link to={`/board/${schedule._id}`}>{schedule.scheduleName}</Link>
+              <Link onClick={()=>{
+                dispatch(changeField({ form: 'activities', value:schedule }))
+            }} to={`/board/${schedule._id}`}>{schedule.scheduleName}</Link>
             </li>
           ))}
       </ul>
