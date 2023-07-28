@@ -37,6 +37,9 @@ const passwordConfirmSelect = (rootState) =>
   rootState.auth.register.passwordConfirm ||
   initialState.register.passwordConfirm;
 
+const userNameSelect = (rootState) =>
+  rootState.auth.register.userName || initialState.register.userName;
+
 export default authSlice;
 export const { changeField, initializeForm } = authSlice.actions;
 export const emailSelector = createSelector(emailSelect, (email) => email);
@@ -44,4 +47,8 @@ export const passwordSelector = createSelector(
   passwordSelect,
   passwordConfirmSelect,
   (password, passwordConfirm) => ({ password, passwordConfirm }),
+);
+export const userNameSelector = createSelector(
+  userNameSelect,
+  (userName) => userName,
 );
