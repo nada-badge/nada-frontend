@@ -1,11 +1,11 @@
-// 회원가입 input email
 import styled from 'styled-components';
 import { useState } from 'react';
 import { produce } from 'immer';
 import { changeField } from '../../modules/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../../components/common/Button';
+import { useNavigate } from 'react-router-dom';
 import { passwordSelector } from '../../modules/auth';
+import Button from '../../components/common/Button';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -20,6 +20,7 @@ const PasswordPage = () => {
     passwordConfirm: null,
   });
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { password, passwordConfirm } = useSelector(passwordSelector);
@@ -64,25 +65,34 @@ const PasswordPage = () => {
     );
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/register/userName', { replace: true });
+  };
+
   return (
     <div>
-      <input
-        name="password"
-        placeholder="비밀번호"
-        onChange={onChange}
-        value={password}
-        required
-      />
-      {error && <ErrorMessage>{error.password}</ErrorMessage>}
-      <input
-        name="passwordConfirm"
-        placeholder="비밀번호"
-        onChange={onChange}
-        value={passwordConfirm}
-        required
-      />
-      {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
-      <Button>다음</Button>
+      <form onSubmit={onSubmit}>
+        <input
+          type="password"
+          name="password"
+          placeholder="비밀번호"
+          onChange={onChange}
+          value={password}
+          required
+        />
+        {error && <ErrorMessage>{error.password}</ErrorMessage>}
+        <input
+          type="password"
+          name="passwordConfirm"
+          placeholder="비밀번호"
+          onChange={onChange}
+          value={passwordConfirm}
+          required
+        />
+        {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
+        <Button>닉네임으로</Button>
+      </form>
     </div>
   );
 };
