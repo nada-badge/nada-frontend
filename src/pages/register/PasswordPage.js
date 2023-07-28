@@ -1,8 +1,8 @@
 // 회원가입 input email
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { produce } from 'immer';
-import { changeField, initializeForm } from '../../modules/auth';
+import { changeField } from '../../modules/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/common/Button';
 import { passwordSelector } from '../../modules/auth';
@@ -21,10 +21,6 @@ const PasswordPage = () => {
   });
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(initializeForm('register'));
-  }, [dispatch]);
 
   const { password, passwordConfirm } = useSelector(passwordSelector);
 

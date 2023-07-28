@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import client from '../../lib/api/client';
-import { changeField, initializeForm } from '../../modules/auth';
+import { changeField } from '../../modules/auth';
 import { emailSelector } from '../../modules/auth';
 
 const ErrorMessage = styled.div`
@@ -27,10 +27,6 @@ const EmailPage = () => {
   };
 
   const email = useSelector(emailSelector);
-
-  useEffect(() => {
-    dispatch(initializeForm('register'));
-  }, [dispatch]);
 
   const transientName = useRef('');
 
