@@ -8,17 +8,20 @@ console.log("board가 실행되었습니다.")
 
 const Board = () => {
 
-  const scheduleName = useSelector(state => state.schedule.activities.scheduleName);
-  const groupId = useSelector(state => state.schedule.activities.groupId);
-  const groupName = useSelector(state => state.schedule.activities.groupName);
-  const field = useSelector(state => state.schedule.activities.field);
-  const category = useSelector(state => state.schedule.activities.category);
-  const area = useSelector(state => state.schedule.activities.area);
-  const content = useSelector(state => state.schedule.activities.content);
-  const startedAt = useSelector(state => state.schedule.activities.startedAt);
-  const endedAt = useSelector(state => state.schedule.activities.endedAt);
-  const registeredAt = useSelector(state => state.schedule.activities.registeredAt);
-  const updatedAt = useSelector(state => state.schedule.activities.updatedAt);
+  const { scheduleName, groupId, groupName, field, category, area, content, startedAt, endedAt, registeredAt, updatedAt } = useSelector(({ schedule }) => ({
+    scheduleName: schedule.activities.scheduleName,
+    groupId: schedule.activities.groupId,
+    groupName: schedule.activities.groupName,
+    field: schedule.activities.field,
+    category: schedule.activities.category,
+    area: schedule.activities.area,
+    content: schedule.activities.content,
+    startedAt: schedule.activities.startedAt,
+    endedAt: schedule.activities.endedAt,
+    registeredAt: schedule.activities.registeredAt,
+    updatedAt: schedule.activities.updatedAt
+  }));
+
 
   return (
     <div>
