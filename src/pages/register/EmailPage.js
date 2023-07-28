@@ -3,10 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import client from '../../lib/api/client';
 import { changeField } from '../../modules/auth';
 import { emailSelector } from '../../modules/auth';
+import Button from '../../components/common/Button';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -19,6 +20,7 @@ const EmailPage = () => {
   const [isBlur, setBlur] = useState(false);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onChange = (e) => {
@@ -64,18 +66,25 @@ const EmailPage = () => {
     }
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/register/password', { replace: true });
+  };
+
   return (
     <div>
-      <input
-        name="email"
-        placeholder="이메일"
-        onChange={onChange}
-        value={email}
-        onBlur={onBlur}
-        required
-      />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
-      <Link to="/register/password">비밀번호로</Link>
+      <form onSubmit={onSubmit}>
+        <input
+          name="email"
+          placeholder="이메일"
+          onChange={onChange}
+          value={email}
+          onBlur={onBlur}
+          required
+        />
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+        <Button>비밀번호로</Button>
+      </form>
     </div>
   );
 };
