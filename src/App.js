@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import UserNamePage from './pages/register/UserNamePage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import EmailPage from './pages/register/EmailPage';
 import PasswordPage from './pages/register/PasswordPage';
@@ -9,6 +10,7 @@ import Home from './routes/Home';
 import React from 'react';
 import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
+import PhoneNumberPage from './pages/register/PhoneNumberPage';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/register/email" element={<EmailPage />} />
         <Route path="/register/password" element={<PasswordPage />} />
+        <Route path="/register/userName" element={<UserNamePage />} />
+        <Route path="/register/phoneNumber" element={<PhoneNumberPage />} />
 
         <Route path="/" element={<Home />} />
         <Route path="/board" element={<BoardList />} />
