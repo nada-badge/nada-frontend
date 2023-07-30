@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch} from 'react-redux';
-import { changeField, initializeForm } from '../modules/schedule.js';
+import { useDispatch } from 'react-redux';
+import { changeField } from '../modules/schedule.js';
+import client from '../lib/api/client.js';
 
 const BoardList = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,10 @@ const BoardList = () => {
   const [boardList, setBoardList] = useState([]);
 
   const getBoardList = async () => {
-    const resp = await axios.get('http://34.64.104.214:3000/schedule/list?groupName=NADA'); // 2) 게시글 목록 데이터에 할당
+    const resp = await client.get('schedule/list'); // 2) 게시글 목록 데이터에 할당
     setBoardList(resp.data.schedules); // 3) boardList 변수에 할당  
     console.log('getBoardList가 실행되었습니다');
-  };
+  }; // 이 부분을 리액트 쿼리를 사용해서 분리하기!!!!! *영혜 숙제
 
   const moveToWrite = () => {
     navigate('/write');
@@ -32,6 +33,7 @@ const BoardList = () => {
             <li key={schedule._id}>
               <Link onClick={()=>{
                 dispatch(changeField({ form: 'activities', value:schedule }))
+
             }} to={`/board/${schedule._id}`}>{schedule.scheduleName}</Link>
             </li>
           ))}
