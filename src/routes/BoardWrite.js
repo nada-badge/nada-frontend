@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
+import client from '../lib/api/client';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -37,7 +38,7 @@ const BoardWrite = () => {
   };
 
   const onSubmit = async () => {
-    await axios.post(`http://34.64.104.214:3000/schedule`, { 
+    await client.post(`schedule`, { 
     scheduleName: board.scheduleName,
     groupId: board.groupId, 
     groupName: board.groupName,
@@ -54,7 +55,7 @@ const BoardWrite = () => {
       alert('등록되었습니다.');
       navigate('/board');
     });
-  };
+  };  // 리액트 쿼리 사용해서 분리하기 *숙제^ㅡ^ 리액트 쿼리에서 유즈뮤테이트 사용.ㅋ 
 
   const backToList = () => {
     navigate('/board');
@@ -69,6 +70,7 @@ const BoardWrite = () => {
           type="String"
           name="scheduleName"
           onChange={onChange}
+          //value={scheduleName}
           required
         />
       </div>
@@ -147,7 +149,7 @@ const BoardWrite = () => {
       </div>
       
       <div>
-      <button>Subscribe!</button>
+      <button>등록하기</button>
       </div>
       </form>
       <button onClick={backToList}>취소</button>
