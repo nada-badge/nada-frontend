@@ -1,94 +1,72 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import AuthForm from '../../components/auth/AuthForm';
+import { useEffect } from 'react';
 import { changeField, initializeForm } from '../../modules/auth';
-import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import EmailPage from './EmailForm';
+import PasswordPage from './PasswordForm';
+import UserNamePage from './UserNameForm';
+import PhoneNumberPage from './PhoneNumberForm';
 import useUserMutation from '../../modules/queries/registerQuery';
-import { produce } from 'immer';
+
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`;
 
 const RegisterForm = () => {
+  const [order, setOrder] = useState(0);
   const dispatch = useDispatch();
-
-  const errorMessages = {
-    email: '올바른 이메일 형식이 아닙니다.',
-    password: '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
-    passwordConfirm: '비밀번호가 일치하지 않습니다.',
-  };
-
-  const [error, setError] = useState({
-    email: null,
-    password: null,
-    passwordConfirm: null,
-  });
+  const register = useSelector(({ auth }) => auth.register);
 
   const { mutate } = useUserMutation();
 
-  const { form } = useSelector(({ auth }) => ({
-    form: auth.register,
-  }));
-
-  const { email, password, passwordConfirm } = form;
-
   useEffect(() => {
-    dispatch(initializeForm('register'));
-  }, [dispatch]);
+    dispatch(initializeForm);
+    setOrder(0);
+    return () => {
+      dispatch(initializeForm);
+    };
+  }, [dispatch, setOrder]);
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    dispatch(changeField({ form: 'register', key: name, value }));
-    if (name === 'password') {
-      checkPassword(value);
-    }
-    if (name === 'passwordConfirm') {
-      checkPasswordConfirm({ password, value });
-    }
-  };
+  const components = [EmailPage, PasswordPage, UserNamePage, PhoneNumberPage];
+  const Components = components[order];
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate(form);
+    if (order === components.length - 1) {
+      mutate(register);
+    } else setOrder(order + 1);
   };
 
-  const checkEmail = () => {
-    const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    setError(
-      produce((draft) => {
-        draft['email'] = emailRegexp.test(email) ? null : errorMessages.email;
-      }),
-    );
+  const errorMessages = {
+    email_format: '올바른 이메일 형식이 아닙니다.',
+    email_duplicate: '중복된 이메일 입니다.',
+    password: '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
+    passwordConfirm: '비밀번호가 일치하지 않습니다.',
+    userName_duplicate: '중복된 닉네임 입니다.',
   };
 
-  const checkPassword = (value) => {
-    const passwordRegexp =
-      /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
-    const isValid = passwordRegexp.test(value);
-    setError(
-      produce((draft) => {
-        draft.password = isValid ? null : errorMessages.password;
-      }),
-    );
-    if (passwordConfirm) {
-      checkPasswordConfirm({ value, password });
-    }
+  const dispatchField = (e) => {
+    const { value, name } = e.target;
+    dispatch(changeField({ form: 'register', key: name, value }));
   };
 
-  const checkPasswordConfirm = ({ password, value }) => {
-    setError(
-      produce((draft) => {
-        draft.passwordConfirm =
-          password === value ? null : errorMessages.passwordConfirm;
-      }),
-    );
+  const props = {
+    ErrorMessage: ErrorMessage,
+    errorMessages: errorMessages,
   };
 
   return (
-    <AuthForm
-      type="register"
-      form={form}
-      onChange={onChange}
-      onSubmit={onSubmit}
-      checkEmail={checkEmail}
-      errorSet={error}
-    />
+    <div>
+      <Components
+        {...props}
+        dispatchField={dispatchField}
+        onSubmit={onSubmit}
+      />
+    </div>
   );
 };
 
