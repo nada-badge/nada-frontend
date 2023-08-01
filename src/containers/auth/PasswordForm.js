@@ -18,19 +18,6 @@ const PasswordForm = ({
   // password 상태 가져오기
   const { password, passwordConfirm } = useSelector(passwordSelector);
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    // redux에 상태 반영하기
-    dispatchField(e);
-
-    if (name === 'password') {
-      checkPassword(value); // 비밀번호 유효성 검사
-    }
-    if (name === 'passwordConfirm') {
-      checkPasswordConfirm({ password, value }); // 비밀번호 일치 검사
-    }
-  };
-
   // 비밀번호 유효성 검사
   const checkPassword = (value) => {
     const passwordRegexp =
@@ -55,6 +42,19 @@ const PasswordForm = ({
           password === value ? null : errorMessages.passwordConfirm;
       }),
     );
+  };
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    // redux에 상태 반영하기
+    dispatchField(e);
+
+    if (name === 'password') {
+      checkPassword(value); // 비밀번호 유효성 검사
+    }
+    if (name === 'passwordConfirm') {
+      checkPasswordConfirm({ password, value }); // 비밀번호 일치 검사
+    }
   };
 
   return (
