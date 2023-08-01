@@ -6,7 +6,7 @@ import client from '../../lib/api/client';
 import { emailSelector } from '../../modules/auth';
 import Button from '../../components/common/Button';
 
-const EmailPage = ({
+const EmailForm = ({
   dispatchField,
   ErrorMessage,
   errorMessages,
@@ -68,4 +68,4 @@ const EmailPage = ({
     </form>
   );
 };
-export default EmailPage;
+export default EmailForm;

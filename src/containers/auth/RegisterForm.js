@@ -5,12 +5,13 @@ import { changeField, initializeForm } from '../../modules/auth';
 import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
-import EmailPage from './EmailForm';
-import PasswordPage from './PasswordForm';
-import UserNamePage from './UserNameForm';
-import PhoneNumberPage from './PhoneNumberForm';
+import EmailForm from './EmailForm';
+import PasswordForm from './PasswordForm';
+import UserNameForm from './UserNameForm';
+import PhoneNumberForm from './PhoneNumberForm';
 import useUserMutation from '../../modules/queries/registerQuery';
 
+// 에러를 표시하는 박스
 const ErrorMessage = styled.div`
   color: red;
   text-align: center;
@@ -19,28 +20,34 @@ const ErrorMessage = styled.div`
 `;
 
 const RegisterForm = () => {
-  const [order, setOrder] = useState(0);
+  const [order, setOrder] = useState(0); // 입력 순서
   const dispatch = useDispatch();
   const register = useSelector(({ auth }) => auth.register);
 
-  const { mutate } = useUserMutation();
+  const { mutate } = useUserMutation(); // 회원가입 하기 (서버에 전송)
 
   useEffect(() => {
-    dispatch(initializeForm);
-    setOrder(0);
+    dispatch(initializeForm); // 회원가입 접속시, 상태 초기화하기
+
+    // Unmount시, 상태 초기화하기 (=지우기)
     return () => {
       dispatch(initializeForm);
     };
-  }, [dispatch, setOrder]);
+  }, [dispatch]);
 
-  const components = [EmailPage, PasswordPage, UserNamePage, PhoneNumberPage];
-  const Components = components[order];
+  // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
+  const forms = [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm];
+  const Components = forms[order];
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (order === components.length - 1) {
+
+    // 마지막 form 입력일때, 회원가입 실행하기
+    if (order === forms.length - 1) {
       mutate(register);
-    } else setOrder(order + 1);
+    }
+    // 다음 form 보여주기
+    else setOrder(order + 1);
   };
 
   const errorMessages = {
@@ -51,11 +58,13 @@ const RegisterForm = () => {
     userName_duplicate: '중복된 닉네임 입니다.',
   };
 
+  // 입력 값을 상태에 반영하기
   const dispatchField = (e) => {
     const { value, name } = e.target;
     dispatch(changeField({ form: 'register', key: name, value }));
   };
 
+  // 뒤로가기
   const navigate = useNavigate();
   const goBack = () => {
     if (order === 0) {
