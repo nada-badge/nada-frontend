@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import client from '../../lib/api/client';
 import { emailSelector } from '../../modules/auth';
 import Button from '../../components/common/Button';
+import { useCallback } from 'react';
 
 const EmailForm = ({
   dispatchField,
@@ -17,13 +18,11 @@ const EmailForm = ({
   const email = useSelector(emailSelector); // email 상태 가져오기
 
   // email 유효성 검사
-  const checkEmail = () => {
+  const checkEmail = useCallback(() => {
     const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    if (!emailRegexp.test(email)) {
-      setError(errorMessages.email_format);
-    }
+    setError(emailRegexp.test(email) ? null : errorMessages.email_format);
     return emailRegexp.test(email);
-  };
+  }, [email]);
 
   // email 중복 검사
   const { refetch } = useQuery({
@@ -32,16 +31,13 @@ const EmailForm = ({
       const { data } = await client.get('user/checkEmailOverlap', {
         params: { email: email },
       });
-      if (data.result === 0) {
-        setError(errorMessages.email_duplicate);
-      }
+      setError(data.result ? null : errorMessages.email_duplicate);
       return data;
     },
     enabled: isBlur,
   });
 
   const onBlur = () => {
-    setError(null);
     if (checkEmail()) {
       // 이메일이 유효할때, 중복 검사 진행
       setBlur(true);
