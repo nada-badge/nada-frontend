@@ -1,7 +1,6 @@
-/* BoardWrite.js */
+/* BoardWrite.js 게시물 추가 */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import client from '../lib/api/client';
 
@@ -10,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 const BoardWrite = () => {
   const navigate = useNavigate();
 
-  const [board, setBoard] = useState({
+  const [board, setBoard] = useState({ // 1)보드값을 null로 초기화
     scheduleName: null,
     groupId: null,
     groupName: null,
@@ -26,9 +25,9 @@ const BoardWrite = () => {
   const [endedAt, setEndedAt] = useState(new Date());
 
   const onChange = (event) => {
-    const { value, name } = event.target; //event.target에서 name과 value만 가져오기
+    const { value, name } = event.target; //2) event.target에서 name과 value만 가져오기
 
-    setBoard({
+    setBoard({    // 3) 해당 name에 value값 할당
       ...board,
       [name]: value,
     });
@@ -37,7 +36,7 @@ const BoardWrite = () => {
     console.log("startedAt : ",startedAt);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async () => {     // 4) 입력받은 활동 값을 서버로 제출
     await client.post(`schedule`, { 
     scheduleName: board.scheduleName,
     groupId: board.groupId, 
@@ -132,7 +131,7 @@ const BoardWrite = () => {
           onChange={onChange}
           required
         />
-      </div>이게 찐인데 json에 이미지 파일을 못올려서 일단 이미지도 텍스트로 인식하고 처리해보기*/}
+      </div>이미지 파일 받는 코드인데, 추후 수정 추가 예정*/}
       <div>
         활동 기간
         <DatePicker
