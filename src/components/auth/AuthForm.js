@@ -21,7 +21,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
 
   return (
     <div>
-      <h3>{text}</h3>
       <form onSubmit={onSubmit}>
         <input name="email" email={form.email} onChange={onChange}></input>
         {errorSet && <ErrorMessage>{errorSet.email}</ErrorMessage>}
@@ -34,58 +33,10 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
           required
         />
         {errorSet && <ErrorMessage>{errorSet.password}</ErrorMessage>}
-        {type === 'register' && (
-          <div>
-            <input
-              name="passwordConfirm"
-              placeholder="비밀번호 확인"
-              type="password"
-              onChange={onChange}
-              value={form.passwordConfirm}
-              required
-            />
-            {errorSet && (
-              <ErrorMessage>{errorSet.passwordConfirm}</ErrorMessage>
-            )}
-            <fieldset>
-              <label>
-                <input
-                  type="radio"
-                  value="1"
-                  name="userType"
-                  onChange={onChange}
-                  defaultChecked={true}
-                />
-                개인
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value="2"
-                  name="userType"
-                  onChange={onChange}
-                  defaultChecked={false}
-                />
-                단체
-              </label>
-            </fieldset>
-            <input
-              name="phoneNumber"
-              placeholder="폰번호"
-              onChange={onChange}
-              value={form.phoneNumber}
-              required
-            />
-          </div>
-        )}
         <Button>{text}</Button>
       </form>
       <div>
-        {type === 'login' ? (
-          <Link to="/register">회원가입</Link>
-        ) : (
-          <Link to="/">로그인</Link>
-        )}
+        <Link to="/register">회원가입</Link>
       </div>
     </div>
   );
