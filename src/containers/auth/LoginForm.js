@@ -43,13 +43,15 @@ const LoginForm = () => {
     }
   };
   return (
-    <AuthForm
-      type="login"
-      form={form}
-      onChange={onChange}
-      onSubmit={onSubmit}
-      error={error}
-    />
+    <div>
+      <AuthForm
+        type="login"
+        form={form}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        error={error}
+      />
+    </div>
   );
 };
 
