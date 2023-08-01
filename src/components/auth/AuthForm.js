@@ -3,8 +3,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 import styled from 'styled-components';
-import UserNameInput from './UserNameInput';
-import EmailInput from './EmailInput';
 
 const textMap = {
   login: '로그인',
@@ -25,11 +23,12 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
     <div>
       <h3>{text}</h3>
       <form onSubmit={onSubmit}>
-        <EmailInput
+        <input
+          name="email"
           checkEmail={checkEmail}
           email={form.email}
           onChange={onChange}
-        ></EmailInput>
+        ></input>
         {errorSet && <ErrorMessage>{errorSet.email}</ErrorMessage>}
         <input
           name="password"
@@ -75,7 +74,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
                 단체
               </label>
             </fieldset>
-            <UserNameInput form={form} onChange={onChange}></UserNameInput>
             <input
               name="phoneNumber"
               placeholder="폰번호"

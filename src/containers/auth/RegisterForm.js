@@ -10,6 +10,7 @@ import PasswordForm from './PasswordForm';
 import UserNameForm from './UserNameForm';
 import PhoneNumberForm from './PhoneNumberForm';
 import useUserMutation from '../../modules/queries/registerQuery';
+import { useCallback } from 'react';
 
 // 에러를 표시하는 박스
 const ErrorMessage = styled.div`
@@ -59,10 +60,10 @@ const RegisterForm = () => {
   };
 
   // 입력 값을 상태에 반영하기
-  const dispatchField = (e) => {
+  const dispatchField = useCallback((e) => {
     const { value, name } = e.target;
     dispatch(changeField({ form: 'register', key: name, value }));
-  };
+  }, []);
 
   // 뒤로가기
   const navigate = useNavigate();
