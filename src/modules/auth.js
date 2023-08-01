@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
   login: {
@@ -24,13 +24,31 @@ const authSlice = createSlice({
     },
     initializeForm: (state, { payload: form }) => {
       state[form] = initialState[form];
-      state.error = {
-        email: null,
-        password: null,
-      };
     },
   },
 });
 
+const emailSelect = (rootState) =>
+  rootState.auth.register.email || initialState.register.email;
+
+const passwordSelect = (rootState) =>
+  rootState.auth.register.password || initialState.register.password;
+const passwordConfirmSelect = (rootState) =>
+  rootState.auth.register.passwordConfirm ||
+  initialState.register.passwordConfirm;
+
+const userNameSelect = (rootState) =>
+  rootState.auth.register.userName || initialState.register.userName;
+
 export default authSlice;
 export const { changeField, initializeForm } = authSlice.actions;
+export const emailSelector = createSelector(emailSelect, (email) => email);
+export const passwordSelector = createSelector(
+  passwordSelect,
+  passwordConfirmSelect,
+  (password, passwordConfirm) => ({ password, passwordConfirm }),
+);
+export const userNameSelector = createSelector(
+  userNameSelect,
+  (userName) => userName,
+);
