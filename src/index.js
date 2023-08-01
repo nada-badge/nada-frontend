@@ -9,11 +9,10 @@ import authSlice from './modules/auth';
 import scheduleSlice from './modules/schedule';
 
 import Header from './layout/Header';
-import Footer from './layout/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const store = configureStore({
+const store = configureStore({  
   reducer: { auth: authSlice.reducer, schedule: scheduleSlice.reducer},
   devTools: true,
 });
@@ -23,7 +22,6 @@ root.render(
     <BrowserRouter>
       <Header />
       <App />
-      <Footer />
     </BrowserRouter>
   </Provider>,
 );
