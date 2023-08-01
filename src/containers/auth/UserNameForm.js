@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../lib/api/client';
 import { userNameSelector } from '../../modules/auth';
@@ -12,13 +11,12 @@ const UserNamePage = ({
   errorMessages,
   onSubmit,
 }) => {
-  const [isBlur, setBlur] = useState(false);
-  const [error, setError] = useState(null);
+  const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지
+  const [error, setError] = useState(null); // error 메세지 관리
 
-  const userName = useSelector(userNameSelector);
+  const userName = useSelector(userNameSelector); // userName 상태 가져오기
 
-  const transientName = useRef('');
-
+  // userName 중복 검사하기
   const { refetch } = useQuery({
     queryKey: ['getUserName'],
     queryFn: async () => {
@@ -32,11 +30,8 @@ const UserNamePage = ({
   });
 
   const onBlur = () => {
-    if (transientName.current !== userName) {
-      transientName.current = userName;
-      setBlur(true);
-      refetch();
-    }
+    setBlur(true);
+    refetch();
   };
 
   return (
@@ -54,4 +49,5 @@ const UserNamePage = ({
     </form>
   );
 };
+
 export default UserNamePage;
