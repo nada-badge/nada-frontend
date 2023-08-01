@@ -29,12 +29,11 @@ const RegisterForm = () => {
 
   useEffect(() => {
     dispatch(initializeForm); // 회원가입 접속시, 상태 초기화하기
-
     // Unmount시, 상태 초기화하기 (=지우기)
     return () => {
       dispatch(initializeForm);
     };
-  }, [dispatch]);
+  }, []);
 
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
   const forms = [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm];
