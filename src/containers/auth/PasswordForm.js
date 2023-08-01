@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../modules/auth';
 import Button from '../../components/common/Button';
 
-const PasswordPage = ({
+const PasswordForm = ({
   dispatchField,
   ErrorMessage,
   onSubmit,
@@ -77,4 +77,4 @@ const PasswordPage = ({
     </form>
   );
 };
-export default PasswordPage;
+export default PasswordForm;

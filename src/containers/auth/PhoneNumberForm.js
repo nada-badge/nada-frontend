@@ -1,6 +1,6 @@
 import Button from '../../components/common/Button';
 
-const PhoneNumberPage = ({ dispatchField, onSubmit }) => {
+const PhoneNumberForm = ({ dispatchField, onSubmit }) => {
   const onBlur = (e) => {
     let { value } = e.target;
 
@@ -28,4 +28,4 @@ const PhoneNumberPage = ({ dispatchField, onSubmit }) => {
     </form>
   );
 };
-export default PhoneNumberPage;
+export default PhoneNumberForm;
