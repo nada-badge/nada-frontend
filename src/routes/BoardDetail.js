@@ -1,5 +1,5 @@
 /* BoardDetail.js */
-import Board from '../componentss/Board';
+import Board from '../components/board/Board';
 const BoardDetail = () => {
 
   return (

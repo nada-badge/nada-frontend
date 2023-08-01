@@ -4,7 +4,7 @@ import schedule from './schedule';
 
 const rootReducer = combineReducers({
   auth,
-  schedule,
+  schedule
 });
 
 export default rootReducer;
