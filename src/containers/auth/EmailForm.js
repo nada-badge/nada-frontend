@@ -12,7 +12,7 @@ const EmailForm = ({
   errorMessages,
   onSubmit,
 }) => {
-  const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지 ,Query문 조건 실행
+  const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지, Query문 조건 실행
   const [error, setError] = useState(null); // error 메세지 관리
 
   const email = useSelector(emailSelector); // email 상태 가져오기
