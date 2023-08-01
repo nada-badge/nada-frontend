@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { changeField, initializeForm } from '../../modules/auth';
+import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 import EmailPage from './EmailForm';
 import PasswordPage from './PasswordForm';
@@ -54,15 +56,19 @@ const RegisterForm = () => {
     dispatch(changeField({ form: 'register', key: name, value }));
   };
 
-  const props = {
-    ErrorMessage: ErrorMessage,
-    errorMessages: errorMessages,
+  const navigate = useNavigate();
+  const goBack = () => {
+    if (order === 0) {
+      navigate(-1);
+    } else setOrder(order - 1);
   };
 
   return (
     <div>
+      <button onClick={goBack}>◀</button>
       <Components
-        {...props}
+        ErrorMessage={ErrorMessage}
+        errorMessages={errorMessages}
         dispatchField={dispatchField}
         onSubmit={onSubmit}
       />
