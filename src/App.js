@@ -21,7 +21,6 @@ const App = () => {
         <Route path="/board" element={<BoardList />} />
         <Route path="/board/:_id" element={<BoardDetail />} />
         <Route path="/write" element={<BoardWrite />} />
-
       </Routes>
     </QueryClientProvider>
   );
