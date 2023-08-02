@@ -1,5 +1,6 @@
+import React from "react";
 
-function badge(){
+const badge = () => {
     return(
         <div>
             badge 입니다.
@@ -8,5 +9,5 @@ function badge(){
     
     }
     
-    export default badge;
+export default badge;
     

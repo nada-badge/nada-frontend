@@ -1,5 +1,6 @@
+import React from "react";
 
-function activity(){
+const activity = () => {
     return(
         <div>
             activity 입니다.
@@ -8,5 +9,5 @@ function activity(){
     
     }
     
-    export default activity;
+export default activity;
     

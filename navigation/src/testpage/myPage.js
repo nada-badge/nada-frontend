@@ -1,11 +1,13 @@
+import React from "react";
 
-function myPage(){
-return(
-    <div>
-        MyPage 입니다.
-    </div>
-)
-
-}
-
+const myPage = () => {
+    return(
+        <div>
+            myPage 입니다.
+        </div>
+    )
+    
+    }
+    
 export default myPage;
+    

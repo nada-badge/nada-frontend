@@ -1,22 +1,21 @@
 import './App.css';
-import BottomNav from './BottomNav';
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import home from "./testpage/home";
-import calender from "./testpage/calender";
+import calendar from "./testpage/calendar";
 import badge from "./testpage/badge";
-import activity from "./testpage/hactivityome";
+import activity from "./testpage/activity";
 import myPage from "./testpage/myPage";
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/home" component={home} />
-        <Route path="/calender" component={calender} />
-        <Route path="/badge" component={badge} />
-        <Route path="/activity" component={activity} />
-        <Route path="/myPage" component={myPage} />
-      </Switch>
+      <Routes>
+        <Route path="/home" Component={home}  />
+        <Route path="/calendar" Component={calendar} />
+        <Route path="/badge" Component={badge} />
+        <Route path="/activity" Component={activity} />
+        <Route path="/myPage" Component={myPage} />
+      </Routes>
     </div>
   );
 }
