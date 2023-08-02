@@ -1,5 +1,5 @@
 import AuthTemplate from '../components/auth/AuthTemplate';
-import LoginForm from '../containers/auth/LoginForm';
+import LoginForm from '../containers/auth/login/LoginForm';
 import styled from 'styled-components';
 
 const LogInPersonal = styled.div`
