@@ -1,29 +1,25 @@
 // 회원가입 또는 로그인 폼을 보여주기
+import {
+  Frame2,
+  EmailBox,
+  PasswordBox,
+  ButtonBox,
+  LoginBtn,
+} from '../../styles/Login';
 
-import { Link } from 'react-router-dom';
-import Button from '../common/Button';
-import styled from 'styled-components';
-
-const textMap = {
-  login: '로그인',
-  register: '회원가입',
-};
-
-const ErrorMessage = styled.div`
-  color: red;
-  text-align: center;
-  font-size: 0.875rem;
-  margin-top: 1rem;
-`;
-
-const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
-  const text = textMap[type];
-
+const AuthForm = ({ form, onChange, onSubmit }) => {
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input name="email" email={form.email} onChange={onChange}></input>
-        {errorSet && <ErrorMessage>{errorSet.email}</ErrorMessage>}
+    <Frame2 onSubmit={onSubmit}>
+      <EmailBox>
+        <input
+          name="email"
+          email={form.email}
+          onChange={onChange}
+          placeholder="아이디"
+          required
+        />
+      </EmailBox>
+      <PasswordBox>
         <input
           name="password"
           placeholder="비밀번호"
@@ -32,13 +28,11 @@ const AuthForm = ({ type, form, onChange, onSubmit, errorSet, checkEmail }) => {
           value={form.password}
           required
         />
-        {errorSet && <ErrorMessage>{errorSet.password}</ErrorMessage>}
-        <Button>{text}</Button>
-      </form>
-      <div>
-        <Link to="/register">회원가입</Link>
-      </div>
-    </div>
+      </PasswordBox>
+      <ButtonBox>
+        <LoginBtn>로그인</LoginBtn>
+      </ButtonBox>
+    </Frame2>
   );
 };
 export default AuthForm;
