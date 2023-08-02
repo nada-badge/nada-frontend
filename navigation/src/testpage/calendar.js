@@ -1,5 +1,6 @@
+import React from "react";
 
-function calendar(){
+const calendar = () => {
     return(
         <div>
             calendar 입니다.
@@ -8,5 +9,5 @@ function calendar(){
     
     }
     
-    export default calendar;
+export default calendar;
     

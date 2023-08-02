@@ -1,22 +1,55 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 import './BottomNav.css';
-import home_fill from './icon/home-fill.png'
-import calendar_fill from './icon/calendar-fill.png'
-import award_fill from './icon/award-fill.png'
-import activity_fill from './icon/activity-fill.png'
-import mypage_fill from './icon/mypage-fill.png'
+
 
 
 const BottomNav = () => {
+
+  const activeStyle = {
+    background : 'black'
+};
+
+const deactiveStyle = {
+  fill :'current',
+  color: 'black',
+  textDecoration: 'none'
+}
+
   return (
     <nav className="wrapper">
       <div>
-        <img className="navImg" alt="홈" src={home_fill} />
+        <NavLink to="/home" className="nav-link" style={({isActive}) => {
+          return isActive ? activeStyle : deactiveStyle;
+        }}>
+           테스트입니다.
+        </NavLink>
       </div> 
-      <div><img className="navImg" alt="일정" src={calendar_fill} /></div>
-      <div><img className="navImg" alt="뱃지" src={award_fill} /></div>
-      <div><img className="navImg" alt="활동" src={activity_fill} /></div>
-      <div><img className="navImg" alt="마이페이지" src={mypage_fill} /></div>
+      <div>
+        <NavLink to="/calendar" className="nav-link" style={({isActive}) => {
+          return isActive ? activeStyle : deactiveStyle;
+        }}>
+           <img alt="일정" src="https://generation-sessions.s3.amazonaws.com/20ef55f1b94888c4d84ed622729622c3/img/calendar.svg"
+ />
+        </NavLink>
+      </div> 
+      <div>
+        <NavLink to="/badge" className="nav-link">
+           <img alt="뱃지"  src="https://generation-sessions.s3.amazonaws.com/20ef55f1b94888c4d84ed622729622c3/img/mdi-briefcase.svg"
+/>
+        </NavLink>
+      </div> 
+      <div>
+        <NavLink to="/activity" className="nav-link">
+           <img alt="활동"   src="https://generation-sessions.s3.amazonaws.com/20ef55f1b94888c4d84ed622729622c3/img/mdi-briefcase.svg"
+ />
+        </NavLink>
+      </div> 
+      <div>
+        <NavLink to="/mypage" className="nav-link">
+           <img alt="마이페이지"  src="https://generation-sessions.s3.amazonaws.com/20ef55f1b94888c4d84ed622729622c3/img/mingcute-user-2-fill.svg" />
+        </NavLink>
+      </div> 
     </nav>
   );
 };
