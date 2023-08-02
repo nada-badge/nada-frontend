@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../../modules/auth';
-import Button from '../../../components/common/Button';
+import { LoginBtn } from '../../../styles/Login';
 
 const PasswordForm = ({
   dispatchField,
@@ -77,7 +77,6 @@ const PasswordForm = ({
         required
       />
       {error && <ErrorMessage>{error.passwordConfirm}</ErrorMessage>}
-      <Button>닉네임으로</Button>
     </form>
   );
 };

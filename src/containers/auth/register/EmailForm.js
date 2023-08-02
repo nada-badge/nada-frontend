@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { emailSelector } from '../../../modules/auth';
-import Button from '../../../components/common/Button';
 import { useCallback } from 'react';
 
 const EmailForm = ({
@@ -56,7 +55,6 @@ const EmailForm = ({
         required
       />
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      <Button>비밀번호로</Button>
     </form>
   );
 };
