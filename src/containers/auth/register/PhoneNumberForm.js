@@ -1,5 +1,3 @@
-import Button from '../../../components/common/Button';
-
 const PhoneNumberForm = ({ dispatchField, onSubmit }) => {
   const onBlur = (e) => {
     let { value } = e.target;
@@ -25,7 +23,6 @@ const PhoneNumberForm = ({ dispatchField, onSubmit }) => {
         onBlur={onBlur}
         required
       />
-      <Button>다음</Button>
     </form>
   );
 };

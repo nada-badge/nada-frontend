@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { userNameSelector } from '../../../modules/auth';
-import Button from '../../../components/common/Button';
 
 const UserNamePage = ({
   dispatchField,
@@ -45,7 +44,6 @@ const UserNamePage = ({
         required
       />
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      <Button>폰번호로</Button>
     </form>
   );
 };
