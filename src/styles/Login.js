@@ -19,6 +19,16 @@ export const InputBox = styled.div`
   overflow: hidden;
   position: absolute;
 
+  &.email {
+    top: 0;
+    width: 345px;
+  }
+
+  &.password {
+    top: 56px;
+    width: 345px;
+  }
+
   & > input {
     color: var(--myspec-gray-scalegray-600);
     font-family: var(--body-01-font-family);
@@ -37,17 +47,7 @@ export const InputBox = styled.div`
   }
 `;
 
-export const EmailBox = styled(InputBox)`
-  top: 0;
-  width: 345px;
-`;
-
-export const PasswordBox = styled(InputBox)`
-  top: 56px;
-  width: 345px;
-`;
-
-export const ButtonBox = styled.button`
+export const LoginBtn = styled.button`
   background-color: var(--myspec-primaryblue-1);
   border-radius: 10px;
   height: 64px;
@@ -57,22 +57,22 @@ export const ButtonBox = styled.button`
   top: 132px;
   width: 345px;
   border: none;
-`;
 
-export const LoginBtn = styled.div`
-  color: #ffffff;
-  font-family: var(--subtitle-01-font-family);
-  font-size: var(--subtitle-01-font-size);
-  font-style: var(--subtitle-01-font-style);
-  font-weight: var(--subtitle-01-font-weight);
-  height: 24px;
-  left: 138px;
-  letter-spacing: var(--subtitle-01-letter-spacing);
-  line-height: var(--subtitle-01-line-height);
-  position: absolute;
-  text-align: center;
-  top: 19px;
-  white-space: nowrap;
+  & > div {
+    color: #ffffff;
+    font-family: var(--subtitle-01-font-family);
+    font-size: var(--subtitle-01-font-size);
+    font-style: var(--subtitle-01-font-style);
+    font-weight: var(--subtitle-01-font-weight);
+    height: 24px;
+    left: 138px;
+    letter-spacing: var(--subtitle-01-letter-spacing);
+    line-height: var(--subtitle-01-line-height);
+    position: absolute;
+    text-align: center;
+    top: 19px;
+    white-space: nowrap;
+  }
 `;
 
 //  ---------------------- SocialLogin.js
