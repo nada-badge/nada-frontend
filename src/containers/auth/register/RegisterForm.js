@@ -12,12 +12,33 @@ import PhoneNumberForm from './PhoneNumberForm';
 import useUserMutation from '../../../modules/queries/registerQuery';
 import { useCallback } from 'react';
 
+const Frame = styled.div`
+  height: 501px;
+  position: relative;
+  width: 375px;
+
+  & > img {
+    height: 88px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 375px;
+  }
+`;
+
 // 에러를 표시하는 박스
 const ErrorMessage = styled.div`
-  color: red;
-  text-align: center;
-  font-size: 0.875rem;
-  margin-top: 1rem;
+  color: #000000;
+  font-family: var(--body-02-font-family);
+  font-size: var(--body-02-font-size);
+  font-style: var(--body-02-font-style);
+  font-weight: var(--body-02-font-weight);
+  letter-spacing: var(--body-02-letter-spacing);
+  line-height: var(--body-02-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
 `;
 
 const RegisterForm = () => {
@@ -73,15 +94,20 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <button onClick={goBack}>◀</button>
+    <Frame>
+      <img
+        alt="Top"
+        onClick={goBack}
+        src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/top.svg"
+      />
       <Components
         ErrorMessage={ErrorMessage}
         errorMessages={errorMessages}
         dispatchField={dispatchField}
         onSubmit={onSubmit}
+        order={order}
       />
-    </div>
+    </Frame>
   );
 };
 
