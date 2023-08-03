@@ -4,12 +4,14 @@ import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { emailSelector } from '../../../modules/auth';
 import { useCallback } from 'react';
+import { Div, Title, Form, Caution, ButtonBox } from '../../../styles/Register';
 
 const EmailForm = ({
   dispatchField,
   ErrorMessage,
   errorMessages,
   onSubmit,
+  order,
 }) => {
   const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지, Query문 조건 실행
   const [error, setError] = useState(null); // error 메세지 관리
@@ -21,6 +23,7 @@ const EmailForm = ({
     const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     setError(emailRegexp.test(email) ? null : errorMessages.email_format);
     return emailRegexp.test(email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email]);
 
   // email 중복 검사
@@ -45,17 +48,39 @@ const EmailForm = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        name="email"
-        placeholder="이메일"
-        onChange={dispatchField}
-        value={email}
-        onBlur={onBlur}
-        required
-      />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
-    </form>
+    <Div>
+      <Title>
+        <h1>
+          이메일을
+          <br />
+          입력해 주세요
+        </h1>
+      </Title>
+      <Form onSubmit={onSubmit} id={order}>
+        <input
+          name="email"
+          placeholder="이메일"
+          onChange={dispatchField}
+          value={email}
+          onBlur={onBlur}
+          required
+        />
+      </Form>
+      {error && (
+        <Caution>
+          <div>
+            <img
+              alt="Img"
+              src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/-.svg"
+            />
+          </div>
+          <ErrorMessage>{error}</ErrorMessage>
+        </Caution>
+      )}
+      <ButtonBox form={order}>
+        <div>다음</div>
+      </ButtonBox>
+    </Div>
   );
 };
 export default EmailForm;
