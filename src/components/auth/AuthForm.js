@@ -1,16 +1,10 @@
 // 회원가입 또는 로그인 폼을 보여주기
-import {
-  Frame2,
-  EmailBox,
-  PasswordBox,
-  ButtonBox,
-  LoginBtn,
-} from '../../styles/Login';
+import { Frame2, InputBox, LoginBtn } from '../../styles/Login';
 
 const AuthForm = ({ form, onChange, onSubmit }) => {
   return (
     <Frame2 onSubmit={onSubmit}>
-      <EmailBox>
+      <InputBox className="email">
         <input
           name="email"
           email={form.email}
@@ -18,8 +12,8 @@ const AuthForm = ({ form, onChange, onSubmit }) => {
           placeholder="아이디"
           required
         />
-      </EmailBox>
-      <PasswordBox>
+      </InputBox>
+      <InputBox className="password">
         <input
           name="password"
           placeholder="비밀번호"
@@ -28,10 +22,10 @@ const AuthForm = ({ form, onChange, onSubmit }) => {
           value={form.password}
           required
         />
-      </PasswordBox>
-      <ButtonBox>
-        <LoginBtn>로그인</LoginBtn>
-      </ButtonBox>
+      </InputBox>
+      <LoginBtn>
+        <div>로그인</div>
+      </LoginBtn>
     </Frame2>
   );
 };
