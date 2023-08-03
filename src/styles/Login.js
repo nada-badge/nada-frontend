@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+// ---------------------------AuthForm.js
 
 export const Frame2 = styled.form`
   height: 100px;
@@ -73,6 +75,8 @@ export const LoginBtn = styled.div`
   white-space: nowrap;
 `;
 
+//  ---------------------- SocialLogin.js
+
 export const Div3 = styled.div`
   height: 48px;
   left: 0;
@@ -81,82 +85,54 @@ export const Div3 = styled.div`
   width: 346px;
 `;
 
-export const BtnKakao = styled.div`
-  background-color: #fee500;
+export const SocialBtn = styled.div`
   border-radius: 10px;
   height: 48px;
-  left: 0;
   overflow: hidden;
   position: absolute;
   top: 0;
   width: 168px;
-`;
-export const Div4 = styled.div`
-  align-items: center;
-  display: inline-flex;
-  gap: 8px;
-  left: 39px;
-  position: relative;
-  top: 15px;
-`;
 
-export const vector = styled.div`
-  height: 15px;
-  position: relative;
-  width: 16px;
-`;
-export const TextWrapper3 = styled.div`
-  color: #000000;
-  font-family: var(--caption-02-font-family);
-  font-size: var(--caption-02-font-size);
-  font-style: var(--caption-02-font-style);
-  font-weight: var(--caption-02-font-weight);
-  letter-spacing: var(--caption-02-letter-spacing);
-  line-height: var(--caption-02-line-height);
-  margin-top: -1px;
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
-  width: fit-content;
-`;
+  &.kakao {
+    background-color: #fee500;
+    left: 0;
+    & > div > div {
+      color: #000000;
+    }
+  }
 
-export const BtnApple = styled.div`
-  background-color: var(--myspec-gray-scalegray-900);
-  border-radius: 10px;
-  height: 48px;
-  left: 178px;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 168px;
-`;
+  &.apple {
+    background-color: var(--myspec-gray-scalegray-900);
+    left: 178px;
+    & > div > div {
+      color: var(--myspec-gray-scalewhite);
+    }
+  }
 
-export const Div5 = styled.div`
-  align-items: center;
-  display: inline-flex;
-  gap: 8px;
-  left: 39px;
-  position: relative;
-  top: 14px;
-`;
+  & > div {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    left: 39px;
+    position: relative;
+    top: 15px;
+  }
 
-export const img = styled.div`
-  height: 19px;
-  position: relative;
-  width: 15px;
-`;
+  & > img {
+    position: relative;
+  }
 
-export const TextWrapper4 = styled.div`
-  color: var(--myspec-gray-scalewhite);
-  font-family: var(--caption-02-font-family);
-  font-size: var(--caption-02-font-size);
-  font-style: var(--caption-02-font-style);
-  font-weight: var(--caption-02-font-weight);
-  letter-spacing: var(--caption-02-letter-spacing);
-  line-height: var(--caption-02-line-height);
-  margin-top: -0.5px;
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
-  width: fit-content;
+  & > div > div {
+    font-family: var(--caption-02-font-family);
+    font-size: var(--caption-02-font-size);
+    font-style: var(--caption-02-font-style);
+    font-weight: var(--caption-02-font-weight);
+    letter-spacing: var(--caption-02-letter-spacing);
+    line-height: var(--caption-02-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
 `;
