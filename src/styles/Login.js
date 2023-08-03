@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 // ---------------------------AuthForm.js
 
@@ -134,5 +134,49 @@ export const SocialBtn = styled.div`
     text-align: center;
     white-space: nowrap;
     width: fit-content;
+  }
+`;
+
+// -------------- LoginFooter
+
+export const Div6 = styled.div`
+  height: 21px;
+  left: 49px;
+  position: absolute;
+  top: 318px;
+  width: 247px;
+
+  & > div {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    :nth-child(1) {
+      color: #000000;
+      font-family: var(--body-01-font-family);
+      font-size: var(--body-01-font-size);
+      font-style: var(--body-01-font-style);
+      font-weight: var(--body-01-font-weight);
+      letter-spacing: var(--body-01-letter-spacing);
+      line-height: var(--body-01-line-height);
+      margin-top: -1px;
+      position: relative;
+      white-space: nowrap;
+      width: fit-content;
+    }
+  }
+
+  & > .findId {
+    left: 115px;
+  }
+
+  & > img {
+    height: 12.71px;
+    margin-right: -0.71px;
+    position: relative;
+    width: 7.06px;
   }
 `;
