@@ -6,6 +6,7 @@ import { emailSelector } from '../../../modules/auth';
 import { useCallback } from 'react';
 import {
   Div,
+  Form,
   Title,
   InputWrapper,
   Caution,
@@ -62,18 +63,20 @@ const EmailForm = ({
           입력해 주세요
         </h1>
       </Title>
-      <form onSubmit={onSubmit} id={order}>
-        <InputWrapper $position>
-          <input
-            name="email"
-            placeholder="이메일"
-            onChange={dispatchField}
-            value={email}
-            onBlur={onBlur}
-            required
-          />
-        </InputWrapper>
-      </form>
+      <Form onSubmit={onSubmit} id={order}>
+        <div>
+          <InputWrapper $position>
+            <input
+              name="email"
+              placeholder="이메일"
+              onChange={dispatchField}
+              value={email}
+              onBlur={onBlur}
+              required
+            />
+          </InputWrapper>
+        </div>
+      </Form>
       {error && (
         <Caution>
           <div>
