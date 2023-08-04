@@ -39,7 +39,7 @@ export const InputWrapper = styled.div`
   left: ${(props) => props.$position.left || 0}px;
   overflow: hidden;
   position: absolute;
-  top: ${(props) => props.$position.top || 126}px;
+  top: ${(props) => props.$position.top || 0}px;
   width: 345px;
 
   & > input {
@@ -113,5 +113,39 @@ export const ButtonBox = styled.button`
       top: 13px;
       white-space: nowrap;
     }
+  }
+`;
+
+// ---------------------PasswordForm.js
+
+export const Form = styled.form`
+  & > div {
+    position: relative;
+    top: 126px;
+  }
+`;
+
+export const CheckListBox = styled.div`
+  height: 21px;
+  left: 0;
+  position: absolute;
+  top: 56px;
+  width: 323px;
+`;
+
+export const CheckList = styled.div`
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  left: ${(props) => props.$position.left || 0}px;
+  position: absolute;
+  top: ${(props) => props.$position.top || 0}px;
+
+  & > img {
+    height: 11.09px;
+    margin-left: -0.67px;
+    position: relative;
+    width: 16.36px;
   }
 `;
