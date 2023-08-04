@@ -5,21 +5,14 @@ import client from '../../../lib/api/client';
 import { emailSelector } from '../../../modules/auth';
 import { useCallback } from 'react';
 import {
-  Div,
   Form,
   Title,
   InputWrapper,
   Caution,
-  ButtonBox,
+  ErrorMessage,
 } from '../../../styles/Register';
 
-const EmailForm = ({
-  dispatchField,
-  ErrorMessage,
-  errorMessages,
-  onSubmit,
-  order,
-}) => {
+const EmailForm = ({ dispatchField, errorMessages, onSubmit, order }) => {
   const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지, Query문 조건 실행
   const [error, setError] = useState(null); // error 메세지 관리
 
@@ -55,7 +48,7 @@ const EmailForm = ({
   };
 
   return (
-    <Div>
+    <div>
       <Title>
         <h1>
           이메일을
@@ -88,10 +81,7 @@ const EmailForm = ({
           <ErrorMessage>{error}</ErrorMessage>
         </Caution>
       )}
-      <ButtonBox form={order}>
-        <div>다음</div>
-      </ButtonBox>
-    </Div>
+    </div>
   );
 };
 export default EmailForm;

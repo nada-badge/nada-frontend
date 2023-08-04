@@ -1,9 +1,37 @@
 import styled from 'styled-components';
 
+export const Frame = styled.div`
+  height: 501px;
+  position: relative;
+  width: 375px;
+
+  & > .BackBtn {
+    height: 88px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 375px;
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  color: #000000;
+  font-family: var(--body-02-font-family);
+  font-size: var(--body-02-font-size);
+  font-style: var(--body-02-font-style);
+  font-weight: var(--body-02-font-weight);
+  letter-spacing: var(--body-02-letter-spacing);
+  line-height: var(--body-02-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+`;
+
 // -----------EmailForm.js
 
 export const Div = styled.div`
-  height: 397px;
+  height: fit-content;
   left: 15px;
   position: absolute;
   top: 104px;
