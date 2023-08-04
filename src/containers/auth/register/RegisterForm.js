@@ -4,44 +4,13 @@ import { useEffect } from 'react';
 import { changeField, initializeForm } from '../../../modules/auth';
 import { useNavigate } from 'react-router-dom';
 
-import styled from 'styled-components';
 import EmailForm from './EmailForm';
 import PasswordForm from './PasswordForm';
 import UserNameForm from './UserNameForm';
 import PhoneNumberForm from './PhoneNumberForm';
 import useUserMutation from '../../../modules/queries/registerQuery';
 import { useCallback } from 'react';
-
-const Frame = styled.div`
-  height: 501px;
-  position: relative;
-  width: 375px;
-
-  & > img {
-    height: 88px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 375px;
-  }
-`;
-
-// 에러를 표시하는 박스
-const ErrorMessage = styled.div`
-  color: #000000;
-  font-family: var(--body-02-font-family);
-  font-size: var(--body-02-font-size);
-  font-style: var(--body-02-font-style);
-  font-weight: var(--body-02-font-weight);
-  letter-spacing: var(--body-02-letter-spacing);
-  line-height: var(--body-02-line-height);
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-`;
-
-
+import { Frame, Div, ButtonBox } from '../../../styles/Register';
 
 const RegisterForm = () => {
   const [order, setOrder] = useState(0); // 입력 순서
@@ -97,17 +66,24 @@ const RegisterForm = () => {
   return (
     <Frame>
       <img
-        alt="Top"
+        className="BackBtn"
+        alt="BackBtn"
         onClick={goBack}
         src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/top.svg"
       />
-      <Components
-        ErrorMessage={ErrorMessage}
-        errorMessages={errorMessages}
-        dispatchField={dispatchField}
-        onSubmit={onSubmit}
-        order={order}
-      />
+      <Div>
+        <Components
+          errorMessages={errorMessages}
+          dispatchField={dispatchField}
+          onSubmit={onSubmit}
+          order={order}
+        />
+        <div>
+          <ButtonBox form={order}>
+            <div>다음</div>
+          </ButtonBox>
+        </div>
+      </Div>
     </Frame>
   );
 };

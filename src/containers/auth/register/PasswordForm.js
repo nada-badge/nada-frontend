@@ -3,16 +3,15 @@ import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../../modules/auth';
 import {
-  Div,
   Title,
   InputWrapper,
   Form,
   CheckListBox,
   CheckList,
-  ButtonBox,
+  ErrorMessage,
 } from '../../../styles/Register';
 
-const PasswordForm = ({ dispatchField, ErrorMessage, onSubmit, order }) => {
+const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   const [check, setCheck] = useState({
     password: {
       length: '',
@@ -65,7 +64,7 @@ const PasswordForm = ({ dispatchField, ErrorMessage, onSubmit, order }) => {
   };
 
   return (
-    <Div>
+    <div>
       <Title>
         <h1>
           사용할 비밀번호를
@@ -136,10 +135,7 @@ const PasswordForm = ({ dispatchField, ErrorMessage, onSubmit, order }) => {
           </div>
         </div>
       </Form>
-      <ButtonBox form={order}>
-        <div>다음</div>
-      </ButtonBox>
-    </Div>
+    </div>
   );
 };
 export default PasswordForm;
