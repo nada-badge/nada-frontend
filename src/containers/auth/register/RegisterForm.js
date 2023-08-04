@@ -75,7 +75,6 @@ const RegisterForm = () => {
     email_format: '올바른 이메일 형식이 아닙니다.',
     email_duplicate: '중복된 이메일 입니다.',
     password: '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
-    passwordConfirm: '비밀번호가 일치하지 않습니다.',
     userName_duplicate: '중복된 닉네임 입니다.',
   };
 

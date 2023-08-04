@@ -4,7 +4,13 @@ import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { emailSelector } from '../../../modules/auth';
 import { useCallback } from 'react';
-import { Div, Title, Form, Caution, ButtonBox } from '../../../styles/Register';
+import {
+  Div,
+  Title,
+  InputWrapper,
+  Caution,
+  ButtonBox,
+} from '../../../styles/Register';
 
 const EmailForm = ({
   dispatchField,
@@ -56,16 +62,18 @@ const EmailForm = ({
           입력해 주세요
         </h1>
       </Title>
-      <Form onSubmit={onSubmit} id={order}>
-        <input
-          name="email"
-          placeholder="이메일"
-          onChange={dispatchField}
-          value={email}
-          onBlur={onBlur}
-          required
-        />
-      </Form>
+      <form onSubmit={onSubmit} id={order}>
+        <InputWrapper $position>
+          <input
+            name="email"
+            placeholder="이메일"
+            onChange={dispatchField}
+            value={email}
+            onBlur={onBlur}
+            required
+          />
+        </InputWrapper>
+      </form>
       {error && (
         <Caution>
           <div>

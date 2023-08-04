@@ -31,15 +31,15 @@ export const Title = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const InputWrapper = styled.div`
   border: 2px solid;
   border-color: var(--myspec-primaryblue-1);
   border-radius: 10px;
   height: 44px;
-  left: 0;
+  left: ${(props) => props.$position.left || 0}px;
   overflow: hidden;
   position: absolute;
-  top: 126px;
+  top: ${(props) => props.$position.top || 126}px;
   width: 345px;
 
   & > input {
