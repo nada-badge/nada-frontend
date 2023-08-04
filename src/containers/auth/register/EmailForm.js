@@ -12,9 +12,14 @@ import {
   ErrorMessage,
 } from '../../../styles/Register';
 
-const EmailForm = ({ dispatchField, errorMessages, onSubmit, order }) => {
+const EmailForm = ({ dispatchField, onSubmit, order }) => {
   const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지, Query문 조건 실행
   const [error, setError] = useState(null); // error 메세지 관리
+
+  const errorMessages = {
+    email_format: '올바른 이메일 형식이 아닙니다.',
+    email_duplicate: '중복된 이메일 입니다.',
+  };
 
   const email = useSelector(emailSelector); // email 상태 가져오기
 

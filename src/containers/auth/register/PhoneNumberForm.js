@@ -1,4 +1,4 @@
-const PhoneNumberForm = ({ dispatchField, onSubmit }) => {
+const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const onBlur = (e) => {
     let { value } = e.target;
 
@@ -15,7 +15,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} id={order}>
       <input
         name="phoneNumber"
         placeholder="번호"

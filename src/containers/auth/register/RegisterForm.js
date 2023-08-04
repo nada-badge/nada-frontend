@@ -42,13 +42,6 @@ const RegisterForm = () => {
     else setOrder(order + 1);
   };
 
-  const errorMessages = {
-    email_format: '올바른 이메일 형식이 아닙니다.',
-    email_duplicate: '중복된 이메일 입니다.',
-    password: '비밀번호 : 8 ~ 16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
-    userName_duplicate: '중복된 닉네임 입니다.',
-  };
-
   // 입력 값을 상태에 반영하기
   const dispatchField = useCallback((e) => {
     const { value, name } = e.target;
@@ -73,7 +66,6 @@ const RegisterForm = () => {
       />
       <Div>
         <Components
-          errorMessages={errorMessages}
           dispatchField={dispatchField}
           onSubmit={onSubmit}
           order={order}
