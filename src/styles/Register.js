@@ -94,7 +94,7 @@ export const Caution = styled.div`
   gap: 8px;
   left: 0;
   position: absolute;
-  top: 182px;
+  top: ${(props) => props.$position.top || 0}px;
 
   & > .ImagWrapper {
     border: 2px solid;
