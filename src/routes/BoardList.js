@@ -9,20 +9,33 @@ const BoardList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const getBoardList = async () => {
-    const resp = await client.get('schedule/list'); // 1) 게시글 목록 데이터를 resp에 할당
-    setBoardList(resp.data.schedules); // 2) boardList 변수에 할당  
-    console.log('getBoardList가 실행되었습니다');
-  }; // 이 부분을 리액트 쿼리를 사용해서 분리하기!!!!! *영혜 숙제
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const resp = await client.get('schedule/list',);
+      setBoardList(resp.data.schedules);
+    }  catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+  fetchData();
+}, []);
+
+if (loading){
+  return <boardList>Loading ·······</boardList>;
+}
+
+if (!boardList) {
+return null;
+}
 
   const moveToWrite = () => {
     navigate('/write');
   };
-
-  useEffect(() => {
-    getBoardList(); // 3) 게시글 목록 조회 함수 호출
-  }, []);
 
   return (
     <div>
