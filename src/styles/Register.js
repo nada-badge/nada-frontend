@@ -96,21 +96,19 @@ export const Caution = styled.div`
   position: absolute;
   top: 182px;
 
-  :nth-child(1) {
+  & > .ImagWrapper {
     border: 2px solid;
     border-color: #f74646;
     border-radius: 10px;
     height: 20px;
     position: relative;
     width: 20px;
+    display: flex;
   }
 
-  & > img {
-    height: 10px;
-    left: 7px;
-    position: absolute;
-    top: 3px;
-    width: 2px;
+  & > div > img {
+    margin: auto;
+    display: block;
   }
 `;
 
