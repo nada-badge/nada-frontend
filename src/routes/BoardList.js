@@ -12,7 +12,7 @@ const BoardList = () => {
   const [loading, setLoading] = useState(false);
 
 useEffect(() => {
-  const fetchData = async () => {
+  const FetchData = async () => {
     setLoading(true);
     try {
       const resp = await client.get('schedule/list',);
@@ -22,18 +22,18 @@ useEffect(() => {
     }
     setLoading(false);
   };
-  fetchData();
+  FetchData();
 }, []);
 
 if (loading){
-  return <boardList>Loading ·······</boardList>;
+  return <BoardList>Loading...</BoardList>;
 }
 
 if (!boardList) {
 return null;
 }
 
-  const moveToWrite = () => {
+  const MoveToWrite = () => {
     navigate('/write');
   };
 
@@ -51,7 +51,7 @@ return null;
           ))}
       </ul>
       <div>
-        <button onClick={moveToWrite}>글쓰기</button>
+        <button onClick={MoveToWrite}>글쓰기</button>
       </div>
     </div>
   );
