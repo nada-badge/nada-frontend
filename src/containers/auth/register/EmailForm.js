@@ -76,8 +76,8 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
         </div>
       </Form>
       {error && (
-        <Caution>
-          <div className='ImagWrapper'>
+        <Caution $position={{ top: 182 }}>
+          <div className="ImagWrapper">
             <img
               alt="Img"
               src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/-.svg"
