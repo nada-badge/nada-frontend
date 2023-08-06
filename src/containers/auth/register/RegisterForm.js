@@ -10,7 +10,7 @@ import UserNameForm from './UserNameForm';
 import PhoneNumberForm from './PhoneNumberForm';
 import useUserMutation from '../../../modules/queries/registerQuery';
 import { useCallback } from 'react';
-import { Frame, Div, ButtonBox } from '../../../styles/Register';
+import { Frame, Div } from '../../../styles/Register';
 
 const RegisterForm = () => {
   const [order, setOrder] = useState(0); // 입력 순서
@@ -20,10 +20,10 @@ const RegisterForm = () => {
   const { mutate } = useUserMutation(); // 회원가입 하기 (서버에 전송)
 
   useEffect(() => {
-    dispatch(initializeForm); // 회원가입 접속시, 상태 초기화하기
+    dispatch(initializeForm('register')); // 회원가입 접속시, 상태 초기화하기
     // Unmount시, 상태 초기화하기 (=지우기)
     return () => {
-      dispatch(initializeForm);
+      dispatch(initializeForm('register'));
     };
   }, []);
 
@@ -70,11 +70,6 @@ const RegisterForm = () => {
           onSubmit={onSubmit}
           order={order}
         />
-        <div>
-          <ButtonBox form={order}>
-            <div>다음</div>
-          </ButtonBox>
-        </div>
       </Div>
     </Frame>
   );
