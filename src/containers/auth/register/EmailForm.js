@@ -1,20 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { emailSelector } from '../../../modules/auth';
 import { useCallback } from 'react';
+
 import {
   Form,
   Title,
   InputWrapper,
   Caution,
   ErrorMessage,
+  ButtonBox,
 } from '../../../styles/Register';
 
 const EmailForm = ({ dispatchField, onSubmit, order }) => {
   const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지, Query문 조건 실행
   const [error, setError] = useState(null); // error 메세지 관리
+  const [opacity, setOpacity] = useState(0.3);
 
   const errorMessages = {
     email_format: '올바른 이메일 형식이 아닙니다.',
@@ -49,8 +52,18 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
       // 이메일이 유효할때, 중복 검사 진행
       setBlur(true);
       refetch();
+      setOpacity(error ? 0.3 : 1);
     }
   };
+
+  useEffect(() => {
+    // error 상태 변경 시 배경색 업데이트
+    if (email !== '') {
+      setOpacity(error ? 0.3 : 1);
+    } else {
+      setOpacity(0.3);
+    }
+  }, [email, error]);
 
   return (
     <div>
@@ -86,6 +99,11 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
           <ErrorMessage>{error}</ErrorMessage>
         </Caution>
       )}
+      <div>
+        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
+          <div>다음</div>
+        </ButtonBox>
+      </div>
     </div>
   );
 };

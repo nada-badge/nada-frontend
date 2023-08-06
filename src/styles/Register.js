@@ -118,7 +118,6 @@ export const ButtonBox = styled.button`
     border-radius: 10px;
     height: 55px;
     left: 0;
-    opacity: 0.3;
     position: absolute;
     top: 342px;
     width: 345px;
