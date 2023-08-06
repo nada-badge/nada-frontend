@@ -41,7 +41,8 @@ const userNameSelect = (rootState) =>
   rootState.auth.register.userName || initialState.register.userName;
 
 export default authSlice;
-export const { changeField, initializeForm } = authSlice.actions;
+export const { changeField, initializeForm, changeBtnState } =
+  authSlice.actions;
 export const emailSelector = createSelector(emailSelect, (email) => email);
 export const passwordSelector = createSelector(
   passwordSelect,
