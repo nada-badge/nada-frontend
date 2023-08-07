@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { userNameSelector } from '../../../modules/auth';
@@ -16,10 +16,8 @@ import {
 } from '../../../styles/Register';
 
 const UserNamePage = ({ dispatchField, onSubmit, order }) => {
-  const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지
   const [error, setError] = useState(null); // error 메세지 관리
   const [check, setCheck] = useState({ length: false, text: false }); // error 메세지 관리
-  const [opacity, setOpacity] = useState(0.3);
 
   const errorMessages = {
     userName_duplicate: '중복된 닉네임 입니다.',
@@ -33,38 +31,54 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
       const { data } = await client.get('user/checkUserName', {
         params: { userName: userName },
       });
-      setError(data.result ? false : errorMessages.userName_duplicate);
-      return data;
+      return data.result;
     },
-    enabled: isBlur,
   });
 
-  const onBlur = () => {
-    setBlur(true);
-    refetch();
-    setOpacity(check.length && check.text ? (error ? 0.3 : 1) : 0.3);
-  };
-
-  const textRegex = new RegExp(/^[가-힣a-zA-Z]+$/);
-
-  const onChange = (e) => {
-    dispatchField(e);
-    const { value } = e.target;
-
+  const checkUserName = useCallback(() => {
     setCheck(
       produce((draft) => {
-        draft.length = value.length >= 1 && value.length <= 8;
-        draft.text = textRegex.test(value);
+        draft.length = userName.length >= 1 && userName.length <= 8;
+        const textRegex = new RegExp(/^[가-힣a-zA-Z]+$/);
+        draft.text = textRegex.test(userName);
       }),
     );
-  };
+  }, [userName]);
 
+  // userName 입력이 변경될때마다 check 함수 실행하기
   useEffect(() => {
-    const { length, text } = check;
-    const isValid = length && text;
-    console.log(isValid);
-    setOpacity(isValid ? (error ? 0.3 : 1) : 0.3);
-  }, [check, error]);
+    checkUserName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userName, check]);
+
+  const handleFormSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const { length, text } = check;
+      console.log('length && text', length, text);
+      if (length && text) {
+        // 닉네임이 유효할때, 중복 검사 진행
+        const { data } = await refetch();
+        setError(data ? null : errorMessages.userName_duplicate);
+        if (data) {
+          onSubmit(e);
+        }
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [check, userName],
+  );
+
+  // 폰번호에서 뒤로가기시, 이전 닉네임과 check값이 동일하게 표시
+  useEffect(() => {
+    console.log('mount', userName);
+    if (userName) {
+      checkUserName();
+      const { length, text } = check;
+      console.log(length, text);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
@@ -75,15 +89,14 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
           입력해 주세요
         </h1>
       </Title>
-      <Form onSubmit={onSubmit} id={order}>
+      <Form onSubmit={handleFormSubmit} id={order}>
         <div>
           <InputWrapper $position>
             <input
               name="userName"
               placeholder="닉네임"
-              onChange={onChange}
+              onChange={dispatchField}
               value={userName}
-              onBlur={onBlur}
               required
             />
           </InputWrapper>
@@ -135,7 +148,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
         </Caution>
       )}
       <div>
-        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
+        <ButtonBox form={order}>
           <div>다음</div>
         </ButtonBox>
       </div>
