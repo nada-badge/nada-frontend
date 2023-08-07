@@ -25,6 +25,7 @@ const RegisterForm = () => {
     return () => {
       dispatch(initializeForm('register'));
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
@@ -46,6 +47,7 @@ const RegisterForm = () => {
   const dispatchField = useCallback((e) => {
     const { value, name } = e.target;
     dispatch(changeField({ form: 'register', key: name, value }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 뒤로가기
