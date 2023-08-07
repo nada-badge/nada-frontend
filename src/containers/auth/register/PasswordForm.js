@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../../modules/auth';
@@ -29,50 +29,56 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   const { password, passwordConfirm } = useSelector(passwordSelector);
 
   // 비밀번호 유효성 검사
-  const checkPassword = (value) => {
+  const checkPassword = useCallback(() => {
     setCheck(
       produce((draft) => {
-        draft.password.length = value.length >= 8 && value.length <= 16;
+        draft.password.length = password.length >= 8 && password.length <= 16;
         const textRegex = new RegExp(/(?=.*[a-zA-Z])(?=.*[0-9])/);
         const specialRegex = new RegExp(/[!@#$%^&*]/);
-        draft.password.text = textRegex.test(value);
-        draft.password.special = specialRegex.test(value);
+        draft.password.text = textRegex.test(password);
+        draft.password.special = specialRegex.test(password);
       }),
     );
     // '비밀번호 확인'에 값이 있으면 '일치'까지 검사하기
     if (passwordConfirm) {
-      checkPasswordConfirm({ value, password });
+      checkPasswordConfirm({ password, passwordConfirm });
     }
-  };
+  }, [password, passwordConfirm]);
 
   // 비밀번호 일치 검사
-  const checkPasswordConfirm = ({ password, value }) => {
+  const checkPasswordConfirm = ({ password, passwordConfirm }) => {
     setCheck(
       produce((draft) => {
-        draft.passwordConfirm = password === '' ? false : password === value;
+        draft.passwordConfirm =
+          password === '' ? false : password === passwordConfirm;
       }),
     );
   };
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    // redux에 상태 반영하기
-    dispatchField(e);
-
-    if (name === 'password') {
-      checkPassword(value); // 비밀번호 유효성 검사
-    }
-    if (name === 'passwordConfirm') {
-      checkPasswordConfirm({ password, value }); // 비밀번호 일치 검사
-    }
-  };
-
+  // 비밀번호 입력이 변경될때마다 check함수 실행하기
   useEffect(() => {
-    // check 상태 변경시, 버튼 투명도, 활성화 상태 업데이트
+    checkPassword(password);
+    checkPasswordConfirm({ password, passwordConfirm });
+  }, [checkPassword, password, passwordConfirm]);
+
+  // check 상태 변경시, 버튼 투명도, 활성화 상태 업데이트
+  useEffect(() => {
     const { length, text, special } = check.password;
     const isValid = length && text && special && check.passwordConfirm;
     setOpacity(isValid ? 1 : 0.3);
   }, [check]);
+
+  // 닉네임에서 뒤로가기시, 이전 비밀번호와 check값과 동일하게
+  useEffect(() => {
+    if (password && passwordConfirm) {
+      checkPassword(password);
+      checkPasswordConfirm({ password, passwordConfirm });
+      const { length, text, special } = check.password;
+      const isValid = length && text && special && check.passwordConfirm;
+      setOpacity(isValid ? 1 : 0.3);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
@@ -90,7 +96,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
               type="password"
               name="password"
               placeholder="비밀번호"
-              onChange={onChange}
+              onChange={dispatchField}
               value={password}
               required
             />
@@ -152,7 +158,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
                 type="password"
                 name="passwordConfirm"
                 placeholder="한 번 더 입력해주세요."
-                onChange={onChange}
+                onChange={dispatchField}
                 value={passwordConfirm}
                 required
               />
