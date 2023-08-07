@@ -58,11 +58,7 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
 
   useEffect(() => {
     // error 상태 변경 시 배경색 업데이트
-    if (email !== '') {
-      setOpacity(error ? 0.3 : 1);
-    } else {
-      setOpacity(0.3);
-    }
+    setOpacity(email !== '' ? (error ? 0.3 : 1) : 0.3);
   }, [email, error]);
 
   return (
@@ -74,7 +70,7 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
           입력해 주세요
         </h1>
       </Title>
-      <Form onSubmit={onSubmit} id={order}>
+      <Form onSubmit={error ? null : onSubmit} id={order}>
         <div>
           <InputWrapper $position>
             <input
