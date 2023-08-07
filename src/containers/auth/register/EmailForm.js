@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { emailSelector } from '../../../modules/auth';
@@ -55,6 +55,7 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [email],
   );
 
