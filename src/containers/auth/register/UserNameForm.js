@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { userNameSelector } from '../../../modules/auth';
@@ -12,12 +12,14 @@ import {
   CheckList,
   ErrorMessage,
   Caution,
+  ButtonBox,
 } from '../../../styles/Register';
 
 const UserNamePage = ({ dispatchField, onSubmit, order }) => {
   const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지
   const [error, setError] = useState(null); // error 메세지 관리
   const [check, setCheck] = useState({ length: false, text: false }); // error 메세지 관리
+  const [opacity, setOpacity] = useState(0.3);
 
   const errorMessages = {
     userName_duplicate: '중복된 닉네임 입니다.',
@@ -31,7 +33,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
       const { data } = await client.get('user/checkUserName', {
         params: { userName: userName },
       });
-      setError(data.result ? null : errorMessages.userName_duplicate);
+      setError(data.result ? false : errorMessages.userName_duplicate);
       return data;
     },
     enabled: isBlur,
@@ -40,6 +42,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
   const onBlur = () => {
     setBlur(true);
     refetch();
+    setOpacity(check.length && check.text ? (error ? 0.3 : 1) : 0.3);
   };
 
   const textRegex = new RegExp(/^[가-힣a-zA-Z]+$/);
@@ -55,6 +58,13 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
       }),
     );
   };
+
+  useEffect(() => {
+    const { length, text } = check;
+    const isValid = length && text;
+    console.log(isValid);
+    setOpacity(isValid ? (error ? 0.3 : 1) : 0.3);
+  }, [check, error]);
 
   return (
     <div>
@@ -124,6 +134,11 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
           <ErrorMessage>{error}</ErrorMessage>
         </Caution>
       )}
+      <div>
+        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
+          <div>다음</div>
+        </ButtonBox>
+      </div>
     </div>
   );
 };
