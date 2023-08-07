@@ -41,12 +41,12 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
     );
     // '비밀번호 확인'에 값이 있으면 '일치'까지 검사하기
     if (passwordConfirm) {
-      checkPasswordConfirm({ password, passwordConfirm });
+      checkPasswordConfirm();
     }
   }, [password, passwordConfirm]);
 
   // 비밀번호 일치 검사
-  const checkPasswordConfirm = ({ password, passwordConfirm }) => {
+  const checkPasswordConfirm = () => {
     setCheck(
       produce((draft) => {
         draft.passwordConfirm =
@@ -57,8 +57,8 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
 
   // 비밀번호 입력이 변경될때마다 check함수 실행하기
   useEffect(() => {
-    checkPassword(password);
-    checkPasswordConfirm({ password, passwordConfirm });
+    checkPassword();
+    checkPasswordConfirm();
   }, [checkPassword, password, passwordConfirm]);
 
   // check 상태 변경시, 버튼 투명도, 활성화 상태 업데이트
