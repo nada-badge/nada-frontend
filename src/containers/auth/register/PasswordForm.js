@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../../modules/auth';
@@ -9,9 +9,11 @@ import {
   CheckListBox,
   CheckList,
   ErrorMessage,
+  ButtonBox,
 } from '../../../styles/Register';
 
 const PasswordForm = ({ dispatchField, onSubmit, order }) => {
+  // error 메세지 관리하기
   const [check, setCheck] = useState({
     password: {
       length: false,
@@ -19,7 +21,9 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
       special: false,
     },
     passwordConfirm: false,
-  }); // error 메세지 관리하기
+  });
+  // 버튼 투명도, 비활성화 상태 관리
+  const [opacity, setOpacity] = useState(0.3);
 
   // password 상태 가져오기
   const { password, passwordConfirm } = useSelector(passwordSelector);
@@ -45,7 +49,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   const checkPasswordConfirm = ({ password, value }) => {
     setCheck(
       produce((draft) => {
-        draft.passwordConfirm = password === value;
+        draft.passwordConfirm = password === '' ? false : password === value;
       }),
     );
   };
@@ -62,6 +66,13 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
       checkPasswordConfirm({ password, value }); // 비밀번호 일치 검사
     }
   };
+
+  useEffect(() => {
+    // check 상태 변경시, 버튼 투명도, 활성화 상태 업데이트
+    const { length, text, special } = check.password;
+    const isValid = length && text && special && check.passwordConfirm;
+    setOpacity(isValid ? 1 : 0.3);
+  }, [check]);
 
   return (
     <div>
@@ -167,6 +178,11 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
           </div>
         </div>
       </Form>
+      <div>
+        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
+          <div>다음</div>
+        </ButtonBox>
+      </div>
     </div>
   );
 };
