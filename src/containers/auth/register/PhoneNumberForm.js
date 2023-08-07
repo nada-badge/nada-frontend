@@ -6,10 +6,17 @@ import {
   InputWrapper,
   Caution,
   ErrorMessage,
+  ButtonBox,
 } from '../../../styles/Register';
+import { useEffect } from 'react';
+import { phoneNumberSelector } from '../../../modules/auth';
+import { useSelector } from 'react-redux';
 
 const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const [error, setError] = useState(null);
+  const [opacity, setOpacity] = useState(0.3);
+
+  const phoneNumber = useSelector(phoneNumberSelector);
 
   const checkNumber = useCallback((phoneNumber) => {
     const NumberRegex = /^01([0|1|6|7|8|9])\d{3,4}\d{4}$/;
@@ -19,12 +26,15 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
     return NumberRegex.test(phoneNumber);
   }, []);
 
-  const onBlur = (e) => {
-    let { value } = e.target;
-
-    // 비밀번호 입력 후, '-' 문자열 자동으로 삽입하기
-    checkNumber(value);
+  const onChange = (e) => {
+    dispatchField(e);
+    checkNumber(phoneNumber);
+    setOpacity(error ? 0.3 : 1);
   };
+
+  useEffect(() => {
+    setOpacity(phoneNumber !== '' ? (error ? 0.3 : 1) : 0.3);
+  }, [error, phoneNumber]);
 
   return (
     <div>
@@ -41,8 +51,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
             <input
               name="phoneNumber"
               placeholder="번호"
-              onChange={dispatchField}
-              onBlur={onBlur}
+              onChange={onChange}
               required
             />
           </InputWrapper>
@@ -59,6 +68,11 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
           <ErrorMessage>{error}</ErrorMessage>
         </Caution>
       )}
+      <div>
+        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
+          <div>다음</div>
+        </ButtonBox>
+      </div>
     </div>
   );
 };
