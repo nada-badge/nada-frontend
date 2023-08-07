@@ -15,13 +15,11 @@ import {
 } from '../../../styles/Register';
 
 const EmailForm = ({ dispatchField, onSubmit, order }) => {
-  const [isBlur, setBlur] = useState(false); // 키보드 포커스 감지, Query문 조건 실행
   const [error, setError] = useState(null); // error 메세지 관리
-  const [opacity, setOpacity] = useState(0.3);
 
   const errorMessages = {
-    email_format: '올바른 이메일 형식이 아닙니다.',
-    email_duplicate: '중복된 이메일 입니다.',
+    email_format: '이메일 형식이 올바르지 않아요.',
+    email_duplicate: '이미 등록된 이메일이에요.',
   };
 
   const email = useSelector(emailSelector); // email 상태 가져오기
@@ -41,25 +39,24 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
       const { data } = await client.get('user/checkEmailOverlap', {
         params: { email: email },
       });
-      setError(data.result ? null : errorMessages.email_duplicate);
-      return data;
+      return data.result;
     },
-    enabled: isBlur,
   });
 
-  const onBlur = () => {
-    if (checkEmail()) {
-      // 이메일이 유효할때, 중복 검사 진행
-      setBlur(true);
-      refetch();
-      setOpacity(error ? 0.3 : 1);
-    }
-  };
-
-  useEffect(() => {
-    // error 상태 변경 시 배경색 업데이트
-    setOpacity(email !== '' ? (error ? 0.3 : 1) : 0.3);
-  }, [email, error]);
+  const handleFormSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (checkEmail()) {
+        // 이메일이 유효할때, 중복 검사 진행
+        const { data } = await refetch();
+        setError(data ? null : errorMessages.email_duplicate);
+        if (data) {
+          onSubmit(e);
+        }
+      }
+    },
+    [email],
+  );
 
   return (
     <div>
@@ -70,7 +67,7 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
           입력해 주세요
         </h1>
       </Title>
-      <Form onSubmit={error ? null : onSubmit} id={order}>
+      <Form onSubmit={handleFormSubmit} id={order}>
         <div>
           <InputWrapper $position>
             <input
@@ -78,7 +75,6 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
               placeholder="이메일"
               onChange={dispatchField}
               value={email}
-              onBlur={onBlur}
               required
             />
           </InputWrapper>
@@ -96,7 +92,7 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
         </Caution>
       )}
       <div>
-        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
+        <ButtonBox form={order}>
           <div>다음</div>
         </ButtonBox>
       </div>
