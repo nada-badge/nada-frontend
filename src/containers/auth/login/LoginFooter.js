@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Div6 } from '../../../styles/Login';
 
-const LoginFooter = () => {
+const LoginFooter = ({ type }) => {
   return (
     <Div6>
       <div>

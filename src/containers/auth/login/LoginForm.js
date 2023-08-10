@@ -16,7 +16,7 @@ const Frame = styled.div`
   width: 345px;
 `;
 
-const LoginForm = () => {
+const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
 
   const [error, setError] = useState({
@@ -61,8 +61,8 @@ const LoginForm = () => {
         onSubmit={onSubmit}
         error={error}
       />
-      <SocialLogin />
-      <LoginFooter />
+      {type === 'personal' && <SocialLogin />}
+      <LoginFooter type={type} />
     </Frame>
   );
 };
