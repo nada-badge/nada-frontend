@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 
+// -------------------------- LoginPage.js
+
+export const LoginBox = styled.div`
+  background-color: #ffffff;
+  border: 1px none;
+  height: 812px;
+  position: relative;
+  width: 375px;
+`;
+
+export const Logo = styled.img`
+  height: 40px;
+  left: 78px;
+  position: absolute;
+  top: 220px;
+  width: 219px;
+`;
+
 // ---------------------------AuthForm.js
 
 export const Frame2 = styled.form`
@@ -57,6 +75,10 @@ export const LoginBtn = styled.button`
   top: 132px;
   width: 345px;
   border: none;
+
+  &.team {
+    background-color: var(--myspec-gray-scalegray-600);
+  }
 
   & > div {
     color: #ffffff;
