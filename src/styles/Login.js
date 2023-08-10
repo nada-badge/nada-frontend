@@ -72,7 +72,7 @@ export const LoginBtn = styled.button`
   left: 0;
   overflow: hidden;
   position: absolute;
-  top: 132px;
+  top: ${(props) => props.$position.top || 0}px;
   width: 345px;
   border: none;
 
@@ -165,7 +165,8 @@ export const Div6 = styled.div`
   height: 21px;
   left: 49px;
   position: absolute;
-  top: 318px;
+  top: ${(props) => props.$position.top || '0px'};
+  /* top: 318px; */
   width: 247px;
 
   & > div {

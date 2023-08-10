@@ -23,7 +23,7 @@ const AuthForm = ({ form, onChange, onSubmit }) => {
           required
         />
       </InputBox>
-      <LoginBtn>
+      <LoginBtn $position={{ top: 132 }}>
         <div>로그인</div>
       </LoginBtn>
     </Frame2>
