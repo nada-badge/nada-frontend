@@ -40,6 +40,9 @@ const passwordConfirmSelect = (rootState) =>
 const userNameSelect = (rootState) =>
   rootState.auth.register.userName || initialState.register.userName;
 
+const phoneNumberSelect = (rootState) =>
+  rootState.auth.register.phoneNumber || initialState.register.phoneNumber;
+
 export default authSlice;
 export const { changeField, initializeForm, changeBtnState } =
   authSlice.actions;
@@ -52,4 +55,8 @@ export const passwordSelector = createSelector(
 export const userNameSelector = createSelector(
   userNameSelect,
   (userName) => userName,
+);
+export const phoneNumberSelector = createSelector(
+  phoneNumberSelect,
+  (phoneNumber) => phoneNumber,
 );
