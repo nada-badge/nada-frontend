@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Div6 } from '../../../styles/Login';
 
+const positionMap = {
+  personal: '318px',
+  team: '212px',
+};
+
 const LoginFooter = ({ type }) => {
   return (
-    <Div6>
+    <Div6 $position={{ top: positionMap[type] }}>
       <div>
         <Link to="/register">회원 가입하기</Link>
         <img
