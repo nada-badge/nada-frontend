@@ -43,6 +43,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
     if (passwordConfirm) {
       checkPasswordConfirm();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [password, passwordConfirm]);
 
   // 비밀번호 일치 검사
@@ -59,6 +60,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   useEffect(() => {
     checkPassword();
     checkPasswordConfirm();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkPassword, password, passwordConfirm]);
 
   // check 상태 변경시, 버튼 투명도, 활성화 상태 업데이트
