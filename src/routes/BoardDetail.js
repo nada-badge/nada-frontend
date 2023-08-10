@@ -17,14 +17,18 @@ const BoardDetail = () => {
   }
 
   const DeleteAct = () => {
-    
-    console.log("id :", id)
+
     client.delete('/schedule', {data :{_id : id}});
     
     initialize();
     alert('삭제되었습니다.');
     navigate('/board');
     
+  }
+
+  const UpdateAct = () => {
+    console.log("updateact가 실행되었습니다.");
+    navigate('/update');
   }
 
  
@@ -34,7 +38,7 @@ const BoardDetail = () => {
     <div>
         <Board/>
     </div>
-    <button onClick={DeleteAct}>수정</button>
+    <button onClick={UpdateAct}>수정</button>
     <button onClick={DeleteAct}>삭제</button>
     </div>
   );
