@@ -1,24 +1,22 @@
 /* BoardWrite.js 게시물 추가 */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useSubmit from '../modules/queries/boardWriteQuery';
 import DatePicker from 'react-datepicker';
-import client from '../lib/api/client';
-
 import 'react-datepicker/dist/react-datepicker.css';
 
 const BoardWrite = () => {
   const navigate = useNavigate();
 
-  const [board, setBoard] = useState({ // 1)보드값을 null로 초기화
-    scheduleName: null,
-    groupId: null,
-    groupName: null,
-    field: null,
-    category: null,
-    area: null,
-    content: null,
-    registeredAt: null,
-    updatedAt: null,
+  const { mutate } = useSubmit();
+
+  const [board, setBoard] = useState({ // 1)보드값을 ""로 초기화
+    scheduleName: "" ,
+    groupName: "" ,
+    field: "" ,
+    category: "" ,
+    area: "" ,
+    content: "" ,
   });
 
   const [startedAt, setStartedAt] = useState(new Date());
@@ -32,32 +30,31 @@ const BoardWrite = () => {
       [name]: value,
     });
 
-    console.log("Board : ",board);
-    console.log("startedAt : ",startedAt);
   };
 
-  const onSubmit = async () => {     // 4) 입력받은 활동 값을 서버로 제출
-    await client.post(`schedule`, { 
-    scheduleName: board.scheduleName,
-    groupId: board.groupId, 
-    groupName: board.groupName,
-    field: board.field,
-    category: board.category,
-    area: board.area,
-    content: board.content,
-    startedAt: startedAt.toISOString(),
-    endedAt: endedAt.toISOString()
- }).catch(function(error){
-  console.log(error.message);
-  alert('실패.');
- }).then((res) => {
-      alert('등록되었습니다.');
-      navigate('/board');
-    });
-  };  // 리액트 쿼리 사용해서 분리하기 *숙제^ㅡ^ 리액트 쿼리에서 유즈뮤테이트 사용.ㅋ 
-
-  const backToList = () => {
+  const backToList = () => { //4) 게시물 리스트 화면으로 돌아가기
     navigate('/board');
+  };
+
+  const onSubmit = (e) =>{ //폼을 제출하여 게시물 등록하기 위한 mutate 호출
+    e.preventDefault();
+    const scheduleName = e.target.scheduleName.value;
+    const groupName = e.target.groupName.value;
+    const field = e.target.field.value;
+    const category = e.target.category.value;
+    const area = e.target.area.value;
+    const content = e.target.content.value;
+    const startedAt = new Date(e.target.startedAt.value);
+    const endedAt = new Date(e.target.endedAt.value);
+
+    const start = startedAt.toISOString();
+    const ended = endedAt.toISOString();
+
+    console.log("onSubmit : ", scheduleName," : ", groupName," : ", field," : ", category," : ", area," : ", content," : ", start," : ", ended)
+
+     if (scheduleName  && groupName && field && category && area && content ) {
+    mutate({scheduleName,  groupName, field, category, area, content, start, ended})
+    }
   };
 
   return (
@@ -69,32 +66,27 @@ const BoardWrite = () => {
           type="String"
           name="scheduleName"
           onChange={onChange}
-          //value={scheduleName}
+          value={board.scheduleName}
           required
         />
       </div>
       <br />
-      <div>
-        <span>신청그룹</span>
-        <input 
-          type="String"
-          name="groupId"
-          onChange={onChange}
-          required
-        />
-      </div>
       <div>
         <span>주최사</span>
         <input 
           type="String"
           name="groupName"
           onChange={onChange}
+          value={board.groupName}
           required
         />
       </div>
       <div>
         <span>분야</span>
-        <input  type="String" name="field" onChange={onChange}
+        <input  type="String" 
+        name="field" 
+        onChange={onChange}
+        value={board.field}
         required />
       </div>
       <div>
@@ -103,12 +95,17 @@ const BoardWrite = () => {
           type="String"
           name="category"
           onChange={onChange}
+          value={board.category}
           required
         />
       </div>
       <div>
         <span>장소</span>
-        <input  type="String" name="area" onChange={onChange}
+        <input  
+        type="String" 
+        name="area" 
+        onChange={onChange}
+        value={board.area}
         required />
       </div>
       <div>
@@ -117,6 +114,7 @@ const BoardWrite = () => {
           type="String"
           name="content"
           onChange={onChange}
+          value={board.content}
           required
         />
       </div>
@@ -138,12 +136,13 @@ const BoardWrite = () => {
           selected={startedAt}
           name = "startedAt"
           onChange={(date) => setStartedAt(date)}
-          
+          value={startedAt}        
         />
         <DatePicker
           selected={endedAt}
           name = "endedAt"
           onChange={(date) => setEndedAt(date)}
+          value={endedAt}
         />
       </div>
       
