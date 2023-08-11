@@ -14,13 +14,13 @@ import {
   ButtonBox,
 } from '../../../styles/Register';
 
-const EmailForm = ({ dispatchField, onSubmit, order }) => {
-  const [error, setError] = useState(null); // error 메세지 관리
+const errorMessages = {
+  email_format: '이메일 형식이 올바르지 않아요.',
+  email_duplicate: '이미 등록된 이메일이에요.',
+};
 
-  const errorMessages = {
-    email_format: '이메일 형식이 올바르지 않아요.',
-    email_duplicate: '이미 등록된 이메일이에요.',
-  };
+const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
+  const [error, setError] = useState(null); // error 메세지 관리
 
   const email = useSelector(emailSelector); // email 상태 가져오기
 
@@ -63,7 +63,7 @@ const EmailForm = ({ dispatchField, onSubmit, order }) => {
     <div>
       <Title>
         <h1>
-          이메일을
+          {type === 'team' ? '단체 ' : ''}이메일을
           <br />
           입력해 주세요
         </h1>

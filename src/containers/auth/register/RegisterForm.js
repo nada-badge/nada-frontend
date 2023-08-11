@@ -12,7 +12,7 @@ import useUserMutation from '../../../modules/queries/registerQuery';
 import { useCallback } from 'react';
 import { Frame, Div } from '../../../styles/Register';
 
-const RegisterForm = () => {
+const RegisterForm = ({ type }) => {
   const [order, setOrder] = useState(0); // 입력 순서
   const dispatch = useDispatch();
   const register = useSelector(({ auth }) => auth.register);
@@ -71,6 +71,7 @@ const RegisterForm = () => {
           dispatchField={dispatchField}
           onSubmit={onSubmit}
           order={order}
+          type={type}
         />
       </Div>
     </Frame>
