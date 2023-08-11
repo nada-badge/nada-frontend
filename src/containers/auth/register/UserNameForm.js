@@ -15,13 +15,19 @@ import {
   ButtonBox,
 } from '../../../styles/Register';
 
-const UserNamePage = ({ dispatchField, onSubmit, order }) => {
+const inputGuide = {
+  team: '단체 이름을',
+  personal: '사용할 닉네임을',
+};
+
+const errorMessages = {
+  userName_duplicate: '중복된 닉네임 입니다.',
+};
+
+const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
   const [check, setCheck] = useState({ length: false, text: false }); // error 메세지 관리
 
-  const errorMessages = {
-    userName_duplicate: '중복된 닉네임 입니다.',
-  };
   const userName = useSelector(userNameSelector); // userName 상태 가져오기
 
   // userName 중복 검사하기
@@ -71,7 +77,6 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
 
   // 폰번호에서 뒤로가기시, 이전 닉네임과 check값이 동일하게 표시
   useEffect(() => {
-    console.log('mount', userName);
     if (userName) {
       checkUserName();
       const { length, text } = check;
@@ -84,7 +89,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order }) => {
     <div>
       <Title>
         <h1>
-          사용할 닉네임을
+          {inputGuide[type]}
           <br />
           입력해 주세요
         </h1>
