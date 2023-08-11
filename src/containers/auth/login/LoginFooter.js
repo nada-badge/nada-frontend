@@ -10,7 +10,7 @@ const LoginFooter = ({ type }) => {
   return (
     <Div6 $position={{ top: positionMap[type] }}>
       <div>
-        <Link to="/register">회원 가입하기</Link>
+        <Link to={`/register/${type}`}>회원 가입하기</Link>
         <img
           className="vector-2"
           alt="Vector"
