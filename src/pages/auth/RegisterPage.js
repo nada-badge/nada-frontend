@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import AuthTemplate from '../../components/auth/AuthTemplate';
 import RegisterForm from '../../containers/auth/register/RegisterForm';
 import { useLocation } from 'react-router-dom';
@@ -9,16 +8,11 @@ const registerMap = {
 };
 
 const RegisterPage = () => {
-  const location = useLocation();
-  const [type, setType] = useState(null);
-
-  useEffect(() => {
-    setType(registerMap[location.pathname]);
-  }, [location.pathname]);
+  const { pathname } = useLocation();
 
   return (
     <AuthTemplate>
-      <RegisterForm type={type} />
+      <RegisterForm type={registerMap[pathname]} />
     </AuthTemplate>
   );
 };
