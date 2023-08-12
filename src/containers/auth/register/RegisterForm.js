@@ -9,8 +9,10 @@ import PasswordForm from './PasswordForm';
 import UserNameForm from './UserNameForm';
 import PhoneNumberForm from './PhoneNumberForm';
 import useUserMutation from '../../../modules/queries/registerQuery';
+
 import { useCallback } from 'react';
 import { Frame, Div } from '../../../styles/Register';
+import { TeamTypeForm } from './TeamTypeForm';
 
 const RegisterForm = ({ type }) => {
   const [order, setOrder] = useState(0); // 입력 순서
@@ -29,14 +31,23 @@ const RegisterForm = ({ type }) => {
   }, []);
 
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
-  const forms = [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm];
-  const Components = forms[order];
+  const forms = {
+    personal: [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm],
+    team: [
+      TeamTypeForm,
+      EmailForm,
+      PasswordForm,
+      UserNameForm,
+      PhoneNumberForm,
+    ],
+  };
+  const Components = forms[type][order];
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     // 마지막 form 입력일때, 회원가입 실행하기
-    if (order === forms.length - 1) {
+    if (order === forms[type].length - 1) {
       mutate(register);
     }
     // 다음 form 보여주기
