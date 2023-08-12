@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.9.5"
+    "@reduxjs/toolkit": "^1.9.5",
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

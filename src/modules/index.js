@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
-import schedule from './schedule';
+import schedule from './activity';
 
 const rootReducer = combineReducers({
   auth,

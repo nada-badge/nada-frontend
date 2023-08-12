@@ -2,11 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import BoardList from './routes/BoardList';
+import ActivityList from './routes/ActivityList';
 import Home from './routes/Home';
 import React from 'react';
-import BoardDetail from './routes/BoardDetail';
-import BoardWrite from './routes/BoardWrite';
+import ActivityDetail from './routes/ActivityDetail';
+import ActivityWrite from './routes/ActivityWrite';
+import ActivityUpdate from './routes/ActivityUpdate';
 
 const queryClient = new QueryClient();
 
@@ -18,9 +19,10 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
 
         <Route path="/" element={<Home />} />
-        <Route path="/board" element={<BoardList />} />
-        <Route path="/board/:_id" element={<BoardDetail />} />
-        <Route path="/write" element={<BoardWrite />} />
+        <Route path="/Activity" element={<ActivityList />} />
+        <Route path="/Activity/:_id" element={<ActivityDetail />} />
+        <Route path="/ActivityWrite" element={<ActivityWrite />} />
+        <Route path="/ActivityUpdate" element={<ActivityUpdate />} />
       </Routes>
     </QueryClientProvider>
   );

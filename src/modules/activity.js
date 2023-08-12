@@ -3,7 +3,7 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 const initialState = { // 1) activity 값 초기화
   activities: {
     _id: '',
-    scheduleName: '',          
+    activityName: '',          
     groupName: '',    
     field: '',      
     category: '',      
@@ -16,8 +16,8 @@ const initialState = { // 1) activity 값 초기화
   },
 };
 
-const scheduleSlice = createSlice({
-  name: 'schedule',
+const activitySlice = createSlice({
+  name: 'activity',
   initialState,
   reducers: {
     changeField: (state, { payload: { form, value } }) => {      // 2) form와 value를 전달받아 form의 값을 value로 변경
@@ -29,8 +29,9 @@ const scheduleSlice = createSlice({
   },
 });
 
+//4)createSelector를 위한 준비
 const idSelect = (rootState) => rootState.schedule.activities._id || initialState.activities._id;
-const scheduleNameSelect = (rootState) => rootState.schedule.activities.scheduleName || initialState.activities.scheduleName;
+const activityNameSelect = (rootState) => rootState.schedule.activities.activityName || initialState.activities.activityName;
 const groupNameSelect = (rootState) => rootState.schedule.activities.groupName || initialState.activities.groupName;
 const fieldSelect = (rootState) => rootState.schedule.activities.field || initialState.activities.field;
 const categorySelect = (rootState) => rootState.schedule.activities.category || initialState.activities.category;
@@ -41,9 +42,11 @@ const endedAtSelect = (rootState) => rootState.schedule.activities.endedAt || in
 const registeredAtSelect = (rootState) => rootState.schedule.activities.registeredAt || initialState.activities.registeredAt;
 const updatedAtSelect = (rootState) => rootState.schedule.activities.updatedAt || initialState.activities.updatedAt;
 
+
+//5) 리렌더링 시 함수의 불필요한 실행을 방지하기 위해 createSelector를 사용
 export const idSelector = createSelector(idSelect, (_id) => _id);
 export const activitySelector = createSelector(
-  scheduleNameSelect,
+  activityNameSelect,
   groupNameSelect,
   fieldSelect,
   categorySelect,
@@ -53,7 +56,7 @@ export const activitySelector = createSelector(
   endedAtSelect,
   registeredAtSelect,
   updatedAtSelect,
-  (scheduleName,groupName,field,category,area,content,startedAt,endedAt,registeredAt,updatedAt) => 
-  ({ scheduleName,groupName,field,category,area,content,startedAt,endedAt,registeredAt,updatedAt }),);
-export default scheduleSlice;
-export const { changeField, initializeForm } = scheduleSlice.actions;
+  (activityName,groupName,field,category,area,content,startedAt,endedAt,registeredAt,updatedAt) => 
+  ({ activityName,groupName,field,category,area,content,startedAt,endedAt,registeredAt,updatedAt }),);
+export default activitySlice;
+export const { changeField, initializeForm } = activitySlice.actions;
