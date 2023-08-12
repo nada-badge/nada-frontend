@@ -144,7 +144,7 @@ export const ButtonBox = styled.button`
 // ---------------------PasswordForm.js
 
 export const Form = styled.form`
-  & > div {
+  & > :nth-child(1) {
     position: relative;
     top: 126px;
   }
