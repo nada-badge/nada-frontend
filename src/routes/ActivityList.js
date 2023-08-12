@@ -1,22 +1,24 @@
-/* BoardList.js 게시물 조회 */
+/* ActivityList.js 게시물 조회 */
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../modules/schedule.js';
+import { changeField } from '../modules/activity.js';
 import client from '../lib/api/client.js';
 
-const BoardList = () => {
+const ActivityList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
+  //1) activity 데이터를 받아옴
 useEffect(() => {
   const FetchData = async () => {
     setLoading(true);
     try {
-      const resp = await client.get('schedule/list',);
-      setBoardList(resp.data.schedules);
+      const resp = await client.get('activity/list');
+      setBoardList(resp.data.activities);
     }  catch (e) {
       console.log(e);
     }
@@ -26,7 +28,7 @@ useEffect(() => {
 }, []);
 
 if (loading){
-  return <BoardList>Loading...</BoardList>;
+  return <ActivityList>Loading...</ActivityList>;
 }
 
 if (!boardList) {
@@ -34,20 +36,20 @@ return null;
 }
 
   const MoveToWrite = () => {
-    navigate('/write');
+    navigate('/ActivityWrite');
   };
 
   return (
     <div>
       게시판 목록이 나오는 곳입니다.
       <ul>
-        {boardList && boardList.map((schedule) => (
-            // 4) map 함수로 데이터 출력
-            <li key={schedule._id}>
+        {boardList && boardList.map((activity) => (
+            // 2) map 함수로 데이터 출력
+            <li key={activity._id}>
               <Link onClick={()=>{
-                dispatch(changeField({ form: 'activities', value:schedule })) //5) 리덕스 activities에 클릭된 활동 데이터를 삽입 
-            }} to={`/board/${schedule._id}`}>{schedule.scheduleName}</Link>  
-            </li> // 클릭한 활동 주소로 이동
+                dispatch(changeField({ form: 'activities', value:activity })) //3) 리덕스 activities에 클릭된 활동 데이터를 삽입 
+            }} to={`/Activity/${activity._id}`}>{activity.activityName}</Link>  
+            </li> // 4)클릭한 활동 주소로 이동
           ))}
       </ul>
       <div>
@@ -57,4 +59,4 @@ return null;
   );
 };
 
-export default BoardList;
+export default ActivityList;

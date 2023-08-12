@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import authSlice from './modules/auth';
-import scheduleSlice from './modules/schedule';
+import scheduleSlice from './modules/activity';
 
 import Header from './layout/Header';
 

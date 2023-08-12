@@ -1,29 +1,24 @@
-/* BoardWrite.js 게시물 추가 */
+/* ActivityUpdate.js 게시물 수정 */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useSubmit from '../modules/queries/boardWriteQuery';
+import useUpdate from '../modules/queries/ActivityUpdateQuery';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector } from 'react-redux';
+import { activitySelector } from '../modules/activity';
 
-const BoardWrite = () => {
+const BoardUpdate = () => {
   const navigate = useNavigate();
 
-  const { mutate } = useSubmit();
+  const { mutate } = useUpdate();
 
-  const [board, setBoard] = useState({ // 1)보드값을 ""로 초기화
-    scheduleName: "" ,
-    groupName: "" ,
-    field: "" ,
-    category: "" ,
-    area: "" ,
-    content: "" ,
-  });
+  const [board, setBoard] = useState(useSelector( activitySelector )); //1) 게시물 수정 전 활동 값을 가져옴 
 
-  const [startedAt, setStartedAt] = useState(new Date());
-  const [endedAt, setEndedAt] = useState(new Date());
+  const [startedAt, setStartedAt] = useState(new Date(board.startedAt));
+  const [endedAt, setEndedAt] = useState(new Date(board.endedAt));
 
   const onChange = (event) => {
-    const { value, name } = event.target; //2) event.target에서 name과 value만 가져오기
+    const { value, name } = event.target; //2) event.target에서 name과 value만 가져옴
 
     setBoard({    // 3) 해당 name에 value값 할당
       ...board,
@@ -33,12 +28,12 @@ const BoardWrite = () => {
   };
 
   const backToList = () => { //4) 게시물 리스트 화면으로 돌아가기
-    navigate('/board');
+    navigate('/Activity');
   };
 
-  const onSubmit = (e) =>{ //폼을 제출하여 게시물 등록하기 위한 mutate 호출
+  const onUpdate = (e) =>{ //5)폼을 제출하여 게시물 등록하기 위한 mutate 호출
     e.preventDefault();
-    const scheduleName = e.target.scheduleName.value;
+    const activityName = e.target.activityName.value;
     const groupName = e.target.groupName.value;
     const field = e.target.field.value;
     const category = e.target.category.value;
@@ -50,23 +45,23 @@ const BoardWrite = () => {
     const start = startedAt.toISOString();
     const ended = endedAt.toISOString();
 
-    console.log("onSubmit : ", scheduleName," : ", groupName," : ", field," : ", category," : ", area," : ", content," : ", start," : ", ended)
+    console.log("onSubmit : ", activityName," : ", groupName," : ", field," : ", category," : ", area," : ", content," : ", start," : ", ended)
 
-     if (scheduleName  && groupName && field && category && area && content ) {
-    mutate({scheduleName,  groupName, field, category, area, content, start, ended})
+     if (activityName  && groupName && field && category && area  ) {
+    mutate({activityName,  groupName, field, category, area, content, start, ended})
     }
   };
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onUpdate}>
       <div>
         <span>활동 제목</span>
         <input
           type="String"
-          name="scheduleName"
+          name="activityName"
           onChange={onChange}
-          value={board.scheduleName}
+          value={board.activityName}
           required
         />
       </div>
@@ -115,7 +110,7 @@ const BoardWrite = () => {
           name="content"
           onChange={onChange}
           value={board.content}
-          required
+
         />
       </div>
 
@@ -155,4 +150,4 @@ const BoardWrite = () => {
   );
 };
 
-export default BoardWrite;
+export default BoardUpdate;
