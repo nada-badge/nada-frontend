@@ -28,7 +28,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
 
   const onChange = (e) => {
     dispatchField(e);
-    checkNumber(phoneNumber);
+    checkNumber(e.target.value);
     setOpacity(error ? 0.3 : 1);
   };
 
