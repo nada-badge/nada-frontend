@@ -10,7 +10,7 @@ import Caution from '../../../components/auth/Caution';
 
 const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const [error, setError] = useState(null);
-  const [opacity, setOpacity] = useState(0.3);
+  const [disabled, setDisabled] = useState(true);
 
   const phoneNumber = useSelector(phoneNumberSelector);
 
@@ -25,11 +25,11 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const onChange = (e) => {
     dispatchField(e);
     checkNumber(e.target.value);
-    setOpacity(error ? 0.3 : 1);
+    setDisabled(error);
   };
 
   useEffect(() => {
-    setOpacity(phoneNumber !== '' ? (error ? 0.3 : 1) : 0.3);
+    setDisabled(phoneNumber !== '' ? error : true);
   }, [error, phoneNumber]);
 
   return (
@@ -49,7 +49,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
         </div>
       </Form>
 
-      <Button form={order} text={'다음'} opacity={opacity} />
+      <Button form={order} text={'다음'} disabled={disabled} />
     </div>
   );
 };
