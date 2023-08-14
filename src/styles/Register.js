@@ -151,6 +151,8 @@ export const Form = styled.form`
 export const CheckListBox = styled.div`
   height: 21px;
   position: relative;
+  display: inline-flex;
+  gap: 12px;
 `;
 
 export const CheckList = styled.div`
@@ -158,8 +160,6 @@ export const CheckList = styled.div`
   display: inline-flex;
   gap: 8px;
   justify-content: center;
-  left: ${(props) => props.$position.left || 0}px;
-  position: absolute;
 
   & > img {
     height: 11.09px;
