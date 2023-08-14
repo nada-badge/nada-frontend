@@ -11,6 +11,10 @@ const ButtonBox = styled.button`
     width: 345px;
     border: none;
 
+    &:disabled {
+      opacity: 0.3;
+    }
+
     & > div {
       color: var(--myspec-gray-scalewhite);
       font-family: var(--title-01-font-family);
@@ -29,9 +33,9 @@ const ButtonBox = styled.button`
   }
 `;
 
-const Button = ({ form, text, opacity }) => {
+const Button = ({ form, text, disabled }) => {
   return (
-    <ButtonBox form={form} style={{ opacity }} disabled={opacity === 0.3}>
+    <ButtonBox form={form} disabled={disabled}>
       <div>{text}</div>
     </ButtonBox>
   );

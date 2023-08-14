@@ -17,7 +17,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
     passwordConfirm: [{ id: 'same', text: '비밀번호 일치', checked: false }],
   });
   // 버튼 투명도, 비활성화 상태 관리
-  const [opacity, setOpacity] = useState(0.3);
+  const [disabled, setDisabled] = useState(true);
 
   // password 상태 가져오기
   const { password, passwordConfirm } = useSelector(passwordSelector);
@@ -65,7 +65,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
       true,
     );
     const isPasswordConfirmChecked = check.passwordConfirm[0].checked;
-    setOpacity(isAllPasswordChecked && isPasswordConfirmChecked ? 1 : 0.3);
+    setDisabled(!(isAllPasswordChecked && isPasswordConfirmChecked));
   }, [check]);
 
   // 닉네임에서 뒤로가기시, 이전 비밀번호와 check값과 동일하게
@@ -78,7 +78,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
         true,
       );
       const isPasswordConfirmChecked = check.passwordConfirm[0].checked;
-      setOpacity(isAllPasswordChecked && isPasswordConfirmChecked ? 1 : 0.3);
+      setDisabled(!(isAllPasswordChecked && isPasswordConfirmChecked));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -114,7 +114,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
           <CheckList list={check.passwordConfirm} />
         </div>
       </Form>
-      <Button form={order} text={'다음'} opacity={opacity} />
+      <Button form={order} text={'다음'} disabled={disabled} />
     </div>
   );
 };
