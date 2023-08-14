@@ -51,6 +51,20 @@ export const InputWrapper = styled.div`
   }
 `;
 
+export const ErrorMessage = styled.div`
+  color: #000000;
+  font-family: var(--body-02-font-family);
+  font-size: var(--body-02-font-size);
+  font-style: var(--body-02-font-style);
+  font-weight: var(--body-02-font-weight);
+  letter-spacing: var(--body-02-letter-spacing);
+  line-height: var(--body-02-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+`;
+
 // ---------------------PasswordForm.js
 
 export const Form = styled.form`
