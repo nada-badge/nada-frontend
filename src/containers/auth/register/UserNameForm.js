@@ -34,7 +34,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const { refetch } = useQuery({
     queryKey: ['getUserName'],
     queryFn: async () => {
-      const { data } = await client.get('user/checkUserName', {
+      const { data } = await client.get('user/userName', {
         params: { userName: userName },
       });
       return data.result;
