@@ -2,9 +2,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../../modules/auth';
-import { Title, InputWrapper, Form } from '../../../styles/Register';
+import { InputWrapper, Form } from '../../../styles/Register';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import Button from '../../../components/auth/Button';
+import Title from '../../../components/auth/Title';
 const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   // error 메세지 관리하기
   const [check, setCheck] = useState({
@@ -84,13 +85,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
 
   return (
     <div>
-      <Title>
-        <h1>
-          사용할 비밀번호를
-          <br />
-          입력해 주세요
-        </h1>
-      </Title>
+      <Title text={'사용할 비밀번호를'} />
       <Form onSubmit={onSubmit} id={order}>
         <div>
           <InputWrapper $position>
