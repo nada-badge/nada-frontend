@@ -1,16 +1,12 @@
 import { useCallback } from 'react';
 import { useState } from 'react';
-import {
-  Form,
-  InputWrapper,
-  Caution,
-  ErrorMessage,
-} from '../../../styles/Register';
+import { Form, InputWrapper } from '../../../styles/Register';
 import { useEffect } from 'react';
 import { phoneNumberSelector } from '../../../modules/auth';
 import { useSelector } from 'react-redux';
 import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
+import Caution from '../../../components/auth/Caution';
 
 const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const [error, setError] = useState(null);
@@ -49,17 +45,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
               required
             />
           </InputWrapper>
-          {error && (
-            <Caution $position={{ top: 182 }}>
-              <div className="ImagWrapper">
-                <img
-                  alt="Img"
-                  src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/-.svg"
-                />
-              </div>
-              <ErrorMessage>{error}</ErrorMessage>
-            </Caution>
-          )}
+          {error && <Caution error={error} />}
         </div>
       </Form>
 
