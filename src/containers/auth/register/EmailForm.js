@@ -11,8 +11,8 @@ import {
   InputWrapper,
   Caution,
   ErrorMessage,
-  ButtonBox,
 } from '../../../styles/Register';
+import Button from '../../../components/auth/Button';
 
 const errorMessages = {
   email_format: '이메일 형식이 올바르지 않아요.',
@@ -92,12 +92,7 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
           )}
         </div>
       </Form>
-
-      <div>
-        <ButtonBox form={order}>
-          <div>다음</div>
-        </ButtonBox>
-      </div>
+      <Button form={order} text={'다음'} />
     </div>
   );
 };

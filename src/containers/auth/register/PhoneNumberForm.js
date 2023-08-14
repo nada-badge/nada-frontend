@@ -6,11 +6,11 @@ import {
   InputWrapper,
   Caution,
   ErrorMessage,
-  ButtonBox,
 } from '../../../styles/Register';
 import { useEffect } from 'react';
 import { phoneNumberSelector } from '../../../modules/auth';
 import { useSelector } from 'react-redux';
+import Button from '../../../components/auth/Button';
 
 const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const [error, setError] = useState(null);
@@ -69,11 +69,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
         </div>
       </Form>
 
-      <div>
-        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
-          <div>다음</div>
-        </ButtonBox>
-      </div>
+      <Button form={order} text={'다음'} opacity={opacity} />
     </div>
   );
 };
