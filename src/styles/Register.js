@@ -38,24 +38,6 @@ export const Div = styled.div`
   width: 345px;
 `;
 
-export const Title = styled.div`
-  height: 80px;
-  position: relative;
-  width: 345px;
-  margin-bottom: 46px;
-
-  & > h1 {
-    color: #000000;
-    font-family: 'Pretendard-Bold', Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 72px;
-    letter-spacing: 0;
-    line-height: 36px;
-    margin: 0;
-  }
-`;
-
 export const InputWrapper = styled.div`
   border: 2px solid;
   border-color: var(--myspec-primaryblue-1);
@@ -104,7 +86,6 @@ export const Caution = styled.div`
   }
 `;
 
-
 // ---------------------PasswordForm.js
 
 export const Form = styled.form`
@@ -118,26 +99,4 @@ export const Form = styled.form`
     flex-wrap: wrap;
     gap: 12px;
   }
-`;
-
-// --------------------TeamTypeForm.js
-
-export const ListWrapper = styled.div`
-  align-items: flex-start;
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-  gap: 8px;
-`;
-
-export const TeamText = styled.div`
-  color: #000000;
-  font-family: var(--title-01-font-family);
-  font-size: var(--title-01-font-size);
-  font-style: var(--title-01-font-style);
-  font-weight: var(--title-01-font-weight);
-  letter-spacing: var(--title-01-letter-spacing);
-  line-height: var(--title-01-line-height);
-  white-space: nowrap;
-  position: relative;
 `;
