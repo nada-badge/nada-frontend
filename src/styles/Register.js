@@ -168,3 +168,25 @@ export const CheckList = styled.div`
     width: 16.36px;
   }
 `;
+
+// --------------------TeamTypeForm.js
+
+export const ListWrapper = styled.div`
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  gap: 8px;
+`;
+
+export const TeamText = styled.div`
+  color: #000000;
+  font-family: var(--title-01-font-family);
+  font-size: var(--title-01-font-size);
+  font-style: var(--title-01-font-style);
+  font-weight: var(--title-01-font-weight);
+  letter-spacing: var(--title-01-letter-spacing);
+  line-height: var(--title-01-line-height);
+  white-space: nowrap;
+  position: relative;
+`;
