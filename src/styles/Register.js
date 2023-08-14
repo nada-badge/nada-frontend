@@ -148,27 +148,6 @@ export const Form = styled.form`
   }
 `;
 
-export const CheckListBox = styled.div`
-  height: 21px;
-  position: relative;
-  display: inline-flex;
-  gap: 12px;
-`;
-
-export const CheckList = styled.div`
-  align-items: center;
-  display: inline-flex;
-  gap: 8px;
-  justify-content: center;
-
-  & > img {
-    height: 11.09px;
-    margin-left: -0.67px;
-    position: relative;
-    width: 16.36px;
-  }
-`;
-
 // --------------------TeamTypeForm.js
 
 export const ListWrapper = styled.div`

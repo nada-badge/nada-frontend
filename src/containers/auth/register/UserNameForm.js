@@ -4,12 +4,11 @@ import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { userNameSelector } from '../../../modules/auth';
 import { produce } from 'immer';
+import CheckList from '../../../components/auth/CheckList/CheckList';
 import {
   Title,
   InputWrapper,
   Form,
-  CheckListBox,
-  CheckList,
   ErrorMessage,
   Caution,
   ButtonBox,
@@ -26,7 +25,10 @@ const errorMessages = {
 
 const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
-  const [check, setCheck] = useState({ length: false, text: false }); // error 메세지 관리
+  const [check, setCheck] = useState([
+    { id: 'userName_length', text: '1-8자', checked: false },
+    { id: 'userName_words', text: '한글 또는 영문', checked: false },
+  ]); // error 메세지 관리
 
   const userName = useSelector(userNameSelector); // userName 상태 가져오기
 
@@ -44,9 +46,9 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const checkUserName = useCallback(() => {
     setCheck(
       produce((draft) => {
-        draft.length = userName.length >= 1 && userName.length <= 8;
+        draft[0].checked = userName.length >= 1 && userName.length <= 8;
         const textRegex = new RegExp(/^[가-힣a-zA-Z]+$/);
-        draft.text = textRegex.test(userName);
+        draft[1].checked = textRegex.test(userName);
       }),
     );
   }, [userName]);
@@ -60,9 +62,11 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const handleFormSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-      const { length, text } = check;
-      console.log('length && text', length, text);
-      if (length && text) {
+      const isAllUserNameChecked = check.reduce(
+        (acc, current) => acc && current.checked,
+        true,
+      );
+      if (isAllUserNameChecked) {
         // 닉네임이 유효할때, 중복 검사 진행
         const { data } = await refetch();
         setError(data ? null : errorMessages.userName_duplicate);
@@ -79,8 +83,6 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   useEffect(() => {
     if (userName) {
       checkUserName();
-      const { length, text } = check;
-      console.log(length, text);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -105,40 +107,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
               required
             />
           </InputWrapper>
-          <CheckListBox>
-            <CheckList $position>
-              {check.length ? (
-                <img
-                  className="check"
-                  alt="Check"
-                  src="https://generation-sessions.s3.amazonaws.com/38b27749be3d915368d8e6ccd4ebc802/img/check-2.svg"
-                />
-              ) : (
-                <img
-                  className="check"
-                  alt="Check"
-                  src="https://generation-sessions.s3.amazonaws.com/a978d180a1bb500ecf9724a4add382cf/img/check-3.svg"
-                />
-              )}
-              <ErrorMessage>1-8자</ErrorMessage>
-            </CheckList>
-            <CheckList $position={{ left: 80 }}>
-              {check.text ? (
-                <img
-                  className="check"
-                  alt="Check"
-                  src="https://generation-sessions.s3.amazonaws.com/38b27749be3d915368d8e6ccd4ebc802/img/check-2.svg"
-                />
-              ) : (
-                <img
-                  className="check"
-                  alt="Check"
-                  src="https://generation-sessions.s3.amazonaws.com/a978d180a1bb500ecf9724a4add382cf/img/check-3.svg"
-                />
-              )}
-              <ErrorMessage>한글 또는 영문</ErrorMessage>
-            </CheckList>
-          </CheckListBox>
+          <CheckList list={check} />
         </div>
       </Form>
       {error && (
