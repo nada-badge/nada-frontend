@@ -22,16 +22,14 @@ const ListWrapper = styled.div`
   flex-direction: column;
   position: relative;
   gap: 8px;
-  left: 0;
 `;
 
-const Title = styled.div`
+const TeamText = styled.div`
   color: #000000;
   font-family: var(--title-01-font-family);
   font-size: var(--title-01-font-size);
   font-style: var(--title-01-font-style);
   font-weight: var(--title-01-font-weight);
-  height: 27px;
   letter-spacing: var(--title-01-letter-spacing);
   line-height: var(--title-01-line-height);
   white-space: nowrap;
@@ -42,14 +40,16 @@ const TeamTypeList = () => {
   return (
     <Form>
       <div>
-        <Title>학생 조직</Title>
+        <TeamText>학생 조직</TeamText>
         <ListWrapper>
           {StudentTeam.map((team) => (
             <TeamTypeItem team={team} key={team.id} />
           ))}
         </ListWrapper>
+      </div>
 
-        <Title>기관</Title>
+      <div>
+        <TeamText>기관</TeamText>
         <ListWrapper>
           {Institute.map((team) => (
             <TeamTypeItem team={team} key={team.id} />
