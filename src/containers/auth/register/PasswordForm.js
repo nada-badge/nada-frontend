@@ -2,8 +2,9 @@ import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { passwordSelector } from '../../../modules/auth';
-import { Title, InputWrapper, Form, ButtonBox } from '../../../styles/Register';
+import { Title, InputWrapper, Form } from '../../../styles/Register';
 import CheckList from '../../../components/auth/CheckList/CheckList';
+import Button from '../../../components/auth/Button';
 const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   // error 메세지 관리하기
   const [check, setCheck] = useState({
@@ -118,11 +119,7 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
           <CheckList list={check.passwordConfirm} />
         </div>
       </Form>
-      <div>
-        <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
-          <div>다음</div>
-        </ButtonBox>
-      </div>
+      <Button form={order} text={'다음'} opacity={opacity} />
     </div>
   );
 };

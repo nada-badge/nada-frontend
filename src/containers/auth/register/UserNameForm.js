@@ -11,8 +11,8 @@ import {
   Form,
   ErrorMessage,
   Caution,
-  ButtonBox,
 } from '../../../styles/Register';
+import Button from '../../../components/auth/Button';
 
 const inputGuide = {
   team: '단체 이름을',
@@ -121,11 +121,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
           <ErrorMessage>{error}</ErrorMessage>
         </Caution>
       )}
-      <div>
-        <ButtonBox form={order}>
-          <div>다음</div>
-        </ButtonBox>
-      </div>
+      <Button form={order} text={'다음'} />
     </div>
   );
 };
