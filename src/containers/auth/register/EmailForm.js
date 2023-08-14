@@ -36,7 +36,7 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   const { refetch } = useQuery({
     queryKey: ['getEmail'],
     queryFn: async () => {
-      const { data } = await client.get('user/checkEmailOverlap', {
+      const { data } = await client.get('user/email', {
         params: { email: email },
       });
       return data.result;
