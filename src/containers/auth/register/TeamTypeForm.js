@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from '../../../styles/Register';
-import TeamTypeList from '../../../components/auth/TeamList/TeamTypeList';
+import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 
 export const TeamTypeForm = () => {
   return (
