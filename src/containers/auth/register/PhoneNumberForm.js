@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { useState } from 'react';
 import {
   Form,
-  Title,
   InputWrapper,
   Caution,
   ErrorMessage,
@@ -11,6 +10,7 @@ import { useEffect } from 'react';
 import { phoneNumberSelector } from '../../../modules/auth';
 import { useSelector } from 'react-redux';
 import Button from '../../../components/auth/Button';
+import Title from '../../../components/auth/Title';
 
 const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
   const [error, setError] = useState(null);
@@ -38,13 +38,7 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
 
   return (
     <div>
-      <Title>
-        <h1>
-          휴대폰 번호를
-          <br />
-          입력해 주세요
-        </h1>
-      </Title>
+      <Title text={'휴대폰 번호를'} />
       <Form onSubmit={onSubmit} id={order}>
         <div>
           <InputWrapper $position>

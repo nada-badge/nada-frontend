@@ -7,12 +7,12 @@ import { useCallback } from 'react';
 
 import {
   Form,
-  Title,
   InputWrapper,
   Caution,
   ErrorMessage,
 } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
+import Title from '../../../components/auth/Title';
 
 const errorMessages = {
   email_format: '이메일 형식이 올바르지 않아요.',
@@ -61,13 +61,7 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
 
   return (
     <div>
-      <Title>
-        <h1>
-          {type === 'team' ? '단체 ' : ''}이메일을
-          <br />
-          입력해 주세요
-        </h1>
-      </Title>
+      <Title text={(type === 'team' ? '단체 ' : '').concat('이메일을')} />
       <Form onSubmit={handleFormSubmit} id={order}>
         <div>
           <InputWrapper $position>

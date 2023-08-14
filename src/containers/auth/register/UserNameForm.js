@@ -6,13 +6,13 @@ import { userNameSelector } from '../../../modules/auth';
 import { produce } from 'immer';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import {
-  Title,
   InputWrapper,
   Form,
   ErrorMessage,
   Caution,
 } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
+import Title from '../../../components/auth/Title';
 
 const inputGuide = {
   team: '단체 이름을',
@@ -89,13 +89,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
 
   return (
     <div>
-      <Title>
-        <h1>
-          {inputGuide[type]}
-          <br />
-          입력해 주세요
-        </h1>
-      </Title>
+      <Title text={inputGuide[type]} />
       <Form onSubmit={handleFormSubmit} id={order}>
         <div>
           <InputWrapper $position>
