@@ -55,19 +55,20 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
               required
             />
           </InputWrapper>
+          {error && (
+            <Caution $position={{ top: 182 }}>
+              <div className="ImagWrapper">
+                <img
+                  alt="Img"
+                  src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/-.svg"
+                />
+              </div>
+              <ErrorMessage>{error}</ErrorMessage>
+            </Caution>
+          )}
         </div>
       </Form>
-      {error && (
-        <Caution $position={{ top: 182 }}>
-          <div className="ImagWrapper">
-            <img
-              alt="Img"
-              src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/-.svg"
-            />
-          </div>
-          <ErrorMessage>{error}</ErrorMessage>
-        </Caution>
-      )}
+
       <div>
         <ButtonBox form={order} style={{ opacity }} disabled={opacity !== 1}>
           <div>다음</div>

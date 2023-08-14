@@ -40,10 +40,9 @@ export const Div = styled.div`
 
 export const Title = styled.div`
   height: 80px;
-  left: 0;
-  position: absolute;
-  top: 0;
+  position: relative;
   width: 345px;
+  margin-bottom: 46px;
 
   & > h1 {
     color: #000000;
@@ -51,11 +50,9 @@ export const Title = styled.div`
     font-size: 24px;
     font-weight: 700;
     height: 72px;
-    left: 0;
     letter-spacing: 0;
     line-height: 36px;
-    position: absolute;
-    top: 7px;
+    margin: 0;
   }
 `;
 
@@ -64,10 +61,8 @@ export const InputWrapper = styled.div`
   border-color: var(--myspec-primaryblue-1);
   border-radius: 10px;
   height: 44px;
-  left: ${(props) => props.$position.left || 0}px;
   overflow: hidden;
-  position: absolute;
-  top: ${(props) => props.$position.top || 0}px;
+  position: relative;
   width: 345px;
 
   & > input {
@@ -92,9 +87,6 @@ export const Caution = styled.div`
   align-items: center;
   display: inline-flex;
   gap: 8px;
-  left: 0;
-  position: absolute;
-  top: ${(props) => props.$position.top || 0}px;
 
   & > .ImagWrapper {
     border: 2px solid;
@@ -144,18 +136,21 @@ export const ButtonBox = styled.button`
 // ---------------------PasswordForm.js
 
 export const Form = styled.form`
-  & > :nth-child(1) {
-    position: relative;
-    top: 126px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  position: relative;
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 `;
 
 export const CheckListBox = styled.div`
   height: 21px;
-  left: 0;
-  position: absolute;
-  top: 56px;
-  width: 323px;
+  position: relative;
 `;
 
 export const CheckList = styled.div`
@@ -165,7 +160,6 @@ export const CheckList = styled.div`
   justify-content: center;
   left: ${(props) => props.$position.left || 0}px;
   position: absolute;
-  top: ${(props) => props.$position.top || 0}px;
 
   & > img {
     height: 11.09px;

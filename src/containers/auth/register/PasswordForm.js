@@ -153,37 +153,36 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
               <ErrorMessage>특수문자 포함</ErrorMessage>
             </CheckList>
           </CheckListBox>
-
-          <div>
-            <InputWrapper $position={{ top: 109 }}>
-              <input
-                type="password"
-                name="passwordConfirm"
-                placeholder="한 번 더 입력해주세요."
-                onChange={dispatchField}
-                value={passwordConfirm}
-                required
-              />
-            </InputWrapper>
-            <div>
-              <CheckList $position={{ top: 165 }}>
-                {check.passwordConfirm ? (
-                  <img
-                    className="check"
-                    alt="Check"
-                    src="https://generation-sessions.s3.amazonaws.com/38b27749be3d915368d8e6ccd4ebc802/img/check-2.svg"
-                  />
-                ) : (
-                  <img
-                    className="check"
-                    alt="Check"
-                    src="https://generation-sessions.s3.amazonaws.com/a978d180a1bb500ecf9724a4add382cf/img/check-3.svg"
-                  />
-                )}
-                <ErrorMessage>비밀번호 일치</ErrorMessage>
-              </CheckList>
-            </div>
-          </div>
+        </div>
+        <div>
+          <InputWrapper $position={{ top: 109 }}>
+            <input
+              type="password"
+              name="passwordConfirm"
+              placeholder="한 번 더 입력해주세요."
+              onChange={dispatchField}
+              value={passwordConfirm}
+              required
+            />
+          </InputWrapper>
+          <CheckListBox>
+            <CheckList $position={{ top: 165 }}>
+              {check.passwordConfirm ? (
+                <img
+                  className="check"
+                  alt="Check"
+                  src="https://generation-sessions.s3.amazonaws.com/38b27749be3d915368d8e6ccd4ebc802/img/check-2.svg"
+                />
+              ) : (
+                <img
+                  className="check"
+                  alt="Check"
+                  src="https://generation-sessions.s3.amazonaws.com/a978d180a1bb500ecf9724a4add382cf/img/check-3.svg"
+                />
+              )}
+              <ErrorMessage>비밀번호 일치</ErrorMessage>
+            </CheckList>
+          </CheckListBox>
         </div>
       </Form>
       <div>
