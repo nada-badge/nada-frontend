@@ -5,14 +5,10 @@ import client from '../../../lib/api/client';
 import { userNameSelector } from '../../../modules/auth';
 import { produce } from 'immer';
 import CheckList from '../../../components/auth/CheckList/CheckList';
-import {
-  InputWrapper,
-  Form,
-  ErrorMessage,
-  Caution,
-} from '../../../styles/Register';
+import { InputWrapper, Form } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
+import Caution from '../../../components/auth/Caution';
 
 const inputGuide = {
   team: '단체 이름을',
@@ -102,19 +98,9 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
             />
           </InputWrapper>
           <CheckList list={check} />
+          {error && <Caution error={error} />}
         </div>
       </Form>
-      {error && (
-        <Caution $position={{ top: 215 }}>
-          <div className="ImagWrapper">
-            <img
-              alt="Img"
-              src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/-.svg"
-            />
-          </div>
-          <ErrorMessage>{error}</ErrorMessage>
-        </Caution>
-      )}
       <Button form={order} text={'다음'} />
     </div>
   );

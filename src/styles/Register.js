@@ -14,20 +14,6 @@ export const Frame = styled.div`
   }
 `;
 
-export const ErrorMessage = styled.div`
-  color: #000000;
-  font-family: var(--body-02-font-family);
-  font-size: var(--body-02-font-size);
-  font-style: var(--body-02-font-style);
-  font-weight: var(--body-02-font-weight);
-  letter-spacing: var(--body-02-letter-spacing);
-  line-height: var(--body-02-line-height);
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-`;
-
 // -----------EmailForm.js
 
 export const Div = styled.div`
@@ -62,27 +48,6 @@ export const InputWrapper = styled.div`
     white-space: nowrap;
     border: none;
     outline: none;
-  }
-`;
-
-export const Caution = styled.div`
-  align-items: center;
-  display: inline-flex;
-  gap: 8px;
-
-  & > .ImagWrapper {
-    border: 2px solid;
-    border-color: #f74646;
-    border-radius: 10px;
-    height: 20px;
-    position: relative;
-    width: 20px;
-    display: flex;
-  }
-
-  & > div > img {
-    margin: auto;
-    display: block;
   }
 `;
 
