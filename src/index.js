@@ -8,6 +8,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import authSlice from './modules/auth';
 import scheduleSlice from './modules/schedule';
 import './styles/common.scss';
+import { Mobile, PC } from './styles/Responsive';
 
 import Header from './layout/Header';
 
@@ -21,8 +22,14 @@ const store = configureStore({
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Header />
-      <App />
+      <Mobile>
+        <Header />
+        <App />
+      </Mobile>
+      <PC>
+        <Header />
+        <App />
+      </PC>
     </BrowserRouter>
   </Provider>,
 );
