@@ -1,0 +1,19 @@
+.headers{
+    top: 0;
+    left: 0;
+    right: 0;
+   width: 100%;
+  }
+
+  
+  .left{
+    width: 25%;
+  }
+
+  .center{
+    width: 50%;
+  }
+
+  .right{
+    width: 25%;
+  }

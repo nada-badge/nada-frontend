@@ -1,13 +1,13 @@
 import React from "react";
 
-const calendar = () => {
+const communityy = () => {
     return(
         <div>
-            calendar 입니다.
+            Community 자식 입니다.
         </div>
     )
     
     }
     
-export default calendar;
+export default communityy;
     
