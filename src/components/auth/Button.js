@@ -33,9 +33,9 @@ const ButtonBox = styled.button`
   }
 `;
 
-const Button = ({ form, text, disabled }) => {
+const Button = ({ form, text, disabled, style }) => {
   return (
-    <ButtonBox form={form} disabled={disabled}>
+    <ButtonBox form={form} disabled={disabled} style={style}>
       <div>{text}</div>
     </ButtonBox>
   );
