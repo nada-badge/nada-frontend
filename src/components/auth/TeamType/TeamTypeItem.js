@@ -34,6 +34,9 @@ const VectorWrapper = styled.div`
   top: 10px;
   width: 24px;
   background-color: lightgray;
+  .checked & {
+    background-color: var(--myspec-primarymint-2);
+  }
 
   & > img {
     height: 9px;
@@ -44,11 +47,14 @@ const VectorWrapper = styled.div`
   }
 `;
 
-const TeamTypeItem = ({ team }) => {
+const TeamTypeItem = ({ team, onClick }) => {
   const { id, text, checked } = team;
 
   return (
-    <ItemWrapper className={cn('checkbox', { checked })}>
+    <ItemWrapper
+      className={cn('checkbox', { checked })}
+      onClick={() => onClick(id)}
+    >
       <div className="text">{text}</div>
       <VectorWrapper>
         <img
