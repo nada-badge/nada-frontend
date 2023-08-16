@@ -1,6 +1,5 @@
 import TeamTypeItem from './TeamTypeItem';
 import styled from 'styled-components';
-import { useCallback, useState } from 'react';
 
 const ListWrapper = styled.div`
   align-items: flex-start;
@@ -22,30 +21,7 @@ const TeamText = styled.div`
   position: relative;
 `;
 
-const TeamTypeList = () => {
-  const [teamType, setTeamType] = useState([
-    { id: 11, text: '교내 동아리', checked: false },
-    { id: 12, text: '연합 동아리', checked: false },
-    { id: 13, text: '학회', checked: false },
-    { id: 14, text: '학과', checked: false },
-    { id: 15, text: '학생회', checked: false },
-    { id: 21, text: '공공기관', checked: false },
-    { id: 22, text: '사기업', checked: false },
-  ]);
-
-  const onClick = useCallback(
-    (id) => {
-      setTeamType(
-        teamType.map((team) =>
-          id === team.id
-            ? { ...team, checked: !team.checked }
-            : { ...team, checked: false },
-        ),
-      );
-    },
-    [teamType],
-  );
-
+const TeamTypeList = ({ teamType, onClick }) => {
   return (
     <div>
       <div>
@@ -54,7 +30,13 @@ const TeamTypeList = () => {
           {teamType.map(
             (team) =>
               team.id < 20 && (
-                <TeamTypeItem team={team} key={team.id} onClick={onClick} />
+                <TeamTypeItem
+                  team={team}
+                  key={team.id}
+                  onClick={() => {
+                    onClick(team.id);
+                  }}
+                />
               ),
           )}
         </ListWrapper>
@@ -66,11 +48,17 @@ const TeamTypeList = () => {
           {teamType.map(
             (team) =>
               team.id > 20 && (
-                <TeamTypeItem team={team} key={team.id} onClick={onClick} />
+                <TeamTypeItem
+                  team={team}
+                  key={team.id}
+                  onClick={() => {
+                    onClick(team.id);
+                  }}
+                />
               ),
           )}
         </ListWrapper>
-      </div
+      </div>
     </div>
   );
 };
