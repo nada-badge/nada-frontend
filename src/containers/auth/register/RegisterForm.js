@@ -22,10 +22,26 @@ const RegisterForm = ({ type }) => {
   const { mutate } = useUserMutation(); // 회원가입 하기 (서버에 전송)
 
   useEffect(() => {
-    dispatch(initializeForm('register')); // 회원가입 접속시, 상태 초기화하기
+    switch (type) {
+      case 'personal':
+        dispatch(initializeForm('register'));
+        break;
+      case 'team':
+        dispatch(initializeForm('team_register'));
+        break;
+      default:
+    }
     // Unmount시, 상태 초기화하기 (=지우기)
     return () => {
-      dispatch(initializeForm('register'));
+      switch (type) {
+        case 'personal':
+          dispatch(initializeForm('register'));
+          break;
+        case 'team':
+          dispatch(initializeForm('team_register'));
+          break;
+        default:
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -57,7 +73,15 @@ const RegisterForm = ({ type }) => {
   // 입력 값을 상태에 반영하기
   const dispatchField = useCallback((e) => {
     const { value, name } = e.target;
-    dispatch(changeField({ form: 'register', key: name, value }));
+    switch (type) {
+      case 'personal':
+        dispatch(changeField({ form: 'register', key: name, value }));
+        break;
+      case 'team':
+        dispatch(changeField({ form: 'team_register', key: name, value }));
+        break;
+      default:
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

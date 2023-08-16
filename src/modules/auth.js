@@ -13,6 +13,15 @@ const initialState = {
     userName: '',
     phoneNumber: '',
   },
+  team_register: {
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    userType: 2,
+    represent: '',
+    phoneNumber: '',
+    category: '',
+  },
 };
 
 const authSlice = createSlice({
@@ -20,6 +29,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     changeField: (state, { payload: { form, key, value } }) => {
+      console.log(form, key, value);
       state[form][key] = value;
     },
     initializeForm: (state, { payload: form }) => {
