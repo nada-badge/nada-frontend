@@ -13,6 +13,7 @@ import useUserMutation from '../../../modules/queries/registerQuery';
 import { useCallback } from 'react';
 import { Frame, Div } from '../../../styles/Register';
 import { TeamTypeForm } from './TeamTypeForm';
+import RepresentForm from './RepresentForm';
 
 const RegisterForm = ({ type }) => {
   const [order, setOrder] = useState(0); // 입력 순서
@@ -50,10 +51,11 @@ const RegisterForm = ({ type }) => {
   const forms = {
     personal: [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm],
     team: [
-      TeamTypeForm,
       EmailForm,
       PasswordForm,
       UserNameForm,
+      TeamTypeForm,
+      RepresentForm,
       PhoneNumberForm,
     ],
   };
