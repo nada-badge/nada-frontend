@@ -10,15 +10,6 @@ import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
-const inputGuide = {
-  team: '단체 이름을',
-  personal: '사용할 닉네임을',
-};
-
-const errorMessages = {
-  userName_duplicate: '중복된 닉네임 입니다.',
-};
-
 const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
   const [check, setCheck] = useState([
@@ -65,7 +56,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
       if (isAllUserNameChecked) {
         // 닉네임이 유효할때, 중복 검사 진행
         const { data } = await refetch();
-        setError(data ? null : errorMessages.userName_duplicate);
+        setError(data ? null : '중복된 닉네임 입니다.');
         if (data) {
           onSubmit(e);
         }
@@ -85,7 +76,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
 
   return (
     <div>
-      <Title text={inputGuide[type]} />
+      <Title text={'사용할 닉네임을'} />
       <Form onSubmit={handleFormSubmit} id={order}>
         <div>
           <InputWrapper $position>
