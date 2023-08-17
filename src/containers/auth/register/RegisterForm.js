@@ -14,35 +14,25 @@ import { useCallback } from 'react';
 import { Frame, Div } from '../../../styles/Register';
 import { TeamTypeForm } from './TeamTypeForm';
 import RepresentForm from './RepresentForm';
+import TeamNameForm from './TeamNameForm';
 
 const RegisterForm = ({ type }) => {
   const [order, setOrder] = useState(0); // 입력 순서
   const dispatch = useDispatch();
-  const register = useSelector(({ auth }) => auth.register);
+  const register = useSelector(({ auth }) => auth[`${type}_register`]);
 
   const { mutate } = useUserMutation(); // 회원가입 하기 (서버에 전송)
 
+  const initializeTypeForm = {
+    team: () => dispatch(initializeForm('team_register')),
+    personal: () => dispatch(initializeForm('personal_register')),
+  };
+
   useEffect(() => {
-    switch (type) {
-      case 'personal':
-        dispatch(initializeForm('register'));
-        break;
-      case 'team':
-        dispatch(initializeForm('team_register'));
-        break;
-      default:
-    }
+    initializeTypeForm[type]();
     // Unmount시, 상태 초기화하기 (=지우기)
     return () => {
-      switch (type) {
-        case 'personal':
-          dispatch(initializeForm('register'));
-          break;
-        case 'team':
-          dispatch(initializeForm('team_register'));
-          break;
-        default:
-      }
+      initializeTypeForm[type]();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -53,7 +43,7 @@ const RegisterForm = ({ type }) => {
     team: [
       EmailForm,
       PasswordForm,
-      UserNameForm,
+      TeamNameForm,
       TeamTypeForm,
       RepresentForm,
       PhoneNumberForm,
@@ -75,15 +65,13 @@ const RegisterForm = ({ type }) => {
   // 입력 값을 상태에 반영하기
   const dispatchField = useCallback((e) => {
     const { value, name } = e.target;
-    switch (type) {
-      case 'personal':
-        dispatch(changeField({ form: 'register', key: name, value }));
-        break;
-      case 'team':
-        dispatch(changeField({ form: 'team_register', key: name, value }));
-        break;
-      default:
-    }
+    const dispatchMap = {
+      team: () =>
+        dispatch(changeField({ form: 'team_register', key: name, value })),
+      personal: () =>
+        dispatch(changeField({ form: 'personal_register', key: name, value })),
+    };
+    dispatchMap[type]();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

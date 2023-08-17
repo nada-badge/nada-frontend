@@ -18,7 +18,7 @@ const errorMessages = {
 const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
 
-  const email = useSelector(emailSelector); // email 상태 가져오기
+  const email = useSelector(emailSelector(type)); // email 상태 가져오기
 
   // email 유효성 검사
   const checkEmail = useCallback(() => {
