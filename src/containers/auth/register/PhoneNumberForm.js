@@ -8,11 +8,11 @@ import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
-const PhoneNumberForm = ({ dispatchField, onSubmit, order }) => {
+const PhoneNumberForm = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
 
-  const phoneNumber = useSelector(phoneNumberSelector);
+  const phoneNumber = useSelector(phoneNumberSelector(type));
 
   const checkNumber = useCallback((phoneNumber) => {
     const NumberRegex = /^01([0|1|6|7|8|9])\d{3,4}\d{4}$/;

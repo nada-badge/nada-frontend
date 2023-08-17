@@ -1,12 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
-import { passwordSelector } from '../../../modules/auth';
+import {
+  passwordSelector,
+  passwordConfirmSelector,
+} from '../../../modules/auth';
 import { InputWrapper, Form } from '../../../styles/Register';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
-const PasswordForm = ({ dispatchField, onSubmit, order }) => {
+const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
   // error 메세지 관리하기
   const [check, setCheck] = useState({
     password: [
@@ -20,7 +23,8 @@ const PasswordForm = ({ dispatchField, onSubmit, order }) => {
   const [disabled, setDisabled] = useState(true);
 
   // password 상태 가져오기
-  const { password, passwordConfirm } = useSelector(passwordSelector);
+  const password = useSelector(passwordSelector(type));
+  const passwordConfirm = useSelector(passwordConfirmSelector(type));
 
   // 비밀번호 유효성 검사
   const checkPassword = useCallback(() => {

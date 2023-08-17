@@ -7,7 +7,7 @@ import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
 const RepresentForm = ({ dispatchField, onSubmit, order, type }) => {
-  const [error, setError] = useState(true); // error 메세지 관리
+  const [error, setError] = useState(null); // error 메세지 관리
 
   const represent = useSelector(representSelector);
 
@@ -18,7 +18,7 @@ const RepresentForm = ({ dispatchField, onSubmit, order, type }) => {
       setError(
         koreanNameRegex.test(represent) ? null : '올바른 이름이 아닙니다.',
       );
-      if (error === null) {
+      if (error === null && represent) {
         onSubmit(e);
       }
     },
