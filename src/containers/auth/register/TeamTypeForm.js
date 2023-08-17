@@ -3,6 +3,8 @@ import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 import Title from '../../../components/auth/Title';
 import { Form } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
+import { useDispatch } from 'react-redux';
+import { changeField } from '../../../modules/auth';
 
 export const TeamTypeForm = ({ order, onSubmit }) => {
   const [teamType, setTeamType] = useState([
@@ -15,6 +17,7 @@ export const TeamTypeForm = ({ order, onSubmit }) => {
     { id: 22, text: '사기업', checked: false },
   ]);
 
+  const dispatch = useDispatch();
   const onClick = useCallback(
     (id) => {
       setTeamType(
@@ -24,7 +27,15 @@ export const TeamTypeForm = ({ order, onSubmit }) => {
             : { ...team, checked: false },
         ),
       );
+      dispatch(
+        changeField({
+          form: 'team_register',
+          key: 'category',
+          value: id,
+        }),
+      );
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [teamType],
   );
 
