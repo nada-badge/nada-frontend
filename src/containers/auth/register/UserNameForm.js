@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
-import { userNameSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/auth';
 import { produce } from 'immer';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import { InputWrapper, Form } from '../../../styles/Register';
@@ -17,7 +17,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
     { id: 'userName_words', text: '한글 또는 영문', checked: false },
   ]); // error 메세지 관리
 
-  const userName = useSelector(userNameSelector); // userName 상태 가져오기
+  const userName = useSelector(authSelector(type, 'userName')); // userName 상태 가져오기
 
   // userName 중복 검사하기
   const { refetch } = useQuery({

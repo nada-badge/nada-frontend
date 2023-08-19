@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { representSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/auth';
 import { InputWrapper, Form } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
@@ -9,7 +9,7 @@ import Caution from '../../../components/auth/Caution';
 const RepresentForm = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
 
-  const represent = useSelector(representSelector);
+  const represent = useSelector(authSelector(type, 'represent'));
 
   const handleFormSubmit = useCallback(
     (e) => {
