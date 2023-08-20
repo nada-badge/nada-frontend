@@ -8,7 +8,10 @@ import EmailForm from './EmailForm';
 import PasswordForm from './PasswordForm';
 import UserNameForm from './UserNameForm';
 import PhoneNumberForm from './PhoneNumberForm';
-import useUserMutation from '../../../modules/queries/registerQuery';
+import {
+  useUserMutation,
+  useTeamUserMutation,
+} from '../../../modules/queries/registerQuery';
 
 import { useCallback } from 'react';
 import { Frame, Div } from '../../../styles/Register';
@@ -21,7 +24,8 @@ const RegisterForm = ({ type }) => {
   const dispatch = useDispatch();
   const register = useSelector(({ auth }) => auth[`${type}_register`]);
 
-  const { mutate } = useUserMutation(); // 회원가입 하기 (서버에 전송)
+  const { mutate: personal_mutatue } = useUserMutation(); // 회원가입 하기 (서버에 전송)
+  const { mutate: team_mutatue } = useTeamUserMutation();
 
   const initializeTypeForm = {
     team: () => dispatch(initializeForm('team_register')),
@@ -56,7 +60,9 @@ const RegisterForm = ({ type }) => {
 
     // 마지막 form 입력일때, 회원가입 실행하기
     if (order === forms[type].length - 1) {
-      mutate(register);
+      if (type === 'personal') {
+        personal_mutatue(register);
+      } else team_mutatue(register);
     }
     // 다음 form 보여주기
     else setOrder(order + 1);
