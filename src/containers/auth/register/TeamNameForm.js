@@ -15,7 +15,7 @@ const TeamNameForm = ({ dispatchField, onSubmit, order, type }) => {
           <InputWrapper $position>
             <input
               name="groupName"
-              placeholder="대표자 이름"
+              placeholder="단체 이름"
               onChange={dispatchField}
               value={groupName}
               required
