@@ -11,14 +11,17 @@ const RepresentForm = ({ dispatchField, onSubmit, order, type }) => {
 
   const represent = useSelector(authSelector(type, 'represent'));
 
+  const checkRepresentName = () => {
+    const koreanNameRegex = new RegExp(/^[가-힣]{2,5}$/);
+    const result = koreanNameRegex.test(represent);
+    setError(result ? null : '올바른 한글 이름이 아닙니다.');
+    return result;
+  };
+
   const handleFormSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      const koreanNameRegex = new RegExp(/^[가-힣]{2,5}$/);
-      setError(
-        koreanNameRegex.test(represent) ? null : '올바른 이름이 아닙니다.',
-      );
-      if (error === null && represent) {
+      if (checkRepresentName()) {
         onSubmit(e);
       }
     },
