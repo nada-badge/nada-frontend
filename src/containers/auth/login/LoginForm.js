@@ -1,11 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
-import AuthForm from '../../components/auth/AuthForm';
-import { changeField, initializeForm } from '../../modules/auth';
+import AuthForm from '../../../components/auth/AuthForm';
+import { changeField, initializeForm } from '../../../modules/auth';
 import { useEffect, useState } from 'react';
-import useUserMutation from '../../modules/queries/loginQuery';
+import useUserMutation from '../../../modules/queries/loginQuery';
 import { produce } from 'immer';
+import SocialLogin from './SocialLogin';
+import styled from 'styled-components';
+import LoginFooter from './LoginFooter';
 
-const LoginForm = () => {
+const Frame = styled.div`
+  height: 100px;
+  left: 15px;
+  position: absolute;
+  top: 378px;
+  width: 345px;
+`;
+
+const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
 
   const [error, setError] = useState({
@@ -43,13 +54,16 @@ const LoginForm = () => {
     }
   };
   return (
-    <AuthForm
-      type="login"
-      form={form}
-      onChange={onChange}
-      onSubmit={onSubmit}
-      error={error}
-    />
+    <Frame>
+      <AuthForm
+        form={form}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        error={error}
+      />
+      {type === 'personal' && <SocialLogin />}
+      <LoginFooter type={type} />
+    </Frame>
   );
 };
 
