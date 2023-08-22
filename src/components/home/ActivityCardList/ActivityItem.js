@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
-  height: 213px;
+  border-radius: 10px;
   position: relative;
   width: 169px;
 
@@ -9,9 +9,7 @@ const CardContainer = styled.div`
     background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-4727@2x.png);
     background-size: 100% 100%;
     height: 167px;
-    left: 0;
-    position: absolute;
-    top: 0;
+    position: relative;
     width: 167px;
 
     & > .Dday-wrapper {
@@ -46,13 +44,15 @@ const CardContainer = styled.div`
     font-size: var(--sub-title-01-font-size);
     font-style: var(--sub-title-01-font-style);
     font-weight: var(--sub-title-01-font-weight);
-    height: 42px;
-    left: 0;
     letter-spacing: var(--sub-title-01-letter-spacing);
     line-height: var(--sub-title-01-line-height);
-    position: absolute;
-    top: 171px;
+    position: relative;
+    /* ▼ 임의로 지정한 height */
+    height: 70px;
+    overflow: hidden;
     width: 167px;
+    margin: 0;
+    padding: 4px 2px;
   }
 `;
 

@@ -27,7 +27,6 @@ const CardContainer = styled.div`
     letter-spacing: var(--caption-01-letter-spacing);
     line-height: var(--caption-01-line-height);
     position: relative;
-    /* top: 95px; */
     margin-top: 8px;
     white-space: nowrap;
   }
@@ -39,13 +38,15 @@ const CardContainer = styled.div`
     font-style: var(--caption-02-font-style);
     font-weight: var(--caption-02-font-weight);
     height: 18px;
-    left: 12px;
     letter-spacing: var(--caption-02-letter-spacing);
     line-height: var(--caption-02-line-height);
     position: relative;
-    /* top: 117px; */
     margin-top: 5px;
     width: 96px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0px 12px;
   }
 `;
 
