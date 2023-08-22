@@ -4,11 +4,14 @@ import ActivityItem from './ActivityItem';
 const CardsContainer = styled.div`
   background-color: var(--myspec-gray-scalewhite);
   box-shadow: 0px 2px 5px #00000005;
-  height: 277px;
-  left: 0;
   position: relative;
+  margin: 12px 0px;
+
+  /* height: 277px; */
+  /* left: 0; */
+  /* overflow-x: clip; */
   /* top: 658px; */
-  width: 375px;
+  /* width: 375px; */
 
   & > h1 {
     color: #000000;
@@ -19,20 +22,23 @@ const CardsContainer = styled.div`
     left: 16px;
     letter-spacing: var(--subtitle-01-letter-spacing);
     line-height: var(--subtitle-01-line-height);
-    position: absolute;
-    top: 11px;
+    position: relative;
     white-space: nowrap;
+    padding: 16px 0px;
+    margin: 0;
+    /* top: 11px; */
   }
 `;
 
 const CardListWrapper = styled.div`
+  gap: 8px;
   align-items: flex-start;
   display: flex;
-  gap: 8px;
   left: 15px;
-  position: absolute;
-  top: 52px;
-  /* width: 345px; */
+  overflow-x: scroll;
+  position: relative;
+  padding-bottom: 12px;
+  /* top: 52px; */
 `;
 
 const cards = [
