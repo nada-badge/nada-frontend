@@ -1,19 +1,190 @@
-.headers{
-    top: 0;
-    left: 0;
-    right: 0;
-   width: 100%;
-  }
+.top {
+  background-color: var(--myspec-gray-scalegray-100);
+  height: 88px;
+  position: relative;
+  width: 375px;
+  margin: 0 auto;
+}
 
-  
-  .left{
-    width: 25%;
-  }
 
-  .center{
-    width: 50%;
-  }
+.top .octicon-bell-fill {
+  position: absolute;
+}
 
-  .right{
-    width: 25%;
-  }
+.top .octicon-bell-fill {
+  position: absolute;
+}
+
+
+.top .overlap-group {
+  height: 22px;
+  left: 3px;
+  position: relative;
+  width: 21px;
+}
+
+.top .vector {
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 2px;
+  width: 18px;
+}
+
+.top .ellipse {
+  background-color: var(--myspec-primarymint-2);
+  border-radius: 2.5px;
+  height: 5px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 5px;
+}
+
+.top .div {
+  position: absolute;
+}
+
+.top .element {
+  position: absolute;
+}
+
+.top .text-wrapper {
+  color: #000000;
+  font-family: var(--title-02-font-family);
+  font-size: var(--title-02-font-size);
+  font-style: var(--title-02-font-style);
+  font-weight: var(--title-02-font-weight);
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: var(--title-02-letter-spacing);
+  line-height: var(--title-02-line-height);
+  position: absolute;
+ 
+  top: 47px;
+  white-space: nowrap;
+}
+
+.top .chevron-left {
+  height: 24px;
+  left: 8px;
+  position: absolute;
+  top: 49px;
+  width: 24px;
+}
+
+.top .overlap-group-wrapper {
+  height: 24px;
+  left: 336px;
+  position: absolute;
+  top: 50px;
+  width: 24px;
+}
+
+.top .main {
+  left: 304px;
+  top: 50px;
+}
+
+.top .funtion-only {
+  left: 304px;
+  top: 50px;
+}
+
+.top .function-notice {
+  color: #000000;
+  font-family: var(--title-02-font-family);
+  font-size: var(--title-02-font-size);
+  font-style: var(--title-02-font-style);
+  font-weight: var(--title-02-font-weight);
+  left: 172px;
+  letter-spacing: var(--title-02-letter-spacing);
+  line-height: var(--title-02-line-height);
+  text-align: center;
+  top: 47px;
+  white-space: nowrap;
+}
+
+.top .function-only-notice {
+  left: 304px;
+  top: 50px;
+}
+
+.top .notice-menu {
+  height: 24px;
+  left: 304px;
+  top: 50px;
+  width: 24px;
+}
+
+.top .property-1-main {
+  left: 172px;
+  top: 47px;
+}
+
+.top .property-1-funtion-only {
+  left: 172px;
+  top: 47px;
+}
+
+.top .property-1-function-notice {
+  height: 24px;
+  left: 336px;
+  top: 50px;
+  width: 24px;
+}
+
+.top .property-1-function-only-notice {
+  left: 172px;
+  top: 47px;
+}
+
+.top .property-1-notice-menu {
+  color: #000000;
+  font-family: var(--title-02-font-family);
+  font-size: var(--title-02-font-size);
+  font-style: var(--title-02-font-style);
+  font-weight: var(--title-02-font-weight);
+  left: 172px;
+  letter-spacing: var(--title-02-letter-spacing);
+  line-height: var(--title-02-line-height);
+  text-align: center;
+  top: 47px;
+  white-space: nowrap;
+}
+
+.top .property-1-0-main {
+  height: 20px;
+  left: 15px;
+  top: 53px;
+  width: 110px;
+}
+
+.top .property-1-0-funtion-only {
+  height: 24px;
+  left: 15px;
+  top: 53px;
+  width: 24px;
+}
+
+.top .property-1-0-function-notice {
+  height: 24px;
+  left: 8px;
+  top: 49px;
+  width: 24px;
+}
+
+.top .property-1-0-function-only-notice {
+  height: 24px;
+  left: 15px;
+  top: 53px;
+  width: 24px;
+}
+
+.top .property-1-0-notice-menu {
+  height: 24px;
+  left: 336px;
+  top: 50px;
+  width: 24px;
+}
