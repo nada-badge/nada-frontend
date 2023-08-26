@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom/client';
 import "./index.css";
 import App from "./App";
 import BottomNav from "./BottomNav";
@@ -9,17 +10,19 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { Mobile, PC } from './styles/Responsive.js';
 import "./styles/common.scss"
-
-
+import authSlice from './modules/auth';
+import scheduleSlice from './modules/schedule';
+//import Header from './layout/Header';
 
 
 import HeaderStatusSlice from "./modules/headerStatus";
 
 const container = document.getElementById("root");
-const root = createRoot(container);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 
 const store = configureStore({  
-  reducer: { headerStatus: HeaderStatusSlice.reducer},
+  reducer: { auth: authSlice.reducer, schedule: scheduleSlice.reducer, headerStatus: HeaderStatusSlice.reducer},
   devTools: true,
 });
 
@@ -42,3 +45,6 @@ root.render(
       </Provider>
     </React.StrictMode>
 );
+
+
+
