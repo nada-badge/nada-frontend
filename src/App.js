@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import Home from "./testpage/Home"
+import Home from "./testpage/home"
 import community from "./testpage/community";
 import badge from "./testpage/badge";
 import activity from "./testpage/activity";
