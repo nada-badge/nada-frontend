@@ -7,11 +7,6 @@ import { createRoot } from "react-dom/client";
 import Header from "./components/Header";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import { Mobile, PC } from './styles/Responsive.js';
-import "./styles/common.scss"
-
-
-
 
 import HeaderStatusSlice from "./modules/headerStatus";
 
@@ -26,19 +21,12 @@ const store = configureStore({
 
 root.render(
     <React.StrictMode>
+      <BrowserRouter>
       <Provider store={store}>
-        <BrowserRouter>
-          <Mobile>
-            <Header/>
-            <App /> 
-            <BottomNav /> 
-          </Mobile>
-          <PC>
-            <Header/>
-            <App /> 
-            <BottomNav /> 
-          </PC>
-        </BrowserRouter>  
-      </Provider>
+       <Header/>
+        <App /> 
+        <BottomNav /> 
+        </Provider>
+      </BrowserRouter>
     </React.StrictMode>
 );
