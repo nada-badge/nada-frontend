@@ -1,7 +1,7 @@
 import React from 'react';
 import '../components/home/style.css';
 import Banner from '../components/home/Banner';
-import CardList from '../components/home/BoardCardList/CardList';
+import BoardCardList from '../components/home/BoardCardList/BoardCardList';
 import ActivityCardList from '../components/home/ActivityCardList/ActivityCardList';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
         /> */}
         <Banner />
         {/* 캘린더 */}
-        <CardList />
+        <BoardCardList />
         <ActivityCardList />
       </div>
     </div>
