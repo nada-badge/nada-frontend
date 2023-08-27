@@ -50,7 +50,7 @@ const CardContainer = styled.div`
   }
 `;
 
-const CardItem = ({ card }) => {
+const BoardCardItem = ({ card }) => {
   const { title, category } = card;
 
   return (
@@ -62,4 +62,4 @@ const CardItem = ({ card }) => {
   );
 };
 
-export default CardItem;
+export default BoardCardItem;
