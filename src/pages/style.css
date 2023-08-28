@@ -1,0 +1,106 @@
+/* Body */
+.onboarding {
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* OnboardingPage > OnboardingBox */
+  .onboarding .div {
+    background-color: var(--myspec-gray-scalegray-100);
+    height: 812px;
+    position: relative;
+    width: 375px;
+  }
+  
+  /* OnboardingPage > OverLap*/
+  .onboarding .overlap {
+    height: 603px;
+    left: 0;
+    position: absolute;
+    top: 209px;
+    width: 375px;
+  }
+  
+  .onboarding .image {
+    height: 594px;
+    left: 42px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 296px;
+  }
+  
+  .onboarding .startbutton {
+    background-color: #d9d9d9;
+    height: 94px;
+    left: 0;
+    position: absolute;
+    top: 509px;
+    width: 375px;
+  }
+  
+  .onboarding .text-wrapper-2 {
+    color: var(--myspec-gray-scalewhite);
+    font-family: var(--title-01-font-family);
+    font-size: var(--title-01-font-size);
+    font-style: var(--title-01-font-style);
+    font-weight: var(--title-01-font-weight);
+    height: 27px;
+    left: 156px;
+    letter-spacing: var(--title-01-letter-spacing);
+    line-height: var(--title-01-line-height);
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    white-space: nowrap;
+  }
+  
+  .onboarding .p {
+    color: var(--myspec-gray-scalegray-900);
+    font-family: var(--title-02-font-family);
+    font-size: var(--title-02-font-size);
+    font-style: var(--title-02-font-style);
+    font-weight: var(--title-02-font-weight);
+    height: 54px;
+    left: 70px;
+    letter-spacing: var(--title-02-letter-spacing);
+    line-height: var(--title-02-line-height);
+    position: absolute;
+    text-align: center;
+    top: 138px;
+  }
+  
+  /* components > onBoarding > SlideMarker > MarkerWrapper */
+  .onboarding .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 10px;
+    left: 157px;
+    position: absolute;
+    top: 76px;
+  }
+  
+  .onboarding .ellipse {
+    background-color: var(--myspec-primarymint-1);
+    border-radius: 4px;
+    height: 8px;
+    position: relative;
+    width: 8px;
+  }
+  
+  .onboarding .ellipse-2 {
+    background-color: var(--myspec-gray-scalegray-400);
+    border-radius: 4px;
+    height: 8px;
+    position: relative;
+    width: 8px;
+  }
+  
+  
+  .onboarding .design-component-instance-node {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/ea4f3b6630e080227dbcc2e08efda97e/img/border-1.svg) !important;
+  }
+  
