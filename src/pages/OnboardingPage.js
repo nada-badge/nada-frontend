@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { SlideMarker } from '../components/Slider/SlideMarker';
 import { Body } from '../components/body';
+import { useState } from 'react';
 
 const OnboardingBox = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -48,7 +49,7 @@ const OverLap = styled.div`
     top: 509px;
     width: 375px;
 
-    & > div {
+    & > .text {
       color: var(--myspec-gray-scalewhite);
       font-family: var(--title-01-font-family);
       font-size: var(--title-01-font-size);
@@ -66,15 +67,22 @@ const OverLap = styled.div`
   }
 `;
 
+const explain_set = {
+  0: ['내 대외활동 기록을', '인증된 뱃지를 통해 관리해보세요.'],
+  1: ['내가 북마크한 대외활동 일정을', '캘린더에서 바로 확인할 수 있어요.'],
+  2: ['내가 모집 중인 팀의', '꼭 맞는 팀원을 추천해드려요'],
+  3: ['강점과 약점, 맞춤 활동 추천까지', 'AI가 알아서 정리해 줄게요.'],
+};
+
 export const OnboardingPage = () => {
   return (
     <Body>
       <OnboardingBox>
         <SlideMarker />
         <p className="p">
-          내 대외활동 기록을
+          {explain_set[0][0]}
           <br />
-          인증된 뱃지를 통해 관리해 보세요
+          {explain_set[0][1]}
         </p>
         <OverLap>
           <img
@@ -83,7 +91,7 @@ export const OnboardingPage = () => {
             src="https://generation-sessions.s3.amazonaws.com/ea4f3b6630e080227dbcc2e08efda97e/img/image-4.png"
           />
           <div className="startbutton">
-            <div className="text-wrapper-2">시작하기</div>
+            <div className="text">시작하기</div>
           </div>
         </OverLap>
       </OnboardingBox>
