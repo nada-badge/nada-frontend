@@ -6,7 +6,7 @@
   height: 84px;
   position: fixed;
   width: 375px;
-  left : 50%;
+  left: 50%;
   bottom: 0;
   transform: translateX(-50%);
 }
@@ -171,7 +171,6 @@
   color: var(--myspec-gray-scalegray-600);
 }
 
-
 .navi .my {
   height: 42px;
   left: 315px;
@@ -208,7 +207,6 @@
   top: 28px;
   white-space: nowrap;
   color: var(--myspec-gray-scalegray-600);
-
 }
 
 .navi .overlap-group {
@@ -228,7 +226,6 @@
   width: 20px;
 }
 
-
 .navi .vector {
   height: 11px;
   left: 10px;
@@ -236,6 +233,3 @@
   top: 7px;
   width: 10px;
 }
-
-
-

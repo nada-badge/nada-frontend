@@ -1,10 +1,10 @@
 import './App.css';
-import { Route, Routes } from "react-router-dom";
-import Home from "./testpage/home"
-import community from "./testpage/community";
-import badge from "./testpage/badge";
-import activity from "./testpage/activity";
-import myPage from "./testpage/myPage";
+import { Route, Routes } from 'react-router-dom';
+import Home from './testpage/home';
+import community from './testpage/community';
+import badge from './testpage/badge';
+import activity from './testpage/activity';
+import myPage from './testpage/myPage';
 import communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
@@ -34,13 +34,13 @@ function App() {
           <Route path="/board/:_id" element={<BoardDetail />} />
           <Route path="/write" element={<BoardWrite />} />
 
-          <Route path="/home" Component={Home}  />
-          <Route path="/activity" Component={activity} />
-          <Route path="/badge" Component={badge} />
-          <Route path="/community" Component={community} />
-          <Route path="/community/child" Component={communityy} />
-          <Route path="/myPage" Component={myPage} />
-       </Routes>
+          <Route path="/home" element={Home} />
+          <Route path="/activity" element={activity} />
+          <Route path="/badge" element={badge} />
+          <Route path="/community" element={community} />
+          <Route path="/community/child" element={communityy} />
+          <Route path="/myPage" element={myPage} />
+        </Routes>
       </QueryClientProvider>
     </div>
   );
