@@ -6,7 +6,6 @@
   margin: 0 auto;
 }
 
-
 .top .octicon-bell-fill {
   position: absolute;
 }
@@ -14,12 +13,11 @@
 .top .octicon-bell-fill {
   position: absolute;
 }
-
 
 .top .overlap-group {
   height: 22px;
   left: 3px;
-  position: relative;
+  position: absolute;
   width: 21px;
 }
 
@@ -61,7 +59,7 @@
   letter-spacing: var(--title-02-letter-spacing);
   line-height: var(--title-02-line-height);
   position: absolute;
- 
+
   top: 47px;
   white-space: nowrap;
 }
