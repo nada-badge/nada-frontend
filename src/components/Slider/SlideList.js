@@ -15,7 +15,12 @@ import { SlideItem } from './SlideItem';
 export const SlideList = ({ changeActive }) => {
   return (
     <>
-      <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+      <Swiper
+        pagination={true}
+        modules={[Pagination]}
+        className="mySwiper"
+        onReachEnd={() => changeActive(true)}
+      >
         <SwiperSlide>
           <SlideItem number={0} />
         </SwiperSlide>

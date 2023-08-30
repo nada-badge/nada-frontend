@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Body } from '../components/body';
 import { SlideList } from '../components/Slider/SlideList';
+import { useState } from 'react';
+import classNames from 'classnames';
 
 const OnboardingBox = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -15,7 +17,7 @@ const OverLap = styled.div`
   position: relative;
   width: 375px;
 
-  & > .startbutton {
+  & > .startButton {
     z-index: 2;
     background-color: #d9d9d9;
     height: 94px;
@@ -39,16 +41,27 @@ const OverLap = styled.div`
       top: 13px;
       white-space: nowrap;
     }
+
+    &.btnActive {
+      background-color: var(--myspec-primaryblue-1);
+      cursor: pointer;
+    }
   }
 `;
 
 export const OnboardingPage = () => {
+  const [btnActive, setBtnActive] = useState(0);
+
+  const changeActive = (value) => {
+    setBtnActive(value);
+  };
+
   return (
     <Body>
-      <OnboardingBox>
-        <OverLap>
-          <SlideList />
-          <div className="startbutton">
+      <OnboardingBox className="onBoardingBox">
+        <OverLap className="OverLap">
+          <SlideList changeActive={changeActive} />
+          <div className={classNames('startButton', { btnActive })}>
             <div className="text">시작하기</div>
           </div>
         </OverLap>
