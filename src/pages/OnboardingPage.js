@@ -3,6 +3,7 @@ import { Body } from '../components/body';
 import { SlideList } from '../components/Slider/SlideList';
 import { useState } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 const OnboardingBox = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -25,6 +26,7 @@ const OverLap = styled.div`
     left: 0;
     position: relative;
     width: 100%;
+    pointer-events: none;
 
     & > .text {
       color: var(--myspec-gray-scalewhite);
@@ -45,6 +47,7 @@ const OverLap = styled.div`
     &.btnActive {
       background-color: var(--myspec-primaryblue-1);
       cursor: pointer;
+      pointer-events: auto;
     }
   }
 `;
@@ -56,12 +59,21 @@ export const OnboardingPage = () => {
     setBtnActive(value);
   };
 
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate('/');
+  };
+
   return (
     <Body>
       <OnboardingBox className="onBoardingBox">
         <OverLap className="OverLap">
           <SlideList changeActive={changeActive} />
-          <div className={classNames('startButton', { btnActive })}>
+          <div
+            className={classNames('startButton', { btnActive })}
+            onClick={goHome}
+          >
             <div className="text">시작하기</div>
           </div>
         </OverLap>
