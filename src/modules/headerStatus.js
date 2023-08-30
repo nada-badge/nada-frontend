@@ -3,7 +3,7 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 const initialState = {
   // 1) activity 값 초기화
   headerStatus: {
-    pageStatus: 'notice-menu',
+    pageStatus: 'function-only-notice',
     pageNameStatus: '메롱메롱',
   },
 };
@@ -13,11 +13,11 @@ const headerStatusSlice = createSlice({
   initialState,
   reducers: {
     changeField: (state, { payload: { key, value } }) => {
-      state[key] = value;
+      state.headerStatus[key] = value;
     },
     initializeForm: (state, { payload: form }) => {
       // 3) 전달받은 form의 값 초기화
-      state[form] = initialState[form];
+      state.headerStatus[form] = initialState[form];
     },
   },
 });

@@ -1,11 +1,11 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './testpage/home';
-import community from './testpage/community';
-import badge from './testpage/badge';
-import activity from './testpage/activity';
-import myPage from './testpage/myPage';
-import communityy from './testpage/community2';
+import Community from './testpage/Community';
+import Badge from './testpage/badge';
+import Activity from './testpage/activity';
+import MyPage from './testpage/myPage';
+import Communityy from './testpage/Community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -34,12 +34,12 @@ function App() {
           <Route path="/board/:_id" element={<BoardDetail />} />
           <Route path="/write" element={<BoardWrite />} />
 
-          <Route path="/home" element={Home} />
-          <Route path="/activity" element={activity} />
-          <Route path="/badge" element={badge} />
-          <Route path="/community" element={community} />
-          <Route path="/community/child" element={communityy} />
-          <Route path="/myPage" element={myPage} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/activity" element={<Activity />} />
+          <Route path="/badge" element={<Badge />} />
+          <Route path="/Community" element={<Community />} />
+          <Route path="/Community/child" element={<Communityy />} />
+          <Route path="/myPage" element={<MyPage />} />
         </Routes>
       </QueryClientProvider>
     </div>

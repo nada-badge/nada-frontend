@@ -1,5 +1,6 @@
 import React from 'react';
 import './BottomNav.css';
+//import navi from './styles/BottomNavStyle'; 스타일컴포넌트 미적용
 import { NavLink } from 'react-router-dom';
 
 export const BottomNav = ({}) => {
