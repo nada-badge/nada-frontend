@@ -1,0 +1,35 @@
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.swiper-wrapper {
+    position: absolute;
+    top: 76px;
+}
+  
+  .swiper-slide img {
+    display: block;
+    object-fit: cover;
+  }
+  
+  .swiper-pagination-bullets.swiper-pagination-horizontal{
+    position: absolute;
+    height: fit-content;
+    top:76px;
+  }
+
+  .swiper-pagination-bullet-active{
+    background-color: var(--myspec-primarymint-1);
+  }
