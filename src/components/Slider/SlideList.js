@@ -12,7 +12,7 @@ import './style.css';
 import { Pagination } from 'swiper/modules';
 import { SlideItem } from './SlideItem';
 
-export const SwiperBox = () => {
+export const SlideList = ({ changeActive }) => {
   return (
     <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
@@ -26,7 +26,7 @@ export const SwiperBox = () => {
           <SlideItem number={2} />
         </SwiperSlide>
         <SwiperSlide>
-          <SlideItem number={3} />
+          <SlideItem number={3} />;
         </SwiperSlide>
       </Swiper>
     </>
