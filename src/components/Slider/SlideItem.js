@@ -7,6 +7,11 @@ const explain_set = {
   3: ['강점과 약점, 맞춤 활동 추천까지', 'AI가 알아서 정리해 줄게요.'],
 };
 
+const ItemContainer = styled.div`
+  margin-top: 132px;
+  position: absolute;
+`;
+
 const ExplainBox = styled.div`
   color: var(--myspec-gray-scalegray-900);
   font-family: var(--title-02-font-family);
@@ -19,15 +24,15 @@ const ExplainBox = styled.div`
   text-align: center;
 `;
 
-export const SlideItem = ({ number }) => {
+export const SlideItem = ({ number, isActive }) => {
   return (
-    <div>
+    <ItemContainer>
       <ExplainBox>
         {explain_set[number][0]} <br /> {explain_set[number][1]}
       </ExplainBox>
       <div>
         <img src={require('./img/display.png')} alt="slider1" />
       </div>
-    </div>
+    </ItemContainer>
   );
 };
