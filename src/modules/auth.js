@@ -5,13 +5,21 @@ const initialState = {
     email: '',
     password: '',
   },
-  register: {
+  personal_register: {
     email: '',
     password: '',
     passwordConfirm: '',
-    userType: 1,
     userName: '',
     phoneNumber: '',
+  },
+  team_register: {
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    represent: '',
+    groupName: '',
+    phoneNumber: '',
+    category: '',
   },
 };
 
@@ -28,27 +36,16 @@ const authSlice = createSlice({
   },
 });
 
-const emailSelect = (rootState) =>
-  rootState.auth.register.email || initialState.register.email;
-
-const passwordSelect = (rootState) =>
-  rootState.auth.register.password || initialState.register.password;
-const passwordConfirmSelect = (rootState) =>
-  rootState.auth.register.passwordConfirm ||
-  initialState.register.passwordConfirm;
-
-const userNameSelect = (rootState) =>
-  rootState.auth.register.userName || initialState.register.userName;
-
 export default authSlice;
-export const { changeField, initializeForm } = authSlice.actions;
-export const emailSelector = createSelector(emailSelect, (email) => email);
-export const passwordSelector = createSelector(
-  passwordSelect,
-  passwordConfirmSelect,
-  (password, passwordConfirm) => ({ password, passwordConfirm }),
-);
-export const userNameSelector = createSelector(
-  userNameSelect,
-  (userName) => userName,
-);
+export const { changeField, initializeForm, changeBtnState } =
+  authSlice.actions;
+
+const authSelect = (type, field) => (rootState) => {
+  return (
+    rootState.auth[`${type}_register`][field] ||
+    initialState[`${type}_register`][field]
+  );
+};
+
+export const authSelector = (type, field) =>
+  createSelector(authSelect(type, field), (field) => field);
