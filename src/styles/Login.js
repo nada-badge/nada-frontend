@@ -5,28 +5,29 @@ import styled from 'styled-components';
 export const LoginBox = styled.div`
   background-color: #ffffff;
   border: 1px none;
-  height: 812px;
+  width: 100vmin;
+  @media screen and (min-width: calc(375px * 3)) {
+    width: 30vw;
+    height: 100vmin;
+  }
+`;
+
+export const LogoBox = styled.div`
+  padding-top: calc(100% / 812 * 220);
+  height: 40px;
+  margin: 0 auto;
   position: relative;
-  width: 375px;
+  text-align: center;
+  width: 345px;
 `;
 
 export const Logo = styled.img`
   height: 40px;
-  left: 78px;
-  position: absolute;
-  top: 220px;
-  width: 219px;
+  position: relative;
+  width: 100%;
 `;
 
 // ---------------------------AuthForm.js
-
-export const Frame2 = styled.form`
-  height: 100px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 345px;
-`;
 
 export const InputBox = styled.div`
   border: 2px solid;
@@ -118,6 +119,7 @@ export const SocialBtn = styled.div`
   &.kakao {
     background-color: #fee500;
     left: 0;
+
     & > div > div {
       color: #000000;
     }
@@ -126,6 +128,7 @@ export const SocialBtn = styled.div`
   &.apple {
     background-color: var(--myspec-gray-scalegray-900);
     left: 178px;
+
     & > div > div {
       color: var(--myspec-gray-scalewhite);
     }
@@ -162,20 +165,17 @@ export const SocialBtn = styled.div`
 // -------------- LoginFooter
 
 export const Div6 = styled.div`
-  height: 21px;
-  left: 49px;
   position: absolute;
   top: ${(props) => props.$position.top || '0px'};
-  /* top: 318px; */
-  width: 247px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  gap: 24px;
 
   & > div {
     align-items: center;
     display: inline-flex;
     gap: 8px;
-    left: 0;
-    position: absolute;
-    top: 0;
 
     :nth-child(1) {
       color: #000000;
@@ -190,10 +190,6 @@ export const Div6 = styled.div`
       white-space: nowrap;
       width: fit-content;
     }
-  }
-
-  & > .findId {
-    left: 115px;
   }
 
   & > img {
