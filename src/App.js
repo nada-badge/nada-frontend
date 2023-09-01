@@ -1,11 +1,11 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './testpage/home';
-import Community from './testpage/Community';
+import Community from './testpage/community';
 import Badge from './testpage/badge';
 import Activity from './testpage/activity';
 import MyPage from './testpage/myPage';
-import Communityy from './testpage/Community2';
+import Communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
