@@ -1,7 +1,8 @@
-/*스타일컴포넌트. 아직 미구현*/
+/*스타일컴포넌트. img border가 안없어짐*/
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const navi = styled.div`
+export const Navi = styled.nav`
   background-color: #ffffff;
   border-color: #0000000f;
   border-top-style: solid;
@@ -12,227 +13,122 @@ export const navi = styled.div`
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+`;
 
-  & > .home {
-    height: 42px;
+export const NavLinks = styled(NavLink)`
+  height: 42px;
+  position: absolute;
+  top: 11px;
+
+  &.Home {
     left: 34px;
-    position: absolute;
-    top: 11px;
     width: 26px;
   }
-
-  & > .home-acttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 5px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-primaryblue-1);
-  }
-
-  & > .home-deacttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 5px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-gray-scalegray-600);
-  }
-
-  & > .img {
-    height: 26px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 26px;
-  }
-
-  & > .activity {
-    height: 42px;
+  &.Activity {
     left: 102px;
-    position: absolute;
-    top: 11px;
     width: 26px;
   }
-
-  & > .activity-acttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 2px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-primaryblue-1);
-  }
-
-  & > .activity-deacttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 2px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-gray-scalegray-600);
-  }
-
-  & > .badge {
-    height: 42px;
+  &.Badge {
     left: 173px;
-    position: absolute;
-    top: 11px;
     width: 26px;
   }
-
-  & > .badge-acttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 2px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-primaryblue-1);
-  }
-
-  & > .badge-deacttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 2px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-gray-scalegray-600);
-  }
-
-  & > .community {
-    height: 42px;
+  &.Community {
     left: 237px;
-    position: absolute;
-    top: 11px;
     width: 41px;
   }
-
-  & > .community-acttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: -8px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-primaryblue-1);
-  }
-
-  & > .community-deacttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: -8px;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-gray-scalegray-600);
-  }
-
-  & > .my {
-    height: 42px;
+  &.Mypage {
     left: 315px;
-    position: absolute;
-    top: 11px;
     width: 26px;
   }
+`;
 
-  & > .my-acttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 10;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
+export const Img = styled.image`
+  height: 26px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 26px;
+  background-size: 100%;
+
+  &.Home {
+    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-home-4-fill-5@2x.png');
+    &.isActive {
+      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-home-4-fill-1@2x.png');
+    }
+  }
+  &.Activity {
+    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mdi-briefcase-4.svg');
+    &.isActive {
+      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mdi-briefcase-5.svg');
+    }
+  }
+  &.Badge {
+    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/award-5.svg');
+    &.isActive {
+      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/award-4.svg');
+    }
+  }
+  &.Community {
+    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/vector-7-5.svg');
+    &.isActive {
+      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/vector-7-3.svg');
+    }
+  }
+  &.Mypage {
+    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-user-2-fill-2.svg');
+    &.isActive {
+      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-user-2-fill-3.svg');
+    }
+  }
+`;
+
+export const Text = styled.div`
+  font-family: var(--caption-01-font-family);
+  font-size: var(--caption-01-font-size);
+  font-style: var(--caption-01-font-style);
+  font-weight: var(--caption-01-font-weight);
+  letter-spacing: var(--caption-01-letter-spacing);
+  line-height: var(--caption-01-line-height);
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--myspec-gray-scalegray-600);
+
+  &.Home {
+    left: 7.5px;
     top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-primaryblue-1);
+    &.isActive {
+      color: var(--myspec-primaryblue-1);
+    }
   }
 
-  & > .my-deacttext {
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
-    left: 10;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
-    position: absolute;
-    text-align: center;
+  &.Activity {
+    left: 2px;
     top: 28px;
-    white-space: nowrap;
-    color: var(--myspec-gray-scalegray-600);
+    &.isActive {
+      color: var(--myspec-primaryblue-1);
+    }
+  }
+  &.Badge {
+    left: 2px;
+    top: 28px;
+    &.isActive {
+      color: var(--myspec-primaryblue-1);
+    }
+  }
+  &.Community {
+    left: -8px;
+    top: 28px;
+    &.isActive {
+      color: var(--myspec-primaryblue-1);
+    }
   }
 
-  & > .overlap-group {
-    height: 18px;
-    left: 3px;
-    position: relative;
-    top: 3px;
-    width: 20px;
-  }
-
-  & > .rectangle {
-    border-radius: 4px;
-    height: 14px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 20px;
-  }
-
-  & > .vector {
-    height: 11px;
-    left: 10px;
-    position: absolute;
-    top: 7px;
-    width: 10px;
+  &.Mypage {
+    left: 4.5px;
+    top: 28px;
+    &.isActive {
+      color: var(--myspec-primaryblue-1);
+    }
   }
 `;
