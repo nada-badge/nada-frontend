@@ -3,7 +3,7 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import BoardList from './routes/BoardList';
-import Home from './routes/Home';
+import Home from './pages/Home';
 import React from 'react';
 import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
