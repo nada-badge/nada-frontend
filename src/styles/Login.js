@@ -8,7 +8,6 @@ export const LoginBox = styled.div`
   width: 100vmin;
   @media screen and (min-width: calc(375px * 3)) {
     width: 30vw;
-    height: 100vmin;
   }
 `;
 

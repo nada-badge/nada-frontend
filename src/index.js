@@ -10,8 +10,6 @@ import scheduleSlice from './modules/schedule';
 import './styles/common.scss';
 import { Mobile, PC } from './styles/Responsive';
 
-import Header from './layout/Header';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = configureStore({
@@ -23,11 +21,9 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Mobile>
-        <Header />
         <App />
       </Mobile>
       <PC>
-        <Header />
         <App />
       </PC>
     </BrowserRouter>
