@@ -19,11 +19,12 @@ const TeamText = styled.div`
   line-height: var(--title-01-line-height);
   white-space: nowrap;
   position: relative;
+  margin-bottom: 12px;
 `;
 
 const TeamTypeList = ({ teamType, onClick }) => {
   return (
-    <div>
+    <>
       <div>
         <TeamText>학생 조직</TeamText>
         <ListWrapper>
@@ -59,7 +60,7 @@ const TeamTypeList = ({ teamType, onClick }) => {
           )}
         </ListWrapper>
       </div>
-    </div>
+    </>
   );
 };
 
