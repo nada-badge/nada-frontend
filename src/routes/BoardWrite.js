@@ -75,7 +75,6 @@ const BoardWrite = () => {
             type="String"
             name="scheduleName"
             onChange={onChange}
-            //value={scheduleName}
             required
           />
         </div>
