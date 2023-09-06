@@ -2,14 +2,14 @@ import { Top } from '../styles/HeaderStyle';
 import { headerStatusSelector } from '../modules/headerStatus';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Overlap, Img, Textwrapper } from '../styles/HeaderStyle';
 
 const Header = () => {
   const { pageStatus, pageNameStatus } = useSelector(headerStatusSelector);
   const navigate = useNavigate();
 
-  const [HeaderType] = useState([
+  const HeaderType = [
     {
       id: 'function-notice',
       logo: false,
@@ -50,9 +50,9 @@ const Header = () => {
       bell: true,
       menu: false,
     },
-  ]);
+  ];
 
-  const [CurrentStatus] = useState([
+  const [CurrentStatus, setCurrentStatus] = useState([
     { id: 'Logo', state: false },
     { id: 'Back', state: false },
     { id: 'Texts', state: false },
@@ -60,36 +60,51 @@ const Header = () => {
     { id: 'Menu', state: false },
   ]);
 
-  HeaderType.map(
-    (team) =>
-      pageStatus === team.id &&
-      ((CurrentStatus[0].state = team.logo),
-      (CurrentStatus[1].state = team.back),
-      (CurrentStatus[2].state = team.text),
-      (CurrentStatus[3].state = team.bell),
-      (CurrentStatus[4].state = team.menu)),
-  );
+  useEffect(() => {
+    let copiedStatus = [...CurrentStatus];
+
+    HeaderType.forEach(
+      (team) =>
+        pageStatus === team.id &&
+        ((copiedStatus[0].state = team.logo),
+        (copiedStatus[1].state = team.back),
+        (copiedStatus[2].state = team.text),
+        (copiedStatus[3].state = team.bell),
+        (copiedStatus[4].state = team.menu)),
+    );
+    setCurrentStatus(copiedStatus);
+  }, [pageStatus]);
 
   return (
     <Top>
-      {CurrentStatus.map((current) => {
-        const { id, state } = current;
-        return state ? (
-          id === 'Texts' ? (
-            <Textwrapper>{pageNameStatus}</Textwrapper>
-          ) : (
-            <Overlap>
-              {id === 'Menu' && <Img className="BellWMenu" />}
-              <Img
-                onClick={id === 'Back' ? () => navigate(-1) : undefined}
-                className={id}
-              />
-            </Overlap>
-          )
-        ) : (
-          <div></div>
-        );
-      })}
+      {CurrentStatus &&
+        CurrentStatus.map((current) => {
+          const { id, state } = current;
+          if (state)
+            switch (id) {
+              case 'Texts':
+                return <Textwrapper>{pageNameStatus}</Textwrapper>;
+              case 'Back':
+                return (
+                  <Overlap>
+                    <Img onClick={() => navigate(-1)} className={id} />
+                  </Overlap>
+                );
+              case 'Menu':
+                return (
+                  <Overlap>
+                    <Img className="BellWMenu" />
+                    <Img className={id} />
+                  </Overlap>
+                );
+              default:
+                return (
+                  <Overlap>
+                    <Img className={id} />
+                  </Overlap>
+                );
+            }
+        })}
     </Top>
   );
 };

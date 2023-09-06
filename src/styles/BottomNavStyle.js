@@ -1,4 +1,3 @@
-/*스타일컴포넌트. img border가 안없어짐*/
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 

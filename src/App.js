@@ -10,7 +10,6 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import BoardList from './routes/BoardList';
-//import Home from './routes/Home';
 import React from 'react';
 import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
@@ -18,7 +17,7 @@ import LogInSelect from './pages/auth/LoginSelect';
 
 const queryClient = new QueryClient();
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
@@ -44,6 +43,6 @@ function App() {
       </QueryClientProvider>
     </div>
   );
-}
+};
 
 export default App;
