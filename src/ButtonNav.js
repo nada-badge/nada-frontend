@@ -1,8 +1,8 @@
-import { Navi, NavLinks, Img, Text } from './styles/BottomNavStyle';
+import { Navi, NavLinks, Img, Text } from './styles/ButtonNavStyle';
 import classNames from 'classnames';
 
-export const BottomNav = () => {
-  const BottomNavType = [
+export const ButtonNav = () => {
+  const ButtomNavType = [
     { id: 1, text: '홈', path: '/home', content: 'Home' },
     { id: 2, text: '활동', path: '/activity', content: 'Activity' },
     { id: 3, text: '뱃지', path: '/badge', content: 'Badge' },
@@ -12,7 +12,7 @@ export const BottomNav = () => {
 
   return (
     <Navi>
-      {BottomNavType.map((link) => {
+      {ButtomNavType.map((link) => {
         const { id, text, path, content } = link;
         return (
           <NavLinks to={path} className={content} key={id}>
@@ -31,4 +31,4 @@ export const BottomNav = () => {
   );
 };
 
-export default BottomNav;
+export default ButtonNav;

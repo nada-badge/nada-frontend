@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
-import schedule from './schedule';
+import activity from './activity';
+import headerStatus from './headerStatus';
 
 const rootReducer = combineReducers({
   auth,
-  schedule
+  activity,
+  headerStatus,
 });
 
 export default rootReducer;
