@@ -1,0 +1,614 @@
+.home {
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .home .div-2 {
+    background-color: var(--myspec-gray-scalegray-100);
+    border: 1px none;
+    height: 1029px;
+    position: relative;
+    width: 375px;
+  }
+  
+  /* bannerContainer */
+  .home .frame {
+    box-shadow: var(--drop-shadow);
+    height: 118px;
+    left: 0;
+    position: absolute;
+    top: 89px;
+    width: 375px;
+  }
+  
+  /* 사용하지 않음 */
+  /* .home .overlap-group-3 {
+    height: 118px;
+    position: relative;
+  } */
+
+    /* bannerContainer > img*/
+ .home .image {
+    height: 118px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 375px;
+  }
+  
+    /* bannerContainer  > div */
+  .home .div-wrapper {
+    align-items: center;
+    background-color: #00000099;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    left: 326px;
+    padding: 2px 8px;
+    position: absolute;
+    top: 84px;
+  }
+
+    /* bannerContainer > div > div*/
+  .home .text-wrapper-8 {
+    color: #ffffff;
+    font-family: var(--caption-02-font-family);
+    font-size: var(--caption-02-font-size);
+    font-style: var(--caption-02-font-style);
+    font-weight: var(--caption-02-font-weight);
+    letter-spacing: var(--caption-02-letter-spacing);
+    line-height: var(--caption-02-line-height);
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .home .frame-2 {
+    background-color: var(--myspec-gray-scalewhite);
+    box-shadow: var(--drop-shadow);
+    height: 215px;
+    left: 0;
+    position: absolute;
+    top: 207px;
+    width: 375px;
+  }
+  
+  .home .month {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 5px;
+    left: 15px;
+    position: absolute;
+    top: 19px;
+  }
+  
+  .home .text-wrapper-9 {
+    color: #000000;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .home .chevron-left-2 {
+    height: 24px;
+    left: 336px;
+    position: absolute;
+    top: 16px;
+    width: 24px;
+  }
+  
+  .home .overlap {
+    height: 111px;
+    left: 15px;
+    position: absolute;
+    top: 89px;
+    width: 345px;
+  }
+  
+  .home .week {
+    align-items: flex-start;
+    display: inline-flex;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  
+  .home .frame-3 {
+    height: 111px;
+    position: relative;
+    width: 49px;
+  }
+  
+  .home .text-wrapper-10 {
+    color: #0000004c;
+    font-family: var(--body-01-font-family);
+    font-size: var(--body-01-font-size);
+    font-style: var(--body-01-font-style);
+    font-weight: var(--body-01-font-weight);
+    left: 17px;
+    letter-spacing: var(--body-01-letter-spacing);
+    line-height: var(--body-01-line-height);
+    position: absolute;
+    text-align: center;
+    top: 10px;
+  }
+  
+  .home .text-wrapper-11 {
+    color: #000000;
+    font-family: var(--body-01-font-family);
+    font-size: var(--body-01-font-size);
+    font-style: var(--body-01-font-style);
+    font-weight: var(--body-01-font-weight);
+    left: 21px;
+    letter-spacing: var(--body-01-letter-spacing);
+    line-height: var(--body-01-line-height);
+    position: absolute;
+    text-align: center;
+    top: 10px;
+  }
+  
+  .home .text-wrapper-12 {
+    color: #000000;
+    font-family: var(--body-01-font-family);
+    font-size: var(--body-01-font-size);
+    font-style: var(--body-01-font-style);
+    font-weight: var(--body-01-font-weight);
+    left: 20px;
+    letter-spacing: var(--body-01-letter-spacing);
+    line-height: var(--body-01-line-height);
+    position: absolute;
+    text-align: center;
+    top: 10px;
+  }
+  
+  .home .set {
+    background-color: #acd2ff;
+    border-radius: 4px;
+    height: 18px;
+    left: 49px;
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    width: 296px;
+  }
+  
+  .home .overlap-group-4 {
+    background-color: #ffffff4c;
+    height: 18px;
+    left: 4px;
+    position: relative;
+    width: 292px;
+  }
+  
+  .home .text-wrapper-13 {
+    color: var(--gray-900);
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 10px;
+    font-weight: 400;
+    left: 2px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2px;
+    white-space: nowrap;
+  }
+  
+  .home .overlap-wrapper {
+    background-color: #96d9ff;
+    border-radius: 4px;
+    height: 18px;
+    left: 196px;
+    overflow: hidden;
+    position: absolute;
+    top: 62px;
+    width: 50px;
+  }
+  
+  .home .overlap-2 {
+    height: 18px;
+    left: 4px;
+    position: relative;
+    width: 48px;
+  }
+  
+  .home .frame-4 {
+    background-color: #ffffff4c;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 46px;
+  }
+  
+  .home .set-2 {
+    background-color: #ffc0cf;
+    border-radius: 4px;
+    height: 18px;
+    left: 147px;
+    overflow: hidden;
+    position: absolute;
+    top: 84px;
+    width: 98px;
+  }
+  
+  .home .overlap-3 {
+    background-color: #ffffff4c;
+    height: 18px;
+    left: 4px;
+    position: relative;
+    width: 94px;
+  }
+  
+  .home .week-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    left: 15px;
+    position: absolute;
+    top: 65px;
+  }
+  
+  .home .frame-5 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #00000014;
+    height: 24px;
+    position: relative;
+    width: 49px;
+  }
+  
+  .home .text-wrapper-14 {
+    color: #dd0505;
+    font-family: "Pretendard-Medium", Helvetica;
+    font-size: 12px;
+    font-weight: 500;
+    left: 19px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .home .text-wrapper-15 {
+    color: var(--gray-900);
+    font-family: "Pretendard-Medium", Helvetica;
+    font-size: 12px;
+    font-weight: 500;
+    left: 19px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .home .frame-6 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #00000014;
+    height: 24px;
+    position: relative;
+    width: 50px;
+  }
+  
+  .home .text-wrapper-16 {
+    color: var(--blue-1);
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 19px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: -1px;
+    white-space: nowrap;
+  }
+
+  /* CardsContainer */
+   .home .area-cards {
+    background-color: var(--myspec-gray-scalewhite);
+    box-shadow: 0px 2px 5px #00000005;
+    height: 212px;
+    left: 0;
+    position: absolute;
+    top: 434px;
+    width: 375px;
+  } 
+  
+  /* CardListWrapper */
+   .home .card {
+    align-items: flex-start;
+    display: flex;
+    gap: 12px;
+    left: 15px;
+    overflow-x: scroll;
+    position: absolute;
+    top: 52px;
+    width: 345px;
+  } 
+
+  
+  .home .card-2 {
+    background-color: var(--myspec-gray-scalegray-100);
+    border-radius: 10px;
+    height: 148px;
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+  }
+  
+  .home .text-wrapper-17 {
+    color: #000000;
+    font-family: var(--caption-02-font-family);
+    font-size: var(--caption-02-font-size);
+    font-style: var(--caption-02-font-style);
+    font-weight: var(--caption-02-font-weight);
+    height: 18px;
+    left: 12px;
+    letter-spacing: var(--caption-02-letter-spacing);
+    line-height: var(--caption-02-line-height);
+    position: absolute;
+    top: 117px;
+    width: 96px;
+  }
+  
+  .home .text-wrapper-18 {
+    color: var(--myspec-primaryblue-1);
+    font-family: var(--caption-01-font-family);
+    font-size: var(--caption-01-font-size);
+    font-style: var(--caption-01-font-style);
+    font-weight: var(--caption-01-font-weight);
+    left: 12px;
+    letter-spacing: var(--caption-01-letter-spacing);
+    line-height: var(--caption-01-line-height);
+    position: absolute;
+    top: 95px;
+    white-space: nowrap;
+  }
+  
+  .home .image-2 {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-2@2x.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 88px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 120px;
+  }
+  
+  .home .image-3 {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-1@2x.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 88px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 120px;
+  }
+  
+  .home .image-4 {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image@2x.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 88px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 120px;
+  }
+  
+  /* CardsContainer > h1 */
+  .home .text-wrapper-19 {
+    color: #000000;
+    font-family: var(--subtitle-01-font-family);
+    font-size: var(--subtitle-01-font-size);
+    font-style: var(--subtitle-01-font-style);
+    font-weight: var(--subtitle-01-font-weight);
+    left: 16px;
+    letter-spacing: var(--subtitle-01-letter-spacing);
+    line-height: var(--subtitle-01-line-height);
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  /* ActivitiyCardList.js > CardsContainer */
+  .home .area-cards-2 {
+    background-color: var(--myspec-gray-scalewhite);
+    box-shadow: 0px 2px 5px #00000005;
+    height: 277px;
+    left: 0;
+    position: absolute;
+    top: 658px;
+    width: 375px;
+  }
+
+  /* ActivitiyCardList.js > CardListWrapper */
+  .home .card-3 {
+    align-items: flex-start;
+    display: flex;
+    gap: 8px;
+    left: 15px;
+    position: absolute;
+    top: 52px;
+    width: 345px;
+  }
+  
+  /* ActivityCardItem.js > CardContainer */
+  .home .card-4 {
+    height: 213px;
+    position: relative;
+    width: 169px;
+  }
+  
+  .home .p {
+    color: var(--gray-900);
+    font-family: var(--sub-title-01-font-family);
+    font-size: var(--sub-title-01-font-size);
+    font-style: var(--sub-title-01-font-style);
+    font-weight: var(--sub-title-01-font-weight);
+    height: 42px;
+    left: 0;
+    letter-spacing: var(--sub-title-01-letter-spacing);
+    line-height: var(--sub-title-01-line-height);
+    position: absolute;
+    top: 171px;
+    width: 167px;
+  }
+  
+  /* imgContainer */
+  .home .frame-wrapper {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-59@2x.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 167px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 167px;
+  }
+
+  .home .frame-8 {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-4727@2x.png);
+    background-size: 100% 100%;
+    height: 167px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 167px;
+  }
+
+  .home .frame-9 {
+    height: 167px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 167px;
+  }
+  
+  /* CardContainer > .Dday-wrapper */
+  .home .frame-7 {
+    background-color: #1363ff;
+    border-radius: 8px;
+    height: 26px;
+    left: 115px;
+    position: relative;
+    top: 10px;
+    width: 41px;
+  }
+  
+  .home .text-wrapper-20 {
+    color: #ffffff;
+    font-family: var(--caption-01-font-family);
+    font-size: var(--caption-01-font-size);
+    font-style: var(--caption-01-font-style);
+    font-weight: var(--caption-01-font-weight);
+    height: 13px;
+    left: 8px;
+    letter-spacing: var(--caption-01-letter-spacing);
+    line-height: var(--caption-01-line-height);
+    position: absolute;
+    text-align: center;
+    top: 6px;
+    white-space: nowrap;
+  }
+  
+  .home .frame-8 {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-4727@2x.png);
+    background-size: 100% 100%;
+    height: 167px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 167px;
+  }
+  
+  .home .card-5 {
+    height: 213px;
+    margin-right: -174px;
+    position: relative;
+    width: 169px;
+  }
+  
+  .home .frame-9 {
+    height: 167px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 167px;
+  }
+  
+  .home .rectangle-2 {
+    height: 167px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 10px;
+  }
+  
+  .home .frame-10 {
+    background-color: #1363ff;
+    border-radius: 8px;
+    height: 26px;
+    left: 115px;
+    position: absolute;
+    top: 10px;
+    width: 41px;
+  }
+  
+  .home .top-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 1px !important;
+  }
+  
+  .home .navi-instance {
+    left: 0 !important;
+    position: fixed !important;
+    top: 934px !important;
+  }
+  
+  .home .home-bar-mini-instance {
+    left: 0 !important;
+    position: fixed !important;
+    top: 995px !important;
+  }
+  
+  .home .design-component-instance-node {
+    background-color: var(--myspec-gray-scalegray-900) !important;
+  }
+  
+  .home .status-bar-mini-instance {
+    left: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+  }
+  
+  .home .status-bar-mini-2 {
+    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/border-1.svg) !important;
+  }
+  
+  .home .status-bar-mini-3 {
+    color: var(--myspec-gray-scalegray-900) !important;
+  }
+  
