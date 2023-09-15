@@ -8,6 +8,7 @@ import React from 'react';
 import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
 import LogInSelect from './pages/auth/LoginSelect';
+import CalendarPage from './pages/CalendarPage';
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,8 @@ const App = () => {
         <Route path="/board" element={<BoardList />} />
         <Route path="/board/:_id" element={<BoardDetail />} />
         <Route path="/write" element={<BoardWrite />} />
+
+        <Route path="/calendar" element={<CalendarPage />} />
       </Routes>
     </QueryClientProvider>
   );
