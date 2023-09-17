@@ -3,6 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import styled from 'styled-components';
 import '../styles/Calendar.scss';
 import EventBox from '../components/calendar/event';
+import TodayBox from '../components/calendar/today';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -28,11 +29,7 @@ const CalendarPage = () => {
           locale={'ko'}
           dayCellContent={function (info) {
             if (info.isToday) {
-              return (
-                <div>
-                  <p>{info.dayNumberText.replace('일', '')}</p>
-                </div>
-              );
+              return <TodayBox text={info.dayNumberText.replace('일', '')} />;
             }
             return info.dayNumberText.replace('일', '');
           }}
@@ -50,7 +47,7 @@ const CalendarPage = () => {
             },
           ]}
           eventContent={function (info) {
-            return <EventBox text={info.event.title}></EventBox>;
+            return <EventBox text={info.event.title} />;
           }}
         />
       </div>
