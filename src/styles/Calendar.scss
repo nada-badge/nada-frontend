@@ -91,7 +91,7 @@ td[role="gridcell"]{
 .fc-daygrid-day.fc-day-today{
     background-color: white !important;
 
-    a {
+    a.fc-daygrid-day-number{
         background-color: #1363ff;
         border-radius: 12.5px;
         height: 25px;
@@ -117,21 +117,13 @@ td[role="gridcell"]{
 
 }
 
-
-// event 스타일 입히기
-.fc-event-title-container{
-    border-radius: 4px;
-    height: 18px;
-    overflow: hidden;
-    width: 98px;
+// day - event 사이 여백 주기
+div.fc-daygrid-day-events {
+    position: relative;
+    top: 5px;
 }
 
-.fc-event-title{
- color: #191919;
- font-family: var(--caption-03-font-family);
- font-size: var(--caption-03-font-size);
- font-style: var(--caption-03-font-style);
- font-weight: var(--caption-03-font-weight);
- line-height: var(--caption-03-line-height);
- white-space: nowrap;
-}
+// event start block index 효과
+a.fc-event-start >.fc-event-main> div > div{
+    left: 4px;
+  }

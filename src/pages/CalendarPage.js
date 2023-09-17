@@ -2,6 +2,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import styled from 'styled-components';
 import '../styles/Calendar.scss';
+import EventBox from '../components/calendar/event';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -36,6 +37,21 @@ const CalendarPage = () => {
             return info.dayNumberText.replace('일', '');
           }}
           fixedWeekCount={false}
+          events={[
+            {
+              title: 'All Day Event',
+              start: '2023-09-01',
+            },
+            {
+              title: 'Long Event',
+              start: '2023-09-07',
+              end: '2023-09-20',
+              color: '#ffc0cf', // override!
+            },
+          ]}
+          eventContent={function (info) {
+            return <EventBox text={info.event.title}></EventBox>;
+          }}
         />
       </div>
     </Div>
