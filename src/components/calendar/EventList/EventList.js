@@ -1,5 +1,14 @@
+import styled from 'styled-components';
 import EventItem from './EventItem';
 import { useSelector } from 'react-redux';
+
+const EventListBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+`;
 
 const EventList = () => {
   const events = useSelector((state) => {
@@ -7,7 +16,7 @@ const EventList = () => {
   });
 
   return (
-    <div>
+    <EventListBox>
       {events &&
         events.map((item, idx) => (
           <EventItem
@@ -18,7 +27,7 @@ const EventList = () => {
             color={item.color}
           />
         ))}
-    </div>
+    </EventListBox>
   );
 };
 
