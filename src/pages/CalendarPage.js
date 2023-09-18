@@ -1,9 +1,12 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import styled from 'styled-components';
+import interactionPlugin from '@fullcalendar/interaction';
+
 import '../styles/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
+import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState } from 'react';
 
 const Div = styled.div`
@@ -19,6 +22,8 @@ const Div = styled.div`
 `;
 
 const CalendarPage = () => {
+  const [isModal, setIsModal] = useState(false);
+  const [date, setDate] = useState(null);
   const [events, setEvents] = useState([
     {
       title: 'All Day Event',
@@ -32,11 +37,18 @@ const CalendarPage = () => {
     },
   ]);
 
+  const openHandler = (dateStr) => {
+    setIsModal(!isModal);
+    setDate(dateStr);
+  };
+
   return (
     <Div>
+      {isModal ? <DetailEvent date={date} /> : null}
+
       <div className="CalendarWrpper">
         <FullCalendar
-          plugins={[dayGridPlugin]}
+          plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: null, center: 'title', end: null }}
           contentHeight={579}
@@ -52,6 +64,7 @@ const CalendarPage = () => {
           eventContent={function (info) {
             return <EventBox text={info.event.title} />;
           }}
+          dateClick={(info) => openHandler(info.dateStr)}
         />
       </div>
     </Div>
