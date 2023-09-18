@@ -7,7 +7,18 @@ const EventList = () => {
   });
 
   return (
-    <div>{events && events.map((item, idx) => <EventItem key={idx} />)}</div>
+    <div>
+      {events &&
+        events.map((item, idx) => (
+          <EventItem
+            title={item.title}
+            key={idx}
+            start={item.start}
+            end={item.end}
+            color={item.color}
+          />
+        ))}
+    </div>
   );
 };
 
