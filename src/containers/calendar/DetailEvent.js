@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ModalBackGround = styled.div`
@@ -10,7 +11,7 @@ const ModalBackGround = styled.div`
   position: fixed;
   z-index: 3;
 
-  & > div {
+  & > .titleWrapper {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0px -4px 12px #0000000a;
@@ -27,7 +28,6 @@ const ModalBackGround = styled.div`
       font-weight: var(--title-02-font-weight);
       letter-spacing: var(--title-02-letter-spacing);
       line-height: var(--title-02-line-height);
-      position: absolute;
       text-align: center;
       top: 24px;
       white-space: nowrap;
@@ -37,11 +37,18 @@ const ModalBackGround = styled.div`
 `;
 
 const DetailEvent = ({ date }) => {
+  const [title, setTitle] = useState(null);
+
+  useEffect(() => {
+    const dateSet = date.split('-');
+    setTitle(dateSet[1] + '월 ' + dateSet[2] + '일');
+  }, [date]);
+
   return (
     <>
       <ModalBackGround>
         <div className="titleWrapper">
-          <h2>{date}</h2>
+          <h2>{title}</h2>
         </div>
       </ModalBackGround>
     </>
