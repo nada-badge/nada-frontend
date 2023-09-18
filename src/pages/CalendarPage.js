@@ -2,12 +2,13 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import styled from 'styled-components';
 import interactionPlugin from '@fullcalendar/interaction';
-
 import '../styles/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeField } from '../modules/calendar';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -22,6 +23,8 @@ const Div = styled.div`
 `;
 
 const CalendarPage = () => {
+  const dispatch = useDispatch();
+
   const [isModal, setIsModal] = useState(false);
   const [date, setDate] = useState(null);
   const [events, setEvents] = useState([
@@ -40,6 +43,18 @@ const CalendarPage = () => {
   const openHandler = (dateStr) => {
     setIsModal(!isModal);
     setDate(dateStr);
+    dispatch(changeField({ key: 'date', value: dateStr }));
+    dispatch(changeField({ key: 'events', value: filterEvent(dateStr) }));
+  };
+
+  const filterEvent = (dateStr) => {
+    const clickedDate = Number(dateStr.split('-')[2]);
+    return events.filter((el) =>
+      el.end
+        ? Number(el.start.split('-')[2]) <= clickedDate &&
+          Number(el.end.split('-')[2]) >= clickedDate
+        : Number(el.start.split('-')[2]) === clickedDate,
+    );
   };
 
   return (
