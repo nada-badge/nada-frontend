@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import EventList from '../../components/calendar/EventList/EventList';
 
 const ModalBackGround = styled.div`
   background-color: rgba(136, 136, 136, 0.1);
@@ -11,7 +12,7 @@ const ModalBackGround = styled.div`
   position: fixed;
   z-index: 3;
 
-  & > .titleWrapper {
+  & > .EventsContainer {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0px -4px 12px #0000000a;
@@ -29,7 +30,7 @@ const ModalBackGround = styled.div`
       letter-spacing: var(--title-02-letter-spacing);
       line-height: var(--title-02-line-height);
       text-align: center;
-      top: 24px;
+      top: 25px;
       white-space: nowrap;
       width: 100%;
     }
@@ -47,8 +48,9 @@ const DetailEvent = ({ date }) => {
   return (
     <>
       <ModalBackGround>
-        <div className="titleWrapper">
+        <div className="EventsContainer">
           <h2>{title}</h2>
+          <EventList />
         </div>
       </ModalBackGround>
     </>
