@@ -17,8 +17,16 @@ const Div = styled.div`
   justify-content: center;
   width: 100%;
 
-  & > .CalendarWrpper {
-    width: 345px;
+  & > .CalendarWrapper {
+    width: calc(100% - 30px);
+
+    @media screen and (max-width: 345px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 376px) {
+      width: 375px;
+    }
   }
 `;
 
@@ -31,6 +39,10 @@ const CalendarPage = () => {
     {
       title: 'All Day Event',
       start: '2023-09-01',
+    },
+    {
+      title: '9일 event',
+      start: '2023-09-09',
     },
     {
       title: 'Long Event',
@@ -61,12 +73,15 @@ const CalendarPage = () => {
     <Div>
       {isModal ? <DetailEvent date={date} /> : null}
 
-      <div className="CalendarWrpper">
+      <div className="CalendarWrapper">
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: null, center: 'title', end: null }}
-          contentHeight={579}
+          height={'100vh'}
+          windowResize={function (arg) {
+            console.log(arg);
+          }}
           locale={'ko'}
           dayCellContent={function (info) {
             if (info.isToday) {
