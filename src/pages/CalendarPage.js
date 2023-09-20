@@ -77,7 +77,7 @@ const CalendarPage = () => {
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
-          headerToolbar={{ start: null, center: 'title', end: null }}
+          headerToolbar={{ start: 'prev', center: 'title', end: 'next' }}
           height={'625px'}
           windowResize={function (arg) {
             console.log(arg);
