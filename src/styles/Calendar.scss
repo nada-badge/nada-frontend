@@ -16,9 +16,9 @@ div[aria-labelledby="fc-dom-1"]{
 
 
 // 달력 title 
-#fc-dom-1{
+h2.fc-toolbar-title{
  font-family: "Pretendard-Bold", Helvetica;
- font-size: 18px;
+ font-size: 18px !important;
  font-weight: 700;
  letter-spacing: 0;
  line-height: normal;
