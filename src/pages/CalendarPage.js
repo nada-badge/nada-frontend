@@ -78,7 +78,7 @@ const CalendarPage = () => {
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: null, center: 'title', end: null }}
-          height={'100vh'}
+          height={'625px'}
           windowResize={function (arg) {
             console.log(arg);
           }}
