@@ -106,7 +106,12 @@ div.fc-daygrid-day-events {
     top: 5px;
 }
 
-// event start block index 효과
-a.fc-event-start >.fc-event-main> div > div{
-    left: 4px;
-  }
+a.fc-event-start{
+    // event를 포함한 day 칸 클릭하기
+    z-index:-1 !important;
+
+     // event start block index 효과
+    & >.fc-event-main> div > div{
+        left: 4px;
+      }
+} 
