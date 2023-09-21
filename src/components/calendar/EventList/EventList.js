@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import EventItem from './EventItem';
 import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
 
 const EventListBox = styled.div`
   display: flex;
@@ -15,6 +16,14 @@ const EventList = () => {
     return state.calendar.day.events;
   });
 
+  const transForm = useCallback((date) => {
+    if (date) {
+      const [, month, day] = date.split('-').map(Number);
+      return { month, day };
+    }
+    return null;
+  }, []);
+
   return (
     <EventListBox>
       {events &&
@@ -22,8 +31,8 @@ const EventList = () => {
           <EventItem
             title={item.title}
             key={idx}
-            start={item.start}
-            end={item.end}
+            start={transForm(item.start)}
+            end={transForm(item.end)}
             color={item.color}
           />
         ))}
