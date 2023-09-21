@@ -42,7 +42,7 @@ const DetailEvent = ({ date }) => {
 
   useEffect(() => {
     const dateSet = date.split('-');
-    setTitle(dateSet[1] + '월 ' + dateSet[2] + '일');
+    setTitle(`${dateSet[1]}월 ${dateSet[2]}일`);
   }, [date]);
 
   return (
