@@ -1,5 +1,3 @@
-import { setDate } from 'date-fns';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ItemContainer = styled.div`
