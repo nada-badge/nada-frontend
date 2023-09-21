@@ -34,7 +34,10 @@ const CalendarPage = () => {
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState({
+    month_day: '',
+    day_index: '',
+  });
   const [events, setEvents] = useState([
     {
       title: 'All Day Event',
@@ -52,21 +55,28 @@ const CalendarPage = () => {
     },
   ]);
 
-  const openHandler = (dateStr) => {
+  const openHandler = (info) => {
     setIsModal(!isModal);
-    setDate(dateStr);
+    const { dateStr, date } = info;
+
+    setDate((prevDateformat) => ({
+      ...prevDateformat,
+      month_day: dateStr,
+      day_index: date.getDay(),
+    }));
+
     dispatch(changeField({ key: 'date', value: dateStr }));
     dispatch(changeField({ key: 'events', value: filterEvent(dateStr) }));
   };
 
   const filterEvent = (dateStr) => {
-    const clickedDate = Number(dateStr.split('-')[2]);
-    return events.filter((el) =>
-      el.end
-        ? Number(el.start.split('-')[2]) <= clickedDate &&
-          Number(el.end.split('-')[2]) >= clickedDate
-        : Number(el.start.split('-')[2]) === clickedDate,
-    );
+    const baseDay = Number(dateStr.split('-')[2]);
+
+    return events.filter(({ start, end }) => {
+      const startDay = Number(start.split('-')[2]);
+      const endDay = end ? Number(end.split('-')[2]) : startDay;
+      return startDay <= baseDay && baseDay <= endDay;
+    });
   };
 
   return (
@@ -94,7 +104,7 @@ const CalendarPage = () => {
           eventContent={function (info) {
             return <EventBox text={info.event.title} />;
           }}
-          dateClick={(info) => openHandler(info.dateStr)}
+          dateClick={(info) => openHandler(info)}
         />
       </div>
     </Div>

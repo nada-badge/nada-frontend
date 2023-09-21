@@ -37,13 +37,17 @@ const ModalBackGround = styled.div`
   }
 `;
 
+const DayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+
 const DetailEvent = ({ date }) => {
+  const { month_day, day_index } = date;
   const [title, setTitle] = useState(null);
 
   useEffect(() => {
-    const dateSet = date.split('-');
-    setTitle(`${dateSet[1]}월 ${dateSet[2]}일`);
-  }, [date]);
+    const dateSet = month_day.split('-');
+    setTitle(`${dateSet[1]}월 ${dateSet[2]}일 ${DayOfWeek[day_index]}요일`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
