@@ -3,6 +3,7 @@ import '../components/home/style.css';
 import Banner from '../components/home/Banner';
 import BoardCardList from '../components/home/BoardCardList/BoardCardList';
 import ActivityCardList from '../components/home/ActivityCardList/ActivityCardList';
+import WeekCalendar from '../containers/calendar/WeekCalendar';
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
           property1="main"
         /> */}
         <Banner />
-        {/* 캘린더 */}
+        <WeekCalendar />
         <BoardCardList />
         <ActivityCardList />
       </div>
