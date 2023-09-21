@@ -7,11 +7,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { modalSlice } from "./module/ModalStatus";
 import { Provider } from "react-redux";
 import ModalContainer from "./components/Modal/ModalContainer";
+import communitySlice from "./module/CommunityStatus";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const rootReducer = combineReducers({
   modal: modalSlice.reducer,
+  community: communitySlice.reducer,
 });
 
 export const store = configureStore({

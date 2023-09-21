@@ -1,18 +1,15 @@
-import { DropDown } from "../Dropdown";
 import React, { useState } from "react";
 import useSubmit from "../../module/queries/PostWriteQuery";
+import { FilterModal } from "./FilterModal";
 import "../style.css";
-import useModal from "../../components/Modal/useModal";
-
-//import "../PostWriteStyle.css";
 import {
   PostContainer,
-  Border,
   Title,
   Frame,
   Content,
+  Border,
   AreaImages,
-} from "../PostWriteStyle";
+} from "../../styles/PostWriteStyle";
 
 export const PostWrite = () => {
   //header
@@ -41,12 +38,6 @@ export const PostWrite = () => {
       ...board,
       [name]: value,
     });
-  };
-
-  const { openModal } = useModal();
-
-  const onClickButton1 = () => {
-    openModal({ type: "first" });
   };
 
   const onSubmit = (e) => {
@@ -86,30 +77,10 @@ export const PostWrite = () => {
         </Title>
         <Border />
         <Frame>
-          <DropDown
-            className="view"
-            text="모집"
-            type="selected-category"
-            vectorClassName="drop-down-instance"
-          />
-          <DropDown
-            className="view"
-            text="지역"
-            type="closed"
-            vectorClassName="drop-down-instance"
-          />
-          <DropDown
-            className="view"
-            text="분야"
-            type="closed"
-            vectorClassName="drop-down-instance"
-          />
-          <DropDown
-            className="view"
-            text="종류"
-            type="closed"
-            vectorClassName="drop-down-instance"
-          />
+          <FilterModal text="모집" Modalname="MainCategoryModal" />
+          <FilterModal text="지역" Modalname="AreaModal" />
+          <FilterModal text="분야" Modalname="FieldModal" />
+          <FilterModal text="종류" Modalname="CategoryModal" />
         </Frame>
         <Content>
           <input
@@ -146,7 +117,6 @@ export const PostWrite = () => {
           </div>
         </AreaImages>
       </form>
-      <button onClick={onClickButton1}>Click Me !</button>
     </PostContainer>
   );
 };

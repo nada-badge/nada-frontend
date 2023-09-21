@@ -1,35 +1,41 @@
 import React from "react";
-import "../community/style.css";
 import BoardCardList from "../community/BoardCardList/BoardCardList";
 import PostList from "../community/PostList/PostList";
 import Category from "../community/Category";
 import Filter from "../community/Filter";
+import {
+  CommunityPage,
+  Search,
+  Border,
+  Border2,
+  Contents,
+} from "../styles/CommunityStyle";
 
 const Community = () => {
   return (
-    <div className="community">
-      <div className="area-search">
-        <div className="input-search">
-          <div className="div">검색어를 입력하세요</div>
+    <CommunityPage>
+      <Search>
+        <div className="Input">
+          <div className="Text">검색어를 입력하세요</div>
           <img
-            className="search"
+            className="SearchImg"
             alt="Search"
             src="https://c.animaapp.com/hs22pPSO/img/search.svg"
           />
         </div>
-      </div>
-      <div className="border" />
+      </Search>
+      <Border />
       {/*검색창*/}
       <BoardCardList />
-      <div className="area-contents">
-        <div className="contents">
+      <Contents>
+        <div className="content">
           <Category />
-          <div className="border-2" />
+          <Border2 />
           <Filter />
           <PostList />
         </div>
-      </div>
-    </div>
+      </Contents>
+    </CommunityPage>
   );
 };
 

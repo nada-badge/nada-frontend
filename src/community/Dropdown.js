@@ -1,113 +1,72 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { useReducer } from "react";
-import "./Dropdown.css";
+import { useReducer, useEffect } from "react";
+import { Dropdown, TextWarpper } from "../styles/DropdownStyle";
+import { useSelector, useDispatch } from "react-redux";
+import { filterActiveSelector, changeField } from "../module/CommunityStatus";
 
-export const DropDown = ({
-  type,
-  className,
-  vectorClassName,
-  text = "지역",
-}) => {
-  const [state, dispatch] = useReducer(reducer, {
+export const DropDown = ({ type, vectorClassName, text }) => {
+  const dispatch = useDispatch();
+
+  const [state, setState] = useReducer(reducer, {
     type: type || "closed",
   });
 
+  const isOpen = useSelector(filterActiveSelector);
+
+  const onClicks = () => {
+    setState();
+    isOpen === text
+      ? dispatch(changeField({ form: "filterActive", value: "" }))
+      : dispatch(changeField({ form: "filterActive", value: text }));
+  };
+
+  useEffect(() => {
+    state.type === "opened" && text !== isOpen && setState("closed");
+  });
+
   return (
-    <div
-      className={`drop-down ${state.type} ${className}`}
+    <Dropdown
+      className={`${state.type} `}
       onClick={() => {
-        dispatch("click");
+        onClicks();
       }}
     >
-      <div className="text-wrapper">{text}</div>
-      {["closed", "opened", "selected-category", "selected"].includes(
-        state.type
-      ) && (
-        <img
-          className={`vector ${vectorClassName}`}
-          alt="Vector"
-          src={
-            state.type === "selected"
-              ? "https://c.animaapp.com/hs22pPSO/img/x.svg"
-              : state.type === "opened"
-              ? "https://c.animaapp.com/hs22pPSO/img/vector-9-4.svg"
-              : state.type === "closed"
-              ? "https://c.animaapp.com/hs22pPSO/img/vector-9-3.svg"
-              : "https://c.animaapp.com/hs22pPSO/img/vector-8.svg"
-          }
-        />
-      )}
-    </div>
+      <TextWarpper className={`${state.type} `}>{text}</TextWarpper>
+
+      <img
+        className={`vector ${vectorClassName}`}
+        alt="Vector"
+        src={
+          state.type === "opened"
+            ? "https://c.animaapp.com/hs22pPSO/img/vector-9-4.svg"
+            : "https://c.animaapp.com/hs22pPSO/img/vector-9-3.svg"
+        }
+      />
+    </Dropdown>
   );
 };
 
-function reducer(state, action) {
-  if (state.type === "selected-category") {
-    switch (action) {
-      case "click":
-        return {
-          type: "opened",
-        };
-      default:
-        return undefined;
-    }
+function reducer(state) {
+  switch (state.type) {
+    case "selected":
+      return {
+        type: "opened",
+      };
+    case "unselected":
+      return {
+        type: "opened",
+      };
+    case "opened":
+      return {
+        type: "unselected",
+      };
+    default:
+      return undefined;
   }
-
-  if (state.type === "selected") {
-    switch (action) {
-      case "click":
-        return {
-          type: "opened",
-        };
-      default:
-        return undefined;
-    }
-  }
-
-  if (state.type === "unselected") {
-    switch (action) {
-      case "click":
-        return {
-          type: "opened",
-        };
-      default:
-        return undefined;
-    }
-  }
-
-  if (state.type === "opened") {
-    switch (action) {
-      case "click":
-        return {
-          type: "closed",
-        };
-      default:
-        return undefined;
-    }
-  }
-
-  if (state.type === "closed") {
-    switch (action) {
-      case "click":
-        return {
-          type: "opened",
-        };
-      default:
-        return undefined;
-    }
-  }
-
-  return state;
 }
 
 DropDown.propTypes = {
-  type: PropTypes.oneOf([
-    "unselected",
-    "selected",
-    "closed",
-    "opened",
-    "selected-category",
-  ]),
+  type: PropTypes.oneOf(["unselected", "selected", "opened"]),
   text: PropTypes.string,
 };

@@ -1,5 +1,37 @@
 import styled from "styled-components";
 import { DropDown } from "./Dropdown";
+import { useSelector } from "react-redux";
+import { filterActiveSelector } from "../module/CommunityStatus";
+import { FilterItems } from "./FilterItems";
+
+const Filter = () => {
+  const isOpen = useSelector(filterActiveSelector);
+
+  return (
+    <div>
+      <Filterlist>
+        <DropDown
+          text="지역"
+          type="unselected"
+          vectorClassName="drop-down-instance"
+        />
+        <DropDown
+          text="분야"
+          type="unselected"
+          vectorClassName="drop-down-instance"
+        />
+        <DropDown
+          text="종류"
+          type="unselected"
+          vectorClassName="drop-down-instance"
+        />
+      </Filterlist>
+      {isOpen && <FilterItems text={isOpen} />}
+    </div>
+  );
+};
+
+export default Filter;
 
 const Filterlist = styled.div`
   align-items: flex-start;
@@ -17,30 +49,3 @@ const Filterlist = styled.div`
     width: 12px !important;
   }
 `;
-
-const Filter = () => {
-  return (
-    <Filterlist>
-      <DropDown
-        className="view"
-        text="지역"
-        type="closed"
-        vectorClassName="drop-down-instance"
-      />
-      <DropDown
-        className="view"
-        text="분야"
-        type="closed"
-        vectorClassName="drop-down-instance"
-      />
-      <DropDown
-        className="view"
-        text="종류"
-        type="closed"
-        vectorClassName="drop-down-instance"
-      />
-    </Filterlist>
-  );
-};
-
-export default Filter;

@@ -1,4 +1,30 @@
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { categoryActiveSelector } from "../module/CommunityStatus";
+import { PageBy } from "./pageBy";
+
+const categoryButton = (text) => {
+  return (
+    <Wrapper>
+      <div className="Text">{text}</div>
+    </Wrapper>
+  );
+};
+
+const Category = () => {
+  const isOpen = useSelector(categoryActiveSelector);
+
+  return (
+    <div>
+      <Categorylist>
+        {categoryButton("모집")}
+        {categoryButton("홍보")}
+        {categoryButton("자유")}
+      </Categorylist>
+      <PageBy text={isOpen} />
+    </div>
+  );
+};
 
 const Categorylist = styled.div`
   align-items: flex-start;
@@ -34,23 +60,5 @@ const Wrapper = styled.div`
     width: fit-content;
   }
 `;
-
-const categoryButton = (text) => {
-  return (
-    <Wrapper>
-      <div className="Text">{text}</div>
-    </Wrapper>
-  );
-};
-
-const Category = () => {
-  return (
-    <Categorylist>
-      {categoryButton("모집")}
-      {categoryButton("홍보")}
-      {categoryButton("자유")}
-    </Categorylist>
-  );
-};
 
 export default Category;

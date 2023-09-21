@@ -3,9 +3,13 @@ import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import { modalSelector } from "../../module/ModalStatus";
 import AreaModal from "./AreaModal";
+import FieldModal from "./FieldModal";
+import CategoryModal from "./CategoryModal";
 
 const MODAL_COMPONENTS = {
-  first: AreaModal,
+  AreaModal: AreaModal,
+  FieldModal: FieldModal,
+  CategoryModal: CategoryModal,
   //second: SecondModal,
 };
 

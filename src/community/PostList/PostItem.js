@@ -11,13 +11,15 @@ const PostContainer = styled.div`
     font-size: var(--subtitle-03-font-size);
     font-style: var(--subtitle-03-font-style);
     font-weight: var(--subtitle-03-font-weight);
-    left: 10px;
+    left: 76px;
     letter-spacing: var(--subtitle-03-letter-spacing);
     line-height: var(--subtitle-03-line-height);
     position: absolute;
     top: 12px;
     white-space: nowrap;
     width: 269px;
+    padding: 0px 12px;
+    text-align: left;
   }
 
   & > .text {
@@ -33,6 +35,10 @@ const PostContainer = styled.div`
     top: 36px;
     white-space: nowrap;
     width: 268px;
+    padding: 0px 12px;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   & > .image {
@@ -87,11 +93,11 @@ const PostItem = ({ card }) => {
       <div className="frame">
         <div className="text-2">{area}</div>
         <div className="ellipse" />
-        <div className="text-2">{postAt}</div>
-        <div className="ellipse" />
         <div className="text-2">{field}</div>
         <div className="ellipse" />
         <div className="text-2">{category}</div>
+        <div className="ellipse" />
+        <div className="text-2">{postAt}</div>
       </div>
     </PostContainer>
   );

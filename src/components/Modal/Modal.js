@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import ModalContainer from "./ModalContainer";
 
 function Modal({ onClose, children }) {
-  const handleClose = () => {
-    onClose?.();
-  };
-
   return (
     <Overlay>
       <ModalWrap>
-        <CloseButton onClick={handleClose}>
-          <i className="fa-solid fa-xmark"></i>
-        </CloseButton>
         <Contents>{children}</Contents>
       </ModalWrap>
     </Overlay>
@@ -32,7 +24,7 @@ const Overlay = styled.div`
 `;
 
 const ModalWrap = styled.div`
-  width: 600px;
+  width: 288px;
   height: fit-content;
   border-radius: 15px;
   background-color: #fff;
@@ -42,43 +34,8 @@ const ModalWrap = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const CloseButton = styled.div`
-  float: right;
-  width: 40px;
-  height: 40px;
-  margin: 20px;
-  cursor: pointer;
-  i {
-    color: #5d5d5d;
-    font-size: 30px;
-  }
-`;
-
 const Contents = styled.div`
-  margin: 50px 30px;
-  h1 {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 60px;
-  }
-  img {
-    margin-top: 60px;
-    width: 300px;
-  }
-`;
-const Button = styled.button`
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #ababab;
-  border-radius: 10px;
-  color: white;
-  font-style: italic;
-  font-weight: 200;
-  cursor: pointer;
-  &:hover {
-    background-color: #898989;
-  }
+  margin: 16px 12px;
 `;
 
 export default Modal;
