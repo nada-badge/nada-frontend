@@ -1,5 +1,6 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import './WeekCalendar.scss';
 
 const WeekCalendar = () => {
   return (
@@ -9,6 +10,7 @@ const WeekCalendar = () => {
           plugins={[dayGridPlugin]}
           initialView={'dayGridWeek'}
           headerToolbar={{ start: 'title', center: null, end: null }}
+          titleFormat={{ year: 'numeric', month: 'short' }}
           height={'215px'}
           locale={'ko'}
           dayHeaderFormat={{ weekday: 'short' }}
