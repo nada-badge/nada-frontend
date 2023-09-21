@@ -12,10 +12,8 @@ const WeekCalendar = () => {
           height={'215px'}
           locale={'ko'}
           dayHeaderFormat={{ weekday: 'short' }}
-          dayCellContent={function (info) {
-            return info.date.toDateString().split(' ')[2];
-          }}
-          // dayGridWeek은 'end + 1'로 표시해야한다.
+          dayCellContent={(info) => info.date.toDateString().split(' ')[2]}
+          // dayGridWeek은 'end + 1'로 표시해야한다. (적용전)
           events={[
             {
               title: 'event1',
