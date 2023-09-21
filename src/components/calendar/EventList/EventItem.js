@@ -1,3 +1,5 @@
+import { setDate } from 'date-fns';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ItemContainer = styled.div`
@@ -17,7 +19,7 @@ const ItemContainer = styled.div`
   }
 
   & > .dateWrapper {
-    color: var(--gray);
+    color: var(--myspec-gray-scalegray-600);
     font-family: var(--caption-02-font-family);
     font-size: var(--caption-02-font-size);
     font-style: var(--caption-02-font-style);
@@ -45,7 +47,8 @@ const EventItem = ({ title, start, end, color }) => {
       <ColorBox color={color} />
       <div className="title">{title}</div>
       <div className="dateWrapper">
-        {start}~{end}
+        {`${start.month}월 ${start.day}일`}
+        {end && ` ~ ${end.month}월 ${end.day}일`}
       </div>
     </ItemContainer>
   );
