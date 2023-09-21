@@ -56,9 +56,13 @@ const CalendarPage = () => {
   ]);
 
   const openHandler = (info) => {
+    // 모달 열기/닫기
     setIsModal(!isModal);
+
+    // 날짜 정보 추출
     const { dateStr, date } = info;
 
+    // date 상태 업데이트
     setDate((prevDateformat) => ({
       ...prevDateformat,
       month_day: dateStr,
@@ -69,6 +73,7 @@ const CalendarPage = () => {
     dispatch(changeField({ key: 'events', value: filterEvent(dateStr) }));
   };
 
+  // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = (dateStr) => {
     const baseDay = Number(dateStr.split('-')[2]);
 
@@ -89,21 +94,14 @@ const CalendarPage = () => {
           initialView={'dayGridMonth'}
           headerToolbar={{ start: 'prev', center: 'title', end: 'next' }}
           height={'625px'}
-          windowResize={function (arg) {
-            console.log(arg);
-          }}
           locale={'ko'}
-          dayCellContent={function (info) {
-            if (info.isToday) {
-              return <TodayBox text={info.dayNumberText.replace('일', '')} />;
-            }
-            return info.dayNumberText.replace('일', '');
+          dayCellContent={(info) => {
+            const dayNumber = info.dayNumberText.replace('일', '');
+            return info.isToday ? <TodayBox text={dayNumber} /> : dayNumber;
           }}
           fixedWeekCount={false}
           events={events}
-          eventContent={function (info) {
-            return <EventBox text={info.event.title} />;
-          }}
+          eventContent={(info) => <EventBox text={info.event.title} />}
           dateClick={(info) => openHandler(info)}
         />
       </div>
