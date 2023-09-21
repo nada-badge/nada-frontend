@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TextWarpper } from "../SelectButton";
 
 const CardContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -7,6 +8,8 @@ const CardContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 120px;
+  flex-direction: column;
+  align-items: flex-start;
 
   & > .image-2 {
     background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-2@2x.png);
@@ -23,12 +26,14 @@ const CardContainer = styled.div`
     font-size: var(--caption-01-font-size);
     font-style: var(--caption-01-font-style);
     font-weight: var(--caption-01-font-weight);
-    text-align: right;
+    text-align: left;
     letter-spacing: var(--caption-01-letter-spacing);
     line-height: var(--caption-01-line-height);
     position: relative;
     margin-top: 8px;
     white-space: nowrap;
+    width: 96px;
+    padding: 0px 12px;
   }
 
   & > .title {
@@ -47,6 +52,7 @@ const CardContainer = styled.div`
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 0px 12px;
+    float: left;
   }
 `;
 
