@@ -1,3 +1,5 @@
+// 중복 파일
+
 import styled from 'styled-components';
 
 const TodayWrapper = styled.div`
