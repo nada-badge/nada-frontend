@@ -35,7 +35,7 @@ const VectorWrapper = styled.div`
   width: 24px;
   background-color: lightgray;
   .checked & {
-    background-color: var(--myspec-primarymint-2);
+    background-color: var(--myspec-primaryblue-1);
   }
 
   & > img {

@@ -115,7 +115,12 @@ const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
           <CheckList list={check.passwordConfirm} />
         </div>
       </Form>
-      <Button form={order} text={'다음'} disabled={disabled} />
+      <Button
+        form={order}
+        text={'다음'}
+        disabled={disabled}
+        style={{ marginTop: '30px' }}
+      />
     </div>
   );
 };

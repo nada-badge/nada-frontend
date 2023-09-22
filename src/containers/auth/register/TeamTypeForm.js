@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 import Title from '../../../components/auth/Title';
 import { Form } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
-import { useDispatch } from 'react-redux';
-import { changeField } from '../../../modules/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelector, changeField } from '../../../modules/auth';
 
 export const TeamTypeForm = ({ order, onSubmit }) => {
   const [teamType, setTeamType] = useState([
@@ -17,6 +17,7 @@ export const TeamTypeForm = ({ order, onSubmit }) => {
     { id: 22, text: '사기업', checked: false },
   ]);
 
+  const category = useSelector(authSelector('team', 'category')); // userName 상태 가져오기
   const dispatch = useDispatch();
   const onClick = useCallback(
     (id) => {
@@ -38,6 +39,20 @@ export const TeamTypeForm = ({ order, onSubmit }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [teamType],
   );
+
+  // 뒤로가기시, 이전 category값이 동일하게 표시
+  useEffect(() => {
+    if (category) {
+      setTeamType(
+        teamType.map((team) =>
+          category === team.id
+            ? { ...team, checked: !team.checked }
+            : { ...team, checked: false },
+        ),
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>

@@ -9,10 +9,9 @@ import styled from 'styled-components';
 import LoginFooter from './LoginFooter';
 
 const Frame = styled.div`
-  height: 100px;
-  left: 15px;
-  position: absolute;
-  top: 378px;
+  height: 339px;
+  position: relative;
+  margin: 118px auto;
   width: 345px;
 `;
 
