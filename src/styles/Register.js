@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const Frame = styled.div`
-  height: 501px;
-  position: relative;
+  height: 100%;
+  position: absolute;
   width: 375px;
+  top: 0;
 
   & > .BackBtn {
     height: 88px;
-    left: 0;
-    position: absolute;
-    top: 0;
+    position: relative;
     width: 375px;
   }
 `;
@@ -17,10 +16,9 @@ export const Frame = styled.div`
 // -----------EmailForm.js
 
 export const Div = styled.div`
-  height: fit-content;
-  left: 15px;
-  position: absolute;
-  top: 104px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 16px;
   width: 345px;
 `;
 
