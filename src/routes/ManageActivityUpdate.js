@@ -32,6 +32,22 @@ const ManageActivityUpdate = () => {
     navigate('/manage/Activity');
   };
 
+  const output = (title, name) => {
+    return (
+      <div>
+        <span>{title}</span>
+        <input
+          type="String"
+          name={name}
+          onChange={onChange}
+          temp={name}
+          value={board.temp}
+          required
+        />
+      </div>
+    );
+  };
+
   const onUpdate = (e) => {
     //5)폼을 제출하여 게시물 등록하기 위한 mutate 호출
     e.preventDefault();
@@ -64,66 +80,13 @@ const ManageActivityUpdate = () => {
   return (
     <div>
       <form onSubmit={onUpdate}>
-        <div>
-          <span>활동 제목</span>
-          <input
-            type="String"
-            name="activityName"
-            onChange={onChange}
-            value={board.activityName}
-            required
-          />
-        </div>
+        <div>{output('활동 제목', 'activityName')}</div>
         <br />
-        <div>
-          <span>주최사</span>
-          <input
-            type="String"
-            name="groupName"
-            onChange={onChange}
-            value={board.groupName}
-            required
-          />
-        </div>
-        <div>
-          <span>분야</span>
-          <input
-            type="String"
-            name="field"
-            onChange={onChange}
-            value={board.field}
-            required
-          />
-        </div>
-        <div>
-          <span>일정 카테고리</span>
-          <input
-            type="String"
-            name="category"
-            onChange={onChange}
-            value={board.category}
-            required
-          />
-        </div>
-        <div>
-          <span>장소</span>
-          <input
-            type="String"
-            name="area"
-            onChange={onChange}
-            value={board.area}
-            required
-          />
-        </div>
-        <div>
-          <span>세부 사항</span>
-          <input
-            type="String"
-            name="content"
-            onChange={onChange}
-            value={board.content}
-          />
-        </div>
+        <div>{output('주최사', 'groupName')}</div>
+        <div>{output('분야', 'field')}</div>
+        <div>{output('일정 카테고리', 'category')}</div>
+        <div>{output('장소', 'area')}</div>
+        <div>{output('세부 사항', 'content')}</div>
 
         {/*<div>
         <span>이미지 첨부</span>
