@@ -86,7 +86,7 @@ const CalendarPage = () => {
 
   return (
     <Div>
-      {isModal ? <DetailEvent date={date} /> : null}
+      {isModal && <DetailEvent date={date} /> }
 
       <div className="CalendarWrapper">
         <FullCalendar
