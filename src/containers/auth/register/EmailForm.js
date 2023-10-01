@@ -58,7 +58,7 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   return (
     <div>
       <Title text={(type === 'team' ? '단체 ' : '').concat('이메일을')} />
-      <Form onSubmit={handleFormSubmit} id={order}>
+      <Form className="Form" onSubmit={handleFormSubmit} id={order}>
         <div>
           <InputWrapper $position>
             <input

@@ -1,9 +1,9 @@
 // 회원가입 또는 로그인 폼을 보여주기
-import { Frame2, InputBox, LoginBtn } from '../../styles/Login';
+import { InputBox, LoginBtn } from '../../styles/Login';
 
 const AuthForm = ({ form, onChange, onSubmit }) => {
   return (
-    <Frame2 onSubmit={onSubmit}>
+    <form className="Frame2" onSubmit={onSubmit}>
       <InputBox className="email">
         <input
           name="email"
@@ -26,7 +26,7 @@ const AuthForm = ({ form, onChange, onSubmit }) => {
       <LoginBtn $position={{ top: 132 }}>
         <div>로그인</div>
       </LoginBtn>
-    </Frame2>
+    </form>
   );
 };
 export default AuthForm;
