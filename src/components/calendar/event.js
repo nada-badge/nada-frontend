@@ -1,5 +1,3 @@
-// 중복 파일
-
 import styled from 'styled-components';
 
 const EventWrapper = styled.div`
