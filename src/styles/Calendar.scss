@@ -101,7 +101,7 @@ td[role="gridcell"]{
 
 // today css 설정하기
 .fc-daygrid-day.fc-day-today{
-    background-color: white !important;
+    background-color: rgba(0,0,0,0) !important;
 
     a.fc-daygrid-day-number{
         background-color: #1363ff;
@@ -120,9 +120,6 @@ div.fc-daygrid-day-events {
 }
 
 a.fc-event-start{
-    // event를 포함한 day 칸 클릭하기
-    z-index:-1 !important;
-
      // event start block index 효과
     & >.fc-event-main> div > div{
         left: 4px;
