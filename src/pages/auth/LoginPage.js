@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import AuthTemplate from '../../components/auth/AuthTemplate';
 import LoginForm from '../../containers/auth/login/LoginForm';
-import { LoginBox, Logo } from '../../styles/Login';
+import { LoginBox, LogoBox } from '../../styles/Login';
 import { useLocation } from 'react-router-dom';
 
 const locationMap = {
@@ -20,10 +20,12 @@ const LoginPage = () => {
   return (
     <AuthTemplate>
       <LoginBox>
-        <Logo
-          alt="Logo"
-          src="https://generation-sessions.s3.amazonaws.com/dccd720493d3d99169fdd13158e459fa/img/logo.svg"
-        />
+        <LogoBox>
+          <img
+            alt="Logo"
+            src="https://generation-sessions.s3.amazonaws.com/dccd720493d3d99169fdd13158e459fa/img/logo.svg"
+          />
+        </LogoBox>
         <LoginForm type={type} />
       </LoginBox>
     </AuthTemplate>
