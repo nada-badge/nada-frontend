@@ -41,16 +41,16 @@ const CalendarPage = () => {
   const [events, setEvents] = useState([
     {
       title: 'All Day Event',
-      start: '2023-09-01',
+      start: '2023-10-01',
     },
-    {
+    {DAT
       title: '9일 event',
-      start: '2023-09-09',
+      start: '2023-10-09',
     },
     {
       title: 'Long Event',
-      start: '2023-09-07',
-      end: '2023-09-20',
+      start: '2023-10-07',
+      end: '2023-10-20',
       color: '#ffc0cf', // override!
     },
   ]);

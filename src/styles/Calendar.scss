@@ -116,6 +116,7 @@ td[role="gridcell"]{
 div.fc-daygrid-day-events {
     position: relative;
     top: 5px;
+    z-index: -1; // event 요소를 선택해도 dateClick이 가능하도록
 }
 
 a.fc-event-start{
