@@ -90,7 +90,7 @@ const RegisterForm = ({ type }) => {
   };
 
   return (
-    <Frame>
+    <Frame className="Frame">
       <img
         className="BackBtn"
         alt="BackBtn"
