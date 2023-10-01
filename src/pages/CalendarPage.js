@@ -6,7 +6,7 @@ import '../styles/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../modules/calendar';
 
@@ -34,6 +34,11 @@ const CalendarPage = () => {
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
+
+  const modalHandler = () => {
+    setIsModal(false);
+  };
+
   const [date, setDate] = useState({
     month_day: '', // 일(day)
     day_index: '', // 요일[0~6]
@@ -43,7 +48,7 @@ const CalendarPage = () => {
       title: 'All Day Event',
       start: '2023-10-01',
     },
-    {DAT
+    {
       title: '9일 event',
       start: '2023-10-09',
     },
@@ -93,7 +98,7 @@ const CalendarPage = () => {
 
   return (
     <Div>
-      {isModal && <DetailEvent date={date} />}
+      {isModal && <DetailEvent date={date} modalHandler={modalHandler} />}
 
       <div className="CalendarWrapper">
         <FullCalendar
