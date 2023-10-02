@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 const useSubmit = () => {
   const navigate = useNavigate();
-
   //1) activityWrite에서 넘겨받은 값 /activity에 post하기
   return useMutation({
     mutationFn: ({

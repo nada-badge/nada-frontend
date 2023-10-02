@@ -46,8 +46,7 @@ const ManageActivityWrite = () => {
           type="String"
           name={name}
           onChange={onChange}
-          temp={name}
-          value={board.temp}
+          value={board.name}
           required
         />
       </div>
@@ -69,18 +68,16 @@ const ManageActivityWrite = () => {
     const start = startedAt.toISOString();
     const ended = endedAt.toISOString();
 
-    if (activityName && groupName && field && category && area) {
-      mutate({
-        activityName,
-        groupName,
-        field,
-        category,
-        area,
-        content,
-        start,
-        ended,
-      });
-    }
+    mutate({
+      activityName,
+      groupName,
+      field,
+      category,
+      area,
+      content,
+      start,
+      ended,
+    });
   };
 
   return (

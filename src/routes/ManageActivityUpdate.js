@@ -32,7 +32,7 @@ const ManageActivityUpdate = () => {
     navigate('/manage/Activity');
   };
 
-  const output = (title, name) => {
+  const output = (title, name, value) => {
     return (
       <div>
         <span>{title}</span>
@@ -40,8 +40,7 @@ const ManageActivityUpdate = () => {
           type="String"
           name={name}
           onChange={onChange}
-          temp={name}
-          value={board.temp}
+          value={value}
           required
         />
       </div>
@@ -50,6 +49,7 @@ const ManageActivityUpdate = () => {
 
   const onUpdate = (e) => {
     //5)폼을 제출하여 게시물 등록하기 위한 mutate 호출
+
     e.preventDefault();
     const activityName = e.target.activityName.value;
     const groupName = e.target.groupName.value;
@@ -63,30 +63,38 @@ const ManageActivityUpdate = () => {
     const start = startedAt.toISOString();
     const ended = endedAt.toISOString();
 
-    if (activityName && groupName && field && category && area) {
-      mutate({
-        activityName,
-        groupName,
-        field,
-        category,
-        area,
-        content,
-        start,
-        ended,
-      });
-    }
+    mutate({
+      activityName,
+      groupName,
+      field,
+      category,
+      area,
+      content,
+      start,
+      ended,
+    });
   };
 
   return (
     <div>
       <form onSubmit={onUpdate}>
-        <div>{output('활동 제목', 'activityName')}</div>
+        <div>
+          <span>테스트</span>
+          <input
+            type="String"
+            name="activityName"
+            onChange={onChange}
+            value={board.activityName}
+            required
+          />
+        </div>
+        <div>{output('활동 제목', 'activityName', board.activityName)}</div>
         <br />
-        <div>{output('주최사', 'groupName')}</div>
-        <div>{output('분야', 'field')}</div>
-        <div>{output('일정 카테고리', 'category')}</div>
-        <div>{output('장소', 'area')}</div>
-        <div>{output('세부 사항', 'content')}</div>
+        <div>{output('주최사', 'groupName', board.groupName)}</div>
+        <div>{output('분야', 'field', board.field)}</div>
+        <div>{output('일정 카테고리', 'category', board.category)}</div>
+        <div>{output('장소', 'area', board.area)}</div>
+        <div>{output('세부 사항', 'content', board.content)}</div>
 
         {/*<div>
         <span>이미지 첨부</span>
@@ -116,7 +124,7 @@ const ManageActivityUpdate = () => {
         </div>
 
         <div>
-          <button>등록하기</button>
+          <button>수정하기</button>
         </div>
       </form>
       <button onClick={backToList}>취소</button>
