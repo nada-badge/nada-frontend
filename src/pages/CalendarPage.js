@@ -6,7 +6,7 @@ import '../styles/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
-import { useState } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../modules/calendar';
 
@@ -34,23 +34,28 @@ const CalendarPage = () => {
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
+
+  const modalHandler = () => {
+    setIsModal(false);
+  };
+
   const [date, setDate] = useState({
-    month_day: '',
-    day_index: '',
+    month_day: '', // 일(day)
+    day_index: '', // 요일[0~6]
   });
   const [events, setEvents] = useState([
     {
       title: 'All Day Event',
-      start: '2023-09-01',
+      start: '2023-10-01',
     },
     {
       title: '9일 event',
-      start: '2023-09-09',
+      start: '2023-10-09',
     },
     {
       title: 'Long Event',
-      start: '2023-09-07',
-      end: '2023-09-20',
+      start: '2023-10-07',
+      end: '2023-10-20',
       color: '#ffc0cf', // override!
     },
   ]);
@@ -59,7 +64,7 @@ const CalendarPage = () => {
     // 모달 열기/닫기
     setIsModal(!isModal);
 
-    // 날짜 정보 추출
+    // 클릭한 날짜 정보 추출
     const { dateStr, date } = info;
 
     // date 상태 업데이트
@@ -68,25 +73,32 @@ const CalendarPage = () => {
       month_day: dateStr,
       day_index: date.getDay(),
     }));
-
-    dispatch(changeField({ key: 'date', value: dateStr }));
-    dispatch(changeField({ key: 'events', value: filterEvent(dateStr) }));
   };
+
+  useEffect(() => {
+    dispatch(changeField({ key: 'date', value: date.month_day }));
+    dispatch(
+      changeField({ key: 'events', value: filterEvent(date.month_day) }),
+    );
+  }, [date.month_day, events]);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
-  const filterEvent = (dateStr) => {
-    const baseDay = Number(dateStr.split('-')[2]);
+  const filterEvent = useCallback(
+    (dateStr) => {
+      const baseDay = Number(dateStr.split('-')[2]);
 
-    return events.filter(({ start, end }) => {
-      const startDay = Number(start.split('-')[2]);
-      const endDay = end ? Number(end.split('-')[2]) : startDay;
-      return startDay <= baseDay && baseDay <= endDay;
-    });
-  };
+      return events.filter(({ start, end }) => {
+        const startDay = Number(start.split('-')[2]);
+        const endDay = end ? Number(end.split('-')[2]) : startDay;
+        return startDay <= baseDay && baseDay <= endDay;
+      });
+    },
+    [events],
+  );
 
   return (
     <Div>
-      {isModal && <DetailEvent date={date} /> }
+      {isModal && <DetailEvent date={date} modalHandler={modalHandler} />}
 
       <div className="CalendarWrapper">
         <FullCalendar

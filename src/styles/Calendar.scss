@@ -1,5 +1,12 @@
 :root{
     --fc-border-color:white;
+    --fc-button-text-color: #000;
+    --fc-button-bg-color: #fff;
+    --fc-button-border-color: #fff;
+    --fc-button-hover-bg-color: #fff;
+    --fc-button-hover-border-color: #fff;
+    --fc-button-active-bg-color: #fff;
+    --fc-button-active-border-color: #fff;
 }
 
 // 날짜 가운데 정렬하기
@@ -15,6 +22,16 @@ div[aria-labelledby="fc-dom-1"]{
 }
 
 
+// header 요소들 가운데 배치
+div.fc-header-toolbar.fc-toolbar {
+    justify-content: center;
+} 
+
+// header button 테두리 효과 삭제하기
+.fc-button {
+    box-shadow: none !important;
+  }
+
 // 달력 title 
 h2.fc-toolbar-title{
  font-family: "Pretendard-Bold", Helvetica;
@@ -27,11 +44,6 @@ h2.fc-toolbar-title{
  text-align: center;
  white-space: nowrap;
  width: fit-content;
-}
-
-// title margin
-.fc-toolbar{
-    margin-bottom:1rem  
 }
 
 // 요일(첫 행, 월 화 수 ..) 수직 여백
@@ -89,7 +101,7 @@ td[role="gridcell"]{
 
 // today css 설정하기
 .fc-daygrid-day.fc-day-today{
-    background-color: white !important;
+    background-color: rgba(0,0,0,0) !important;
 
     a.fc-daygrid-day-number{
         background-color: #1363ff;
@@ -104,12 +116,10 @@ td[role="gridcell"]{
 div.fc-daygrid-day-events {
     position: relative;
     top: 5px;
+    z-index: -1; // event 요소를 선택해도 dateClick이 가능하도록
 }
 
 a.fc-event-start{
-    // event를 포함한 day 칸 클릭하기
-    z-index:-1 !important;
-
      // event start block index 효과
     & >.fc-event-main> div > div{
         left: 4px;

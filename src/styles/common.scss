@@ -1,3 +1,23 @@
+@font-face {
+  src: url("../font/Pretendard-Bold.woff");
+  font-family: 'Pretendard-Bold';
+}
+
+@font-face {
+  src: url("../font/Pretendard-Medium.woff");
+  font-family: 'Pretendard-Medium';
+}
+
+@font-face {
+  src: url("../font/Pretendard-Regular.woff");
+  font-family: 'Pretendard-Regular';
+}
+
+@font-face {
+  src: url("../font/Pretendard-SemiBold.woff");
+  font-family: 'Pretendard-SemiBold';
+}
+
 :root {
     --body-01-font-family: "Pretendard-Regular", Helvetica;
     --body-01-font-size: 14px;
