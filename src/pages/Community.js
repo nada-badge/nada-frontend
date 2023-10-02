@@ -3,10 +3,11 @@ import BoardCardList from "../community/BoardCardList/BoardCardList";
 import PostList from "../community/PostList/PostList";
 import Category from "../community/Category";
 import Filter from "../community/Filter";
+import { PostWriteButton } from "../community/PostWriteButton";
+
 import {
   CommunityPage,
   Search,
-  Border,
   Border2,
   Contents,
 } from "../styles/CommunityStyle";
@@ -24,7 +25,6 @@ const Community = () => {
           />
         </div>
       </Search>
-      <Border />
       {/*검색창*/}
       <BoardCardList />
       <Contents>
@@ -35,6 +35,7 @@ const Community = () => {
           <PostList />
         </div>
       </Contents>
+      <PostWriteButton />
     </CommunityPage>
   );
 };
