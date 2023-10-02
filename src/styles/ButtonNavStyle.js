@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import communityActImage from '../icon/communityAct.png';
+import communityImage from '../icon/community.png';
 
 export const Navi = styled.nav`
   background-color: #ffffff;
@@ -68,9 +70,9 @@ export const Img = styled.image`
     }
   }
   &.Community {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/vector-7-5.svg');
+    background-image: url(${communityImage});
     &.isActive {
-      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/vector-7-3.svg');
+      background-image: url(${communityActImage});
     }
   }
   &.Mypage {

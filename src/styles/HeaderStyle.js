@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import bellImg from '../icon/bell.png';
 
 export const Top = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -39,7 +40,7 @@ export const Img = styled.image`
     width: 24px;
   }
   &.Bell {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/5e09038c408bcb964308f2d65d54377e/img/vector-4.svg');
+    background-image: url(${bellImg});
     height: 24px;
     left: 336px;
     top: 50px;
@@ -53,7 +54,7 @@ export const Img = styled.image`
     width: 24px;
   }
   &.BellWMenu {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/5e09038c408bcb964308f2d65d54377e/img/vector-4.svg');
+    background-image: url(${bellImg});
     height: 24px;
     left: 304px;
     top: 50px;
