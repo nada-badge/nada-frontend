@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import EventList from '../../components/calendar/EventList/EventList';
 
@@ -39,9 +39,10 @@ const ModalBackGround = styled.div`
 
 const DayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
-const DetailEvent = ({ date }) => {
+const DetailEvent = ({ date, modalHandler }) => {
   const { month_day, day_index } = date;
   const [title, setTitle] = useState(null);
+  const outside = useRef();
 
   useEffect(() => {
     const dateSet = month_day.split('-');
@@ -49,9 +50,15 @@ const DetailEvent = ({ date }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const onClick = (e) => {
+    if (e.target === outside.current) {
+      modalHandler();
+    }
+  };
+
   return (
     <>
-      <ModalBackGround>
+      <ModalBackGround ref={outside} onClick={onClick}>
         <div className="EventsContainer">
           <h2>{title}</h2>
           <EventList />
