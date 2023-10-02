@@ -5,6 +5,10 @@ export const CommunityPage = styled.div`
   display: inline-flex;
   flex-direction: column;
   position: relative;
+  align-items: flex-start;
+  text-align: left;
+  gap: 12px 0px;
+  background-color: var(--myspec-gray-scalegray-100);
 `;
 
 export const Search = styled.div`

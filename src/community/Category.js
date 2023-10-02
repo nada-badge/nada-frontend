@@ -27,8 +27,8 @@ const Category = () => {
 };
 
 const Categorylist = styled.div`
-  align-items: flex-start;
   display: inline-flex;
+
   flex: 0 0 auto;
   gap: 12px;
   position: relative;

@@ -5,12 +5,13 @@ import { modalSelector } from "../../module/ModalStatus";
 import AreaModal from "./AreaModal";
 import FieldModal from "./FieldModal";
 import CategoryModal from "./CategoryModal";
+import MainCategoryModal from "./MainCategoryModal";
 
 const MODAL_COMPONENTS = {
   AreaModal: AreaModal,
   FieldModal: FieldModal,
   CategoryModal: CategoryModal,
-  //second: SecondModal,
+  MainCategoryModal: MainCategoryModal,
 };
 
 function ModalContainer() {

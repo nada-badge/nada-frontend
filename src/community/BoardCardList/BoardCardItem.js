@@ -5,7 +5,7 @@ const CardContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
   border-radius: 10px;
   height: 148px;
-  overflow: hidden;
+
   position: relative;
   width: 120px;
   flex-direction: column;
@@ -18,6 +18,7 @@ const CardContainer = styled.div`
     height: 88px;
     position: relative;
     width: 120px;
+    border-radius: 10px 10px 0px 0px;
   }
 
   & > .category {
