@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const CardsContainer = styled.div`
-  background-color: var(--myspec-gray-scalewhite);
   box-shadow: 0px 2px 5px #00000005;
   position: relative;
-  margin: 12px 0px;
 
   & > h1 {
     color: #000000;
