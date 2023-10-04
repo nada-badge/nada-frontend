@@ -1,5 +1,6 @@
 :root{
     --fc-border-color:white;
+    --fc-today-bg-color:none;
     --fc-button-text-color: #000;
     --fc-button-bg-color: #fff;
     --fc-button-border-color: #fff;
@@ -102,7 +103,7 @@ td[role="gridcell"]{
 // today css 설정하기
 .fc-daygrid-day.fc-day-today{
     background-color: rgba(0,0,0,0) !important;
-
+  
     a.fc-daygrid-day-number{
         background-color: #1363ff;
         border-radius: 12.5px;
