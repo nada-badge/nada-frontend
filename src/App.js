@@ -9,6 +9,7 @@ import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
 import LogInSelect from './pages/auth/LoginSelect';
 import CalendarPage from './pages/CalendarPage';
+import ActivityPage from './pages/activity/ActivityPage';
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,8 @@ const App = () => {
         <Route path="/write" element={<BoardWrite />} />
 
         <Route path="/calendar" element={<CalendarPage />} />
+
+        <Route path="/activity" element={<ActivityPage />} />
       </Routes>
     </QueryClientProvider>
   );
