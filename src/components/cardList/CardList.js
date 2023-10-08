@@ -1,6 +1,7 @@
 import ActivityItem from './ActivityItem';
 import BoardCardItem from './BoardCardItem';
 import styled from 'styled-components';
+import RecentActivityItem from './RecentActivityItem';
 
 const CardsContainer = styled.div`
   box-shadow: 0px 2px 5px #00000005;
@@ -36,6 +37,7 @@ const CardList = ({ title, cards, type }) => {
   const typeSet = {
     board: BoardCardItem,
     activity: ActivityItem,
+    recentActivity: RecentActivityItem,
   };
 
   const ItemComponents = typeSet[type];
