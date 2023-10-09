@@ -24,9 +24,11 @@ div[aria-labelledby="fc-dom-1"]{
 
 
 // header 요소들 가운데 배치
-div.fc-header-toolbar.fc-toolbar {
-    justify-content: center;
-} 
+.CalendarWrapper{
+    div.fc-header-toolbar.fc-toolbar {
+        justify-content: center;
+    } 
+}
 
 // header button 테두리 효과 삭제하기
 .fc-button {
