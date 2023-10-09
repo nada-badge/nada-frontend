@@ -15,13 +15,13 @@ const CardContainer = styled.div`
     top: 10px;
 
     & > .title {
-      ${subtitle_03('var(--myspec-gray-scalegray-900)')};
+      ${subtitle_03('var(--myspec-gray-scalegray-900)')}
       height: 21px;
       position: relative;
     }
 
     & > .team {
-      ${caption_02('var(--myspec-primaryblue-1)')};
+      ${caption_02('var(--myspec-primaryblue-1)')}
       height: 14px;
       position: relative;
       top: 4px;
@@ -43,7 +43,7 @@ const CardContainer = styled.div`
       }
 
       & > .see {
-        ${caption_01('var(--myspec-gray-scalegray-600')}
+        ${caption_01('var(--myspec-gray-scalegray-600)')}
         height: 17px;
         position: relative;
         left: 4px;
@@ -52,10 +52,6 @@ const CardContainer = styled.div`
     }
 
     & > .star {
-      background-image: url(https://c.animaapp.com/ZKBJFlPD/img/star-1-2.svg);
-      background-size: 100% 100%;
-      height: 24px;
-      width: 24px;
       position: absolute;
       top: 48px;
       left: calc(100% - 25px);

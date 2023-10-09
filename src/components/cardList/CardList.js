@@ -2,6 +2,7 @@ import ActivityItem from './ActivityItem';
 import BoardCardItem from './BoardCardItem';
 import styled from 'styled-components';
 import RecentActivityItem from './RecentActivityItem';
+import { subtitle_01 } from '../../styles/fontStyle';
 
 const CardsContainer = styled.div`
   box-shadow: 0px 2px 5px #00000005;
@@ -9,15 +10,9 @@ const CardsContainer = styled.div`
 
   & > h1 {
     color: #000000;
-    font-family: var(--subtitle-01-font-family);
-    font-size: var(--subtitle-01-font-size);
-    font-style: var(--subtitle-01-font-style);
-    font-weight: var(--subtitle-01-font-weight);
+    ${subtitle_01('#000000')}
     left: 16px;
-    letter-spacing: var(--subtitle-01-letter-spacing);
-    line-height: var(--subtitle-01-line-height);
     position: relative;
-    white-space: nowrap;
     padding: 16px 0px; // 커스텀
     margin: 0;
   }
