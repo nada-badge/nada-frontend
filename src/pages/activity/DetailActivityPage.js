@@ -1,3 +1,4 @@
+import InfoContainer from '../../containers/activity/InfoContainer.js';
 import Thumbnail from '../../containers/activity/Thumbnail.js';
 import styled from 'styled-components';
 
@@ -19,7 +20,7 @@ const DetailActivityPage = () => {
   return (
     <DetailContainer>
       <Thumbnail />
-      {/* 상세내용 */}
+      <InfoContainer />
       {/* 팀원모집 */}
     </DetailContainer>
   );

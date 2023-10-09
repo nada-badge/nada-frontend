@@ -39,6 +39,19 @@ export const subtitle_01 = (color) => css`
   overflow: hidden;
 `;
 
+export const subtitle_02 = (color) => css`
+  color: ${color || '#000000'};
+  font-family: var(--subtitle-02-font-family);
+  font-size: var(--subtitle-02-font-size);
+  font-style: var(--subtitle-02-font-style);
+  font-weight: var(--subtitle-02-font-weight);
+  letter-spacing: var(--subtitle-02-letter-spacing);
+  line-height: var(--subtitle-02-line-height);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
+
 export const subtitle_03 = (color) => css`
   color: ${color || '#000000'};
   font-family: var(--subtitle-03-font-family);
@@ -60,4 +73,15 @@ export const title_01 = (color) => css`
   font-weight: var(--title-01-font-weight);
   letter-spacing: var(--title-01-letter-spacing);
   line-height: var(--title-01-line-height);
+`;
+
+export const body_01 = (color) => css`
+  color: ${color || '#000000'};
+  font-family: var(--body-01-font-family);
+  font-size: var(--body-01-font-size);
+  font-style: var(--body-01-font-style);
+  font-weight: var(--body-01-font-weight);
+  letter-spacing: var(--body-01-letter-spacing);
+  line-height: var(--body-01-line-height);
+  word-break: keep-all;
 `;
