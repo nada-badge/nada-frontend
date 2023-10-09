@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { subtitle_03, caption_02, caption_01 } from '../../styles/fontStyle';
 
 const CardContainer = styled.div`
   min-width: 184px;
@@ -14,35 +15,17 @@ const CardContainer = styled.div`
     top: 10px;
 
     & > .title {
-      color: var(--gray-900);
-      font-family: var(--subtitle-03-font-family);
-      font-size: var(--subtitle-03-font-size);
-      font-style: var(--subtitle-03-font-style);
-      font-weight: var(--subtitle-03-font-weight);
+      ${subtitle_03('var(--myspec-gray-scalegray-900)')};
       height: 21px;
-      letter-spacing: var(--subtitle-03-letter-spacing);
-      line-height: var(--subtitle-03-line-height);
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
       position: relative;
     }
 
     & > .team {
-      color: var(--myspec-primaryblue-1);
-      font-family: var(--caption-02-font-family);
-      font-size: var(--caption-02-font-size);
-      font-style: var(--caption-02-font-style);
-      font-weight: var(--caption-02-font-weight);
+      ${caption_02('var(--myspec-primaryblue-1)')};
       height: 14px;
-      letter-spacing: var(--caption-02-letter-spacing);
-      line-height: var(--caption-02-line-height);
       position: relative;
       top: 4px;
-      white-space: nowrap;
       width: calc(100% - (16px + 14px));
-      text-overflow: ellipsis;
-      overflow: hidden;
     }
 
     & > .group {
@@ -53,36 +36,21 @@ const CardContainer = styled.div`
       width: fit-content;
 
       & > .Dday {
-        color: var(--myspec-gray-scalegray-900);
-        font-family: var(--caption-01-font-family);
-        font-size: var(--caption-01-font-size);
-        font-style: var(--caption-01-font-style);
-        font-weight: var(--caption-01-font-weight);
+        ${caption_01('var(--myspec-gray-scalegray-900)')}
         height: 17px;
-        letter-spacing: var(--caption-01-letter-spacing);
-        line-height: var(--caption-01-line-height);
         position: relative;
-        white-space: nowrap;
         align-self: center;
       }
 
       & > .see {
-        color: var(--myspec-gray-scalegray-600);
-        font-family: var(--caption-01-font-family);
-        font-size: var(--caption-01-font-size);
-        font-style: var(--caption-01-font-style);
-        font-weight: var(--caption-01-font-weight);
+        ${caption_01('var(--myspec-gray-scalegray-600')}
         height: 17px;
-        letter-spacing: var(--caption-01-letter-spacing);
-        line-height: var(--caption-01-line-height);
         position: relative;
         left: 4px;
-        text-align: center;
-        white-space: nowrap;
         align-self: center;
       }
     }
-    
+
     & > .star {
       background-image: url(https://c.animaapp.com/ZKBJFlPD/img/star-1-2.svg);
       background-size: 100% 100%;
