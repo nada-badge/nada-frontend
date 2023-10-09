@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { subtitle_03, caption_02, caption_01 } from '../../styles/fontStyle';
+import { Star } from '../activity/Star';
 
 const CardContainer = styled.div`
   min-width: 184px;
@@ -71,7 +72,9 @@ const RecentActivityItem = ({ card }) => {
           <div className="Dday">D-{Dday}</div>
           <div className="see">조회 {see}</div>
         </div>
-        <div className="star" />
+        <div className="star">
+          <Star />
+        </div>
       </div>
     </CardContainer>
   );
