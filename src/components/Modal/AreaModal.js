@@ -1,38 +1,84 @@
-import React from "react";
+import { useEffect } from "react";
 import Modal from "./Modal";
 import useModal from "./useModal";
-import { SelectButton } from "../../community/SelectButton";
+import { useDispatch, useSelector } from "react-redux";
+import { changeField } from "../../module/CommunityStatus";
+import {
+  initializeForm,
+  submitForm,
+  postWriteSelector,
+  setField,
+} from "../../module/PostWriteStatus";
+import { SelectButton } from "../../community/PostWrite/SelectButton";
+import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
 import { List, Border, ButtonList, Cancel, Ok } from "./ModalStyle";
 function AreaModal() {
   const { closeModal } = useModal();
+  const dispatch = useDispatch();
+  const status = useSelector(postWriteSelector("postWriteSubmit", "area"));
+
+  useEffect(() => {
+    dispatch(
+      setField({
+        form: "postWriteSelect",
+        key: "area",
+        value: status,
+      })
+    );
+  }, []);
+
+  const buttonAll = { text: "전국" };
+
+  const buttons = [
+    { id: 1, text: "서울" },
+    { id: 2, text: "부산" },
+    { id: 3, text: "대구" },
+    { id: 4, text: "인천" },
+    { id: 5, text: "광주" },
+    { id: 6, text: "대전" },
+    { id: 7, text: "울산" },
+    { id: 8, text: "경기" },
+    { id: 9, text: "강원" },
+    { id: 10, text: "충청" },
+    { id: 11, text: "경상" },
+    { id: 12, text: "전라" },
+    { id: 13, text: "제주" },
+    { id: 14, text: "세종" },
+    { id: 15, text: "해외" },
+  ];
+
+  const SetStatus = () => {
+    dispatch(
+      submitForm({
+        key: "area",
+      })
+    );
+
+    closeModal();
+  };
+
+  const Cancels = () => {
+    dispatch(initializeForm({ form: "postWriteSelect", key: "area" }));
+    closeModal();
+  };
 
   return (
     <Modal onClose={closeModal}>
       <div>
         <List>
-          <SelectButton text="전국" type="opened" />
-          <SelectButton text="서울" type="unselected" />
-          <SelectButton text="부산" type="unselected" />
-          <SelectButton text="대구" type="unselected" />
-          <SelectButton text="인천" type="unselected" />
-          <SelectButton text="광주" type="unselected" />
-          <SelectButton text="대전" type="unselected" />
-          <SelectButton text="울산" type="unselected" />
-          <SelectButton text="경기" type="unselected" />
-          <SelectButton text="강원" type="unselected" />
-          <SelectButton text="충청" type="unselected" />
-          <SelectButton text="경상" type="unselected" />
-          <SelectButton text="전라" type="unselected" />
-          <SelectButton text="제주" type="unselected" />
-          <SelectButton text="세종" type="unselected" />
-          <SelectButton text="해외" type="unselected" />
+          <SelectAllButton text={buttonAll.text} />
+          {buttons.map((button) => (
+            <div>
+              <SelectButton text={button.text} />
+            </div>
+          ))}
         </List>
         <Border />
         <ButtonList>
-          <Cancel onClick={closeModal}>
+          <Cancel onClick={Cancels}>
             <div className="text-wrapper">취소</div>
           </Cancel>
-          <Ok>
+          <Ok onClick={SetStatus}>
             <div className="text-wrapper">확인</div>
           </Ok>
         </ButtonList>
