@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { body_01, subtitle_02, subtitle_03 } from '../../styles/fontStyle';
+import { subtitle_02 } from '../../styles/fontStyle';
 import { useState } from 'react';
 import classnames from 'classnames';
+import ContentContainer from './ContentContainer';
 
 const DetailContainer = styled.div`
   display: flex;
@@ -25,24 +26,6 @@ const DetailContainer = styled.div`
     & > .clicked {
       // classname을 활용해 선택한 컴포넌트에만 적용할 예정
       border-bottom: 2px solid var(--blue1, #1363ff);
-    }
-  }
-
-  & > .content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 255px;
-    position: relative;
-    top: 16px;
-    left: 15px;
-
-    & > div > :nth-child(1) {
-      ${subtitle_03('#1A1A1A')}
-    }
-
-    & > div > :nth-child(2) {
-      ${body_01('#1A1A1A')}
     }
   }
 `;
@@ -74,22 +57,7 @@ const InfoContainer = () => {
           팀원 모집
         </div>
       </div>
-      <div className="content">
-        <div className="duration">
-          <div>접수기간</div>
-          <div>5월 2일(화) ~ 5월 19일(금)</div>
-        </div>
-        <div className="team">
-          <div>기관</div>
-          <div>사단법인 파이나다운청년들</div>
-        </div>
-        <div className="place">
-          <div>장소</div>
-          <div>
-            [사단법인 파이나다운청년들] 경기도 성남시 분당구 새마을로 12 4층
-          </div>
-        </div>
-      </div>
+      <ContentContainer active={active} />
     </DetailContainer>
   );
 };
