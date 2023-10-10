@@ -21,7 +21,6 @@ const DetailActivityPage = () => {
     <DetailContainer>
       <Thumbnail />
       <InfoContainer />
-      {/* 팀원모집 */}
     </DetailContainer>
   );
 };
