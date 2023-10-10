@@ -5,23 +5,23 @@ const DetailContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 255px;
   position: relative;
-  top: 16px;
-  left: 15px;
+  padding: 16px 15px 12px 15px;
 
   & > div > :nth-child(1) {
     ${subtitle_03('#1A1A1A')}
   }
 
   & > div > :nth-child(2) {
-    ${body_01('#1A1A1A')}
+    width: 255px;
+    ${body_01('#1A1A1A')};
   }
 `;
 
 const ContentContainer = ({ active }) => {
   return (
     <>
+      {/* 상세 내용 */}
       {active.includes('detail') && (
         <DetailContent>
           <div className="duration">
@@ -40,6 +40,9 @@ const ContentContainer = ({ active }) => {
           </div>
         </DetailContent>
       )}
+
+      {/* 팀원 모집 */}
+      {active.includes('recruit')}
     </>
   );
 };
