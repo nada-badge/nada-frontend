@@ -19,7 +19,6 @@ const DetailContainer = styled.div`
       padding: 10px 63.5px 8px 63px;
       justify-content: center;
       align-items: center;
-      flex-shrink: 0;
       margin: 0;
       ${subtitle_02('var(--myspec-gray-scalegray-900)')}
     }
@@ -27,6 +26,11 @@ const DetailContainer = styled.div`
     & > .clicked {
       border-bottom: 2px solid var(--blue1, #1363ff);
     }
+  }
+
+  & > .img {
+    position: relative;
+    top: 12px;
   }
 `;
 
@@ -58,6 +62,13 @@ const InfoContainer = () => {
         ))}
       </div>
       <ContentContainer active={active} />
+      {active === titleData[0].id && (
+        <img
+          className="img"
+          alt=""
+          src="https://c.animaapp.com/DZnkZ85k/img/image-2.png"
+        />
+      )}
     </DetailContainer>
   );
 };
