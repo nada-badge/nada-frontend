@@ -11,6 +11,7 @@ const DetailContainer = styled.div`
 
   & > .header {
     display: flex;
+    cursor: pointer-events;
 
     & > .title {
       display: flex;
@@ -24,38 +25,37 @@ const DetailContainer = styled.div`
     }
 
     & > .clicked {
-      // classname을 활용해 선택한 컴포넌트에만 적용할 예정
       border-bottom: 2px solid var(--blue1, #1363ff);
     }
   }
 `;
-const InfoContainer = () => {
-  const [active, setActive] = useState('detail');
 
-  const onClick = (e) => {
-    const { className } = e.target;
-    setActive(className);
+const titleData = [
+  { id: 'detail', text: '상세 내용' },
+  { id: 'recruit', text: '팀원 모집' },
+];
+
+const InfoContainer = () => {
+  const [active, setActive] = useState(titleData[0].id);
+
+  const onClick = (id) => {
+    setActive(id);
   };
 
   return (
     <DetailContainer>
       <div className="header">
-        <div
-          className={classnames('title detail', {
-            clicked: active.includes('detail'),
-          })}
-          onClick={onClick}
-        >
-          상세 내용
-        </div>
-        <div
-          className={classnames('title recruit', {
-            clicked: active.includes('recruit'),
-          })}
-          onClick={onClick}
-        >
-          팀원 모집
-        </div>
+        {titleData.map((item) => (
+          <div
+            key={item.id}
+            className={classnames(`title ${item.id}`, {
+              clicked: active === item.id,
+            })}
+            onClick={() => onClick(item.id)}
+          >
+            {item.text}
+          </div>
+        ))}
       </div>
       <ContentContainer active={active} />
     </DetailContainer>
