@@ -11,7 +11,7 @@ const DetailContainer = styled.div`
 
   & > .header {
     display: flex;
-    cursor: pointer-events;
+    cursor: pointer;
 
     & > .title {
       display: flex;
@@ -35,8 +35,8 @@ const DetailContainer = styled.div`
 `;
 
 const titleData = [
-  { id: 'detail', text: '상세 내용' },
-  { id: 'recruit', text: '팀원 모집' },
+  { id: 'detail', text: '상세내용' },
+  { id: 'recruit', text: '팀원모집' },
 ];
 
 const InfoContainer = () => {
