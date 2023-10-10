@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import useSubmit from "../../module/queries/PostWriteQuery";
-import { FilterModal } from "./FilterModal";
+import { useSelector } from "react-redux";
+import { postWriteSelector } from "../../module/PostWriteStatus";
+import { AreaButton } from "./AreaButton";
+import { FieldButton } from "./FieldButton";
 import "../style.css";
+import { MainCategoryButton } from "./MainCategoryButton";
+import { CategoryButton } from "./CategoryButton";
 import {
   PostContainer,
   Title,
@@ -19,6 +24,9 @@ export const PostWrite = () => {
   //gallery
 
   const { mutate } = useSubmit();
+  const isClick = useSelector(
+    postWriteSelector("postWriteSelect", "mainCategory")
+  );
 
   const [board, setBoard] = useState({
     // 1)보드값을 ""로 초기화
@@ -77,10 +85,14 @@ export const PostWrite = () => {
         </Title>
         <Border />
         <Frame>
-          <FilterModal text="모집" Modalname="MainCategoryModal" />
-          <FilterModal text="지역" Modalname="AreaModal" />
-          <FilterModal text="분야" Modalname="FieldModal" />
-          <FilterModal text="종류" Modalname="CategoryModal" />
+          <MainCategoryButton text={isClick} />
+          <AreaButton text="지역" Modalname="AreaModal" state="Area" />
+          <FieldButton text="분야" Modalname="FieldModal" state="Field" />
+          <CategoryButton
+            text="종류"
+            Modalname="CategoryModal"
+            state="Category"
+          />
         </Frame>
         <Content>
           <input

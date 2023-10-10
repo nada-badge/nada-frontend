@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { DropDown } from "./Dropdown";
 import { useSelector } from "react-redux";
-import { filterActiveSelector } from "../module/CommunityStatus";
+import { communitySelector } from "../module/CommunityStatus";
 import { FilterItems } from "./FilterItems";
 
 const Filter = () => {
-  const isOpen = useSelector(filterActiveSelector);
+  const isOpen = useSelector(communitySelector("community", "filterActive"));
 
   return (
     <div>

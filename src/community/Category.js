@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { categoryActiveSelector } from "../module/CommunityStatus";
+import { communitySelector } from "../module/CommunityStatus";
 import { PageBy } from "./pageBy";
 
 const categoryButton = (text) => {
@@ -12,7 +12,7 @@ const categoryButton = (text) => {
 };
 
 const Category = () => {
-  const isOpen = useSelector(categoryActiveSelector);
+  const isOpen = useSelector(communitySelector("community", "categoryActive"));
 
   return (
     <div>
