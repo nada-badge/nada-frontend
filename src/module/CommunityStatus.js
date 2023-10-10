@@ -1,4 +1,5 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { createSelector } from "reselect";
 
 const initialState = {
   community: {
@@ -11,31 +12,23 @@ const communitySlice = createSlice({
   name: "community",
   initialState,
   reducers: {
-    changeField: (state, { payload: { form, value } }) => {
-      state.community[form] = value;
+    changeField: (state, { payload: { form, key, value } }) => {
+      state[form][key] = value;
     },
     initializeForm: (state, { payload: form }) => {
       state[form] = initialState[form];
     },
   },
 });
-const filterActiveSelect = (rootState) =>
-  rootState.community.community.filterActive ||
-  initialState.community.filterActive;
-
-const categoryActiveSelect = (rootState) =>
-  rootState.community.community.filterActive ||
-  initialState.community.filterActive;
-
-export const filterActiveSelector = createSelector(
-  filterActiveSelect,
-  (filterActive) => filterActive
-);
-
-export const categoryActiveSelector = createSelector(
-  categoryActiveSelect,
-  (categoryActive) => categoryActive
-);
 
 export default communitySlice;
 export const { changeField, initializeForm } = communitySlice.actions;
+
+const communitySelects = (type, field) => (rootState) => {
+  return rootState.community[type][field] || initialState[type][field];
+};
+
+export const communitySelector = createSelector(
+  communitySelects,
+  (field) => field
+);
