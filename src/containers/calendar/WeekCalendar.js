@@ -1,14 +1,14 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import './WeekCalendar.scss';
 import '../../styles/Calendar.scss';
+import './WeekCalendar.scss';
 import TodayBox from '../../components/calendar/today';
 import EventBox from '../../components/calendar/event';
 
 const WeekCalendar = () => {
   return (
     <>
-      <div className="CalendarWrapper">
+      <div className="WeekCalendarWrapper">
         <FullCalendar
           plugins={[dayGridPlugin]}
           initialView={'dayGridWeek'}
