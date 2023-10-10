@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import styled from "styled-components";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  postWriteSelector,
+  addField,
+  deleteField,
+} from "../module/PostWriteStatus";
 
 export const SelectButton = ({ text }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState();
+  const dispatch = useDispatch();
+  const state = useSelector(
+    postWriteSelector({ type: "Select", field: "area" })
+  );
 
-  const onClickButton = () => {
-    setIsActive(!isActive); // 추후 관련 API 나오면 해당 API 상태값을 true로 바꿔줘야함
+  const OnClickButton = () => {
+    if (state.includes(text)) {
+      dispatch(
+        deleteField({
+          key: "area",
+          value: text,
+        })
+      );
+    } else
+      dispatch(
+        addField({
+          key: "area",
+          value: text,
+        })
+      );
   };
 
+  useEffect(() => {
+    setIsActive(state.includes(text));
+  }, [state]);
+
   return (
-    <Button className={classNames({ isActive })} onClick={onClickButton}>
+    <Button className={classNames({ isActive })} onClick={OnClickButton}>
       <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
       {isActive && <Img />}
     </Button>
