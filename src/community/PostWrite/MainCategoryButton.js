@@ -5,7 +5,11 @@ import useModal from "../../components/Modal/useModal";
 import { useSelector } from "react-redux";
 import { postWriteSelector } from "../../module/PostWriteStatus";
 
-export const MainCategoryButton = ({ text }) => {
+export const MainCategoryButton = () => {
+  const text = useSelector(
+    postWriteSelector("postWriteSubmit", "mainCategory")
+  );
+
   const isActive = useSelector(
     postWriteSelector("ButtonActive", "mainCategory")
   );
