@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Modal from "./Modal";
 import useModal from "./useModal";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField } from "../../module/CommunityStatus";
 import {
   initializeForm,
   submitForm,
@@ -15,17 +14,10 @@ import { List, Border, ButtonList, Cancel, Ok } from "./ModalStyle";
 function AreaModal() {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
-  const status = useSelector(postWriteSelector("postWriteSubmit", "area"));
-
-  useEffect(() => {
-    dispatch(
-      setField({
-        form: "postWriteSelect",
-        key: "area",
-        value: status,
-      })
-    );
-  }, []);
+  const Initialization = useSelector(
+    postWriteSelector("postWriteSubmit", "area")
+  );
+  const status = useSelector(postWriteSelector("postWriteSelect", "area"));
 
   const buttonAll = { text: "전국" };
 
@@ -47,10 +39,29 @@ function AreaModal() {
     { id: 15, text: "해외" },
   ];
 
+  useEffect(() => {
+    dispatch(
+      setField({
+        form: "postWriteSelect",
+        key: "area",
+        value: Initialization,
+      })
+    );
+  }, []);
+
   const SetStatus = () => {
     dispatch(
       submitForm({
         key: "area",
+      })
+    );
+
+    const value = !(status[0] === buttonAll.text);
+    dispatch(
+      setField({
+        form: "ButtonActive",
+        key: "area",
+        value: value,
       })
     );
 
@@ -66,7 +77,7 @@ function AreaModal() {
     <Modal onClose={closeModal}>
       <div>
         <List>
-          <SelectAllButton text={buttonAll.text} />
+          <SelectAllButton />
           {buttons.map((button) => (
             <div>
               <SelectButton text={button.text} />

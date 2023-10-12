@@ -8,10 +8,10 @@ import CategoryModal from "./CategoryModal";
 import MainCategoryModal from "./MainCategoryModal";
 
 const MODAL_COMPONENTS = {
+  MainCategoryModal: MainCategoryModal,
   AreaModal: AreaModal,
   FieldModal: FieldModal,
   CategoryModal: CategoryModal,
-  MainCategoryModal: MainCategoryModal,
 };
 
 function ModalContainer() {
