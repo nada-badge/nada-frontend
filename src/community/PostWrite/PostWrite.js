@@ -123,6 +123,7 @@ export const PostWrite = () => {
             </div>
           </div>
         </AreaImages>
+        <div>테스트 제출 버튼</div>
       </form>
     </PostContainer>
   );

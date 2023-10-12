@@ -11,14 +11,15 @@ const initialState = {
   postWriteSelect: {
     mainCategory: "카테고리",
     area: [],
-    field: "",
-    category: "",
+    field: [],
+    category: [],
+    modal: 0,
   },
   postWriteSubmit: {
     mainCategory: "카테고리",
     area: [],
-    field: "",
-    category: "",
+    field: [],
+    category: [],
   },
 };
 
