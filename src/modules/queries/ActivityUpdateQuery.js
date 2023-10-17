@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 const useUpdate = () => {
   const navigate = useNavigate();
   const id = useSelector(idSelector); //1)현 게시물의 _id값 가져오기
-  console.log('useUpdate가 실행되었습니다.', id);
   //2)수정값 patch 하기
   return useMutation({
     mutationFn: ({

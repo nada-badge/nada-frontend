@@ -13,7 +13,6 @@ import ManageActivityList from './routes/ManageActivityList';
 import React from 'react';
 import ManageActivityDetail from './routes/ManageActivityDetail';
 import ManageActivityWrite from './routes/ManageActivityWrite';
-import ManageActivityUpdate from './routes/ManageActivityUpdate';
 import LogInSelect from './pages/auth/LoginSelect';
 import ManageHome from './routes/ManageHome';
 
@@ -39,10 +38,6 @@ const App = () => {
           <Route
             path="/manage/ActivityWrite"
             element={<ManageActivityWrite />}
-          />
-          <Route
-            path="/manage/ActivityUpdate"
-            element={<ManageActivityUpdate />}
           />
 
           <Route path="/home" element={<Home />} />

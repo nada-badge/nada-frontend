@@ -14,39 +14,29 @@ export const Navi = styled.nav`
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 `;
 
 export const NavLinks = styled(NavLink)`
   height: 42px;
-  position: absolute;
+  position: relative;
   top: 11px;
-
-  &.Home {
-    left: 34px;
-    width: 26px;
-  }
-  &.Activity {
-    left: 102px;
-    width: 26px;
-  }
-  &.Badge {
-    left: 173px;
-    width: 26px;
-  }
-  &.Community {
-    left: 237px;
-    width: 41px;
-  }
-  &.Mypage {
-    left: 315px;
-    width: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 46px;
+  gap: 3px;
+  &:link {
+    text-decoration: none;
   }
 `;
 
 export const Img = styled.image`
   height: 26px;
   left: 0;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 26px;
   background-size: 100%;
@@ -90,46 +80,17 @@ export const Text = styled.div`
   font-weight: var(--caption-01-font-weight);
   letter-spacing: var(--caption-01-letter-spacing);
   line-height: var(--caption-01-line-height);
-  position: absolute;
+  position: relative;
   text-align: center;
   white-space: nowrap;
   color: var(--myspec-gray-scalegray-600);
 
-  &.Home {
-    left: 7.5px;
-    top: 28px;
-    &.isActive {
-      color: var(--myspec-primaryblue-1);
-    }
+ 
+
+  &.isActive {
+    color: var(--myspec-primaryblue-1);
   }
 
-  &.Activity {
-    left: 2px;
-    top: 28px;
-    &.isActive {
-      color: var(--myspec-primaryblue-1);
-    }
-  }
-  &.Badge {
-    left: 2px;
-    top: 28px;
-    &.isActive {
-      color: var(--myspec-primaryblue-1);
-    }
-  }
-  &.Community {
-    left: -8px;
-    top: 28px;
-    &.isActive {
-      color: var(--myspec-primaryblue-1);
-    }
-  }
-
-  &.Mypage {
-    left: 4.5px;
-    top: 28px;
-    &.isActive {
-      color: var(--myspec-primaryblue-1);
-    }
+ 
   }
 `;

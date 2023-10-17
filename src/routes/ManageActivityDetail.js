@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeForm } from '../modules/activity';
 import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 import { idSelector } from '../modules/activity';
 import client from '../lib/api/client';
@@ -11,6 +12,8 @@ const ManageActivityDetail = () => {
   const dispatch = useDispatch();
 
   const id = useSelector(idSelector); //1) 해당 페이지의 id를 받아옴
+
+  const activity = useSelector(({ activity }) => activity.activities);
 
   const {
     activityName,
@@ -23,36 +26,28 @@ const ManageActivityDetail = () => {
     endedAt,
     registeredAt,
     updatedAt,
-  } = useSelector(({ activity }) => ({
-    activityName: activity.activities.activityName,
-    groupName: activity.activities.groupName,
-    field: activity.activities.field,
-    category: activity.activities.category,
-    area: activity.activities.area,
-    content: activity.activities.content,
-    startedAt: activity.activities.startedAt,
-    endedAt: activity.activities.endedAt,
-    registeredAt: activity.activities.registeredAt,
-    updatedAt: activity.activities.updatedAt,
-  }));
+  } = activity;
 
   const initialize = () => {
     dispatch(initializeForm('activities'));
   };
 
-  const DeleteAct = () => {
-    //2) 해당 페이지를 삭제하고 현 activity 리덕스값도 초기화
+  //2) 해당 페이지를 삭제하고 현 activity 리덕스값도 초기화
+  const handleDelete = useCallback(async () => {
+    try {
+      await client.delete('/activity', { data: { _id: id } });
+      dispatch(initializeForm('activities'));
+      initialize();
+      alert('삭제되었습니다.');
+      navigate('/manage/Activity');
+    } catch (error) {
+      console.error('삭제 중 오류 발생:', error);
+    }
+  }, [id, dispatch, navigate]);
 
-    client.delete('/activity', { data: { _id: id } });
-
-    initialize();
-    alert('삭제되었습니다.');
-    navigate('/manage/Activity');
-  };
-
-  const UpdateAct = () => {
-    navigate('/manage/ActivityUpdate');
-  };
+  const UpdateAct = useCallback(() => {
+    navigate('/manage/ActivityWrite');
+  }, []);
 
   return (
     <div>
@@ -71,7 +66,7 @@ const ManageActivityDetail = () => {
         </div>
       </div>
       <button onClick={UpdateAct}>수정</button>
-      <button onClick={DeleteAct}>삭제</button>
+      <button onClick={handleDelete}>삭제</button>
     </div>
   );
 };

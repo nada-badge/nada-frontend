@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../modules/activity.js';
+import { changeField, initializeForm } from '../modules/activity.js';
 import client from '../lib/api/client.js';
 
 const ManageActivityList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   //1) activity 데이터를 받아옴
   useEffect(() => {
@@ -17,24 +16,19 @@ const ManageActivityList = () => {
       try {
         const resp = await client.get('activity/list');
         setBoardList(resp.data.activities);
-        setLoading(true);
       } catch (e) {
         console.log(e);
       }
-      setLoading(false);
     };
     FetchData();
   }, []);
-
-  if (loading) {
-    return <ManageActivityList>Loading...</ManageActivityList>;
-  }
 
   if (!boardList) {
     return null;
   }
 
   const MoveToWrite = () => {
+    dispatch(initializeForm('activities'));
     navigate('/manage/ActivityWrite');
   };
 
@@ -51,7 +45,7 @@ const ManageActivityList = () => {
             // 2) map 함수로 데이터 출력
             <li key={activity._id}>
               <Link
-                onClick={setData(activity)} //3) 리덕스 activities에 클릭된 활동 데이터를 삽입
+                onClick={() => setData(activity)} //3) 리덕스 activities에 클릭된 활동 데이터를 삽입
                 to={`/manage/Activity/${activity._id}`}
               >
                 {activity.activityName}

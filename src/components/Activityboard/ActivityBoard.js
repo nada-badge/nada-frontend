@@ -3,12 +3,20 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { activitySelector } from '../../modules/activity';
 
-console.log("board가 실행되었습니다.")
 const ActivityBoard = () => {
-
   // 1) useSelector 를 통해 클릭된 활동의 세부 값을 shcedule에서 board로 받아온다.
-  const { activityName, groupName, field, category, area, content, startedAt, endedAt, registeredAt, updatedAt } = useSelector( activitySelector ) 
-  
+  const {
+    activityName,
+    groupName,
+    field,
+    category,
+    area,
+    content,
+    startedAt,
+    endedAt,
+    registeredAt,
+    updatedAt,
+  } = useSelector(activitySelector);
 
   return (
     <div>

@@ -8,6 +8,7 @@ import { Overlap, Img, Textwrapper } from '../styles/HeaderStyle';
 const Header = () => {
   const { pageStatus, pageNameStatus } = useSelector(headerStatusSelector);
   const navigate = useNavigate();
+  const [activeHeaders, setActiveHeaders] = useState();
 
   const HeaderType = [
     {
@@ -60,6 +61,31 @@ const Header = () => {
     { id: 'Menu', state: false },
   ]);
 
+  const headerTypeConfig = {
+    Texts: <Textwrapper>{pageNameStatus}</Textwrapper>,
+    Back: (
+      <Overlap>
+        <Img onClick={() => navigate(-1)} className="Back" />
+      </Overlap>
+    ),
+    Menu: (
+      <Overlap>
+        <Img className="BellWMenu" />
+        <Img className="Menu" />
+      </Overlap>
+    ),
+    Bell: (
+      <Overlap>
+        <Img className="Bell" />
+      </Overlap>
+    ),
+    Logo: (
+      <Overlap>
+        <Img className="Logo" />
+      </Overlap>
+    ),
+  };
+
   useEffect(() => {
     let copiedStatus = [...CurrentStatus];
 
@@ -73,40 +99,15 @@ const Header = () => {
         (copiedStatus[4].state = team.menu)),
     );
     setCurrentStatus(copiedStatus);
+
+    setActiveHeaders(
+      CurrentStatus.filter((item) => item.state).map(
+        (item) => headerTypeConfig[item.id],
+      ),
+    );
   }, [pageStatus]);
 
-  return (
-    <Top>
-      {CurrentStatus &&
-        CurrentStatus.map((current) => {
-          const { id, state } = current;
-          if (state)
-            switch (id) {
-              case 'Texts':
-                return <Textwrapper>{pageNameStatus}</Textwrapper>;
-              case 'Back':
-                return (
-                  <Overlap>
-                    <Img onClick={() => navigate(-1)} className={id} />
-                  </Overlap>
-                );
-              case 'Menu':
-                return (
-                  <Overlap>
-                    <Img className="BellWMenu" />
-                    <Img className={id} />
-                  </Overlap>
-                );
-              default:
-                return (
-                  <Overlap>
-                    <Img className={id} />
-                  </Overlap>
-                );
-            }
-        })}
-    </Top>
-  );
+  return <Top>{activeHeaders}</Top>;
 };
 
 export default Header;
