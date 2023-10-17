@@ -4,21 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import useSubmit from '../modules/queries/ActivityWriteQuery';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector } from 'react-redux';
+import { activitySelector } from '../modules/activity';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();
 
   const { mutate } = useSubmit();
 
-  const [board, setBoard] = useState({
-    // 1)보드값을 ""로 초기화
-    activityName: '',
-    groupName: '',
-    field: '',
-    category: '',
-    area: '',
-    content: '',
-  });
+  // 1)
+  const [board, setBoard] = useState(useSelector(activitySelector));
 
   const [startedAt, setStartedAt] = useState(new Date());
   const [endedAt, setEndedAt] = useState(new Date());
@@ -46,7 +41,7 @@ const ManageActivityWrite = () => {
           type="String"
           name={name}
           onChange={onChange}
-          value={board.name}
+          value={board[name]}
           required
         />
       </div>
@@ -56,12 +51,7 @@ const ManageActivityWrite = () => {
   const onSubmit = (e) => {
     //5) 폼을 제출하여 게시물 등록하기 위한 mutate 호출
     e.preventDefault();
-    const activityName = e.target.activityName.value;
-    const groupName = e.target.groupName.value;
-    const field = e.target.field.value;
-    const category = e.target.category.value;
-    const area = e.target.area.value;
-    const content = e.target.content.value;
+    const { activityName, groupName, field, category, area, content } = board;
     const startedAt = new Date(e.target.startedAt.value);
     const endedAt = new Date(e.target.endedAt.value);
 
@@ -119,7 +109,7 @@ const ManageActivityWrite = () => {
         </div>
 
         <div>
-          <button>등록하기</button>
+          <button type="submit">등록하기</button>
         </div>
       </form>
       <button onClick={backToList}>취소</button>
