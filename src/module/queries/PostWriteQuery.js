@@ -5,16 +5,27 @@ import client from "../../lib/api/client";
 const useSubmit = () => {
   const navigate = useNavigate();
 
-  //1) activityWrite에서 넘겨받은 값 /activity에 post하기
+  //1) postWrite에서 넘겨받은 값 /community/post에 post하기
   return useMutation({
-    mutationFn: ({ title, field, category, area, content, menu }) =>
-      client.post(`/community`, {
-        title: title,
-        field: field,
+    mutationFn: ({
+      userEmail,
+      userName,
+      mainCategory,
+      category,
+      field,
+      area,
+      title,
+      content,
+    }) =>
+      client.post(`/community/post`, {
+        userEmail: userEmail,
+        userName: userName,
+        mainCategory: mainCategory,
         category: category,
+        field: field,
         area: area,
+        title: title,
         content: content,
-        menu: menu,
       }),
     onSuccess: (data) => {
       console.log("게시물이 등록되었습니다.", data);

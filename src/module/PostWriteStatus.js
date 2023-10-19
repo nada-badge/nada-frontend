@@ -58,3 +58,15 @@ export const postWriteSelector = createSelector(
   postWriteSelects,
   (field) => field
 );
+const selectActivity = (state) =>
+  state.postwrite.postWriteSubmit || initialState;
+
+export const activitySelector = createSelector(
+  selectActivity,
+  (postWriteSubmit) => ({
+    mainCategory: postWriteSubmit.mainCategory,
+    area: postWriteSubmit.area,
+    field: postWriteSubmit.field,
+    category: postWriteSubmit.category,
+  })
+);
