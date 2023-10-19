@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import ButtonNav from './ButtonNav';
+import BottomNav from './BottomNav';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import { Provider } from 'react-redux';
@@ -11,7 +11,7 @@ import { Mobile, PC } from './styles/Responsive.js';
 import './styles/common.scss';
 import authSlice from './modules/auth';
 import activitySlice from './modules/activity';
-import headerStatusSlice from './modules/headerStatus';
+import barStatusSlice from './modules/barStatus';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -20,7 +20,7 @@ const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     activity: activitySlice.reducer,
-    headerStatus: headerStatusSlice.reducer,
+    barStatus: barStatusSlice.reducer,
   },
   devTools: true,
 });
@@ -31,12 +31,12 @@ root.render(
       <Mobile>
         <Header />
         <App />
-        <ButtonNav />
+        <BottomNav />
       </Mobile>
       <PC>
         <Header />
         <App />
-        <ButtonNav />
+        <BottomNav />
       </PC>
     </BrowserRouter>
   </Provider>,

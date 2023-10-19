@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeField } from '../modules/headerStatus';
+import { setBarStatus } from '../modules/barStatus';
 
 const Community = () => {
   const navigate = useNavigate();
@@ -9,8 +9,9 @@ const Community = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(changeField({ key: 'pageStatus', value: 'notice-menu' }));
-    dispatch(changeField({ key: 'pageNameStatus', value: '커뮤니티' }));
+    dispatch(
+      setBarStatus({ header: 'bellMenu', name: '커뮤니티', bottom: true }),
+    );
   });
 
   const gochild = () => {

@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
-import { changeField } from '../modules/headerStatus';
+import { setBarStatus } from '../modules/barStatus';
 import { useDispatch } from 'react-redux';
 
 const Communityy = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(changeField({ key: 'pageStatus', value: 'funtion-only' }));
-    dispatch(changeField({ key: 'pageNameStatus', value: '커뮤니티 세부' }));
+    dispatch(
+      setBarStatus({
+        header: 'backBell',
+        name: '세부 커뮤니티',
+        bottom: false,
+      }),
+    );
   });
 
   return <div>Community 자식 입니다.</div>;
