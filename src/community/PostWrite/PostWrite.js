@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import useSubmit from "../../module/queries/PostWriteQuery";
+import { useSelector } from "react-redux";
+import { activitySelector } from "../../module/PostWriteStatus";
 import { AreaButton } from "./AreaButton";
 import { FieldButton } from "./FieldButton";
 import "../style.css";
@@ -23,15 +25,7 @@ export const PostWrite = () => {
 
   const { mutate } = useSubmit();
 
-  const [board, setBoard] = useState({
-    // 1)보드값을 ""로 초기화
-    title: "",
-    field: "",
-    category: "",
-    area: "",
-    content: "",
-    mainCategory: "",
-  });
+  const [board, setBoard] = useState(useSelector(activitySelector));
 
   const onChange = (event) => {
     const { value, name } = event.target; //2) event.target에서 name과 value만 가져오기
@@ -43,37 +37,39 @@ export const PostWrite = () => {
     });
   };
 
-  const onSubmit = (e) => {
+  const OnSubmit = (e) => {
     //5) 폼을 제출하여 게시물 등록하기 위한 mutate 호출
     e.preventDefault();
+    const userEmail = "20230904@nate.com";
+    const userName = "오늘닉네임";
+    const mainCategory = board.mainCategory.toString();
+    const category = board.category.toString();
+    const field = board.field.toString();
+    const area = board.area.toString();
     const title = e.target.title.value;
-    const field = e.target.field.value;
-    const category = e.target.category.value;
-    const area = e.target.area.value;
     const content = e.target.content.value;
-    const mainCategory = e.target.mainCategory.value;
 
-    if (title && mainCategory && field && category && area && content) {
-      mutate({
-        title,
-        mainCategory,
-        field,
-        category,
-        area,
-        content,
-      });
-    }
+    mutate({
+      userEmail,
+      userName,
+      mainCategory,
+      category,
+      field,
+      area,
+      title,
+      content,
+    });
   };
 
   return (
     <PostContainer>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={OnSubmit}>
         <Title>
           <input
             className="div"
             name="title"
             onChange={onChange}
-            value={board.title}
+            value={board.title || ""}
             placeholder="제목을 입력하세요"
             required
           />
@@ -94,7 +90,7 @@ export const PostWrite = () => {
             className="text"
             name="content"
             onChange={onChange}
-            value={board.content}
+            value={board.content || ""}
             placeholder="내용을 입력하세요"
             required
           />
@@ -123,7 +119,7 @@ export const PostWrite = () => {
             </div>
           </div>
         </AreaImages>
-        <div>테스트 제출 버튼</div>
+        <button>테스트 제출 버튼</button>
       </form>
     </PostContainer>
   );
