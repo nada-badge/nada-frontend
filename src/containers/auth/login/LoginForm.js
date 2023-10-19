@@ -7,6 +7,7 @@ import { produce } from 'immer';
 import SocialLogin from './SocialLogin';
 import styled from 'styled-components';
 import LoginFooter from './LoginFooter';
+import { useNavigate } from 'react-router-dom';
 
 const Frame = styled.div`
   height: 339px;
@@ -18,12 +19,14 @@ const Frame = styled.div`
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const [error, setError] = useState({
     email: null,
     password: null,
   });
 
-  const { mutate } = useUserMutation();
+  const mutation = useUserMutation();
 
   const form = useSelector((state) => {
     return state.auth.login;
@@ -38,7 +41,7 @@ const LoginForm = ({ type }) => {
     dispatch(changeField({ form: 'login', key: name, value }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -48,8 +51,13 @@ const LoginForm = ({ type }) => {
         draft['password'] = password ? null : '비밀번호를 입력해주세요.';
       }),
     );
+
     if (email && password) {
-      mutate({ email, password });
+      const { status } = await mutation.mutateAsync({ email, password });
+
+      if (status === 200) {
+        navigate('/');
+      }
     }
   };
   return (
