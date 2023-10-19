@@ -102,10 +102,16 @@ export const MainCategory = styled.div`
     white-space: nowrap;
     width: fit-content;
   }
+`;
 
-  & > .vector {
-    height: 9px;
-    position: relative;
-    width: 16px;
+export const Img = styled.image`
+  height: 9px;
+  position: relative;
+  width: 16px;
+  background-size: 100%;
+  background-image: url("https://c.animaapp.com/qQD6JW1B/img/vector-7-2.svg");
+
+  &.active {
+    background-image: url("https://c.animaapp.com/NfzrR40k/img/vector-7.svg");
   }
 `;
