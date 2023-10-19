@@ -1,18 +1,24 @@
 import { Top } from '../styles/HeaderStyle';
-import { headerStatusSelector } from '../modules/headerStatus';
+import { barStatusSelector } from '../modules/barStatus';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Overlap, Img, Textwrapper } from '../styles/HeaderStyle';
 
 const Header = () => {
-  const { pageStatus, pageNameStatus } = useSelector(headerStatusSelector);
+  const pageStatus = useSelector(
+    barStatusSelector('headerStatus', 'pageStatus'),
+  );
+
+  const pageNameStatus = useSelector(
+    barStatusSelector('headerStatus', 'pageNameStatus'),
+  );
   const navigate = useNavigate();
   const [activeHeaders, setActiveHeaders] = useState();
 
   const HeaderType = [
     {
-      id: 'function-notice',
+      id: 'backBell',
       logo: false,
       back: true,
       text: true,
@@ -20,7 +26,7 @@ const Header = () => {
       menu: false,
     },
     {
-      id: 'notice-menu',
+      id: 'bellMenu',
       logo: false,
       back: false,
       text: true,
@@ -28,7 +34,7 @@ const Header = () => {
       menu: true,
     },
     {
-      id: 'main',
+      id: 'logo',
       logo: true,
       back: false,
       text: false,
@@ -36,7 +42,7 @@ const Header = () => {
       menu: false,
     },
     {
-      id: 'funtion-only',
+      id: 'back',
       logo: false,
       back: true,
       text: true,
@@ -44,7 +50,7 @@ const Header = () => {
       menu: false,
     },
     {
-      id: 'function-only-notice',
+      id: 'bell',
       logo: false,
       back: false,
       text: true,
@@ -105,7 +111,7 @@ const Header = () => {
         (item) => headerTypeConfig[item.id],
       ),
     );
-  }, [pageStatus]);
+  }, [pageStatus, pageNameStatus]);
 
   return <Top>{activeHeaders}</Top>;
 };

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
 import activity from './activity';
-import headerStatus from './headerStatus';
+import barStatus from './barStatus';
 
 const rootReducer = combineReducers({
   auth,
   activity,
-  headerStatus,
+  barStatus,
 });
 
 export default rootReducer;
