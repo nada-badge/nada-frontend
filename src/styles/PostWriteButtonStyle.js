@@ -7,7 +7,7 @@ export const PostButton = styled.div`
   position: fixed;
   width: 60px;
   top: 603px;
-  left: 550px;
+  left: 55%;
 
   & > .group {
     height: 26px;

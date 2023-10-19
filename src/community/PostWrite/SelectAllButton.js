@@ -6,7 +6,6 @@ import {
   postWriteSelector,
   initializeForm,
   addField,
-  deleteField,
 } from "../../module/PostWriteStatus";
 import { Button, TextWarpper } from "../../styles/SelectButton";
 
