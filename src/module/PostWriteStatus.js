@@ -10,16 +10,16 @@ const initialState = {
   },
   postWriteSelect: {
     mainCategory: "카테고리",
-    area: [],
-    field: [],
-    category: [],
+    area: ["전국"],
+    field: ["전체"],
+    category: "전체",
     modal: 0,
   },
   postWriteSubmit: {
     mainCategory: "카테고리",
-    area: [],
-    field: [],
-    category: [],
+    area: ["전국"],
+    field: ["전체"],
+    category: "전체",
   },
 };
 
@@ -40,6 +40,9 @@ const postWriteSlice = createSlice({
     initializeForm: (state, { payload: { form, key } }) => {
       state[form][key] = initialState[form][key];
     },
+    initializeAll: (state) => {
+      return initialState;
+    },
     submitForm: (state, { payload: { key } }) => {
       state.postWriteSubmit[key] = state.postWriteSelect[key];
     },
@@ -47,8 +50,14 @@ const postWriteSlice = createSlice({
 });
 
 export default postWriteSlice;
-export const { addField, deleteField, initializeForm, submitForm, setField } =
-  postWriteSlice.actions;
+export const {
+  addField,
+  deleteField,
+  initializeForm,
+  submitForm,
+  setField,
+  initializeAll,
+} = postWriteSlice.actions;
 
 const postWriteSelects = (type, field) => (rootState) => {
   return rootState.postwrite[type][field] || initialState[type][field];
@@ -64,8 +73,8 @@ const selectActivity = (state) =>
 export const activitySelector = createSelector(
   selectActivity,
   (postWriteSubmit) => ({
-    mainCategory: postWriteSubmit.mainCategory,
     area: postWriteSubmit.area,
+    mainCategory: postWriteSubmit.mainCategory,
     field: postWriteSubmit.field,
     category: postWriteSubmit.category,
   })
