@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import useModal from "./useModal";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,12 +19,15 @@ function CategoryModal() {
   const Initialization = useSelector(
     postWriteSelector("postWriteSubmit", "category")
   );
+  const mainCategory = useSelector(
+    postWriteSelector("postWriteSubmit", "mainCategory")
+  );
 
   const status = useSelector(postWriteSelector("postWriteSelect", "category"));
 
   const buttonAll = { text: "전체" };
 
-  const buttons = [
+  const [buttons, setButtons] = useState([
     { id: 1, text: "공모전" },
     { id: 2, text: "연합동아리" },
     { id: 3, text: "교내동아리" },
@@ -34,7 +37,7 @@ function CategoryModal() {
     { id: 7, text: "대외활동" },
     { id: 8, text: "인턴" },
     { id: 9, text: "아르바이트" },
-  ];
+  ]);
 
   useEffect(() => {
     dispatch(
@@ -44,6 +47,9 @@ function CategoryModal() {
         value: Initialization,
       })
     );
+    if (mainCategory === "모집") {
+      setButtons(buttons.slice(0, 6));
+    }
   }, []);
 
   const SetStatus = () => {
@@ -83,7 +89,7 @@ function CategoryModal() {
         </List>
         <Border />
         <ButtonList>
-          <Cancel onClick={closeModal}>
+          <Cancel onClick={Cancels}>
             <div className="text-wrapper">취소</div>
           </Cancel>
           <Ok onClick={SetStatus}>

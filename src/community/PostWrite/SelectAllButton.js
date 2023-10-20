@@ -6,6 +6,7 @@ import {
   postWriteSelector,
   initializeForm,
   addField,
+  setField,
 } from "../../module/PostWriteStatus";
 import { Button, TextWarpper } from "../../styles/SelectButton";
 
@@ -22,6 +23,7 @@ export const SelectAllButton = () => {
   ];
   const key = cases[nowModal].key;
   const all = cases[nowModal].all;
+  const setStatus = key === "category" ? setField : addField;
 
   const state = useSelector(postWriteSelector("postWriteSelect", key));
 
@@ -29,7 +31,7 @@ export const SelectAllButton = () => {
     if (!state.includes(all)) {
       dispatch(initializeForm({ form: "postWriteSelect", key: key }));
       dispatch(
-        addField({
+        setStatus({
           form: "postWriteSelect",
           key: key,
           value: all,
