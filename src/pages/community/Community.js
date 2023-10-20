@@ -1,16 +1,16 @@
 import React from "react";
-import BoardCardList from "../community/BoardCardList/BoardCardList";
-import PostList from "../community/PostList/PostList";
-import Category from "../community/Category";
-import Filter from "../community/Filter";
-import { PostWriteButton } from "../community/PostWriteButton";
+import BoardCardList from "../../community/BoardCardList/BoardCardList";
+import PostList from "../../community/PostList/PostList";
+import Category from "../../community/Category";
+import Filter from "../../community/Filter";
+import { PostWriteButton } from "../../community/PostWriteButton";
 
 import {
   CommunityPage,
   Search,
   Border2,
   Contents,
-} from "../styles/CommunityStyle";
+} from "../../styles/CommunityStyle";
 
 const Community = () => {
   return (

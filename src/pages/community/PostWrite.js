@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useSubmit from "../../module/queries/PostWriteQuery";
 import { useSelector } from "react-redux";
-import { activitySelector } from "../../module/PostWriteStatus";
-import { AreaButton } from "./AreaButton";
-import { FieldButton } from "./FieldButton";
-import "../style.css";
-import { MainCategoryButton } from "./MainCategoryButton";
-import { CategoryButton } from "./CategoryButton";
+import { initializeAll } from "../../module/PostWriteStatus";
+import { useDispatch } from "react-redux";
+import { AreaButton } from "../../community/PostWrite/AreaButton";
+import { FieldButton } from "../../community/PostWrite/FieldButton";
+import { MainCategoryButton } from "../../community/PostWrite/MainCategoryButton";
+import { CategoryButton } from "../../community/PostWrite/CategoryButton";
 import {
   PostContainer,
   Title,
@@ -17,22 +17,17 @@ import {
 } from "../../styles/PostWriteStyle";
 
 export const PostWrite = () => {
-  //header
-  //title
-  //filter
-  //contents
-  //gallery
-
   const { mutate } = useSubmit();
+  const dispatch = useDispatch();
 
-  const [board, setBoard] = useState(useSelector(activitySelector));
+  const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
+  const { mainCategory, area, field, category } = postwrite;
+  const [inputValue, setInputValue] = useState({ title: "", content: "" });
 
   const onChange = (event) => {
     const { value, name } = event.target; //2) event.target에서 name과 value만 가져오기
-
-    setBoard({
-      // 3) 해당 name에 value값 할당
-      ...board,
+    setInputValue({
+      ...inputValue,
       [name]: value,
     });
   };
@@ -42,20 +37,33 @@ export const PostWrite = () => {
     e.preventDefault();
     const userEmail = "20230904@nate.com";
     const userName = "오늘닉네임";
-    const mainCategory = board.mainCategory.toString();
-    const category = board.category.toString();
-    const field = board.field.toString();
-    const area = board.area.toString();
+    const mainCategorys = mainCategory;
+    const categorys = category;
+    const fields = field;
+    const areas = area;
     const title = e.target.title.value;
     const content = e.target.content.value;
 
+    dispatch(initializeAll());
+    console.log(
+      "postWrite, mainCAtegory : ",
+      mainCategory,
+      "category : ",
+      category,
+      "field : ",
+      field,
+      "area : ",
+      area,
+      "title : ",
+      title
+    );
     mutate({
       userEmail,
       userName,
-      mainCategory,
-      category,
-      field,
-      area,
+      mainCategorys,
+      categorys,
+      fields,
+      areas,
       title,
       content,
     });
@@ -69,7 +77,7 @@ export const PostWrite = () => {
             className="div"
             name="title"
             onChange={onChange}
-            value={board.title || ""}
+            value={inputValue.title}
             placeholder="제목을 입력하세요"
             required
           />
@@ -90,7 +98,7 @@ export const PostWrite = () => {
             className="text"
             name="content"
             onChange={onChange}
-            value={board.content || ""}
+            value={inputValue.content}
             placeholder="내용을 입력하세요"
             required
           />
