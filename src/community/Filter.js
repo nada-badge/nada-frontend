@@ -5,7 +5,7 @@ import { communitySelector } from "../module/CommunityStatus";
 import { FilterItems } from "./FilterItems";
 
 const Filter = () => {
-  const isOpen = useSelector(communitySelector("community", "filterActive"));
+  const isOpen = useSelector(communitySelector("buttonSelect", "filter"));
 
   return (
     <div>

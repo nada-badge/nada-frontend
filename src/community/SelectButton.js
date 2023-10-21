@@ -1,36 +1,57 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import classNames from "classnames";
-import styled from "styled-components";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  postWriteSelector,
+  communitySelector,
   addField,
   deleteField,
-} from "../module/PostWriteStatus";
+  initializeAll,
+} from "../module/CommunityStatus";
+import { Button, TextWarpper, Img } from "../styles/SelectButton";
 
 export const SelectButton = ({ text }) => {
-  const [isActive, setIsActive] = useState();
   const dispatch = useDispatch();
-  const state = useSelector(
-    postWriteSelector({ type: "Select", field: "area" })
-  );
+
+  const nowModal = useSelector(communitySelector("buttonSelect", "filter"));
+
+  const [isActive, setIsActive] = useState(false);
+  const form = "subButtonSelect";
+
+  const num = match(nowModal);
+
+  const cases = [
+    { id: 0, key: "area", all: "전국" },
+    { id: 1, key: "field", all: "전체" },
+    { id: 2, key: "category", all: "전체" },
+  ];
+  const key = cases[num].key;
+  const all = cases[num].all;
+
+  const state = useSelector(communitySelector("subButtonSelect", key));
 
   const OnClickButton = () => {
-    if (state.includes(text)) {
-      dispatch(
-        deleteField({
-          key: "area",
-          value: text,
-        })
-      );
-    } else
+    if (isActive) {
+      dispatch(deleteField({ form: form, key: key, value: text }));
+      if (state.length === 1) {
+        dispatch(
+          addField({
+            form: form,
+            key: key,
+            value: all,
+          })
+        );
+      }
+    } else {
       dispatch(
         addField({
-          key: "area",
+          form: form,
+          key: key,
           value: text,
         })
       );
+      dispatch(deleteField({ form: form, key: key, value: all }));
+    }
   };
 
   useEffect(() => {
@@ -45,47 +66,15 @@ export const SelectButton = ({ text }) => {
   );
 };
 
-export const Button = styled.div`
-  align-items: center;
-  border-radius: 16px;
-  display: inline-flex;
-  overflow: hidden;
-  position: relative;
-  background-color: var(--myspec-gray-scalegray-100);
-  gap: 8px;
-  padding: 4px 12px;
-
-  &.isActive {
-    background-color: var(--myspec-primaryblue-1);
-    gap: 8px;
-    padding: 4px 12px;
+const match = (nowModal) => {
+  switch (nowModal) {
+    case "지역":
+      return 0;
+    case "분야":
+      return 1;
+    case "종류":
+      return 2;
+    default:
+      return 4;
   }
-`;
-
-export const TextWarpper = styled.div`
-  font-family: var(--body-01-font-family);
-  font-size: var(--body-01-font-size);
-  font-style: var(--body-01-font-style);
-  font-weight: var(--body-01-font-weight);
-  letter-spacing: var(--body-01-letter-spacing);
-  line-height: var(--body-01-line-height);
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-
-  color: var(--myspec-gray-scalegray-600);
-
-  &.isActive {
-    color: var(--myspec-gray-scalewhite);
-  }
-`;
-
-export const Img = styled.image`
-  height: 7.06px;
-  margin-right: -0.35px;
-  width: 12.71px;
-  position: relative;
-  background-size: 80%;
-  background-image: url("https://c.animaapp.com/ECVOBGUR/img/x-2.svg");
-`;
+};

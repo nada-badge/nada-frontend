@@ -3,7 +3,7 @@ import React from "react";
 import { useReducer, useEffect } from "react";
 import { Dropdown, TextWarpper } from "../styles/DropdownStyle";
 import { useSelector, useDispatch } from "react-redux";
-import { communitySelector, changeField } from "../module/CommunityStatus";
+import { communitySelector, setField } from "../module/CommunityStatus";
 
 export const DropDown = ({ type, vectorClassName, text }) => {
   const dispatch = useDispatch();
@@ -12,16 +12,14 @@ export const DropDown = ({ type, vectorClassName, text }) => {
     type: type || "closed",
   });
 
-  const isOpen = useSelector(communitySelector("community", "filterActive"));
+  const isOpen = useSelector(communitySelector("buttonSelect", "filter"));
 
   const onClicks = () => {
     setState();
     isOpen === text
-      ? dispatch(
-          changeField({ form: "community", key: "filterActive", value: "" })
-        )
+      ? dispatch(setField({ form: "buttonSelect", key: "filter", value: "" }))
       : dispatch(
-          changeField({ form: "community", key: "filterActive", value: text })
+          setField({ form: "buttonSelect", key: "filter", value: text })
         );
   };
 

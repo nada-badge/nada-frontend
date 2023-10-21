@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BoardCardList from "../../community/BoardCardList/BoardCardList";
 import PostList from "../../community/PostList/PostList";
 import Category from "../../community/Category";
 import Filter from "../../community/Filter";
 import { PostWriteButton } from "../../community/PostWriteButton";
+import { useDispatch } from "react-redux";
+import { initializeAll } from "../../module/CommunityStatus";
 
 import {
   CommunityPage,
@@ -13,6 +15,14 @@ import {
 } from "../../styles/CommunityStyle";
 
 const Community = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(initializeAll());
+    };
+  });
+
   return (
     <CommunityPage>
       <Search>

@@ -1,9 +1,16 @@
+import { useEffect, useState } from "react";
 import { SelectButton } from "./SelectButton";
 import styled from "styled-components";
+import { SelectAllButton } from "./SelectAllButton";
+import { useSelector } from "react-redux";
+import { communitySelector } from "../module/CommunityStatus";
 
 export const FilterItems = ({ text }) => {
+  const mainCategory = useSelector(
+    communitySelector("buttonSelect", "maincategory")
+  );
+
   const area = [
-    "전국",
     "서울",
     "부산",
     "대구",
@@ -22,7 +29,6 @@ export const FilterItems = ({ text }) => {
   ];
 
   const field = [
-    "전체",
     "인문/사회",
     "광고/마케팅",
     "디자인/미술",
@@ -43,15 +49,23 @@ export const FilterItems = ({ text }) => {
     "역사/탐방",
   ];
 
-  const category = [
-    "전체",
+  const [category, setCategory] = useState([
     "공모전",
     "연합 동아리",
     "교내 동아리",
     "지역 동아리",
     "소모임",
     "프로젝트",
-  ];
+    "대외활동",
+    "인턴",
+    "아르바이트",
+  ]);
+
+  useEffect(() => {
+    if (mainCategory === "모집") {
+      setCategory(category.slice(0, 6));
+    }
+  }, []);
 
   const output = (text) => {
     //코드 수정
@@ -75,7 +89,10 @@ export const FilterItems = ({ text }) => {
 
   return (
     <Items>
-      <Item>{output(text)}</Item>
+      <Item>
+        <SelectAllButton />
+        {output(text)}
+      </Item>
     </Items>
   );
 };
