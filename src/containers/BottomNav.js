@@ -1,5 +1,5 @@
-import { Navi, NavLinks, Img, Text } from './styles/BottomNavStyle';
-import { barStatusSelector } from './modules/barStatus';
+import { Navi, NavLinks, Img, Text } from '../styles/BottomNavStyle';
+import { barStatusSelector } from '../modules/barStatus';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';

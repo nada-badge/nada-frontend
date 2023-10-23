@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { changeField, initializeForm } from '../modules/activity.js';
-import client from '../lib/api/client.js';
+import { changeField, initializeForm } from '../../modules/activity.js';
+import client from '../../lib/api/client.js';
 
 const ManageActivityList = () => {
   const dispatch = useDispatch();

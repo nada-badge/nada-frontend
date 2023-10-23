@@ -9,12 +9,15 @@ import Communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import ManageActivityList from './routes/ManageActivityList';
+import ManageActivityList from './pages/Manage/ManageActivityList';
 import React from 'react';
-import ManageActivityDetail from './routes/ManageActivityDetail';
-import ManageActivityWrite from './routes/ManageActivityWrite';
+import ManageActivityDetail from './pages/Manage/ManageActivityDetail';
+import ManageActivityWrite from './pages/Manage/ManageActivityWrite';
 import LogInSelect from './pages/auth/LoginSelect';
-import ManageHome from './routes/ManageHome';
+import CalendarPage from './pages/CalendarPage';
+import ActivityPage from './pages/activity/ActivityPage';
+import DetailActivityPage from './pages/activity/DetailActivityPage';
+import ManageHome from './pages/Manage/ManageHome';
 
 const queryClient = new QueryClient();
 
@@ -46,6 +49,11 @@ const App = () => {
           <Route path="/Community" element={<Community />} />
           <Route path="/Community/child" element={<Communityy />} />
           <Route path="/myPage" element={<MyPage />} />
+
+          <Route path="/calendar" element={<CalendarPage />} />
+
+          <Route path="/activity" element={<ActivityPage />} />
+          <Route path="/activity/detail" element={<DetailActivityPage />} />
         </Routes>
       </QueryClientProvider>
     </div>

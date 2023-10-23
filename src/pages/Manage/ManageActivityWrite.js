@@ -1,11 +1,11 @@
 /* ActivityWrite.js 게시물 추가 */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useSubmit from '../modules/queries/ActivityWriteQuery';
+import useSubmit from '../../modules/queries/ManageActivityQuery';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
-import { activitySelector } from '../modules/activity';
+import { activitySelector } from '../../modules/activity';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();

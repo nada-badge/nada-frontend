@@ -1,9 +1,8 @@
-import { Top } from '../styles/HeaderStyle';
 import { barStatusSelector } from '../modules/barStatus';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Overlap, Img, Textwrapper } from '../styles/HeaderStyle';
+import { Overlap, Img, Textwrapper, Top } from '../styles/HeaderStyle';
 
 const Header = () => {
   const pageStatus = useSelector(
@@ -24,6 +23,7 @@ const Header = () => {
       text: true,
       bell: true,
       menu: false,
+      post: false,
     },
     {
       id: 'bellMenu',
@@ -32,6 +32,7 @@ const Header = () => {
       text: true,
       bell: false, //원래는 true지만 menu에 딸려 bell을 출력할 것이기 때문에 false로 지정
       menu: true,
+      post: false,
     },
     {
       id: 'logo',
@@ -40,6 +41,7 @@ const Header = () => {
       text: false,
       bell: true,
       menu: false,
+      post: false,
     },
     {
       id: 'back',
@@ -48,6 +50,7 @@ const Header = () => {
       text: true,
       bell: false,
       menu: false,
+      post: false,
     },
     {
       id: 'bell',
@@ -56,6 +59,16 @@ const Header = () => {
       text: true,
       bell: true,
       menu: false,
+      post: false,
+    },
+    {
+      id: 'backPost',
+      logo: false,
+      back: true,
+      text: true,
+      bell: false,
+      menu: false,
+      post: true,
     },
   ];
 
@@ -65,6 +78,7 @@ const Header = () => {
     { id: 'Texts', state: false },
     { id: 'Bell', state: false },
     { id: 'Menu', state: false },
+    { id: 'Post', state: false },
   ]);
 
   const headerTypeConfig = {
@@ -90,6 +104,11 @@ const Header = () => {
         <Img className="Logo" />
       </Overlap>
     ),
+    Post: (
+      <Overlap>
+        <div className="Post">완료</div>
+      </Overlap>
+    ),
   };
 
   useEffect(() => {
@@ -102,7 +121,8 @@ const Header = () => {
         (copiedStatus[1].state = team.back),
         (copiedStatus[2].state = team.text),
         (copiedStatus[3].state = team.bell),
-        (copiedStatus[4].state = team.menu)),
+        (copiedStatus[4].state = team.menu),
+        (copiedStatus[5].state = team.post)),
     );
     setCurrentStatus(copiedStatus);
 

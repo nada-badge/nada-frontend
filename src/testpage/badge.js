@@ -6,7 +6,7 @@ const Badge = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setBarStatus({ header: 'bellMenu', name: '뱃지', bottom: true }));
+    dispatch(setBarStatus({ header: 'backPost', name: '뱃지', bottom: true }));
   });
 
   return <div>badge 입니다.</div>;
