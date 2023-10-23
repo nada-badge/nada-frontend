@@ -1,11 +1,11 @@
 /* ActivityDetail.js activity의 세부사항을 확인하고 수정, 삭제할 수 있는 페이지 */
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeForm } from '../modules/activity';
+import { initializeForm } from '../../modules/activity';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 
-import { idSelector } from '../modules/activity';
-import client from '../lib/api/client';
+import { idSelector } from '../../modules/activity';
+import client from '../../lib/api/client';
 
 const ManageActivityDetail = () => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const ManageActivityDetail = () => {
     } catch (error) {
       console.error('삭제 중 오류 발생:', error);
     }
-  }, [id, dispatch, navigate]);
+  }, [id, navigate]);
 
   const UpdateAct = useCallback(() => {
     navigate('/manage/ActivityWrite');

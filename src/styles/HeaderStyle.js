@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import bellImg from '../icon/bell.png';
 
 export const Top = styled.div`
-  background-color: var(--myspec-gray-scalegray-100);
   height: 88px;
   position: relative;
   width: 375px;
@@ -14,6 +13,21 @@ export const Overlap = styled.div`
   left: 3px;
   position: absolute;
   width: 21px;
+
+  & > .Post {
+    color: var(--myspec-primaryblue-1);
+    font-family: var(--title-02-font-family);
+    font-size: var(--title-02-font-size);
+    font-style: var(--title-02-font-style);
+    font-weight: var(--title-02-font-weight);
+    letter-spacing: var(--title-02-letter-spacing);
+    line-height: var(--title-02-line-height);
+    position: absolute;
+    height: 27px;
+    left: 325px;
+    top: 50px;
+    width: 32px;
+  }
 `;
 
 export const Img = styled.image`
