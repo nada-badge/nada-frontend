@@ -16,7 +16,7 @@ import {
   AreaImages,
 } from "../../styles/PostWriteStyle";
 
-export const PostWrite = () => {
+const PostWrite = () => {
   const { mutate } = useSubmit();
   const dispatch = useDispatch();
 
@@ -45,18 +45,7 @@ export const PostWrite = () => {
     const content = e.target.content.value;
 
     dispatch(initializeAll());
-    console.log(
-      "postWrite, mainCAtegory : ",
-      mainCategory,
-      "category : ",
-      category,
-      "field : ",
-      field,
-      "area : ",
-      area,
-      "title : ",
-      title
-    );
+
     mutate({
       userEmail,
       userName,
@@ -132,3 +121,5 @@ export const PostWrite = () => {
     </PostContainer>
   );
 };
+
+export default PostWrite;
