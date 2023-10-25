@@ -5,12 +5,12 @@ import Category from "../../community/Category";
 import Filter from "../../community/Filter";
 import { PostWriteButton } from "../../community/PostWriteButton";
 import { useDispatch } from "react-redux";
-import { initializeAll } from "../../module/CommunityStatus";
+import { initializeAll } from "../../module/Community/CommunityStatus";
 
 import {
   CommunityPage,
   Search,
-  Border2,
+  Border,
   Contents,
 } from "../../styles/CommunityStyle";
 
@@ -40,7 +40,7 @@ const Community = () => {
       <Contents>
         <div className="content">
           <Category />
-          <Border2 />
+          <Border />
           <Filter />
           <PostList />
         </div>
