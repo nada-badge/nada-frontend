@@ -52,6 +52,8 @@
     ]
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.9.5"
+    "@reduxjs/toolkit": "^1.9.5",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   }
 }
