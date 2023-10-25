@@ -50,3 +50,23 @@ export const TextWarpper = styled.div`
     color: var(--myspec-gray-scalewhite);
   }
 `;
+
+export const Img = styled.image`
+  position: relative;
+  background-size: 100%;
+  height: 7.06px;
+  margin-right: -0.35px;
+  width: 12.71px;
+
+  &.unselected {
+    background-image: url("https://c.animaapp.com/hs22pPSO/img/vector-9-3.svg");
+  }
+
+  &.opened {
+    background-image: url("https://c.animaapp.com/hs22pPSO/img/vector-9-4.svg");
+  }
+
+  &.selected {
+    background-image: url("https://c.animaapp.com/SYOY3Elz/img/vector-8-1.svg");
+  }
+`;
