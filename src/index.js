@@ -9,11 +9,16 @@ import authSlice from './modules/auth';
 import scheduleSlice from './modules/schedule';
 import './styles/common.scss';
 import { Mobile, PC } from './styles/Responsive';
+import userSlice from './modules/user';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = configureStore({
-  reducer: { auth: authSlice.reducer, schedule: scheduleSlice.reducer },
+  reducer: {
+    auth: authSlice.reducer,
+    schedule: scheduleSlice.reducer,
+    user: userSlice.reducer,
+  },
   devTools: true,
 });
 
