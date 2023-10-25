@@ -8,7 +8,7 @@ import {
   deleteField,
   setField,
   initializeForm,
-} from "../../module/PostWriteStatus";
+} from "../../module/Community/PostWriteStatus";
 import { Button, TextWarpper, Img } from "../../styles/SelectButton";
 
 export const SelectButton = ({ text }) => {

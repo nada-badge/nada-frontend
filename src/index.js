@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App";
 import "./styleguide.css";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { modalSlice } from "./module/ModalStatus";
+import { modalSlice } from "./module/Community/ModalStatus";
 import { Provider } from "react-redux";
 import ModalContainer from "./components/Modal/ModalContainer";
-import communitySlice from "./module/CommunityStatus";
-import postWriteSlice from "./module/PostWriteStatus";
+import communitySlice from "./module/Community/CommunityStatus";
+import postWriteSlice from "./module/Community/PostWriteStatus";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

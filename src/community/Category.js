@@ -4,7 +4,7 @@ import {
   setField,
   initializeForm,
   initializeSub,
-} from "../module/CommunityStatus";
+} from "../module/Community/CommunityStatus";
 import classNames from "classnames";
 import { Categorylist, Wrapper } from "../styles/CategoryStyle";
 

@@ -7,7 +7,7 @@ import {
   submitForm,
   postWriteSelector,
   setField,
-} from "../../module/PostWriteStatus";
+} from "../../module/Community/PostWriteStatus";
 import { SelectButton } from "../../community/PostWrite/SelectButton";
 import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
 import { List, Border, ButtonList, Cancel, Ok } from "./ModalStyle";
