@@ -6,7 +6,6 @@ export const PostWriteButton = () => {
   const navigate = useNavigate();
 
   const toPostWrite = () => {
-    console.log("toPostWrite가 실행되었습니다.");
     navigate("/community/PostWrite");
   };
 

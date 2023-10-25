@@ -53,15 +53,8 @@ export const Search = styled.div`
 `;
 
 export const Border = styled.div`
-  height: 12px;
-  position: relative;
-  width: 375px;
-`;
-
-export const Border2 = styled.div`
   height: 16px;
   position: relative;
-  width: 345px;
 `;
 
 export const Contents = styled.div`

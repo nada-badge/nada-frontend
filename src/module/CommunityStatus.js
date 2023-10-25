@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 const initialState = {
   buttonSelect: {
     maincategory: "모집",
-    filter: 0,
+    filter: undefined,
   },
   subButtonSelect: {
     area: ["전국"],
@@ -30,6 +30,9 @@ const communitySlice = createSlice({
     initializeAll: (state) => {
       return initialState;
     },
+    initializeSub: (state) => {
+      state.subButtonSelect = initialState.subButtonSelect;
+    },
     initializeForm: (state, { payload: { form, key } }) => {
       state[form][key] = initialState[form][key];
     },
@@ -43,6 +46,7 @@ export const {
   addField,
   deleteField,
   initializeAll,
+  initializeSub,
 } = communitySlice.actions;
 
 const communitySelects = (type, field) => (rootState) => {

@@ -10,21 +10,9 @@ const Filter = () => {
   return (
     <div>
       <Filterlist>
-        <DropDown
-          text="지역"
-          type="unselected"
-          vectorClassName="drop-down-instance"
-        />
-        <DropDown
-          text="분야"
-          type="unselected"
-          vectorClassName="drop-down-instance"
-        />
-        <DropDown
-          text="종류"
-          type="unselected"
-          vectorClassName="drop-down-instance"
-        />
+        <DropDown text="지역" id={0} />
+        <DropDown text="분야" id={1} />
+        <DropDown text="종류" id={2} />
       </Filterlist>
       {isOpen && <FilterItems text={isOpen} />}
     </div>

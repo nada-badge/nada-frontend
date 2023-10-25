@@ -18,7 +18,6 @@ function AreaModal() {
     postWriteSelector("postWriteSubmit", "area")
   );
   const status = useSelector(postWriteSelector("postWriteSelect", "area"));
-
   const buttonAll = { text: "전국" };
 
   const buttons = [

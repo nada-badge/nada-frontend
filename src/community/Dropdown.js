@@ -1,72 +1,55 @@
 import PropTypes from "prop-types";
-import React from "react";
-import { useReducer, useEffect } from "react";
-import { Dropdown, TextWarpper } from "../styles/DropdownStyle";
+import React, { useState, useEffect } from "react";
+import { Dropdown, TextWarpper, Img } from "../styles/DropdownStyle";
 import { useSelector, useDispatch } from "react-redux";
 import { communitySelector, setField } from "../module/CommunityStatus";
 
-export const DropDown = ({ type, vectorClassName, text }) => {
+export const DropDown = ({ text, id }) => {
   const dispatch = useDispatch();
 
-  const [state, setState] = useReducer(reducer, {
-    type: type || "closed",
-  });
+  const [state, setState] = useState("unselected");
+  const cases = [
+    { text: "area", all: "전국" },
+    { text: "field", all: "전체" },
+    { text: "category", all: "전체" },
+  ];
+
+  const select = useSelector(
+    communitySelector("subButtonSelect", cases[id].text)
+  );
+  const closestate = cases[id].all === select[0] ? "unselected" : "selected";
 
   const isOpen = useSelector(communitySelector("buttonSelect", "filter"));
 
+  // A버튼이 클릭된 상태로 재클릭이라면 filter를 초기화하고, 그게 아니라면 filter에 해당 text 값 넘기기
   const onClicks = () => {
-    setState();
-    isOpen === text
-      ? dispatch(setField({ form: "buttonSelect", key: "filter", value: "" }))
-      : dispatch(
-          setField({ form: "buttonSelect", key: "filter", value: text })
-        );
+    if (isOpen === text) {
+      dispatch(setField({ form: "buttonSelect", key: "filter", value: "" }));
+      setState(closestate);
+    } else {
+      dispatch(setField({ form: "buttonSelect", key: "filter", value: text }));
+      setState("opened");
+    }
   };
 
+  // A버튼이 열려있는 상태로 B버튼이 클릭되면 A버튼은 닫기
   useEffect(() => {
-    state.type === "opened" && text !== isOpen && setState("closed");
-  });
+    state === "opened" && text !== isOpen && setState(closestate);
+    state === "selected" && isOpen === undefined && setState(closestate);
+  }, [isOpen]);
 
   return (
     <Dropdown
-      className={`${state.type} `}
+      className={state}
       onClick={() => {
         onClicks();
       }}
     >
-      <TextWarpper className={`${state.type} `}>{text}</TextWarpper>
-
-      <img
-        className={`vector ${vectorClassName}`}
-        alt="Vector"
-        src={
-          state.type === "opened"
-            ? "https://c.animaapp.com/hs22pPSO/img/vector-9-4.svg"
-            : "https://c.animaapp.com/hs22pPSO/img/vector-9-3.svg"
-        }
-      />
+      <TextWarpper className={state}>{text}</TextWarpper>
+      <Img className={state} />
     </Dropdown>
   );
 };
-
-function reducer(state) {
-  switch (state.type) {
-    case "selected":
-      return {
-        type: "opened",
-      };
-    case "unselected":
-      return {
-        type: "opened",
-      };
-    case "opened":
-      return {
-        type: "unselected",
-      };
-    default:
-      return undefined;
-  }
-}
 
 DropDown.propTypes = {
   type: PropTypes.oneOf(["unselected", "selected", "opened"]),
