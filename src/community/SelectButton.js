@@ -7,7 +7,7 @@ import {
   addField,
   deleteField,
   initializeAll,
-} from "../module/CommunityStatus";
+} from "../module/Community/CommunityStatus";
 import { Button, TextWarpper, Img } from "../styles/SelectButton";
 
 export const SelectButton = ({ text }) => {

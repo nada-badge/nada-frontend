@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { DropDown } from "./Dropdown";
 import { useSelector } from "react-redux";
-import { communitySelector } from "../module/CommunityStatus";
+import { communitySelector } from "../module/Community/CommunityStatus";
 import { FilterItems } from "./FilterItems";
 
 const Filter = () => {

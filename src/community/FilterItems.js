@@ -3,7 +3,7 @@ import { SelectButton } from "./SelectButton";
 import styled from "styled-components";
 import { SelectAllButton } from "./SelectAllButton";
 import { useSelector } from "react-redux";
-import { communitySelector } from "../module/CommunityStatus";
+import { communitySelector } from "../module/Community/CommunityStatus";
 
 export const FilterItems = ({ text }) => {
   const mainCategory = useSelector(
