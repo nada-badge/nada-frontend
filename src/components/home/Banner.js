@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import BannerSlider from './Slider';
 
 const BannerContainer = styled.div`
   box-shadow: var(--drop-shadow);
@@ -8,16 +9,7 @@ const BannerContainer = styled.div`
   /* top: 89px;  상단, 하단 네비게이션 적용후 수정 예정*/
   width: 375px;
 
-  & > img {
-    height: 118px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 375px;
-  }
-
-  & > div {
+  & > .IndicatorWrapper {
     align-items: center;
     background-color: #00000099;
     border-radius: 12px;
@@ -48,11 +40,8 @@ const BannerContainer = styled.div`
 const Banner = () => {
   return (
     <BannerContainer>
-      <img
-        alt="banner"
-        src="https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-8@2x.png"
-      />
-      <div>
+      <BannerSlider />
+      <div className="IndicatorWrapper">
         <div className="text">1/5</div>
       </div>
     </BannerContainer>
