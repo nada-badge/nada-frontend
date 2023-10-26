@@ -1,8 +1,10 @@
+/*BottomNav 하단 네비게이션 바의 styled components */
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import communityActImage from '../icon/communityAct.png';
 import communityImage from '../icon/community.png';
 
+//하단바를 아래 위치하기
 export const Navi = styled.nav`
   background-color: #ffffff;
   border-color: #0000000f;
@@ -19,6 +21,7 @@ export const Navi = styled.nav`
   justify-content: space-evenly;
 `;
 
+//하단바의 각 버튼 요소
 export const NavLinks = styled(NavLink)`
   height: 42px;
   position: relative;
@@ -33,7 +36,8 @@ export const NavLinks = styled(NavLink)`
   }
 `;
 
-export const Img = styled.image`
+//개별 버튼의 이미지 설정
+export const Img = styled.div`
   height: 26px;
   left: 0;
   position: relative;
@@ -73,6 +77,7 @@ export const Img = styled.image`
   }
 `;
 
+//개별 버튼의 텍스트 설정
 export const Text = styled.div`
   font-family: var(--caption-01-font-family);
   font-size: var(--caption-01-font-size);
@@ -90,7 +95,5 @@ export const Text = styled.div`
   &.isActive {
     color: var(--myspec-primaryblue-1);
   }
-
- 
   }
 `;

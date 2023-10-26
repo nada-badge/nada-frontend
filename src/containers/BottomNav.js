@@ -1,12 +1,13 @@
-import { Navi, NavLinks, Img, Text } from '../styles/BottomNavStyle';
+/*BottomNav 하단 네비게이션 바를 관리하고 출력함*/
+import { Navi, NavLinks, Img, Text } from '../styles/BottomNav';
 import { barStatusSelector } from '../modules/barStatus';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
 
 export const BottomNav = () => {
   const active = useSelector(barStatusSelector('bottomStatus', 'bottomActive'));
 
+  //하단바의 옵션 정의
   const BottomNavType = [
     { id: 1, text: '홈', path: '/home', content: 'Home' },
     { id: 2, text: '활동', path: '/activity', content: 'Activity' },

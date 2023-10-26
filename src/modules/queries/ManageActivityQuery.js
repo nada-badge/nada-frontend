@@ -1,10 +1,10 @@
-import { useMutation } from '@tanstack/react-query';
+/* ManageActiveQuery 관리자 게시물 등록을 수행하는 쿼리 */
 import client from '../../lib/api/client';
+import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
 const useSubmit = () => {
   const navigate = useNavigate();
-  //1) activityWrite에서 넘겨받은 값 /activity에 post하기
   return useMutation({
     mutationFn: ({
       activityName,

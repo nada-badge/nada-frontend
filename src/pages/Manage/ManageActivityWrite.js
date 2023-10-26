@@ -1,35 +1,32 @@
-/* ActivityWrite.js 게시물 추가 */
-import React, { useState } from 'react';
+/* ManageActivityWrite 관리자가 activity를 추가하거나 수정할 수 있는 페이지 */
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import useSubmit from '../../modules/queries/ManageActivityQuery';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useSelector } from 'react-redux';
-import { activitySelector } from '../../modules/activity';
+import useSubmit from '../../modules/queries/ManageActivityQuery';
+import { activitySelector } from '../../modules/ManageActivity';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();
 
   const { mutate } = useSubmit();
 
-  // 1)
   const [board, setBoard] = useState(useSelector(activitySelector));
 
   const [startedAt, setStartedAt] = useState(new Date());
   const [endedAt, setEndedAt] = useState(new Date());
 
+  //입력값이 바뀔때마다 setBoard해주기
   const onChange = (event) => {
-    const { value, name } = event.target; //2) event.target에서 name과 value만 가져오기
-
+    const { value, name } = event.target;
     setBoard({
-      // 3) 해당 name에 value값 할당
       ...board,
       [name]: value,
     });
   };
 
   const backToList = () => {
-    //4) 게시물 리스트 화면으로 돌아가기
     navigate('/manage/Activity');
   };
 
@@ -49,7 +46,6 @@ const ManageActivityWrite = () => {
   };
 
   const onSubmit = (e) => {
-    //5) 폼을 제출하여 게시물 등록하기 위한 mutate 호출
     e.preventDefault();
     const { activityName, groupName, field, category, area, content } = board;
     const startedAt = new Date(e.target.startedAt.value);
