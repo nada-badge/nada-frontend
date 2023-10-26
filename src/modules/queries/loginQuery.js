@@ -6,10 +6,11 @@ const useUserMutation = () => {
     mutationFn: ({ email, password }) =>
       client.post('/user/login', { email: email, password: password }),
     onSuccess: (data) => {
-      console.log('로그인 완료', data);
+      return true;
     },
     onError: (error) => {
       console.log('로그인 오류발생!', error);
+      return false;
     },
   });
 };
