@@ -14,8 +14,7 @@ import activitySlice from './modules/ManageActivity';
 import barStatusSlice from './modules/barStatus';
 import calendarSlice from './modules/calendar';
 
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = configureStore({
   reducer: {

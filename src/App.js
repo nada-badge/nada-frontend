@@ -43,8 +43,6 @@ const App = () => {
             element={<ManageActivityWrite />}
           />
 
-          <Route path="/home" element={<Home />} />
-          <Route path="/activity" element={<Activity />} />
           <Route path="/badge" element={<Badge />} />
           <Route path="/Community" element={<Community />} />
           <Route path="/Community/child" element={<Communityy />} />
