@@ -10,6 +10,14 @@ import styled from 'styled-components';
 import { caption_02 } from '../../styles/fontStyle';
 
 const SliderWrapper = styled.div`
+  box-shadow: var(--drop-shadow);
+  height: 118px;
+  left: 0;
+  position: relative;
+  /* top: 89px;  상단, 하단 네비게이션 적용후 수정 예정*/
+  width: 100%;
+
+  // '1/5' 와 같은 페이징 표시
   & > div > .custom_paging {
     position: absolute;
     top: 84px;
@@ -37,7 +45,7 @@ const SliderWrapper = styled.div`
 
 const BannerSlider = () => {
   const settings = {
-    dots: true,
+    dots: true, // Page Indicator Dot
     arrows: false,
     autoplay: true,
     infinite: true,
