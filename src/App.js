@@ -32,26 +32,7 @@ const App = () => {
           <Route path="/register/personal" element={<RegisterPage />} />
           <Route path="/register/team" element={<RegisterPage />} />
 
-          <Route path="/manage" element={<ManageHome />} />
-          <Route path="/manage/Activity" element={<ManageActivityList />} />
-          <Route
-            path="/manage/Activity/:_id"
-            element={<ManageActivityDetail />}
-          />
-          <Route
-            path="/manage/ActivityWrite"
-            element={<ManageActivityWrite />}
-          />
-
-          <Route path="/badge" element={<Badge />} />
-          <Route path="/Community" element={<Community />} />
-          <Route path="/Community/child" element={<Communityy />} />
-          <Route path="/myPage" element={<MyPage />} />
-
-          <Route path="/calendar" element={<CalendarPage />} />
-
-          <Route path="/activity" element={<ActivityPage />} />
-          <Route path="/activity/detail" element={<DetailActivityPage />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </QueryClientProvider>
     </div>
