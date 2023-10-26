@@ -1,8 +1,9 @@
+/*Header 상단 바를 관리하고 출력함 */
 import { barStatusSelector } from '../modules/barStatus';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { Overlap, Img, Textwrapper, Top } from '../styles/HeaderStyle';
+import React, { useState, useEffect } from 'react';
+import { Overlap, Img, Textwrapper, Top } from '../styles/Header';
 
 const Header = () => {
   const pageStatus = useSelector(
@@ -15,6 +16,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [activeHeaders, setActiveHeaders] = useState();
 
+  //상단 상태값에서 상단 요소의 존재여부 값
   const HeaderType = [
     {
       id: 'backBell',
@@ -72,6 +74,7 @@ const Header = () => {
     },
   ];
 
+  //현재 상단값의 요소 존재여부값
   const [CurrentStatus, setCurrentStatus] = useState([
     { id: 'Logo', state: false },
     { id: 'Back', state: false },
@@ -81,6 +84,7 @@ const Header = () => {
     { id: 'Post', state: false },
   ]);
 
+  //각 요소에 대한 구현
   const headerTypeConfig = {
     Texts: <Textwrapper>{pageNameStatus}</Textwrapper>,
     Back: (
@@ -111,6 +115,7 @@ const Header = () => {
     ),
   };
 
+  //현재 상태값에 요소 존재여부값 부여하기
   useEffect(() => {
     let copiedStatus = [...CurrentStatus];
 
@@ -127,9 +132,11 @@ const Header = () => {
     setCurrentStatus(copiedStatus);
 
     setActiveHeaders(
-      CurrentStatus.filter((item) => item.state).map(
-        (item) => headerTypeConfig[item.id],
-      ),
+      CurrentStatus.filter((item) => item.state).map((item) => (
+        <React.Fragment key={item.id}>
+          {headerTypeConfig[item.id]}
+        </React.Fragment>
+      )),
     );
   }, [pageStatus, pageNameStatus]);
 

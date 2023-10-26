@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Community from './testpage/community';
@@ -9,15 +10,14 @@ import Communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import ManageActivityList from './pages/Manage/ManageActivityList';
-import React from 'react';
+import ManageHome from './pages/Manage/ManageHome';
 import ManageActivityDetail from './pages/Manage/ManageActivityDetail';
 import ManageActivityWrite from './pages/Manage/ManageActivityWrite';
+import ManageActivityList from './pages/Manage/ManageActivityList';
 import LogInSelect from './pages/auth/LoginSelect';
 import CalendarPage from './pages/CalendarPage';
 import ActivityPage from './pages/activity/ActivityPage';
 import DetailActivityPage from './pages/activity/DetailActivityPage';
-import ManageHome from './pages/Manage/ManageHome';
 
 const queryClient = new QueryClient();
 

@@ -1,8 +1,9 @@
-/* ActivityList.js 게시물 조회 */
-import React, { useEffect, useState } from 'react';
+/* ManageActivityList 관리자가 현재 등록되어있는 activity 리스트를 볼 수 있는 페이지 */
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { changeField, initializeForm } from '../../modules/activity.js';
+import { setBarStatus } from '../../modules/barStatus';
+import { changeField, initializeForm } from '../../modules/ManageActivity.js';
 import client from '../../lib/api/client.js';
 
 const ManageActivityList = () => {
@@ -10,8 +11,11 @@ const ManageActivityList = () => {
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
 
-  //1) activity 데이터를 받아옴
+  //해당 화면의 상단, 하단바 설정
   useEffect(() => {
+    dispatch(setBarStatus({ header: 'back', name: '활동', bottom: false }));
+
+    //activity 게시물 리스트 가져오기
     const FetchData = async () => {
       try {
         const resp = await client.get('activity/list');
@@ -32,25 +36,25 @@ const ManageActivityList = () => {
     navigate('/manage/ActivityWrite');
   };
 
+  //선택된 게시물의 정보를 manageActivity로 dispatch
   const setData = (activity) => {
     dispatch(changeField({ form: 'activities', value: activity }));
   };
 
   return (
     <div>
-      게시판 목록이 나오는 곳입니다.
+      게시판 목록
       <ul>
         {boardList &&
           boardList.map((activity) => (
-            // 2) map 함수로 데이터 출력
             <li key={activity._id}>
               <Link
-                onClick={() => setData(activity)} //3) 리덕스 activities에 클릭된 활동 데이터를 삽입
+                onClick={() => setData(activity)}
                 to={`/manage/Activity/${activity._id}`}
               >
                 {activity.activityName}
               </Link>
-            </li> // 4)클릭한 활동 주소로 이동
+            </li>
           ))}
       </ul>
       <div>
