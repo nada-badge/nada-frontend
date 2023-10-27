@@ -1,5 +1,4 @@
 /* ActivityBoard.js 상세보기에 해당하는 데이터를 받아 화면에 출력할 컴포넌트*/
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { activitySelector } from '../../modules/ManageActivity';
 

@@ -39,7 +39,7 @@ const ManageActivityList = () => {
   };
 
   //선택된 게시물의 정보를 manageActivity로 dispatch
-  const setData = (activity) => {
+  const onClick = (activity) => {
     dispatch(changeField({ form: 'activities', value: activity }));
   };
 
@@ -51,7 +51,7 @@ const ManageActivityList = () => {
           boardList.map((activity) => (
             <li key={activity._id}>
               <Link
-                onClick={() => setData(activity)}
+                onClick={() => onClick(activity)}
                 to={`/manage/Activity/${activity._id}`}
               >
                 {activity.activityName}

@@ -1,6 +1,6 @@
 /*BottomNav 하단 네비게이션 바를 관리하고 출력함*/
-import { Navi, NavLinks, Img, Text } from '../styles/BottomNav';
-import { barStatusSelector } from '../modules/barStatus';
+import { Navi, NavLinks, Img, Text } from '../../styles/BottomNav';
+import { barStatusSelector } from '../../modules/barStatus';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
