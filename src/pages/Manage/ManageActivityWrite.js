@@ -48,11 +48,8 @@ const ManageActivityWrite = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { activityName, groupName, field, category, area, content } = board;
-    const startedAt = new Date(e.target.startedAt.value);
-    const endedAt = new Date(e.target.endedAt.value);
-
-    const start = startedAt.toISOString();
-    const ended = endedAt.toISOString();
+    const start = new Date(e.target.startedAt.value).toISOString();
+    const ended = new Date(e.target.endedAt.value).toISOString();
 
     mutate({
       activityName,
