@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { communitySelector } from "../../module/Community/CommunityStatus";
 import { changeField } from "../../module/Community/PostDetail";
 import PostItem from "./PostItem";
 import client from "../../lib/api/client";
-//import useCommunityList from "../../module/queries/CommunityQuery";
 
 const PostList = () => {
   const [cardsList, setCardsList] = useState([]);
@@ -13,8 +12,6 @@ const PostList = () => {
   const mainCategory = useSelector(
     communitySelector("buttonSelect", "maincategory")
   );
-
-  console.log("postList : ", cardsList);
 
   useEffect(() => {
     const FetchData = async () => {
@@ -29,7 +26,7 @@ const PostList = () => {
       }
     };
     FetchData();
-  }, []);
+  }, [mainCategory]);
 
   const setData = (card) => {
     dispatch(changeField({ form: "PostDetail", value: card }));
@@ -39,8 +36,9 @@ const PostList = () => {
     <div>
       {cardsList.map((card) => (
         <Link
-          onClick={() => setData(card)} //3) 리덕스 activities에 클릭된 활동 데이터를 삽입
+          onClick={() => setData(card)}
           to={`/community/PostDetail/${card._id}`}
+          key={card._id}
         >
           <PostItem key={card.id} card={card} />
         </Link>

@@ -36,7 +36,7 @@ export const TextWarpper = styled.div`
   }
 `;
 
-export const Img = styled.image`
+export const Img = styled.div`
   height: 7.06px;
   margin-right: -0.35px;
   width: 12.71px;

@@ -83,8 +83,8 @@ function FieldModal() {
       <div>
         <List>
           <SelectAllButton text={buttonAll.text} />
-          {buttons.map((button) => (
-            <div>
+          {buttons.map((button, index) => (
+            <div key={index}>
               <SelectButton text={button.text} />
             </div>
           ))}

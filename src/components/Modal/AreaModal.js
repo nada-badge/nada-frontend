@@ -77,8 +77,8 @@ function AreaModal() {
       <div>
         <List>
           <SelectAllButton />
-          {buttons.map((button) => (
-            <div>
+          {buttons.map((button, index) => (
+            <div key={index}>
               <SelectButton text={button.text} />
             </div>
           ))}

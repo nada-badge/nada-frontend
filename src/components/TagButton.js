@@ -10,7 +10,7 @@ const TagButtons = () => {
   return (
     <TagList>
       {combinedArray.map((tag) => (
-        <TagButton key={tag.id} tag={tag} />
+        <TagButton key={tag} tag={tag} />
       ))}
     </TagList>
   );

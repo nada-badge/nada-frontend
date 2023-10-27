@@ -104,7 +104,7 @@ export const MainCategory = styled.div`
   }
 `;
 
-export const Img = styled.image`
+export const Img = styled.div`
   height: 9px;
   position: relative;
   width: 16px;
