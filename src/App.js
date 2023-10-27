@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Community from './testpage/community';
 import Badge from './testpage/badge';
-import Activity from './testpage/activity';
 import MyPage from './testpage/myPage';
 import Communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
@@ -32,7 +31,26 @@ const App = () => {
           <Route path="/register/personal" element={<RegisterPage />} />
           <Route path="/register/team" element={<RegisterPage />} />
 
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/activity" element={<ActivityPage />} />
+          <Route path="/activity/detail" element={<DetailActivityPage />} />
           <Route path="/" element={<Home />} />
+
+          <Route path="/badge" element={<Badge />} />
+          <Route path="/Community" element={<Community />} />
+          <Route path="/Community/child" element={<Communityy />} />
+          <Route path="/myPage" element={<MyPage />} />
+
+          <Route path="/manage" element={<ManageHome />} />
+          <Route path="/manage/Activity" element={<ManageActivityList />} />
+          <Route
+            path="/manage/Activity/:_id"
+            element={<ManageActivityDetail />}
+          />
+          <Route
+            path="/manage/ActivityWrite"
+            element={<ManageActivityWrite />}
+          />
         </Routes>
       </QueryClientProvider>
     </div>

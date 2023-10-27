@@ -10,7 +10,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Mobile, PC } from './styles/Responsive.js';
 import './styles/common.scss';
 import authSlice from './modules/auth';
-import scheduleSlice from './modules/schedule';
 import calendarSlice from './modules/calendar';
 import './styles/common.scss';
 import activitySlice from './modules/ManageActivity';
