@@ -71,16 +71,16 @@ export const FilterItems = ({ text }) => {
     //코드 수정
     switch (text) {
       case "지역":
-        return area.map((current) => {
-          return <SelectButton text={current} />;
+        return area.map((current, index) => {
+          return <SelectButton key={index} text={current} />;
         });
       case "분야":
-        return field.map((current) => {
-          return <SelectButton text={current} />;
+        return field.map((current, index) => {
+          return <SelectButton key={index} text={current} />;
         });
       case "종류":
-        return category.map((current) => {
-          return <SelectButton text={current} />;
+        return category.map((current, index) => {
+          return <SelectButton key={index} text={current} />;
         });
       default:
         return undefined;

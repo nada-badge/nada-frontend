@@ -51,7 +51,7 @@ export const TextWarpper = styled.div`
   }
 `;
 
-export const Img = styled.image`
+export const Img = styled.div`
   position: relative;
   background-size: 100%;
   height: 7.06px;
