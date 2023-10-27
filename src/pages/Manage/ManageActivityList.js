@@ -13,7 +13,9 @@ const ManageActivityList = () => {
 
   //해당 화면의 상단, 하단바 설정
   useEffect(() => {
-    dispatch(setBarStatus({ header: 'back', name: '활동', bottom: false }));
+    dispatch(
+      setBarStatus({ headerState: 'back', text: '활동', isShowBottom: false }),
+    );
 
     //activity 게시물 리스트 가져오기
     const FetchData = async () => {

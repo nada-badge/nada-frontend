@@ -9,9 +9,9 @@ const MyPage = () => {
   useEffect(() => {
     dispatch(
       setBarStatus({
-        header: 'bellMenu',
-        name: '마이 페이지',
-        bottom: true,
+        headerState: 'bellMenu',
+        text: '마이 페이지',
+        isShowBottom: true,
       }),
     );
   });
