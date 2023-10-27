@@ -7,12 +7,10 @@ import { Overlap, Img, Textwrapper, Top } from '../styles/Header';
 
 const Header = () => {
   const pageStatus = useSelector(
-    barStatusSelector('headerStatus', 'pageStatus'),
+    barStatusSelector('headerStatus', 'headerState'),
   );
 
-  const pageNameStatus = useSelector(
-    barStatusSelector('headerStatus', 'pageNameStatus'),
-  );
+  const pageNameStatus = useSelector(barStatusSelector('headerStatus', 'text'));
   const navigate = useNavigate();
   const [activeHeaders, setActiveHeaders] = useState();
 

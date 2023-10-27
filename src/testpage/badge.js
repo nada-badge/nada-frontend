@@ -7,7 +7,13 @@ const Badge = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setBarStatus({ header: 'backPost', name: '뱃지', bottom: true }));
+    dispatch(
+      setBarStatus({
+        headerState: 'backPost',
+        text: '뱃지',
+        isShowBottom: true,
+      }),
+    );
   });
 
   return <div>badge 입니다.</div>;

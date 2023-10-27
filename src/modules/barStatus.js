@@ -2,16 +2,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
-/*pageStatus : 상단바 상태, pageNAmeStatus: 텍스트 출력시 텍스트 값 
-pageStatus 상태값에 대하여는 컴플루언스-개발-프론트엔드개발-상단하단바관련을 참고해주세요.
+/*headerState : 상단바 상태, text: 텍스트 출력시 텍스트 값 
+headerState 상태값에 대하여는 컴플루언스-개발-프론트엔드개발-상단하단바관련을 참고해주세요.
 */
 const initialState = {
   headerStatus: {
-    pageStatus: 'bell',
-    pageNameStatus: '무제',
+    headerState: 'bell',
+    text: '무제',
   },
   bottomStatus: {
-    bottomActive: Boolean(),
+    isShowBottom: Boolean(),
   },
 };
 
@@ -26,10 +26,10 @@ const barStatusSlice = createSlice({
       state.bottomStatus[key] = value;
     },
     //한번에 상단, 하단 상태를 설정하기 위한 함수
-    setBarStatus: (state, { payload: { header, name, bottom } }) => {
-      state.headerStatus.pageStatus = header;
-      state.headerStatus.pageNameStatus = name;
-      state.bottomStatus.bottomActive = bottom;
+    setBarStatus: (state, { payload: { headerState, text, isShowBottom } }) => {
+      state.headerStatus.headerState = headerState;
+      state.headerStatus.text = text;
+      state.bottomStatus.isShowBottom = isShowBottom;
     },
     initializeForm: (state, { payload: form, key }) => {
       state[form][key] = initialState[form][key];

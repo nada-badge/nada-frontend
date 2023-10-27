@@ -9,7 +9,9 @@ const ManageHome = () => {
 
   //해당 페이지의 상단, 하단 설정
   useEffect(() => {
-    dispatch(setBarStatus({ header: 'logo', name: '활동', bottom: false }));
+    dispatch(
+      setBarStatus({ headerState: 'logo', text: '활동', isShowBottom: false }),
+    );
   }, []);
 
   return (

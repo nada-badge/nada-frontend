@@ -11,7 +11,11 @@ const Community = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({ header: 'bellMenu', name: '커뮤니티', bottom: true }),
+      setBarStatus({
+        headerState: 'bellMenu',
+        text: '커뮤니티',
+        isShowBottom: true,
+      }),
     );
   });
 

@@ -9,9 +9,9 @@ const Communityy = () => {
   useEffect(() => {
     dispatch(
       setBarStatus({
-        header: 'backBell',
-        name: '세부 커뮤니티',
-        bottom: false,
+        headerState: 'backBell',
+        text: '세부 커뮤니티',
+        isShowBottom: false,
       }),
     );
   });
