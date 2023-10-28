@@ -7,9 +7,9 @@ import {
   submitForm,
   postWriteSelector,
   setField,
-} from "../../module/Community/PostWriteStatus";
-import { SelectButton } from "../../community/PostWrite/SelectButton";
-import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
+} from "../../../module/Community/PostWriteStatus";
+import { SelectButton } from "../../../community/PostWrite/SelectButton";
+import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
 import { List, Border, ButtonList, Cancel, Ok } from "./ModalStyle";
 function AreaModal() {
   const { closeModal } = useModal();

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { openModal, closeModal } from "../../module/Community/ModalStatus";
+import { openModal, closeModal } from "../../../module/Community/ModalStatus";
 
 function useModal() {
   const dispatch = useDispatch();

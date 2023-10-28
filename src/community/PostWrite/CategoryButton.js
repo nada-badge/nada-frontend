@@ -1,6 +1,6 @@
 import { Filter, TextWarpper, Img } from "../../styles/FilterModalStyle";
 import classNames from "classnames";
-import useModal from "../../components/Modal/useModal";
+import useModal from "../../components/Modal/Community/useModal";
 import { useSelector, useDispatch } from "react-redux";
 import { setField, postWriteSelector } from "../../module/PostWriteStatus";
 
