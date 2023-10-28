@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import useModal from "./useModal";
 import { useDispatch, useSelector } from "react-redux";
-import { postWriteSelector, setField } from "../../module/PostWriteStatus";
+import {
+  postWriteSelector,
+  setField,
+} from "../../../module/Community/PostWriteStatus";
 import classNames from "classnames";
 import {
   ListMain,

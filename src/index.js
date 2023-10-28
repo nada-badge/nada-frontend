@@ -6,7 +6,7 @@ import "./styleguide.css";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { modalSlice } from "./module/Community/ModalStatus";
 import { Provider } from "react-redux";
-import ModalContainer from "./components/Modal/ModalContainer";
+import ModalContainer from "./components/Modal/Community/ModalContainer";
 import communitySlice from "./module/Community/CommunityStatus";
 import postWriteSlice from "./module/Community/PostWriteStatus";
 import PostDetailSlice from "./module/Community/PostDetail";

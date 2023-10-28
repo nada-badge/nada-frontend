@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Modal from "./Modal";
 import useModal from "./useModal";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,55 +7,57 @@ import {
   submitForm,
   postWriteSelector,
   setField,
-} from "../../module/PostWriteStatus";
-import { SelectButton } from "../../community/PostWrite/SelectButton";
-import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
+} from "../../../module/Community/PostWriteStatus";
 
+import { SelectButton } from "../../../community/PostWrite/SelectButton";
 import { List, Border, ButtonList, Cancel, Ok } from "./ModalStyle";
+import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
 
-function CategoryModal() {
+function FieldModal() {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const Initialization = useSelector(
-    postWriteSelector("postWriteSubmit", "category")
+    postWriteSelector("postWriteSubmit", "field")
   );
-  const mainCategory = useSelector(
-    postWriteSelector("postWriteSubmit", "mainCategory")
-  );
-
-  const status = useSelector(postWriteSelector("postWriteSelect", "category"));
+  const status = useSelector(postWriteSelector("postWriteSelect", "field"));
 
   const buttonAll = { text: "전체" };
 
-  const [buttons, setButtons] = useState([
-    { id: 1, text: "공모전" },
-    { id: 2, text: "연합동아리" },
-    { id: 3, text: "교내동아리" },
-    { id: 4, text: "지역동아리" },
-    { id: 5, text: "소모임" },
-    { id: 6, text: "프로젝트" },
-    { id: 7, text: "대외활동" },
-    { id: 8, text: "인턴" },
-    { id: 9, text: "아르바이트" },
-  ]);
+  const buttons = [
+    { id: 1, text: "인문/사회" },
+    { id: 2, text: "광고/마케팅" },
+    { id: 3, text: "디자인/미술" },
+    { id: 4, text: "경영/경제/무역" },
+    { id: 5, text: "자기계발" },
+    { id: 6, text: "IT/전자" },
+    { id: 7, text: "자연과학" },
+    { id: 8, text: "사진/영상" },
+    { id: 9, text: "보건/의료" },
+    { id: 10, text: "건축/토목" },
+    { id: 11, text: "교육" },
+    { id: 12, text: "봉사/사회공헌" },
+    { id: 13, text: "페스티벌/행사" },
+    { id: 14, text: "식품/요리" },
+    { id: 15, text: "체육" },
+    { id: 16, text: "도시/환경" },
+    { id: 17, text: "문화/예술" },
+    { id: 18, text: "역사/탐방" },
+  ];
 
   useEffect(() => {
     dispatch(
       setField({
         form: "postWriteSelect",
-        key: "category",
+        key: "field",
         value: Initialization,
       })
     );
-    if (mainCategory === "모집") {
-      setButtons(buttons.slice(0, 6));
-    }
   }, []);
 
   const SetStatus = () => {
     dispatch(
       submitForm({
-        key: "category",
+        key: "field",
       })
     );
 
@@ -63,7 +65,7 @@ function CategoryModal() {
     dispatch(
       setField({
         form: "ButtonActive",
-        key: "category",
+        key: "field",
         value: value,
       })
     );
@@ -72,7 +74,7 @@ function CategoryModal() {
   };
 
   const Cancels = () => {
-    dispatch(initializeForm({ form: "postWriteSelect", key: "category" }));
+    dispatch(initializeForm({ form: "postWriteSelect", key: "field" }));
     closeModal();
   };
 
@@ -80,7 +82,7 @@ function CategoryModal() {
     <Modal onClose={closeModal}>
       <div>
         <List>
-          <SelectAllButton />
+          <SelectAllButton text={buttonAll.text} />
           {buttons.map((button, index) => (
             <div key={index}>
               <SelectButton text={button.text} />
@@ -101,4 +103,4 @@ function CategoryModal() {
   );
 }
 
-export default CategoryModal;
+export default FieldModal;
