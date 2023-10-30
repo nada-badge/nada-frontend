@@ -5,14 +5,19 @@ import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import useSubmit from '../../modules/queries/ManageActivityQuery';
-import { activitySelector } from '../../modules/ManageActivity';
+import useUpdate from '../../modules/queries/ManageActivityUpdateQuery';
+import { activitySelector } from '../../modules/activity';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();
 
   const { mutate } = useSubmit();
+  const update = useUpdate().mutate;
 
-  const [board, setBoard] = useState(useSelector(activitySelector));
+  const [board, setBoard] = useState(
+    useSelector(({ activity }) => activity.activities),
+  );
+  const isSubmit = useSelector(activitySelector('method', 'isSubmit'));
 
   const [startedAt, setStartedAt] = useState(new Date());
   const [endedAt, setEndedAt] = useState(new Date());
@@ -47,20 +52,34 @@ const ManageActivityWrite = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { activityName, groupName, field, category, area, content } = board;
+    const { _id, activityName, groupName, field, category, area, content } =
+      board;
     const start = new Date(e.target.startedAt.value).toISOString();
     const ended = new Date(e.target.endedAt.value).toISOString();
-
-    mutate({
-      activityName,
-      groupName,
-      field,
-      category,
-      area,
-      content,
-      start,
-      ended,
-    });
+    if (isSubmit) {
+      mutate({
+        activityName,
+        groupName,
+        field,
+        category,
+        area,
+        content,
+        start,
+        ended,
+      });
+    } else {
+      update({
+        _id,
+        activityName,
+        groupName,
+        field,
+        category,
+        area,
+        content,
+        start,
+        ended,
+      });
+    }
   };
 
   return (

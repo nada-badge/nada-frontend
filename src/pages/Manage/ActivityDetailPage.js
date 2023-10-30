@@ -1,6 +1,6 @@
 /* ManageActivityDetail 관리자가 activity의 세부사항을 확인하고 수정, 삭제할 수 있는 페이지 */
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeForm, idSelector } from '../../modules/ManageActivity';
+import { initializeForm, changeField } from '../../modules/activity';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import client from '../../lib/api/client';
@@ -9,12 +9,11 @@ const ManageActivityDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const id = useSelector(idSelector);
-
   //선택된 게시물 정보 가져오기
   const activity = useSelector(({ activity }) => activity.activities);
 
   const {
+    id,
     activityName,
     groupName,
     field,
@@ -35,7 +34,6 @@ const ManageActivityDetail = () => {
   const handleDelete = useCallback(async () => {
     try {
       await client.delete('/activity', { data: { _id: id } });
-      dispatch(initializeForm('activities'));
       initialize();
       alert('삭제되었습니다.');
       navigate('/manage/Activity');
@@ -46,6 +44,7 @@ const ManageActivityDetail = () => {
 
   //게시물 수정 페이지로 이동
   const UpdateAct = useCallback(() => {
+    dispatch(changeField({ form: 'method', key: 'isSubmit', value: false }));
     navigate('/manage/ActivityWrite');
   }, []);
 

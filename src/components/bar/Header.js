@@ -1,5 +1,5 @@
 /*Header 상단 바를 관리하고 출력함 */
-import { barStatusSelector } from '../../modules/barStatus';
+import { barSelector } from '../../modules/bar';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
@@ -8,10 +8,8 @@ import { HeaderType } from '../../containers/HeaderType';
 import { HeaderTypeConfig } from '../../containers/HeaderType';
 
 const Header = () => {
-  const pageStatus = useSelector(
-    barStatusSelector('headerStatus', 'headerState'),
-  );
-  const pageNameStatus = useSelector(barStatusSelector('headerStatus', 'text'));
+  const pageStatus = useSelector(barSelector('headerStatus', 'headerState'));
+  const pageNameStatus = useSelector(barSelector('headerStatus', 'text'));
   const navigate = useNavigate();
   const [activeHeaders, setActiveHeaders] = useState();
 

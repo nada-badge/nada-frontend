@@ -1,5 +1,4 @@
 import './App.css';
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Community from './testpage/community';
@@ -9,10 +8,10 @@ import Communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import ManageHome from './pages/Manage/ManageHome';
-import ManageActivityDetail from './pages/Manage/ManageActivityDetail';
-import ManageActivityWrite from './pages/Manage/ManageActivityWrite';
-import ManageActivityList from './pages/Manage/ManageActivityList';
+import HomePage from './pages/Manage/HomePage.';
+import ActivityDetailPage from './pages/Manage/ActivityDetailPage';
+import ActivityWritePage from './pages/Manage/ActivityWritePage.';
+import ActivityListPage from './pages/Manage/ActivityListPage.';
 import LogInSelect from './pages/auth/LoginSelect';
 import CalendarPage from './pages/CalendarPage';
 import ActivityPage from './pages/activity/ActivityPage';
@@ -41,16 +40,13 @@ const App = () => {
           <Route path="/Community/child" element={<Communityy />} />
           <Route path="/myPage" element={<MyPage />} />
 
-          <Route path="/manage" element={<ManageHome />} />
-          <Route path="/manage/Activity" element={<ManageActivityList />} />
+          <Route path="/manage" element={<HomePage />} />
+          <Route path="/manage/Activity" element={<ActivityListPage />} />
           <Route
             path="/manage/Activity/:_id"
-            element={<ManageActivityDetail />}
+            element={<ActivityDetailPage />}
           />
-          <Route
-            path="/manage/ActivityWrite"
-            element={<ManageActivityWrite />}
-          />
+          <Route path="/manage/ActivityWrite" element={<ActivityWritePage />} />
         </Routes>
       </QueryClientProvider>
     </div>

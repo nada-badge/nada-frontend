@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import communityActImage from '../icon/communityAct.png';
 import communityImage from '../icon/community.png';
+import { caption_01 } from './fontStyle';
 
 //하단바를 아래 위치하기
 export const Navi = styled.nav`
@@ -79,18 +80,9 @@ export const Img = styled.div`
 
 //개별 버튼의 텍스트 설정
 export const Text = styled.div`
-  font-family: var(--caption-01-font-family);
-  font-size: var(--caption-01-font-size);
-  font-style: var(--caption-01-font-style);
-  font-weight: var(--caption-01-font-weight);
-  letter-spacing: var(--caption-01-letter-spacing);
-  line-height: var(--caption-01-line-height);
+${caption_01('var(--myspec-gray-scalegray-600)')}
   position: relative;
   text-align: center;
-  white-space: nowrap;
-  color: var(--myspec-gray-scalegray-600);
-
- 
 
   &.isActive {
     color: var(--myspec-primaryblue-1);

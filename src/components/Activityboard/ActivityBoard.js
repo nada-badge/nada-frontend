@@ -1,6 +1,6 @@
 /* ActivityBoard.js 상세보기에 해당하는 데이터를 받아 화면에 출력할 컴포넌트*/
 import { useSelector } from 'react-redux';
-import { activitySelector } from '../../modules/ManageActivity';
+import { activitySelector } from '../../modules/activity';
 
 const ActivityBoard = () => {
   // 1) useSelector 를 통해 클릭된 활동의 세부 값을 shcedule에서 board로 받아온다.
