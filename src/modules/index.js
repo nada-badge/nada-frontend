@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
-import activity from './ManageActivity';
-import barStatus from './barStatus';
+import activity from './activity';
+import barStatus from './bar';
 import schedule from './schedule';
 import calendar from './calendar';
 

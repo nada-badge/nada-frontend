@@ -1,4 +1,4 @@
-/*barStatus 현재 보여지는 페이지의 하단, 상단바의 상태를 관리하는 리덕스  */
+/*bar 현재 보여지는 페이지의 하단, 상단바의 상태를 관리하는 리덕스  */
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
@@ -15,8 +15,8 @@ const initialState = {
   },
 };
 
-const barStatusSlice = createSlice({
-  name: 'barStatus',
+const barSlice = createSlice({
+  name: 'bar',
   initialState,
   reducers: {
     changeHeader: (state, { payload: { key, value } }) => {
@@ -37,15 +37,12 @@ const barStatusSlice = createSlice({
   },
 });
 
-export default barStatusSlice;
+export default barSlice;
 export const { changeHeader, changeBottom, setBarStatus, initializeForm } =
-  barStatusSlice.actions;
+  barSlice.actions;
 
-const barStatusSelects = (type, field) => (rootState) => {
-  return rootState.barStatus[type][field] || initialState[type][field];
+const barSelects = (type, field) => (rootState) => {
+  return rootState.bar[type][field] || initialState[type][field];
 };
 
-export const barStatusSelector = createSelector(
-  barStatusSelects,
-  (field) => field,
-);
+export const barSelector = createSelector(barSelects, (field) => field);

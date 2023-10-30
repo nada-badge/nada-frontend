@@ -2,8 +2,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../../modules/barStatus';
-import { changeField, initializeForm } from '../../modules/ManageActivity.js';
+import { setBarStatus } from '../../modules/bar';
+import {
+  changeform,
+  changeField,
+  initializeForm,
+} from '../../modules/activity.js';
 import client from '../../lib/api/client.js';
 
 const ManageActivityList = () => {
@@ -34,13 +38,14 @@ const ManageActivityList = () => {
   }
 
   const MoveToWrite = () => {
-    dispatch(initializeForm('activities'));
+    dispatch(initializeForm({ form: 'activities' }));
+    dispatch(changeField({ form: 'method', key: 'isSubmit', value: true }));
     navigate('/manage/ActivityWrite');
   };
 
   //선택된 게시물의 정보를 manageActivity로 dispatch
   const onClick = (activity) => {
-    dispatch(changeField({ form: 'activities', value: activity }));
+    dispatch(changeform({ form: 'activities', value: activity }));
   };
 
   return (

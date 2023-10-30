@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setBarStatus } from '../modules/barStatus';
+import { setBarStatus } from '../modules/bar';
 
 const Community = () => {
   const navigate = useNavigate();

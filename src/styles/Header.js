@@ -1,6 +1,7 @@
 /*Header 하단 네비게이션 바의 styled components */
 import styled from 'styled-components';
 import BellImg from '../icon/bell.png';
+import { title_02 } from './fontStyle';
 
 export const Top = styled.div`
   height: 88px;
@@ -17,13 +18,7 @@ export const Overlap = styled.div`
   width: 21px;
 
   & > .Post {
-    color: var(--myspec-primaryblue-1);
-    font-family: var(--title-02-font-family);
-    font-size: var(--title-02-font-size);
-    font-style: var(--title-02-font-style);
-    font-weight: var(--title-02-font-weight);
-    letter-spacing: var(--title-02-letter-spacing);
-    line-height: var(--title-02-line-height);
+    ${title_02('var(--myspec-primaryblue-1)')}
     position: absolute;
     height: 27px;
     left: 325px;
@@ -91,16 +86,11 @@ export const Ellipse = styled.div`
 
 //텍스트 설정
 export const Textwrapper = styled.div`
-  color: #000000;
-  font-family: var(--title-02-font-family);
-  font-size: var(--title-02-font-size);
-  font-style: var(--title-02-font-style);
-  font-weight: var(--title-02-font-weight);
+  ${title_02('#000000')}
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
-  letter-spacing: var(--title-02-letter-spacing);
-  line-height: var(--title-02-line-height);
+
   position: absolute;
 
   top: 47px;

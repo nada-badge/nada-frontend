@@ -12,8 +12,8 @@ import './styles/common.scss';
 import authSlice from './modules/auth';
 import calendarSlice from './modules/calendar';
 import './styles/common.scss';
-import activitySlice from './modules/ManageActivity';
-import barStatusSlice from './modules/barStatus';
+import activitySlice from './modules/activity';
+import barSlice from './modules/bar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,7 +22,7 @@ const store = configureStore({
     auth: authSlice.reducer,
     calendar: calendarSlice.reducer,
     activity: activitySlice.reducer,
-    barStatus: barStatusSlice.reducer,
+    bar: barSlice.reducer,
   },
   devTools: true,
 });
