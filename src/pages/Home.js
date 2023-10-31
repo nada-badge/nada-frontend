@@ -1,8 +1,8 @@
 import React from 'react';
-import Banner from '../components/home/Banner';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import styled from 'styled-components';
+import BannerSlider from '../components/home/BannerSlider';
 
 const HomeContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -43,7 +43,7 @@ const Home = () => {
           element="https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/-----1.svg"
           property1="main"
         /> */}
-      <Banner />
+      <BannerSlider />
       <WeekCalendar />
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
