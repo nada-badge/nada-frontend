@@ -8,7 +8,7 @@ headerState 상태값에 대하여는 컴플루언스-개발-프론트엔드개�
 const initialState = {
   headerStatus: {
     headerState: '',
-    text: '무제',
+    text: '',
   },
   bottomStatus: {
     isShowBottom: Boolean(),
