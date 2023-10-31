@@ -46,7 +46,7 @@ const Header = () => {
         </React.Fragment>
       )),
     );
-  }, [pageStatus]);
+  }, [pageStatus, pageNameStatus]);
 
   return <Top>{activeHeaders}</Top>;
 };
