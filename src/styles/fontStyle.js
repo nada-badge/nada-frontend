@@ -75,6 +75,16 @@ export const title_01 = (color) => css`
   line-height: var(--title-01-line-height);
 `;
 
+export const title_02 = (color) => css`
+  color: ${color || '#000000'};
+  font-family: var(--title-02-font-family);
+  font-size: var(--title-02-font-size);
+  font-style: var(--title-02-font-style);
+  font-weight: var(--title-02-font-weight);
+  letter-spacing: var(--title-02-letter-spacing);
+  line-height: var(--title-02-line-height);
+`;
+
 export const body_01 = (color) => css`
   color: ${color || '#000000'};
   font-family: var(--body-01-font-family);
