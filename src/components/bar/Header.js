@@ -20,6 +20,7 @@ const Header = () => {
     { id: 'Texts', state: false },
     { id: 'Bell', state: false },
     { id: 'Menu', state: false },
+    { id: 'BellWMenu', state: false },
     { id: 'Post', state: false },
   ]);
 
@@ -35,7 +36,8 @@ const Header = () => {
         (copiedStatus[2].state = team.text),
         (copiedStatus[3].state = team.bell),
         (copiedStatus[4].state = team.menu),
-        (copiedStatus[5].state = team.post)),
+        (copiedStatus[5].state = team.BellWMenu),
+        (copiedStatus[6].state = team.post)),
     );
     setCurrentStatus(copiedStatus);
 
@@ -48,7 +50,7 @@ const Header = () => {
     );
   }, [pageStatus, pageNameStatus]);
 
-  return <Top>{activeHeaders}</Top>;
+  return Boolean(pageStatus) && <Top>{activeHeaders}</Top>;
 };
 
 export default Header;

@@ -1,3 +1,5 @@
+/*HeaderType 상단바의 유형을 관리함. 
+유형에 대하여는 컴플루언스-개발-프론트엔드개발-상단하단바관련 문서를 참고해주세요.*/
 import { Overlap, Img, Textwrapper } from '../styles/Header';
 
 //상단 상태값에서 상단 요소의 존재여부 값
@@ -9,6 +11,7 @@ export const HeaderType = [
     text: true,
     bell: true,
     menu: false,
+    BellWMenu: false,
     post: false,
   },
   {
@@ -16,8 +19,29 @@ export const HeaderType = [
     logo: false,
     back: false,
     text: true,
-    bell: false, //원래는 true지만 menu에 딸려 bell을 출력할 것이기 때문에 false로 지정
+    bell: false,
+    BellWMenu: true, // 해당 bell은 menu 옆에 있는 bell이기 때문에 bellWMenu가 true
     menu: true,
+    post: false,
+  },
+  {
+    id: 'backMenu',
+    logo: false,
+    back: true,
+    text: true,
+    bell: false,
+    menu: true,
+    BellWMenu: false,
+    post: false,
+  },
+  {
+    id: 'backBellMenu',
+    logo: false,
+    back: true,
+    text: true,
+    bell: false,
+    menu: true,
+    BellWMenu: true,
     post: false,
   },
   {
@@ -27,6 +51,7 @@ export const HeaderType = [
     text: false,
     bell: true,
     menu: false,
+    BellWMenu: false,
     post: false,
   },
   {
@@ -36,6 +61,7 @@ export const HeaderType = [
     text: true,
     bell: false,
     menu: false,
+    BellWMenu: false,
     post: false,
   },
   {
@@ -45,6 +71,7 @@ export const HeaderType = [
     text: true,
     bell: true,
     menu: false,
+    BellWMenu: false,
     post: false,
   },
   {
@@ -54,6 +81,7 @@ export const HeaderType = [
     text: true,
     bell: false,
     menu: false,
+    BellWMenu: false,
     post: true,
   },
 ];
@@ -69,13 +97,17 @@ export function HeaderTypeConfig(navigate, status, pageNameStatus) {
     ),
     Menu: (
       <Overlap>
-        <Img className="BellWMenu" />
         <Img className="Menu" />
       </Overlap>
     ),
     Bell: (
       <Overlap>
         <Img className="Bell" />
+      </Overlap>
+    ),
+    BellWMenu: (
+      <Overlap>
+        <Img className="BellWMenu" />
       </Overlap>
     ),
     Logo: (
