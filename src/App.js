@@ -1,12 +1,17 @@
+import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Community from './testpage/community';
+import Badge from './testpage/badge';
+import MyPage from './testpage/myPage';
+import Communityy from './testpage/community2';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import BoardList from './routes/BoardList';
-import Home from './pages/Home';
-import React from 'react';
-import BoardDetail from './routes/BoardDetail';
-import BoardWrite from './routes/BoardWrite';
+import HomePage from './pages/Manage/HomePage.';
+import ActivityDetailPage from './pages/Manage/ActivityDetailPage';
+import ActivityWritePage from './pages/Manage/ActivityWritePage.';
+import ActivityListPage from './pages/Manage/ActivityListPage.';
 import LogInSelect from './pages/auth/LoginSelect';
 import CalendarPage from './pages/CalendarPage';
 import ActivityPage from './pages/activity/ActivityPage';
@@ -16,25 +21,35 @@ const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Routes>
-        <Route path="/login" element={<LogInSelect />} />
-        <Route path="/login/personal" element={<LoginPage />} />
-        <Route path="/login/team" element={<LoginPage />} />
-        <Route path="/register/personal" element={<RegisterPage />} />
-        <Route path="/register/team" element={<RegisterPage />} />
+    <div className="App">
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route path="/login" element={<LogInSelect />} />
+          <Route path="/login/personal" element={<LoginPage />} />
+          <Route path="/login/team" element={<LoginPage />} />
+          <Route path="/register/personal" element={<RegisterPage />} />
+          <Route path="/register/team" element={<RegisterPage />} />
 
-        <Route path="/" element={<Home />} />
-        <Route path="/board" element={<BoardList />} />
-        <Route path="/board/:_id" element={<BoardDetail />} />
-        <Route path="/write" element={<BoardWrite />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/activity" element={<ActivityPage />} />
+          <Route path="/activity/detail" element={<DetailActivityPage />} />
+          <Route path="/" element={<Home />} />
 
-        <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/badge" element={<Badge />} />
+          <Route path="/Community" element={<Community />} />
+          <Route path="/Community/child" element={<Communityy />} />
+          <Route path="/myPage" element={<MyPage />} />
 
-        <Route path="/activity" element={<ActivityPage />} />
-        <Route path="/activity/detail" element={<DetailActivityPage />} />
-      </Routes>
-    </QueryClientProvider>
+          <Route path="/manage" element={<HomePage />} />
+          <Route path="/manage/Activity" element={<ActivityListPage />} />
+          <Route
+            path="/manage/Activity/:_id"
+            element={<ActivityDetailPage />}
+          />
+          <Route path="/manage/ActivityWrite" element={<ActivityWritePage />} />
+        </Routes>
+      </QueryClientProvider>
+    </div>
   );
 };
 
