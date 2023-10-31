@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
 /*headerState : 상단바 상태, text: 텍스트 출력시 텍스트 값 
-headerState 상태값에 대하여는 컴플루언스-개발-프론트엔드개발-상단하단바관련을 참고해주세요.
+headerState 상태값에 대하여는 컴플루언스-개발-프론트엔드개발-상단하단바관련 문서를 참고해주세요.
 */
 const initialState = {
   headerStatus: {
-    headerState: 'bell',
+    headerState: '',
     text: '무제',
   },
   bottomStatus: {
