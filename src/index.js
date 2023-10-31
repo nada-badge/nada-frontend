@@ -12,6 +12,8 @@ import './styles/common.scss';
 import authSlice from './modules/auth';
 import calendarSlice from './modules/calendar';
 import './styles/common.scss';
+import { Mobile, PC } from './styles/Responsive';
+import userSlice from './modules/user';
 import activitySlice from './modules/activity';
 import barSlice from './modules/bar';
 
@@ -20,6 +22,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
+    user: userSlice.reducer,
     calendar: calendarSlice.reducer,
     activity: activitySlice.reducer,
     bar: barSlice.reducer,
