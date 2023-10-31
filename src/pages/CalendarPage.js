@@ -9,6 +9,7 @@ import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../modules/calendar';
+import { setBarStatus } from '../modules/bar';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -79,6 +80,13 @@ const CalendarPage = () => {
     dispatch(changeField({ key: 'date', value: date.month_day }));
     dispatch(
       changeField({ key: 'events', value: filterEvent(date.month_day) }),
+    );
+    dispatch(
+      setBarStatus({
+        headerState: 'backBellMenu',
+        text: '캘린더',
+        isShowBottom: true,
+      }),
     );
   }, [date.month_day, events]);
 
