@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import BannerSlider from '../components/home/BannerSlider';
 
 const HomeContainer = styled.div`
+  text-align: left;
   background-color: var(--myspec-gray-scalegray-100);
   display: flex;
   flex-direction: column;
