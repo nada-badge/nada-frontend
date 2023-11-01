@@ -3,6 +3,7 @@ import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import styled from 'styled-components';
 import BannerSlider from '../components/home/BannerSlider';
+import { useNavigate } from 'react-router-dom';
 
 const HomeContainer = styled.div`
   text-align: left;
@@ -36,6 +37,12 @@ const Home = () => {
     { id: 3, title: '[성신여대] 창업동아리 NADA 팀원추가 모집', Dday: 3 },
   ];
 
+  const navigate = useNavigate();
+
+  const onClick = (e) => {
+    navigate('/calendar');
+  };
+
   return (
     <HomeContainer>
       {/* 상단 내비게이션 
@@ -45,7 +52,9 @@ const Home = () => {
           property1="main"
         /> */}
       <BannerSlider />
-      <WeekCalendar />
+      <div onClick={onClick}>
+        <WeekCalendar className="calendarweek" />
+      </div>
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
         cards={community_cards}
