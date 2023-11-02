@@ -37,6 +37,10 @@ export const MenuModal = () => {
     openModal({ type: "DeleteModal" });
   };
 
+  const MoveToShare = () => {
+    openModal({ type: "ShareModal" });
+  };
+
   const close = () => {
     closeModal();
   };
@@ -46,7 +50,7 @@ export const MenuModal = () => {
       <Layout>
         <List>
           <div onClick={Update}>{Output("수정하기")}</div>
-          {Output("공유하기")}
+          <div onClick={MoveToShare}>{Output("공유하기")}</div>
           <div onClick={MoveToDelete}>{Output("삭제하기")}</div>
         </List>
         <Border />

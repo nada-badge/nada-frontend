@@ -9,6 +9,7 @@ import MainCategoryModal from "./MainCategoryModal";
 import MenuModal from "./MenuModal";
 import DeleteModal from "./DeleteModal";
 import NoticeModal from "./NoticeModal";
+import ShareModal from "./ShareModal";
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
@@ -18,6 +19,7 @@ const MODAL_COMPONENTS = {
   MenuModal: MenuModal,
   DeleteModal: DeleteModal,
   NoticeModal: NoticeModal,
+  ShareModal: ShareModal,
 };
 
 function ModalContainer() {
