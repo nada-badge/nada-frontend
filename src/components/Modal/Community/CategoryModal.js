@@ -10,8 +10,9 @@ import {
 } from "../../../module/Community/PostWriteStatus";
 import { SelectButton } from "../../../community/PostWrite/SelectButton";
 import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
+import ModalButtonDiv from "../../Community/ModalButtonDiv";
 
-import { List, Border, ButtonList, Cancel, Ok } from "./ModalStyle";
+import { List, Border } from "./ModalStyle";
 
 function CategoryModal() {
   const { closeModal } = useModal();
@@ -88,14 +89,13 @@ function CategoryModal() {
           ))}
         </List>
         <Border />
-        <ButtonList>
-          <Cancel onClick={Cancels}>
-            <div className="text-wrapper">취소</div>
-          </Cancel>
-          <Ok onClick={SetStatus}>
-            <div className="text-wrapper">확인</div>
-          </Ok>
-        </ButtonList>
+        {ModalButtonDiv({
+          cancelText: "취소",
+          cancel: Cancels,
+          actText: "확인",
+          act: SetStatus,
+          actColor: false,
+        })}
       </div>
     </Modal>
   );

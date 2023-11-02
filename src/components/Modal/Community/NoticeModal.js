@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../../../styles/Community/BarSecModalStyle";
 import { initializeForm } from "../../../module/Community/PostDetail";
+import ModalButton from "../../Community/ModalButton";
 
 function NoticeModal() {
   const navigate = useNavigate();
@@ -29,9 +30,7 @@ function NoticeModal() {
           src="https://c.animaapp.com/jSDFsaX0/img/check.svg"
         />
         <div className="border-2" />
-        <div className="button" onClick={closes}>
-          <div className="ok">확인</div>
-        </div>
+        <div onClick={closes}>{ModalButton("확인")}</div>
       </Layout>
     </Modal>
   );

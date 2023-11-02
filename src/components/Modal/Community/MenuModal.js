@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setField } from "../../../module/Community/PostWriteStatus";
 import classNames from "classnames";
+import ModalButton from "../../Community/ModalButton";
 import {
   Menu,
   List,
   Border,
-  Close,
   Layout,
 } from "../../../styles/Community/BarModalStyle";
 
@@ -30,14 +30,14 @@ export const MenuModal = () => {
   const Update = () => {
     dispatch(setField({ form: "method", key: "isSubmit", value: false }));
     navigate("/community/PostWrite");
-    Closes();
+    close();
   };
 
   const MoveToDelete = () => {
     openModal({ type: "DeleteModal" });
   };
 
-  const Closes = () => {
+  const close = () => {
     closeModal();
   };
 
@@ -50,9 +50,7 @@ export const MenuModal = () => {
           <div onClick={MoveToDelete}>{Output("삭제하기")}</div>
         </List>
         <Border />
-        <Close onClick={Closes}>
-          <div className="text-wrapper">취소</div>
-        </Close>
+        <div onClick={close}>{ModalButton("닫기")}</div>
       </Layout>
     </Modal>
   );

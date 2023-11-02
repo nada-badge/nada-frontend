@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import client from "../../../lib/api/client";
 import { PostDetailSelector } from "../../../module/Community/PostDetail";
 import { Layout } from "../../../styles/Community/BarSecModalStyle";
+import ModalButtonDiv from "../../Community/ModalButtonDiv";
 
 function DeleteModal() {
   const navigate = useNavigate();
@@ -32,14 +33,13 @@ function DeleteModal() {
         <div className="border" />
         <p className="content">한 번 삭제한 글은 복구할 수 없어요</p>
         <div className="border-2" />
-        <div className="buttonList">
-          <div className="cancel" onClick={Close}>
-            <div className="text">취소</div>
-          </div>
-          <div className="delete" onClick={Delete}>
-            <div className="text">삭제</div>
-          </div>
-        </div>
+        {ModalButtonDiv({
+          cancelText: "취소",
+          cancel: Close,
+          actText: "삭제",
+          act: Delete,
+          isRed: true,
+        })}
       </Layout>
     </Modal>
   );

@@ -7,15 +7,8 @@ import {
   setField,
 } from "../../../module/Community/PostWriteStatus";
 import classNames from "classnames";
-import {
-  ListMain,
-  Border,
-  ButtonList,
-  Cancel,
-  Ok,
-  MainCategory,
-  Img,
-} from "./ModalStyle";
+import { ListMain, Border, MainCategory, Img } from "./ModalStyle";
+import ModalButtonDiv from "../../Community/ModalButtonDiv";
 
 function MainCategoryModal() {
   const { closeModal } = useModal();
@@ -82,14 +75,13 @@ function MainCategoryModal() {
           {Output("자유 게시판", "자유")}
         </ListMain>
         <Border />
-        <ButtonList>
-          <Cancel onClick={Cancels}>
-            <div className="text-wrapper">취소</div>
-          </Cancel>
-          <Ok onClick={SetStatus}>
-            <div className="text-wrapper">확인</div>
-          </Ok>
-        </ButtonList>
+        {ModalButtonDiv({
+          cancelText: "취소",
+          cancel: Cancels,
+          actText: "확인",
+          act: SetStatus,
+          isRed: false,
+        })}
       </div>
     </Modal>
   );
