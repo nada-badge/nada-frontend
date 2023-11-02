@@ -1,8 +1,8 @@
-import TagButtons from "../../components/TagButton";
+import TagButtons from "../../components/Community/TagButton";
 import { ContentsList } from "../../styles/PostDetailStyle";
 import { useSelector } from "react-redux";
 import { BottomBar } from "../../container/community/bottomBar";
-import Dateformat from "../../components/Dateformat";
+import Dateformat from "../../components/Community/Dateformat";
 
 const PostDetail = () => {
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
