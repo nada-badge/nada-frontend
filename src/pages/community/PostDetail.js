@@ -19,8 +19,6 @@ const PostDetail = () => {
     updatedAt,
   } = PostDetail;
 
-  console.log("PostDetail : ", area);
-
   return (
     <div>
       <ContentsList>
