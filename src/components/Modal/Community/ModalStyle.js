@@ -5,7 +5,6 @@ export const List = styled.div`
   border-radius: 20px;
   display: inline-flex;
   flex-flow: row wrap;
-
   position: relative;
 `;
 
