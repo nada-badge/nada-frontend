@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import "./styleguide.css";
@@ -26,7 +27,9 @@ export const store = configureStore({
 
 root.render(
   <Provider store={store}>
-    <App />
-    <ModalContainer />
+    <BrowserRouter>
+      <App />
+      <ModalContainer />
+    </BrowserRouter>
   </Provider>
 );
