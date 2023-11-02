@@ -8,8 +8,8 @@ const initialState = {
     userName: "",
     mainCategory: "",
     category: "",
-    field: "",
-    area: "",
+    field: [],
+    area: [],
     title: "",
     content: "",
     comments: "",
@@ -38,8 +38,10 @@ const PostDetailSlice = createSlice({
 export default PostDetailSlice;
 export const { changeField, initializeForm } = PostDetailSlice.actions;
 
-const PostDetailSelects = (type, field) => (rootState) => {
-  return rootState.PostDetail[type][field] || initialState[type][field];
+const PostDetailSelects = (field) => (rootState) => {
+  return (
+    rootState.postdetail.PostDetail[field] || initialState.PostDetail[field]
+  );
 };
 
 export const PostDetailSelector = createSelector(
