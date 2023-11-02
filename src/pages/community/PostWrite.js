@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useSubmit from "../../module/queries/PostWriteQuery";
+import useUpdate from "../../module/queries/PostUpdateQuery";
 import { useSelector } from "react-redux";
-import { initializeAll } from "../../module/PostWriteStatus";
+import {
+  initializeAll,
+  setSubmit,
+  postWriteSelector,
+} from "../../module/Community/PostWriteStatus";
 import { useDispatch } from "react-redux";
 import { AreaButton } from "../../community/PostWrite/AreaButton";
 import { FieldButton } from "../../community/PostWrite/FieldButton";
@@ -18,14 +23,24 @@ import {
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
+  const update = useUpdate().mutate;
   const dispatch = useDispatch();
 
+  const isSubmit = useSelector(postWriteSelector("method", "isSubmit"));
+  const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
-  const { mainCategory, area, field, category } = postwrite;
-  const [inputValue, setInputValue] = useState({ title: "", content: "" });
+
+  const [inputValue, setInputValue] = useState({
+    title: PostDetail.title,
+    content: PostDetail.content,
+  });
+
+  useEffect(() => {
+    dispatch(setSubmit({ value: PostDetail }));
+  }, []);
 
   const onChange = (event) => {
-    const { value, name } = event.target; //2) event.target에서 name과 value만 가져오기
+    const { value, name } = event.target;
     setInputValue({
       ...inputValue,
       [name]: value,
@@ -33,29 +48,42 @@ const PostWrite = () => {
   };
 
   const OnSubmit = (e) => {
-    //5) 폼을 제출하여 게시물 등록하기 위한 mutate 호출
     e.preventDefault();
     const userEmail = "20230904@nate.com";
     const userName = "오늘닉네임";
-    const mainCategorys = mainCategory;
-    const categorys = category;
-    const fields = field;
-    const areas = area;
+    const _id = postwrite._id;
+    const mainCategorys = postwrite.mainCategory;
+    const categorys = postwrite.category;
+    const fields = postwrite.field;
+    const areas = postwrite.area;
     const title = e.target.title.value;
     const content = e.target.content.value;
 
     dispatch(initializeAll());
-
-    mutate({
-      userEmail,
-      userName,
-      mainCategorys,
-      categorys,
-      fields,
-      areas,
-      title,
-      content,
-    });
+    if (isSubmit) {
+      mutate({
+        userEmail,
+        userName,
+        mainCategorys,
+        categorys,
+        fields,
+        areas,
+        title,
+        content,
+      });
+    } else {
+      update({
+        _id,
+        userEmail,
+        userName,
+        mainCategorys,
+        categorys,
+        fields,
+        areas,
+        title,
+        content,
+      });
+    }
   };
 
   return (

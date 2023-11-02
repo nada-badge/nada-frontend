@@ -6,12 +6,16 @@ import AreaModal from "./AreaModal";
 import FieldModal from "./FieldModal";
 import CategoryModal from "./CategoryModal";
 import MainCategoryModal from "./MainCategoryModal";
+import MenuModal from "./MenuModal";
+import DeleteModal from "./DeleteModal";
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
   AreaModal: AreaModal,
   FieldModal: FieldModal,
   CategoryModal: CategoryModal,
+  MenuModal: MenuModal,
+  DeleteModal: DeleteModal,
 };
 
 function ModalContainer() {

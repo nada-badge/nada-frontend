@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
 
 const initialState = {
+  method: {
+    isSubmit: Boolean(),
+  },
   ButtonActive: {
     mainCategory: false,
     area: false,
@@ -16,6 +19,7 @@ const initialState = {
     modal: 0,
   },
   postWriteSubmit: {
+    _id: "",
     mainCategory: "카테고리",
     area: ["전국"],
     field: ["전체"],
@@ -29,6 +33,13 @@ const postWriteSlice = createSlice({
   reducers: {
     setField: (state, { payload: { form, key, value } }) => {
       state[form][key] = value;
+    },
+    setSubmit: (state, { payload: { value } }) => {
+      state.postWriteSubmit._id = value._id;
+      state.postWriteSubmit.mainCategory = value.mainCategory;
+      state.postWriteSubmit.area = value.area;
+      state.postWriteSubmit.field = value.field;
+      state.postWriteSubmit.category = value.category;
     },
     addField: (state, { payload: { form, key, value } }) => {
       state[form][key].push(value);
@@ -56,6 +67,7 @@ export const {
   initializeForm,
   submitForm,
   setField,
+  setSubmit,
   initializeAll,
 } = postWriteSlice.actions;
 
