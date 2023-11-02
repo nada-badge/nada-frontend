@@ -5,8 +5,10 @@ import styled from 'styled-components';
 import BannerSlider from '../components/home/BannerSlider';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
+import { useNavigate } from 'react-router-dom';
 
 const HomeContainer = styled.div`
+  text-align: left;
   background-color: var(--myspec-gray-scalegray-100);
   display: flex;
   flex-direction: column;
@@ -47,6 +49,11 @@ const Home = () => {
       }),
     );
   }, []);
+  const navigate = useNavigate();
+
+  const onClick = (e) => {
+    navigate('/calendar');
+  };
 
   return (
     <HomeContainer>
@@ -57,7 +64,9 @@ const Home = () => {
           property1="main"
         /> */}
       <BannerSlider />
-      <WeekCalendar />
+      <div onClick={onClick}>
+        <WeekCalendar className="calendarweek" />
+      </div>
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
         cards={community_cards}
