@@ -31,6 +31,7 @@ export const TagList = styled.div`
   flex-direction: row;
   flex-warp: wrap;
   gap: 8px;
+  flex-wrap: wrap;
 `;
 
 export const Button = styled.div`
