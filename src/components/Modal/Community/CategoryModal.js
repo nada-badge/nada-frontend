@@ -60,7 +60,7 @@ function CategoryModal() {
       })
     );
 
-    const value = !(status[0] === buttonAll.text);
+    const value = !(status === buttonAll.text);
     dispatch(
       setField({
         form: "ButtonActive",
