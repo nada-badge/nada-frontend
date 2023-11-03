@@ -6,6 +6,7 @@ import Filter from "../../community/Filter";
 import { PostWriteButton } from "../../community/PostWriteButton";
 import { useDispatch } from "react-redux";
 import { initializeAll } from "../../module/Community/CommunityStatus";
+import { initializeAll as initializeAllPostWrite } from "../../module/Community/PostWriteStatus";
 
 import {
   CommunityPage,
@@ -19,9 +20,10 @@ const Community = () => {
 
   useEffect(() => {
     return () => {
+      dispatch(initializeAllPostWrite());
       dispatch(initializeAll());
     };
-  });
+  }, []);
 
   return (
     <CommunityPage>
