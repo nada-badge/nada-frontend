@@ -1,7 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
-import { modalSelector } from "../../../module/Community/ModalStatus";
+import { modalSelector } from "../../../module/Community/modal";
 import AreaModal from "./AreaModal";
 import FieldModal from "./FieldModal";
 import CategoryModal from "./CategoryModal";

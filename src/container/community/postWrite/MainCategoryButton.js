@@ -1,9 +1,13 @@
 import React from "react";
-import { Filter, TextWarpper, Img } from "../../styles/FilterModalStyle";
+import {
+  Filter,
+  TextWarpper,
+  Img,
+} from "../../../styles/Community/FilterModalStyle";
 import classNames from "classnames";
-import useModal from "../../components/Modal/Community/useModal";
+import useModal from "../../../components/Modal/Community/useModal";
 import { useSelector } from "react-redux";
-import { postWriteSelector } from "../../module/PostWriteStatus";
+import { postWriteSelector } from "../../../module/Community/postWrite";
 
 export const MainCategoryButton = () => {
   const text = useSelector(

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setSubmit, setField } from "../../module/Community/PostWriteStatus";
+import { setSubmit, setField } from "../../module/Community/postWrite";
 
 function useSetButtonActive() {
   const dispatch = useDispatch();

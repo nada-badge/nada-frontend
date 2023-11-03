@@ -3,36 +3,36 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  postWriteSelector,
+  communitySelector,
   initializeForm,
   addField,
-  setField,
-} from "../../module/Community/PostWriteStatus";
-import { Button, TextWarpper } from "../../styles/SelectButton";
+} from "../../module/Community/community";
+import { Button, TextWarpper } from "../../styles/Community/SelectButton";
 
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
 
   const [isActive, setIsActive] = useState();
-  const nowModal = useSelector(postWriteSelector("postWriteSelect", "modal"));
+  const nowModal = useSelector(communitySelector("buttonSelect", "filter"));
 
   const cases = [
     { id: 1, key: "area", all: "전국" },
     { id: 2, key: "field", all: "전체" },
     { id: 3, key: "category", all: "전체" },
   ];
-  const key = cases[nowModal].key;
-  const all = cases[nowModal].all;
-  const setStatus = key === "category" ? setField : addField;
 
-  const state = useSelector(postWriteSelector("postWriteSelect", key));
+  const num = match(nowModal);
+  const key = cases[num].key;
+  const all = cases[num].all;
+
+  const state = useSelector(communitySelector("subButtonSelect", key));
 
   const OnClickButton = () => {
     if (!state.includes(all)) {
-      dispatch(initializeForm({ form: "postWriteSelect", key: key }));
+      dispatch(initializeForm({ form: "subButtonSelect", key: key }));
       dispatch(
-        setStatus({
-          form: "postWriteSelect",
+        addField({
+          form: "subButtonSelect",
           key: key,
           value: all,
         })
@@ -49,4 +49,17 @@ export const SelectAllButton = () => {
       <TextWarpper className={classNames({ isActive })}>{all}</TextWarpper>
     </Button>
   );
+};
+
+const match = (nowModal) => {
+  switch (nowModal) {
+    case "지역":
+      return 0;
+    case "분야":
+      return 1;
+    case "종류":
+      return 2;
+    default:
+      return 4;
+  }
 };

@@ -1,19 +1,18 @@
 import React, { useEffect } from "react";
-import BoardCardList from "../../community/BoardCardList/BoardCardList";
-import PostList from "../../community/PostList/PostList";
-import Category from "../../community/Category";
-import Filter from "../../community/Filter";
-import { PostWriteButton } from "../../community/PostWriteButton";
+import BoardCardList from "../../components/community/BoardCardList/BoardCardList";
+import PostList from "../../container/community/PostList";
+import Category from "../../container/community/Category";
+import Filter from "../../container/community/Filter";
+import { PostWriteButton } from "../../container/community/PostWriteButton";
 import { useDispatch } from "react-redux";
-import { initializeAll } from "../../module/Community/CommunityStatus";
-import { initializeAll as initializeAllPostWrite } from "../../module/Community/PostWriteStatus";
-
+import { initializeAll } from "../../module/Community/community";
+import { initializeAll as initializeAllPostWrite } from "../../module/Community/postWrite";
 import {
   CommunityPage,
   Search,
   Border,
   Contents,
-} from "../../styles/CommunityStyle";
+} from "../../styles/Community/CommunityStyle";
 
 const Community = () => {
   const dispatch = useDispatch();

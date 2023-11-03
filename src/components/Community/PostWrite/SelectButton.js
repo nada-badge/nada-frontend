@@ -3,39 +3,44 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  communitySelector,
+  postWriteSelector,
   addField,
   deleteField,
-  initializeAll,
-} from "../module/Community/CommunityStatus";
-import { Button, TextWarpper, Img } from "../styles/SelectButton";
+  setField,
+  initializeForm,
+} from "../../../module/Community/postWrite";
+import {
+  Button,
+  TextWarpper,
+  Img,
+} from "../../../styles/Community/SelectButton";
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();
 
-  const nowModal = useSelector(communitySelector("buttonSelect", "filter"));
+  const nowModal = useSelector(postWriteSelector("postWriteSelect", "modal"));
 
   const [isActive, setIsActive] = useState(false);
-  const form = "subButtonSelect";
-
-  const num = match(nowModal);
+  const form = "postWriteSelect";
 
   const cases = [
     { id: 0, key: "area", all: "전국" },
     { id: 1, key: "field", all: "전체" },
     { id: 2, key: "category", all: "전체" },
   ];
-  const key = cases[num].key;
-  const all = cases[num].all;
+  const key = cases[nowModal].key;
+  const all = cases[nowModal].all;
+  const setStatus = key === "category" ? setField : addField;
+  const deleteStatus = key === "category" ? initializeForm : deleteField;
 
-  const state = useSelector(communitySelector("subButtonSelect", key));
+  const state = useSelector(postWriteSelector("postWriteSelect", key));
 
   const OnClickButton = () => {
     if (isActive) {
-      dispatch(deleteField({ form: form, key: key, value: text }));
+      dispatch(deleteStatus({ form: form, key: key, value: text }));
       if (state.length === 1) {
         dispatch(
-          addField({
+          setStatus({
             form: form,
             key: key,
             value: all,
@@ -44,13 +49,15 @@ export const SelectButton = ({ text }) => {
       }
     } else {
       dispatch(
-        addField({
+        setStatus({
           form: form,
           key: key,
           value: text,
         })
       );
-      dispatch(deleteField({ form: form, key: key, value: all }));
+      if (key !== "category") {
+        dispatch(deleteField({ form: form, key: key, value: all }));
+      }
     }
   };
 
@@ -64,17 +71,4 @@ export const SelectButton = ({ text }) => {
       {isActive && <Img />}
     </Button>
   );
-};
-
-const match = (nowModal) => {
-  switch (nowModal) {
-    case "지역":
-      return 0;
-    case "분야":
-      return 1;
-    case "종류":
-      return 2;
-    default:
-      return 4;
-  }
 };

@@ -2,8 +2,8 @@ import {
   Bar,
   MenuImg,
   BookmarkImg,
-} from "../../styles/Community/CommunityBarStyle";
-import useModal from "../../components/Modal/Community/useModal";
+} from "../../../styles/Community/CommunityBarStyle";
+import useModal from "../../../components/Modal/Community/useModal";
 
 export const BottomBar = () => {
   const { openModal } = useModal();

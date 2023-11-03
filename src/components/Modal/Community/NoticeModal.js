@@ -3,8 +3,8 @@ import useModal from "./useModal";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../../../styles/Community/BarSecModalStyle";
-import { initializeForm } from "../../../module/Community/PostDetail";
-import ModalButton from "../../Community/ModalButton";
+import { initializeForm } from "../../../module/Community/postDetail";
+import ModalButton from "../../community/ModalButton";
 
 function NoticeModal() {
   const navigate = useNavigate();

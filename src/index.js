@@ -5,12 +5,12 @@ import "./index.css";
 import App from "./App";
 import "./styleguide.css";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { modalSlice } from "./module/Community/ModalStatus";
+import { modalSlice } from "./module/Community/modal";
 import { Provider } from "react-redux";
 import ModalContainer from "./components/Modal/Community/ModalContainer";
-import communitySlice from "./module/Community/CommunityStatus";
-import postWriteSlice from "./module/Community/PostWriteStatus";
-import PostDetailSlice from "./module/Community/PostDetail";
+import communitySlice from "./module/Community/community";
+import postWriteSlice from "./module/Community/postWrite";
+import PostDetailSlice from "./module/Community/postDetail";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

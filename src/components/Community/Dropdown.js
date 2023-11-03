@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import { Dropdown, TextWarpper, Img } from "../styles/DropdownStyle";
-import { useSelector, useDispatch } from "react-redux";
 import {
-  communitySelector,
-  setField,
-} from "../module/Community/CommunityStatus";
+  Dropdown,
+  TextWarpper,
+  Img,
+} from "../../styles/Community/DropdownStyle";
+import { useSelector, useDispatch } from "react-redux";
+import { communitySelector, setField } from "../../module/Community/community";
 
 export const DropDown = ({ text, id }) => {
   const dispatch = useDispatch();
