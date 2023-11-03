@@ -7,12 +7,11 @@ import {
   submitForm,
   postWriteSelector,
   setField,
-} from "../../../module/Community/PostWriteStatus";
-
-import { SelectButton } from "../../../community/PostWrite/SelectButton";
+} from "../../../module/Community/postWrite";
+import { SelectButton } from "../../community/PostWrite/SelectButton";
 import { List, Border } from "./ModalStyle";
-import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
-import ModalButtonDiv from "../../Community/ModalButtonDiv";
+import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
+import ModalButtonDiv from "../../community/ModalButtonDiv";
 
 function FieldModal() {
   const { closeModal } = useModal();

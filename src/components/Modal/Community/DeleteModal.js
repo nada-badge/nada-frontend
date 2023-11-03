@@ -4,9 +4,9 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import client from "../../../lib/api/client";
-import { PostDetailSelector } from "../../../module/Community/PostDetail";
+import { PostDetailSelector } from "../../../module/Community/postDetail";
 import { Layout } from "../../../styles/Community/BarSecModalStyle";
-import ModalButtonDiv from "../../Community/ModalButtonDiv";
+import ModalButtonDiv from "../../community/ModalButtonDiv";
 
 function DeleteModal() {
   const navigate = useNavigate();

@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import useSubmit from "../../module/queries/PostWriteQuery";
-import useUpdate from "../../module/queries/PostUpdateQuery";
+import { useState } from "react";
+import useSubmit from "../../module/queries/postWriteQuery";
+import useUpdate from "../../module/queries/postUpdateQuery";
 import { useSelector } from "react-redux";
 import {
   initializeAll,
   postWriteSelector,
-} from "../../module/Community/PostWriteStatus";
+} from "../../module/Community/postWrite";
 import { useDispatch } from "react-redux";
-import { AreaButton } from "../../community/PostWrite/AreaButton";
-import { FieldButton } from "../../community/PostWrite/FieldButton";
-import { MainCategoryButton } from "../../community/PostWrite/MainCategoryButton";
-import { CategoryButton } from "../../community/PostWrite/CategoryButton";
+import { AreaButton } from "../../container/community/postWrite/AreaButton";
+import { FieldButton } from "../../container/community/postWrite/FieldButton";
+import { MainCategoryButton } from "../../container/community/postWrite/MainCategoryButton";
+import { CategoryButton } from "../../container/community/postWrite/CategoryButton";
 import {
   PostContainer,
   Title,
@@ -18,7 +18,7 @@ import {
   Content,
   Border,
   AreaImages,
-} from "../../styles/PostWriteStyle";
+} from "../../styles/Community/PostWriteStyle";
 
 const PostWrite = () => {
   const { mutate } = useSubmit();

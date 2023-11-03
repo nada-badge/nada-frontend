@@ -2,10 +2,10 @@ import Modal from "./Modal";
 import useModal from "./useModal";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setField } from "../../../module/Community/PostWriteStatus";
+import { setField } from "../../../module/Community/postWrite";
 import classNames from "classnames";
-import useSetButtonActive from "../../Community/SetButtonActive";
-import ModalButton from "../../Community/ModalButton";
+import useSetButtonActive from "../../community/SetButtonActive";
+import ModalButton from "../../community/ModalButton";
 import {
   Menu,
   List,

@@ -1,8 +1,8 @@
-import { PostButton } from "../styles/PostWriteButtonStyle";
+import { PostButton } from "../../styles/Community/PostWriteButtonStyle";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setField } from "../module/Community/PostWriteStatus";
-import { initializeForm } from "../module/Community/PostDetail";
+import { setField } from "../../module/Community/postWrite";
+import { initializeForm } from "../../module/Community/postDetail";
 
 export const PostWriteButton = () => {
   const navigate = useNavigate();

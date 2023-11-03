@@ -1,21 +1,30 @@
-import { Filter, TextWarpper, Img } from "../../styles/FilterModalStyle";
-import classNames from "classnames";
-import useModal from "../../components/Modal/Community/useModal";
-import { useSelector, useDispatch } from "react-redux";
-import { setField, postWriteSelector } from "../../module/PostWriteStatus";
+import React from "react";
 
-export const CategoryButton = ({ text }) => {
-  const isActive = useSelector(postWriteSelector("ButtonActive", "category"));
+import {
+  Filter,
+  TextWarpper,
+  Img,
+} from "../../../styles/Community/FilterModalStyle";
+import classNames from "classnames";
+import useModal from "../../../components/Modal/Community/useModal";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setField,
+  postWriteSelector,
+} from "../../../module/Community/postWrite";
+
+export const FieldButton = ({ text }) => {
+  const isActive = useSelector(postWriteSelector("ButtonActive", "field"));
   const { openModal } = useModal();
   const dispatch = useDispatch();
 
   const onClickButton1 = () => {
-    openModal({ type: "CategoryModal" });
+    openModal({ type: "FieldModal" });
     dispatch(
       setField({
         form: "postWriteSelect",
         key: "modal",
-        value: 2,
+        value: 1,
       })
     );
   };

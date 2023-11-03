@@ -4,9 +4,9 @@ import {
   setField,
   initializeForm,
   initializeSub,
-} from "../module/Community/CommunityStatus";
+} from "../../module/Community/community";
 import classNames from "classnames";
-import { Categorylist, Wrapper } from "../styles/CategoryStyle";
+import { Categorylist, Wrapper } from "../../styles/Community/CategoryStyle";
 
 const Category = () => {
   const dispatch = useDispatch();

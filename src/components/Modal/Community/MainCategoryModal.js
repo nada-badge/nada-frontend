@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   postWriteSelector,
   setField,
-} from "../../../module/Community/PostWriteStatus";
+} from "../../../module/Community/postWrite";
 import classNames from "classnames";
 import { ListMain, Border, MainCategory, Img } from "./ModalStyle";
-import ModalButtonDiv from "../../Community/ModalButtonDiv";
+import ModalButtonDiv from "../../community/ModalButtonDiv";
 
 function MainCategoryModal() {
   const { closeModal } = useModal();

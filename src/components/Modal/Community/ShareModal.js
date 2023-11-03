@@ -1,7 +1,7 @@
 import Modal from "./Modal";
 import useModal from "./useModal";
 import { Layout, Image } from "../../../styles/Community/BarSecModalStyle";
-import ModalButton from "../../Community/ModalButton";
+import ModalButton from "../../community/ModalButton";
 
 function ShareModal() {
   const { closeModal } = useModal();
