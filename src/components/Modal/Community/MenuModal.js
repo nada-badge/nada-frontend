@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setField } from "../../../module/Community/PostWriteStatus";
 import classNames from "classnames";
+import useSetButtonActive from "../../Community/SetButtonActive";
 import ModalButton from "../../Community/ModalButton";
 import {
   Menu,
@@ -15,6 +16,7 @@ import {
 export const MenuModal = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const setButtonActive = useSetButtonActive();
   const { closeModal, openModal } = useModal();
 
   const Output = (text) => {
@@ -29,6 +31,7 @@ export const MenuModal = () => {
 
   const Update = () => {
     dispatch(setField({ form: "method", key: "isSubmit", value: false }));
+    setButtonActive();
     navigate("/community/PostWrite");
     close();
   };

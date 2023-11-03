@@ -4,7 +4,6 @@ import useUpdate from "../../module/queries/PostUpdateQuery";
 import { useSelector } from "react-redux";
 import {
   initializeAll,
-  setSubmit,
   postWriteSelector,
 } from "../../module/Community/PostWriteStatus";
 import { useDispatch } from "react-redux";
@@ -34,10 +33,6 @@ const PostWrite = () => {
     title: PostDetail.title,
     content: PostDetail.content,
   });
-
-  useEffect(() => {
-    dispatch(setSubmit({ value: PostDetail }));
-  }, []);
 
   const onChange = (event) => {
     const { value, name } = event.target;
