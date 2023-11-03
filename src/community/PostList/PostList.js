@@ -14,18 +14,17 @@ const PostList = () => {
   );
 
   useEffect(() => {
-    const FetchData = async () => {
+    const fetchData = async () => {
       try {
         const resp = await client.get("/community/post/list", {
           params: { mainCategory: mainCategory },
         });
-        console.log("fetchdata resp : ", resp);
-        setCardsList(resp.data.posts);
+        setCardsList(resp.data.posts.reverse()); // 상태 업데이트를 비동기 작업 이후로 옮겼습니다
       } catch (e) {
         console.log(e);
       }
     };
-    FetchData();
+    fetchData(); // 비동기 작업을 호출하여 데이터 가져오기
   }, [mainCategory]);
 
   const setData = (card) => {
@@ -36,11 +35,11 @@ const PostList = () => {
     <div>
       {cardsList.map((card) => (
         <Link
-          onClick={() => setData(card)}
           to={`/community/PostDetail/${card._id}`}
           key={card._id}
+          onClick={() => setData(card)}
         >
-          <PostItem key={card.id} card={card} />
+          <PostItem key={card._id} card={card} />
         </Link>
       ))}
     </div>
