@@ -52,8 +52,8 @@ export const ButtonList = styled.div`
     overflow: hidden;
     position: relative;
     width: 128px;
+    display: flex;
     background-color: var(--myspec-primaryblue-1);
-
     &.isRed {
       background-color: var(--myspec-primaryred-1);
     }
@@ -63,13 +63,13 @@ export const ButtonList = styled.div`
       font-size: var(--subtitle-01-font-size);
       font-style: var(--subtitle-01-font-style);
       font-weight: var(--subtitle-01-font-weight);
-      left: 49px;
       letter-spacing: var(--subtitle-01-letter-spacing);
       line-height: var(--subtitle-01-line-height);
-      position: absolute;
-      text-align: center;
+      position: relative;
+      width: 128px;
       top: 11px;
       white-space: nowrap;
+      text-align: center;
     }
   }
 `;
