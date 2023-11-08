@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/SearchInput';
+import { useEffect } from 'react';
+import { setBarStatus } from '../../modules/bar';
+import { useDispatch } from 'react-redux';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -17,6 +20,8 @@ const ActivityContainer = styled.div`
 `;
 
 const ActivityPage = () => {
+  const dispatch = useDispatch();
+
   const cards = [
     {
       id: 1,
@@ -34,6 +39,13 @@ const ActivityPage = () => {
       see: 307,
     },
   ];
+
+  useEffect(() => {
+    dispatch(
+      setBarStatus({ headerState: 'bell', text: '활동', isShowBottom: true }),
+    );
+  }, []);
+
   return (
     <ActivityContainer>
       <SearchInput />
