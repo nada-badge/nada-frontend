@@ -20,6 +20,7 @@ export const Navi = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  z-index: 1;
 `;
 
 //하단바의 각 버튼 요소

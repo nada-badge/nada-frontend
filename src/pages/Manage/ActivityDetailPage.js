@@ -1,8 +1,10 @@
 /* ManageActivityDetail 관리자가 activity의 세부사항을 확인하고 수정, 삭제할 수 있는 페이지 */
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeForm, changeField } from '../../modules/activity';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
+import { setBarStatus } from '../../modules/bar';
 import client from '../../lib/api/client';
 
 const ManageActivityDetail = () => {
@@ -13,7 +15,7 @@ const ManageActivityDetail = () => {
   const activity = useSelector(({ activity }) => activity.activities);
 
   const {
-    id,
+    _id,
     activityName,
     groupName,
     field,
@@ -30,17 +32,28 @@ const ManageActivityDetail = () => {
     dispatch(initializeForm('activities'));
   };
 
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'back',
+        text: '게시물 정보',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
+
   //게시물 삭제
   const handleDelete = useCallback(async () => {
     try {
-      await client.delete('/activity', { data: { _id: id } });
+      await client.delete('/activity', { data: { _id: _id } });
       initialize();
       alert('삭제되었습니다.');
       navigate('/manage/Activity');
     } catch (error) {
+      alert('실패!');
       console.error('삭제 중 오류 발생:', error);
     }
-  }, [id, navigate]);
+  }, [_id]);
 
   //게시물 수정 페이지로 이동
   const UpdateAct = useCallback(() => {

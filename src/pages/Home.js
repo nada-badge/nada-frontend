@@ -1,8 +1,10 @@
-import React from 'react';
+import { useEffect } from 'react';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import styled from 'styled-components';
 import BannerSlider from '../components/home/BannerSlider';
+import { useDispatch } from 'react-redux';
+import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 
 const HomeContainer = styled.div`
@@ -21,6 +23,7 @@ const HomeContainer = styled.div`
 `;
 
 const Home = () => {
+  const dispatch = useDispatch();
   const community_cards = [
     { id: 1, title: '유용한 활동 사이트', category: '자유' },
     { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
@@ -37,6 +40,15 @@ const Home = () => {
     { id: 3, title: '[성신여대] 창업동아리 NADA 팀원추가 모집', Dday: 3 },
   ];
 
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'logo',
+        text: '',
+        isShowBottom: true,
+      }),
+    );
+  }, []);
   const navigate = useNavigate();
 
   const onClick = (e) => {

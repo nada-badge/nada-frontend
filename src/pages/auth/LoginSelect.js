@@ -1,7 +1,9 @@
-import React from 'react';
+import { useEffect } from 'react';
 import AuthTemplate from '../../components/auth/AuthTemplate';
 import { LoginBox, Logo, LoginBtn, LogoBox } from '../../styles/Login';
 import { Link } from 'react-router-dom';
+import { setBarStatus } from '../../modules/bar';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 const LinkBox = styled.div`
@@ -21,6 +23,17 @@ const LinkBox = styled.div`
 `;
 
 const LogInSelect = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: '',
+        text: '',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
+
   return (
     <AuthTemplate className="AuthTemplate">
       <LoginBox className="LoginBox">
