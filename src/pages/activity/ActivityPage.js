@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
+import { SearchInput } from '../../components/SearchInput';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -35,7 +36,7 @@ const ActivityPage = () => {
   ];
   return (
     <ActivityContainer>
-      {/* 검색창 */}
+      <SearchInput />
       <CardList title={'최근 본 활동'} cards={cards} type={'recentActivity'} />
       {/*  대외활동 리스트 */}
     </ActivityContainer>
