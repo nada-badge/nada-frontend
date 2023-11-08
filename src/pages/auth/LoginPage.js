@@ -3,6 +3,8 @@ import AuthTemplate from '../../components/auth/AuthTemplate';
 import LoginForm from '../../containers/auth/login/LoginForm';
 import { LoginBox, LogoBox } from '../../styles/Login';
 import { useLocation } from 'react-router-dom';
+import { setBarStatus } from '../../modules/bar';
+import { useDispatch } from 'react-redux';
 
 const locationMap = {
   '/login/personal': 'personal',
@@ -11,10 +13,18 @@ const locationMap = {
 
 const LoginPage = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [type, setType] = useState(null);
 
   useEffect(() => {
     setType(locationMap[location.pathname]);
+    dispatch(
+      setBarStatus({
+        headerState: '',
+        text: '',
+        isShowBottom: false,
+      }),
+    );
   }, [location.pathname]);
 
   return (
