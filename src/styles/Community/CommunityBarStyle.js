@@ -66,4 +66,7 @@ export const MenuImg = styled(Img)`
 export const BookmarkImg = styled(Img)`
   left: 50px;
   background-image: url("https://c.animaapp.com/Owwkr6s0/img/bookmark.svg");
+  &.isActive {
+    background-image: url("https://c.animaapp.com/dApWEI5K/img/bookmark.svg");
+  }
 `;
