@@ -4,6 +4,7 @@ import CommunityPage from "./pages/community/CommunityPage";
 import PostWritePage from "./pages/community/PostWritePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import PostDetailPage from "./pages/community/PostDetailPage";
+import CommentPage from "./pages/community/CommentPage";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
             path="/community/PostDetail/:_id"
             element={<PostDetailPage />}
           />
+          <Route path="/community/Comment/:_id" element={<CommentPage />} />
         </Routes>
       </QueryClientProvider>
     </div>

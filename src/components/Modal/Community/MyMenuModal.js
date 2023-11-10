@@ -30,7 +30,6 @@ export const MyMenuModal = () => {
   };
 
   const Update = () => {
-    dispatch(setField({ form: "method", key: "isSubmit", value: false }));
     setButtonActive();
     navigate("/community/PostWrite");
     close();
