@@ -12,6 +12,7 @@ const PostList = () => {
   const mainCategory = useSelector(
     communitySelector("buttonSelect", "maincategory")
   );
+  const area = useSelector(communitySelector("subButtonSelect", "area"));
 
   useEffect(() => {
     const fetchData = async () => {

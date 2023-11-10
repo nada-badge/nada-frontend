@@ -7,7 +7,7 @@ function useSetButtonActive() {
 
   const setButtonActive = () => {
     dispatch(setSubmit({ value: PostDetail }));
-
+    dispatch(setField({ form: "method", key: "isSubmit", value: false }));
     const valueArea = !(PostDetail.area[0] === "전국");
     const valueField = !(PostDetail.field[0] === "전체");
     const valueCategory = !(PostDetail.category === "전체");

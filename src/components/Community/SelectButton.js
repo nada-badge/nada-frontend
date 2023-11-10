@@ -6,7 +6,6 @@ import {
   communitySelector,
   addField,
   deleteField,
-  initializeAll,
 } from "../../module/Community/community";
 import { Button, TextWarpper, Img } from "../../styles/Community/SelectButton";
 

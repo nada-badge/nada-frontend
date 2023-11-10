@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import BoardCardList from "../../components/community/BoardCardList/BoardCardList";
 import PostList from "../../container/community/PostList";
 import Category from "../../container/community/Category";
