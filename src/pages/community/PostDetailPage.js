@@ -7,17 +7,7 @@ import Dateformat from "../../components/community/Dateformat";
 const PostDetail = () => {
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
 
-  const {
-    _id,
-    userName,
-    mainCategory,
-    area,
-    title,
-    content,
-    views,
-    registeredAt,
-    updatedAt,
-  } = PostDetail;
+  const { userName, title, content, updatedAt } = PostDetail;
 
   return (
     <div>

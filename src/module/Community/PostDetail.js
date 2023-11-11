@@ -18,6 +18,9 @@ const initialState = {
     registeredAt: "",
     updatedAt: "",
   },
+  comment: {
+    _id: "",
+  },
 };
 
 const PostDetailSlice = createSlice({
@@ -38,16 +41,15 @@ const PostDetailSlice = createSlice({
 export default PostDetailSlice;
 export const { changeField, initializeForm } = PostDetailSlice.actions;
 
-const PostDetailSelects = (field) => (rootState) => {
-  return (
-    rootState.postdetail.PostDetail[field] || initialState.PostDetail[field]
-  );
+const PostDetailSelects = (type, field) => (rootState) => {
+  return rootState.postdetail[type][field] || initialState[type][field];
 };
 
 export const PostDetailSelector = createSelector(
   PostDetailSelects,
   (field) => field
 );
+
 const selectPostDetail = (state) => state.PostDetail.PostDetail || initialState;
 
 export const PostDetailsSelector = createSelector(
