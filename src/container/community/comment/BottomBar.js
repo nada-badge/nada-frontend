@@ -2,24 +2,26 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import classNames from "classnames";
 import arrowButton from "../../../icon/arrowButton.png";
-import arrowButtonActive from "../../../icon/arrowButton.png";
+import arrowButtonActive from "../../../icon/arrowButtonActive.png";
+import useComment from "../../../module/queries/commentQuery";
 
 export const BottomBar = () => {
-  const [inputValue, setInputValue] = useState();
-  const [isActive, setIsActive] = useState();
+  const [inputValue, setInputValue] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  const { mutate } = useComment();
 
   const onChange = (e) => {
     setInputValue(e.target.value);
   };
 
   useEffect(() => {
-    if (inputValue) {
-      setIsActive(true);
-    } else {
-      setIsActive(false);
-    }
-    console.log("isActive : ", isActive);
+    setIsActive(!!inputValue);
   }, [inputValue]);
+
+  const sendComment = () => {
+    mutate({ inputValue });
+    setInputValue("");
+  };
 
   return (
     <Bar>
@@ -33,7 +35,10 @@ export const BottomBar = () => {
           />
         </div>
       </div>
-      <div className={classNames("sendArrow", { isActive })} />
+      <div
+        className={classNames("sendArrow", { isActive })}
+        onClick={sendComment}
+      />
     </Bar>
   );
 };
@@ -67,7 +72,6 @@ export const Bar = styled.div`
       display: flex;
       gap: 10px;
       position: relative;
-      width: 269px;
 
       & > .wrapper {
         background-color: var(--myspec-gray-scalegray-100);
@@ -87,8 +91,6 @@ export const Bar = styled.div`
       & > .wrapper:focus {
         outline: none;
       }
-      & > .isActive {
-      }
     }
   }
   & > .sendArrow {
@@ -96,8 +98,9 @@ export const Bar = styled.div`
     height: 36px;
     width: 36px;
     background-image: url(${arrowButton});
-  }
-  & > .isActive {
-    background-image: url(${arrowButtonActive});
+
+    &.isActive {
+      background-image: url(${arrowButtonActive});
+    }
   }
 `;
