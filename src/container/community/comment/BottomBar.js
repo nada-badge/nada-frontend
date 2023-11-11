@@ -4,11 +4,16 @@ import classNames from "classnames";
 import arrowButton from "../../../icon/arrowButton.png";
 import arrowButtonActive from "../../../icon/arrowButtonActive.png";
 import useComment from "../../../module/queries/commentQuery";
+import useReply from "../../../module/queries/replyQuery";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { PostDetailSelector } from "../../../module/Community/postDetail";
 
 export const BottomBar = () => {
   const [inputValue, setInputValue] = useState("");
   const [isActive, setIsActive] = useState(false);
   const { mutate } = useComment();
+  const sendReply = useReply().mutate;
+  const isReply = useSelector(PostDetailSelector("Comment", "isReply"));
 
   const onChange = (e) => {
     setInputValue(e.target.value);
@@ -19,7 +24,11 @@ export const BottomBar = () => {
   }, [inputValue]);
 
   const sendComment = () => {
-    mutate({ inputValue });
+    if (isReply) {
+      sendReply({ inputValue });
+    } else {
+      mutate({ inputValue });
+    }
     setInputValue("");
   };
 

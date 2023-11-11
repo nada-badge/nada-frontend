@@ -1,47 +1,60 @@
 import { Comment } from "../../../styles/Community/CommentStyle";
 import Dateformat from "../Dateformat";
-
+import { useDispatch } from "react-redux";
+import { changeCommentField } from "../../../module/Community/postDetail";
+import ReplyOutPut from "./replyOutput";
 const CommentOutPut = ({ comment }) => {
+  const dispatch = useDispatch();
+  const sendReply = (e) => {
+    dispatch(changeCommentField({ form: "_id", value: comment._id }));
+    dispatch(changeCommentField({ form: "isReply", value: true }));
+  };
+
   return (
-    <Comment>
-      <div className="profile">
-        <div className="image-name-date">
-          <div className="image" />
-          <div className="name-date">
-            <div className="name">{comment.userName}</div>
-            <div className="date">{Dateformat(comment.updatedAt)}</div>
+    <div>
+      <Comment>
+        <div className="profile">
+          <div className="image-name-date">
+            <div className="image" />
+            <div className="name-date">
+              <div className="name">{comment.userName}</div>
+              <div className="date">{Dateformat(comment.updatedAt)}</div>
+            </div>
+          </div>
+          <div className="menu">
+            <div className="meatball">
+              <div className="ellipse" />
+              <div className="ellipse" />
+              <div className="ellipse" />
+            </div>
           </div>
         </div>
-        <div className="menu">
-          <div className="meatball">
-            <div className="ellipse" />
-            <div className="ellipse" />
-            <div className="ellipse" />
+        <div className="content">{comment.content}</div>
+        <div className="likes-reply">
+          <div className="likes">
+            <img
+              className="vector"
+              alt="Vector"
+              src="https://c.animaapp.com/eG8nhu7n/img/vector.png"
+            />
+            <div className="like">
+              <div className="text">0</div>
+            </div>
+          </div>
+          <div className="reply" onClick={sendReply}>
+            <img
+              className="reply"
+              alt="Reply"
+              src="https://c.animaapp.com/FZc9bisJ/img/reply-4.svg"
+            />
+            <div className="text">답글 달기</div>
           </div>
         </div>
-      </div>
-      <div className="content">{comment.content}</div>
-      <div className="likes-reply">
-        <div className="likes">
-          <img
-            className="vector"
-            alt="Vector"
-            src="https://c.animaapp.com/eG8nhu7n/img/vector.png"
-          />
-          <div className="like">
-            <div className="text">0</div>
-          </div>
-        </div>
-        <div className="reply">
-          <img
-            className="reply"
-            alt="Reply"
-            src="https://c.animaapp.com/FZc9bisJ/img/reply-4.svg"
-          />
-          <div className="text">답글 달기</div>
-        </div>
-      </div>
-    </Comment>
+      </Comment>
+      {comment.replies.map((reply) => (
+        <div key={reply.id}>{ReplyOutPut({ reply })}</div>
+      ))}
+    </div>
   );
 };
 

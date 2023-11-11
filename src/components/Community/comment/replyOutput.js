@@ -1,14 +1,15 @@
 import { Reply } from "../../../styles/Community/CommentStyle";
+import Dateformat from "../Dateformat";
 
-const ReplyOutPut = () => {
+const ReplyOutPut = ({ reply }) => {
   return (
     <Reply>
       <div className="profile">
         <div className="image-name-date">
           <div className="image" />
           <div className="name-date">
-            <div className="name">닉네임</div>
-            <div className="date">2023년 8월 15일 19:33</div>
+            <div className="name">{reply.userName}</div>
+            <div className="date">{Dateformat(reply.updatedAt)}</div>
           </div>
         </div>
         <div className="menu">
@@ -19,7 +20,7 @@ const ReplyOutPut = () => {
           </div>
         </div>
       </div>
-      <div className="content">답글이 적히는 공간입니다.</div>
+      <div className="content">{reply.content}</div>
       <div className="likes-reply">
         <div className="likes">
           <img

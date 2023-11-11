@@ -18,7 +18,8 @@ const initialState = {
     registeredAt: "",
     updatedAt: "",
   },
-  comment: {
+  Comment: {
+    isReply: Boolean(false),
     _id: "",
   },
 };
@@ -27,9 +28,13 @@ const PostDetailSlice = createSlice({
   name: "PostDetail",
   initialState,
   reducers: {
-    changeField: (state, { payload: { form, value } }) => {
+    changePostDetailField: (state, { payload: { value } }) => {
       // 2) form와 value를 전달받아 form의 값을 value로 변경
-      state[form] = value;
+      state.PostDetail = value;
+    },
+    changeCommentField: (state, { payload: { form, value } }) => {
+      // 2) form와 value를 전달받아 form의 값을 value로 변경
+      state.Comment[form] = value;
     },
     initializeForm: (state) => {
       // 3) 전달받은 form의 값 초기화
@@ -39,7 +44,8 @@ const PostDetailSlice = createSlice({
 });
 
 export default PostDetailSlice;
-export const { changeField, initializeForm } = PostDetailSlice.actions;
+export const { changePostDetailField, changeCommentField, initializeForm } =
+  PostDetailSlice.actions;
 
 const PostDetailSelects = (type, field) => (rootState) => {
   return rootState.postdetail[type][field] || initialState[type][field];
