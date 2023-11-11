@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+/** SelectAllButton  area, field, category 모달 내 전체를 아우르는 버튼 */
+import { useEffect, useState } from "react";
 import classNames from "classnames";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   communitySelector,

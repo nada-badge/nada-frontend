@@ -1,4 +1,7 @@
-import { CardsContainer, CardListWrapper } from "../CardList";
+import {
+  CardsContainer,
+  CardListWrapper,
+} from "../../../styles/Community/CardListStyle";
 import BoardCardItem from "./BoardCardItem";
 
 const cards = [

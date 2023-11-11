@@ -1,4 +1,4 @@
-import CommentOutPut from "../../components/community/comment/commentOutput";
+import CommentOutPut from "../../components/community/comment/CommentOutput";
 import { CommentList } from "../../styles/Community/CommentStyle";
 import { BottomBar } from "../../container/community/comment/BottomBar";
 import { useSelector } from "react-redux";

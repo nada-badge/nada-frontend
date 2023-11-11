@@ -1,7 +1,8 @@
+/** FilterItems 활성화 된 filter를 출력하기 위한 filter아이템 관리 컨테이너*/
 import { useEffect, useState } from "react";
-import { SelectButton } from "./SelectButton";
+import { SelectButton } from "../../components/community/SelectButton";
 import styled from "styled-components";
-import { SelectAllButton } from "./SelectAllButton";
+import { SelectAllButton } from "../../components/community/SelectAllButton";
 import { useSelector } from "react-redux";
 import { communitySelector } from "../../module/Community/community";
 
