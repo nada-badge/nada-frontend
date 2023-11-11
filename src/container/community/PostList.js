@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { communitySelector } from "../../module/Community/community";
-import { changeField } from "../../module/Community/postDetail";
+import { changePostDetailField } from "../../module/Community/postDetail";
 import PostItem from "../../components/community/PostList/PostItem";
 import client from "../../lib/api/client";
 
@@ -12,7 +12,6 @@ const PostList = () => {
   const mainCategory = useSelector(
     communitySelector("buttonSelect", "maincategory")
   );
-  const area = useSelector(communitySelector("subButtonSelect", "area"));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +28,7 @@ const PostList = () => {
   }, [mainCategory]);
 
   const setData = (card) => {
-    dispatch(changeField({ form: "PostDetail", value: card }));
+    dispatch(changePostDetailField({ value: card }));
   };
 
   return (

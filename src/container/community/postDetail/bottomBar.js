@@ -13,7 +13,7 @@ import { PostDetailSelector } from "../../../module/Community/postDetail";
 export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
-  const id = useSelector(PostDetailSelector("_id"));
+  const id = useSelector(PostDetailSelector("PostDetail", "_id"));
   const [isActive, setIsActive] = useState();
 
   const openMenu = () => {
