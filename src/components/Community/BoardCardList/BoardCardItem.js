@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { TextWarpper } from "../SelectButton";
 
 const CardContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);

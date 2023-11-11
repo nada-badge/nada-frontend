@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+/** SelectButton  area, field, category 모달 내 개별요소에 대한 버튼 */
+import { useEffect, useState } from "react";
 import classNames from "classnames";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   communitySelector,

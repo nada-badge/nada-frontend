@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+/** SelectAllButton  area, field, category 모달 내 전체를 아우르는 버튼 */
+import { useEffect } from "react";
 import classNames from "classnames";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,12 +24,14 @@ export const SelectAllButton = () => {
   ];
   const key = cases[nowModal].key;
   const all = cases[nowModal].all;
+  //area, field와 category의 타입차이로 인한 삼항 연산자
   const setStatus = key === "category" ? setField : addField;
 
   const state = useSelector(postWriteSelector("postWriteSelect", key));
 
   const OnClickButton = () => {
     if (!state.includes(all)) {
+      //전국,전체 버튼이 비활성화였다면 개별 버튼을 다 비활성화 후 해당 버튼 활성화
       dispatch(initializeForm({ form: "postWriteSelect", key: key }));
       dispatch(
         setStatus({

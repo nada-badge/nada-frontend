@@ -1,4 +1,30 @@
+/** PostItem, postList을 이루는 PostItem. */
 import styled from "styled-components";
+
+const PostItem = ({ card }) => {
+  const { title, field, category, area, content, postAt } = card;
+
+  return (
+    <PostContainer>
+      <div className="image" />
+      <div className="innerBox">
+        <div className="title">{title}</div>
+        <div className="text">{content}</div>
+        <div className="frame">
+          <div className="text-2">{area}</div>
+          <div className="ellipse" />
+          <div className="text-2">{field}</div>
+          <div className="ellipse" />
+          <div className="text-2">{category}</div>
+          <div className="ellipse" />
+          <div className="text-2">{postAt}</div>
+        </div>
+      </div>
+    </PostContainer>
+  );
+};
+
+export default PostItem;
 
 const PostContainer = styled.div`
   height: 90px;
@@ -89,28 +115,3 @@ const PostContainer = styled.div`
     }
   }
 `;
-
-const PostItem = ({ card }) => {
-  const { title, field, category, area, content, postAt } = card;
-
-  return (
-    <PostContainer>
-      <div className="image" />
-      <div className="innerBox">
-        <div className="title">{title}</div>
-        <div className="text">{content}</div>
-        <div className="frame">
-          <div className="text-2">{area}</div>
-          <div className="ellipse" />
-          <div className="text-2">{field}</div>
-          <div className="ellipse" />
-          <div className="text-2">{category}</div>
-          <div className="ellipse" />
-          <div className="text-2">{postAt}</div>
-        </div>
-      </div>
-    </PostContainer>
-  );
-};
-
-export default PostItem;

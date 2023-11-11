@@ -1,4 +1,4 @@
-import TagButtons from "../../components/community/TagButton";
+import TagButtons from "../../components/community/postDetail/TagButton";
 import { ContentsList } from "../../styles/Community/PostDetailStyle";
 import { useSelector } from "react-redux";
 import { BottomBar } from "../../container/community/postDetail/bottomBar";

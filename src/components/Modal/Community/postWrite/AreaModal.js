@@ -1,17 +1,18 @@
+/** AreaModal postWrite 중 지역 button 클릭 시 나오는 모달 */
 import { useEffect } from "react";
-import Modal from "./Modal";
-import useModal from "./useModal";
+import Modal from "../Modal";
+import useModal from "../useModal";
 import { useDispatch, useSelector } from "react-redux";
 import {
   initializeForm,
   submitForm,
   postWriteSelector,
   setField,
-} from "../../../module/Community/postWrite";
-import { SelectButton } from "../../community/PostWrite/SelectButton";
-import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
-import { List, Border } from "./ModalStyle";
-import ModalButtonDiv from "../../community/ModalButtonDiv";
+} from "../../../../module/Community/postWrite";
+import { SelectButton } from "../../../community/PostWrite/SelectButton";
+import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
+import { List, Border } from "../ModalStyle";
+import ModalButtonDiv from "../../../community/ModalButtonDiv";
 
 function AreaModal() {
   const { closeModal } = useModal();

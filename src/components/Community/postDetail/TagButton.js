@@ -1,3 +1,4 @@
+/** TagButton area, field, category 정보를 태그 형식으로 출력하는 컴포넌트 */
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 

@@ -1,3 +1,4 @@
+/** ModalOutPut 되물어보는 MODAL 출력 컴포넌트 */
 import useModal from "../Modal/Community/useModal";
 import ModalButtonDiv from "./ModalButtonDiv";
 import { Layout } from "../../styles/Community/BarSecModalStyle";

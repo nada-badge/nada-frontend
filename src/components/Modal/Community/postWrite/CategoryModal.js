@@ -1,18 +1,18 @@
+/** CategoryModal postWrite 중 종류 button 클릭 시 나오는 모달 */
 import { useEffect, useState } from "react";
-import Modal from "./Modal";
-import useModal from "./useModal";
 import { useDispatch, useSelector } from "react-redux";
+import Modal from "../Modal";
+import useModal from "../useModal";
 import {
   initializeForm,
   submitForm,
   postWriteSelector,
   setField,
-} from "../../../module/Community/postWrite";
-import { SelectButton } from "../../community/PostWrite/SelectButton";
-import { SelectAllButton } from "../../community/PostWrite/SelectAllButton";
-import ModalButtonDiv from "../../community/ModalButtonDiv";
-
-import { List, Border } from "./ModalStyle";
+} from "../../../../module/Community/postWrite";
+import { SelectButton } from "../../../community/PostWrite/SelectButton";
+import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
+import ModalButtonDiv from "../../../community/ModalButtonDiv";
+import { List, Border } from "../ModalStyle";
 
 function CategoryModal() {
   const { closeModal } = useModal();

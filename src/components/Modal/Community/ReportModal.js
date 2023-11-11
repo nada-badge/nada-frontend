@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import client from "../../../lib/api/client";
 import { PostDetailSelector } from "../../../module/Community/postDetail";
-import ModalOutPut from "../../community/ModalOutput";
+import ModalAskOutPut from "../../community/ModalAskOutput";
 
 function ReportModal() {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function ReportModal() {
 
   return (
     <Modal onClose={closeModal}>
-      {ModalOutPut({
+      {ModalAskOutPut({
         title: "이 글을 신고할까요?",
         content: "신고한 글은 서비스 운영 원칙에 따라 처리돼요",
         act: Report,

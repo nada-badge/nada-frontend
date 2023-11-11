@@ -2,9 +2,8 @@ import Modal from "./Modal";
 import useModal from "./useModal";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setField } from "../../../module/Community/postWrite";
 import classNames from "classnames";
-import useSetButtonActive from "../../community/SetButtonActive";
+import useSetButtonActive from "../../../container/community/postDetail/SetButtonActive";
 import ModalButton from "../../community/ModalButton";
 import {
   Menu,

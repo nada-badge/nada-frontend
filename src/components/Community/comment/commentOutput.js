@@ -1,8 +1,10 @@
+/**CommentOutPut 댓글을 출력하는 컴포넌트 */
+import { useDispatch } from "react-redux";
 import { Comment } from "../../../styles/Community/CommentStyle";
 import Dateformat from "../Dateformat";
-import { useDispatch } from "react-redux";
 import { changeCommentField } from "../../../module/Community/postDetail";
-import ReplyOutPut from "./replyOutput";
+import ReplyOutPut from "./ReplyOutput";
+
 const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();
   const sendReply = (e) => {

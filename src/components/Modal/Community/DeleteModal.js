@@ -1,3 +1,4 @@
+/** DeleteModal  */
 import Modal from "./Modal";
 import useModal from "./useModal";
 import { useCallback } from "react";
@@ -5,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import client from "../../../lib/api/client";
 import { PostDetailSelector } from "../../../module/Community/postDetail";
-import ModalOutPut from "../../community/ModalOutput";
+import ModalAslOutPut from "../../community/ModalAskOutput";
 
 function DeleteModal() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function DeleteModal() {
 
   return (
     <Modal onClose={closeModal}>
-      {ModalOutPut({
+      {ModalAslOutPut({
         title: "글을 삭제할까요?",
         content: "한 번 삭제한 글은 복구할 수 없어요",
         act: Delete,

@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Modal from "./Modal";
-import useModal from "./useModal";
+/** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
+import { useState, useEffect } from "react";
+import Modal from "../Modal";
+import useModal from "../useModal";
 import { useDispatch, useSelector } from "react-redux";
 import {
   postWriteSelector,
   setField,
-} from "../../../module/Community/postWrite";
+} from "../../../../module/Community/postWrite";
 import classNames from "classnames";
-import { ListMain, Border, MainCategory, Img } from "./ModalStyle";
-import ModalButtonDiv from "../../community/ModalButtonDiv";
+import { ListMain, Border, MainCategory, Img } from "../ModalStyle";
+import ModalButtonDiv from "../../../community/ModalButtonDiv";
 
 function MainCategoryModal() {
   const { closeModal } = useModal();

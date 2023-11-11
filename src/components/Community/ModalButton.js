@@ -1,3 +1,4 @@
+/** ModalButton 모달 가장 아래에 위치한 full 버튼 컴포넌트 */
 import styled from "styled-components";
 
 export const ModalButton = (text) => {

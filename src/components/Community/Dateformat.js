@@ -1,3 +1,4 @@
+/** Dateformat date를 <N년 N월 N일 N:N> 형식으로 포맷 */
 const Dateformat = (preDate) => {
   const dateString = preDate;
 

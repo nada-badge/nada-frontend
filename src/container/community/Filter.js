@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DropDown } from "../../components/community/Dropdown";
 import { useSelector } from "react-redux";
 import { communitySelector } from "../../module/Community/community";
-import { FilterItems } from "../../components/community/FilterItems";
+import { FilterItems } from "./FilterItems";
 
 const Filter = () => {
   const isOpen = useSelector(communitySelector("buttonSelect", "filter"));

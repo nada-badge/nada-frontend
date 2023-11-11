@@ -1,3 +1,4 @@
+/**ReplyOutPut 답글을 출력하는 컴포넌트 */
 import { Reply } from "../../../styles/Community/CommentStyle";
 import Dateformat from "../Dateformat";
 
