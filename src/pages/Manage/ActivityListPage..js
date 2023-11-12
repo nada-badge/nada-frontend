@@ -18,7 +18,11 @@ const ManageActivityList = () => {
   //해당 화면의 상단, 하단바 설정
   useEffect(() => {
     dispatch(
-      setBarStatus({ headerState: 'back', text: '활동', isShowBottom: false }),
+      setBarStatus({
+        headerState: 'back',
+        text: '게시물 목록',
+        isShowBottom: false,
+      }),
     );
 
     //activity 게시물 리스트 가져오기
@@ -50,7 +54,6 @@ const ManageActivityList = () => {
 
   return (
     <div>
-      게시판 목록
       <ul>
         {boardList &&
           boardList.map((activity) => (
