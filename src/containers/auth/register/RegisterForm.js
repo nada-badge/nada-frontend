@@ -1,23 +1,21 @@
-import { useState } from 'react';
+import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { changeField, initializeForm } from '../../../modules/auth';
 import { useNavigate } from 'react-router-dom';
-
-import EmailForm from './EmailForm';
-import PasswordForm from './PasswordForm';
-import UserNameForm from './UserNameForm';
-import PhoneNumberForm from './PhoneNumberForm';
 import {
   useUserMutation,
   useTeamUserMutation,
 } from '../../../modules/queries/registerQuery';
-
-import { useCallback } from 'react';
 import { Frame, Div } from '../../../styles/Register';
-import { TeamTypeForm } from './TeamTypeForm';
-import RepresentForm from './RepresentForm';
-import TeamNameForm from './TeamNameForm';
+
+// 동적으로 불러오기
+const EmailForm = lazy(() => import('./EmailForm'));
+const PasswordForm = lazy(() => import('./PasswordForm'));
+const UserNameForm = lazy(() => import('./UserNameForm'));
+const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
+const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
+const RepresentForm = lazy(() => import('./RepresentForm'));
+const TeamNameForm = lazy(() => import('./TeamNameForm'));
 
 const RegisterForm = ({ type }) => {
   const [order, setOrder] = useState(0); // 입력 순서
@@ -53,6 +51,7 @@ const RegisterForm = ({ type }) => {
       PhoneNumberForm,
     ],
   };
+
   const Components = forms[type][order];
 
   const onSubmit = (e) => {
@@ -63,9 +62,7 @@ const RegisterForm = ({ type }) => {
       if (type === 'personal') {
         personal_mutatue(register);
       } else team_mutatue(register);
-    }
-    // 다음 form 보여주기
-    else setOrder(order + 1);
+    } else setOrder(order + 1);
   };
 
   // 입력 값을 상태에 반영하기
@@ -98,12 +95,14 @@ const RegisterForm = ({ type }) => {
         src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/top.svg"
       />
       <Div>
-        <Components
-          dispatchField={dispatchField}
-          onSubmit={onSubmit}
-          order={order}
-          type={type}
-        />
+        <Suspense fallback={<div></div>}>
+          <Components
+            dispatchField={dispatchField}
+            onSubmit={onSubmit}
+            order={order}
+            type={type}
+          />
+        </Suspense>
       </Div>
     </Frame>
   );
