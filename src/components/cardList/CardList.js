@@ -19,10 +19,11 @@ const CardsContainer = styled.div`
 `;
 
 const CardListWrapper = styled.div`
+  width: calc(375px - 15px); // 화면 넓이 - padding-left
   gap: 12px;
   align-items: flex-start;
   display: flex;
-  left: 15px;
+  padding-left: 15px;
   overflow-x: scroll;
   position: relative;
   padding-bottom: 12px; // 커스텀
