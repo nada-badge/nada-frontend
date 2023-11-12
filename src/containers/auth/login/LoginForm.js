@@ -8,7 +8,6 @@ import SocialLogin from './SocialLogin';
 import styled from 'styled-components';
 import LoginFooter from './LoginFooter';
 import { useNavigate } from 'react-router-dom';
-import { setUser } from '../../../modules/user';
 
 const Frame = styled.div`
   height: 339px;
@@ -58,7 +57,7 @@ const LoginForm = ({ type }) => {
 
       if (status === 200) {
         navigate('/');
-        dispatch(setUser({ token: data.token, email: email }));
+        localStorage.setItem('token', data.token);
       }
     }
   };
