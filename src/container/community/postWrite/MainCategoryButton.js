@@ -1,12 +1,12 @@
-import React from "react";
+/** MainCategoryButton 메인카테고리 버튼 */
+import { useSelector } from "react-redux";
+import classNames from "classnames";
+import useModal from "../../../components/Modal/Community/useModal";
 import {
   Filter,
   TextWarpper,
   Img,
 } from "../../../styles/Community/FilterModalStyle";
-import classNames from "classnames";
-import useModal from "../../../components/Modal/Community/useModal";
-import { useSelector } from "react-redux";
 import { postWriteSelector } from "../../../module/Community/postWrite";
 
 export const MainCategoryButton = () => {

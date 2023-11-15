@@ -1,4 +1,4 @@
-/** FilterItems 활성화 된 filter를 출력하기 위한 filter아이템 관리 컨테이너*/
+/** FilterItems 활성화 된 filter의 내용을 출력하기 위한 filter아이템 관리 컨테이너*/
 import { useEffect, useState } from "react";
 import { SelectButton } from "../../components/community/SelectButton";
 import styled from "styled-components";
@@ -62,6 +62,7 @@ export const FilterItems = ({ text }) => {
     "아르바이트",
   ]);
 
+  //모집의 경우 category의 내용을 공모전~대외활동까지로 수정
   useEffect(() => {
     if (mainCategory === "모집") {
       setCategory(category.slice(0, 6));

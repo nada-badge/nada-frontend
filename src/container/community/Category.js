@@ -1,11 +1,12 @@
+/** Category 메인페이지에서 메인카테고리를 관리하는 컨테이너 */
 import { useSelector, useDispatch } from "react-redux";
+import classNames from "classnames";
 import {
   communitySelector,
   setField,
   initializeForm,
   initializeSub,
 } from "../../module/Community/community";
-import classNames from "classnames";
 import { Categorylist, Wrapper } from "../../styles/Community/CategoryStyle";
 
 const Category = () => {

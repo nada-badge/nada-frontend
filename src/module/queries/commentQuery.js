@@ -1,3 +1,4 @@
+/** commentQuery 댓글을 작성하는 쿼리 */
 import { useMutation } from "@tanstack/react-query";
 import client from "../../lib/api/client";
 import { useSelector } from "react-redux";

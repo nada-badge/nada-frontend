@@ -1,12 +1,12 @@
-/** DeleteModal  */
-import Modal from "./Modal";
-import useModal from "./useModal";
+/** DeleteModal 게시글 삭제를 물어보는 모달 */
+import Modal from "../Modal";
+import useModal from "../useModal";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import client from "../../../lib/api/client";
-import { PostDetailSelector } from "../../../module/Community/postDetail";
-import ModalAslOutPut from "../../community/ModalAskOutput";
+import client from "../../../../lib/api/client";
+import { PostDetailSelector } from "../../../../module/Community/postDetail";
+import ModalAslOutPut from "../../../community/ModalAskOutput";
 
 function DeleteModal() {
   const navigate = useNavigate();

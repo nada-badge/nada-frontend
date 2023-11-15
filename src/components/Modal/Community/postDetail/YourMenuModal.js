@@ -1,21 +1,16 @@
-import Modal from "./Modal";
-import useModal from "./useModal";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+/** YourMenuModal 메뉴 클릭 시, 타인이 작성한 글일 경우 나오는 모달 */
+import Modal from "../Modal";
+import useModal from "../useModal";
 import classNames from "classnames";
-import useSetButtonActive from "../../../container/community/postDetail/SetButtonActive";
-import ModalButton from "../../community/ModalButton";
+import ModalButton from "../../../community/ModalButton";
 import {
   Menu,
   List,
   Border,
   Layout,
-} from "../../../styles/Community/BarModalStyle";
+} from "../../../../styles/Community/BarModalStyle";
 
 export const YourMenuModal = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const setButtonActive = useSetButtonActive();
   const { closeModal, openModal } = useModal();
 
   const Output = (text) => {

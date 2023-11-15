@@ -1,3 +1,4 @@
+/** postUpdateQuery 게시글을 수정 하는 쿼리 */
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import client from "../../lib/api/client";

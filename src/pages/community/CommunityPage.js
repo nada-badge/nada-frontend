@@ -1,3 +1,4 @@
+/** CommunityPage 커뮤니티 메인 페이지 */
 import { useEffect } from "react";
 import BoardCardList from "../../components/community/BoardCardList/BoardCardList";
 import PostList from "../../container/community/PostList";

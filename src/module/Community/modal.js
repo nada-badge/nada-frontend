@@ -1,3 +1,4 @@
+/** modal 현재 선택된 모달의 정보를 관리하는 리덕스 */
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
