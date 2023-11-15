@@ -1,3 +1,4 @@
+/** communityQuery 커뮤니티 게시글 리스트를 가져오는 쿼리 */
 import { useQuery } from "@tanstack/react-query";
 import client from "../../lib/api/client";
 import { useSelector } from "react-redux";

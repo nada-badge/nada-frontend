@@ -1,11 +1,12 @@
-import Modal from "./Modal";
-import useModal from "./useModal";
+/** ReportModal 게시글 신고를 물어보는 모달 */
+import Modal from "../Modal";
+import useModal from "../useModal";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import client from "../../../lib/api/client";
-import { PostDetailSelector } from "../../../module/Community/postDetail";
-import ModalAskOutPut from "../../community/ModalAskOutput";
+import client from "../../../../lib/api/client";
+import { PostDetailSelector } from "../../../../module/Community/postDetail";
+import ModalAskOutPut from "../../../community/ModalAskOutput";
 
 function ReportModal() {
   const navigate = useNavigate();

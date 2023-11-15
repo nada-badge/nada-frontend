@@ -1,3 +1,4 @@
+/** useModal 모달 훅 */
 import { useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../../module/Community/modal";
 

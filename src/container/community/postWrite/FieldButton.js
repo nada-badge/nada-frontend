@@ -1,13 +1,12 @@
-import React from "react";
-
+/** FieldButton 분야 버튼 */
+import { useSelector, useDispatch } from "react-redux";
+import classNames from "classnames";
+import useModal from "../../../components/Modal/Community/useModal";
 import {
   Filter,
   TextWarpper,
   Img,
 } from "../../../styles/Community/FilterModalStyle";
-import classNames from "classnames";
-import useModal from "../../../components/Modal/Community/useModal";
-import { useSelector, useDispatch } from "react-redux";
 import {
   setField,
   postWriteSelector,

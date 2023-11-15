@@ -1,3 +1,4 @@
+/** PostList 메인페이지에서 게시글 리스트를 관리하는 컨테이너 */
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ const PostList = () => {
     const fetchData = async () => {
       try {
         const resp = await client.get("/community/post/list", {
-          params: { mainCategory: mainCategory },
+          params: { mainCategory: mainCategory }, //filter와 관련하여 수정 예정
         });
         setCardsList(resp.data.posts.reverse()); // 상태 업데이트를 비동기 작업 이후로 옮겼습니다
       } catch (e) {

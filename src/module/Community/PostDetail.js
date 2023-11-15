@@ -1,3 +1,4 @@
+/** postDetail 커뮤니티 세부 페이지와 관련된 정보를 관리하는 리덕스 */
 import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
 
@@ -29,15 +30,12 @@ const PostDetailSlice = createSlice({
   initialState,
   reducers: {
     changePostDetailField: (state, { payload: { value } }) => {
-      // 2) form와 value를 전달받아 form의 값을 value로 변경
       state.PostDetail = value;
     },
     changeCommentField: (state, { payload: { form, value } }) => {
-      // 2) form와 value를 전달받아 form의 값을 value로 변경
       state.Comment[form] = value;
     },
     initializeForm: (state) => {
-      // 3) 전달받은 form의 값 초기화
       state.PostDetail = initialState.PostDetail;
     },
   },

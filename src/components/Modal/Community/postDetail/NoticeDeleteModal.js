@@ -1,19 +1,19 @@
-import Modal from "./Modal";
-import useModal from "./useModal";
+/** NoticeDeleteModal 삭제 후 삭제완료를 알리는 모달 */
+import Modal from "../Modal";
+import useModal from "../useModal";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Layout } from "../../../styles/Community/BarSecModalStyle";
-import { initializeForm } from "../../../module/Community/postDetail";
-import ModalButton from "../../community/ModalButton";
+import { Layout } from "../../../../styles/Community/BarSecModalStyle";
+import { initializeForm } from "../../../../module/Community/postDetail";
+import ModalButton from "../../../community/ModalButton";
 
-function Notice2Modal() {
+function NoticeModal() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { closeModal } = useModal();
 
   const closes = () => {
-    console.log("확인버튼이 클릭되었습니다");
     dispatch(initializeForm());
     navigate("/community");
     closeModal();
@@ -22,7 +22,7 @@ function Notice2Modal() {
   return (
     <Modal onClose={closeModal}>
       <Layout>
-        <div className="text">글이 신고되었어요</div>
+        <div className="text">글이 삭제되었어요</div>
         <div className="border-2" />
         <img
           className="img"
@@ -36,4 +36,4 @@ function Notice2Modal() {
   );
 }
 
-export default Notice2Modal;
+export default NoticeModal;

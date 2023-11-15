@@ -1,3 +1,4 @@
+/** Filter 메인페이지에서 필터를 관리하는 컨테이너 */
 import styled from "styled-components";
 import { DropDown } from "../../components/community/Dropdown";
 import { useSelector } from "react-redux";
@@ -5,6 +6,7 @@ import { communitySelector } from "../../module/Community/community";
 import { FilterItems } from "./FilterItems";
 
 const Filter = () => {
+  //특정 필터버튼이 활성화 상태라면 해당 필터에 따른 내용을 FilterItems를 통해 출력
   const isOpen = useSelector(communitySelector("buttonSelect", "filter"));
 
   return (

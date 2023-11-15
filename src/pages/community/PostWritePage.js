@@ -1,3 +1,4 @@
+/** PostWritePage 글 작성을 진행하는 페이지 */
 import { useState } from "react";
 import useSubmit from "../../module/queries/postWriteQuery";
 import useUpdate from "../../module/queries/postUpdateQuery";

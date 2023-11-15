@@ -1,3 +1,4 @@
+/** BottomBar 댓글 화면에서 보여지는 하단바 */
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import classNames from "classnames";

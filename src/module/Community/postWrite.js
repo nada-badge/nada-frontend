@@ -1,17 +1,21 @@
+/** postWrite 커뮤니티 작성 페이지와 관련된 정보를 관리하는 리덕스 */
 import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
 
 const initialState = {
   method: {
+    // 글의 작성인지 수정인지 에 대한 정보를 관리
     isSubmit: Boolean(),
   },
   ButtonActive: {
+    // 버튼의 활성화 비활성화 에 대한 정보를 관리
     mainCategory: false,
     area: false,
     field: false,
     category: false,
   },
   postWriteSelect: {
+    // 사용자가 선택한 버튼에 대한 정보를 관리
     mainCategory: "카테고리",
     area: ["전국"],
     field: ["전체"],
@@ -19,6 +23,7 @@ const initialState = {
     modal: 0,
   },
   postWriteSubmit: {
+    //최종적으로 제출될 정보를 관리
     _id: "",
     mainCategory: "카테고리",
     area: ["전국"],

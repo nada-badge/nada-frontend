@@ -1,3 +1,4 @@
+/** CommentPage 댑글과 답글을 보여주는 페이지 */
 import CommentOutPut from "../../components/community/comment/CommentOutput";
 import { CommentList } from "../../styles/Community/CommentStyle";
 import { BottomBar } from "../../container/community/comment/BottomBar";
@@ -7,7 +8,6 @@ const CommentPage = () => {
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
   const { comments } = PostDetail;
 
-  console.log("comment : ", comments);
   return (
     <div>
       <CommentList>

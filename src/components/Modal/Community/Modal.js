@@ -1,4 +1,4 @@
-import React from "react";
+/** Modal 기본 모달 */
 import styled from "styled-components";
 
 function Modal({ onClose, children }) {

@@ -1,4 +1,4 @@
-import React from "react";
+/** ModalContainer 모달을 관리하는 곳 */
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import { modalSelector } from "../../../module/Community/modal";
@@ -6,13 +6,13 @@ import AreaModal from "./postWrite/AreaModal";
 import FieldModal from "./postWrite/FieldModal";
 import CategoryModal from "./postWrite/CategoryModal";
 import MainCategoryModal from "./postWrite/MainCategoryModal";
-import MyMenuModal from "./MyMenuModal";
-import DeleteModal from "./DeleteModal";
-import NoticeModal from "./NoticeModal";
-import ShareModal from "./ShareModal";
-import YourMenuModal from "./YourMenuModal";
-import ReportModal from "./ReportModal";
-import Notice2Modal from "./Notice2Modal";
+import MyMenuModal from "./postDetail/MyMenuModal";
+import DeleteModal from "./postDetail/DeleteModal";
+import NoticeDeleteModal from "./postDetail/NoticeDeleteModal";
+import ShareModal from "./postDetail/ShareModal";
+import YourMenuModal from "./postDetail/YourMenuModal";
+import ReportModal from "./postDetail/ReportModal";
+import NoticeReportModal from "./postDetail/NoticeReportModal";
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
@@ -21,11 +21,11 @@ const MODAL_COMPONENTS = {
   CategoryModal: CategoryModal,
   MyMenuModal: MyMenuModal,
   DeleteModal: DeleteModal,
-  NoticeModal: NoticeModal,
+  NoticeDeleteModal: NoticeDeleteModal,
   ShareModal: ShareModal,
   YourMenuModal: YourMenuModal,
   ReportModal: ReportModal,
-  Notice2Modal: Notice2Modal,
+  NoticeReportModal: NoticeReportModal,
 };
 
 function ModalContainer() {
