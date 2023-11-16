@@ -1,6 +1,6 @@
 /** postWrite 커뮤니티 작성 페이지와 관련된 정보를 관리하는 리덕스 */
-import { createSlice } from "@reduxjs/toolkit";
-import { createSelector } from "reselect";
+import { createSlice } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 const initialState = {
   method: {
@@ -16,24 +16,24 @@ const initialState = {
   },
   postWriteSelect: {
     // 사용자가 선택한 버튼에 대한 정보를 관리
-    mainCategory: "카테고리",
-    area: ["전국"],
-    field: ["전체"],
-    category: "전체",
+    mainCategory: '카테고리',
+    area: ['전국'],
+    field: ['전체'],
+    category: '전체',
     modal: 0,
   },
   postWriteSubmit: {
     //최종적으로 제출될 정보를 관리
-    _id: "",
-    mainCategory: "카테고리",
-    area: ["전국"],
-    field: ["전체"],
-    category: "전체",
+    _id: '',
+    mainCategory: '카테고리',
+    area: ['전국'],
+    field: ['전체'],
+    category: '전체',
   },
 };
 
 const postWriteSlice = createSlice({
-  name: "postWrite",
+  name: 'postWrite',
   initialState,
   reducers: {
     setField: (state, { payload: { form, key, value } }) => {
@@ -57,7 +57,9 @@ const postWriteSlice = createSlice({
       state[form][key] = initialState[form][key];
     },
     initializeAll: (state) => {
-      return initialState;
+      state.ButtonActive = initialState.ButtonActive;
+      state.postWriteSelect = initialState.postWriteSelect;
+      state.postWriteSubmit = initialState.postWriteSubmit;
     },
     submitForm: (state, { payload: { key } }) => {
       state.postWriteSubmit[key] = state.postWriteSelect[key];
@@ -82,7 +84,7 @@ const postWriteSelects = (type, field) => (rootState) => {
 
 export const postWriteSelector = createSelector(
   postWriteSelects,
-  (field) => field
+  (field) => field,
 );
 const selectActivity = (state) =>
   state.postwrite.postWriteSubmit || initialState;
@@ -94,5 +96,5 @@ export const activitySelector = createSelector(
     mainCategory: postWriteSubmit.mainCategory,
     field: postWriteSubmit.field,
     category: postWriteSubmit.category,
-  })
+  }),
 );
