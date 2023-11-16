@@ -11,7 +11,7 @@ import { Mobile, PC } from './styles/Responsive.js';
 import './styles/common.scss';
 import authSlice from './modules/auth';
 import calendarSlice from './modules/calendar';
-import './styles/common.scss';
+
 import userSlice from './modules/user';
 import activitySlice from './modules/activity';
 import barSlice from './modules/bar';

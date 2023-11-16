@@ -9,6 +9,7 @@ import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../modules/calendar';
+import { setBarStatus } from '../modules/bar';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -80,6 +81,13 @@ const CalendarPage = () => {
     dispatch(
       changeField({ key: 'events', value: filterEvent(date.month_day) }),
     );
+    dispatch(
+      setBarStatus({
+        headerState: 'backBellMenu',
+        text: '캘린더',
+        isShowBottom: true,
+      }),
+    );
   }, [date.month_day, events]);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
@@ -105,7 +113,7 @@ const CalendarPage = () => {
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: 'prev', center: 'title', end: 'next' }}
-          height={'625px'}
+          height={'625px'} // ★ 병합 후 수정 : calc( 625px - (상단+하단바) px )
           locale={'ko'}
           dayCellContent={(info) => {
             const dayNumber = info.dayNumberText.replace('일', '');
