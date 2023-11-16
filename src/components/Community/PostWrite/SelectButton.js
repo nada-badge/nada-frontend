@@ -9,7 +9,7 @@ import {
   deleteField,
   setField,
   initializeForm,
-} from "../../../module/Community/postWrite";
+} from "../../../modules/Community/postWrite";
 import {
   Button,
   TextWarpper,

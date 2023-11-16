@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { caption_02, caption_03, body_01 } from '../fontStyle';
 
 export const CommentList = styled.div`
   align-items: flex-start;
@@ -49,25 +50,13 @@ export const Comment = styled.div`
         flex: 0 0 auto;
 
         & > .name {
-          color: var(--myspec-gray-scalegray-900);
-          font-family: var(--caption-02-font-family);
-          font-size: var(--caption-02-font-size);
-          font-style: var(--caption-02-font-style);
-          font-weight: var(--caption-02-font-weight);
-          letter-spacing: var(--caption-02-letter-spacing);
-          line-height: var(--caption-02-line-height);
+          ${caption_02('var(--myspec-gray-scalegray-900)')}
           margin-top: -1px;
           position: relative;
           width: 136px;
         }
         & > .date {
-          color: var(--myspec-gray-scalegray-900);
-          font-family: var(--caption-03-font-family);
-          font-size: var(--caption-03-font-size);
-          font-style: var(--caption-03-font-style);
-          font-weight: var(--caption-03-font-weight);
-          letter-spacing: var(--caption-03-letter-spacing);
-          line-height: var(--caption-03-line-height);
+          ${caption_03('var(--myspec-gray-scalegray-900)')}
           position: relative;
           width: 136px;
         }
@@ -100,13 +89,7 @@ export const Comment = styled.div`
   }
 
   & > .content {
-    color: var(--myspec-gray-scalegray-900);
-    font-family: var(--body-01-font-family);
-    font-size: var(--body-01-font-size);
-    font-style: var(--body-01-font-style);
-    font-weight: var(--body-01-font-weight);
-    letter-spacing: var(--body-01-letter-spacing);
-    line-height: var(--body-01-line-height);
+    ${body_01('var(--myspec-gray-scalegray-900)')}
     position: relative;
     width: 345px;
   }
@@ -130,13 +113,7 @@ export const Comment = styled.div`
         gap: 6px;
         position: relative;
         & > .text {
-          color: var(--myspec-gray-scalegray-900);
-          font-family: var(--body-01-font-family);
-          font-size: var(--body-01-font-size);
-          font-style: var(--body-01-font-style);
-          font-weight: var(--body-01-font-weight);
-          letter-spacing: var(--body-01-letter-spacing);
-          line-height: var(--body-01-line-height);
+          ${body_01('var(--myspec-gray-scalegray-900)')}
           margin-top: -1px;
           position: relative;
           width: 56px;
@@ -150,16 +127,9 @@ export const Comment = styled.div`
       gap: 8px;
       position: relative;
       & > .text {
-        color: var(--myspec-gray-scalegray-900);
-        font-family: var(--caption-02-font-family);
-        font-size: var(--caption-02-font-size);
-        font-style: var(--caption-02-font-style);
-        font-weight: var(--caption-02-font-weight);
-        letter-spacing: var(--caption-02-letter-spacing);
-        line-height: var(--caption-02-line-height);
+        ${caption_02('var(--myspec-gray-scalegray-900)')}
         margin-top: -1px;
         position: relative;
-        white-space: nowrap;
         width: fit-content;
       }
     }
@@ -207,25 +177,13 @@ export const Reply = styled.div`
         flex: 0 0 auto;
 
         & > .name {
-          color: var(--myspec-gray-scalegray-900);
-          font-family: var(--caption-02-font-family);
-          font-size: var(--caption-02-font-size);
-          font-style: var(--caption-02-font-style);
-          font-weight: var(--caption-02-font-weight);
-          letter-spacing: var(--caption-02-letter-spacing);
-          line-height: var(--caption-02-line-height);
+          ${caption_02('var(--myspec-gray-scalegray-900)')}
           margin-top: -1px;
           position: relative;
           width: 136px;
         }
         & > .date {
-          color: var(--myspec-gray-scalegray-900);
-          font-family: var(--caption-03-font-family);
-          font-size: var(--caption-03-font-size);
-          font-style: var(--caption-03-font-style);
-          font-weight: var(--caption-03-font-weight);
-          letter-spacing: var(--caption-03-letter-spacing);
-          line-height: var(--caption-03-line-height);
+          ${caption_03('var(--myspec-gray-scalegray-900)')}
           position: relative;
           width: 136px;
         }
@@ -258,13 +216,7 @@ export const Reply = styled.div`
   }
 
   & > .content {
-    color: var(--myspec-gray-scalegray-900);
-    font-family: var(--body-01-font-family);
-    font-size: var(--body-01-font-size);
-    font-style: var(--body-01-font-style);
-    font-weight: var(--body-01-font-weight);
-    letter-spacing: var(--body-01-letter-spacing);
-    line-height: var(--body-01-line-height);
+    ${body_01('var(--myspec-gray-scalegray-900)')}
     position: relative;
     width: 320px;
   }
@@ -289,13 +241,7 @@ export const Reply = styled.div`
         gap: 6px;
         position: relative;
         & > .text {
-          color: var(--myspec-gray-scalegray-900);
-          font-family: var(--body-01-font-family);
-          font-size: var(--body-01-font-size);
-          font-style: var(--body-01-font-style);
-          font-weight: var(--body-01-font-weight);
-          letter-spacing: var(--body-01-letter-spacing);
-          line-height: var(--body-01-line-height);
+          ${body_01('var(--myspec-gray-scalegray-900)')}
           margin-top: -1px;
           position: relative;
           width: 56px;
@@ -309,16 +255,9 @@ export const Reply = styled.div`
       gap: 8px;
       position: relative;
       & > .text {
-        color: var(--myspec-gray-scalegray-900);
-        font-family: var(--caption-02-font-family);
-        font-size: var(--caption-02-font-size);
-        font-style: var(--caption-02-font-style);
-        font-weight: var(--caption-02-font-weight);
-        letter-spacing: var(--caption-02-letter-spacing);
-        line-height: var(--caption-02-line-height);
+        ${caption_02('var(--myspec-gray-scalegray-900)')}
         margin-top: -1px;
         position: relative;
-        white-space: nowrap;
         width: fit-content;
       }
     }

@@ -8,7 +8,7 @@ import {
   submitForm,
   postWriteSelector,
   setField,
-} from "../../../../module/Community/postWrite";
+} from "../../../../modules/Community/postWrite";
 import { SelectButton } from "../../../community/PostWrite/SelectButton";
 import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
 import ModalButtonDiv from "../../../community/ModalButtonDiv";

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_02 } from '../fontStyle';
 
 export const CommunityPage = styled.div`
   align-items: flex-start;
@@ -28,18 +29,11 @@ export const Search = styled.div`
     width: 345px;
 
     & > .Text {
-      color: var(--myspec-gray-scalegray-600);
-      font-family: var(--subtitle-02-font-family);
-      font-size: var(--subtitle-02-font-size);
-      font-style: var(--subtitle-02-font-style);
-      font-weight: var(--subtitle-02-font-weight);
+      ${subtitle_02('var(--myspec-gray-scalegray-600)')}
       height: 24px;
       left: 12px;
-      letter-spacing: var(--subtitle-02-letter-spacing);
-      line-height: var(--subtitle-02-line-height);
       position: absolute;
       top: 7px;
-      white-space: nowrap;
     }
 
     & > .SearchImg {
