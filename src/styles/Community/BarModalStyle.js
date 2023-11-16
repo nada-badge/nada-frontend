@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_02 } from '../fontStyle';
 
 export const Layout = styled.div`
   align-items: center;
@@ -29,16 +30,9 @@ export const Menu = styled.div`
   width: 256px;
 
   & > .text-wrapper {
-    color: var(--myspec-gray-scalegray-900);
-    font-family: var(--subtitle-02-font-family);
-    font-size: var(--subtitle-02-font-size);
-    font-style: var(--subtitle-02-font-style);
-    font-weight: var(--subtitle-02-font-weight);
-    letter-spacing: var(--subtitle-02-letter-spacing);
-    line-height: var(--subtitle-02-line-height);
+    ${subtitle_02('var(--myspec-gray-scalegray-900)')}
     margin-top: -1.12px;
     position: relative;
-    white-space: nowrap;
     width: fit-content;
 
     &.isRed {

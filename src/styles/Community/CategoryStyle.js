@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_01 } from '../fontStyle';
 
 export const Categorylist = styled.div`
   display: inline-flex;
@@ -26,16 +27,9 @@ export const Wrapper = styled.div`
   }
 
   & > .Text {
-    color: var(--myspec-gray-scalegray-500);
-    font-family: var(--subtitle-01-font-family);
-    font-size: var(--subtitle-01-font-size);
-    font-style: var(--subtitle-01-font-style);
-    font-weight: var(--subtitle-01-font-weight);
-    letter-spacing: var(--subtitle-01-letter-spacing);
-    line-height: var(--subtitle-01-line-height);
+    ${subtitle_01('var(--myspec-gray-scalegray-500)')}
     margin-top: -2px;
     position: relative;
-    white-space: nowrap;
     width: fit-content;
   }
   & > .isActive {

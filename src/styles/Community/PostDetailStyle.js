@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { title_02, caption_02, caption_03, body_01 } from '../fontStyle';
 
 export const ContentsList = styled.div`
   align-items: flex-start;
@@ -15,13 +16,7 @@ export const ContentsList = styled.div`
     position: relative;
     width: 375px;
     & > .p {
-      color: var(--myspec-gray-scalegray-900);
-      font-family: var(--title-02-font-family);
-      font-size: var(--title-02-font-size);
-      font-style: var(--title-02-font-style);
-      font-weight: var(--title-02-font-weight);
-      letter-spacing: var(--title-02-letter-spacing);
-      line-height: var(--title-02-line-height);
+      ${title_02('var(--myspec-gray-scalegray-900)')}
       margin-top: -1px;
       position: relative;
       width: 345px;
@@ -53,13 +48,7 @@ export const ContentsList = styled.div`
       width: 301px;
 
       & > .nickname {
-        color: #000000;
-        font-family: var(--caption-02-font-family);
-        font-size: var(--caption-02-font-size);
-        font-style: var(--caption-02-font-style);
-        font-weight: var(--caption-02-font-weight);
-        letter-spacing: var(--caption-02-letter-spacing);
-        line-height: var(--caption-02-line-height);
+        ${caption_02('#000000')}
         margin-top: -1px;
         position: relative;
         width: 136px;
@@ -67,13 +56,7 @@ export const ContentsList = styled.div`
       }
 
       & > .date {
-        color: #000000;
-        font-family: var(--caption-03-font-family);
-        font-size: var(--caption-03-font-size);
-        font-style: var(--caption-03-font-style);
-        font-weight: var(--caption-03-font-weight);
-        letter-spacing: var(--caption-03-letter-spacing);
-        line-height: var(--caption-03-line-height);
+        ${caption_03('#000000')}
         position: relative;
         width: 136px;
         text-align: left;
@@ -103,13 +86,7 @@ export const ContentsList = styled.div`
     position: relative;
     width: 375px;
     & > .text {
-      color: var(--myspec-gray-scalegray-900);
-      font-family: var(--body-01-font-family);
-      font-size: var(--body-01-font-size);
-      font-style: var(--body-01-font-style);
-      font-weight: var(--body-01-font-weight);
-      letter-spacing: var(--body-01-letter-spacing);
-      line-height: var(--body-01-line-height);
+      ${body_01('--myspec-gray-scalegray-900')}
       margin-top: -1px;
       position: relative;
       width: 345px;

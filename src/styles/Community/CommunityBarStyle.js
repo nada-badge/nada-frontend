@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { body_02 } from '../fontStyle';
 
 export const Bar = styled.div`
   background-color: var(--myspec-gray-scalewhite);
@@ -35,13 +36,7 @@ export const Bar = styled.div`
       }
     }
     & > .text {
-      color: var(--myspec-gray-scalegray-600);
-      font-family: var(--body-02-font-family);
-      font-size: var(--body-02-font-size);
-      font-style: var(--body-02-font-style);
-      font-weight: var(--body-02-font-weight);
-      letter-spacing: var(--body-02-letter-spacing);
-      line-height: var(--body-02-line-height);
+      ${body_02('var(--myspec-gray-scalegray-600)')}
       position: relative;
       text-align: center;
       white-space: nowrap;
@@ -60,13 +55,13 @@ export const Img = styled.div`
 
 export const MenuImg = styled(Img)`
   left: 14px;
-  background-image: url("https://c.animaapp.com/Owwkr6s0/img/frame-33.svg");
+  background-image: url('https://c.animaapp.com/Owwkr6s0/img/frame-33.svg');
 `;
 
 export const BookmarkImg = styled(Img)`
   left: 50px;
-  background-image: url("https://c.animaapp.com/Owwkr6s0/img/bookmark.svg");
+  background-image: url('https://c.animaapp.com/Owwkr6s0/img/bookmark.svg');
   &.isActive {
-    background-image: url("https://c.animaapp.com/dApWEI5K/img/bookmark.svg");
+    background-image: url('https://c.animaapp.com/dApWEI5K/img/bookmark.svg');
   }
 `;

@@ -1,7 +1,7 @@
 /** ModalContainer 모달을 관리하는 곳 */
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
-import { modalSelector } from "../../../module/Community/modal";
+import { modalSelector } from "../../../modules/Community/modal";
 import AreaModal from "./postWrite/AreaModal";
 import FieldModal from "./postWrite/FieldModal";
 import CategoryModal from "./postWrite/CategoryModal";

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_01, subtitle_02, caption_02 } from '../fontStyle';
 
 export const Layout = styled.div`
   align-items: center;
@@ -7,30 +8,16 @@ export const Layout = styled.div`
   position: relative;
 
   & > .title {
-    color: var(--myspec-gray-scalegray-900);
-    font-family: var(--subtitle-01-font-family);
-    font-size: var(--subtitle-01-font-size);
-    font-style: var(--subtitle-01-font-style);
-    font-weight: var(--subtitle-01-font-weight);
-    letter-spacing: var(--subtitle-01-letter-spacing);
-    line-height: var(--subtitle-01-line-height);
+    ${subtitle_01('var(--myspec-gray-scalegray-900)')}
     margin-top: -1px;
     position: relative;
-    white-space: nowrap;
     width: fit-content;
   }
 
   & > .content {
-    color: var(--myspec-gray-scalegray-600);
-    font-family: var(--caption-02-font-family);
-    font-size: var(--caption-02-font-size);
-    font-style: var(--caption-02-font-style);
-    font-weight: var(--caption-02-font-weight);
-    letter-spacing: var(--caption-02-letter-spacing);
-    line-height: var(--caption-02-line-height);
+    ${caption_02('var(--myspec-gray-scalegray-600)')}
     position: relative;
     text-align: center;
-    white-space: nowrap;
     width: fit-content;
   }
 
@@ -65,16 +52,9 @@ export const Layout = styled.div`
     border-color: var(--myspec-gray-scalegray-200);
 
     &.text {
-      color: #000000;
-      font-family: var(--subtitle-02-font-family);
-      font-size: var(--subtitle-02-font-size);
-      font-style: var(--subtitle-02-font-style);
-      font-weight: var(--subtitle-02-font-weight);
-      letter-spacing: var(--subtitle-02-letter-spacing);
-      line-height: var(--subtitle-02-line-height);
+      ${subtitle_02('var(#000000)')}
       margin-top: -1px;
       position: relative;
-      white-space: nowrap;
       width: fit-content;
     }
   }
@@ -89,16 +69,9 @@ export const Layout = styled.div`
     padding: 12px;
 
     & > .text {
-      color: #000000;
-      font-family: var(--subtitle-02-font-family);
-      font-size: var(--subtitle-02-font-size);
-      font-style: var(--subtitle-02-font-style);
-      font-weight: var(--subtitle-02-font-weight);
-      letter-spacing: var(--subtitle-02-letter-spacing);
-      line-height: var(--subtitle-02-line-height);
+      ${subtitle_02('var(#000000)')}
       margin-top: -1.12px;
       position: relative;
-      white-space: nowrap;
       width: fit-content;
     }
   }
@@ -113,10 +86,10 @@ export const Image = styled.img`
   .linkImg {
     background-color: blue;
     height: 16px;
-    background-image: url("https://c.animaapp.com/6iR4vGz3/img/link@2x.png");
+    background-image: url('https://c.animaapp.com/6iR4vGz3/img/link@2x.png');
   }
   & .kakaOImg {
     height: 15px;
-    background-image: url("https://c.animaapp.com/6iR4vGz3/img/vector.png");
+    background-image: url('https://c.animaapp.com/6iR4vGz3/img/vector.png');
   }
 `;

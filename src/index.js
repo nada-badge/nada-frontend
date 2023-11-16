@@ -1,35 +1,58 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
-import App from "./App";
-import "./styleguide.css";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { modalSlice } from "./module/Community/modal";
-import { Provider } from "react-redux";
-import ModalContainer from "./components/Modal/Community/ModalContainer";
-import communitySlice from "./module/Community/community";
-import postWriteSlice from "./module/Community/postWrite";
-import PostDetailSlice from "./module/Community/postDetail";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { Mobile, PC } from './styles/Responsive.js';
+import './index.css';
+import App from './App';
+import ModalContainer from './components/Modal/Community/ModalContainer';
+import BottomNav from './components/bar/BottomNav';
+import Header from './components/bar/Header';
+import authSlice from './modules/auth';
+import calendarSlice from './modules/calendar';
+import userSlice from './modules/user';
+import activitySlice from './modules/activity';
+import barSlice from './modules/bar';
+import communitySlice from './modules/Community/community';
+import postWriteSlice from './modules/Community/postWrite';
+import PostDetailSlice from './modules/Community/postDetail.js';
+import { modalSlice } from './modules/Community/modal';
+import './styles/common.scss';
+import './styleguide.css';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const rootReducer = combineReducers({
-  modal: modalSlice.reducer,
-  community: communitySlice.reducer,
-  postwrite: postWriteSlice.reducer,
-  postdetail: PostDetailSlice.reducer,
-});
-
-export const store = configureStore({
-  reducer: rootReducer,
+const store = configureStore({
+  reducer: {
+    auth: authSlice.reducer,
+    user: userSlice.reducer,
+    calendar: calendarSlice.reducer,
+    activity: activitySlice.reducer,
+    bar: barSlice.reducer,
+    modal: modalSlice.reducer,
+    community: communitySlice.reducer,
+    postwrite: postWriteSlice.reducer,
+    postdetail: PostDetailSlice.reducer,
+  },
+  devTools: true,
 });
 
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
-      <ModalContainer />
+      <Mobile>
+        <Header />
+        <App />
+        <ModalContainer />
+        <BottomNav />
+      </Mobile>
+      <PC>
+        <Header />
+        <App />
+        <ModalContainer />
+        <BottomNav />
+      </PC>
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 );

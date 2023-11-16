@@ -6,7 +6,7 @@ import {
   communitySelector,
   initializeForm,
   addField,
-} from "../../module/Community/community";
+} from "../../modules/Community/community";
 import { Button, TextWarpper } from "../../styles/Community/SelectButton";
 
 export const SelectAllButton = () => {

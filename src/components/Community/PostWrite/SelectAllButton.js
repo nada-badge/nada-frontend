@@ -8,7 +8,7 @@ import {
   initializeForm,
   addField,
   setField,
-} from "../../../module/Community/postWrite";
+} from "../../../modules/Community/postWrite";
 import { Button, TextWarpper } from "../../../styles/Community/SelectButton";
 
 export const SelectAllButton = () => {

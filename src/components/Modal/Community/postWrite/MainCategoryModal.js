@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   postWriteSelector,
   setField,
-} from "../../../../module/Community/postWrite";
+} from "../../../../modules/Community/postWrite";
 import classNames from "classnames";
 import { ListMain, Border, MainCategory, Img } from "../ModalStyle";
 import ModalButtonDiv from "../../../community/ModalButtonDiv";

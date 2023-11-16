@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import client from "../../../../lib/api/client";
-import { PostDetailSelector } from "../../../../module/Community/postDetail";
+import { PostDetailSelector } from "../../../../modules/Community/postDetail";
 import ModalAskOutPut from "../../../community/ModalAskOutput";
 
 function ReportModal() {

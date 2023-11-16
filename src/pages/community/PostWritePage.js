@@ -1,17 +1,17 @@
 /** PostWritePage 글 작성을 진행하는 페이지 */
-import { useState } from "react";
-import useSubmit from "../../module/queries/postWriteQuery";
-import useUpdate from "../../module/queries/postUpdateQuery";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import useSubmit from '../../modules/queries/PostWriteQuery';
+import useUpdate from '../../modules/queries/PostUpdateQuery';
 import {
   initializeAll,
   postWriteSelector,
-} from "../../module/Community/postWrite";
-import { useDispatch } from "react-redux";
-import { AreaButton } from "../../container/community/postWrite/AreaButton";
-import { FieldButton } from "../../container/community/postWrite/FieldButton";
-import { MainCategoryButton } from "../../container/community/postWrite/MainCategoryButton";
-import { CategoryButton } from "../../container/community/postWrite/CategoryButton";
+} from '../../modules/Community/postWrite';
+import { AreaButton } from '../../containers/community/postWrite/AreaButton';
+import { FieldButton } from '../../containers/community/postWrite/FieldButton';
+import { MainCategoryButton } from '../../containers/community/postWrite/MainCategoryButton';
+import { CategoryButton } from '../../containers/community/postWrite/CategoryButton';
+import { setBarStatus } from '../../modules/bar';
 import {
   PostContainer,
   Title,
@@ -19,21 +19,31 @@ import {
   Content,
   Border,
   AreaImages,
-} from "../../styles/Community/PostWriteStyle";
+} from '../../styles/Community/PostWriteStyle';
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
   const update = useUpdate().mutate;
   const dispatch = useDispatch();
 
-  const isSubmit = useSelector(postWriteSelector("method", "isSubmit"));
+  const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
-  console.log("isSubmit : ", isSubmit);
+  console.log('isSubmit : ', isSubmit);
   const [inputValue, setInputValue] = useState({
     title: PostDetail.title,
     content: PostDetail.content,
   });
+
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'backPost',
+        text: '글쓰기',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
 
   const onChange = (event) => {
     const { value, name } = event.target;
@@ -45,8 +55,8 @@ const PostWrite = () => {
 
   const OnSubmit = (e) => {
     e.preventDefault();
-    const userEmail = "20230904@nate.com";
-    const userName = "오늘닉네임";
+    const userEmail = '20230904@nate.com';
+    const userName = '오늘닉네임';
     const _id = postwrite._id;
     const mainCategorys = postwrite.mainCategory;
     const categorys = postwrite.category;

@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { communitySelector, setField } from "../../module/Community/community";
+import { communitySelector, setField } from "../../modules/Community/community";
 import {
   Dropdown,
   TextWarpper,

@@ -1,14 +1,26 @@
 /** PostDetailPage 세부 게시글을 보여주는 페이지 */
-import TagButtons from "../../components/community/postDetail/TagButton";
-import { ContentsList } from "../../styles/Community/PostDetailStyle";
-import { useSelector } from "react-redux";
-import { BottomBar } from "../../container/community/postDetail/BottomBar";
-import Dateformat from "../../components/community/Dateformat";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import TagButtons from '../../components/community/postDetail/TagButton';
+import { ContentsList } from '../../styles/Community/PostDetailStyle';
+import { BottomBar } from '../../containers/community/postDetail/BottomBar';
+import Dateformat from '../../components/community/Dateformat';
+import { setBarStatus } from '../../modules/bar';
 
 const PostDetail = () => {
+  const dispatch = useDispatch();
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
-
   const { userName, title, content, updatedAt } = PostDetail;
+
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'back',
+        text: '세부 게시글',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
 
   return (
     <div>
