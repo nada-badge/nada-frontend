@@ -1,5 +1,6 @@
 /** modal 현재 선택된 모달의 정보를 관리하는 리덕스 */
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 const initialState = {
   type: null,
@@ -7,7 +8,7 @@ const initialState = {
 };
 
 export const modalSlice = createSlice({
-  name: "modal",
+  name: 'modal',
   initialState,
   reducers: {
     openModal: (state, action) => {
@@ -23,3 +24,12 @@ export const modalSlice = createSlice({
 
 export const modalSelector = (state) => state.modal;
 export const { openModal, closeModal } = modalSlice.actions;
+
+const ModalPropsSelects = () => (rootState) => {
+  return rootState.modal.props || initialState.props;
+};
+
+export const ModalPropsSelector = createSelector(
+  ModalPropsSelects,
+  (field) => field,
+);

@@ -10,7 +10,7 @@ const CommentPage = () => {
   const dispatch = useDispatch();
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
   const { comments } = PostDetail;
-
+  console.log('post : ', PostDetail);
   useEffect(() => {
     dispatch(
       setBarStatus({ headerState: 'back', text: '댓글', isShowBottom: false }),
@@ -21,7 +21,7 @@ const CommentPage = () => {
     <div>
       <CommentList>
         {comments.map((comment) => (
-          <div key={comment.id}>{CommentOutPut({ comment })}</div>
+          <div key={comment._id}>{CommentOutPut({ comment })}</div>
         ))}
       </CommentList>
       <BottomBar />

@@ -1,7 +1,6 @@
 /** CommunityPage 커뮤니티 메인 페이지 */
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-
 import BoardCardList from '../../components/community/BoardCardList/BoardCardList';
 import PostList from '../../containers/community/PostList';
 import Category from '../../containers/community/Category';

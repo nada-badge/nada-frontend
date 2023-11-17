@@ -1,18 +1,20 @@
 /** ModalContainer 모달을 관리하는 곳 */
-import { createPortal } from "react-dom";
-import { useSelector } from "react-redux";
-import { modalSelector } from "../../../modules/Community/modal";
-import AreaModal from "./postWrite/AreaModal";
-import FieldModal from "./postWrite/FieldModal";
-import CategoryModal from "./postWrite/CategoryModal";
-import MainCategoryModal from "./postWrite/MainCategoryModal";
-import MyMenuModal from "./postDetail/MyMenuModal";
-import DeleteModal from "./postDetail/DeleteModal";
-import NoticeDeleteModal from "./postDetail/NoticeDeleteModal";
-import ShareModal from "./postDetail/ShareModal";
-import YourMenuModal from "./postDetail/YourMenuModal";
-import ReportModal from "./postDetail/ReportModal";
-import NoticeReportModal from "./postDetail/NoticeReportModal";
+import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
+import { modalSelector } from '../../../modules/Community/modal';
+import AreaModal from './postWrite/AreaModal';
+import FieldModal from './postWrite/FieldModal';
+import CategoryModal from './postWrite/CategoryModal';
+import MainCategoryModal from './postWrite/MainCategoryModal';
+import MyMenuModal from './postDetail/MyMenuModal';
+import DeleteModal from './postDetail/DeleteModal';
+import NoticeDeleteModal from './postDetail/NoticeDeleteModal';
+import ShareModal from './postDetail/ShareModal';
+import YourMenuModal from './postDetail/YourMenuModal';
+import ReportModal from './postDetail/ReportModal';
+import NoticeReportModal from './postDetail/NoticeReportModal';
+import MyCommentModal from './comment/MyCommentModal';
+import DeleteCommentModal from './comment/DeleteModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
@@ -26,6 +28,8 @@ const MODAL_COMPONENTS = {
   YourMenuModal: YourMenuModal,
   ReportModal: ReportModal,
   NoticeReportModal: NoticeReportModal,
+  MyCommentModal: MyCommentModal,
+  DeleteCommentModal: DeleteCommentModal,
 };
 
 function ModalContainer() {
@@ -41,7 +45,7 @@ function ModalContainer() {
     <>
       <Modal {...props} />
     </>,
-    document.getElementById("modal")
+    document.getElementById('modal'),
   );
 }
 

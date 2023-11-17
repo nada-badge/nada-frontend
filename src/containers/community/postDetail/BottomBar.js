@@ -1,24 +1,24 @@
 /** BottomBar 세부 게시글 화면에서 보여지는 하단바 */
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
   Bar,
   MenuImg,
   BookmarkImg,
-} from "../../../styles/Community/CommunityBarStyle";
-import useModal from "../../../components/Modal/Community/useModal";
-import classNames from "classnames";
-import { PostDetailSelector } from "../../../modules/Community/postDetail";
+} from '../../../styles/Community/CommunityBarStyle';
+import useModal from '../../../components/Modal/Community/useModal';
+import classNames from 'classnames';
+import { PostDetailSelector } from '../../../modules/Community/postDetail';
 
 export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
-  const id = useSelector(PostDetailSelector("PostDetail", "_id"));
+  const id = useSelector(PostDetailSelector('PostDetail', '_id'));
   const [isActive, setIsActive] = useState();
 
   const openMenu = () => {
-    openModal({ type: "YourMenuModal" });
+    openModal({ type: 'MyMenuModal' });
   };
 
   const bookMark = () => {
