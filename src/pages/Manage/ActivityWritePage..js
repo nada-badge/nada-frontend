@@ -25,7 +25,6 @@ const ManageActivityWrite = () => {
   const [endedAt, setEndedAt] = useState(new Date());
 
   useEffect(() => {
-    console.log('postWritePage가 실행되었습니다');
     dispatch(
       setBarStatus({
         headerState: 'back',

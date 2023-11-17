@@ -21,6 +21,8 @@ const initialState = {
   },
   Comment: {
     isReply: Boolean(false),
+    isCommentModal: Boolean(false),
+    content: '',
     _id: '',
   },
 };

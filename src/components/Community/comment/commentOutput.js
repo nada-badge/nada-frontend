@@ -4,12 +4,19 @@ import { Comment } from '../../../styles/Community/CommentStyle';
 import Dateformat from '../Dateformat';
 import { changeCommentField } from '../../../modules/Community/postDetail';
 import ReplyOutPut from './replyOutput';
+import useModal from '../../Modal/Community/useModal';
 
 const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();
+  const { openModal } = useModal();
   const sendReply = (e) => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'isReply', value: true }));
+  };
+  const openMenu = (e) => {
+    dispatch(changeCommentField({ form: '_id', value: comment._id }));
+    dispatch(changeCommentField({ form: 'isCommentModal', value: true }));
+    openModal({ type: 'MyCommentModal', props: comment.content });
   };
 
   return (
@@ -23,7 +30,7 @@ const CommentOutPut = ({ comment }) => {
               <div className="date">{Dateformat(comment.updatedAt)}</div>
             </div>
           </div>
-          <div className="menu">
+          <div className="menu" onClick={openMenu}>
             <div className="meatball">
               <div className="ellipse" />
               <div className="ellipse" />

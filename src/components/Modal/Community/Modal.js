@@ -1,7 +1,7 @@
 /** Modal 기본 모달 */
-import styled from "styled-components";
+import styled from 'styled-components';
 
-function Modal({ onClose, children }) {
+function Modal({ children }) {
   return (
     <Overlay>
       <ModalWrap>
