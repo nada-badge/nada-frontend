@@ -20,6 +20,7 @@ import LogInSelect from './pages/auth/LoginSelect';
 import CalendarPage from './pages/CalendarPage';
 import ActivityPage from './pages/activity/ActivityPage';
 import DetailActivityPage from './pages/activity/DetailActivityPage';
+import SearchActivityPage from './pages/activity/SearchActivityPage';
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/activity" element={<ActivityPage />} />
           <Route path="/activity/detail" element={<DetailActivityPage />} />
+          <Route path="/activity/search" element={<SearchActivityPage />} />
 
           <Route path="/badge" element={<Badge />} />
           <Route path="/Community" element={<Community />} />
@@ -45,6 +47,7 @@ const App = () => {
           <Route path="/myPage" element={<MyPage />} />
 
           <Route path="/manage" element={<HomePage />} />
+
           <Route path="/manage/Activity" element={<ActivityListPage />} />
           <Route
             path="/manage/Activity/:_id"
