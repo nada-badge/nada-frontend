@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { SearchInput } from '../../components/SearchInput';
+import { SearchInput } from '../../components/search/SearchInput';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../../modules/bar';
+import { SearchCategory } from '../../components/search/SearchCategory';
 
 const Container = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -30,7 +31,7 @@ const SearchActivityPage = () => {
   return (
     <Container>
       <SearchInput />
-      {/* 제목, 본문 , 작성자 */}
+      <SearchCategory list={['제목', '본문', ' 작성자']} />
       {/* 최신순 (정렬) */}
       {/* 활동 리스트 */}
     </Container>
