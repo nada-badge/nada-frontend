@@ -1,5 +1,6 @@
 import { subtitle_02 } from '../styles/fontStyle';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const InputWrapper = styled.div`
   background: var(--myspec-gray-scale-white);
@@ -50,10 +51,17 @@ const InputWrapper = styled.div`
 `;
 
 export const SearchInput = () => {
+  const navigate = useNavigate();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/activity/search');
+  };
+  
   return (
     <InputWrapper>
-      <form>
-        <input className="Input" placeholder="검색어를 입력하세요." />
+      <form onSubmit={onSubmit}>
+        <input className="Input" placeholder="검색어를 입력하세요." required />
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
