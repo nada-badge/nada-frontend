@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { body_02 } from '../../styles/fontStyle';
+import { useState } from 'react';
 
 export const SearchCategory = ({ list }) => {
+  const [focus, setFocus] = useState('제목');
+
   const CartegoryList = styled.div`
     display: flex;
     flex-direction: row;
@@ -19,12 +22,28 @@ export const SearchCategory = ({ list }) => {
       // text style
       ${body_02('var(--myspec-gray-scale-gray-600)')}
       text-align: center;
+
+      &.focus {
+        border-bottom: 2px solid var(--myspec-primary-blue-1, #1363ff);
+      }
     }
   `;
+
+  const onClick = (e) => {
+    e.preventDefault();
+    setFocus(e.target.key);
+  };
+
   return (
     <CartegoryList>
       {list.map((el) => (
-        <div className="searchFocus">{el}</div>
+        <div
+          className={`searchFocus ${el === focus ? 'focus' : ''}`}
+          key={el}
+          onClick={onClick}
+        >
+          {el}
+        </div>
       ))}
     </CartegoryList>
   );
