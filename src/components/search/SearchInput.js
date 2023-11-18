@@ -1,4 +1,4 @@
-import { subtitle_02 } from '../styles/fontStyle';
+import { subtitle_02 } from '../../styles/fontStyle';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
@@ -57,7 +57,7 @@ export const SearchInput = () => {
     e.preventDefault();
     navigate('/activity/search');
   };
-  
+
   return (
     <InputWrapper>
       <form onSubmit={onSubmit}>
