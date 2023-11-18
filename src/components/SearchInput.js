@@ -11,7 +11,7 @@ const InputWrapper = styled.div`
   align-items: center;
   flex-shrink: 0;
 
-  & > div {
+  & > form {
     display: flex;
     width: calc(345px - 24px);
     height: calc(40px - 16px);
@@ -38,10 +38,13 @@ const InputWrapper = styled.div`
       }
     }
 
-    & > svg {
+    & > button {
       width: 24px;
       height: 24px;
       flex-shrink: 0;
+      background: none;
+      border: none;
+      padding: 0;
     }
   }
 `;
@@ -49,31 +52,33 @@ const InputWrapper = styled.div`
 export const SearchInput = () => {
   return (
     <InputWrapper>
-      <div>
+      <form>
         <input className="Input" placeholder="검색어를 입력하세요." />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-            stroke="#686868"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M20.9999 20.9999L16.6499 16.6499"
-            stroke="#686868"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+              stroke="#686868"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M20.9999 20.9999L16.6499 16.6499"
+              stroke="#686868"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </form>
     </InputWrapper>
   );
 };
