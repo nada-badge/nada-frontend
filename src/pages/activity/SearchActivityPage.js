@@ -31,7 +31,7 @@ const SearchActivityPage = () => {
   return (
     <Container>
       <SearchInput />
-      <SearchCategory list={['제목', '본문', ' 작성자']} />
+      <SearchCategory list={['제목', '본문', '작성자']} />
       {/* 최신순 (정렬) */}
       {/* 활동 리스트 */}
     </Container>
