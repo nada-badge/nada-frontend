@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../../modules/bar';
 import { SearchCategory } from '../../components/search/SearchCategory';
+import SortOrder from '../../components/search/SortOrder';
 
 const Container = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -32,7 +33,7 @@ const SearchActivityPage = () => {
     <Container>
       <SearchInput />
       <SearchCategory list={['제목', '본문', '작성자']} />
-      {/* 최신순 (정렬) */}
+      <SortOrder />
       {/* 활동 리스트 */}
     </Container>
   );
