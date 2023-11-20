@@ -1,8 +1,10 @@
-import React from 'react';
+import { useEffect } from 'react';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import styled from 'styled-components';
 import BannerSlider from '../components/home/BannerSlider';
+import { useDispatch } from 'react-redux';
+import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 
 const HomeContainer = styled.div`
@@ -18,9 +20,14 @@ const HomeContainer = styled.div`
   & > div {
     background-color: white;
   }
+
+  & > .bottomNav_place {
+    height: 85px;
+  }
 `;
 
 const Home = () => {
+  const dispatch = useDispatch();
   const community_cards = [
     { id: 1, title: '유용한 활동 사이트', category: '자유' },
     { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
@@ -37,6 +44,15 @@ const Home = () => {
     { id: 3, title: '[성신여대] 창업동아리 NADA 팀원추가 모집', Dday: 3 },
   ];
 
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'logo',
+        text: '',
+        isShowBottom: true,
+      }),
+    );
+  }, []);
   const navigate = useNavigate();
 
   const onClick = (e) => {
@@ -45,12 +61,6 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      {/* 상단 내비게이션 
-        <Top
-          className="top-instance"
-          element="https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/-----1.svg"
-          property1="main"
-        /> */}
       <BannerSlider />
       <div onClick={onClick}>
         <WeekCalendar className="calendarweek" />
@@ -65,6 +75,7 @@ const Home = () => {
         cards={activity_cards}
         type={'activity'}
       />
+      <div className="bottomNav_place" />
     </HomeContainer>
   );
 };
