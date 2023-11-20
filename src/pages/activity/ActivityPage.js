@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
-import { SearchInput } from '../../components/SearchInput';
+import { SearchInput } from '../../components/search/SearchInput';
 import { useEffect } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';

@@ -15,6 +15,7 @@ const CardsContainer = styled.div`
     position: relative;
     padding: 16px 0px; // 커스텀
     margin: 0;
+    text-align: left;
   }
 `;
 
