@@ -14,7 +14,7 @@ import YourMenuModal from './postDetail/YourMenuModal';
 import ReportModal from './postDetail/ReportModal';
 import NoticeReportModal from './postDetail/NoticeReportModal';
 import MyCommentModal from './comment/MyCommentModal';
-import DeleteCommentModal from './comment/DeleteModal';
+import DeleteCommentModal from './comment/DeleteCommentModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
