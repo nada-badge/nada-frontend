@@ -4,6 +4,7 @@ const CardContainer = styled.div`
   border-radius: 10px;
   position: relative;
   width: 169px;
+  text-align: left;
 
   & > .imgContainer {
     background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-4727@2x.png);
