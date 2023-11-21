@@ -126,7 +126,7 @@ const CalendarPage = () => {
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: 'prev', center: 'title', end: 'next' }}
-          height={'625px'} // ★ 병합 후 수정 : calc( 625px - (상단+하단바) px )
+          height={'calc( 100vh - (88px + 85px))'}
           locale={'ko'}
           dayCellContent={(info) => {
             const dayNumber = info.dayNumberText.replace('일', '');
