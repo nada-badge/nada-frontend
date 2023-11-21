@@ -1,15 +1,15 @@
 /** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
-import { useState, useEffect } from "react";
-import Modal from "../Modal";
-import useModal from "../useModal";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
+import Modal from '../Modal';
+import useModal from '../useModal';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   postWriteSelector,
   setField,
-} from "../../../../modules/Community/postWrite";
-import classNames from "classnames";
-import { ListMain, Border, MainCategory, Img } from "../ModalStyle";
-import ModalButtonDiv from "../../../community/ModalButtonDiv";
+} from '../../../../modules/Community/postWrite';
+import classNames from 'classnames';
+import { ListMain, Border, MainCategory, Img } from '../ModalStyle';
+import ModalButtonDiv from '../../../common/modalComponent/ModalButtonDiv';
 
 function MainCategoryModal() {
   const { closeModal } = useModal();
@@ -17,7 +17,7 @@ function MainCategoryModal() {
 
   //postWriteSubit값으로 nowClick 초기화
   const [nowClick, setNowClick] = useState(
-    useSelector(postWriteSelector("postWriteSubmit", "mainCategory"))
+    useSelector(postWriteSelector('postWriteSubmit', 'mainCategory')),
   );
 
   useEffect(() => {}, []);
@@ -36,7 +36,7 @@ function MainCategoryModal() {
         }}
       >
         <div className="text-wrapper">{text}</div>
-        <Img className={classNames("vector", { active })} />
+        <Img className={classNames('vector', { active })} />
       </MainCategory>
     );
   };
@@ -48,19 +48,19 @@ function MainCategoryModal() {
   const SetStatus = () => {
     dispatch(
       setField({
-        form: "postWriteSubmit",
-        key: "mainCategory",
+        form: 'postWriteSubmit',
+        key: 'mainCategory',
         value: nowClick,
-      })
+      }),
     );
 
-    if (!(nowClick === "카테고리")) {
+    if (!(nowClick === '카테고리')) {
       dispatch(
         setField({
-          form: "ButtonActive",
-          key: "mainCategory",
+          form: 'ButtonActive',
+          key: 'mainCategory',
           value: true,
-        })
+        }),
       );
     }
 
@@ -71,15 +71,15 @@ function MainCategoryModal() {
     <Modal onClose={closeModal}>
       <div>
         <ListMain>
-          {Output("모집 게시판", "모집")}
-          {Output("홍보 게시판", "홍보")}
-          {Output("자유 게시판", "자유")}
+          {Output('모집 게시판', '모집')}
+          {Output('홍보 게시판', '홍보')}
+          {Output('자유 게시판', '자유')}
         </ListMain>
         <Border />
         {ModalButtonDiv({
-          cancelText: "취소",
+          cancelText: '취소',
           cancel: Cancels,
-          actText: "확인",
+          actText: '확인',
           act: SetStatus,
           isRed: false,
         })}

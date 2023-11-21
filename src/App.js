@@ -21,6 +21,7 @@ import PostWritePage from './pages/community/PostWritePage';
 import PostDetailPage from './pages/community/PostDetailPage';
 import CommentPage from './pages/community/CommentPage';
 import MyPage from './testpage/myPage';
+import SearchActivityPage from './pages/activity/SearchActivityPage';
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/activity" element={<ActivityPage />} />
           <Route path="/activity/detail" element={<DetailActivityPage />} />
+          <Route path="/activity/search" element={<SearchActivityPage />} />
 
           <Route path="/badge" element={<Badge />} />
 
@@ -53,6 +55,7 @@ const App = () => {
           <Route path="/myPage" element={<MyPage />} />
 
           <Route path="/manage" element={<HomePage />} />
+
           <Route path="/manage/Activity" element={<ActivityListPage />} />
           <Route
             path="/manage/Activity/:_id"

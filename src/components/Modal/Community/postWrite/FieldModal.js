@@ -12,7 +12,7 @@ import {
 import { SelectButton } from '../../../community/PostWrite/SelectButton';
 import { List, Border } from '../ModalStyle';
 import { SelectAllButton } from '../../../community/PostWrite/SelectAllButton';
-import ModalButtonDiv from '../../../community/ModalButtonDiv';
+import ModalButtonDiv from '../../../common/modalComponent/ModalButtonDiv';
 
 function FieldModal() {
   const { closeModal } = useModal();

@@ -14,6 +14,7 @@ const CardContainer = styled.div`
     position: relative;
     left: 14px;
     top: 10px;
+    text-align: left;
 
     & > .title {
       ${subtitle_03('var(--myspec-gray-scalegray-900)')}

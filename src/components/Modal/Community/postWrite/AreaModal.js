@@ -1,77 +1,77 @@
 /** AreaModal postWrite 중 지역 button 클릭 시 나오는 모달 */
-import { useEffect } from "react";
-import Modal from "../Modal";
-import useModal from "../useModal";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import Modal from '../Modal';
+import useModal from '../useModal';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   initializeForm,
   submitForm,
   postWriteSelector,
   setField,
-} from "../../../../modules/Community/postWrite";
-import { SelectButton } from "../../../community/PostWrite/SelectButton";
-import { SelectAllButton } from "../../../community/PostWrite/SelectAllButton";
-import { List, Border } from "../ModalStyle";
-import ModalButtonDiv from "../../../community/ModalButtonDiv";
+} from '../../../../modules/Community/postWrite';
+import { SelectButton } from '../../../community/PostWrite/SelectButton';
+import { SelectAllButton } from '../../../community/PostWrite/SelectAllButton';
+import { List, Border } from '../ModalStyle';
+import ModalButtonDiv from '../../../common/modalComponent/ModalButtonDiv';
 
 function AreaModal() {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const Initialization = useSelector(
-    postWriteSelector("postWriteSubmit", "area")
+    postWriteSelector('postWriteSubmit', 'area'),
   );
-  const status = useSelector(postWriteSelector("postWriteSelect", "area"));
-  const buttonAll = { text: "전국" };
+  const status = useSelector(postWriteSelector('postWriteSelect', 'area'));
+  const buttonAll = { text: '전국' };
 
   const buttons = [
-    { id: 1, text: "서울" },
-    { id: 2, text: "부산" },
-    { id: 3, text: "대구" },
-    { id: 4, text: "인천" },
-    { id: 5, text: "광주" },
-    { id: 6, text: "대전" },
-    { id: 7, text: "울산" },
-    { id: 8, text: "경기" },
-    { id: 9, text: "강원" },
-    { id: 10, text: "충청" },
-    { id: 11, text: "경상" },
-    { id: 12, text: "전라" },
-    { id: 13, text: "제주" },
-    { id: 14, text: "세종" },
-    { id: 15, text: "해외" },
+    { id: 1, text: '서울' },
+    { id: 2, text: '부산' },
+    { id: 3, text: '대구' },
+    { id: 4, text: '인천' },
+    { id: 5, text: '광주' },
+    { id: 6, text: '대전' },
+    { id: 7, text: '울산' },
+    { id: 8, text: '경기' },
+    { id: 9, text: '강원' },
+    { id: 10, text: '충청' },
+    { id: 11, text: '경상' },
+    { id: 12, text: '전라' },
+    { id: 13, text: '제주' },
+    { id: 14, text: '세종' },
+    { id: 15, text: '해외' },
   ];
 
   useEffect(() => {
     dispatch(
       setField({
-        form: "postWriteSelect",
-        key: "area",
+        form: 'postWriteSelect',
+        key: 'area',
         value: Initialization,
-      })
+      }),
     );
   }, []);
 
   const SetStatus = () => {
     dispatch(
       submitForm({
-        key: "area",
-      })
+        key: 'area',
+      }),
     );
 
     const value = !(status[0] === buttonAll.text);
     dispatch(
       setField({
-        form: "ButtonActive",
-        key: "area",
+        form: 'ButtonActive',
+        key: 'area',
         value: value,
-      })
+      }),
     );
 
     closeModal();
   };
 
   const Cancels = () => {
-    dispatch(initializeForm({ form: "postWriteSelect", key: "area" }));
+    dispatch(initializeForm({ form: 'postWriteSelect', key: 'area' }));
     closeModal();
   };
 
@@ -89,9 +89,9 @@ function AreaModal() {
         <Border />
 
         {ModalButtonDiv({
-          cancelText: "취소",
+          cancelText: '취소',
           cancel: Cancels,
-          actText: "확인",
+          actText: '확인',
           act: SetStatus,
           actColor: false,
         })}
