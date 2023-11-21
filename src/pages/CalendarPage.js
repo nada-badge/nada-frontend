@@ -6,9 +6,10 @@ import '../styles/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../modules/calendar';
+import useEventsQuery from '../modules/queries/EventQuery';
 import { setBarStatus } from '../modules/bar';
 
 const Div = styled.div`
@@ -31,6 +32,8 @@ const Div = styled.div`
   }
 `;
 
+const today = new Date();
+
 const CalendarPage = () => {
   const dispatch = useDispatch();
 
@@ -44,22 +47,30 @@ const CalendarPage = () => {
     month_day: '', // 일(day)
     day_index: '', // 요일[0~6]
   });
-  const [events, setEvents] = useState([
-    {
-      title: 'All Day Event',
-      start: '2023-10-01',
-    },
-    {
-      title: '9일 event',
-      start: '2023-10-09',
-    },
-    {
-      title: 'Long Event',
-      start: '2023-10-07',
-      end: '2023-10-20',
-      color: '#ffc0cf', // override!
-    },
-  ]);
+
+  const [events, setEvents] = useState([]);
+
+  // useQuery로 이벤트 가져오기
+  const { data, isLoading, isError } = useEventsQuery({
+    email: email,
+    year: today.getFullYear(),
+    month: today.getMonth() + 1,
+  });
+
+  useEffect(() => {
+    let MonthEvent = [];
+    if (data) {
+      MonthEvent = data.map((e) => {
+        return {
+          title: e.activityName,
+          start: e.startedAt.slice(0, 10),
+          end: e.endedAt.slice(0, 10),
+        };
+      });
+    }
+
+    setEvents(MonthEvent);
+  }, []);
 
   const openHandler = (info) => {
     // 모달 열기/닫기
