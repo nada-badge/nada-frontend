@@ -53,14 +53,15 @@ const PostContainer = styled.div`
     left: 76px;
 
     & > .title {
-      ${subtitle_03('var(#000000)')}
+      ${subtitle_03('#000000')}
       position: relative;
+      white-space: nowrap;
       width: 269px;
       text-align: left;
     }
 
     & > .text {
-      ${body_01('var(#000000)')}
+      ${body_01('#000000')}
       position: relative;
       top: 5px;
       white-space: nowrap;

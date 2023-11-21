@@ -1,4 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { caption_01, caption_02 } from '../../../styles/fontStyle';
+
+const BoardCardItem = ({ card }) => {
+  const { title, category } = card;
+
+  return (
+    <CardContainer>
+      <div className="image-2" />
+      <div className="category">{category}</div>
+      <div className="title">{title}</div>
+    </CardContainer>
+  );
+};
 
 const CardContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -21,14 +34,8 @@ const CardContainer = styled.div`
   }
 
   & > .category {
-    color: var(--myspec-primaryblue-1);
-    font-family: var(--caption-01-font-family);
-    font-size: var(--caption-01-font-size);
-    font-style: var(--caption-01-font-style);
-    font-weight: var(--caption-01-font-weight);
+    ${caption_01('var(--myspec-primaryblue-1)')}
     text-align: left;
-    letter-spacing: var(--caption-01-letter-spacing);
-    line-height: var(--caption-01-line-height);
     position: relative;
     margin-top: 8px;
     white-space: nowrap;
@@ -37,14 +44,8 @@ const CardContainer = styled.div`
   }
 
   & > .title {
-    color: #000000;
-    font-family: var(--caption-02-font-family);
-    font-size: var(--caption-02-font-size);
-    font-style: var(--caption-02-font-style);
-    font-weight: var(--caption-02-font-weight);
+    ${caption_02('#000000')}
     height: 18px;
-    letter-spacing: var(--caption-02-letter-spacing);
-    line-height: var(--caption-02-line-height);
     position: relative;
     margin-top: 5px;
     width: 96px;
@@ -55,17 +56,5 @@ const CardContainer = styled.div`
     float: left;
   }
 `;
-
-const BoardCardItem = ({ card }) => {
-  const { title, category } = card;
-
-  return (
-    <CardContainer>
-      <div className="image-2" />
-      <div className="category">{category}</div>
-      <div className="title">{title}</div>
-    </CardContainer>
-  );
-};
 
 export default BoardCardItem;

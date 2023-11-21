@@ -52,7 +52,7 @@ export const Layout = styled.div`
     border-color: var(--myspec-gray-scalegray-200);
 
     &.text {
-      ${subtitle_02('var(#000000)')}
+      ${subtitle_02('#000000')}
       margin-top: -1px;
       position: relative;
       width: fit-content;
@@ -69,7 +69,7 @@ export const Layout = styled.div`
     padding: 12px;
 
     & > .text {
-      ${subtitle_02('var(#000000)')}
+      ${subtitle_02('#000000')}
       margin-top: -1.12px;
       position: relative;
       width: fit-content;
