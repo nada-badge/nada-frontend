@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../Modal';
 import useModal from '../useModal';
 import classNames from 'classnames';
-import ModalButton from '../../../common/modalComponent/ModalButton';
+import ModalButton from '../../../common/modal/ModalButton';
 import { ModalPropsSelector } from '../../../../modules/Community/modal';
 import {
   Menu,

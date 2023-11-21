@@ -1,5 +1,6 @@
 /** PostItem, postList을 이루는 PostItem. */
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_03, body_01, caption_03 } from '../../../styles/fontStyle';
 
 const PostItem = ({ card }) => {
   const { title, field, category, area, content, postAt } = card;
@@ -39,7 +40,7 @@ const PostContainer = styled.div`
     position: absolute;
     top: 13px;
     width: 64px;
-    background-image: url("https://c.animaapp.com/hs22pPSO/img/image-3.svg");
+    background-image: url('https://c.animaapp.com/hs22pPSO/img/image-3.svg');
   }
 
   & > .innerBox {
@@ -52,28 +53,14 @@ const PostContainer = styled.div`
     left: 76px;
 
     & > .title {
-      color: #000000;
-      font-family: var(--subtitle-03-font-family);
-      font-size: var(--subtitle-03-font-size);
-      font-style: var(--subtitle-03-font-style);
-      font-weight: var(--subtitle-03-font-weight);
-      letter-spacing: var(--subtitle-03-letter-spacing);
-      line-height: var(--subtitle-03-line-height);
+      ${subtitle_03('var(#000000)')}
       position: relative;
-      white-space: nowrap;
       width: 269px;
       text-align: left;
     }
 
     & > .text {
-      color: #000000;
-      font-family: var(--body-01-font-family);
-      font-size: var(--body-01-font-size);
-      font-style: var(--body-01-font-style);
-      font-weight: var(--body-01-font-weight);
-
-      letter-spacing: var(--body-01-letter-spacing);
-      line-height: var(--body-01-line-height);
+      ${body_01('var(#000000)')}
       position: relative;
       top: 5px;
       white-space: nowrap;
@@ -92,13 +79,7 @@ const PostContainer = styled.div`
       top: 12px;
 
       & > .text-2 {
-        color: var(--myspec-gray-scalegray-600);
-        font-family: var(--caption-03-font-family);
-        font-size: var(--caption-03-font-size);
-        font-style: var(--caption-03-font-style);
-        font-weight: var(--caption-03-font-weight);
-        letter-spacing: var(--caption-03-letter-spacing);
-        line-height: var(--caption-03-line-height);
+        ${caption_03('var(--myspec-gray-scalegray-600)')}
         margin-top: -1px;
         position: relative;
         text-align: right;

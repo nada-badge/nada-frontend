@@ -9,7 +9,7 @@ import {
 } from '../../../../modules/Community/postWrite';
 import classNames from 'classnames';
 import { ListMain, Border, MainCategory, Img } from '../ModalStyle';
-import ModalButtonDiv from '../../../common/modalComponent/ModalButtonDiv';
+import ModalButtonDiv from '../../../common/modal/ModalButtonDiv';
 
 function MainCategoryModal() {
   const { closeModal } = useModal();

@@ -1,6 +1,6 @@
 /** ModalOutPut 되물어보는 MODAL 출력 컴포넌트 */
 import useModal from '../Modal/Community/useModal';
-import ModalButtonDiv from '../common/modalComponent/ModalButtonDiv';
+import ModalButtonDiv from '../common/modal/ModalButtonDiv';
 import { Layout } from '../../styles/Community/BarSecModalStyle';
 
 export const ModalOutPut = ({ title, content, act, actText }) => {
