@@ -6,8 +6,15 @@ import { body_01 } from '../../../styles/fontStyle';
 const TagButtons = () => {
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
   const { area, field, category } = PostDetail;
-  const combinedArray = [...area, ...field];
-  combinedArray.push(category);
+  const combinedArray = [...area, ...field, category];
+
+  const TagButton = ({ tag }) => {
+    return (
+      <Button>
+        <TextWarpper>{tag}</TextWarpper>
+      </Button>
+    );
+  };
 
   return (
     <TagList>
@@ -20,18 +27,9 @@ const TagButtons = () => {
 
 export default TagButtons;
 
-const TagButton = ({ tag }) => {
-  return (
-    <Button>
-      <TextWarpper>{tag}</TextWarpper>
-    </Button>
-  );
-};
-
 export const TagList = styled.div`
   display: flex;
   flex-direction: row;
-  flex-warp: wrap;
   gap: 8px;
   flex-wrap: wrap;
 `;
