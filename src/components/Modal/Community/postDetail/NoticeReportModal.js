@@ -1,11 +1,11 @@
 /** NoticeReportModal 신고 후 신고완료를 알리는 모달 */
-import Modal from "../Modal";
-import useModal from "../useModal";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { Layout } from "../../../../styles/Community/BarSecModalStyle";
-import { initializeForm } from "../../../../modules/Community/postDetail";
-import ModalButton from "../../../community/ModalButton";
+import Modal from '../Modal';
+import useModal from '../useModal';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Layout } from '../../../../styles/Community/BarSecModalStyle';
+import { initializeForm } from '../../../../modules/Community/postDetail';
+import ModalButton from '../../../common/modalComponent/ModalButton';
 
 function Notice2Modal() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Notice2Modal() {
 
   const closes = () => {
     dispatch(initializeForm());
-    navigate("/community");
+    navigate('/community');
     closeModal();
   };
 
@@ -30,7 +30,7 @@ function Notice2Modal() {
           src="https://c.animaapp.com/jSDFsaX0/img/check.svg"
         />
         <div className="border-2" />
-        <div onClick={closes}>{ModalButton("확인")}</div>
+        <div onClick={closes}>{ModalButton('확인')}</div>
       </Layout>
     </Modal>
   );

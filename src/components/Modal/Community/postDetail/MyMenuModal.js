@@ -4,7 +4,7 @@ import useModal from '../useModal';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import useSetButtonActive from '../../../../containers/community/postDetail/SetButtonActive';
-import ModalButton from '../../../community/ModalButton';
+import ModalButton from '../../../common/modalComponent/ModalButton';
 import {
   Menu,
   List,
