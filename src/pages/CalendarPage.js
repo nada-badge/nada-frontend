@@ -60,19 +60,18 @@ const CalendarPage = () => {
   });
 
   useEffect(() => {
-    let MonthEvent = [];
-    if (data) {
-      MonthEvent = data.map((e) => {
-        return {
-          title: e.activityName,
-          start: e.startedAt.slice(0, 10),
-          end: e.endedAt.slice(0, 10),
-        };
-      });
+    if (!data) {
+      return;
     }
 
+    const MonthEvent = (data.activities || []).map((e) => ({
+      title: e.activityName,
+      start: e.startedAt.slice(0, 10),
+      end: e.endedAt.slice(0, 10),
+    }));
+
     setEvents(MonthEvent);
-  }, []);
+  }, [data]);
 
   const openHandler = (info) => {
     // 모달 열기/닫기
