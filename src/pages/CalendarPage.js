@@ -35,6 +35,8 @@ const Div = styled.div`
 const today = new Date();
 
 const CalendarPage = () => {
+  const email = localStorage.getItem('email');
+
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
