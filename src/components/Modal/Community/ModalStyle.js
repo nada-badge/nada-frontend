@@ -36,7 +36,7 @@ export const MainCategory = styled.div`
   position: relative;
 
   & > .text-wrapper {
-    ${subtitle_02('var(#000000)')}
+    ${subtitle_02('#000000')}
     margin-top: -1.12px;
     position: relative;
     width: fit-content;

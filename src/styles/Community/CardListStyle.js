@@ -9,7 +9,7 @@ export const CardsContainer = styled.div`
   width: 375px;
 
   & > h1 {
-    ${subtitle_01('var(#000000)')}
+    ${subtitle_01('#000000')}
     position: relative;
     padding: 16px 12px;
     margin: 0;
