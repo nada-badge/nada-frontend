@@ -1,6 +1,7 @@
 /** TagButton area, field, category 정보를 태그 형식으로 출력하는 컴포넌트 */
-import styled from "styled-components";
-import { useSelector } from "react-redux";
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { body_01 } from '../../../styles/fontStyle';
 
 const TagButtons = () => {
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
@@ -47,15 +48,9 @@ export const Button = styled.div`
 `;
 
 export const TextWarpper = styled.div`
-  font-family: var(--body-01-font-family);
-  font-size: var(--body-01-font-size);
-  font-style: var(--body-01-font-style);
-  font-weight: var(--body-01-font-weight);
-  letter-spacing: var(--body-01-letter-spacing);
-  line-height: var(--body-01-line-height);
+  ${body_01('var(--myspec-gray-scalegray-600)')}
   margin-top: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
-  color: var(--myspec-gray-scalegray-600);
 `;

@@ -2,7 +2,7 @@
 import Modal from '../Modal';
 import useModal from '../useModal';
 import classNames from 'classnames';
-import ModalButton from '../../../common/modalComponent/ModalButton';
+import ModalButton from '../../../common/modal/ModalButton';
 import {
   Menu,
   List,

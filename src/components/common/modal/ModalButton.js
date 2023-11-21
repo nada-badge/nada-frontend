@@ -1,5 +1,6 @@
 /** ModalButton 모달 가장 아래에 위치한 full 버튼 컴포넌트 */
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_01 } from '../../../styles/fontStyle';
 
 export const ModalButton = (text) => {
   return (
@@ -20,14 +21,8 @@ export const Close = styled.div`
   width: 264px;
 
   & > .text-wrapper {
-    color: var(--myspec-gray-scalewhite);
-    font-family: var(--subtitle-01-font-family);
-    font-size: var(--subtitle-01-font-size);
-    font-style: var(--subtitle-01-font-style);
-    font-weight: var(--subtitle-01-font-weight);
+    ${subtitle_01('var(--myspec-gray-scalewhite)')}
     left: 117px;
-    letter-spacing: var(--subtitle-01-letter-spacing);
-    line-height: var(--subtitle-01-line-height);
     position: absolute;
     text-align: center;
     top: 11px;

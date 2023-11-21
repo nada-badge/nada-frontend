@@ -1,5 +1,6 @@
 /** ModalStyle 모달에서 공통적으로 사용하는 스타일 */
-import styled from "styled-components";
+import styled from 'styled-components';
+import { subtitle_02 } from '../../../styles/fontStyle';
 
 export const List = styled.div`
   align-items: center;
@@ -35,16 +36,9 @@ export const MainCategory = styled.div`
   position: relative;
 
   & > .text-wrapper {
-    color: #000000;
-    font-family: var(--subtitle-02-font-family);
-    font-size: var(--subtitle-02-font-size);
-    font-style: var(--subtitle-02-font-style);
-    font-weight: var(--subtitle-02-font-weight);
-    letter-spacing: var(--subtitle-02-letter-spacing);
-    line-height: var(--subtitle-02-line-height);
+    ${subtitle_02('var(#000000)')}
     margin-top: -1.12px;
     position: relative;
-    white-space: nowrap;
     width: fit-content;
   }
 `;
@@ -54,9 +48,9 @@ export const Img = styled.div`
   position: relative;
   width: 16px;
   background-size: 100%;
-  background-image: url("https://c.animaapp.com/qQD6JW1B/img/vector-7-2.svg");
+  background-image: url('https://c.animaapp.com/qQD6JW1B/img/vector-7-2.svg');
 
   &.active {
-    background-image: url("https://c.animaapp.com/NfzrR40k/img/vector-7.svg");
+    background-image: url('https://c.animaapp.com/NfzrR40k/img/vector-7.svg');
   }
 `;
