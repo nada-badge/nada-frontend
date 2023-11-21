@@ -1,41 +1,40 @@
 /** SelectAllButton  area, field, category 모달 내 전체를 아우르는 버튼 */
-import { useEffect, useState } from "react";
-import classNames from "classnames";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   communitySelector,
   initializeForm,
   addField,
-} from "../../modules/Community/community";
-import { Button, TextWarpper } from "../../styles/Community/SelectButton";
+} from '../../modules/Community/community';
+import { Button, TextWarpper } from '../../styles/Community/SelectButton';
 
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
 
   const [isActive, setIsActive] = useState();
-  const nowModal = useSelector(communitySelector("buttonSelect", "filter"));
+  const nowModal = useSelector(communitySelector('buttonSelect', 'filter'));
 
   const cases = [
-    { id: 1, key: "area", all: "전국" },
-    { id: 2, key: "field", all: "전체" },
-    { id: 3, key: "category", all: "전체" },
+    { id: 0, key: 'area', all: '전국' },
+    { id: 1, key: 'field', all: '전체' },
+    { id: 2, key: 'category', all: '전체' },
   ];
 
-  const num = match(nowModal);
-  const key = cases[num].key;
-  const all = cases[num].all;
+  const num = ['지역', '분야', '종류'].indexOf(nowModal);
+  const { key, all } = cases[num !== -1 ? num : cases.length - 1];
 
-  const state = useSelector(communitySelector("subButtonSelect", key));
+  const state = useSelector(communitySelector('subButtonSelect', key));
 
-  const OnClickButton = () => {
+  const onClickButton = () => {
     if (!state.includes(all)) {
-      dispatch(initializeForm({ form: "subButtonSelect", key: key }));
+      dispatch(initializeForm({ form: 'subButtonSelect', key: key }));
       dispatch(
         addField({
-          form: "subButtonSelect",
+          form: 'subButtonSelect',
           key: key,
           value: all,
-        })
+        }),
       );
     }
   };
@@ -45,21 +44,8 @@ export const SelectAllButton = () => {
   }, [state]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={OnClickButton}>
+    <Button className={classNames({ isActive })} onClick={onClickButton}>
       <TextWarpper className={classNames({ isActive })}>{all}</TextWarpper>
     </Button>
   );
-};
-
-const match = (nowModal) => {
-  switch (nowModal) {
-    case "지역":
-      return 0;
-    case "분야":
-      return 1;
-    case "종류":
-      return 2;
-    default:
-      return 4;
-  }
 };
