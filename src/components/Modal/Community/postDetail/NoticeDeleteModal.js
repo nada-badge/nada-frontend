@@ -1,6 +1,5 @@
 /** NoticeDeleteModal 삭제 후 삭제완료를 알리는 모달 */
 import Modal from '../Modal';
-import useModal from '../useModal';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../../../../styles/Community/BarSecModalStyle';
@@ -11,16 +10,13 @@ function NoticeModal() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { closeModal } = useModal();
-
   const closes = () => {
     dispatch(initializeForm());
     navigate('/community');
-    closeModal();
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <Layout>
         <div className="text">글이 삭제되었어요</div>
         <div className="border-2" />

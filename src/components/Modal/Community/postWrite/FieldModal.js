@@ -80,7 +80,7 @@ function FieldModal() {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <div>
         <List>
           <SelectAllButton text={buttonAll.text} />

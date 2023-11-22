@@ -78,7 +78,7 @@ function CategoryModal() {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <div>
         <List>
           <SelectAllButton />
