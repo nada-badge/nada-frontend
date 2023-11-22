@@ -53,7 +53,7 @@ const CalendarPage = () => {
   const [events, setEvents] = useState([]);
 
   // useQuery로 이벤트 가져오기
-  const { data, isLoading, isError } = useEventsQuery({
+  const { data } = useEventsQuery({
     email: email,
     year: today.getFullYear(),
     month: today.getMonth() + 1,
