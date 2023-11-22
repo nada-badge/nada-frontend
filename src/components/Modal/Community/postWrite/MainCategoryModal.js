@@ -77,7 +77,6 @@ function MainCategoryModal() {
         </ListMain>
         <Border />
         {ModalButtonDiv({
-          cancelText: '취소',
           cancel: Cancels,
           actText: '확인',
           act: SetStatus,

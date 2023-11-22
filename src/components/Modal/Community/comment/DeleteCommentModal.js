@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../../lib/api/client';
 import { PostDetailSelector } from '../../../../modules/Community/postDetail';
-import ModalAslOutPut from '../../../community/ModalAskOutput';
+import ModalAslOutPut from '../../../common/modal/ModalAskOutput';
 
 function DeleteCommentModal() {
   const postId = useSelector(PostDetailSelector('PostDetail', '_id'));

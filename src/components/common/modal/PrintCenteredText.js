@@ -1,3 +1,4 @@
+/** PrintCenterText 모달 내부에 가운데정렬 TEXT를 출력하는 컴포넌트 */
 import classNames from 'classnames';
 import { Menu } from '../../../styles/Community/BarModalStyle';
 import useModal from '../../Modal/Community/useModal';

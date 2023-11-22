@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import client from '../../../../lib/api/client';
 import { PostDetailSelector } from '../../../../modules/Community/postDetail';
-import ModalAslOutPut from '../../../community/ModalAskOutput';
+import ModalAslOutPut from '../../../common/modal/ModalAskOutput';
 
 function DeleteModal() {
   const navigate = useNavigate();

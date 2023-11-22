@@ -4,7 +4,9 @@ import { createSelector } from 'reselect';
 
 const initialState = {
   type: null,
-  props: null,
+  title: null,
+  content: null,
+  act: null,
 };
 
 export const modalSlice = createSlice({
@@ -12,9 +14,11 @@ export const modalSlice = createSlice({
   initialState,
   reducers: {
     openModal: (state, action) => {
-      const { type, props } = action.payload;
+      const { type, title, content, act } = action.payload;
       state.type = type;
-      state.props = props;
+      state.title = title;
+      state.content = content;
+      state.act = act;
     },
     closeModal: (state, action) => {
       return initialState;

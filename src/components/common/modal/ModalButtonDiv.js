@@ -1,12 +1,24 @@
 /** ModalButtonDiv 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
+import useModal from '../../Modal/Community/useModal';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { subtitle_01, subtitle_02 } from '../../../styles/fontStyle';
 
-export const ModalButtonDiv = ({ cancelText, cancel, actText, act, isRed }) => {
+export const ModalButtonDiv = ({
+  cancelText = '취소',
+  actText,
+  act,
+  isRed,
+}) => {
+  const { closeModal } = useModal();
+
+  const close = () => {
+    closeModal();
+  };
+
   return (
     <ButtonList>
-      <div className="cancel" onClick={() => cancel()}>
+      <div className="cancel" onClick={close}>
         <div className="text">{cancelText}</div>
       </div>
       <div className={classNames('act', { isRed })} onClick={() => act()}>
