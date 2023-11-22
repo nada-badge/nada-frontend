@@ -1,17 +1,18 @@
 import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Community/Modal';
-import useModal from '../../Modal/Community/useModal';
 import { Layout } from '../../../styles/Community/NoticeModalStyle';
 import ModalButton from './ModalButton';
+import { useNavigate } from 'react-router-dom';
 
 function NoticeModal() {
   const modal = useSelector(({ modal }) => modal);
-  const { title, content, act } = modal;
+  const { title } = modal;
+  const navigate = useNavigate();
 
   return (
     <Modal>
-      <Layout>
-        <div className="text">글이 삭제되었어요</div>
+      <Layout onClick={() => navigate(-1)}>
+        <div className="text">{title}되었어요</div>
         <div className="border-2" />
         <img
           className="img"
@@ -19,7 +20,7 @@ function NoticeModal() {
           src="https://c.animaapp.com/jSDFsaX0/img/check.svg"
         />
         <div className="border-2" />
-        <div onClick={act}>{ModalButton('확인')}</div>
+        <div>{ModalButton('확인')}</div>
       </Layout>
     </Modal>
   );

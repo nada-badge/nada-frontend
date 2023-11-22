@@ -3,25 +3,23 @@ import Modal from '../Modal';
 import useModal from '../useModal';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import client from '../../../../lib/api/client';
 import { PostDetailSelector } from '../../../../modules/Community/postDetail';
 import ModalAslOutPut from '../../../common/modal/ModalAskOutput';
 
 function DeleteModal() {
-  const navigate = useNavigate();
   const id = useSelector(PostDetailSelector('PostDetail', '_id'));
   const { closeModal, openModal } = useModal();
 
   const Delete = useCallback(async () => {
     try {
       await client.delete('/community/post', { data: { _id: id } });
-      openModal({ type: 'NoticeDeleteModal' });
+      openModal({ type: 'NoticeModal', title: '글이 삭제' });
     } catch (error) {
       console.error('삭제 중 오류 발생:', error);
       closeModal();
     }
-  }, [id, navigate]);
+  }, [id]);
 
   return (
     <Modal>

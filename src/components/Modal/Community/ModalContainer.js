@@ -8,13 +8,12 @@ import CategoryModal from './postWrite/CategoryModal';
 import MainCategoryModal from './postWrite/MainCategoryModal';
 import MyMenuModal from './postDetail/MyMenuModal';
 import DeleteModal from './postDetail/DeleteModal';
-import NoticeDeleteModal from './postDetail/NoticeDeleteModal';
 import ShareModal from './postDetail/ShareModal';
 import YourMenuModal from './postDetail/YourMenuModal';
 import ReportModal from './postDetail/ReportModal';
-import NoticeReportModal from './postDetail/NoticeReportModal';
 import MyCommentModal from './comment/MyCommentModal';
 import DeleteCommentModal from './comment/DeleteCommentModal';
+import NoticeModal from '../../common/modal/NoticeModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
@@ -23,13 +22,12 @@ const MODAL_COMPONENTS = {
   CategoryModal: CategoryModal,
   MyMenuModal: MyMenuModal,
   DeleteModal: DeleteModal,
-  NoticeDeleteModal: NoticeDeleteModal,
   ShareModal: ShareModal,
   YourMenuModal: YourMenuModal,
   ReportModal: ReportModal,
-  NoticeReportModal: NoticeReportModal,
   MyCommentModal: MyCommentModal,
   DeleteCommentModal: DeleteCommentModal,
+  NoticeModal: NoticeModal,
 };
 
 function ModalContainer() {
