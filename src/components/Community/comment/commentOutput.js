@@ -9,11 +9,13 @@ import useModal from '../../Modal/Community/useModal';
 const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
-  const sendReply = (e) => {
+
+  const sendReply = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'isReply', value: true }));
   };
-  const openMenu = (e) => {
+
+  const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'isCommentModal', value: true }));
     openModal({ type: 'MyCommentModal', props: comment.content });
