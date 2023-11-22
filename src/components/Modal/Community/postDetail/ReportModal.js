@@ -1,16 +1,21 @@
 /** ReportModal 게시글 신고를 물어보는 모달 */
 import Modal from '../Modal';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { PostDetailSelector } from '../../../../modules/Community/postDetail';
 import ModalAskOutPut from '../../../common/modal/ModalAskOutput';
 import useReport from '../../../../modules/queries/reportQuery';
+import useModal from '../useModal';
 
 function ReportModal() {
   const _id = useSelector(PostDetailSelector('PostDetail', '_id'));
   const { mutate } = useReport();
+  const { openModal } = useModal();
+  const navigate = useNavigate();
 
   const Report = () => {
     mutate({ _id });
+    openModal({ type: 'NoticeModal', title: '글이 신고' });
   };
 
   return (

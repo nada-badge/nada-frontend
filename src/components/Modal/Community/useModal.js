@@ -1,12 +1,12 @@
 /** useModal 모달 훅 */
-import { useDispatch } from "react-redux";
-import { openModal, closeModal } from "../../../modules/Community/modal";
+import { useDispatch } from 'react-redux';
+import { openModal, closeModal } from '../../../modules/Community/modal';
 
 function useModal() {
   const dispatch = useDispatch();
 
-  const handleOpenModal = ({ type, props }) => {
-    dispatch(openModal({ type, props }));
+  const handleOpenModal = ({ type, title, content, act }) => {
+    dispatch(openModal({ type, title }));
   };
 
   const handleCloseModal = (type) => {
