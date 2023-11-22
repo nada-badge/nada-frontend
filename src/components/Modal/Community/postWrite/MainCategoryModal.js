@@ -68,7 +68,7 @@ function MainCategoryModal() {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <div>
         <ListMain>
           {Output('모집 게시판', '모집')}

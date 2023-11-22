@@ -14,24 +14,16 @@ import {
 export const MyMenuModal = () => {
   const navigate = useNavigate();
   const setButtonActive = useSetButtonActive();
-  const { closeModal, openModal } = useModal();
+  const { closeModal } = useModal();
 
   const update = () => {
     setButtonActive();
     navigate('/community/PostWrite');
-    close();
-  };
-
-  const openModalType = (modalType) => {
-    openModal({ type: modalType });
-  };
-
-  const close = () => {
     closeModal();
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <Layout>
         <List>
           {PrintCenteredText({ text: '수정하기', act: update })}
@@ -45,7 +37,7 @@ export const MyMenuModal = () => {
           })}
         </List>
         <Border />
-        <div onClick={close}>{ModalButton('닫기')}</div>
+        {ModalButton('닫기')}
       </Layout>
     </Modal>
   );

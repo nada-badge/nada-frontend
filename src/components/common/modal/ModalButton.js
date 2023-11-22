@@ -1,10 +1,17 @@
 /** ModalButton 모달 가장 아래에 위치한 full 버튼 컴포넌트 */
+import useModal from '../../Modal/Community/useModal';
 import styled from 'styled-components';
 import { subtitle_01 } from '../../../styles/fontStyle';
 
 export const ModalButton = (text) => {
+  const { closeModal } = useModal();
+
+  const close = () => {
+    closeModal();
+  };
+
   return (
-    <Close>
+    <Close onClick={close}>
       <div className="text-wrapper">{text}</div>
     </Close>
   );

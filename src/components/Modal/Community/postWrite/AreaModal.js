@@ -76,7 +76,7 @@ function AreaModal() {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <div>
         <List>
           <SelectAllButton />
@@ -87,7 +87,6 @@ function AreaModal() {
           ))}
         </List>
         <Border />
-
         {ModalButtonDiv({
           cancelText: '취소',
           cancel: Cancels,

@@ -27,7 +27,7 @@ export const MyCommentModal = () => {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <Layout>
         <List>
           {PrintCenteredText({ text: '수정하기', act: Update })}
@@ -37,7 +37,7 @@ export const MyCommentModal = () => {
           })}
         </List>
         <Border />
-        <div onClick={close}>{ModalButton('닫기')}</div>
+        {ModalButton('닫기')}
       </Layout>
     </Modal>
   );

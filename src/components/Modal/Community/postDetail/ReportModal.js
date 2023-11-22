@@ -11,7 +11,7 @@ import ModalAskOutPut from '../../../community/ModalAskOutput';
 function ReportModal() {
   const navigate = useNavigate();
   const id = useSelector(PostDetailSelector('_id'));
-  const { closeModal, openModal } = useModal();
+  const { openModal } = useModal();
 
   const Report = useCallback(async () => {
     try {
@@ -23,7 +23,7 @@ function ReportModal() {
   }, [id, navigate]);
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       {ModalAskOutPut({
         title: '이 글을 신고할까요?',
         content: '신고한 글은 서비스 운영 원칙에 따라 처리돼요',

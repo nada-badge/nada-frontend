@@ -1,18 +1,11 @@
 /** ShareModal 공유 방법을 선택하는 모달 */
 import Modal from '../Modal';
-import useModal from '../useModal';
 import { Layout, Image } from '../../../../styles/Community/BarSecModalStyle';
 import ModalButton from '../../../common/modal/ModalButton';
 
 function ShareModal() {
-  const { closeModal } = useModal();
-
-  const closes = () => {
-    closeModal();
-  };
-
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <Layout>
         <div className="title">공유하기</div>
         <div className="border-2" />
@@ -27,7 +20,7 @@ function ShareModal() {
         </div>
 
         <div className="border-2" />
-        <div onClick={closes}>{ModalButton('닫기')}</div>
+        {ModalButton('닫기')}
       </Layout>
     </Modal>
   );

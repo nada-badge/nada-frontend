@@ -25,7 +25,7 @@ function DeleteCommentModal() {
   }, []);
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       {ModalAslOutPut({
         title: '댓글을 삭제할까요?',
         content: '한 번 삭제한 댓글은 복구할 수 없어요',

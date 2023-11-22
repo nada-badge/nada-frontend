@@ -17,14 +17,14 @@ export const YourMenuModal = () => {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal>
       <Layout>
         <List>
           {PrintCenteredText({ text: '신고하기', modalType: 'ReportModal' })}
           {PrintCenteredText({ text: '공유하기', modalType: 'ShareModal' })}
         </List>
         <Border />
-        <div onClick={close}>{ModalButton('닫기')}</div>
+        {ModalButton('닫기')}
       </Layout>
     </Modal>
   );
