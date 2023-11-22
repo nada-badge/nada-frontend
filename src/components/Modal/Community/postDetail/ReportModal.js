@@ -1,26 +1,17 @@
 /** ReportModal 게시글 신고를 물어보는 모달 */
 import Modal from '../Modal';
-import useModal from '../useModal';
-import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import client from '../../../../lib/api/client';
 import { PostDetailSelector } from '../../../../modules/Community/postDetail';
-import ModalAskOutPut from '../../../community/ModalAskOutput';
+import ModalAskOutPut from '../../../common/modal/ModalAskOutput';
+import useReport from '../../../../modules/queries/reportQuery';
 
 function ReportModal() {
-  const navigate = useNavigate();
-  const id = useSelector(PostDetailSelector('_id'));
-  const { openModal } = useModal();
+  const _id = useSelector(PostDetailSelector('PostDetail', '_id'));
+  const { mutate } = useReport();
 
-  const Report = useCallback(async () => {
-    try {
-      await client.post('/community/post/report', { data: { _id: id } });
-      openModal({ type: 'NoticeReportModal' });
-    } catch (error) {
-      console.error('삭제 중 오류 발생:', error);
-    }
-  }, [id, navigate]);
+  const Report = () => {
+    mutate({ _id });
+  };
 
   return (
     <Modal>

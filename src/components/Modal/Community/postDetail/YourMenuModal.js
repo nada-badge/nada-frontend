@@ -1,6 +1,5 @@
 /** YourMenuModal 메뉴 클릭 시, 타인이 작성한 글일 경우 나오는 모달 */
 import Modal from '../Modal';
-import useModal from '../useModal';
 import ModalButton from '../../../common/modal/ModalButton';
 import PrintCenteredText from '../../../common/modal/PrintCenteredText';
 import {
@@ -10,12 +9,6 @@ import {
 } from '../../../../styles/Community/BarModalStyle';
 
 export const YourMenuModal = () => {
-  const { closeModal } = useModal();
-
-  const close = () => {
-    closeModal();
-  };
-
   return (
     <Modal>
       <Layout>

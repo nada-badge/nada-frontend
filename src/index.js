@@ -18,11 +18,13 @@ import communitySlice from './modules/Community/community';
 import postWriteSlice from './modules/Community/postWrite';
 import PostDetailSlice from './modules/Community/postDetail.js';
 import { modalSlice } from './modules/Community/modal';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 import './styles/common.scss';
 import './styleguide.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+const queryClient = new QueryClient();
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
@@ -39,20 +41,22 @@ const store = configureStore({
 });
 
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Mobile>
-        <Header />
-        <App />
-        <ModalContainer />
-        <BottomNav />
-      </Mobile>
-      <PC>
-        <Header />
-        <App />
-        <ModalContainer />
-        <BottomNav />
-      </PC>
-    </BrowserRouter>
-  </Provider>,
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Mobile>
+          <Header />
+          <App />
+          <ModalContainer />
+          <BottomNav />
+        </Mobile>
+        <PC>
+          <Header />
+          <App />
+          <ModalContainer />
+          <BottomNav />
+        </PC>
+      </BrowserRouter>
+    </Provider>
+  </QueryClientProvider>,
 );

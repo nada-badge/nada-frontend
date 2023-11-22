@@ -2,7 +2,7 @@
 import Modal from '../Modal';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Layout } from '../../../../styles/Community/BarSecModalStyle';
+import { Layout } from '../../../../styles/Community/NoticeModalStyle';
 import { initializeForm } from '../../../../modules/Community/postDetail';
 import ModalButton from '../../../common/modal/ModalButton';
 
