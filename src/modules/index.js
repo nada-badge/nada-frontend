@@ -4,7 +4,7 @@ import activity from './activity';
 import barStatus from './bar';
 import schedule from './schedule';
 import user from './user';
-import calendar from './calendar';
+import calendar from './calendar/calendar';
 
 const rootReducer = combineReducers({
   auth,

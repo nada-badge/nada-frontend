@@ -8,9 +8,10 @@ import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../modules/calendar';
+import { changeField } from '../modules/calendar/calendar';
 import useEventsQuery from '../modules/queries/EventQuery';
 import { setBarStatus } from '../modules/bar';
+import { filter } from '../modules/calendar/filterEvent';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -105,21 +106,7 @@ const CalendarPage = () => {
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(
     (baseDateStr) => {
-      const baseDate = new Date(baseDateStr);
-      const formatDate = (date) => date.toISOString().slice(0, 10);
-
-      return events
-        .map(({ title, start, end }) => ({
-          title,
-          start: new Date(start),
-          end: new Date(end),
-        }))
-        .filter(({ start, end }) => start <= baseDate && baseDate <= end)
-        .map(({ title, start, end }) => ({
-          title,
-          start: formatDate(start),
-          end: formatDate(end),
-        }));
+      return filter(baseDateStr, events);
     },
     [events],
   );
