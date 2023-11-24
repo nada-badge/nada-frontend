@@ -12,7 +12,6 @@ import { changeField } from '../modules/calendar/calendar';
 import useEventsQuery from '../modules/queries/EventQuery';
 import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
-import { generateRGBAArray } from './color';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -66,17 +65,10 @@ const CalendarPage = () => {
       return;
     }
 
-    // 월(month) 데이터에 따라 색상 불러오기
-    const colorList = generateRGBAArray(
-      today.getMonth(),
-      data.activities.length,
-    );
-
     const MonthEvent = (data.activities || []).map((e, idx) => ({
       title: e.activityName,
       start: e.startedAt.slice(0, 10),
       end: e.endedAt.slice(0, 10),
-      color: colorList[idx],
     }));
 
     setEvents(MonthEvent);
