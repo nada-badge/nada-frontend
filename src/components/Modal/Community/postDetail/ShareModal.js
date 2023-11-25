@@ -9,7 +9,6 @@ function ShareModal() {
       <Layout>
         <div className="title">공유하기</div>
         <div className="border-2" />
-
         <div className="link">
           <Image className="linkImg" />
           <div className="text">링크 복사하기</div>

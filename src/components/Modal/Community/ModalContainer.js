@@ -7,7 +7,6 @@ import FieldModal from './postWrite/FieldModal';
 import CategoryModal from './postWrite/CategoryModal';
 import MainCategoryModal from './postWrite/MainCategoryModal';
 import MyMenuModal from './postDetail/MyMenuModal';
-import DeleteModal from './postDetail/DeleteModal';
 import ShareModal from './postDetail/ShareModal';
 import YourMenuModal from './postDetail/YourMenuModal';
 import MyCommentModal from './comment/MyCommentModal';
@@ -20,7 +19,6 @@ const MODAL_COMPONENTS = {
   FieldModal: FieldModal,
   CategoryModal: CategoryModal,
   MyMenuModal: MyMenuModal,
-  DeleteModal: DeleteModal,
   ShareModal: ShareModal,
   YourMenuModal: YourMenuModal,
   MyCommentModal: MyCommentModal,
