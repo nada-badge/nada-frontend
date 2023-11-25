@@ -12,7 +12,7 @@ function useSetButtonActive() {
     dispatch(setField({ form: 'method', key: 'isSubmit', value: false }));
 
     //postWrite의 필터 버튼의 상태값을 지정하기 위해 활설/비활성 상태를 알아냄
-    const valueArea = !(PostDetail.area[0] === '전국');
+    const valueRegion = !(PostDetail.region[0] === '전국');
     const valueField = !(PostDetail.field[0] === '전체');
     const valueCategory = !(PostDetail.category === '전체');
 
@@ -27,8 +27,8 @@ function useSetButtonActive() {
     dispatch(
       setField({
         form: 'ButtonActive',
-        key: 'area',
-        value: valueArea,
+        key: 'region',
+        value: valueRegion,
       }),
     );
     dispatch(

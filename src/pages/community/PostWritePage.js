@@ -7,7 +7,7 @@ import {
   initializeAll,
   postWriteSelector,
 } from '../../modules/Community/postWrite';
-import { AreaButton } from '../../containers/community/postWrite/AreaButton';
+import { RegionButton } from '../../containers/community/postWrite/RegionButton';
 import { FieldButton } from '../../containers/community/postWrite/FieldButton';
 import { MainCategoryButton } from '../../containers/community/postWrite/MainCategoryButton';
 import { CategoryButton } from '../../containers/community/postWrite/CategoryButton';
@@ -18,7 +18,7 @@ import {
   Frame,
   Content,
   Border,
-  AreaImages,
+  RegionImages,
 } from '../../styles/Community/PostWriteStyle';
 
 const PostWrite = () => {
@@ -60,7 +60,7 @@ const PostWrite = () => {
     const mainCategorys = postwrite.mainCategory;
     const categorys = postwrite.category;
     const fields = postwrite.field;
-    const areas = postwrite.area;
+    const regions = postwrite.region;
     const title = e.target.title.value;
     const content = e.target.content.value;
 
@@ -72,7 +72,7 @@ const PostWrite = () => {
         mainCategorys,
         categorys,
         fields,
-        areas,
+        regions,
         title,
         content,
       });
@@ -84,7 +84,7 @@ const PostWrite = () => {
         mainCategorys,
         categorys,
         fields,
-        areas,
+        regions,
         title,
         content,
       });
@@ -107,7 +107,7 @@ const PostWrite = () => {
         <Border />
         <Frame>
           <MainCategoryButton />
-          <AreaButton text="지역" Modalname="AreaModal" state="Area" />
+          <RegionButton text="지역" Modalname="RegionModal" state="Region" />
           <FieldButton text="분야" Modalname="FieldModal" state="Field" />
           <CategoryButton
             text="종류"
@@ -127,7 +127,7 @@ const PostWrite = () => {
         </Content>
 
         <Border />
-        <AreaImages>
+        <RegionImages>
           <div className="images">
             <div className="image">
               <div className="overlap-group">
@@ -148,7 +148,7 @@ const PostWrite = () => {
               </div>
             </div>
           </div>
-        </AreaImages>
+        </RegionImages>
         <button>테스트 제출 버튼</button>
       </form>
     </PostContainer>

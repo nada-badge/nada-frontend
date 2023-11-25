@@ -1,4 +1,4 @@
-/** SelectButton  area, field, category 모달 내 개별요소에 대한 버튼 */
+/** SelectButton  region, field, category 모달 내 개별요소에 대한 버튼 */
 import { useEffect } from 'react';
 import classNames from 'classnames';
 import { useState } from 'react';
@@ -24,14 +24,14 @@ export const SelectButton = ({ text }) => {
   const form = 'postWriteSelect';
 
   const cases = [
-    { id: 0, key: 'area', all: '전국' },
+    { id: 0, key: 'region', all: '전국' },
     { id: 1, key: 'field', all: '전체' },
     { id: 2, key: 'category', all: '전체' },
   ];
   //현재 선택된 모달에 따른 key와 all 값 선언
   const key = cases[nowModal].key;
   const all = cases[nowModal].all;
-  //area, field와 category의 타입차이로 인한 삼항 연산자
+  //region, field와 category의 타입차이로 인한 삼항 연산자
   const setStatus = key === 'category' ? setField : addField;
   const deleteStatus = key === 'category' ? initializeForm : deleteField;
 

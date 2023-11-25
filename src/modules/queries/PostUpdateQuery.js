@@ -1,7 +1,7 @@
 /** postUpdateQuery 게시글을 수정 하는 쿼리 */
-import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
-import client from "../../lib/api/client";
+import { useMutation } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import client from '../../lib/api/client';
 
 const useUpdate = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const useUpdate = () => {
       mainCategorys,
       categorys,
       fields,
-      areas,
+      regions,
       title,
       content,
     }) =>
@@ -26,19 +26,19 @@ const useUpdate = () => {
         mainCategory: mainCategorys,
         category: categorys,
         field: fields,
-        area: areas,
+        region: regions,
         title: title,
         content: content,
       }),
     onSuccess: (data) => {
-      console.log("게시물이 수정되었습니다.", data);
-      alert("수정되었습니다.");
-      navigate("/Community");
+      console.log('게시물이 수정되었습니다.', data);
+      alert('수정되었습니다.');
+      navigate('/Community');
     },
     onError: (error) => {
-      console.log("게시물 수정에 실패하였습니다.", error);
-      alert("실패.");
-      navigate("/Community");
+      console.log('게시물 수정에 실패하였습니다.', error);
+      alert('실패.');
+      navigate('/Community');
     },
   });
 };

@@ -1,4 +1,4 @@
-/** SelectAllButton  area, field, category 모달 내 전체를 아우르는 버튼 */
+/** SelectAllButton  region, field, category 모달 내 전체를 아우르는 버튼 */
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,7 +16,7 @@ export const SelectAllButton = () => {
   const nowModal = useSelector(communitySelector('buttonSelect', 'filter'));
 
   const cases = [
-    { id: 0, key: 'area', all: '전국' },
+    { id: 0, key: 'region', all: '전국' },
     { id: 1, key: 'field', all: '전체' },
     { id: 2, key: 'category', all: '전체' },
   ];

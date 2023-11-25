@@ -1,4 +1,4 @@
-/** AreaModal postWrite 중 지역 button 클릭 시 나오는 모달 */
+/** RegionModal postWrite 중 지역 button 클릭 시 나오는 모달 */
 import { useEffect } from 'react';
 import Modal from '../Modal';
 import useModal from '../useModal';
@@ -14,13 +14,13 @@ import { SelectAllButton } from '../../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../ModalStyle';
 import ModalButtonDiv from '../../../common/modal/ModalButtonDiv';
 
-function AreaModal() {
+function RegionModal() {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const Initialization = useSelector(
-    postWriteSelector('postWriteSubmit', 'area'),
+    postWriteSelector('postWriteSubmit', 'region'),
   );
-  const status = useSelector(postWriteSelector('postWriteSelect', 'area'));
+  const status = useSelector(postWriteSelector('postWriteSelect', 'region'));
   const buttonAll = { text: '전국' };
 
   const buttons = [
@@ -45,7 +45,7 @@ function AreaModal() {
     dispatch(
       setField({
         form: 'postWriteSelect',
-        key: 'area',
+        key: 'region',
         value: Initialization,
       }),
     );
@@ -54,7 +54,7 @@ function AreaModal() {
   const SetStatus = () => {
     dispatch(
       submitForm({
-        key: 'area',
+        key: 'region',
       }),
     );
 
@@ -62,7 +62,7 @@ function AreaModal() {
     dispatch(
       setField({
         form: 'ButtonActive',
-        key: 'area',
+        key: 'region',
         value: value,
       }),
     );
@@ -71,7 +71,7 @@ function AreaModal() {
   };
 
   const Cancels = () => {
-    dispatch(initializeForm({ form: 'postWriteSelect', key: 'area' }));
+    dispatch(initializeForm({ form: 'postWriteSelect', key: 'region' }));
     closeModal();
   };
 
@@ -98,4 +98,4 @@ function AreaModal() {
   );
 }
 
-export default AreaModal;
+export default RegionModal;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { subtitle_03, body_01, caption_03 } from '../../../styles/fontStyle';
 
 const PostItem = ({ card }) => {
-  const { title, field, category, area, content, postAt } = card;
+  const { title, field, category, region, content, postAt } = card;
 
   return (
     <PostContainer>
@@ -12,7 +12,7 @@ const PostItem = ({ card }) => {
         <div className="title">{title}</div>
         <div className="text">{content}</div>
         <div className="frame">
-          <div className="text-2">{area}</div>
+          <div className="text-2">{region}</div>
           <div className="ellipse" />
           <div className="text-2">{field}</div>
           <div className="ellipse" />

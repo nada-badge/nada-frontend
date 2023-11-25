@@ -14,11 +14,11 @@ export const DropDown = ({ text, id }) => {
 
   const [state, setState] = useState('unselected');
   const cases = [
-    { text: 'area', all: '전국' },
+    { text: 'region', all: '전국' },
     { text: 'field', all: '전체' },
     { text: 'category', all: '전체' },
   ];
-  //해당 dropDown이 표현하는 area/field/category 의 선택값 불러오기
+  //해당 dropDown이 표현하는 region/field/category 의 선택값 불러오기
   const select = useSelector(
     communitySelector('subButtonSelect', cases[id].text),
   );
