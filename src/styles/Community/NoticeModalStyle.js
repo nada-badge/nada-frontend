@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { subtitle_01, subtitle_02, caption_02 } from '../fontStyle';
+import kakao from '../../icon/kakao.png';
+import link from '../../icon/link.png';
 
 export const Layout = styled.div`
   align-items: center;
@@ -46,7 +48,6 @@ export const Layout = styled.div`
     position: relative;
     width: 232px;
     height: 48px;
-    padding: 12px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-color: var(--myspec-gray-scalegray-200);
@@ -66,7 +67,6 @@ export const Layout = styled.div`
     position: relative;
     width: 232px;
     height: 48px;
-    padding: 12px;
 
     & > .text {
       ${subtitle_02('#000000')}
@@ -77,19 +77,18 @@ export const Layout = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   position: relative;
   background-size: 100%;
   width: 16px;
   height: 16px;
 
-  .linkImg {
-    background-color: blue;
+  &.linkImg {
     height: 16px;
-    background-image: url('https://c.animaapp.com/6iR4vGz3/img/link@2x.png');
+    background-image: url(${link});
   }
-  & .kakaOImg {
+  &.kakaOImg {
     height: 15px;
-    background-image: url('https://c.animaapp.com/6iR4vGz3/img/vector.png');
+    background-image: url(${kakao});
   }
 `;

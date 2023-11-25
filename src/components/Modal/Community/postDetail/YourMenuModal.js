@@ -22,6 +22,14 @@ export const YourMenuModal = () => {
     });
   };
 
+  const sharePost = () => {
+    openModal({
+      type: 'ShareModal',
+      actionType: '공유',
+      position: 'post',
+    });
+  };
+
   return (
     <Modal>
       <Layout>
@@ -30,7 +38,7 @@ export const YourMenuModal = () => {
             print: '신고하기',
             act: reportPost,
           })}
-          {PrintCenteredText({ print: '공유하기', modalType: 'ShareModal' })}
+          {PrintCenteredText({ print: '공유하기', act: sharePost })}
         </List>
         <Border />
         {ModalButton('닫기')}
