@@ -13,6 +13,7 @@ import { SelectButton } from '../../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../ModalStyle';
 import ModalButtonDiv from '../../../common/modal/ModalButtonDiv';
+import { regionButtons } from '../../../common/AreaFieldCategoryData';
 
 function RegionModal() {
   const { closeModal } = useModal();
@@ -22,24 +23,6 @@ function RegionModal() {
   );
   const status = useSelector(postWriteSelector('postWriteSelect', 'region'));
   const buttonAll = { text: '전국' };
-
-  const buttons = [
-    { id: 1, text: '서울' },
-    { id: 2, text: '부산' },
-    { id: 3, text: '대구' },
-    { id: 4, text: '인천' },
-    { id: 5, text: '광주' },
-    { id: 6, text: '대전' },
-    { id: 7, text: '울산' },
-    { id: 8, text: '경기' },
-    { id: 9, text: '강원' },
-    { id: 10, text: '충청' },
-    { id: 11, text: '경상' },
-    { id: 12, text: '전라' },
-    { id: 13, text: '제주' },
-    { id: 14, text: '세종' },
-    { id: 15, text: '해외' },
-  ];
 
   useEffect(() => {
     dispatch(
@@ -80,7 +63,7 @@ function RegionModal() {
       <div>
         <List>
           <SelectAllButton />
-          {buttons.map((button, index) => (
+          {regionButtons.map((button, index) => (
             <div key={index}>
               <SelectButton text={button.text} />
             </div>
