@@ -13,13 +13,23 @@ import {
 import { changeCommentField } from '../../../../modules/Community/postDetail';
 
 export const MyCommentModal = () => {
-  const { closeModal } = useModal();
+  const { closeModal, openModal } = useModal();
   const dispatch = useDispatch();
   const props = useSelector(ModalPropsSelector());
 
   const Update = () => {
     dispatch(changeCommentField({ form: 'content', value: props }));
     close();
+  };
+
+  const deleteComment = () => {
+    openModal({
+      type: 'AskModal',
+      contentType: '댓글',
+      actionType: '삭제',
+      content: '한 번 삭제한 댓글은 복구할 수 없어요',
+      position: 'comment',
+    });
   };
 
   const close = () => {
@@ -30,11 +40,8 @@ export const MyCommentModal = () => {
     <Modal>
       <Layout>
         <List>
-          {PrintCenteredText({ text: '수정하기', act: Update })}
-          {PrintCenteredText({
-            text: '삭제하기',
-            modalType: 'DeleteCommentModal',
-          })}
+          {PrintCenteredText({ print: '수정하기', act: Update })}
+          {PrintCenteredText({ print: '삭제하기', act: deleteComment })}
         </List>
         <Border />
         {ModalButton('닫기')}

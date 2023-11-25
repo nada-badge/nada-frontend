@@ -5,8 +5,14 @@ import { openModal, closeModal } from '../../../modules/Community/modal';
 function useModal() {
   const dispatch = useDispatch();
 
-  const handleOpenModal = ({ type, title, content, act }) => {
-    dispatch(openModal({ type, title }));
+  const handleOpenModal = ({
+    type,
+    contentType,
+    actionType,
+    content,
+    position,
+  }) => {
+    dispatch(openModal({ type, contentType, actionType, content, position }));
   };
 
   const handleCloseModal = (type) => {
