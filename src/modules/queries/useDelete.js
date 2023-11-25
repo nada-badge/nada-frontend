@@ -5,8 +5,7 @@ import client from '../../lib/api/client';
 
 const useDelete = () => {
   return useMutation({
-    mutationFn: ({ url, _id }) =>
-      client.delete(`${url}`, { data: { _id: _id } }),
+    mutationFn: ({ url, _id }) => client.delete(`${url}`, { data: { _id } }),
     onSuccess: (data) => {
       console.log('삭제되었습니다.', data);
     },

@@ -13,8 +13,8 @@ export const MenuModal = () => {
     <Modal>
       <Layout>
         <List>
-          {content.map((content) => {
-            return <div>{MenuTypeConfig(content)}</div>;
+          {content.map((content, index) => {
+            return <div key={index}>{MenuTypeConfig(content)}</div>;
           })}
         </List>
         <Border />
