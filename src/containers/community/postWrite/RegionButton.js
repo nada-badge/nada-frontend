@@ -18,7 +18,7 @@ export const RegionButton = ({ text }) => {
   const dispatch = useDispatch();
 
   const onClickButton1 = () => {
-    openModal({ type: 'RegionModal' });
+    openModal({ type: 'ButtonSelectModal', contentType: 'region' });
     dispatch(
       setField({
         form: 'postWriteSelect',

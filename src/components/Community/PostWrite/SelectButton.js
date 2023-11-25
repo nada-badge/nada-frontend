@@ -15,40 +15,39 @@ import {
   TextWarpper,
   Img,
 } from '../../../styles/Community/SelectButton';
+import { selectAllConfig } from '../../common/AreaFieldCategoryData';
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();
 
-  const nowModal = useSelector(postWriteSelector('postWriteSelect', 'modal'));
   const [isActive, setIsActive] = useState(false);
   const form = 'postWriteSelect';
 
-  const cases = [
-    { id: 0, key: 'region', all: '전국' },
-    { id: 1, key: 'field', all: '전체' },
-    { id: 2, key: 'category', all: '전체' },
-  ];
-  //현재 선택된 모달에 따른 key와 all 값 선언
-  const key = cases[nowModal].key;
-  const all = cases[nowModal].all;
-  //region, field와 category의 타입차이로 인한 삼항 연산자
-  const setStatus = key === 'category' ? setField : addField;
-  const deleteStatus = key === 'category' ? initializeForm : deleteField;
+  const modal = useSelector(({ modal }) => modal);
+  const { contentType } = modal;
+  const buttonAll = selectAllConfig(contentType);
 
-  const state = useSelector(postWriteSelector('postWriteSelect', key));
+  //현재 선택된 모달에 따른 key와 all 값 선언
+
+  //region, field와 category의 타입차이로 인한 삼항 연산자
+  const setStatus = contentType === 'category' ? setField : addField;
+  const deleteStatus =
+    contentType === 'category' ? initializeForm : deleteField;
+
+  const state = useSelector(postWriteSelector('postWriteSelect', contentType));
 
   const onClickButton = () => {
     const deactivateButton = () => {
-      dispatch(deleteStatus({ form, key, value: text }));
+      dispatch(deleteStatus({ form, key: contentType, value: text }));
       if (state.length === 1) {
-        dispatch(setStatus({ form, key, value: all }));
+        dispatch(setStatus({ form, key: contentType, value: buttonAll }));
       }
     };
 
     const activateButton = () => {
-      dispatch(setStatus({ form, key, value: text }));
-      if (key !== 'category') {
-        dispatch(deleteField({ form, key, value: all }));
+      dispatch(setStatus({ form, key: contentType, value: text }));
+      if (contentType !== 'category') {
+        dispatch(deleteField({ form, key: contentType, value: buttonAll }));
       }
     };
 

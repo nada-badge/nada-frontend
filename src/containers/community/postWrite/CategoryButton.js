@@ -1,30 +1,30 @@
 /** CategoryButton 종류 버튼 */
-import { useSelector, useDispatch } from "react-redux";
-import classNames from "classnames";
-import useModal from "../../../components/Modal/Community/useModal";
+import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
+import useModal from '../../../components/Modal/Community/useModal';
 import {
   Filter,
   TextWarpper,
   Img,
-} from "../../../styles/Community/FilterModalStyle";
+} from '../../../styles/Community/FilterModalStyle';
 import {
   setField,
   postWriteSelector,
-} from "../../../modules/Community/postWrite";
+} from '../../../modules/Community/postWrite';
 
 export const CategoryButton = ({ text }) => {
-  const isActive = useSelector(postWriteSelector("ButtonActive", "category"));
+  const isActive = useSelector(postWriteSelector('ButtonActive', 'category'));
   const { openModal } = useModal();
   const dispatch = useDispatch();
 
   const onClickButton1 = () => {
-    openModal({ type: "CategoryModal" });
+    openModal({ type: 'ButtonSelectModal', contentType: 'category' });
     dispatch(
       setField({
-        form: "postWriteSelect",
-        key: "modal",
+        form: 'postWriteSelect',
+        key: 'modal',
         value: 2,
-      })
+      }),
     );
   };
 

@@ -48,3 +48,26 @@ export const categoryButtons = [
   { id: 8, text: '인턴' },
   { id: 9, text: '아르바이트' },
 ];
+
+export function selectConfig(content, mainCategory) {
+  const Config = {
+    region: regionButtons,
+    field: fieldButtons,
+    category: categoryButtons,
+  };
+
+  if (content === 'category' && mainCategory === '모집') {
+    return Config[content].slice(0, 6);
+  }
+  return Config[content];
+}
+
+export function selectAllConfig(content) {
+  const Config = {
+    region: '전국',
+    field: '전체',
+    category: '전체',
+  };
+
+  return Config[content];
+}
