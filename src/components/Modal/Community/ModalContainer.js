@@ -2,24 +2,20 @@
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { modalSelector } from '../../../modules/Community/modal';
-import RegionModal from './postWrite/RegionModal';
-import FieldModal from './postWrite/FieldModal';
-import CategoryModal from './postWrite/CategoryModal';
 import MainCategoryModal from './postWrite/MainCategoryModal';
 import ShareModal from '../../common/modal/ShareModal';
 import NoticeModal from '../../common/modal/NoticeModal';
 import AskModal from '../../common/modal/AskModal';
-import MenuModal from '../../common/modal/menuModal';
+import ButtonSelectModal from '../../common/modal/ButtonSelectModal ';
+import MenuModal from '../../common/modal/MenuModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
-  RegionModal: RegionModal,
-  FieldModal: FieldModal,
-  CategoryModal: CategoryModal,
   ShareModal: ShareModal,
   NoticeModal: NoticeModal,
   AskModal: AskModal,
   MenuModal: MenuModal,
+  ButtonSelectModal: ButtonSelectModal,
 };
 
 function ModalContainer() {
