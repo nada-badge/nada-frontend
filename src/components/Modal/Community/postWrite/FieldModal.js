@@ -13,6 +13,7 @@ import { SelectButton } from '../../../community/PostWrite/SelectButton';
 import { List, Border } from '../ModalStyle';
 import { SelectAllButton } from '../../../community/PostWrite/SelectAllButton';
 import ModalButtonDiv from '../../../common/modal/ModalButtonDiv';
+import { fieldButtons } from '../../../common/AreaFieldCategoryData';
 
 function FieldModal() {
   const { closeModal } = useModal();
@@ -23,27 +24,6 @@ function FieldModal() {
   const status = useSelector(postWriteSelector('postWriteSelect', 'field'));
 
   const buttonAll = { text: '전체' };
-
-  const buttons = [
-    { id: 1, text: '인문/사회' },
-    { id: 2, text: '광고/마케팅' },
-    { id: 3, text: '디자인/미술' },
-    { id: 4, text: '경영/경제/무역' },
-    { id: 5, text: '자기계발' },
-    { id: 6, text: 'IT/전자' },
-    { id: 7, text: '자연과학' },
-    { id: 8, text: '사진/영상' },
-    { id: 9, text: '보건/의료' },
-    { id: 10, text: '건축/토목' },
-    { id: 11, text: '교육' },
-    { id: 12, text: '봉사/사회공헌' },
-    { id: 13, text: '페스티벌/행사' },
-    { id: 14, text: '식품/요리' },
-    { id: 15, text: '체육' },
-    { id: 16, text: '도시/환경' },
-    { id: 17, text: '문화/예술' },
-    { id: 18, text: '역사/탐방' },
-  ];
 
   useEffect(() => {
     dispatch(
@@ -84,7 +64,7 @@ function FieldModal() {
       <div>
         <List>
           <SelectAllButton text={buttonAll.text} />
-          {buttons.map((button, index) => (
+          {fieldButtons.map((button, index) => (
             <div key={index}>
               <SelectButton text={button.text} />
             </div>

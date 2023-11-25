@@ -13,7 +13,7 @@ import { SelectButton } from '../../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../../community/PostWrite/SelectAllButton';
 import ModalButtonDiv from '../../../common/modal/ModalButtonDiv';
 import { List, Border } from '../ModalStyle';
-
+import { categoryButtons } from '../../../common/AreaFieldCategoryData';
 function CategoryModal() {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
@@ -28,17 +28,7 @@ function CategoryModal() {
 
   const buttonAll = { text: '전체' };
 
-  const [buttons, setButtons] = useState([
-    { id: 1, text: '공모전' },
-    { id: 2, text: '연합동아리' },
-    { id: 3, text: '교내동아리' },
-    { id: 4, text: '지역동아리' },
-    { id: 5, text: '소모임' },
-    { id: 6, text: '프로젝트' },
-    { id: 7, text: '대외활동' },
-    { id: 8, text: '인턴' },
-    { id: 9, text: '아르바이트' },
-  ]);
+  const [buttons, setButtons] = useState(categoryButtons);
 
   useEffect(() => {
     dispatch(
