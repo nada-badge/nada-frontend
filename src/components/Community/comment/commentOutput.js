@@ -18,7 +18,11 @@ const CommentOutPut = ({ comment }) => {
   const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'isCommentModal', value: true }));
-    openModal({ type: 'MyCommentModal', props: comment.content });
+    openModal({
+      type: 'MyCommentModal',
+      content: comment.content,
+      position: 'comment',
+    });
   };
 
   return (

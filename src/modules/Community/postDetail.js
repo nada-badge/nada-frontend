@@ -24,6 +24,7 @@ const initialState = {
     isCommentModal: Boolean(false),
     content: '',
     _id: '',
+    reply_id: '',
   },
 };
 

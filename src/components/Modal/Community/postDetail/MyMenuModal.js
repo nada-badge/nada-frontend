@@ -14,26 +14,40 @@ import {
 export const MyMenuModal = () => {
   const navigate = useNavigate();
   const setButtonActive = useSetButtonActive();
-  const { closeModal } = useModal();
+  const { closeModal, openModal } = useModal();
 
-  const update = () => {
+  const updatePost = () => {
     setButtonActive();
     navigate('/community/PostWrite');
     closeModal();
+  };
+
+  const sharePost = () => {
+    openModal({ type: 'ShareModal' });
+  };
+
+  const deletePost = () => {
+    openModal({
+      type: 'AskModal',
+      contentType: '글',
+      actionType: '삭제',
+      content: '한 번 삭제한 글은 복구할 수 없어요',
+      position: 'post',
+    });
   };
 
   return (
     <Modal>
       <Layout>
         <List>
-          {PrintCenteredText({ text: '수정하기', act: update })}
+          {PrintCenteredText({ print: '수정하기', act: updatePost })}
           {PrintCenteredText({
-            text: '공유하기',
-            modalType: 'ShareModal',
+            print: '공유하기',
+            act: sharePost,
           })}
           {PrintCenteredText({
-            text: '삭제하기',
-            modalType: 'DeleteModal',
+            print: '삭제하기',
+            act: deletePost,
           })}
         </List>
         <Border />

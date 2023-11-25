@@ -23,8 +23,6 @@ import CommentPage from './pages/community/CommentPage';
 import MyPage from './testpage/myPage';
 import SearchActivityPage from './pages/activity/SearchActivityPage';
 
-const queryClient = new QueryClient();
-
 const App = () => {
   return (
     <div className="App">

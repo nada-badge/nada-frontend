@@ -18,7 +18,7 @@ export const BottomBar = () => {
   const [isActive, setIsActive] = useState();
 
   const openMenu = () => {
-    openModal({ type: 'MyMenuModal' });
+    openModal({ type: 'YourMenuModal' });
   };
 
   const bookMark = () => {
