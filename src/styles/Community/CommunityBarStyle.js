@@ -57,11 +57,3 @@ export const MenuImg = styled(Img)`
   left: 14px;
   background-image: url('https://c.animaapp.com/Owwkr6s0/img/frame-33.svg');
 `;
-
-export const BookmarkImg = styled(Img)`
-  left: 50px;
-  background-image: url('https://c.animaapp.com/Owwkr6s0/img/bookmark.svg');
-  &.isActive {
-    background-image: url('https://c.animaapp.com/dApWEI5K/img/bookmark.svg');
-  }
-`;

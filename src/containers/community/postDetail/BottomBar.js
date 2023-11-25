@@ -2,11 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {
-  Bar,
-  MenuImg,
-  BookmarkImg,
-} from '../../../styles/Community/CommunityBarStyle';
+import { Bar, MenuImg } from '../../../styles/Community/CommunityBarStyle';
 import useModal from '../../../components/Modal/Community/useModal';
 import classNames from 'classnames';
 import { PostDetailSelector } from '../../../modules/Community/postDetail';
@@ -26,11 +22,6 @@ export const BottomBar = () => {
     });
   };
 
-  const bookMark = () => {
-    setIsActive(!isActive);
-    //북마크 여부 정보를 넘기는 코드 작성 예정
-  };
-
   const openComment = () => {
     navigate(`/community/Comment/${id}`);
   };
@@ -38,7 +29,6 @@ export const BottomBar = () => {
   return (
     <Bar>
       <MenuImg onClick={openMenu} />
-      <BookmarkImg onClick={bookMark} className={classNames({ isActive })} />
       <div className="div">
         <div className="comment">
           <div className="group" onClick={openComment}>
