@@ -6,24 +6,20 @@ import AreaModal from './postWrite/AreaModal';
 import FieldModal from './postWrite/FieldModal';
 import CategoryModal from './postWrite/CategoryModal';
 import MainCategoryModal from './postWrite/MainCategoryModal';
-import MyMenuModal from './postDetail/MyMenuModal';
-import ShareModal from './postDetail/ShareModal';
-import YourMenuModal from './postDetail/YourMenuModal';
-import MyCommentModal from './comment/MyCommentModal';
+import ShareModal from '../../common/modal/ShareModal';
 import NoticeModal from '../../common/modal/NoticeModal';
 import AskModal from '../../common/modal/AskModal';
+import MenuModal from '../../common/modal/menuModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
   AreaModal: AreaModal,
   FieldModal: FieldModal,
   CategoryModal: CategoryModal,
-  MyMenuModal: MyMenuModal,
   ShareModal: ShareModal,
-  YourMenuModal: YourMenuModal,
-  MyCommentModal: MyCommentModal,
   NoticeModal: NoticeModal,
   AskModal: AskModal,
+  MenuModal: MenuModal,
 };
 
 function ModalContainer() {

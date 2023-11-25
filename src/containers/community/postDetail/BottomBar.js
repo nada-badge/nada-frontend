@@ -18,7 +18,12 @@ export const BottomBar = () => {
   const [isActive, setIsActive] = useState();
 
   const openMenu = () => {
-    openModal({ type: 'YourMenuModal' });
+    openModal({
+      type: 'MenuModal',
+      contentType: '글',
+      content: ['Share', 'Delete'],
+      position: 'post',
+    });
   };
 
   const bookMark = () => {

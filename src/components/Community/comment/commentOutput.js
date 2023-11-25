@@ -19,8 +19,9 @@ const CommentOutPut = ({ comment }) => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'isCommentModal', value: true }));
     openModal({
-      type: 'MyCommentModal',
-      content: comment.content,
+      type: 'MenuModal',
+      contentType: '댓글',
+      content: ['Copy', 'Update', 'Delete', 'Report'],
       position: 'comment',
     });
   };
