@@ -1,12 +1,12 @@
-/** TagButton area, field, category 정보를 태그 형식으로 출력하는 컴포넌트 */
+/** TagButton region, field, category 정보를 태그 형식으로 출력하는 컴포넌트 */
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { body_01 } from '../../../styles/fontStyle';
 
 const TagButtons = () => {
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
-  const { area, field, category } = PostDetail;
-  const combinedArray = [...area, ...field, category];
+  const { region, field, category } = PostDetail;
+  const combinedArray = [...region, ...field, category];
 
   const TagButton = ({ tag }) => {
     return (

@@ -2,7 +2,7 @@
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { modalSelector } from '../../../modules/Community/modal';
-import AreaModal from './postWrite/AreaModal';
+import RegionModal from './postWrite/RegionModal';
 import FieldModal from './postWrite/FieldModal';
 import CategoryModal from './postWrite/CategoryModal';
 import MainCategoryModal from './postWrite/MainCategoryModal';
@@ -13,7 +13,7 @@ import MenuModal from '../../common/modal/menuModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
-  AreaModal: AreaModal,
+  RegionModal: RegionModal,
   FieldModal: FieldModal,
   CategoryModal: CategoryModal,
   ShareModal: ShareModal,

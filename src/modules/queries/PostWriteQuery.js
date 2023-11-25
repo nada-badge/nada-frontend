@@ -1,7 +1,7 @@
 /** postWriteQuery 게시글을 작성하는 쿼리 */
-import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
-import client from "../../lib/api/client";
+import { useMutation } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import client from '../../lib/api/client';
 
 const useSubmit = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const useSubmit = () => {
       mainCategorys,
       categorys,
       fields,
-      areas,
+      regions,
       title,
       content,
     }) =>
@@ -24,19 +24,19 @@ const useSubmit = () => {
         mainCategory: mainCategorys,
         category: categorys,
         field: fields,
-        area: areas,
+        region: regions,
         title: title,
         content: content,
       }),
     onSuccess: (data) => {
-      console.log("게시물이 등록되었습니다.", data);
-      alert("등록되었습니다.");
-      navigate("/Community");
+      console.log('게시물이 등록되었습니다.', data);
+      alert('등록되었습니다.');
+      navigate('/Community');
     },
     onError: (error) => {
-      console.log("게시물 등록에 실패하였습니다.", error);
-      alert("실패.");
-      navigate("/Community");
+      console.log('게시물 등록에 실패하였습니다.', error);
+      alert('실패.');
+      navigate('/Community');
     },
   });
 };

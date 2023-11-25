@@ -1,23 +1,23 @@
 /** community 커뮤니티 메인페이지와 관련된 정보를 관리하는 리덕스 */
-import { createSlice } from "@reduxjs/toolkit";
-import { createSelector } from "reselect";
+import { createSlice } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 const initialState = {
   buttonSelect: {
     // 현재 사용자가 활성화한 maincategory와 filter의 정보를 관리
-    maincategory: "모집",
+    maincategory: '모집',
     filter: undefined,
   },
   subButtonSelect: {
     // 현재 각 filter에서 선택된 값을 관리
-    area: ["전국"],
-    field: ["전체"],
-    category: ["전체"],
+    region: ['전국'],
+    field: ['전체'],
+    category: ['전체'],
   },
 };
 
 const communitySlice = createSlice({
-  name: "community",
+  name: 'community',
   initialState,
   reducers: {
     setField: (state, { payload: { form, key, value } }) => {
@@ -58,5 +58,5 @@ const communitySelects = (type, field) => (rootState) => {
 
 export const communitySelector = createSelector(
   communitySelects,
-  (field) => field
+  (field) => field,
 );

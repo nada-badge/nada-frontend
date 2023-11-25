@@ -11,7 +11,7 @@ export const FilterItems = ({ text }) => {
     communitySelector('buttonSelect', 'maincategory'),
   );
 
-  const area = [
+  const region = [
     '서울',
     '부산',
     '대구',
@@ -73,7 +73,7 @@ export const FilterItems = ({ text }) => {
     //코드 수정
     switch (text) {
       case '지역':
-        return area.map((current, index) => {
+        return region.map((current, index) => {
           return <SelectButton key={index} text={current} />;
         });
       case '분야':

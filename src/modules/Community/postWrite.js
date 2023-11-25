@@ -10,14 +10,14 @@ const initialState = {
   ButtonActive: {
     // 버튼의 활성화 비활성화 에 대한 정보를 관리
     mainCategory: false,
-    area: false,
+    region: false,
     field: false,
     category: false,
   },
   postWriteSelect: {
     // 사용자가 선택한 버튼에 대한 정보를 관리
     mainCategory: '카테고리',
-    area: ['전국'],
+    region: ['전국'],
     field: ['전체'],
     category: '전체',
     modal: 0,
@@ -26,7 +26,7 @@ const initialState = {
     //최종적으로 제출될 정보를 관리
     _id: '',
     mainCategory: '카테고리',
-    area: ['전국'],
+    region: ['전국'],
     field: ['전체'],
     category: '전체',
   },
@@ -42,7 +42,7 @@ const postWriteSlice = createSlice({
     setSubmit: (state, { payload: { value } }) => {
       state.postWriteSubmit._id = value._id;
       state.postWriteSubmit.mainCategory = value.mainCategory;
-      state.postWriteSubmit.area = value.area;
+      state.postWriteSubmit.region = value.region;
       state.postWriteSubmit.field = value.field;
       state.postWriteSubmit.category = value.category;
     },
@@ -92,7 +92,7 @@ const selectActivity = (state) =>
 export const activitySelector = createSelector(
   selectActivity,
   (postWriteSubmit) => ({
-    area: postWriteSubmit.area,
+    region: postWriteSubmit.region,
     mainCategory: postWriteSubmit.mainCategory,
     field: postWriteSubmit.field,
     category: postWriteSubmit.category,

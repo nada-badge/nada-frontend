@@ -71,7 +71,7 @@ export const Border = styled.div`
   width: 375px;
 `;
 
-export const AreaImages = styled.div`
+export const RegionImages = styled.div`
   background-color: var(--myspec-gray-scalewhite);
   height: 96px;
   position: relative;

@@ -1,4 +1,4 @@
-/** SelectButton  area, field, category 모달 내 개별요소에 대한 버튼 */
+/** SelectButton  region, field, category 모달 내 개별요소에 대한 버튼 */
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,7 +18,7 @@ export const SelectButton = ({ text }) => {
   const form = 'subButtonSelect';
 
   const cases = [
-    { id: 0, key: 'area', all: '전국' },
+    { id: 0, key: 'region', all: '전국' },
     { id: 1, key: 'field', all: '전체' },
     { id: 2, key: 'category', all: '전체' },
   ];

@@ -20,7 +20,7 @@ const ManageActivityDetail = () => {
     groupName,
     field,
     category,
-    area,
+    region,
     content,
     startedAt,
     endedAt,
@@ -69,7 +69,7 @@ const ManageActivityDetail = () => {
           <h5>{groupName}</h5>
           <h5>{field}</h5>
           <h5>{category}</h5>
-          <h5>{area}</h5>
+          <h5>{region}</h5>
           <h5>{content}</h5>
           <h5>{startedAt}</h5>
           <h5>{endedAt}</h5>
