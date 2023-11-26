@@ -89,6 +89,7 @@ const Home = () => {
         title={'추천 대외활동'}
         cards={activity_cards}
         type={'activity'}
+        gapSize={8}
       />
       <div className="bottomNav_place" />
     </HomeContainer>
