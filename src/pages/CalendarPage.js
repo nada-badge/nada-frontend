@@ -1,8 +1,7 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import styled from 'styled-components';
 import interactionPlugin from '@fullcalendar/interaction';
-import '../styles/Calendar.scss';
+import '../styles/calendar/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
@@ -13,26 +12,7 @@ import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import { useGetEvents } from '../modules/calendar/useGetEvents';
 import React from 'react';
-
-const Div = styled.div`
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-
-  & > .CalendarWrapper {
-    width: calc(100% - 30px);
-
-    @media screen and (max-width: 345px) {
-      width: 100%;
-    }
-
-    @media screen and (min-width: 376px) {
-      width: 375px;
-    }
-  }
-`;
+import { Div } from '../styles/calendar/index';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -53,7 +33,7 @@ const CalendarPage = () => {
   // ** const events = useGetEvents(dateSet);
   const events = useGetEvents();
 
-  const openHandler = (info) => {
+  const openHandler = useCallback((info) => {
     // 모달 열기/닫기
     setIsModal(!isModal);
 
@@ -66,7 +46,7 @@ const CalendarPage = () => {
       month_day: dateStr,
       day_index: date.getDay(),
     }));
-  };
+  }, []);
 
   useEffect(() => {
     dispatch(changeField({ key: 'date', value: date.month_day }));
