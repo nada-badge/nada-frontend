@@ -9,9 +9,10 @@ import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../modules/calendar/calendar';
-import useEventsQuery from '../modules/queries/EventQuery';
 import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
+import { useGetEvents } from '../modules/calendar/useGetEvents';
+import React from 'react';
 
 const Div = styled.div`
   background-color: #ffffff;
@@ -33,11 +34,7 @@ const Div = styled.div`
   }
 `;
 
-const today = new Date();
-
 const CalendarPage = () => {
-  const email = localStorage.getItem('email');
-
   const dispatch = useDispatch();
 
   const [isModal, setIsModal] = useState(false);
@@ -51,28 +48,10 @@ const CalendarPage = () => {
     day_index: '', // 요일[0~6]
   });
 
-  const [events, setEvents] = useState([]);
+  const [dateSet, setDateSet] = useState([]);
 
-  // useQuery로 이벤트 가져오기
-  const { data } = useEventsQuery({
-    email: email,
-    year: today.getFullYear(),
-    month: today.getMonth() + 1,
-  });
-
-  useEffect(() => {
-    if (!data) {
-      return;
-    }
-
-    const MonthEvent = (data.activities || []).map((e, idx) => ({
-      title: e.activityName,
-      start: e.startedAt.slice(0, 10),
-      end: e.endedAt.slice(0, 10),
-    }));
-
-    setEvents(MonthEvent);
-  }, [data]);
+  // ** const events = useGetEvents(dateSet);
+  const events = useGetEvents();
 
   const openHandler = (info) => {
     // 모달 열기/닫기
@@ -130,10 +109,17 @@ const CalendarPage = () => {
           events={events}
           eventContent={(info) => <EventBox text={info.event.title} />}
           dateClick={(info) => openHandler(info)}
+          datesSet={(dateInfo) => {
+            setDateSet((prevDateSet) => ({
+              ...prevDateSet,
+              start: dateInfo.start,
+              end: dateInfo.end,
+            }));
+          }}
         />
       </div>
     </Div>
   );
 };
 
-export default CalendarPage;
+export default React.memo(CalendarPage);
