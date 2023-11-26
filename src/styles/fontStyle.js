@@ -1,5 +1,25 @@
 import { css } from 'styled-components';
 
+export const applyFontStyles = ({ font, color }) => css`
+  color: ${color || '#000000'};
+  font-family: ${`var(--${font}-font-family)`};
+  font-size: ${`var(--${font}-font-size)`};
+  font-style: ${`var(--${font}-font-style)`};
+  font-weight: ${`var(--${font}-font-weight)`};
+  letter-spacing: ${`var(--${font}-letter-spacing)`};
+  line-height: ${`var(--${font}-line-height)`};
+  ${font.includes('caption')
+    ? `
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  `
+    : ''}
+  ${font.includes('body') ? 'word-break: keep-all;' : ''}
+`;
+
+// 다은이와 협의 필요..!
+// 병합 후 아래 스타일 삭제하고, 위의 TextStyles 사용하기
 export const caption_01 = (color) => css`
   color: ${color || '#000000'};
   font-family: var(--caption-01-font-family);
