@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { caption_01, subtitle_01 } from '../../styles/fontStyle';
 
 const CardContainer = styled.div`
   border-radius: 10px;
@@ -23,35 +24,21 @@ const CardContainer = styled.div`
       width: 41px;
 
       & > .Dday {
-        color: #ffffff;
-        font-family: var(--caption-01-font-family);
-        font-size: var(--caption-01-font-size);
-        font-style: var(--caption-01-font-style);
-        font-weight: var(--caption-01-font-weight);
+        ${caption_01('#ffffff')};
         height: 13px;
         left: 8px;
-        letter-spacing: var(--caption-01-letter-spacing);
-        line-height: var(--caption-01-line-height);
         position: absolute;
         text-align: center;
         top: 6px;
-        white-space: nowrap;
       }
     }
   }
   & > .title {
-    color: var(--gray-900);
-    font-family: var(--sub-title-01-font-family);
-    font-size: var(--sub-title-01-font-size);
-    font-style: var(--sub-title-01-font-style);
-    font-weight: var(--sub-title-01-font-weight);
-    letter-spacing: var(--sub-title-01-letter-spacing);
-    line-height: var(--sub-title-01-line-height);
+    ${subtitle_01('var(--gray-900)')}
     position: relative;
-    /* ▼ 임의로 지정한 height */
-    height: 70px;
-    overflow: hidden;
-    width: 167px;
+    /* paddding 값 빼기 */
+    height: calc(46px - 4px);
+    width: calc(175px - 8px);
     margin: 0;
     padding: 4px 2px;
   }
@@ -67,7 +54,7 @@ const ActivityItem = ({ card }) => {
           <div className="Dday">{`D - ${Dday}`}</div>
         </div>
       </div>
-      <p className="title">{title}</p>
+      <div className="title">{title}</div>
     </CardContainer>
   );
 };

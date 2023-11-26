@@ -34,7 +34,7 @@ export const subtitle_01 = (color) => css`
   font-weight: var(--subtitle-01-font-weight);
   letter-spacing: var(--subtitle-01-letter-spacing);
   line-height: var(--subtitle-01-line-height);
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-overflow: ellipsis;
   overflow: hidden;
 `;
