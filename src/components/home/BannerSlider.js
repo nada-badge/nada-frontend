@@ -12,7 +12,6 @@ import React from 'react';
 
 const SliderWrapper = styled.div`
   box-shadow: var(--drop-shadow);
-  height: 118px;
   left: 0;
   position: relative;
   width: 100%;
@@ -56,6 +55,7 @@ const BannerSlider = () => {
     customPaging: function (slider) {
       return <div>{slider + 1}/5</div>;
     },
+    lazyLoad: true,
   };
 
   return (

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import styled from 'styled-components';
-import BannerSlider from '../components/home/BannerSlider';
+import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +17,11 @@ const HomeContainer = styled.div`
   width: 375px;
   margin: 0px auto;
 
+  // 배너 크기만큼 공간 마련하기
+  & > .loading {
+    height: 118px;
+  }
+
   & > div {
     background-color: white;
   }
@@ -29,6 +34,10 @@ const HomeContainer = styled.div`
 `;
 
 const Home = () => {
+  const BannerSlider = React.lazy(() =>
+    import('../components/home/BannerSlider'),
+  );
+
   const dispatch = useDispatch();
   const community_cards = [
     { id: 1, title: '유용한 활동 사이트', category: '자유' },
@@ -64,7 +73,10 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <BannerSlider />
+      <Suspense fallback={<div className="loading"></div>}>
+        <BannerSlider />
+      </Suspense>
+
       <div onClick={onClick}>
         <WeekCalendar className="calendarweek" />
       </div>
