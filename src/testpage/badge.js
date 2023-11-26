@@ -9,7 +9,7 @@ const Badge = () => {
   useEffect(() => {
     dispatch(
       setBarStatus({
-        headerState: 'backPost',
+        headerState: 'bell',
         text: '뱃지',
         isShowBottom: true,
       }),

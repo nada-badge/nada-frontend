@@ -95,3 +95,14 @@ export const body_01 = (color) => css`
   line-height: var(--body-01-line-height);
   word-break: keep-all;
 `;
+
+export const body_02 = (color) => css`
+  color: ${color || '#000000'};
+  font-family: var(--body-02-font-family);
+  font-size: var(--body-02-font-size);
+  font-style: var(--body-02-font-style);
+  font-weight: var(--body-02-font-weight);
+  letter-spacing: var(--body-02-letter-spacing);
+  line-height: var(--body-02-line-height);
+  word-break: keep-all;
+`;
