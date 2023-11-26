@@ -30,7 +30,7 @@ const CardListWrapper = styled.div`
   padding-bottom: 12px; // 커스텀
 `;
 
-const CardList = ({ title, cards, type }) => {
+const CardList = ({ title, cards, type, gapSize }) => {
   const typeSet = {
     board: BoardCardItem,
     activity: ActivityItem,
@@ -42,7 +42,7 @@ const CardList = ({ title, cards, type }) => {
   return (
     <CardsContainer>
       <h1>{title}</h1>
-      <CardListWrapper>
+      <CardListWrapper style={{ gap: gapSize + 'px' }}>
         {cards.map((card) => (
           <ItemComponents key={card.id} card={card} />
         ))}
