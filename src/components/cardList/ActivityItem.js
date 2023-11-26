@@ -34,7 +34,8 @@ const CardContainer = styled.div`
     }
   }
   & > .title {
-    ${subtitle_01('var(--gray-900)')}
+    ${subtitle_01()};
+    white-space: inherit;
     position: relative;
     /* paddding 값 빼기 */
     height: calc(46px - 4px);

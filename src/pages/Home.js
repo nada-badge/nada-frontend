@@ -67,7 +67,7 @@ const Home = () => {
   }, []);
   const navigate = useNavigate();
 
-  const onClick = (e) => {
+  const onClick = () => {
     navigate('/calendar');
   };
 

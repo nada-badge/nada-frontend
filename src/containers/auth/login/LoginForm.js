@@ -53,10 +53,12 @@ const LoginForm = ({ type }) => {
     );
 
     if (email && password) {
-      const { status } = await mutation.mutateAsync({ email, password });
+      const { data, status } = await mutation.mutateAsync({ email, password });
 
       if (status === 200) {
         navigate('/');
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('email', email);
       }
     }
   };

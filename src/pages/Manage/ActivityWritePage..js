@@ -1,15 +1,17 @@
 /* ManageActivityWrite 관리자가 activity를 추가하거나 수정할 수 있는 페이지 */
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import useSubmit from '../../modules/queries/ManageActivityQuery';
 import useUpdate from '../../modules/queries/ManageActivityUpdateQuery';
 import { activitySelector } from '../../modules/activity';
+import { setBarStatus } from '../../modules/bar';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { mutate } = useSubmit();
   const update = useUpdate().mutate;
@@ -21,6 +23,17 @@ const ManageActivityWrite = () => {
 
   const [startedAt, setStartedAt] = useState(new Date());
   const [endedAt, setEndedAt] = useState(new Date());
+
+  useEffect(() => {
+    console.log('postWritePage가 실행되었습니다');
+    dispatch(
+      setBarStatus({
+        headerState: 'back',
+        text: '게시물 등록',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
 
   //입력값이 바뀔때마다 setBoard해주기
   const onChange = (event) => {
