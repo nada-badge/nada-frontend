@@ -22,6 +22,8 @@ const HomeContainer = styled.div`
   }
 
   & > .bottomNav_place {
+    position: relative;
+    top: -12px;
     height: 85px;
   }
 `;
