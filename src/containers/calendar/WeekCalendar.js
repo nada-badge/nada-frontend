@@ -1,8 +1,8 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import '../../styles/Calendar.scss';
-import './WeekCalendar.scss';
+import '../../styles/calendar/Calendar.scss';
+import '../../styles/calendar/WeekCalendar.scss';
 import TodayBox from '../../components/calendar/today';
 import EventBox from '../../components/calendar/event';
 import { useGetEvents } from '../../modules/calendar/useGetEvents';
