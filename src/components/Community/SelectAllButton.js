@@ -2,18 +2,14 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  communitySelector,
-  initializeForm,
-  addField,
-} from '../../modules/Community/community';
+import { filterSelector, initializeForm, addField } from '../../modules/filter';
 import { Button, TextWarpper } from '../../styles/Community/SelectButton';
 
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
 
   const [isActive, setIsActive] = useState();
-  const nowModal = useSelector(communitySelector('buttonSelect', 'filter'));
+  const nowModal = useSelector(filterSelector('buttonSelect', 'filter'));
 
   const cases = [
     { id: 0, key: 'region', all: '전국' },
@@ -24,7 +20,7 @@ export const SelectAllButton = () => {
   const num = ['지역', '분야', '종류'].indexOf(nowModal);
   const { key, all } = cases[num !== -1 ? num : cases.length - 1];
 
-  const state = useSelector(communitySelector('subButtonSelect', key));
+  const state = useSelector(filterSelector('subButtonSelect', key));
 
   const onClickButton = () => {
     if (!state.includes(all)) {
