@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 import { body_01, caption_02, subtitle_01 } from '../../styles/fontStyle';
+
 const BadgeContainer = styled.div`
   display: flex;
-  width: 120px;
+  width: calc(120px - 12px);
   height: 120px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   & > .imgWrapper {
     display: flex;
-    width: 120px;
+    width: 100%;
     height: 120px;
     justify-content: center;
     align-items: center;
   }
 
   & > .textWrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -26,10 +27,12 @@ const BadgeContainer = styled.div`
     }
 
     & > .title {
+      width: inherit;
       ${subtitle_01('var(--myspec-gray-scale-gray-900, #1A1A1A)')}
     }
 
     & > .roleWrapper {
+      width: inherit;
       display: flex;
       align-items: flex-start;
       gap: 4px;
