@@ -1,32 +1,21 @@
-/** RegionButton 지역 버튼 */
-import { useSelector, useDispatch } from 'react-redux';
+/** openModalButton, 게시물 등록 페이지에 모달을 여는 버튼 */
+import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import useModal from '../../../components/common/modal/useModal';
+import useModal from '../../common/modal/useModal';
 import {
   Filter,
   TextWarpper,
   Img,
 } from '../../../styles/Community/FilterModalStyle';
-import {
-  setField,
-  postWriteSelector,
-} from '../../../modules/Community/postWrite';
-import { toKorea } from '../../../components/common/AreaFieldCategoryData';
+import { postWriteSelector } from '../../../modules/Community/postWrite';
+import { toKorea } from '../../common/AreaFieldCategoryData';
 
-export const RegionButton = ({ content }) => {
+export const OpenModalButton = ({ content }) => {
   const isActive = useSelector(postWriteSelector('ButtonActive', content));
   const { openModal } = useModal();
-  const dispatch = useDispatch();
   const text = toKorea(content);
   const onClickButton1 = () => {
     openModal({ type: 'ButtonSelectModal', contentType: content });
-    dispatch(
-      setField({
-        form: 'postWriteSelect',
-        key: 'modal',
-        value: 0,
-      }),
-    );
   };
 
   return (
