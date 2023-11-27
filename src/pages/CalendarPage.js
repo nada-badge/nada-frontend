@@ -79,8 +79,8 @@ const CalendarPage = () => {
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: 'prev', center: 'title', end: 'next' }}
-          height={'auto'}
-          contentHeight={'auto'}
+          height={'calc(100vh - 85px)'}
+          contentHeight={'100%'}
           locale={'ko'}
           dayCellContent={(info) => {
             const dayNumber = info.dayNumberText.replace('일', '');

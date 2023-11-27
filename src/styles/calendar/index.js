@@ -10,7 +10,8 @@ export const Div = styled.div`
 
   & > .CalendarWrapper {
     width: calc(100vw - 30px);
-    height: calc(100vh - (88px + 85px));
+    min-height: calc(100vh - 80px - 85px);
+    padding-bottom: 85px;
     overflow: auto;
 
     @media screen and (max-width: 345px) {
