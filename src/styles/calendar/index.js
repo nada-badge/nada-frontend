@@ -9,7 +9,9 @@ export const Div = styled.div`
   width: 100%;
 
   & > .CalendarWrapper {
-    width: calc(100% - 30px);
+    width: calc(100vw - 30px);
+    height: calc(100vh - (88px + 85px));
+    overflow: auto;
 
     @media screen and (max-width: 345px) {
       width: 100%;
