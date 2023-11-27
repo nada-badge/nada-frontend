@@ -71,3 +71,13 @@ export function selectAllConfig(content) {
 
   return Config[content];
 }
+
+export function toKorea(content) {
+  const Config = {
+    region: '지역',
+    field: '분야',
+    category: '종류',
+  };
+
+  return Config[content];
+}

@@ -6,7 +6,7 @@ import MainCategoryModal from '../../community/PostWrite/MainCategoryModal';
 import ShareModal from './ShareModal';
 import NoticeModal from './NoticeModal';
 import AskModal from './AskModal';
-import ButtonSelectModal from './ButtonSelectModal ';
+import ButtonSelectModal from './ButtonSelectModal';
 import MenuModal from './MenuModal';
 
 const MODAL_COMPONENTS = {

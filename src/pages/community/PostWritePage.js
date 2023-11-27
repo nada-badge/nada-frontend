@@ -7,10 +7,7 @@ import {
   initializeAll,
   postWriteSelector,
 } from '../../modules/Community/postWrite';
-import { RegionButton } from '../../containers/community/postWrite/RegionButton';
-import { FieldButton } from '../../containers/community/postWrite/FieldButton';
 import { MainCategoryButton } from '../../containers/community/postWrite/MainCategoryButton';
-import { CategoryButton } from '../../containers/community/postWrite/CategoryButton';
 import { setBarStatus } from '../../modules/bar';
 import {
   PostContainer,
