@@ -22,6 +22,8 @@ import ActivityPage from './pages/activity/ActivityPage';
 import DetailActivityPage from './pages/activity/DetailActivityPage';
 import SearchActivityPage from './pages/activity/SearchActivityPage';
 
+import BadgePage from './pages/badge/BadgePage';
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -41,7 +43,6 @@ const App = () => {
           <Route path="/activity/detail" element={<DetailActivityPage />} />
           <Route path="/activity/search" element={<SearchActivityPage />} />
 
-          <Route path="/badge" element={<Badge />} />
           <Route path="/Community" element={<Community />} />
           <Route path="/Community/child" element={<Communityy />} />
           <Route path="/myPage" element={<MyPage />} />
@@ -54,6 +55,8 @@ const App = () => {
             element={<ActivityDetailPage />}
           />
           <Route path="/manage/ActivityWrite" element={<ActivityWritePage />} />
+
+          <Route path="/badge" element={<BadgePage />} />
         </Routes>
       </QueryClientProvider>
     </div>
