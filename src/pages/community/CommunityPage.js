@@ -7,7 +7,7 @@ import Category from '../../containers/community/Category';
 import Filter from '../../containers/community/Filter';
 import { PostWriteButton } from '../../containers/community/PostWriteButton';
 import { setBarStatus } from '../../modules/bar';
-import { initializeAll } from '../../modules/Community/community';
+import { initializeAll } from '../../modules/filter';
 import { initializeAll as initializeAllPostWrite } from '../../modules/Community/postWrite';
 import {
   CommunityPage,

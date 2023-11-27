@@ -2,17 +2,14 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  communitySelector,
-  addField,
-  deleteField,
-} from '../../modules/Community/community';
+import { filterSelector, addField, deleteField } from '../../modules/filter';
 import { Button, TextWarpper, Img } from '../../styles/Community/SelectButton';
+import { selectAllConfig } from '../common/AreaFieldCategoryData';
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();
 
-  const nowModal = useSelector(communitySelector('buttonSelect', 'filter'));
+  const nowModal = useSelector(filterSelector('buttonSelect', 'filter'));
 
   const [isActive, setIsActive] = useState(false);
   const form = 'subButtonSelect';
@@ -25,7 +22,7 @@ export const SelectButton = ({ text }) => {
   const num = ['지역', '분야', '종류'].indexOf(nowModal);
   const { key, all } = cases[num !== -1 ? num : cases.length - 1];
 
-  const state = useSelector(communitySelector('subButtonSelect', key));
+  const state = useSelector(filterSelector('subButtonSelect', key));
 
   const OnClickButton = () => {
     const deactivateButton = () => {

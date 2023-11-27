@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { communitySelector } from '../../modules/Community/community';
+import { filterSelector } from '../../modules/filter';
 import { changePostDetailField } from '../../modules/Community/postDetail';
 import PostItem from '../../components/community/PostList/PostItem';
 import client from '../../lib/api/client';
@@ -11,7 +11,7 @@ const PostList = () => {
   const [cardsList, setCardsList] = useState([]);
   const dispatch = useDispatch();
   const mainCategory = useSelector(
-    communitySelector('buttonSelect', 'maincategory'),
+    filterSelector('buttonSelect', 'maincategory'),
   );
 
   useEffect(() => {

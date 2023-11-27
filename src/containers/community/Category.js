@@ -1,25 +1,25 @@
 /** Category 메인페이지에서 메인카테고리를 관리하는 컨테이너 */
-import { useSelector, useDispatch } from "react-redux";
-import classNames from "classnames";
+import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
 import {
-  communitySelector,
+  filterSelector,
   setField,
   initializeForm,
   initializeSub,
-} from "../../modules/Community/community";
-import { Categorylist, Wrapper } from "../../styles/Community/CategoryStyle";
+} from '../../modules/filter';
+import { Categorylist, Wrapper } from '../../styles/Community/CategoryStyle';
 
 const Category = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector(communitySelector("buttonSelect", "maincategory"));
+  const isOpen = useSelector(filterSelector('buttonSelect', 'maincategory'));
 
   const onClicks = (text) => {
     if (!(isOpen === text)) {
       dispatch(
-        setField({ form: "buttonSelect", key: "maincategory", value: text })
+        setField({ form: 'buttonSelect', key: 'maincategory', value: text }),
       );
       dispatch(initializeSub());
-      dispatch(initializeForm({ form: "buttonSelect", key: "filter" }));
+      dispatch(initializeForm({ form: 'buttonSelect', key: 'filter' }));
     }
   };
 
@@ -30,7 +30,7 @@ const Category = () => {
         className={classNames({ isActive })}
         onClick={() => onClicks(text)}
       >
-        <div className={classNames("Text", { isActive })}>{text}</div>
+        <div className={classNames('Text', { isActive })}>{text}</div>
       </Wrapper>
     );
   };
@@ -38,9 +38,9 @@ const Category = () => {
   return (
     <div>
       <Categorylist>
-        {categoryButton("모집")}
-        {categoryButton("홍보")}
-        {categoryButton("자유")}
+        {categoryButton('모집')}
+        {categoryButton('홍보')}
+        {categoryButton('자유')}
       </Categorylist>
     </div>
   );

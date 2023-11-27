@@ -4,14 +4,14 @@ import { SelectButton } from '../../components/community/SelectButton';
 import styled from 'styled-components';
 import { SelectAllButton } from '../../components/community/SelectAllButton';
 import { useSelector } from 'react-redux';
-import { communitySelector } from '../../modules/Community/community';
+import { filterSelector } from '../../modules/filter';
 import { regionButtons } from '../../components/common/AreaFieldCategoryData';
 import { fieldButtons } from '../../components/common/AreaFieldCategoryData';
 import { categoryButtons } from '../../components/common/AreaFieldCategoryData';
 
 export const FilterItems = ({ text }) => {
   const mainCategory = useSelector(
-    communitySelector('buttonSelect', 'maincategory'),
+    filterSelector('buttonSelect', 'maincategory'),
   );
 
   const [category, setCategory] = useState(categoryButtons);

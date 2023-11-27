@@ -1,4 +1,4 @@
-/** community 커뮤니티 메인페이지와 관련된 정보를 관리하는 리덕스 */
+/** filter, filter와 관련된 정보를 관리하는 리덕스 */
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
@@ -7,6 +7,7 @@ const initialState = {
     // 현재 사용자가 활성화한 maincategory와 filter의 정보를 관리
     maincategory: '모집',
     filter: undefined,
+    positon: '',
   },
   subButtonSelect: {
     // 현재 각 filter에서 선택된 값을 관리
@@ -16,8 +17,8 @@ const initialState = {
   },
 };
 
-const communitySlice = createSlice({
-  name: 'community',
+const filterSlice = createSlice({
+  name: 'filter',
   initialState,
   reducers: {
     setField: (state, { payload: { form, key, value } }) => {
@@ -42,7 +43,7 @@ const communitySlice = createSlice({
   },
 });
 
-export default communitySlice;
+export default filterSlice;
 export const {
   setField,
   initializeForm,
@@ -50,13 +51,10 @@ export const {
   deleteField,
   initializeAll,
   initializeSub,
-} = communitySlice.actions;
+} = filterSlice.actions;
 
-const communitySelects = (type, field) => (rootState) => {
-  return rootState.community[type][field] || initialState[type][field];
+const filterSelects = (type, field) => (rootState) => {
+  return rootState.filter[type][field] || initialState[type][field];
 };
 
-export const communitySelector = createSelector(
-  communitySelects,
-  (field) => field,
-);
+export const filterSelector = createSelector(filterSelects, (field) => field);

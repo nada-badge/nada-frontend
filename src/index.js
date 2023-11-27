@@ -14,7 +14,7 @@ import calendarSlice from './modules/calendar';
 import userSlice from './modules/user';
 import activitySlice from './modules/activity';
 import barSlice from './modules/bar';
-import communitySlice from './modules/Community/community';
+import filterSlice from './modules/filter.js';
 import postWriteSlice from './modules/Community/postWrite';
 import PostDetailSlice from './modules/Community/postDetail.js';
 import { modalSlice } from './modules/Community/modal';
@@ -33,7 +33,7 @@ const store = configureStore({
     activity: activitySlice.reducer,
     bar: barSlice.reducer,
     modal: modalSlice.reducer,
-    community: communitySlice.reducer,
+    filter: filterSlice.reducer,
     postwrite: postWriteSlice.reducer,
     postdetail: PostDetailSlice.reducer,
   },
