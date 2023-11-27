@@ -1,5 +1,5 @@
 /** ModalButtonDiv 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
-import useModal from '../../Modal/Community/useModal';
+import useModal from './useModal';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { subtitle_01, subtitle_02 } from '../../../styles/fontStyle';

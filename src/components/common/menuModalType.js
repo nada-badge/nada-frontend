@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PrintCenteredText from './modal/PrintCenteredText';
-import useModal from '../Modal/Community/useModal';
+import useModal from './modal/useModal';
 import useSetButtonActive from '../../containers/community/postDetail/SetButtonActive';
 
 export function MenuTypeConfig(content) {

@@ -20,7 +20,6 @@ const initialState = {
     region: ['전국'],
     field: ['전체'],
     category: '전체',
-    modal: 0,
   },
   postWriteSubmit: {
     //최종적으로 제출될 정보를 관리

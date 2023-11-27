@@ -4,7 +4,7 @@ import { Comment } from '../../../styles/Community/CommentStyle';
 import Dateformat from '../Dateformat';
 import { changeCommentField } from '../../../modules/Community/postDetail';
 import ReplyOutPut from './replyOutput';
-import useModal from '../../Modal/Community/useModal';
+import useModal from '../../common/modal/useModal';
 
 const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();

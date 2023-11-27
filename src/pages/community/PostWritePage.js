@@ -20,6 +20,7 @@ import {
   Border,
   RegionImages,
 } from '../../styles/Community/PostWriteStyle';
+import { OpenModalButton } from '../../components/community/PostWrite/openModalButton';
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
@@ -107,13 +108,9 @@ const PostWrite = () => {
         <Border />
         <Frame>
           <MainCategoryButton />
-          <RegionButton text="지역" Modalname="RegionModal" state="Region" />
-          <FieldButton text="분야" Modalname="FieldModal" state="Field" />
-          <CategoryButton
-            text="종류"
-            Modalname="CategoryModal"
-            state="Category"
-          />
+          <OpenModalButton content="region" />
+          <OpenModalButton content="field" />
+          <OpenModalButton content="category" />
         </Frame>
         <Content>
           <input
