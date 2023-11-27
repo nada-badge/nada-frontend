@@ -39,9 +39,9 @@ export const fieldButtons = [
 
 export const categoryButtons = [
   { id: 1, text: '공모전' },
-  { id: 2, text: '연합동아리' },
-  { id: 3, text: '교내동아리' },
-  { id: 4, text: '지역동아리' },
+  { id: 2, text: '연합 동아리' },
+  { id: 3, text: '교내 동아리' },
+  { id: 4, text: '지역 동아리' },
   { id: 5, text: '소모임' },
   { id: 6, text: '프로젝트' },
   { id: 7, text: '대외활동' },
