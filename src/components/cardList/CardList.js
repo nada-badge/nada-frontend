@@ -24,7 +24,7 @@ const CardListWrapper = styled.div`
   gap: 12px;
   align-items: flex-start;
   display: flex;
-  padding-left: 15px;
+  left: 15px;
   overflow-x: scroll;
   position: relative;
   padding-bottom: 12px; // 커스텀
