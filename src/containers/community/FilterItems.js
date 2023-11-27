@@ -5,42 +5,23 @@ import styled from 'styled-components';
 import { SelectAllButton } from '../../components/community/SelectAllButton';
 import { useSelector } from 'react-redux';
 import { filterSelector } from '../../modules/filter';
-import { regionButtons } from '../../components/common/AreaFieldCategoryData';
-import { fieldButtons } from '../../components/common/AreaFieldCategoryData';
-import { categoryButtons } from '../../components/common/AreaFieldCategoryData';
+import { selectConfig } from '../../components/common/AreaFieldCategoryData';
 
 export const FilterItems = ({ text }) => {
   const mainCategory = useSelector(
     filterSelector('buttonSelect', 'maincategory'),
   );
 
-  const [category, setCategory] = useState(categoryButtons);
+  const [contents, setContents] = useState([]);
 
-  //모집의 경우 category의 내용을 공모전~대외활동까지로 수정
   useEffect(() => {
-    if (mainCategory === '모집') {
-      setCategory(category.slice(0, 6));
-    }
-  }, []);
+    setContents(selectConfig({ content: text, mainCategory }));
+  }, [mainCategory, text]);
 
-  const output = (text) => {
-    //코드 수정
-    switch (text) {
-      case '지역':
-        return regionButtons.map((current, index) => {
-          return <SelectButton key={index} text={current.text} />;
-        });
-      case '분야':
-        return fieldButtons.map((current, index) => {
-          return <SelectButton key={index} text={current.text} />;
-        });
-      case '종류':
-        return category.map((current, index) => {
-          return <SelectButton key={index} text={current.text} />;
-        });
-      default:
-        return undefined;
-    }
+  const output = () => {
+    return contents.map((current, index) => {
+      return <SelectButton key={index} text={current.text} />;
+    });
   };
 
   return (

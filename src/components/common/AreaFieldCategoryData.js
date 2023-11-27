@@ -49,7 +49,7 @@ export const categoryButtons = [
   { id: 9, text: '아르바이트' },
 ];
 
-export function selectConfig(content, mainCategory) {
+export function selectConfig({ content, mainCategory }) {
   const Config = {
     region: regionButtons,
     field: fieldButtons,

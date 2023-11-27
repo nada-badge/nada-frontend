@@ -8,33 +8,24 @@ import { selectAllConfig } from '../common/AreaFieldCategoryData';
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();
+  const content = useSelector(filterSelector('buttonSelect', 'filter'));
+  const state = useSelector(filterSelector('subButtonSelect', content));
 
-  const nowModal = useSelector(filterSelector('buttonSelect', 'filter'));
-
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(state.includes(text));
   const form = 'subButtonSelect';
-
-  const cases = [
-    { id: 0, key: 'region', all: '전국' },
-    { id: 1, key: 'field', all: '전체' },
-    { id: 2, key: 'category', all: '전체' },
-  ];
-  const num = ['지역', '분야', '종류'].indexOf(nowModal);
-  const { key, all } = cases[num !== -1 ? num : cases.length - 1];
-
-  const state = useSelector(filterSelector('subButtonSelect', key));
+  const slectAll = selectAllConfig(content);
 
   const OnClickButton = () => {
     const deactivateButton = () => {
-      dispatch(deleteField({ form, key, value: text }));
+      dispatch(deleteField({ form, key: content, value: text }));
       if (state.length === 1) {
-        dispatch(addField({ form, key, value: all }));
+        dispatch(addField({ form, key: content, value: slectAll }));
       }
     };
 
     const activateButton = () => {
-      dispatch(addField({ form, key, value: text }));
-      dispatch(deleteField({ form, key, value: all }));
+      dispatch(addField({ form, key: content, value: text }));
+      dispatch(deleteField({ form, key: content, value: slectAll }));
     };
 
     isActive ? deactivateButton() : activateButton();
@@ -42,7 +33,7 @@ export const SelectButton = ({ text }) => {
 
   useEffect(() => {
     setIsActive(state.includes(text));
-  }, [state]);
+  }, [state, text]);
 
   return (
     <Button className={classNames({ isActive })} onClick={OnClickButton}>

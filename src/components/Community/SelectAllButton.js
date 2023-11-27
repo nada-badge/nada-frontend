@@ -2,46 +2,33 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, initializeForm, addField } from '../../modules/filter';
+import { filterSelector, initializeForm } from '../../modules/filter';
 import { Button, TextWarpper } from '../../styles/Community/SelectButton';
+import { selectAllConfig } from '../common/AreaFieldCategoryData';
 
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
 
-  const [isActive, setIsActive] = useState();
-  const nowModal = useSelector(filterSelector('buttonSelect', 'filter'));
+  const [isActive, setIsActive] = useState(false);
+  const content = useSelector(filterSelector('buttonSelect', 'filter'));
 
-  const cases = [
-    { id: 0, key: 'region', all: '전국' },
-    { id: 1, key: 'field', all: '전체' },
-    { id: 2, key: 'category', all: '전체' },
-  ];
+  const slectAll = selectAllConfig(content);
 
-  const num = ['지역', '분야', '종류'].indexOf(nowModal);
-  const { key, all } = cases[num !== -1 ? num : cases.length - 1];
-
-  const state = useSelector(filterSelector('subButtonSelect', key));
+  const state = useSelector(filterSelector('subButtonSelect', content));
 
   const onClickButton = () => {
-    if (!state.includes(all)) {
-      dispatch(initializeForm({ form: 'subButtonSelect', key: key }));
-      dispatch(
-        addField({
-          form: 'subButtonSelect',
-          key: key,
-          value: all,
-        }),
-      );
+    if (!state.includes(slectAll)) {
+      dispatch(initializeForm({ form: 'subButtonSelect', key: content }));
     }
   };
 
   useEffect(() => {
-    setIsActive(state.includes(all));
+    setIsActive(state.includes(slectAll));
   }, [state]);
 
   return (
     <Button className={classNames({ isActive })} onClick={onClickButton}>
-      <TextWarpper className={classNames({ isActive })}>{all}</TextWarpper>
+      <TextWarpper className={classNames({ isActive })}>{slectAll}</TextWarpper>
     </Button>
   );
 };
