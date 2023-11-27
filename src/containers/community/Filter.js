@@ -12,9 +12,9 @@ const Filter = () => {
   return (
     <div>
       <Filterlist>
-        <DropDown text="지역" id={0} />
-        <DropDown text="분야" id={1} />
-        <DropDown text="종류" id={2} />
+        <DropDown content="region" text="지역" />
+        <DropDown content="field" text="분야" />
+        <DropDown content="category" text="종류" />
       </Filterlist>
       {isOpen && <FilterItems text={isOpen} />}
     </div>

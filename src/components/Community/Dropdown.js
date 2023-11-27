@@ -8,40 +8,26 @@ import {
   TextWarpper,
   Img,
 } from '../../styles/Community/DropdownStyle';
+import { selectAllConfig } from '../common/AreaFieldCategoryData';
 
-export const DropDown = ({ text, id }) => {
+export const DropDown = ({ content, text }) => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState('unselected');
-  const cases = [
-    { text: 'region', all: '전국' },
-    { text: 'field', all: '전체' },
-    { text: 'category', all: '전체' },
-  ];
+  const slectAll = selectAllConfig(content);
+
   //해당 dropDown이 표현하는 region/field/category 의 선택값 불러오기
-  const select = useSelector(filterSelector('subButtonSelect', cases[id].text));
-  const closeState = cases[id].all === select[0] ? 'unselected' : 'selected';
+  const select = useSelector(filterSelector('subButtonSelect', content));
+  const closeState = slectAll === select[0] ? 'unselected' : 'selected';
   //현재 community 메인페이지에서 클린된 filter의 이름 불러오기
   const isOpen = useSelector(filterSelector('buttonSelect', 'filter'));
   const maincategory = useSelector(
     filterSelector('buttonSelect', 'maincategory'),
   );
-  // 활성화된 filter 버튼을 클릭했다면 비활성화, 비활성화된 filter를 눌렀다면 활성화
-  const onClicks = () => {
-    const nextState = isOpen === text ? closeState : 'opened';
-    dispatch(
-      setField({
-        form: 'buttonSelect',
-        key: 'filter',
-        value: nextState === 'opened' ? text : '',
-      }),
-    );
-    setState(nextState);
-  };
 
   // filter_A버튼이 열려있는 상태로 filter_B버튼이 클릭되면 filter_A버튼은 닫기
   useEffect(() => {
-    if (state === 'opened' && text !== isOpen) {
+    if (state === 'opened' && content !== isOpen) {
       setState(closeState);
     }
     //state === "selected" && isOpen === undefined && setState(closeState); 보류코드
@@ -50,6 +36,19 @@ export const DropDown = ({ text, id }) => {
   useEffect(() => {
     setState('unselected');
   }, [maincategory]);
+
+  // 활성화된 filter 버튼을 클릭했다면 비활성화, 비활성화된 filter를 눌렀다면 활성화
+  const onClicks = () => {
+    const nextState = isOpen === content ? closeState : 'opened';
+    dispatch(
+      setField({
+        form: 'buttonSelect',
+        key: 'filter',
+        value: nextState === 'opened' ? content : '',
+      }),
+    );
+    setState(nextState);
+  };
 
   return (
     <Dropdown
