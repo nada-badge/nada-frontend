@@ -13,12 +13,13 @@ export const Div = styled.div`
     min-height: calc(100vh - 80px - 85px);
     padding-bottom: 85px;
     overflow: auto;
+    max-width: 375px;
 
-    @media screen and (max-width: 345px) {
+    @media screen and (max-width: 430px) {
       width: 100%;
     }
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: 430px) {
       width: 375px;
     }
   }
@@ -31,8 +32,14 @@ export const ModalBackGround = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 375px;
-  height: 100%;
+  align-items: center;
+  @media screen and (max-width: 430px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 430px) {
+    width: 375px;
+  }
+  height: calc(100% - 85px - 88px); // 전체 - 하단바 - 상단바
   position: fixed;
   z-index: 3;
 
@@ -43,7 +50,6 @@ export const ModalBackGround = styled.div`
     height: 400px;
     overflow: hidden;
     position: fixed;
-    top: 206px;
     width: 358px;
 
     & > h2 {
