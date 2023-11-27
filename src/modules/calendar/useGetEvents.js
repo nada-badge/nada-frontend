@@ -1,6 +1,5 @@
 import useEventsQuery from '../queries/EventQuery';
 import { useEffect, useMemo, useState } from 'react';
-import { getColor } from './getColor';
 
 // 파리미터로 start, end를 받을 예정
 export const useGetEvents = () => {
@@ -20,13 +19,11 @@ export const useGetEvents = () => {
       return [];
     }
 
-    const color = getColor(data.activities.length);
-
     return (data.activities || []).map((e, idx) => ({
       title: e.activityName,
       start: e.startedAt.slice(0, 10),
       end: e.endedAt.slice(0, 10),
-      color: color[idx],
+      color: `hsl(${(idx * 20) % 350},100%, 75%)`,
     }));
   }, [data]);
 
