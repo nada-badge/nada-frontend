@@ -71,11 +71,13 @@ const Home = () => {
         title={'지금 인기 있는 게시글이에요🔥'}
         cards={community_cards}
         type={'board'}
+        title_font={'subtitle-01'}
       />
       <CardList
         title={'추천 대외활동'}
         cards={activity_cards}
         type={'activity'}
+        title_font={'subtitle-01'}
       />
     </HomeContainer>
   );
