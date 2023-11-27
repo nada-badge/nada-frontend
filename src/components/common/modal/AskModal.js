@@ -1,7 +1,7 @@
 /** ReportModal 게시글 신고를 물어보는 모달 */
-import Modal from '../../Modal/Community/Modal';
+import Modal from './Modal';
 import { useSelector } from 'react-redux';
-import useModal from '../../Modal/Community/useModal';
+import useModal from './useModal';
 import ModalButtonDiv from './ModalButtonDiv';
 import { Layout } from '../../../styles/Community/NoticeModalStyle';
 import toDelete from '../toDelete';

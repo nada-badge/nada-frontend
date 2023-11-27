@@ -1,5 +1,5 @@
 /** ShareModal 공유 방법을 선택하는 모달 */
-import Modal from '../../Modal/Community/Modal';
+import Modal from './Modal';
 import { Layout, Image } from '../../../styles/Community/NoticeModalStyle';
 import ModalButton from './ModalButton';
 

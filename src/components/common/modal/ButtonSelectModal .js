@@ -1,7 +1,7 @@
 /**buttonSelectModal */
 import { useEffect } from 'react';
-import Modal from '../../Modal/Community/Modal';
-import useModal from '../../Modal/Community/useModal';
+import Modal from './Modal';
+import useModal from './useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   initializeForm,
@@ -11,7 +11,7 @@ import {
 } from '../../../modules/Community/postWrite';
 import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
-import { List, Border } from '../../Modal/Community/ModalStyle';
+import { List, Border } from '../../../styles/ModalStyle';
 import ModalButtonDiv from './ModalButtonDiv';
 import { selectConfig } from '../AreaFieldCategoryData';
 import { selectAllConfig } from '../AreaFieldCategoryData';
@@ -29,7 +29,7 @@ function ButtonSelectModal() {
   );
   const status = useSelector(postWriteSelector('postWriteSelect', contentType));
 
-  const button = selectConfig(contentType, mainCategory);
+  const button = selectConfig({ content: contentType, mainCategory });
   const buttonAll = selectAllConfig(contentType);
   useEffect(() => {
     dispatch(

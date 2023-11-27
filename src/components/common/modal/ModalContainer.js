@@ -2,12 +2,12 @@
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { modalSelector } from '../../../modules/Community/modal';
-import MainCategoryModal from './postWrite/MainCategoryModal';
-import ShareModal from '../../common/modal/ShareModal';
-import NoticeModal from '../../common/modal/NoticeModal';
-import AskModal from '../../common/modal/AskModal';
-import ButtonSelectModal from '../../common/modal/ButtonSelectModal ';
-import MenuModal from '../../common/modal/MenuModal';
+import MainCategoryModal from '../../community/PostWrite/MainCategoryModal';
+import ShareModal from './ShareModal';
+import NoticeModal from './NoticeModal';
+import AskModal from './AskModal';
+import ButtonSelectModal from './ButtonSelectModal ';
+import MenuModal from './MenuModal';
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,

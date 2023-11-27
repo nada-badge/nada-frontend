@@ -1,7 +1,7 @@
 /** FieldButton 분야 버튼 */
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import useModal from '../../../components/Modal/Community/useModal';
+import useModal from '../../../components/common/modal/useModal';
 import {
   Filter,
   TextWarpper,

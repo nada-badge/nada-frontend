@@ -1,6 +1,6 @@
 /** YourMenuModal 메뉴 클릭 시, 타인이 작성한 글일 경우 나오는 모달 */
 import { useSelector } from 'react-redux';
-import Modal from '../../Modal/Community/Modal';
+import Modal from './Modal';
 import ModalButton from './ModalButton';
 import { MenuTypeConfig } from '../menuModalType';
 import { List, Border, Layout } from '../../../styles/Community/BarModalStyle';

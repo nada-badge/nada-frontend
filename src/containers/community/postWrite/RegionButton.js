@@ -1,7 +1,7 @@
 /** RegionButton 지역 버튼 */
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import useModal from '../../../components/Modal/Community/useModal';
+import useModal from '../../../components/common/modal/useModal';
 import {
   Filter,
   TextWarpper,
@@ -11,14 +11,15 @@ import {
   setField,
   postWriteSelector,
 } from '../../../modules/Community/postWrite';
+import { toKorea } from '../../../components/common/AreaFieldCategoryData';
 
-export const RegionButton = ({ text }) => {
-  const isActive = useSelector(postWriteSelector('ButtonActive', 'region'));
+export const RegionButton = ({ content }) => {
+  const isActive = useSelector(postWriteSelector('ButtonActive', content));
   const { openModal } = useModal();
   const dispatch = useDispatch();
-
+  const text = toKorea(content);
   const onClickButton1 = () => {
-    openModal({ type: 'ButtonSelectModal', contentType: 'region' });
+    openModal({ type: 'ButtonSelectModal', contentType: content });
     dispatch(
       setField({
         form: 'postWriteSelect',

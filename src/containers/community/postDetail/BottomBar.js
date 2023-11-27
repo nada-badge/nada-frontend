@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../../styles/Community/CommunityBarStyle';
-import useModal from '../../../components/Modal/Community/useModal';
+import useModal from '../../../components/common/modal/useModal';
 import { PostDetailSelector } from '../../../modules/Community/postDetail';
 
 export const BottomBar = () => {

@@ -1,26 +1,26 @@
 /** MainCategoryButton 메인카테고리 버튼 */
-import { useSelector } from "react-redux";
-import classNames from "classnames";
-import useModal from "../../../components/Modal/Community/useModal";
+import { useSelector } from 'react-redux';
+import classNames from 'classnames';
+import useModal from '../../../components/common/modal/useModal';
 import {
   Filter,
   TextWarpper,
   Img,
-} from "../../../styles/Community/FilterModalStyle";
-import { postWriteSelector } from "../../../modules/Community/postWrite";
+} from '../../../styles/Community/FilterModalStyle';
+import { postWriteSelector } from '../../../modules/Community/postWrite';
 
 export const MainCategoryButton = () => {
   const text = useSelector(
-    postWriteSelector("postWriteSubmit", "mainCategory")
+    postWriteSelector('postWriteSubmit', 'mainCategory'),
   );
 
   const isActive = useSelector(
-    postWriteSelector("ButtonActive", "mainCategory")
+    postWriteSelector('ButtonActive', 'mainCategory'),
   );
   const { openModal } = useModal();
 
   const onClickButton1 = () => {
-    openModal({ type: "MainCategoryModal" });
+    openModal({ type: 'MainCategoryModal' });
   };
 
   return (
