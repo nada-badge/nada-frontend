@@ -50,7 +50,7 @@ export const BadgeItem = ({ card }) => {
         <div className="badgeType"> {badgeType} </div>
         <div className="title"> {title}</div>
         <div className="roleWrapper">
-          <div className="team">{team}</div>
+          {team && <div className="team">{team}</div>}
           <div className="role">{role}</div>
         </div>
       </div>
