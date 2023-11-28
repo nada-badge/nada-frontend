@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import useModal from './useModal';
 import ModalButtonDiv from './ModalButtonDiv';
 import { Layout } from '../../../styles/Community/NoticeModalStyle';
-import toDelete from '../toDelete';
+import preSetForQuery from '../preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';
 import toReport from '../toReport';
 import useReport from '../../../modules/queries/useReport';
@@ -21,7 +21,7 @@ const AskModal = () => {
 
   const useAct = () => {
     if (actionType === '삭제') {
-      const config = toDelete(position, activity, PostDetail);
+      const config = preSetForQuery(position, activity, PostDetail);
       mutate({
         url: config.url,
         _id: config.idData,
