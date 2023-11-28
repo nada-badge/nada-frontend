@@ -13,6 +13,7 @@ const DetailContainer = styled.div`
   gap: 12px;
   width: 375px;
   margin: 0px auto;
+  padding-bottom: 88px;
 
   & > div {
     background-color: white;
