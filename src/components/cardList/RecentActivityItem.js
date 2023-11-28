@@ -10,10 +10,9 @@ const CardContainer = styled.div`
   position: relative;
 
   & > div {
-    width: 160px;
+    width: calc(100% - 20px);
     position: relative;
-    left: 14px;
-    top: 10px;
+    padding: 10px;
     text-align: left;
 
     & > .title {
@@ -55,8 +54,10 @@ const CardContainer = styled.div`
 
     & > .star {
       position: absolute;
-      top: 48px;
-      left: calc(100% - 25px);
+      top: calc(48px + 10px);
+      left: calc(
+        100% - 24px - 10px
+      ); // 전체 넓이 - 아이콘 크기(본인) - paddingLeft
     }
   }
 `;
