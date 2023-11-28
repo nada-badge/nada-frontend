@@ -24,15 +24,15 @@ const ActivityPage = () => {
 
   const cards = [
     {
-      id: 1,
+      _id: 1,
       title: '2023년 성북구 청년소셜 커뮤니티',
       team: '청년재단',
       Dday: 14,
       see: 307,
     },
-    { id: 2, title: '강북구 청년소셜', team: '재단', Dday: 114, see: 37 },
+    { _id: 2, title: '강북구 청년소셜', team: '재단', Dday: 114, see: 37 },
     {
-      id: 3,
+      _id: 3,
       title: '2023년 성북구 청년소셜',
       team: '청년재단',
       Dday: 14,
