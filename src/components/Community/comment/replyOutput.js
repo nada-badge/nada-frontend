@@ -1,8 +1,17 @@
 /**ReplyOutPut 답글을 출력하는 컴포넌트 */
-import { Reply } from "../../../styles/Community/CommentStyle";
-import Dateformat from "../Dateformat";
+import { useDispatch } from 'react-redux';
+import { Reply } from '../../../styles/Community/CommentStyle';
+import { changeCommentField } from '../../../modules/Community/postDetail';
+
+import Dateformat from '../Dateformat';
 
 const ReplyOutPut = ({ reply }) => {
+  const dispatch = useDispatch();
+
+  const sendReply = () => {
+    //코드 추가 예정
+  };
+
   return (
     <Reply>
       <div className="profile">
@@ -33,7 +42,7 @@ const ReplyOutPut = ({ reply }) => {
             <div className="text">0</div>
           </div>
         </div>
-        <div className="reply">
+        <div className="reply" onClick={sendReply}>
           <img
             className="reply"
             alt="Reply"
