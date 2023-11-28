@@ -8,6 +8,13 @@ import { applyFontStyles } from '../../styles/fontStyle';
 const CardsContainer = styled.div`
   box-shadow: 0px 2px 5px #00000005;
   position: relative;
+
+  & > .card-container {
+    width: calc(
+      375px - 15px
+    ); // scroll 작동하기 위해선 부모 요소 width에 크기를 정하고
+    overflow-x: scroll; // overflow 속성을 적용해야함.
+  }
 `;
 
 const Title = styled.div`
@@ -20,12 +27,12 @@ const Title = styled.div`
 `;
 
 const CardListWrapper = styled.div`
-  width: calc(375px - 15px); // 화면 넓이 - padding-left
+  // 부모 속성에서 width, overflow 속성을 적용해야합니다. (여기선 삭제)
+  width: fit-content;
   gap: 12px;
   align-items: flex-start;
   display: flex;
   left: 15px;
-  overflow-x: scroll;
   position: relative;
   padding-bottom: 12px; // 커스텀
 `;
@@ -43,11 +50,13 @@ const CardList = ({ title, cards, type, title_font }) => {
   return (
     <CardsContainer>
       <Title fontStyle={title_font}>{title}</Title>
-      <CardListWrapper>
-        {cards.map((card) => (
-          <ItemComponents key={card.id} card={card} />
-        ))}
-      </CardListWrapper>
+      <div className="card-container">
+        <CardListWrapper>
+          {cards.map((card) => (
+            <ItemComponents key={card.id} card={card} />
+          ))}
+        </CardListWrapper>
+      </div>
     </CardsContainer>
   );
 };
