@@ -14,12 +14,13 @@ export const OpenModalButton = ({ content }) => {
   const isActive = useSelector(postWriteSelector('ButtonActive', content));
   const { openModal } = useModal();
   const text = toKorea(content);
-  const onClickButton1 = () => {
+
+  const onClicks = () => {
     openModal({ type: 'ButtonSelectModal', contentType: content });
   };
 
   return (
-    <Filter className={classNames({ isActive })} onClick={onClickButton1}>
+    <Filter className={classNames({ isActive })} onClick={onClicks}>
       <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
       <Img className={classNames({ isActive })} />
     </Filter>

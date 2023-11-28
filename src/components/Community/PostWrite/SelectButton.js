@@ -1,7 +1,6 @@
 /** SelectButton  region, field, category 모달 내 개별요소에 대한 버튼 */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   postWriteSelector,
@@ -27,8 +26,6 @@ export const SelectButton = ({ text }) => {
   const { contentType } = modal;
   const buttonAll = selectAllConfig(contentType);
 
-  //현재 선택된 모달에 따른 key와 all 값 선언
-
   //region, field와 category의 타입차이로 인한 삼항 연산자
   const setStatus = contentType === 'category' ? setField : addField;
   const deleteStatus =
@@ -36,7 +33,7 @@ export const SelectButton = ({ text }) => {
 
   const state = useSelector(postWriteSelector('postWriteSelect', contentType));
 
-  const onClickButton = () => {
+  const onClicks = () => {
     const deactivateButton = () => {
       dispatch(deleteStatus({ form, key: contentType, value: text }));
       if (state.length === 1) {
@@ -59,7 +56,7 @@ export const SelectButton = ({ text }) => {
   }, [state]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={onClickButton}>
+    <Button className={classNames({ isActive })} onClick={onClicks}>
       <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
       {isActive && <Img />}
     </Button>

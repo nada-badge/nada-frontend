@@ -15,6 +15,7 @@ import {
   Border,
   Contents,
 } from '../../styles/Community/CommunityStyle';
+import { SearchInput } from '../../components/search/SearchInput';
 
 const Community = () => {
   const dispatch = useDispatch();
@@ -39,17 +40,7 @@ const Community = () => {
 
   return (
     <CommunityPage>
-      <Search>
-        <div className="Input">
-          <div className="Text">검색어를 입력하세요</div>
-          <img
-            className="SearchImg"
-            alt="Search"
-            src="https://c.animaapp.com/hs22pPSO/img/search.svg"
-          />
-        </div>
-      </Search>
-
+      <SearchInput />
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
         cards={community_cards}

@@ -15,7 +15,7 @@ export const SelectButton = ({ text }) => {
   const form = 'subButtonSelect';
   const slectAll = selectAllConfig(content);
 
-  const OnClickButton = () => {
+  const onClicks = () => {
     const deactivateButton = () => {
       dispatch(deleteField({ form, key: content, value: text }));
       if (state.length === 1) {
@@ -36,7 +36,7 @@ export const SelectButton = ({ text }) => {
   }, [state, text]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={OnClickButton}>
+    <Button className={classNames({ isActive })} onClick={onClicks}>
       <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
       {isActive && <Img />}
     </Button>

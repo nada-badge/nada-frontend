@@ -21,8 +21,7 @@ export const SelectAllButton = () => {
 
   const state = useSelector(postWriteSelector('postWriteSelect', contentType));
 
-  const OnClickButton = () => {
-    console.log('전체버튼이 클릭되었습니다.', contentType, buttonAll);
+  const onClicks = () => {
     if (!state.includes(buttonAll)) {
       //전국,전체 버튼이 비활성화였다면 개별 버튼을 다 비활성화 후 해당 버튼 활성화
       dispatch(initializeForm({ form: 'postWriteSelect', key: contentType }));
@@ -34,7 +33,7 @@ export const SelectAllButton = () => {
   }, [state]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={OnClickButton}>
+    <Button className={classNames({ isActive })} onClick={onClicks}>
       <TextWarpper className={classNames({ isActive })}>
         {buttonAll}
       </TextWarpper>
