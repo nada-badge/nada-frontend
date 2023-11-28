@@ -51,7 +51,9 @@ export function MenuTypeConfig(content) {
     }
   };
 
-  const toCopy = () => {};
+  const toCopy = () => {
+    //코드 추가 예정
+  };
 
   const Config = {
     Report: (

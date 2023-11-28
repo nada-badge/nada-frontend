@@ -28,16 +28,16 @@ function MainCategoryModal() {
   useEffect(() => {}, []);
 
   //현재 선택된 값이 바뀔 때마다 select 리덕스 값을 업데이트
-  const OnClick = (nowClick) => {
+  const onClicks = (nowClick) => {
     setNowClick(nowClick);
   };
 
-  const Output = (text, status) => {
+  const output = (text, status) => {
     const active = status === nowClick;
     return (
       <MainCategory
         onClick={() => {
-          OnClick(status);
+          onClicks(status);
         }}
       >
         <div className="text-wrapper">{text}</div>
@@ -46,11 +46,11 @@ function MainCategoryModal() {
     );
   };
 
-  const Cancels = () => {
+  const cancels = () => {
     closeModal();
   };
 
-  const SetStatus = () => {
+  const setStatus = () => {
     dispatch(
       setField({
         form: 'postWriteSubmit',
@@ -76,15 +76,15 @@ function MainCategoryModal() {
     <Modal>
       <div>
         <ListMain>
-          {Output('모집 게시판', '모집')}
-          {Output('홍보 게시판', '홍보')}
-          {Output('자유 게시판', '자유')}
+          {output('모집 게시판', '모집')}
+          {output('홍보 게시판', '홍보')}
+          {output('자유 게시판', '자유')}
         </ListMain>
         <Border />
         {ModalButtonDiv({
-          cancel: Cancels,
+          cancel: cancels,
           actText: '확인',
-          act: SetStatus,
+          act: setStatus,
           isRed: false,
         })}
       </div>

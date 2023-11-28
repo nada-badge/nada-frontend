@@ -11,12 +11,10 @@ export const SelectAllButton = () => {
 
   const [isActive, setIsActive] = useState(false);
   const content = useSelector(filterSelector('buttonSelect', 'filter'));
-
   const slectAll = selectAllConfig(content);
-
   const state = useSelector(filterSelector('subButtonSelect', content));
 
-  const onClickButton = () => {
+  const onClicks = () => {
     if (!state.includes(slectAll)) {
       dispatch(initializeForm({ form: 'subButtonSelect', key: content }));
     }
@@ -27,7 +25,7 @@ export const SelectAllButton = () => {
   }, [state]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={onClickButton}>
+    <Button className={classNames({ isActive })} onClick={onClicks}>
       <TextWarpper className={classNames({ isActive })}>{slectAll}</TextWarpper>
     </Button>
   );
