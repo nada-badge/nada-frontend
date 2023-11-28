@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import { body_01, caption_02, subtitle_01 } from '../../styles/fontStyle';
 
 const BadgeContainer = styled.div`
-  
   display: flex;
-  width: ${(props) => props.$layout_style?.width || 'calc(132px - 12px)'};
-  height: ${(props) => props.$layout_style?.height || '195px'};
+  width: ${({ $layout_style }) => $layout_style?.width || 'calc(132px - 12px)'};
+  height: ${({ $layout_style }) => $layout_style?.height || '195px'};
   flex-direction: column;
   justify-content: center;
-  gap: ${(props) => props.$layout_style?.gap || '12px'};
+  gap: ${({ $layout_style }) => $layout_style?.gap || '12px'};
 
   & > .imgWrapper {
     display: flex;
@@ -22,14 +21,14 @@ const BadgeContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    text-align: ${(props) => props.$layout_style?.textAlign || 'left'};
+    text-align: ${({ $layout_style }) => $layout_style?.textAlign || 'left'};
 
     & > .badgeType {
       ${caption_02('var(--myspec-gray-scale-gray-600, #888)')}
     }
 
     & > .title {
-      padding-top: ${(props) => props.$layout_style?.paddingTop || ''};
+      padding-top: ${({ $layout_style }) => $layout_style?.paddingTop || ''};
       width: inherit;
       ${subtitle_01('var(--myspec-gray-scale-gray-900, #1A1A1A)')}
     }
@@ -37,8 +36,8 @@ const BadgeContainer = styled.div`
     & > .roleWrapper {
       width: inherit;
       display: inline-flex;
-      justify-content: ${(props) =>
-        props.$layout_style?.justifyContent || 'flex-start'};
+      justify-content: ${({ $layout_style }) =>
+        $layout_style?.justifyContent || 'flex-start'};
       gap: 4px;
       ${body_01('var(--myspec-gray-scale-gray-600, #888)')};
     }
