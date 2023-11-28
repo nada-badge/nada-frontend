@@ -24,7 +24,7 @@ const ActivityPage = () => {
 
   const cards = [
     {
-      _id: 1,
+      _id: '65617b6a9c6d76464c132459',
       title: '2023년 성북구 청년소셜 커뮤니티',
       team: '청년재단',
       Dday: 14,

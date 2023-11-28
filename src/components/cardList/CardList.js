@@ -44,7 +44,7 @@ const CardList = ({ title, cards, type }) => {
       <h1>{title}</h1>
       <CardListWrapper>
         {cards.map((card) => (
-          <ItemComponents key={card.id} card={card} />
+          <ItemComponents key={card._id} card={card} />
         ))}
       </CardListWrapper>
     </CardsContainer>
