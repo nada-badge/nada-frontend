@@ -1,19 +1,22 @@
 /** BottomBar 댓글 화면에서 보여지는 하단바 */
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import useComment from '../../../modules/queries/commentQuery';
-import useReply from '../../../modules/queries/replyQuery';
+//import useComment from '../../../modules/queries/commentQuery';
+//import useReply from '../../../modules/queries/replyQuery';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { PostDetailSelector } from '../../../modules/Community/postDetail';
 import { Bar } from '../../../styles/Community/CommentBarStyle';
-
+import usePostQuery from '../../../modules/queries/usePostQuery';
+import preSetForQuery from '../../../components/common/preSetForQuery';
 export const BottomBar = () => {
   const content = useSelector(PostDetailSelector('Comment', 'content'));
-  const isReply = useSelector(PostDetailSelector('Comment', 'isReply'));
+  const position = useSelector(PostDetailSelector('Comment', 'position'));
   const [inputValue, setInputValue] = useState();
   const [isActive, setIsActive] = useState(false);
-  const { mutate } = useComment();
-  const sendReply = useReply().mutate;
+  const { mutate } = usePostQuery();
+  const PostDetail = useSelector(({ postdetail }) => postdetail);
+  //const sendReply = useReply().mutate;
+  const url = preSetForQuery(position, PostDetail).url;
 
   const onChange = (e) => {
     setInputValue(e.target.value);
@@ -28,11 +31,7 @@ export const BottomBar = () => {
   }, [content]);
 
   const sendComment = () => {
-    if (isReply) {
-      sendReply({ inputValue });
-    } else {
-      mutate({ inputValue });
-    }
+    mutate({ url, content: inputValue });
     setInputValue('');
   };
 

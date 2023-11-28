@@ -20,7 +20,7 @@ const initialState = {
     updatedAt: '',
   },
   Comment: {
-    isReply: Boolean(false),
+    position: 'comment',
     isCommentModal: Boolean(false),
     content: '',
     _id: '',

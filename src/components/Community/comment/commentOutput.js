@@ -10,9 +10,9 @@ const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
 
-  const sendReply = () => {
+  const sendComment = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
-    dispatch(changeCommentField({ form: 'isReply', value: true }));
+    dispatch(changeCommentField({ form: 'position', value: 'reply' }));
   };
 
   const openMenu = () => {
@@ -57,7 +57,7 @@ const CommentOutPut = ({ comment }) => {
               <div className="text">0</div>
             </div>
           </div>
-          <div className="reply" onClick={sendReply}>
+          <div className="reply" onClick={sendComment}>
             <img
               className="reply"
               alt="Reply"
