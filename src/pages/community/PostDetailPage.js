@@ -1,7 +1,7 @@
 /** PostDetailPage 세부 게시글을 보여주는 페이지 */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import TagButtons from '../../components/community/postDetail/TagButton';
+import TagButtons from '../../components/community/postDetail/TagButtons';
 import { ContentsList } from '../../styles/Community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
 import Dateformat from '../../components/community/Dateformat';
