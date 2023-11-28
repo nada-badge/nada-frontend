@@ -21,6 +21,7 @@ const BadgeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
 
     & > .badgeType {
       ${caption_02('var(--myspec-gray-scale-gray-600, #888)')}
