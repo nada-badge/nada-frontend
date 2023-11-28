@@ -12,15 +12,7 @@ const MyBadge = styled.div`
   align-items: center;
   gap: 8px;
   border-bottom: 2px solid var(--myspec-primary-blue-1, #1363ff);
-
-  & > .text {
-    text-align: center;
-    ${title_02('var(--myspec-gray-scale-gray-900, #1a1a1a)')}
-  }
-
-  & > .count {
-    ${title_02('var(--myspec-primary-blue-1, #1363ff)')}
-  }
+  ${title_02('var(--myspec-gray-scale-gray-900, #1a1a1a)')}
 `;
 
 const BadgePage = () => {
@@ -38,8 +30,8 @@ const BadgePage = () => {
 
   const pageContainer = {
     display: ' flex',
-    width: ' 374px',
-    height: ' 640px',
+    width: ' 375px',
+    margin: '0px auto',
     padding: ' 16px 15px',
     flexDirection: ' column',
     alignItems: ' flex-start',
