@@ -1,23 +1,28 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { filterSelector } from '../../modules/filter';
 import { changePostDetailField } from '../../modules/Community/postDetail';
 import PostItem from '../../components/community/PostList/PostItem';
-import usePostListQuery from '../../modules/queries/CommunityQuery';
+import useListQuery from '../../modules/queries/useListQuery';
 
 const PostList = () => {
   const dispatch = useDispatch();
-  const mainCategory = useSelector(
-    filterSelector('buttonSelect', 'maincategory'),
-  );
+
+  const filter = useSelector(({ filter }) => filter);
+  const { buttonSelect, subButtonSelect } = filter;
 
   // useQuery를 사용하여 데이터 가져오기
-  const { data: postsData } = usePostListQuery(mainCategory);
-
+  const { data: postsData, isLoading } = useListQuery({
+    mainCategory: buttonSelect.maincategory,
+    region: subButtonSelect.region,
+    field: subButtonSelect.field,
+    category: subButtonSelect.category,
+  });
   const setData = (card) => {
     dispatch(changePostDetailField({ value: card }));
   };
-
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       {postsData.map((card) => (
