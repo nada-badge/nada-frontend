@@ -1,24 +1,19 @@
-/** communityQuery 커뮤니티 게시글 리스트를 가져오는 쿼리 */
-import { useQuery } from "@tanstack/react-query";
-import client from "../../lib/api/client";
-import { useSelector } from "react-redux";
-import { communitySelector } from "../CommunityStatus";
+// usePostListQuery.js
 
-const useCommunityList = () => {
-  const mainCategory = useSelector(
-    communitySelector("buttonSelect", "maincategory")
-  );
+import { useQuery } from '@tanstack/react-query';
+import client from '../../lib/api/client';
 
-  return useQuery({
-    //queryKey: ["getEmail"],
-    queryFn: async () => {
-      const { data } = await client.get("/community/post/list", {
-        params: { category: mainCategory },
+const usePostListQuery = (mainCategory) => {
+  return useQuery(
+    ['getPostList', mainCategory],
+    async () => {
+      const resp = await client.get('/community/post/list', {
+        params: { mainCategory: mainCategory },
       });
-      return data;
+      return resp.data.posts.reverse();
     },
-    enable: false,
-  });
+    { enabled: Boolean(mainCategory) },
+  );
 };
 
-export default useCommunityList;
+export default usePostListQuery;
