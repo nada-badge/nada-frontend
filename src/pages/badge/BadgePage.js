@@ -1,20 +1,11 @@
-import styled from 'styled-components';
-import { title_02 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 import CardList from '../../components/cardList/CardList';
 import { AlignBox } from '../../components/badge/alignBox';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
-
-const MyBadge = styled.div`
-  display: flex;
-  padding-bottom: 0px;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 2px solid var(--myspec-primary-blue-1, #1363ff);
-  ${title_02('var(--myspec-gray-scale-gray-900, #1a1a1a)')}
-`;
+import { pageContainer, myBadge } from '../../styles/Badge';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -28,17 +19,6 @@ const BadgePage = () => {
       }),
     );
   });
-
-  const pageContainer = {
-    display: ' flex',
-    width: ' 375px',
-    margin: '0px auto',
-    padding: ' 16px 15px',
-    flexDirection: ' column',
-    alignItems: ' flex-start',
-    flexShrink: ' 0',
-    background: 'var(--myspec-gray-scale-white, #FFF)',
-  };
 
   const badge_info = [
     {
@@ -72,10 +52,15 @@ const BadgePage = () => {
 
   return (
     <div style={pageContainer}>
-      <MyBadge>
+      <div
+        style={Object.assign(
+          applyFontStyles({ font: 'title-02', color: '' }),
+          myBadge,
+        )}
+      >
         <div className="text">나의 뱃지</div>
         <div className="count">5</div>
-      </MyBadge>
+      </div>
       <AlignBox />
       <CardList title={2023} title_font={'subtitle-03'}>
         <BadgeItem cards={badge_info} />
