@@ -6,6 +6,8 @@ import BannerSlider from '../components/home/BannerSlider';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
+import BoardCardItem from '../components/cardList/BoardCardItem';
+import ActivityItem from '../components/cardList/ActivityItem';
 
 const HomeContainer = styled.div`
   text-align: left;
@@ -57,28 +59,16 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      {/* 상단 내비게이션 
-        <Top
-          className="top-instance"
-          element="https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/-----1.svg"
-          property1="main"
-        /> */}
       <BannerSlider />
       <div onClick={onClick}>
         <WeekCalendar className="calendarweek" />
       </div>
-      <CardList
-        title={'지금 인기 있는 게시글이에요🔥'}
-        cards={community_cards}
-        type={'board'}
-        title_font={'subtitle-01'}
-      />
-      <CardList
-        title={'추천 대외활동'}
-        cards={activity_cards}
-        type={'activity'}
-        title_font={'subtitle-01'}
-      />
+      <CardList title={'지금 인기 있는 게시글이에요🔥'}>
+        <BoardCardItem cards={community_cards} />
+      </CardList>
+      <CardList title={'추천 대외활동'}>
+        <ActivityItem cards={activity_cards} />
+      </CardList>
     </HomeContainer>
   );
 };
