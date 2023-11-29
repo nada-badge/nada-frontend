@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
+import { ContentBox } from '../../components/badge/ContentBox';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -16,13 +17,19 @@ const DetailBadgePage = () => {
     );
   });
 
-  const pageContainer = {
+  const viewContainer = {
     width: ' 375px',
+    margin: '0 auto',
+    background: 'var(--myspec-gray-sclegray-border)',
+    overflowY: 'scroll',
+    height: 'calc(100vh - 88px)',
+    paddingBottom: '88px',
+  };
+
+  const ContentsContainer = {
     display: 'flex',
     flexDirection: 'column',
     gap: '12px',
-    margin: '0 auto',
-    background: 'var(--myspec-gray-sclegray-border)',
   };
 
   const BadgeWrapper = {
@@ -42,7 +49,7 @@ const DetailBadgePage = () => {
 
   const layout_style = {
     width: '150px',
-    height: 'fit-content', // 이미지 + 마지막 text 위치 + text height
+    height: 'fit-content',
     gap: '14px',
     textAlign: 'center',
     justifyContent: 'center',
@@ -50,13 +57,18 @@ const DetailBadgePage = () => {
   };
 
   return (
-    <div style={pageContainer}>
-      <div style={BadgeWrapper}>
-        <BadgeItem card={badge_info} $layout_style={layout_style} />
+    <div style={viewContainer}>
+      <div style={ContentsContainer}>
+        <div style={BadgeWrapper}>
+          <BadgeItem card={badge_info} $layout_style={layout_style} />
+        </div>
+        <ContentBox title={'뱃지 설명'}>
+          블록체인 뱃지를 기반으로 취업에 관한 전방위적 기능을 제공하고자 하는
+          IT 창업 동아리 TEAM NADA입니다.
+        </ContentBox>
+        <ContentBox title={'활동 내역'}>{'활동 내역'}</ContentBox>
+        <ContentBox title={'활동 사진'}>{'활동 사진'}</ContentBox>
       </div>
-      <div>{'뱃지 설명'}</div>
-      <div>{'활동 내역'}</div>
-      <div>{'활동 사진'}</div>
     </div>
   );
 };
