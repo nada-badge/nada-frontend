@@ -44,19 +44,22 @@ const BadgeContainer = styled.div`
   }
 `;
 
-export const BadgeItem = ({ card, $layout_style }) => {
-  const { id, year, img_src, badgeType, title, team, role } = card;
+export const BadgeItem = ({ cards, $layout_style }) => {
   return (
-    <BadgeContainer $layout_style={$layout_style}>
-      <div className="imgWrapper" src={img_src} />
-      <div className="textWrapper">
-        <div className="badgeType"> {badgeType} </div>
-        <div className="title"> {title}</div>
-        <div className="roleWrapper">
-          {team && <div className="team">{team}</div>}
-          <div className="role">{role}</div>
-        </div>
-      </div>
-    </BadgeContainer>
+    <>
+      {cards.map(({ img_src, badgeType, title, team, role }, idx) => (
+        <BadgeContainer key={idx} $layout_style={$layout_style}>
+          <div className="imgWrapper" src={img_src} />
+          <div className="textWrapper">
+            <div className="badgeType"> {badgeType} </div>
+            <div className="title"> {title}</div>
+            <div className="roleWrapper">
+              {team && <div className="team">{team}</div>}
+              <div className="role">{role}</div>
+            </div>
+          </div>
+        </BadgeContainer>
+      ))}
+    </>
   );
 };

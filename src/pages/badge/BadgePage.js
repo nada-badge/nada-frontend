@@ -5,6 +5,7 @@ import { AlignBox } from '../../components/badge/alignBox';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setBarStatus } from '../../modules/bar';
+import { BadgeItem } from '../../components/cardList/BadgeItem';
 
 const MyBadge = styled.div`
   display: flex;
@@ -76,12 +77,9 @@ const BadgePage = () => {
         <div className="count">5</div>
       </MyBadge>
       <AlignBox />
-      <CardList
-        title={2023}
-        title_font={'subtitle-03'}
-        cards={badge_info}
-        type={'badge'}
-      />
+      <CardList title={2023} title_font={'subtitle-03'}>
+        <BadgeItem cards={badge_info} />
+      </CardList>
     </div>
   );
 };

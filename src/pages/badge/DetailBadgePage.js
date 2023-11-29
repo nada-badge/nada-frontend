@@ -75,7 +75,7 @@ const DetailBadgePage = () => {
     <div style={viewContainer}>
       <div style={ContentsContainer}>
         <div style={BadgeWrapper}>
-          <BadgeItem card={badge_info} $layout_style={layout_style} />
+          <BadgeItem cards={[badge_info]} $layout_style={layout_style} />
         </div>
         <ContentBox title={'뱃지 설명'}>
           블록체인 뱃지를 기반으로 취업에 관한 전방위적 기능을 제공하고자 하는
