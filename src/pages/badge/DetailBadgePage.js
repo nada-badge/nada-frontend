@@ -5,6 +5,13 @@ import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { ContentBox } from '../../components/badge/ContentBox';
 import { ActivityTable } from '../../components/badge/ActivityTable';
 import CardList from '../../components/cardList/CardList';
+import {
+  viewContainer,
+  contentsContainer,
+  badgeWrapper,
+  layout_style,
+  imgItem,
+} from '../../styles/Badge';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -18,26 +25,6 @@ const DetailBadgePage = () => {
       }),
     );
   });
-
-  const viewContainer = {
-    width: ' 375px',
-    margin: '0 auto',
-    background: 'var(--myspec-gray-scalegray-border)',
-    overflowY: 'scroll',
-    height: 'calc(100vh - 88px)',
-    paddingBottom: '88px',
-  };
-
-  const ContentsContainer = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
-  };
-
-  const BadgeWrapper = {
-    background: 'white',
-    padding: '24px 112px',
-  };
 
   const badge_info = {
     id: 1,
@@ -55,26 +42,10 @@ const DetailBadgePage = () => {
     { start: '2023.04', end: '2023.06', name: '성북구 청년소셜 벤처' },
   ];
 
-  const layout_style = {
-    width: '150px',
-    height: 'fit-content',
-    gap: '14px',
-    textAlign: 'center',
-    justifyContent: 'center',
-    paddingTop: '0.3em',
-  };
-
-  const imgItem = {
-    width: '96px',
-    aspectRatio: '1/1',
-    borderRadius: '10px',
-    background: 'var(--myspec-gray-scalegray-400)',
-  };
-
   return (
     <div style={viewContainer}>
-      <div style={ContentsContainer}>
-        <div style={BadgeWrapper}>
+      <div style={contentsContainer}>
+        <div style={badgeWrapper}>
           <BadgeItem cards={[badge_info]} $layout_style={layout_style} />
         </div>
         <ContentBox title={'뱃지 설명'}>

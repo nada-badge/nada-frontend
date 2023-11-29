@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 
+// 배지 페이지
 export const applyFontStyles = ({ font, color }) => ({
   color: color || '#000000',
   fontFamily: `var(--${font}-font-family)`,
@@ -8,7 +9,7 @@ export const applyFontStyles = ({ font, color }) => ({
   fontWeight: `var(--${font}-font-weight)`,
   letterSpacing: `var(--${font}-letter-spacing)`,
   lineHeight: `var(--${font}-line-height)`,
-  ...(font.includes('caption' || 'subtitle')
+  ...(font.includes('caption') || font.includes('subtitle')
     ? {
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
