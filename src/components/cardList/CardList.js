@@ -18,7 +18,6 @@ const CardsContainer = styled.div`
 `;
 
 const Title = styled.div`
-  ${(props) => applyFontStyles({ font: props.fontStyle, color: '' })}
   left: 16px;
   position: relative;
   padding: 16px 0px; // 커스텀
@@ -49,7 +48,9 @@ const CardList = ({ title, cards, type, title_font }) => {
 
   return (
     <CardsContainer>
-      <Title fontStyle={title_font}>{title}</Title>
+      <Title style={applyFontStyles({ font: title_font, color: '' })}>
+        {title}
+      </Title>
       <div className="card-container">
         <CardListWrapper>
           {cards.map((card) => (
