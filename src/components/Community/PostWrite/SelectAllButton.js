@@ -1,15 +1,13 @@
 /** SelectAllButton  region, field, category 모달 내 전체를 아우르는 버튼 */
 import { useEffect } from 'react';
-import classNames from 'classnames';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   postWriteSelector,
   initializeForm,
 } from '../../../modules/Community/postWrite';
-import { Button, TextWarpper } from '../../../styles/Community/SelectButton';
 import { selectAllConfig } from '../../common/AreaFieldCategoryData';
-
+import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);
@@ -33,10 +31,11 @@ export const SelectAllButton = () => {
   }, [state]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={onClicks}>
-      <TextWarpper className={classNames({ isActive })}>
-        {buttonAll}
-      </TextWarpper>
-    </Button>
+    <AttributeInfoButton
+      text={buttonAll}
+      onClicks={onClicks}
+      isActive={isActive}
+      isImg={false}
+    />
   );
 };
