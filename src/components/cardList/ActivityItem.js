@@ -46,18 +46,20 @@ const CardContainer = styled.div`
   }
 `;
 
-const ActivityItem = ({ card }) => {
-  const { title, Dday } = card;
-
+const ActivityItem = ({ cards }) => {
   return (
-    <CardContainer>
-      <div className="imgContainer">
-        <div className="Dday-wrapper">
-          <div className="Dday">{`D - ${Dday}`}</div>
-        </div>
-      </div>
-      <p className="title">{title}</p>
-    </CardContainer>
+    <>
+      {cards.map(({ title, Dday }) => (
+        <CardContainer>
+          <div className="imgContainer">
+            <div className="Dday-wrapper">
+              <div className="Dday">{`D - ${Dday}`}</div>
+            </div>
+          </div>
+          <p className="title">{title}</p>
+        </CardContainer>
+      ))}
+    </>
   );
 };
 

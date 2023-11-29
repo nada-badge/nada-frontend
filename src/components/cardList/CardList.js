@@ -1,8 +1,4 @@
-import ActivityItem from './ActivityItem';
-import BoardCardItem from './BoardCardItem';
 import styled from 'styled-components';
-import RecentActivityItem from './RecentActivityItem';
-import { BadgeItem } from './BadgeItem';
 import { applyFontStyles } from '../../styles/fontStyle';
 
 const CardsContainer = styled.div`
@@ -36,27 +32,21 @@ const CardListWrapper = styled.div`
   padding-bottom: 12px; // 커스텀
 `;
 
-const CardList = ({ title, cards, type, title_font }) => {
-  const typeSet = {
-    board: BoardCardItem,
-    activity: ActivityItem,
-    recentActivity: RecentActivityItem,
-    badge: BadgeItem,
-  };
-
-  const ItemComponents = typeSet[type];
-
+const CardList = ({ title, children, title_font }) => {
   return (
     <CardsContainer>
-      <Title style={applyFontStyles({ font: title_font, color: '' })}>
-        {title}
-      </Title>
+      {title && (
+        <Title
+          style={applyFontStyles({
+            font: title_font || 'subtitle-02',
+            color: '',
+          })}
+        >
+          {title}
+        </Title>
+      )}
       <div className="card-container">
-        <CardListWrapper>
-          {cards.map((card) => (
-            <ItemComponents key={card.id} card={card} />
-          ))}
-        </CardListWrapper>
+        <CardListWrapper>{children}</CardListWrapper>
       </div>
     </CardsContainer>
   );

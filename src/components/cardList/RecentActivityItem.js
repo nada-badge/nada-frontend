@@ -61,23 +61,25 @@ const CardContainer = styled.div`
   }
 `;
 
-const RecentActivityItem = ({ card }) => {
-  const { title, team, Dday, see } = card;
-
+const RecentActivityItem = ({ cards }) => {
   return (
-    <CardContainer>
-      <div>
-        <div className="title">{title}</div>
-        <div className="team">{team}</div>
-        <div className="group">
-          <div className="Dday">D-{Dday}</div>
-          <div className="see">조회 {see}</div>
-        </div>
-        <div className="star">
-          <Star />
-        </div>
-      </div>
-    </CardContainer>
+    <>
+      {cards.map(({ title, team, Dday, see }) => (
+        <CardContainer>
+          <div>
+            <div className="title">{title}</div>
+            <div className="team">{team}</div>
+            <div className="group">
+              <div className="Dday">D-{Dday}</div>
+              <div className="see">조회 {see}</div>
+            </div>
+            <div className="star">
+              <Star />
+            </div>
+          </div>
+        </CardContainer>
+      ))}
+    </>
   );
 };
 
