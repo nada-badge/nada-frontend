@@ -1,6 +1,6 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 import CardList from '../../components/cardList/CardList';
-import { AlignBox } from '../../components/badge/alignBox';
+import { AlignBox } from '../../components/badge/AlignBox';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setBarStatus } from '../../modules/bar';
