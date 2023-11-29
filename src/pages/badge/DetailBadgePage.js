@@ -58,7 +58,7 @@ const DetailBadgePage = () => {
         <ContentBox title={'활동 사진'}>
           <CardList>
             {Array.from({ length: 4 }, () => 1).map((item, idx) => (
-              <div style={imgItem} idx={idx} />
+              <div style={imgItem} key={idx} />
             ))}
           </CardList>
         </ContentBox>
