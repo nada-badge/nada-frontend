@@ -4,6 +4,7 @@ import { setBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { ContentBox } from '../../components/badge/ContentBox';
 import { ActivityTable } from '../../components/badge/ActivityTable';
+import CardList from '../../components/cardList/CardList';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const DetailBadgePage = () => {
   const viewContainer = {
     width: ' 375px',
     margin: '0 auto',
-    background: 'var(--myspec-gray-sclegray-border)',
+    background: 'var(--myspec-gray-scalegray-border)',
     overflowY: 'scroll',
     height: 'calc(100vh - 88px)',
     paddingBottom: '88px',
@@ -63,6 +64,13 @@ const DetailBadgePage = () => {
     paddingTop: '0.3em',
   };
 
+  const imgItem = {
+    width: '96px',
+    aspectRatio: '1/1',
+    borderRadius: '10px',
+    background: 'var(--myspec-gray-scalegray-400)',
+  };
+
   return (
     <div style={viewContainer}>
       <div style={ContentsContainer}>
@@ -76,7 +84,13 @@ const DetailBadgePage = () => {
         <ContentBox title={'활동 내역'}>
           <ActivityTable info={activity_info} />
         </ContentBox>
-        <ContentBox title={'활동 사진'}>{'활동 사진'}</ContentBox>
+        <ContentBox title={'활동 사진'}>
+          <CardList>
+            {Array.from({ length: 4 }, () => 1).map((item, idx) => (
+              <div style={imgItem} idx={idx} />
+            ))}
+          </CardList>
+        </ContentBox>
       </div>
     </div>
   );
