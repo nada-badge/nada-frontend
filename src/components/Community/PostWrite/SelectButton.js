@@ -1,6 +1,5 @@
 /** SelectButton  region, field, category 모달 내 개별요소에 대한 버튼 */
 import { useEffect, useState } from 'react';
-import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   postWriteSelector,
@@ -9,12 +8,8 @@ import {
   setField,
   initializeForm,
 } from '../../../modules/Community/postWrite';
-import {
-  Button,
-  TextWarpper,
-  Img,
-} from '../../../styles/Community/SelectButton';
 import { selectAllConfig } from '../../common/AreaFieldCategoryData';
+import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();
@@ -56,9 +51,11 @@ export const SelectButton = ({ text }) => {
   }, [state]);
 
   return (
-    <Button className={classNames({ isActive })} onClick={onClicks}>
-      <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
-      {isActive && <Img />}
-    </Button>
+    <AttributeInfoButton
+      text={text}
+      onClicks={onClicks}
+      isActive={isActive}
+      isImg={true}
+    />
   );
 };
