@@ -15,12 +15,12 @@ export const OpenModalButton = ({ content }) => {
   const { openModal } = useModal();
   const text = toKorea(content);
 
-  const onClicks = () => {
+  const onClick = () => {
     openModal({ type: 'ButtonSelectModal', contentType: content });
   };
 
   return (
-    <Filter className={classNames({ isActive })} onClick={onClicks}>
+    <Filter className={classNames({ isActive })} onClick={onClick}>
       <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
       <Img className={classNames({ isActive })} />
     </Filter>
