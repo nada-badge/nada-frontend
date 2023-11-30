@@ -7,7 +7,6 @@ import {
   postWriteSelector,
   setField,
 } from '../../../modules/Community/postWrite';
-import classNames from 'classnames';
 import {
   ListMain,
   Border,
@@ -39,7 +38,7 @@ const MainCategoryModal = () => {
         }}
       >
         <div className="text-wrapper">{text}</div>
-        <Img className={classNames('vector', { active })} />
+        <Img className={active && 'vector'} />
       </MainCategory>
     );
   };
