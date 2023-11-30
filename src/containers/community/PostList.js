@@ -11,7 +11,11 @@ const PostList = () => {
   const { buttonSelect, subButtonSelect } = filter;
 
   // useQuery를 사용하여 데이터 가져오기
-  const { data: postsData, isLoading } = useListQuery({
+  const {
+    data: postsData,
+    isLoading,
+    isError,
+  } = useListQuery({
     mainCategory: buttonSelect.maincategory,
     region: subButtonSelect.region,
     field: subButtonSelect.field,
@@ -23,6 +27,11 @@ const PostList = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  console.log('error', isError);
+  if (isError) {
+    return <div>조건에 맞는 게시물이 없습니다.</div>;
+  }
+
   return (
     <div>
       {postsData.map((card) => (
