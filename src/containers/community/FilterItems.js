@@ -19,7 +19,9 @@ export const FilterItems = ({ text }) => {
   }, [mainCategory, text]);
 
   const output = () => {
-    contents.map(({ text }, index) => <SelectButton key={index} text={text} />);
+    return contents.map(({ text }, index) => (
+      <SelectButton key={index} text={text} />
+    ));
   };
 
   return (
