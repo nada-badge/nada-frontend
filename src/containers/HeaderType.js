@@ -87,7 +87,7 @@ export const HeaderType = [
 ];
 
 //각 요소에 대한 구현
-export function HeaderTypeConfig(navigate, status, pageNameStatus) {
+export const HeaderTypeConfig = (navigate, status, pageNameStatus) => {
   const Config = {
     Texts: <Textwrapper>{pageNameStatus}</Textwrapper>,
     Back: (
@@ -123,4 +123,4 @@ export function HeaderTypeConfig(navigate, status, pageNameStatus) {
   };
 
   return Config[status.status];
-}
+};

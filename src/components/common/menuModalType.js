@@ -5,7 +5,7 @@ import PrintCenteredText from './modal/PrintCenteredText';
 import useModal from './modal/useModal';
 import useSetButtonActive from '../../containers/community/postDetail/SetButtonActive';
 
-export function MenuTypeConfig(content) {
+export const MenuTypeConfig = (content) => {
   const { openModal } = useModal();
   const modal = useSelector(({ modal }) => modal);
   const { contentType, position } = modal;
@@ -64,4 +64,4 @@ export function MenuTypeConfig(content) {
   };
 
   return Config[content];
-}
+};

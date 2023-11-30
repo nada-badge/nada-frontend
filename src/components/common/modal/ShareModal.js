@@ -3,7 +3,7 @@ import Modal from './Modal';
 import { Layout, Image } from '../../../styles/Community/NoticeModalStyle';
 import ModalButton from './ModalButton';
 
-function ShareModal() {
+const ShareModal = () => {
   return (
     <Modal>
       <Layout>
@@ -23,6 +23,6 @@ function ShareModal() {
       </Layout>
     </Modal>
   );
-}
+};
 
 export default ShareModal;

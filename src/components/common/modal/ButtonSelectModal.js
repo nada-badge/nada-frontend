@@ -15,7 +15,7 @@ import { List, Border } from '../../../styles/ModalStyle';
 import ModalButtonDiv from './ModalButtonDiv';
 import { selectConfig, selectAllConfig } from '../AreaFieldCategoryData';
 
-function ButtonSelectModal() {
+const ButtonSelectModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);
@@ -88,6 +88,6 @@ function ButtonSelectModal() {
       </div>
     </Modal>
   );
-}
+};
 
 export default ButtonSelectModal;

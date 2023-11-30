@@ -16,7 +16,7 @@ import {
 } from '../../../styles/ModalStyle';
 import ModalButtonDiv from '../../common/modal/ModalButtonDiv';
 
-function MainCategoryModal() {
+const MainCategoryModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -88,6 +88,6 @@ function MainCategoryModal() {
       </div>
     </Modal>
   );
-}
+};
 
 export default MainCategoryModal;
