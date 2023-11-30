@@ -29,7 +29,6 @@ const AskModal = () => {
     }
     if (actionType === '신고') {
       const config = toReport(position, PostDetail);
-      console.log('AskModal, config : ', config);
       reportMutate({
         url: config.url,
         _id: config.idData,

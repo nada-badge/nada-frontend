@@ -21,7 +21,7 @@ const CommentPage = () => {
     <div>
       <CommentList>
         {comments.map((comment) => (
-          <div key={comment._id}>{CommentOutPut({ comment })}</div>
+          <CommentOutPut key={comment._id} comment={comment} />
         ))}
       </CommentList>
       <BottomBar />

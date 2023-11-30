@@ -20,9 +20,7 @@ const preSetForQuery = (position, PostDetail, activity = '') => {
     },
   };
 
-  const config = positionsConfig[position] || {};
-
-  return config;
+  return positionsConfig[position] || {};
 };
 
 export default preSetForQuery;
