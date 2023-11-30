@@ -23,7 +23,7 @@ const MODAL_COMPONENTS = {
   ButtonSelectModal: ButtonSelectModal,
 };
 
-function ModalContainer() {
+const ModalContainer = () => {
   const { type, props } = useSelector(modalSelector);
 
   if (!type) {
@@ -41,7 +41,7 @@ function ModalContainer() {
     </>,
     document.getElementById('modal'),
   );
-}
+};
 
 export default ModalContainer;
 
