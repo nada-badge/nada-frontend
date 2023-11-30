@@ -7,17 +7,12 @@ import {
   initializeAll,
   postWriteSelector,
 } from '../../modules/Community/postWrite';
-import { MainCategoryButton } from '../../containers/community/postWrite/MainCategoryButton';
 import { setBarStatus } from '../../modules/bar';
-import {
-  PostContainer,
-  Title,
-  Frame,
-  Content,
-  Border,
-  RegionImages,
-} from '../../styles/Community/PostWriteStyle';
-import { OpenModalButton } from '../../components/community/PostWrite/openModalButton';
+import { PostContainer, Border } from '../../styles/Community/PostWriteStyle';
+import { Title } from '../../containers/community/postWrite/Title';
+import { FilterBar } from '../../containers/community/postWrite/FilterBar';
+import { Content } from '../../containers/community/postWrite/Content';
+import { Image } from '../../containers/community/postWrite/Image';
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
@@ -92,57 +87,12 @@ const PostWrite = () => {
   return (
     <PostContainer>
       <form onSubmit={OnSubmit}>
-        <Title>
-          <input
-            className="div"
-            name="title"
-            onChange={onChange}
-            value={inputValue.title}
-            placeholder="제목을 입력하세요"
-            required
-          />
-        </Title>
+        <Title onChange={onChange} inputValue={inputValue} />
         <Border />
-        <Frame>
-          <MainCategoryButton />
-          <OpenModalButton content="region" />
-          <OpenModalButton content="field" />
-          <OpenModalButton content="category" />
-        </Frame>
-        <Content>
-          <input
-            className="text"
-            name="content"
-            onChange={onChange}
-            value={inputValue.content}
-            placeholder="내용을 입력하세요"
-            required
-          />
-        </Content>
-
+        <Content onChange={onChange} inputValue={inputValue} />
+        <FilterBar />
         <Border />
-        <RegionImages>
-          <div className="images">
-            <div className="image">
-              <div className="overlap-group">
-                <div className="rectangle" />
-                <img
-                  className="img"
-                  alt="Vector"
-                  src="https://c.animaapp.com/prsgtMdH/img/vector-12.svg"
-                />
-                <div className="ellipse" />
-                <div className="group">
-                  <img
-                    className="vector-2"
-                    alt="Vector"
-                    src="https://c.animaapp.com/prsgtMdH/img/vector.svg"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </RegionImages>
+        <Image />
         <button>테스트 제출 버튼</button>
       </form>
     </PostContainer>
