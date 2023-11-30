@@ -1,5 +1,5 @@
 /** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Modal from '../../common/modal/Modal';
 import useModal from '../../common/modal/useModal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,8 +24,6 @@ function MainCategoryModal() {
   const [nowClick, setNowClick] = useState(
     useSelector(postWriteSelector('postWriteSubmit', 'mainCategory')),
   );
-
-  useEffect(() => {}, []);
 
   //현재 선택된 값이 바뀔 때마다 select 리덕스 값을 업데이트
   const onClick = (nowClick) => {
