@@ -19,6 +19,9 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   const email = useSelector(authSelector(type, 'email')); // email 상태 가져오기
   const debounceVal = useDebounce(email);
 
+  // 버튼 투명도, 비활성화 상태 관리
+  const [disabled, setDisabled] = useState(true);
+
   // email 유효성 검사
   const checkEmail = useCallback(() => {
     const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -35,6 +38,7 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
           params: { email: email },
         });
         setError(data.result ? null : errorMessages.email_duplicate);
+        setDisabled(!data.result);
       } catch (error) {
         console.error('데이터 가져오기 오류:', error);
       }
@@ -60,7 +64,7 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
           {error && <Caution error={error} />}
         </div>
       </Form>
-      <Button form={order} text={'다음'} />
+      <Button form={order} text={'다음'} disabled={disabled} />
     </div>
   );
 };
