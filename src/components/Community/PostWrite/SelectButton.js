@@ -28,7 +28,7 @@ export const SelectButton = ({ text }) => {
 
   const state = useSelector(postWriteSelector('postWriteSelect', contentType));
 
-  const onClicks = () => {
+  const onClick = () => {
     const deactivateButton = () => {
       dispatch(deleteStatus({ form, key: contentType, value: text }));
       if (state.length === 1) {
@@ -53,7 +53,7 @@ export const SelectButton = ({ text }) => {
   return (
     <AttributeInfoButton
       text={text}
-      onClicks={onClicks}
+      onClick={onClick}
       isActive={isActive}
       isImg={true}
     />

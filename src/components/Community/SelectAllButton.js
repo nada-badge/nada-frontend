@@ -13,7 +13,7 @@ export const SelectAllButton = () => {
   const slectAll = selectAllConfig(content);
   const state = useSelector(filterSelector('subButtonSelect', content));
 
-  const onClicks = () => {
+  const onClick = () => {
     if (!state.includes(slectAll)) {
       dispatch(initializeForm({ form: 'subButtonSelect', key: content }));
     }
@@ -26,7 +26,7 @@ export const SelectAllButton = () => {
   return (
     <AttributeInfoButton
       text={slectAll}
-      onClicks={onClicks}
+      onClick={onClick}
       isActive={isActive}
       isImg={false}
     />

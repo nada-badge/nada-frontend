@@ -14,7 +14,7 @@ export const SelectButton = ({ text }) => {
   const form = 'subButtonSelect';
   const slectAll = selectAllConfig(content);
 
-  const onClicks = () => {
+  const onClick = () => {
     const deactivateButton = () => {
       dispatch(deleteField({ form, key: content, value: text }));
       if (state.length === 1) {
@@ -37,7 +37,7 @@ export const SelectButton = ({ text }) => {
   return (
     <AttributeInfoButton
       text={text}
-      onClicks={onClicks}
+      onClick={onClick}
       isActive={isActive}
       isImg={true}
     />

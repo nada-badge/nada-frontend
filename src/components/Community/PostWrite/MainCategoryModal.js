@@ -28,7 +28,7 @@ function MainCategoryModal() {
   useEffect(() => {}, []);
 
   //현재 선택된 값이 바뀔 때마다 select 리덕스 값을 업데이트
-  const onClicks = (nowClick) => {
+  const onClick = (nowClick) => {
     setNowClick(nowClick);
   };
 
@@ -37,7 +37,7 @@ function MainCategoryModal() {
     return (
       <MainCategory
         onClick={() => {
-          onClicks(status);
+          onClick(status);
         }}
       >
         <div className="text-wrapper">{text}</div>
