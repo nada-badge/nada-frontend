@@ -38,7 +38,7 @@ const MainCategoryModal = () => {
         }}
       >
         <div className="text-wrapper">{text}</div>
-        <Img className={active && 'vector'} />
+        <Img className={active ? 'active vector' : 'vector'} />
       </MainCategory>
     );
   };
