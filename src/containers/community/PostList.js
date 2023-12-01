@@ -1,9 +1,10 @@
+/**PostList 커뮤니티 게시물 리스트가 나오는 컨테이너 */
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { changePostDetailField } from '../../modules/Community/postDetail';
 import PostItem from '../../components/community/PostList/PostItem';
 import useListQuery from '../../modules/queries/useListQuery';
-
+import { ErrorMessage } from './ErrorMessage';
 const PostList = () => {
   const dispatch = useDispatch();
 
@@ -27,9 +28,9 @@ const PostList = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log('error', isError);
+
   if (isError) {
-    return <div>조건에 맞는 게시물이 없습니다.</div>;
+    return <ErrorMessage />;
   }
 
   return (
