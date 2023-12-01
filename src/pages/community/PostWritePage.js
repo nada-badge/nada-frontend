@@ -89,8 +89,8 @@ const PostWrite = () => {
       <form onSubmit={OnSubmit}>
         <Title onChange={onChange} inputValue={inputValue} />
         <Border />
-        <Content onChange={onChange} inputValue={inputValue} />
         <FilterBar />
+        <Content onChange={onChange} inputValue={inputValue} />
         <Border />
         <Image />
         <button>테스트 제출 버튼</button>
