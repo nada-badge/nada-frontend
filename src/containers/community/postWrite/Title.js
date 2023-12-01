@@ -5,7 +5,7 @@ export const Title = ({ onChange, inputValue }) => {
     <TitleStyle>
       <input
         className="div"
-        name="TitleStyle"
+        name="title"
         onChange={onChange}
         value={inputValue.title}
         placeholder="제목을 입력하세요"
