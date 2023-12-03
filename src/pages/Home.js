@@ -6,6 +6,8 @@ import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
+import BoardCardItem from '../components/cardList/BoardCardItem';
+import ActivityItem from '../components/cardList/ActivityItem';
 
 const HomeContainer = styled.div`
   text-align: left;

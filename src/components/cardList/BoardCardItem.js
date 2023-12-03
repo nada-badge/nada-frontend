@@ -36,15 +36,17 @@ const CardContainer = styled.div`
   }
 `;
 
-const BoardCardItem = ({ card }) => {
-  const { title, category } = card;
-
+const BoardCardItem = ({ cards }) => {
   return (
-    <CardContainer>
-      <div className="image-2" />
-      <div className="category">{category}</div>
-      <div className="title">{title}</div>
-    </CardContainer>
+    <>
+      {cards.map(({ title, category }) => (
+        <CardContainer>
+          <div className="image-2" />
+          <div className="category">{category}</div>
+          <div className="title">{title}</div>
+        </CardContainer>
+      ))}
+    </>
   );
 };
 
