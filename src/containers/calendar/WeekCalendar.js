@@ -1,11 +1,16 @@
+import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import '../../styles/Calendar.scss';
-import './WeekCalendar.scss';
+import '../../styles/calendar/Calendar.scss';
+import '../../styles/calendar/WeekCalendar.scss';
 import TodayBox from '../../components/calendar/today';
 import EventBox from '../../components/calendar/event';
+import { useGetEvents } from '../../modules/calendar/useGetEvents';
 
 const WeekCalendar = () => {
+  // 서버에서 가져온 데이터
+  const events = useGetEvents();
+
   return (
     <>
       <div className="WeekCalendarWrapper">
@@ -23,28 +28,11 @@ const WeekCalendar = () => {
           }}
           eventContent={(info) => <EventBox text={info.event.title} />}
           // dayGridWeek은 'end + 1'로 표시해야한다. (적용전)
-          events={[
-            {
-              title: 'event1',
-              start: '2023-09-18',
-              end: '2023-09-23',
-              color: 'pink',
-            },
-            {
-              title: 'event2',
-              start: '2023-09-20',
-              end: '2023-09-24',
-              allDay: true,
-            },
-            {
-              title: 'event3',
-              start: '2023-09-21',
-            },
-          ]}
+          events={events}
         />
       </div>
     </>
   );
 };
 
-export default WeekCalendar;
+export default React.memo(WeekCalendar);
