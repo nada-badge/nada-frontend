@@ -4,7 +4,8 @@ import activity from './activity';
 import barStatus from './bar';
 import schedule from './schedule';
 import user from './user';
-import calendar from './calendar/calendar';
+import calendar from './calendar';
+import filter from './filter';
 
 const rootReducer = combineReducers({
   auth,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   calendar,
   activity,
   barStatus,
+  filter,
 });
 
 export default rootReducer;
