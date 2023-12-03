@@ -1,12 +1,9 @@
 import styled from 'styled-components';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 const TodayWrapper = styled.div`
   & > div {
-    color: #ffffff;
-    font-family: var(--body-01-font-family);
-    font-size: var(--body-01-font-size);
-    font-style: var(--body-01-font-style);
-    font-weight: var(--body-01-font-weight);
+    ${applyFontStyles({ font: 'body-01', color: '#ffffff' })};
     text-align: center;
     white-space: nowrap;
 

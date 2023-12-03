@@ -1,30 +1,22 @@
 import styled from 'styled-components';
+import { applyFontStyles } from '../../../styles/fontStyle';
 
 const ItemContainer = styled.div`
   position: relative;
 
   & > .title {
-    color: #000000;
-    font-family: var(--body-01-font-family);
-    font-size: var(--body-01-font-size);
-    font-style: var(--body-01-font-style);
-    font-weight: var(--body-01-font-weight);
+    ${applyFontStyles({ font: 'body-01', color: '' })};
     left: 25px;
-    letter-spacing: var(--body-01-letter-spacing);
-    line-height: var(--body-01-line-height);
     position: absolute;
     top: 11px;
   }
 
   & > .dateWrapper {
-    color: var(--myspec-gray-scalegray-600);
-    font-family: var(--caption-02-font-family);
-    font-size: var(--caption-02-font-size);
-    font-style: var(--caption-02-font-style);
-    font-weight: var(--caption-02-font-weight);
+    ${applyFontStyles({
+      font: 'caption-02',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })};
     left: 25px;
-    letter-spacing: var(--caption-02-letter-spacing);
-    line-height: var(--caption-02-line-height);
     position: absolute;
     top: 32px;
     white-space: nowrap;
