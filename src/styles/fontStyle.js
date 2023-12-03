@@ -1,5 +1,42 @@
 import { css } from 'styled-components';
 
+// 배지 페이지
+export const applyFontStyles = ({ font, color }) => ({
+  color: color || '#000000',
+  fontFamily: `var(--${font}-font-family)`,
+  fontSize: `var(--${font}-font-size)`,
+  fontStyle: `var(--${font}-font-style)`,
+  fontWeight: `var(--${font}-font-weight)`,
+  letterSpacing: `var(--${font}-letter-spacing)`,
+  lineHeight: `var(--${font}-line-height)`,
+  ...(font.includes('caption') || font.includes('subtitle')
+    ? {
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
+      }
+    : {}),
+  ...(font.includes('body') ? { wordBreak: 'keep-all' } : {}),
+});
+
+// export const applyFontStyles = ({ font, color }) => css`
+//   color: ${color || '#000000'};
+//   font-family: ${`var(--${font}-font-family)`};
+//   font-size: ${`var(--${font}-font-size)`};
+//   font-style: ${`var(--${font}-font-style)`};
+//   font-weight: ${`var(--${font}-font-weight)`};
+//   letter-spacing: ${`var(--${font}-letter-spacing)`};
+//   line-height: ${`var(--${font}-line-height)`};
+//   ${font.includes('caption' || 'subtitle')
+//     ? `
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//   `
+//     : ''}
+//   ${font.includes('body') ? 'word-break: keep-all;' : ''}
+// `;
+
 export const caption_01 = (color) => css`
   color: ${color || '#000000'};
   font-family: var(--caption-01-font-family);
@@ -66,7 +103,6 @@ export const subtitle_02 = (color) => css`
 `;
 
 export const subtitle_03 = (color) => css`
-  color: ${color || '#000000'};
   font-family: var(--subtitle-03-font-family);
   font-size: var(--subtitle-03-font-size);
   font-style: var(--subtitle-03-font-style);
@@ -76,6 +112,7 @@ export const subtitle_03 = (color) => css`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: ${color || '#000000'};
 `;
 
 export const title_01 = (color) => css`
