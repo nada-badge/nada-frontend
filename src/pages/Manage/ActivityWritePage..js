@@ -25,7 +25,6 @@ const ManageActivityWrite = () => {
   const [endedAt, setEndedAt] = useState(new Date());
 
   useEffect(() => {
-    console.log('postWritePage가 실행되었습니다');
     dispatch(
       setBarStatus({
         headerState: 'back',
@@ -65,7 +64,7 @@ const ManageActivityWrite = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { _id, activityName, groupName, field, category, area, content } =
+    const { _id, activityName, groupName, field, category, region, content } =
       board;
     const start = new Date(e.target.startedAt.value).toISOString();
     const ended = new Date(e.target.endedAt.value).toISOString();
@@ -75,7 +74,7 @@ const ManageActivityWrite = () => {
         groupName,
         field,
         category,
-        area,
+        region,
         content,
         start,
         ended,
@@ -87,7 +86,7 @@ const ManageActivityWrite = () => {
         groupName,
         field,
         category,
-        area,
+        region,
         content,
         start,
         ended,
@@ -103,7 +102,7 @@ const ManageActivityWrite = () => {
         <div>{output('주최사', 'groupName')}</div>
         <div>{output('분야', 'field')}</div>
         <div>{output('일정 카테고리', 'category')}</div>
-        <div>{output('장소', 'area')}</div>
+        <div>{output('장소', 'region')}</div>
         <div>{output('세부 사항', 'content')}</div>
 
         {/*<div>
