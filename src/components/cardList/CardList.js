@@ -8,8 +8,8 @@ const CardsContainer = styled.div`
   & > .card-container {
     width: calc(
       375px - 15px
-    ); // scroll 작동하기 위해선 부모 요소 width에 크기를 정하고
-    overflow-x: scroll; // overflow 속성을 적용해야함.
+    );
+    overflow-x: scroll; 
   }
 `;
 
@@ -22,7 +22,6 @@ const Title = styled.div`
 `;
 
 const CardListWrapper = styled.div`
-  // 부모 속성에서 width, overflow 속성을 적용해야합니다. (여기선 삭제)
   width: fit-content;
   gap: 12px;
   align-items: flex-start;

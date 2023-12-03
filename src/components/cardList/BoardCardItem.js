@@ -8,6 +8,7 @@ const CardContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 120px;
+  text-align: left;
 
   & > .image-2 {
     background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-2@2x.png);
