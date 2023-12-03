@@ -26,6 +26,19 @@ export const caption_02 = (color) => css`
   overflow: hidden;
 `;
 
+export const caption_03 = (color) => css`
+  color: ${color || 'var(--myspec-primaryblue-1)'};
+  font-family: var(--caption-03-font-family);
+  font-size: var(--caption-03-font-size);
+  font-style: var(--caption-03-font-style);
+  font-weight: var(--caption-03-font-weight);
+  letter-spacing: var(--caption-03-letter-spacing);
+  line-height: var(--caption-03-line-height);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
+
 export const subtitle_01 = (color) => css`
   color: ${color || '#000000'};
   font-family: var(--subtitle-01-font-family);
