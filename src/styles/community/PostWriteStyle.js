@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { title_02, body_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const PostContainer = styled.div`
   align-items: flex-start;
@@ -20,7 +20,10 @@ export const TitleStyle = styled.div`
   width: 375px;
 
   & > .div {
-    ${title_02('--myspec-gray-scalegray-600')}
+    ${applyFontStyles({
+      font: 'title-02',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })};
     margin-top: -1px;
     position: relative;
     width: 345px;
@@ -54,7 +57,10 @@ export const ContentStyle = styled.div`
   width: 375px;
 
   & > .text {
-    ${body_01('--myspec-gray-scalegray-600')}
+    ${applyFontStyles({
+      font: 'body-01',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })};
     margin-top: -1px;
     position: relative;
     width: 345px;

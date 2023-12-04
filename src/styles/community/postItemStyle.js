@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { subtitle_03, body_01, caption_03 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const PostContainer = styled.div`
   height: 90px;
@@ -27,7 +27,10 @@ export const PostContainer = styled.div`
     left: 76px;
 
     & > .title {
-      ${subtitle_03('#000000')}
+      ${applyFontStyles({
+        font: 'subtitle-03',
+        color: '#000000',
+      })};
       position: relative;
       white-space: nowrap;
       width: 269px;
@@ -35,7 +38,10 @@ export const PostContainer = styled.div`
     }
 
     & > .text {
-      ${body_01('#000000')}
+      ${applyFontStyles({
+        font: 'body-01',
+        color: '#000000',
+      })};
       position: relative;
       top: 5px;
       white-space: nowrap;
@@ -54,7 +60,10 @@ export const PostContainer = styled.div`
       top: 12px;
 
       & > .text-2 {
-        ${caption_03('var(--myspec-gray-scalegray-600)')}
+        ${applyFontStyles({
+          font: 'caption-03',
+          color: 'var(--myspec-gray-scalegray-600)',
+        })};
         margin-top: -1px;
         position: relative;
         text-align: right;

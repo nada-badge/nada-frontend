@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { body_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const Dropdown = styled.div`
   align-items: center;
@@ -28,7 +28,7 @@ export const Dropdown = styled.div`
 `;
 
 export const TextWarpper = styled.div`
-  ${body_01('')}
+  ${applyFontStyles({ font: 'body-01', color: '' })};
   margin-top: -1px;
   position: relative;
   white-space: nowrap;

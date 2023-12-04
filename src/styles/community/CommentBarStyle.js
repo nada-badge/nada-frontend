@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import arrowButton from '../../icon/arrowButton.png';
 import arrowButtonActive from '../../icon/arrowButtonActive.png';
-import { body_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const Bar = styled.div`
   align-items: flex-start;
@@ -34,7 +34,10 @@ export const Bar = styled.div`
       position: relative;
 
       & > .wrapper {
-        ${body_01('--myspec-gray-scalegray-100')}
+        ${applyFontStyles({
+          font: 'body-01',
+          color: 'var(--myspec-gray-scalegray-100)',
+        })};
         margin-top: -1px;
         position: relative;
         white-space: nowrap;

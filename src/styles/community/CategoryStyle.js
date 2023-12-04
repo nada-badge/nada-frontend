@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { subtitle_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const Categorylist = styled.div`
   display: inline-flex;
@@ -27,7 +27,10 @@ export const Wrapper = styled.div`
   }
 
   & > .Text {
-    ${subtitle_01('var(--myspec-gray-scalegray-500)')}
+    ${applyFontStyles({
+      font: 'subtitle-01',
+      color: 'var(--myspec-gray-scalegray-500)',
+    })}
     margin-top: -2px;
     position: relative;
     width: fit-content;

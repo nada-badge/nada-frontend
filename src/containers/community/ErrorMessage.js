@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { caption_02, body_02 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 export const ErrorMessage = () => {
   return (
@@ -11,7 +11,10 @@ export const ErrorMessage = () => {
 };
 
 export const ErrorTitle = styled.div`
-  ${body_02('var(--myspec-gray-scalegray-600)')}
+  ${applyFontStyles({
+    font: 'body-02',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })};
   height: 21px;
   left: 109px;
   position: absolute;
@@ -21,7 +24,11 @@ export const ErrorTitle = styled.div`
 `;
 
 export const ErrorContent = styled.div`
-  ${caption_02('var(--myspec-gray-scalegray-600)')}
+  ${applyFontStyles({
+    font: 'caption-02',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })};
+
   height: 18px;
   left: 120px;
   position: absolute;
