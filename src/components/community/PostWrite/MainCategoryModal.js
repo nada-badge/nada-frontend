@@ -1,5 +1,5 @@
 /** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Modal from '../../common/modal/Modal';
 import useModal from '../../common/modal/useModal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +7,6 @@ import {
   postWriteSelector,
   setField,
 } from '../../../modules/Community/postWrite';
-import classNames from 'classnames';
 import {
   ListMain,
   Border,
@@ -16,7 +15,7 @@ import {
 } from '../../../styles/ModalStyle';
 import ModalButtonDiv from '../../common/modal/ModalButtonDiv';
 
-function MainCategoryModal() {
+const MainCategoryModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -25,10 +24,8 @@ function MainCategoryModal() {
     useSelector(postWriteSelector('postWriteSubmit', 'mainCategory')),
   );
 
-  useEffect(() => {}, []);
-
   //현재 선택된 값이 바뀔 때마다 select 리덕스 값을 업데이트
-  const onClicks = (nowClick) => {
+  const onClick = (nowClick) => {
     setNowClick(nowClick);
   };
 
@@ -37,11 +34,11 @@ function MainCategoryModal() {
     return (
       <MainCategory
         onClick={() => {
-          onClicks(status);
+          onClick(status);
         }}
       >
         <div className="text-wrapper">{text}</div>
-        <Img className={classNames('vector', { active })} />
+        <Img className={active ? 'active vector' : 'vector'} />
       </MainCategory>
     );
   };
@@ -90,6 +87,6 @@ function MainCategoryModal() {
       </div>
     </Modal>
   );
-}
+};
 
 export default MainCategoryModal;

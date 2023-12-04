@@ -6,12 +6,8 @@ import { subtitle_01 } from '../../../styles/fontStyle';
 export const ModalButton = (text) => {
   const { closeModal } = useModal();
 
-  const close = () => {
-    closeModal();
-  };
-
   return (
-    <Close onClick={close}>
+    <Close onClick={closeModal()}>
       <div className="text-wrapper">{text}</div>
     </Close>
   );

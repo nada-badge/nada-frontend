@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { caption_02, caption_03, body_01 } from '../fontStyle';
 
-const commonProfileStyle = `
+export const ProfileStyle = styled.div`
   align-items: center;
   display: inline-flex;
-  flex: 0 0 auto;
   gap: 12px;
   position: relative;
 
@@ -38,13 +37,14 @@ const commonProfileStyle = `
   }
 `;
 
-const commonMenuStyle = `
+export const MenuStyle = styled.div`
+  display: flex;
   align-items: flex-start;
-  display: inline-flex;
   flex: 0 0 auto;
   gap: 10px;
   padding: 8px;
   position: relative;
+  margin-left: auto;
 
   & > .meatball {
     display: flex;
@@ -65,7 +65,7 @@ const commonMenuStyle = `
 `;
 
 const commonLikesReplyStyle = `
-  align-items: flex-end;
+  align-items: center;
   display: inline-flex;
   flex: 0 0 auto;
   position: relative;
@@ -79,120 +79,88 @@ export const CommentList = styled.div`
   text-align: left;
 `;
 
-export const Comment = styled.div`
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  flex: 0 0 auto;
-  align-items: flex-start;
-  background-color: var(--myspec-gray-scalewhite);
-  border-bottom: 1px solid var(--myspec-gray-scalegray-200);
-  gap: 8px;
-  padding: 16px 15px;
+export const LikeStyle = styled.div`
+  ${commonLikesReplyStyle}
+  gap: 4px;
 
-  & > .profile {
-    ${commonProfileStyle}
-    gap: 145px;
+  & > .like {
+    gap: 6px;
 
-    & > .menu {
-      ${commonMenuStyle}
-    }
-  }
-
-  & > .content {
-    ${body_01('var(--myspec-gray-scalegray-900)')}
-    position: relative;
-    width: 345px;
-  }
-
-  & > .likes-reply {
-    ${commonLikesReplyStyle}
-    gap: 192px;
-
-    & > .likes {
-      ${commonLikesReplyStyle}
-      gap: 4px;
-
-      & > .like {
-        ${commonLikesReplyStyle}
-        gap: 6px;
-
-        & > .text {
-          ${body_01('var(--myspec-gray-scalegray-900)')}
-          margin-top: -1px;
-          width: 56px;
-        }
-      }
-    }
-
-    & > .reply {
-      ${commonLikesReplyStyle}
-      gap: 8px;
-
-      & > .text {
-        ${caption_02('var(--myspec-gray-scalegray-900)')}
-        margin-top: -1px;
-        width: fit-content;
-      }
+    & > .text {
+      ${body_01('var(--myspec-gray-scalegray-900)')}
+      margin-top: -1px;
+      width: 56px;
     }
   }
 `;
 
-export const Reply = styled.div`
+export const ReplyStyle = styled.div`
+  ${commonLikesReplyStyle}
+  gap: 8px;
+  margin-left: auto;
+
+  & > .text {
+    ${caption_02('var(--myspec-gray-scalegray-900)')}
+    margin-top: -1px;
+    width: fit-content;
+  }
+`;
+
+export const CommendBox = styled.div`
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  flex: 0 0 auto;
   align-items: flex-start;
   background-color: var(--myspec-gray-scalewhite);
   border-bottom: 1px solid var(--myspec-gray-scalegray-200);
-  display: inline-flex;
-  flex: 0 0 auto;
-  flex-direction: column;
   gap: 8px;
-  padding: 16px 15px 16px 40px;
-  position: relative;
 
-  & > .profile {
-    ${commonProfileStyle}
-    gap: 120px;
-
-    & > .menu {
-      ${commonMenuStyle}
-    }
+  & > .header {
+    display: flex;
+    flex-direction: row;
   }
 
   & > .content {
     ${body_01('var(--myspec-gray-scalegray-900)')}
     position: relative;
+  }
+
+  & > .bottom {
+    display: flex;
+    flex-direction: row;
+    ${commonLikesReplyStyle}
+  }
+`;
+
+export const CommentBox = styled(CommendBox)`
+  padding: 16px 15px;
+
+  & > .header {
+    width: 345px;
+  }
+
+  & > .content {
+    width: 345px;
+  }
+
+  & > .bottom {
+    width: 345px;
+  }
+`;
+
+export const ReplyBox = styled(CommendBox)`
+  padding: 16px 15px 16px 40px;
+
+  & > .header {
     width: 320px;
   }
 
-  & > .likes-reply {
-    ${commonLikesReplyStyle}
-    gap: 167px;
+  & > .content {
+    width: 320px;
+  }
 
-    & > .likes {
-      ${commonLikesReplyStyle}
-      gap: 4px;
-
-      & > .like {
-        ${commonLikesReplyStyle}
-        gap: 6px;
-
-        & > .text {
-          ${body_01('var(--myspec-gray-scalegray-900)')}
-          margin-top: -1px;
-          width: 56px;
-        }
-      }
-    }
-
-    & > .reply {
-      ${commonLikesReplyStyle}
-      gap: 8px;
-
-      & > .text {
-        ${caption_02('var(--myspec-gray-scalegray-900)')}
-        margin-top: -1px;
-        width: fit-content;
-      }
-    }
+  & > .bottom {
+    width: 320px;
   }
 `;

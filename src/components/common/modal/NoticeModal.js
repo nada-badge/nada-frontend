@@ -3,7 +3,7 @@ import Modal from './Modal';
 import { Layout } from '../../../styles/Community/NoticeModalStyle';
 import ModalButton from './ModalButton';
 
-function NoticeModal() {
+const NoticeModal = () => {
   const modal = useSelector(({ modal }) => modal);
   const { contentType, actionType } = modal;
 
@@ -24,6 +24,6 @@ function NoticeModal() {
       </Layout>
     </Modal>
   );
-}
+};
 
 export default NoticeModal;

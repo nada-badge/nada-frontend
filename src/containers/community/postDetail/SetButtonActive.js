@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setSubmit, setField } from '../../../modules/Community/postWrite';
 
-function useSetButtonActive() {
+const useSetButtonActive = () => {
   const dispatch = useDispatch();
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
 
@@ -48,6 +48,6 @@ function useSetButtonActive() {
   };
 
   return setButtonActive;
-}
+};
 
 export default useSetButtonActive;
