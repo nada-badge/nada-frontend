@@ -22,6 +22,11 @@ import CommentPage from './pages/community/CommentPage';
 import MyPage from './testpage/myPage';
 import SearchActivityPage from './pages/activity/SearchActivityPage';
 
+import BadgePage from './pages/badge/BadgePage';
+import DetailBadgePage from './pages/badge/DetailBadgePage';
+
+const queryClient = new QueryClient();
+
 const App = () => {
   return (
     <div className="App">
@@ -52,6 +57,9 @@ const App = () => {
         <Route path="/manage/Activity" element={<ActivityListPage />} />
         <Route path="/manage/Activity/:_id" element={<ActivityDetailPage />} />
         <Route path="/manage/ActivityWrite" element={<ActivityWritePage />} />
+          
+        <Route path="/badge" element={<BadgePage />} />
+        <Route path="/badge/detail" element={<DetailBadgePage />} />
       </Routes>
     </div>
   );
