@@ -1,4 +1,4 @@
-import { Frame } from '../../../styles/mommunity/PostWriteStyle';
+import { Frame } from '../../../styles/community/PostWriteStyle';
 import { MainCategoryButton } from './MainCategoryButton';
 import { OpenModalButton } from '../../../components/community/PostWrite/openModalButton';
 

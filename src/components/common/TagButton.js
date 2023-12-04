@@ -1,4 +1,4 @@
-import { Button, TextWarpper } from '../../styles/mommunity/SelectButton';
+import { Button, TextWarpper } from '../../styles/community/SelectButton';
 
 const TagButton = ({ tag }) => {
   return (

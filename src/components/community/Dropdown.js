@@ -7,7 +7,7 @@ import {
   Dropdown,
   TextWarpper,
   Img,
-} from '../../styles/mommunity/DropdownStyle';
+} from '../../styles/community/DropdownStyle';
 import { selectAllConfig } from '../common/AreaFieldCategoryData';
 
 export const DropDown = ({ content, text }) => {

@@ -6,7 +6,7 @@ import {
   Filter,
   TextWarpper,
   Img,
-} from '../../../styles/mommunity/FilterModalStyle';
+} from '../../../styles/community/FilterModalStyle';
 import { postWriteSelector } from '../../../modules/Community/postWrite';
 import { toKorea } from '../../common/AreaFieldCategoryData';
 
