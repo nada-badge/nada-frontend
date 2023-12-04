@@ -1,4 +1,4 @@
-import { LikeStyle } from '../../../styles/Community/CommentStyle';
+import { LikeStyle } from '../../../styles/community/CommentStyle';
 
 export const Like = () => {
   return (

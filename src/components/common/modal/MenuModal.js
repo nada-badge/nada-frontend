@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Modal from './Modal';
 import ModalButton from './ModalButton';
 import { MenuTypeConfig } from '../menuModalType';
-import { List, Border, Layout } from '../../../styles/Community/BarModalStyle';
+import { List, Border, Layout } from '../../../styles/community/BarModalStyle';
 
 export const MenuModal = () => {
   const modal = useSelector(({ modal }) => modal);
