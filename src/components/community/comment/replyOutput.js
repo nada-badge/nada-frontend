@@ -1,5 +1,5 @@
 /**ReplyOutPut 답글을 출력하는 컴포넌트 */
-import { ReplyBox } from '../../../styles/Community/CommentStyle';
+import { ReplyBox } from '../../../styles/community/CommentStyle';
 import { Profile } from './Profile';
 import { Menu } from './Menu';
 import { Like } from './Like';

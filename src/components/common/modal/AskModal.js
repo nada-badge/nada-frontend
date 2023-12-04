@@ -3,7 +3,7 @@ import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import useModal from './useModal';
 import ModalButtonDiv from './ModalButtonDiv';
-import { Layout } from '../../../styles/Community/NoticeModalStyle';
+import { Layout } from '../../../styles/community/NoticeModalStyle';
 import preSetForQuery from '../preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';
 import toReport from '../toReport';
