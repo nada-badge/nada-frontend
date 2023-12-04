@@ -1,7 +1,7 @@
 /** ModalButton 모달 가장 아래에 위치한 full 버튼 컴포넌트 */
 import useModal from './useModal';
 import styled from 'styled-components';
-import { subtitle_01 } from '../../../styles/fontStyle';
+import { applyFontStyles } from '../../../styles/fontStyle';
 
 export const ModalButton = (text) => {
   const { closeModal } = useModal();
@@ -24,7 +24,11 @@ export const Close = styled.div`
   width: 264px;
 
   & > .text-wrapper {
-    ${subtitle_01('var(--myspec-gray-scalewhite)')}
+    ${applyFontStyles({
+      font: 'subtitle-01',
+      color: 'var(--myspec-gray-scalewhite)',
+    })};
+
     left: 117px;
     position: absolute;
     text-align: center;

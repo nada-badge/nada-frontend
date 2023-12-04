@@ -1,6 +1,6 @@
 /** ModalStyle 모달에서 공통적으로 사용하는 스타일 */
 import styled from 'styled-components';
-import { subtitle_02 } from './fontStyle';
+import { applyFontStyles } from './fontStyle';
 
 export const List = styled.div`
   align-items: center;
@@ -36,7 +36,10 @@ export const MainCategory = styled.div`
   position: relative;
 
   & > .text-wrapper {
-    ${subtitle_02('#000000')}
+    ${applyFontStyles({
+      font: 'subtitle-02',
+      color: '#000000',
+    })};
     margin-top: -1.12px;
     position: relative;
     width: fit-content;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { body_02 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const Bar = styled.div`
   background-color: var(--myspec-gray-scalewhite);
@@ -36,7 +36,11 @@ export const Bar = styled.div`
       }
     }
     & > .text {
-      ${body_02('var(--myspec-gray-scalegray-600)')}
+      ${applyFontStyles({
+        font: 'body-02',
+        color: 'var(--myspec-gray-scalegray-600',
+      })};
+
       position: relative;
       text-align: center;
       white-space: nowrap;

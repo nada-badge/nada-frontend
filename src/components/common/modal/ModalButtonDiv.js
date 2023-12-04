@@ -2,7 +2,7 @@
 import useModal from './useModal';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { subtitle_01, subtitle_02 } from '../../../styles/fontStyle';
+import { applyFontStyles } from '../../../styles/fontStyle';
 
 export const ModalButtonDiv = ({
   cancelText = '취소',
@@ -45,7 +45,10 @@ export const ButtonList = styled.div`
     position: relative;
     width: 128px;
     & > .text {
-      ${subtitle_02('var(--myspec-gray-scalegray-900)')}
+      ${applyFontStyles({
+        font: 'subtitle-02',
+        color: 'var(--myspec-gray-scalegray-900)',
+      })};
       left: 49px;
       position: absolute;
       text-align: center;
@@ -65,7 +68,10 @@ export const ButtonList = styled.div`
       background-color: var(--myspec-primaryred-1);
     }
     & > .text {
-      ${subtitle_01('var(--myspec-gray-scalegray-100)')}
+      ${applyFontStyles({
+        font: 'subtitle-01',
+        color: 'var(--myspec-gray-scalegray-100)',
+      })};
       position: relative;
       width: 128px;
       top: 11px;

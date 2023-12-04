@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { title_02, caption_02, caption_03, body_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const ContentsList = styled.div`
   align-items: flex-start;
@@ -16,7 +16,10 @@ export const ContentsList = styled.div`
     position: relative;
     width: 375px;
     & > .p {
-      ${title_02('var(--myspec-gray-scalegray-900)')}
+      ${applyFontStyles({
+        font: 'title-02',
+        color: 'var(--myspec-gray-scalegray-900)',
+      })};
       margin-top: -1px;
       position: relative;
       width: 345px;
@@ -48,7 +51,10 @@ export const ContentsList = styled.div`
       width: 301px;
 
       & > .nickname {
-        ${caption_02('#000000')}
+        ${applyFontStyles({
+          font: 'caption-02',
+          color: '#000000',
+        })};
         margin-top: -1px;
         position: relative;
         width: 136px;
@@ -56,7 +62,10 @@ export const ContentsList = styled.div`
       }
 
       & > .date {
-        ${caption_03('#000000')}
+        ${applyFontStyles({
+          font: 'caption-03',
+          color: '#000000',
+        })};
         position: relative;
         width: 136px;
         text-align: left;
@@ -86,7 +95,10 @@ export const ContentsList = styled.div`
     position: relative;
     width: 375px;
     & > .text {
-      ${body_01('--myspec-gray-scalegray-900')}
+      ${applyFontStyles({
+        font: 'body-01',
+        color: 'var(--myspec-gray-scalegray-900)',
+      })};
       margin-top: -1px;
       position: relative;
       width: 345px;
