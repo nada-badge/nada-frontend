@@ -13,10 +13,9 @@ import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../../../styles/ModalStyle';
 import ModalButtonDiv from './ModalButtonDiv';
-import { selectConfig } from '../AreaFieldCategoryData';
-import { selectAllConfig } from '../AreaFieldCategoryData';
+import { selectConfig, selectAllConfig } from '../AreaFieldCategoryData';
 
-function ButtonSelectModal() {
+const ButtonSelectModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);
@@ -41,14 +40,17 @@ function ButtonSelectModal() {
     );
   }, []);
 
-  const SetStatus = () => {
+  const setStatus = () => {
     dispatch(
       submitForm({
         key: contentType,
       }),
     );
 
-    const value = !(status[0] === buttonAll);
+    const value =
+      contentType === 'category'
+        ? !(status === buttonAll)
+        : !(status[0] === buttonAll);
     dispatch(
       setField({
         form: 'ButtonActive',
@@ -60,7 +62,7 @@ function ButtonSelectModal() {
     closeModal();
   };
 
-  const Cancels = () => {
+  const cancel = () => {
     dispatch(initializeForm({ form: 'postWriteSelect', key: contentType }));
     closeModal();
   };
@@ -78,14 +80,14 @@ function ButtonSelectModal() {
         </List>
         <Border />
         {ModalButtonDiv({
-          cancel: Cancels,
+          cancel: cancel,
           actText: '확인',
-          act: SetStatus,
+          act: setStatus,
           actColor: false,
         })}
       </div>
     </Modal>
   );
-}
+};
 
 export default ButtonSelectModal;

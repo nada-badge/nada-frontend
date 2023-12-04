@@ -16,9 +16,7 @@ const toReport = (position, PostDetail) => {
     },
   };
 
-  const config = positionsConfig[position] || {};
-
-  return config;
+  return positionsConfig[position] || {};
 };
 
 export default toReport;

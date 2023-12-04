@@ -49,7 +49,7 @@ export const categoryButtons = [
   { id: 9, text: '아르바이트' },
 ];
 
-export function selectConfig({ content, mainCategory }) {
+export const selectConfig = ({ content, mainCategory }) => {
   const Config = {
     region: regionButtons,
     field: fieldButtons,
@@ -60,9 +60,9 @@ export function selectConfig({ content, mainCategory }) {
     return Config[content].slice(0, 6);
   }
   return Config[content];
-}
+};
 
-export function selectAllConfig(content) {
+export const selectAllConfig = (content) => {
   const Config = {
     region: '전국',
     field: '전체',
@@ -70,9 +70,9 @@ export function selectAllConfig(content) {
   };
 
   return Config[content];
-}
+};
 
-export function toKorea(content) {
+export const toKorea = (content) => {
   const Config = {
     region: '지역',
     field: '분야',
@@ -80,4 +80,4 @@ export function toKorea(content) {
   };
 
   return Config[content];
-}
+};

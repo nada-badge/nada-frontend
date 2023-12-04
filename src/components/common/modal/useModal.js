@@ -2,7 +2,7 @@
 import { useDispatch } from 'react-redux';
 import { openModal, closeModal } from '../../../modules/Community/modal';
 
-function useModal() {
+const useModal = () => {
   const dispatch = useDispatch();
 
   const handleOpenModal = ({
@@ -20,6 +20,6 @@ function useModal() {
   };
 
   return { openModal: handleOpenModal, closeModal: handleCloseModal };
-}
+};
 
 export default useModal;

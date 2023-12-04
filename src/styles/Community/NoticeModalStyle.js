@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { subtitle_01, subtitle_02, caption_02 } from '../fontStyle';
-import kakao from '../../icon/kakao.png';
-import link from '../../icon/link.png';
 
 export const Layout = styled.div`
   align-items: center;
@@ -74,21 +72,5 @@ export const Layout = styled.div`
       position: relative;
       width: fit-content;
     }
-  }
-`;
-
-export const Image = styled.div`
-  position: relative;
-  background-size: 100%;
-  width: 16px;
-  height: 16px;
-
-  &.linkImg {
-    height: 16px;
-    background-image: url(${link});
-  }
-  &.kakaOImg {
-    height: 15px;
-    background-image: url(${kakao});
   }
 `;
