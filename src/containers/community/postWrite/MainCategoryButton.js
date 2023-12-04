@@ -6,7 +6,7 @@ import {
   Filter,
   TextWarpper,
   Img,
-} from '../../../styles/Community/FilterModalStyle';
+} from '../../../styles/community/FilterModalStyle';
 import { postWriteSelector } from '../../../modules/Community/postWrite';
 
 export const MainCategoryButton = () => {

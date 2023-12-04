@@ -1,6 +1,6 @@
 /** ShareModal 공유 방법을 선택하는 모달 */
 import Modal from './Modal';
-import { Layout } from '../../../styles/Community/NoticeModalStyle';
+import { Layout } from '../../../styles/community/NoticeModalStyle';
 import ModalButton from './ModalButton';
 
 const ShareModal = () => {
