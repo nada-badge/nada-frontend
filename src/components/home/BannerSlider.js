@@ -8,13 +8,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { caption_02 } from '../../styles/fontStyle';
+import React from 'react';
 
 const SliderWrapper = styled.div`
   box-shadow: var(--drop-shadow);
-  height: 118px;
   left: 0;
   position: relative;
-  /* top: 89px;  상단, 하단 네비게이션 적용후 수정 예정*/
   width: 100%;
 
   // '1/5' 와 같은 페이징 표시
@@ -56,6 +55,7 @@ const BannerSlider = () => {
     customPaging: function (slider) {
       return <div>{slider + 1}/5</div>;
     },
+    lazyLoad: true,
   };
 
   return (
@@ -81,4 +81,4 @@ const BannerSlider = () => {
   );
 };
 
-export default BannerSlider;
+export default React.memo(BannerSlider);
