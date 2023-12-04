@@ -1,6 +1,6 @@
 /**CommentOutPut 댓글을 출력하는 컴포넌트 */
 import { useDispatch } from 'react-redux';
-import { CommentBox } from '../../../styles/Community/CommentStyle';
+import { CommentBox } from '../../../styles/community/CommentStyle';
 import { changeCommentField } from '../../../modules/Community/postDetail';
 import ReplyOutPut from './replyOutput';
 import useModal from '../../common/modal/useModal';
