@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CommentOutPut from '../../components/community/comment/commentOutput';
-import { CommentList } from '../../styles/mommunity/CommentStyle';
+import { CommentList } from '../../styles/community/CommentStyle';
 import { BottomBar } from '../../containers/community/comment/BottomBar';
 import { setBarStatus } from '../../modules/bar';
 

@@ -1,4 +1,4 @@
-import { Images } from '../../../styles/mommunity/PostWriteStyle';
+import { Images } from '../../../styles/community/PostWriteStyle';
 
 export const Image = () => {
   return (
