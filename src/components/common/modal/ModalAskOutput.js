@@ -1,6 +1,6 @@
 /** ModalOutPut 되물어보는 MODAL 출력 컴포넌트 */
 import ModalButtonDiv from './ModalButtonDiv';
-import { Layout } from '../../../styles/community/NoticeModalStyle';
+import { Layout } from '../../../styles/mommunity/NoticeModalStyle';
 
 export const ModalOutPut = ({ title, content, act, actText }) => {
   return (

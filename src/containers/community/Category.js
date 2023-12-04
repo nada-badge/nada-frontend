@@ -7,7 +7,7 @@ import {
   initializeForm,
   initializeSub,
 } from '../../modules/filter';
-import { Categorylist, Wrapper } from '../../styles/community/CategoryStyle';
+import { Categorylist, Wrapper } from '../../styles/mommunity/CategoryStyle';
 
 const Category = () => {
   const dispatch = useDispatch();

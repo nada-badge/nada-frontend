@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Button, TextWarpper, Img } from '../../styles/community/SelectButton';
+import { Button, TextWarpper, Img } from '../../styles/mommunity/SelectButton';
 
 export const AttributeInfoButton = ({ text, onClick, isActive, isImg }) => {
   return (

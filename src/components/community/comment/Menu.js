@@ -1,4 +1,4 @@
-import { MenuStyle } from '../../../styles/community/CommentStyle';
+import { MenuStyle } from '../../../styles/mommunity/CommentStyle';
 
 export const Menu = ({ openMenu }) => {
   return (

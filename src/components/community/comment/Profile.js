@@ -1,5 +1,5 @@
 import Dateformat from '../Dateformat';
-import { ProfileStyle } from '../../../styles/community/CommentStyle';
+import { ProfileStyle } from '../../../styles/mommunity/CommentStyle';
 
 export const Profile = ({ comment }) => {
   return (

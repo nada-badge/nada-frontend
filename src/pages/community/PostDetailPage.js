@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
-import { ContentsList } from '../../styles/community/PostDetailStyle';
+import { ContentsList } from '../../styles/mommunity/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
 import Dateformat from '../../components/community/Dateformat';
 import { setBarStatus } from '../../modules/bar';

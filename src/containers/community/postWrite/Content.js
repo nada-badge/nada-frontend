@@ -1,4 +1,4 @@
-import { ContentStyle } from '../../../styles/community/PostWriteStyle';
+import { ContentStyle } from '../../../styles/mommunity/PostWriteStyle';
 
 export const Content = ({ onChange, inputValue }) => {
   return (
