@@ -1,4 +1,4 @@
-import { TitleStyle } from '../../../styles/community/PostWriteStyle';
+import { TitleStyle } from '../../../styles/mommunity/PostWriteStyle';
 
 export const Title = ({ onChange, inputValue }) => {
   return (

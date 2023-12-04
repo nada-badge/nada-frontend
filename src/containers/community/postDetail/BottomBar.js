@@ -1,7 +1,7 @@
 /** BottomBar 세부 게시글 화면에서 보여지는 하단바 */
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Bar, MenuImg } from '../../../styles/community/CommunityBarStyle';
+import { Bar, MenuImg } from '../../../styles/mommunity/CommunityBarStyle';
 import useModal from '../../../components/common/modal/useModal';
 import { PostDetailSelector } from '../../../modules/Community/postDetail';
 

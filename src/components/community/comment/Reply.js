@@ -1,4 +1,4 @@
-import { ReplyStyle } from '../../../styles/community/CommentStyle';
+import { ReplyStyle } from '../../../styles/mommunity/CommentStyle';
 export const Reply = ({ sendComment }) => {
   return (
     <ReplyStyle onClick={sendComment}>

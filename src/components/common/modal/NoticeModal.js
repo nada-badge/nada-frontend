@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
-import { Layout } from '../../../styles/community/NoticeModalStyle';
+import { Layout } from '../../../styles/mommunity/NoticeModalStyle';
 import ModalButton from './ModalButton';
 
 const NoticeModal = () => {
