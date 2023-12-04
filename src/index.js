@@ -10,7 +10,7 @@ import ModalContainer from './components/common/modal/ModalContainer.js';
 import BottomNav from './components/bar/BottomNav';
 import Header from './components/bar/Header';
 import authSlice from './modules/auth';
-import calendarSlice from './modules/calendar';
+import calendarSlice from './modules/calendar/calendar.js';
 import userSlice from './modules/user';
 import activitySlice from './modules/activity';
 import barSlice from './modules/bar';
