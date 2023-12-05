@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   postWriteSelector,
   setField,
-} from '../../../modules/tommunity/postWrite';
+} from '../../../modules/community/postWrite';
 import {
   ListMain,
   Border,
