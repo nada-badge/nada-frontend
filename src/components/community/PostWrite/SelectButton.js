@@ -7,7 +7,7 @@ import {
   deleteField,
   setField,
   initializeForm,
-} from '../../../modules/tommunity/postWrite';
+} from '../../../modules/community/postWrite';
 import { selectAllConfig } from '../../common/AreaFieldCategoryData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 

@@ -8,7 +8,7 @@ import Filter from '../../containers/community/Filter';
 import { PostWriteButton } from '../../containers/community/PostWriteButton';
 import { setBarStatus } from '../../modules/bar';
 import { initializeAll } from '../../modules/filter';
-import { initializeAll as initializeAllPostWrite } from '../../modules/tommunity/postWrite';
+import { initializeAll as initializeAllPostWrite } from '../../modules/community/postWrite';
 import {
   CommunityPage,
   Border,

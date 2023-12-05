@@ -4,7 +4,7 @@ import classNames from 'classnames';
 //import useComment from '../../../modules/queries/commentQuery';
 //import useReply from '../../../modules/queries/replyQuery';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { PostDetailSelector } from '../../../modules/tommunity/postDetail';
+import { PostDetailSelector } from '../../../modules/community/postDetail';
 import { Bar } from '../../../styles/community/CommentBarStyle';
 import usePostQuery from '../../../modules/queries/usePostQuery';
 import preSetForQuery from '../../../components/common/preSetForQuery';

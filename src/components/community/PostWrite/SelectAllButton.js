@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   postWriteSelector,
   initializeForm,
-} from '../../../modules/tommunity/postWrite';
+} from '../../../modules/community/postWrite';
 import { selectAllConfig } from '../../common/AreaFieldCategoryData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 export const SelectAllButton = () => {

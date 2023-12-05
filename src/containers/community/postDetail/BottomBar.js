@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../../styles/community/CommunityBarStyle';
 import useModal from '../../../components/common/modal/useModal';
-import { PostDetailSelector } from '../../../modules/tommunity/postDetail';
+import { PostDetailSelector } from '../../../modules/community/postDetail';
 
 export const BottomBar = () => {
   const { openModal } = useModal();
