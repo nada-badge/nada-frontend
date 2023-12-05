@@ -7,7 +7,7 @@ import {
   TextWarpper,
   Img,
 } from '../../../styles/community/FilterModalStyle';
-import { postWriteSelector } from '../../../modules/Community/postWrite';
+import { postWriteSelector } from '../../../modules/tommunity/postWrite';
 import { toKorea } from '../../common/AreaFieldCategoryData';
 
 export const OpenModalButton = ({ content }) => {

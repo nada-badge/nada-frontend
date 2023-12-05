@@ -6,7 +6,7 @@ import useUpdate from '../../modules/queries/PostUpdateQuery';
 import {
   initializeAll,
   postWriteSelector,
-} from '../../modules/Community/postWrite';
+} from '../../modules/tommunity/postWrite';
 import { setBarStatus } from '../../modules/bar';
 import { PostContainer, Border } from '../../styles/community/PostWriteStyle';
 import { Title } from '../../containers/community/postWrite/Title';
