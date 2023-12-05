@@ -20,7 +20,7 @@ const NoticeModal = () => {
           src="https://c.animaapp.com/jSDFsaX0/img/check.svg"
         />
         <div className="border-2" />
-        <div>{ModalButton('확인')}</div>
+        <ModalButton text={'확인'} />
       </Layout>
     </Modal>
   );
