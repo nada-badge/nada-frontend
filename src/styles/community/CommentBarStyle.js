@@ -36,7 +36,7 @@ export const Bar = styled.div`
       & > .wrapper {
         ${applyFontStyles({
           font: 'body-01',
-          color: 'var(--myspec-gray-scalegray-100)',
+          color: 'var(--myspec-gray-scalegray-600)',
         })};
         margin-top: -1px;
         position: relative;
