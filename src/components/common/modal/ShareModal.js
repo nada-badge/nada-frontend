@@ -42,7 +42,7 @@ const ShareModal = () => {
         </div>
 
         <div className="border-2" />
-        {ModalButton('닫기')}
+        <ModalButton text={'닫기'} />
       </Layout>
     </Modal>
   );
