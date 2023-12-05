@@ -1,6 +1,6 @@
 /** useModal 모달 훅 */
 import { useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../../../modules/Community/modal';
+import { openModal, closeModal } from '../../../modules/tommunity/modal';
 
 const useModal = () => {
   const dispatch = useDispatch();
