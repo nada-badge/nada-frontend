@@ -7,7 +7,6 @@ import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../modules/calendar/modalEvent';
 import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import { useGetEvents } from '../modules/calendar/useGetEvents';
@@ -23,9 +22,10 @@ const CalendarPage = () => {
     setIsModal(false);
   };
 
-  const [date, setDate] = useState({
+  const [modal, setModal] = useState({
     month_day: '', // 일(day)
     day_index: '', // 요일[0~6]
+    events: [],
   });
 
   const [dateSet, setDateSet] = useState([]);
@@ -41,18 +41,15 @@ const CalendarPage = () => {
     const { dateStr, date } = info;
 
     // date 상태 업데이트
-    setDate((prevDateformat) => ({
+    setModal((prevDateformat) => ({
       ...prevDateformat,
       month_day: dateStr,
       day_index: date.getDay(),
+      events: filterEvent(dateStr),
     }));
   }, []);
 
   useEffect(() => {
-    dispatch(changeField({ key: 'date', value: date.month_day }));
-    dispatch(
-      changeField({ key: 'events', value: filterEvent(date.month_day) }),
-    );
     dispatch(
       setBarStatus({
         headerState: 'backBellMenu',
@@ -60,7 +57,7 @@ const CalendarPage = () => {
         isShowBottom: true,
       }),
     );
-  }, [date.month_day, events]);
+  }, []);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(
@@ -72,7 +69,7 @@ const CalendarPage = () => {
 
   return (
     <Div>
-      {isModal && <DetailEvent date={date} modalHandler={modalHandler} />}
+      {isModal && <DetailEvent modal={modal} modalHandler={modalHandler} />}
 
       <div className="CalendarWrapper">
         <FullCalendar
