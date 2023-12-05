@@ -6,9 +6,13 @@ import { applyFontStyles } from '../../../styles/fontStyle';
 export const ModalButton = (text) => {
   const { closeModal } = useModal();
 
+  const close = () => {
+    closeModal();
+  };
+
   return (
-    <Close onClick={closeModal()}>
-      <div className="text-wrapper">{text}</div>
+    <Close onClick={close}>
+      <div className="text-wrapper">{text.text}</div>
     </Close>
   );
 };
