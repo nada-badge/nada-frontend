@@ -10,7 +10,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Mobile, PC } from './styles/Responsive.js';
 import './styles/common.scss';
 import authSlice from './modules/auth';
-import calendarSlice from './modules/calendar/calendar';
+import modalEventSlice from './modules/calendar/modalEvent';
 
 import userSlice from './modules/user';
 import activitySlice from './modules/activity';
@@ -22,7 +22,7 @@ const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     user: userSlice.reducer,
-    calendar: calendarSlice.reducer,
+    modalEvent: modalEventSlice.reducer,
     activity: activitySlice.reducer,
     bar: barSlice.reducer,
   },
