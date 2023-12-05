@@ -38,9 +38,8 @@ export const Bar = styled.div`
     & > .text {
       ${applyFontStyles({
         font: 'body-02',
-        color: 'var(--myspec-gray-scalegray-600',
+        color: 'var(--myspec-gray-scalegray-600)',
       })};
-
       position: relative;
       text-align: center;
       white-space: nowrap;

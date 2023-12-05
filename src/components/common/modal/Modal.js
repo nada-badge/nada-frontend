@@ -20,7 +20,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  z-index: 2;
 `;
 
 const ModalWrap = styled.div`

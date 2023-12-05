@@ -33,7 +33,7 @@ export const Menu = styled.div`
     ${applyFontStyles({
       font: 'subtitle-02',
       color: 'var(--myspec-gray-scalegray-900)',
-    })}
+    })};
     margin-top: -1.12px;
     position: relative;
     width: fit-content;
