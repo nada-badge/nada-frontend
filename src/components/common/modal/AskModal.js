@@ -18,10 +18,9 @@ const AskModal = () => {
   const { contentType, actionType, content, position } = modal;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
   const activity = useSelector(({ activity }) => activity.activities);
-
   const useAct = () => {
     if (actionType === '삭제') {
-      const config = preSetForQuery(position, activity, PostDetail);
+      const config = preSetForQuery(position, PostDetail, activity);
       mutate({
         url: config.url,
         _id: config.idData,
@@ -42,7 +41,7 @@ const AskModal = () => {
     <Modal>
       <Layout>
         <div className="title">
-          {contentType}을{actionType}할까요?
+          {contentType}을 {actionType}할까요?
         </div>
         <div className="border" />
         <p className="content">{content}</p>
