@@ -9,6 +9,7 @@ export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
   const id = useSelector(PostDetailSelector('PostDetail', '_id'));
+  const comments = useSelector(PostDetailSelector('PostDetail', 'comments'));
 
   const openMenu = () => {
     openModal({
@@ -34,7 +35,7 @@ export const BottomBar = () => {
             <div className="ellipse-3" />
           </div>
         </div>
-        <div className="text">23</div>
+        <div className="text">{comments.length}</div>
       </div>
     </Bar>
   );
