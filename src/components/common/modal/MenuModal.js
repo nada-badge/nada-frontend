@@ -18,7 +18,7 @@ export const MenuModal = () => {
           })}
         </List>
         <Border />
-        {ModalButton('닫기')}
+        <ModalButton text={'닫기'} />
       </Layout>
     </Modal>
   );
