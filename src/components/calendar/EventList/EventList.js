@@ -12,7 +12,7 @@ const EventListBox = {
 
 const EventList = () => {
   const events = useSelector((state) => {
-    return state.calendar.day.events;
+    return state.modalEvent.day.events;
   });
 
   const transForm = useCallback((date) => {
