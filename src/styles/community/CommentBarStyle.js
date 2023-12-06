@@ -38,6 +38,7 @@ export const Bar = styled.div`
           font: 'body-01',
           color: 'var(--myspec-gray-scalegray-600)',
         })};
+        background-color: var(--myspec-gray-scalegray-100);
         margin-top: -1px;
         position: relative;
         white-space: nowrap;
