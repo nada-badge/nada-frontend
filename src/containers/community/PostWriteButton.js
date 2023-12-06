@@ -10,7 +10,7 @@ export const PostWriteButton = () => {
   const dispatch = useDispatch();
 
   const toPostWrite = () => {
-    dispatch(initializeForm());
+    dispatch(initializeForm({ form: 'PostDetail' }));
     dispatch(setField({ form: 'method', key: 'isSubmit', value: true }));
     navigate('/community/PostWrite');
   };
