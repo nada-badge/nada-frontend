@@ -3,7 +3,7 @@ import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import useModal from './useModal';
 import ModalButtonDiv from './ModalButtonDiv';
-import { Layout } from '../../../styles/Community/NoticeModalStyle';
+import { Layout } from '../../../styles/community/NoticeModalStyle';
 import preSetForQuery from '../preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';
 import toReport from '../toReport';
@@ -29,7 +29,6 @@ const AskModal = () => {
     }
     if (actionType === '신고') {
       const config = toReport(position, PostDetail);
-      console.log('AskModal, config : ', config);
       reportMutate({
         url: config.url,
         _id: config.idData,

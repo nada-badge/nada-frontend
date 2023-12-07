@@ -6,7 +6,7 @@ import {
   Filter,
   TextWarpper,
   Img,
-} from '../../../styles/Community/FilterModalStyle';
+} from '../../../styles/community/FilterModalStyle';
 import { postWriteSelector } from '../../../modules/Community/postWrite';
 
 export const MainCategoryButton = () => {
@@ -19,12 +19,12 @@ export const MainCategoryButton = () => {
   );
   const { openModal } = useModal();
 
-  const onClicks = () => {
+  const onClick = () => {
     openModal({ type: 'MainCategoryModal' });
   };
 
   return (
-    <Filter className={classNames({ isActive })} onClick={onClicks}>
+    <Filter className={classNames({ isActive })} onClick={onClick}>
       <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
       <Img className={classNames({ isActive })} />
     </Filter>

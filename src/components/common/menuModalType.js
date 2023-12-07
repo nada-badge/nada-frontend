@@ -5,7 +5,7 @@ import PrintCenteredText from './modal/PrintCenteredText';
 import useModal from './modal/useModal';
 import useSetButtonActive from '../../containers/community/postDetail/SetButtonActive';
 
-export function MenuTypeConfig(content) {
+export const MenuTypeConfig = (content) => {
   const { openModal } = useModal();
   const modal = useSelector(({ modal }) => modal);
   const { contentType, position } = modal;
@@ -56,47 +56,12 @@ export function MenuTypeConfig(content) {
   };
 
   const Config = {
-    Report: (
-      <div>
-        {PrintCenteredText({
-          print: '신고하기',
-          act: toReport,
-        })}
-      </div>
-    ),
-    Delete: (
-      <div>
-        {PrintCenteredText({
-          print: '삭제하기',
-          act: toDelete,
-        })}
-      </div>
-    ),
-    Share: (
-      <div>
-        {PrintCenteredText({
-          print: '공유하기',
-          act: toShare,
-        })}
-      </div>
-    ),
-    Update: (
-      <div>
-        {PrintCenteredText({
-          print: '수정하기',
-          act: toUpdate,
-        })}
-      </div>
-    ),
-    Copy: (
-      <div>
-        {PrintCenteredText({
-          print: '댓글 내용 복사하기',
-          act: toCopy,
-        })}
-      </div>
-    ),
+    Report: <PrintCenteredText print={'신고하기'} act={toReport} />,
+    Delete: <PrintCenteredText print={'삭제하기'} act={toDelete} />,
+    Share: <PrintCenteredText print={'공유하기'} act={toShare} />,
+    Update: <PrintCenteredText print={'수정하기'} act={toUpdate} />,
+    Copy: <PrintCenteredText print={'댓글 내용 복사하기'} act={toCopy} />,
   };
 
   return Config[content];
-}
+};

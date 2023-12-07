@@ -1,5 +1,5 @@
 /** PostItem, postList을 이루는 PostItem. */
-import { PostContainer } from '../../../styles/Community/postItemStyle';
+import { PostContainer } from '../../../styles/community/postItemStyle';
 
 const PostItem = ({ card }) => {
   const { title, field, category, region, content, postAt } = card;

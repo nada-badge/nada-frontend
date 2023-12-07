@@ -10,23 +10,23 @@ export const SelectAllButton = () => {
 
   const [isActive, setIsActive] = useState(false);
   const content = useSelector(filterSelector('buttonSelect', 'filter'));
-  const slectAll = selectAllConfig(content);
+  const selectAll = selectAllConfig(content);
   const state = useSelector(filterSelector('subButtonSelect', content));
 
-  const onClicks = () => {
-    if (!state.includes(slectAll)) {
+  const onClick = () => {
+    if (!state.includes(selectAll)) {
       dispatch(initializeForm({ form: 'subButtonSelect', key: content }));
     }
   };
 
   useEffect(() => {
-    setIsActive(state.includes(slectAll));
+    setIsActive(state.includes(selectAll));
   }, [state]);
 
   return (
     <AttributeInfoButton
-      text={slectAll}
-      onClicks={onClicks}
+      text={selectAll}
+      onClick={onClick}
       isActive={isActive}
       isImg={false}
     />

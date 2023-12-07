@@ -7,7 +7,7 @@ import {
   Dropdown,
   TextWarpper,
   Img,
-} from '../../styles/Community/DropdownStyle';
+} from '../../styles/community/DropdownStyle';
 import { selectAllConfig } from '../common/AreaFieldCategoryData';
 
 export const DropDown = ({ content, text }) => {
@@ -38,7 +38,7 @@ export const DropDown = ({ content, text }) => {
   }, [maincategory]);
 
   // 활성화된 filter 버튼을 클릭했다면 비활성화, 비활성화된 filter를 눌렀다면 활성화
-  const onClicks = () => {
+  const onClick = () => {
     const nextState = isOpen === content ? closeState : 'opened';
     dispatch(
       setField({
@@ -54,7 +54,7 @@ export const DropDown = ({ content, text }) => {
     <Dropdown
       className={state}
       onClick={() => {
-        onClicks();
+        onClick();
       }}
     >
       <TextWarpper className={state}>{text}</TextWarpper>
