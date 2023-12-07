@@ -14,7 +14,7 @@ import {
   Search,
   Border,
   Contents,
-} from '../../styles/Community/CommunityStyle';
+} from '../../styles/community/CommunityStyle';
 import { SearchInput } from '../../components/search/SearchInput';
 
 const Community = () => {

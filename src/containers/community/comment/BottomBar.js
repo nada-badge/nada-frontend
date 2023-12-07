@@ -5,7 +5,7 @@ import classNames from 'classnames';
 //import useReply from '../../../modules/queries/replyQuery';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { PostDetailSelector } from '../../../modules/Community/postDetail';
-import { Bar } from '../../../styles/Community/CommentBarStyle';
+import { Bar } from '../../../styles/community/CommentBarStyle';
 import usePostQuery from '../../../modules/queries/usePostQuery';
 import preSetForQuery from '../../../components/common/preSetForQuery';
 export const BottomBar = () => {

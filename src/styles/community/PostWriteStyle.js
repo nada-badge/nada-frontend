@@ -8,7 +8,7 @@ export const PostContainer = styled.div`
   position: relative;
 `;
 
-export const Title = styled.div`
+export const TitleStyle = styled.div`
   align-items: center;
   background-color: var(--myspec-gray-scalewhite);
   display: flex;
@@ -42,7 +42,7 @@ export const Frame = styled.div`
   width: 375px;
 `;
 
-export const Content = styled.div`
+export const ContentStyle = styled.div`
   align-items: flex-start;
   background-color: var(--myspec-gray-scalewhite);
   display: flex;
@@ -71,7 +71,7 @@ export const Border = styled.div`
   width: 375px;
 `;
 
-export const RegionImages = styled.div`
+export const Images = styled.div`
   background-color: var(--myspec-gray-scalewhite);
   height: 96px;
   position: relative;

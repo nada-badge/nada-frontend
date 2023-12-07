@@ -1,7 +1,7 @@
 /** Modal 기본 모달 */
 import styled from 'styled-components';
 
-function Modal({ children }) {
+const Modal = ({ children }) => {
   return (
     <Overlay>
       <ModalWrap>
@@ -9,7 +9,7 @@ function Modal({ children }) {
       </ModalWrap>
     </Overlay>
   );
-}
+};
 
 const Overlay = styled.div`
   position: fixed;

@@ -7,13 +7,13 @@ import {
   initializeForm,
   initializeSub,
 } from '../../modules/filter';
-import { Categorylist, Wrapper } from '../../styles/Community/CategoryStyle';
+import { Categorylist, Wrapper } from '../../styles/community/CategoryStyle';
 
 const Category = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector(filterSelector('buttonSelect', 'maincategory'));
 
-  const onClicks = (text) => {
+  const onClick = (text) => {
     if (!(isOpen === text)) {
       dispatch(
         setField({ form: 'buttonSelect', key: 'maincategory', value: text }),
@@ -28,7 +28,7 @@ const Category = () => {
     return (
       <Wrapper
         className={classNames({ isActive })}
-        onClick={() => onClicks(text)}
+        onClick={() => onClick(text)}
       >
         <div className={classNames('Text', { isActive })}>{text}</div>
       </Wrapper>
