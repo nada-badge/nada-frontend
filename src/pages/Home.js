@@ -78,22 +78,18 @@ const Home = () => {
       <Suspense fallback={<div className="loading"></div>}>
         <BannerSlider />
       </Suspense>
-
       <div onClick={onClick}>
         <WeekCalendar className="calendarweek" />
       </div>
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
-        cards={community_cards}
-        type={'board'}
-      />
-      <CardList
-        title={'추천 대외활동'}
-        cards={activity_cards}
-        type={'activity'}
-        gapSize={8}
-      />
-      <div className="bottomNav_place" />
+        title_font={'subtitle-01'}
+      >
+        <BoardCardItem cards={community_cards} />
+      </CardList>
+      <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
+        <ActivityItem cards={activity_cards} />
+      </CardList>
     </HomeContainer>
   );
 };
