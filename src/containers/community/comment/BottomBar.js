@@ -17,6 +17,7 @@ export const BottomBar = () => {
   //const sendReply = useReply().mutate;
   const url = preSetForQuery(position, PostDetail).url;
   const isReply = PostDetail.Comment.position === 'reply';
+  const userName = PostDetail.Comment.userName;
   console.log('position in bottom : ', PostDetail);
   const onChange = (e) => {
     setInputValue(e.target.value);
@@ -33,11 +34,13 @@ export const BottomBar = () => {
 
   return (
     <Bar>
-      {isReply && <ReplyNoticeBar name={PostDetail.Comment.userName} />}
+      {isReply && <ReplyNoticeBar name={userName} />}
       <CommentBar
         inputValue={inputValue}
         onChange={onChange}
         sendComment={sendComment}
+        isReply={isReply}
+        name={userName}
       />
     </Bar>
   );
