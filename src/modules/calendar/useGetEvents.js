@@ -2,16 +2,15 @@ import useEventsQuery from '../queries/EventQuery';
 import { useEffect, useMemo, useState } from 'react';
 
 // 파리미터로 start, end를 받을 예정
-export const useGetEvents = () => {
-  const today = new Date();
+export const useGetEvents = (dateSet) => {
   const email = localStorage.getItem('email');
 
   const [events, setEvents] = useState([]);
 
   const { data } = useEventsQuery({
     email: email,
-    year: today.getFullYear(),
-    month: today.getMonth() + 1,
+    start: dateSet.start,
+    end: dateSet.end,
   });
 
   const formattedEvents = useMemo(() => {

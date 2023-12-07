@@ -28,10 +28,9 @@ const CalendarPage = () => {
     events: [],
   });
 
-  const [dateSet, setDateSet] = useState([]);
+  const [dateSet, setDateSet] = useState({ start: '', end: '' });
 
-  // ** const events = useGetEvents(dateSet);
-  const events = useGetEvents();
+  const events = useGetEvents(dateSet);
 
   const openHandler = useCallback((info) => {
     // 모달 열기/닫기
