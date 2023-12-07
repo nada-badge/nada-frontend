@@ -9,7 +9,7 @@ const EventListBox = {
   margin: '0 auto',
 };
 
-const EventList = ({ child }) => {
+const EventList = ({ children }) => {
   const transForm = useCallback((date) => {
     if (date) {
       const [, month, day] = date.split('-').map(Number);
@@ -20,8 +20,8 @@ const EventList = ({ child }) => {
 
   return (
     <div style={EventListBox}>
-      {child &&
-        child.map((item, idx) => (
+      {children &&
+        children.map((item, idx) => (
           <EventItem
             title={item.title}
             key={idx}
