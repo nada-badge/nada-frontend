@@ -32,21 +32,31 @@ const CalendarPage = () => {
 
   const events = useGetEvents(dateSet);
 
-  const openHandler = useCallback((info) => {
-    // 모달 열기/닫기
-    setIsModal(!isModal);
+  // 주어진 날짜를 기준으로 이벤트를 필터링
+  const filterEvent = useCallback(
+    (baseDateStr) => {
+      return filter(baseDateStr, events);
+    },
+    [events],
+  );
 
-    // 클릭한 날짜 정보 추출
-    const { dateStr, date } = info;
+  const openHandler = useCallback(
+    (info) => {
+      // 모달 열기/닫기
+      setIsModal(!isModal);
 
-    // date 상태 업데이트
-    setModal((prevDateformat) => ({
-      ...prevDateformat,
-      month_day: dateStr,
-      day_index: date.getDay(),
-      events: filterEvent(dateStr),
-    }));
-  }, []);
+      // 클릭한 날짜 정보 추출
+      const { dateStr, date } = info;
+      // date 상태 업데이트
+      setModal((prevDateformat) => ({
+        ...prevDateformat,
+        month_day: dateStr,
+        day_index: date.getDay(),
+        events: filterEvent(dateStr),
+      }));
+    },
+    [setModal, filterEvent],
+  );
 
   useEffect(() => {
     dispatch(
@@ -57,14 +67,6 @@ const CalendarPage = () => {
       }),
     );
   }, []);
-
-  // 주어진 날짜를 기준으로 이벤트를 필터링
-  const filterEvent = useCallback(
-    (baseDateStr) => {
-      return filter(baseDateStr, events);
-    },
-    [events],
-  );
 
   return (
     <Div>
