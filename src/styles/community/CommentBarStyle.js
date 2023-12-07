@@ -45,8 +45,16 @@ export const InputBar = styled.div`
     & > .text {
       align-items: center;
       display: flex;
-      gap: 10px;
+      gap: 4px;
       position: relative;
+      width: 269px;
+
+      & > .name {
+        ${applyFontStyles({
+          font: 'body-01',
+          color: 'var(--myspec-primaryblue-1)',
+        })};
+      }
 
       & > .wrapper {
         ${applyFontStyles({
@@ -59,7 +67,6 @@ export const InputBar = styled.div`
         white-space: nowrap;
         width: fit-content;
         border: none;
-        width: 269px;
       }
       & > .wrapper:focus {
         outline: none;
@@ -71,6 +78,11 @@ export const InputBar = styled.div`
 export const Img = styled.svg`
   width: 36px;
   height: 36px;
+
+  & > .background {
+    width: 36px;
+    height: 36px;
+  }
 
   &.isActive {
     & > .background {
