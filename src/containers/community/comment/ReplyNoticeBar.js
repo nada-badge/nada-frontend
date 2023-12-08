@@ -1,3 +1,4 @@
+/** ReplyNoticeBar 답글 알림창 */
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { initializeForm } from '../../../modules/community/postDetail';

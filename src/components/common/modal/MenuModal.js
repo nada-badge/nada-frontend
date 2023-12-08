@@ -1,4 +1,4 @@
-/** YourMenuModal 메뉴 클릭 시, 타인이 작성한 글일 경우 나오는 모달 */
+/** MenuModal 메뉴 클릭 시, 여러가지 행동 리스트가 나오는 모달 */
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
 import ModalButton from './ModalButton';

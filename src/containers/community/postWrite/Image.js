@@ -1,3 +1,4 @@
+/** Image 글작성 페이지에 Image 출력하는 컴테이너  */
 import { Images } from '../../../styles/community/PostWriteStyle';
 
 export const Image = () => {

@@ -1,3 +1,4 @@
+/** CommentBar 댓글 입력창 */
 import classNames from 'classnames';
 import { useState, useEffect } from 'react';
 import { InputBar, Img } from '../../../styles/community/CommentBarStyle';

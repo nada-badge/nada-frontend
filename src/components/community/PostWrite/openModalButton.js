@@ -8,7 +8,7 @@ import {
   Img,
 } from '../../../styles/community/FilterModalStyle';
 import { postWriteSelector } from '../../../modules/community/postWrite';
-import { toKorea } from '../../common/AreaFieldCategoryData';
+import { toKorea } from '../../common/AttributeData';
 
 export const OpenModalButton = ({ content }) => {
   const isActive = useSelector(postWriteSelector('ButtonActive', content));
