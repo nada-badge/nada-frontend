@@ -6,8 +6,9 @@ import {
   postWriteSelector,
   initializeForm,
 } from '../../../modules/community/postWrite';
-import { selectAllConfig } from '../../common/AreaFieldCategoryData';
+import { selectAllConfig } from '../../common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
+
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);

@@ -1,4 +1,4 @@
-/** ReportModal 게시글 신고를 물어보는 모달 */
+/** AskModal 게시글 신고 또는 삭제를 물어보는 모달 */
 import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import useModal from './useModal';

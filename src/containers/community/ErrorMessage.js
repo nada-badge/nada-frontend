@@ -1,3 +1,4 @@
+/** ErrorMessage 조건에 맞는 게시물이 없을 시 출력되는 에러 컨테이너 */
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 

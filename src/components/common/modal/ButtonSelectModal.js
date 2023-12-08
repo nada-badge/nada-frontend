@@ -1,4 +1,4 @@
-/**buttonSelectModal */
+/**buttonSelectModal 여러 라운드 버튼 중 선택을 하는 형태인 모달 */
 import { useEffect } from 'react';
 import Modal from './Modal';
 import useModal from './useModal';
@@ -13,7 +13,7 @@ import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../../../styles/ModalStyle';
 import ModalButtonDiv from './ModalButtonDiv';
-import { selectConfig, selectAllConfig } from '../AreaFieldCategoryData';
+import { selectConfig, selectAllConfig } from '../AttributeData';
 
 const ButtonSelectModal = () => {
   const { closeModal } = useModal();

@@ -1,3 +1,4 @@
+/** NoticeModal 삭제 또는 신고가 정상적으로 되었음을 알리는 모달 */
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
 import { Layout } from '../../../styles/community/NoticeModalStyle';

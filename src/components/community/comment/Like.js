@@ -1,3 +1,4 @@
+/** Like 좋아요 컴포넌트  */
 import { LikeStyle } from '../../../styles/community/CommentStyle';
 
 export const Like = () => {

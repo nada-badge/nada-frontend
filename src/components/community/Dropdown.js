@@ -8,7 +8,7 @@ import {
   TextWarpper,
   Img,
 } from '../../styles/community/DropdownStyle';
-import { selectAllConfig } from '../common/AreaFieldCategoryData';
+import { selectAllConfig } from '../common/AttributeData';
 
 export const DropDown = ({ content, text }) => {
   const dispatch = useDispatch();

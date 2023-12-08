@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import arrowButton from '../../icon/arrowButton.png';
-import arrowButtonActive from '../../icon/arrowButtonActive.png';
 import { applyFontStyles } from '../fontStyle';
 
 export const Bar = styled.div`
