@@ -48,8 +48,8 @@ const CardContainer = styled.div`
 const ActivityItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ title, Dday }) => (
-        <CardContainer>
+      {cards.map(({ title, Dday }, idx) => (
+        <CardContainer key={idx}>
           <div className="imgContainer">
             <div className="Dday-wrapper">
               <div className="Dday">{`D - ${Dday}`}</div>
