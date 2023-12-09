@@ -31,6 +31,7 @@ const BadgeContainer = styled.div`
       padding-top: ${({ $layout_style }) => $layout_style?.paddingTop || ''};
       width: inherit;
       ${subtitle_01('var(--myspec-gray-scale-gray-900, #1A1A1A)')}
+      white-space: nowrap;
     }
 
     & > .roleWrapper {
