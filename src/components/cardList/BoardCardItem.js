@@ -39,8 +39,8 @@ const CardContainer = styled.div`
 const BoardCardItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ title, category }) => (
-        <CardContainer>
+      {cards.map(({ title, category }, idx) => (
+        <CardContainer key={idx}>
           <div className="image-2" />
           <div className="category">{category}</div>
           <div className="title">{title}</div>
