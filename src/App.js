@@ -14,7 +14,6 @@ import Home from './pages/Home';
 import CalendarPage from './pages/CalendarPage';
 import ActivityPage from './pages/activity/ActivityPage';
 import DetailActivityPage from './pages/activity/DetailActivityPage';
-import Badge from './testpage/badge';
 import CommunityPage from './pages/community/CommunityPage';
 import PostWritePage from './pages/community/PostWritePage';
 import PostDetailPage from './pages/community/PostDetailPage';
@@ -40,8 +39,6 @@ const App = () => {
         <Route path="/activity" element={<ActivityPage />} />
         <Route path="/activity/detail" element={<DetailActivityPage />} />
         <Route path="/activity/search" element={<SearchActivityPage />} />
-
-        <Route path="/badge" element={<Badge />} />
 
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/community/PostWrite" element={<PostWritePage />} />
