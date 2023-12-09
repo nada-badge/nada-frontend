@@ -1,46 +1,50 @@
-import styled from 'styled-components';
-import { body_01 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
-const Container = styled.div`
-  display: flex;
-  width: calc(100% - 6px);
-  padding: 7px 6px 0px 0px;
-  justify-content: flex-end;
-  align-items: center;
+export const SortOrder = ({ text }) => {
+  const sortContainer = {
+    display: 'flex',
+    width: 'calc(100% - 16px)',
+    padding: '4px 8px',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  };
 
-  & > .wrapper {
-    display: flex;
-    padding: 4px 8px;
-    align-items: center;
-    gap: 3px;
+  const wrapper = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '3px',
+    cursor: 'pointer',
+  };
 
-    & > svg {
-      width: 9px;
-      height: 100%;
-    }
-
-    & > .text {
-      ${body_01('var(--myspec-gray-scale-gray-600, #888)')}
-    }
-  }
-`;
-export const SortOrder = () => {
   return (
-    <Container>
-      <div className="wrapper">
+    <div style={sortContainer}>
+      <div style={wrapper}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="11"
-          height="13"
+          width="9"
+          height="100%"
           viewBox="0 0 11 13"
           fill="none"
         >
-          <path d="M1 4L3.64706 1.5V11.5" stroke="#888888" />
-          <path d="M10 9L7.35294 11.5L7.35294 1.5" stroke="#888888" />
+          <path
+            d="M1 4L3.64706 1.5V11.5"
+            stroke="var(--myspec-gray-scalegray-600)"
+          />
+          <path
+            d="M10 9L7.35294 11.5L7.35294 1.5"
+            stroke="var(--myspec-gray-scalegray-600)"
+          />
         </svg>
-        <div className="text">{'최신 순'}</div>
+        <div
+          style={applyFontStyles({
+            font: 'body-01',
+            color: 'var(--myspec-gray-scalegray-600)',
+          })}
+        >
+          {text}
+        </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

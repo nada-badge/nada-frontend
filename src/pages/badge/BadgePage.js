@@ -1,11 +1,12 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 import CardList from '../../components/cardList/CardList';
-import { AlignBox } from '../../components/badge/AlignBox';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
+import SortOrder from '../../components/search/SortOrder';
+import { AlignModal } from '../../containers/badge/AlignModal';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ const BadgePage = () => {
         <div className="text">나의 뱃지</div>
         <div className="count">5</div>
       </div>
-      <AlignBox />
+      <SortOrder text={`${align} 정렬`} />
       <CardList title={2023} title_font={'subtitle-03'}>
         <BadgeItem cards={badge_info} />
       </CardList>

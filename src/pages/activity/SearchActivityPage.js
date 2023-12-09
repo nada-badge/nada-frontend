@@ -33,7 +33,7 @@ const SearchActivityPage = () => {
     <Container>
       <SearchInput />
       <SearchCategory list={['제목', '본문', '작성자']} />
-      <SortOrder />
+      <SortOrder text={'최신 순'} />
       {/* 활동 리스트 */}
     </Container>
   );
