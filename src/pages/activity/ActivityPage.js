@@ -4,6 +4,7 @@ import { SearchInput } from '../../components/search/SearchInput';
 import { useEffect } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
+import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -49,8 +50,9 @@ const ActivityPage = () => {
   return (
     <ActivityContainer>
       <SearchInput />
-      <CardList title={'최근 본 활동'} cards={cards} type={'recentActivity'} />
-      {/*  대외활동 리스트 */}
+      <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
+        <RecentActivityItem cards={cards} />
+      </CardList>
     </ActivityContainer>
   );
 };
