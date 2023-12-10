@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 const EventWrapper = styled.div`
   border-radius: 4px;
@@ -16,11 +17,7 @@ const EventWrapper = styled.div`
     justify-content: center;
 
     & > div {
-      color: #191919;
-      font-family: var(--caption-03-font-family);
-      font-size: var(--caption-03-font-size);
-      font-style: var(--caption-03-font-style);
-      font-weight: var(--caption-03-font-weight);
+      ${applyFontStyles({ font: 'caption-03', color: '#191919' })};
       white-space: nowrap;
     }
   }

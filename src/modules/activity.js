@@ -11,7 +11,7 @@ const initialState = {
     groupName: '',
     field: '',
     category: '',
-    area: '',
+    region: '',
     content: '',
     startedAt: '',
     endedAt: '',

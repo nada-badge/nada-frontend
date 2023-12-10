@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import styled from 'styled-components';
-import BannerSlider from '../components/home/BannerSlider';
+import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
+import BoardCardItem from '../components/cardList/BoardCardItem';
+import ActivityItem from '../components/cardList/ActivityItem';
 
 const HomeContainer = styled.div`
   text-align: left;
@@ -17,12 +19,27 @@ const HomeContainer = styled.div`
   width: 375px;
   margin: 0px auto;
 
+  // 배너 크기만큼 공간 마련하기
+  & > .loading {
+    height: 118px;
+  }
+
   & > div {
     background-color: white;
+  }
+
+  & > .bottomNav_place {
+    position: relative;
+    top: -12px;
+    height: 85px;
   }
 `;
 
 const Home = () => {
+  const BannerSlider = React.lazy(() =>
+    import('../components/home/BannerSlider'),
+  );
+
   const dispatch = useDispatch();
   const community_cards = [
     { id: 1, title: '유용한 활동 사이트', category: '자유' },
@@ -48,35 +65,31 @@ const Home = () => {
         isShowBottom: true,
       }),
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const navigate = useNavigate();
 
-  const onClick = (e) => {
+  const onClick = () => {
     navigate('/calendar');
   };
 
   return (
     <HomeContainer>
-      {/* 상단 내비게이션 
-        <Top
-          className="top-instance"
-          element="https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/-----1.svg"
-          property1="main"
-        /> */}
-      <BannerSlider />
+      <Suspense fallback={<div className="loading"></div>}>
+        <BannerSlider />
+      </Suspense>
       <div onClick={onClick}>
         <WeekCalendar className="calendarweek" />
       </div>
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
-        cards={community_cards}
-        type={'board'}
-      />
-      <CardList
-        title={'추천 대외활동'}
-        cards={activity_cards}
-        type={'activity'}
-      />
+        title_font={'subtitle-01'}
+      >
+        <BoardCardItem cards={community_cards} />
+      </CardList>
+      <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
+        <ActivityItem cards={activity_cards} />
+      </CardList>
     </HomeContainer>
   );
 };
