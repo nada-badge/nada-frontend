@@ -3,7 +3,8 @@ import { body_01, caption_02, subtitle_01 } from '../../styles/fontStyle';
 
 const BadgeContainer = styled.div`
   display: flex;
-  width: ${({ $layout_style }) => $layout_style?.width || 'calc(132px - 12px)'};
+  box-sizing: border-box;
+  width: ${({ $layout_style }) => $layout_style?.width || '132px'};
   height: ${({ $layout_style }) => $layout_style?.height || '195px'};
   flex-direction: column;
   justify-content: center;
