@@ -1,6 +1,6 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 
-export const SortOrder = ({ text }) => {
+export const SortOrder = ({ text, onClick }) => {
   const sortContainer = {
     display: 'flex',
     width: 'calc(100% - 16px)',
@@ -16,9 +16,13 @@ export const SortOrder = ({ text }) => {
     cursor: 'pointer',
   };
 
+  const modalHandler = () => {
+    onClick();
+  };
+
   return (
     <div style={sortContainer}>
-      <div style={wrapper}>
+      <div style={wrapper} onClick={modalHandler}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="9"

@@ -7,6 +7,7 @@ import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 import SortOrder from '../../components/search/SortOrder';
 import { AlignModal } from '../../containers/badge/AlignModal';
+import React from 'react';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,19 @@ const BadgePage = () => {
       }),
     );
   });
+
+  const [isModal, setModal] = useState(false);
+
+  const [align, setAlign] = useState('연도별');
+
+  const openHandler = useCallback(() => {
+    console.log('openHandler');
+    setModal(!isModal);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setModal(false);
+  }, []);
 
   const badge_info = [
     {
@@ -53,6 +67,7 @@ const BadgePage = () => {
 
   return (
     <div style={pageContainer}>
+      {isModal && <AlignModal align={align} closeModal={closeModal} />}
       <div
         style={Object.assign(
           applyFontStyles({ font: 'title-02', color: '' }),
@@ -62,7 +77,7 @@ const BadgePage = () => {
         <div className="text">나의 뱃지</div>
         <div className="count">5</div>
       </div>
-      <SortOrder text={`${align} 정렬`} />
+      <SortOrder text={`${align} 정렬`} onClick={openHandler} />
       <CardList title={2023} title_font={'subtitle-03'}>
         <BadgeItem cards={badge_info} />
       </CardList>
@@ -70,4 +85,4 @@ const BadgePage = () => {
   );
 };
 
-export default BadgePage;
+export default React.memo(BadgePage);
