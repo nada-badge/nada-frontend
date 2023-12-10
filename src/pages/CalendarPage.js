@@ -1,35 +1,18 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import styled from 'styled-components';
 import interactionPlugin from '@fullcalendar/interaction';
-import '../styles/Calendar.scss';
+import '../styles/calendar/Calendar.scss';
 import EventBox from '../components/calendar/event';
 import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../modules/calendar';
+import { changeField } from '../modules/calendar/calendar';
 import { setBarStatus } from '../modules/bar';
-
-const Div = styled.div`
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-
-  & > .CalendarWrapper {
-    width: calc(100% - 30px);
-
-    @media screen and (max-width: 345px) {
-      width: 100%;
-    }
-
-    @media screen and (min-width: 376px) {
-      width: 375px;
-    }
-  }
-`;
+import { filter } from '../modules/calendar/filterEvent';
+import { useGetEvents } from '../modules/calendar/useGetEvents';
+import React from 'react';
+import { Div } from '../styles/calendar/index';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -44,24 +27,13 @@ const CalendarPage = () => {
     month_day: '', // 일(day)
     day_index: '', // 요일[0~6]
   });
-  const [events, setEvents] = useState([
-    {
-      title: 'All Day Event',
-      start: '2023-10-01',
-    },
-    {
-      title: '9일 event',
-      start: '2023-10-09',
-    },
-    {
-      title: 'Long Event',
-      start: '2023-10-07',
-      end: '2023-10-20',
-      color: '#ffc0cf', // override!
-    },
-  ]);
 
-  const openHandler = (info) => {
+  const [dateSet, setDateSet] = useState([]);
+
+  // ** const events = useGetEvents(dateSet);
+  const events = useGetEvents();
+
+  const openHandler = useCallback((info) => {
     // 모달 열기/닫기
     setIsModal(!isModal);
 
@@ -74,7 +46,7 @@ const CalendarPage = () => {
       month_day: dateStr,
       day_index: date.getDay(),
     }));
-  };
+  }, []);
 
   useEffect(() => {
     dispatch(changeField({ key: 'date', value: date.month_day }));
@@ -92,14 +64,8 @@ const CalendarPage = () => {
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(
-    (dateStr) => {
-      const baseDay = Number(dateStr.split('-')[2]);
-
-      return events.filter(({ start, end }) => {
-        const startDay = Number(start.split('-')[2]);
-        const endDay = end ? Number(end.split('-')[2]) : startDay;
-        return startDay <= baseDay && baseDay <= endDay;
-      });
+    (baseDateStr) => {
+      return filter(baseDateStr, events);
     },
     [events],
   );
@@ -113,7 +79,8 @@ const CalendarPage = () => {
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView={'dayGridMonth'}
           headerToolbar={{ start: 'prev', center: 'title', end: 'next' }}
-          height={'625px'} // ★ 병합 후 수정 : calc( 625px - (상단+하단바) px )
+          height={'calc(100vh - 85px)'}
+          contentHeight={'100%'}
           locale={'ko'}
           dayCellContent={(info) => {
             const dayNumber = info.dayNumberText.replace('일', '');
@@ -123,10 +90,17 @@ const CalendarPage = () => {
           events={events}
           eventContent={(info) => <EventBox text={info.event.title} />}
           dateClick={(info) => openHandler(info)}
+          datesSet={(dateInfo) => {
+            setDateSet((prevDateSet) => ({
+              ...prevDateSet,
+              start: dateInfo.start,
+              end: dateInfo.end,
+            }));
+          }}
         />
       </div>
     </Div>
   );
 };
 
-export default CalendarPage;
+export default React.memo(CalendarPage);
