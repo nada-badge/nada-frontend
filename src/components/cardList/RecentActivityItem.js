@@ -71,19 +71,21 @@ const CardContainer = styled.div`
 const RecentActivityItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ title, team, Dday, see }) => (
+      {cards.map(({ _id, title, team, Dday, see }) => (
         <CardContainer>
-          <div>
-            <div className="title">{title}</div>
-            <div className="team">{team}</div>
-            <div className="group">
-              <div className="Dday">D-{Dday}</div>
-              <div className="see">조회 {see}</div>
+          <Link to={`/activity/${_id}`}>
+            <div>
+              <div className="title">{title}</div>
+              <div className="team">{team}</div>
+              <div className="group">
+                <div className="Dday">D-{Dday}</div>
+                <div className="see">조회 {see}</div>
+              </div>
+              <div className="star">
+                <Star />
+              </div>
             </div>
-            <div className="star">
-              <Star />
-            </div>
-          </div>
+          </Link>
         </CardContainer>
       ))}
     </>
