@@ -1,5 +1,4 @@
 import EventItem from './EventItem';
-import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 
 const EventListBox = {
@@ -10,11 +9,7 @@ const EventListBox = {
   margin: '0 auto',
 };
 
-const EventList = () => {
-  const events = useSelector((state) => {
-    return state.calendar.day.events;
-  });
-
+const EventList = ({ children }) => {
   const transForm = useCallback((date) => {
     if (date) {
       const [, month, day] = date.split('-').map(Number);
@@ -25,8 +20,8 @@ const EventList = () => {
 
   return (
     <div style={EventListBox}>
-      {events &&
-        events.map((item, idx) => (
+      {children &&
+        children.map((item, idx) => (
           <EventItem
             title={item.title}
             key={idx}

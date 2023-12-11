@@ -2,15 +2,15 @@
 import { PostButton } from '../../styles/community/PostWriteButtonStyle';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setField } from '../../modules/Community/postWrite';
-import { initializeForm } from '../../modules/Community/postDetail';
+import { setField } from '../../modules/community/postWrite';
+import { initializeForm } from '../../modules/community/postDetail';
 
 export const PostWriteButton = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toPostWrite = () => {
-    dispatch(initializeForm());
+    dispatch(initializeForm({ form: 'PostDetail' }));
     dispatch(setField({ form: 'method', key: 'isSubmit', value: true }));
     navigate('/community/PostWrite');
   };

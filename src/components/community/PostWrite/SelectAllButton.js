@@ -5,9 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   postWriteSelector,
   initializeForm,
-} from '../../../modules/Community/postWrite';
-import { selectAllConfig } from '../../common/AreaFieldCategoryData';
+} from '../../../modules/community/postWrite';
+import { selectAllConfig } from '../../common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
+
 export const SelectAllButton = () => {
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);

@@ -1,4 +1,4 @@
-//각 요소에 대한 구현
+/**menuModalType 메뉴모달에 사용되는 행동 관리 컴포넌트 */
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PrintCenteredText from './modal/PrintCenteredText';

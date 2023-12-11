@@ -1,6 +1,5 @@
-/**buttonSelectModal */
+/**buttonSelectModal 여러 라운드 버튼 중 선택을 하는 형태인 모달 */
 import { useEffect } from 'react';
-import Modal from './Modal';
 import useModal from './useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,12 +7,12 @@ import {
   submitForm,
   postWriteSelector,
   setField,
-} from '../../../modules/Community/postWrite';
+} from '../../../modules/community/postWrite';
 import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../../../styles/ModalStyle';
 import ModalButtonDiv from './ModalButtonDiv';
-import { selectConfig, selectAllConfig } from '../AreaFieldCategoryData';
+import { selectConfig, selectAllConfig } from '../AttributeData';
 
 const ButtonSelectModal = () => {
   const { closeModal } = useModal();
@@ -68,25 +67,23 @@ const ButtonSelectModal = () => {
   };
 
   return (
-    <Modal>
-      <div>
-        <List>
-          <SelectAllButton />
-          {button.map((button, index) => (
-            <div key={index}>
-              <SelectButton text={button.text} />
-            </div>
-          ))}
-        </List>
-        <Border />
-        {ModalButtonDiv({
-          cancel: cancel,
-          actText: '확인',
-          act: setStatus,
-          actColor: false,
-        })}
+    <div>
+      <div style={List}>
+        <SelectAllButton />
+        {button.map((button, index) => (
+          <div key={index}>
+            <SelectButton text={button.text} />
+          </div>
+        ))}
       </div>
-    </Modal>
+      <div style={Border} />
+      {ModalButtonDiv({
+        cancel: cancel,
+        actText: '확인',
+        act: setStatus,
+        actColor: false,
+      })}
+    </div>
   );
 };
 

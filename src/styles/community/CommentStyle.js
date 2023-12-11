@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { caption_02, caption_03, body_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const ProfileStyle = styled.div`
   align-items: center;
@@ -23,14 +23,20 @@ export const ProfileStyle = styled.div`
     flex: 0 0 auto;
 
     & > .name {
-      ${caption_02('var(--myspec-gray-scalegray-900)')}
+      ${applyFontStyles({
+        font: 'caption-02',
+        color: 'var(--myspec-gray-scalegray-900)',
+      })};
       margin-top: -1px;
       position: relative;
       width: 136px;
     }
 
     & > .date {
-      ${caption_03('var(--myspec-gray-scalegray-900)')}
+      ${applyFontStyles({
+        font: 'caption-03',
+        color: 'var(--myspec-gray-scalegray-900)',
+      })};
       position: relative;
       width: 136px;
     }
@@ -87,7 +93,11 @@ export const LikeStyle = styled.div`
     gap: 6px;
 
     & > .text {
-      ${body_01('var(--myspec-gray-scalegray-900)')}
+      ${applyFontStyles({
+        font: 'body-01',
+        color: 'var(--myspec-gray-scalegray-900)',
+      })};
+
       margin-top: -1px;
       width: 56px;
     }
@@ -100,7 +110,10 @@ export const ReplyStyle = styled.div`
   margin-left: auto;
 
   & > .text {
-    ${caption_02('var(--myspec-gray-scalegray-900)')}
+    ${applyFontStyles({
+      font: 'caption-02',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
     margin-top: -1px;
     width: fit-content;
   }
@@ -122,7 +135,10 @@ export const CommendBox = styled.div`
   }
 
   & > .content {
-    ${body_01('var(--myspec-gray-scalegray-900)')}
+    ${applyFontStyles({
+      font: 'body-01',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
     position: relative;
   }
 

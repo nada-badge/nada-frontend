@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterSelector, initializeForm } from '../../modules/filter';
-import { selectAllConfig } from '../common/AreaFieldCategoryData';
+import { selectAllConfig } from '../common/AttributeData';
 import { AttributeInfoButton } from '../common/AttributeInfoButton';
 
 export const SelectAllButton = () => {
