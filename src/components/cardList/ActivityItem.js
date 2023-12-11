@@ -48,16 +48,17 @@ const CardContainer = styled.div`
 const ActivityItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ title, Dday }, idx) => (
-        <CardContainer key={idx}>
-          <div className="imgContainer">
-            <div className="Dday-wrapper">
-              <div className="Dday">{`D - ${Dday}`}</div>
+      {cards.length &&
+        cards.map(({ activityName, Dday = 7 }, idx) => (
+          <CardContainer key={idx}>
+            <div className="imgContainer">
+              <div className="Dday-wrapper">
+                <div className="Dday">{`D - ${Dday}`}</div>
+              </div>
             </div>
-          </div>
-          <p className="title">{title}</p>
-        </CardContainer>
-      ))}
+            <p className="title">{activityName}</p>
+          </CardContainer>
+        ))}
     </>
   );
 };

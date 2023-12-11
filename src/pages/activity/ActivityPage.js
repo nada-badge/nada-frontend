@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import { Border } from '../../styles/community/CommunityStyle';
 import Category from '../../containers/community/Category';
 import Filter from '../../containers/community/Filter';
+import ActivityItem from '../../components/cardList/ActivityItem';
+import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -26,7 +28,18 @@ const ActivityContainer = styled.div`
 
 const ActivityPage = () => {
   const dispatch = useDispatch();
+  const [activities, setActivities] = useState([]);
 
+  // 게시글 불러오기
+  const { data } = useActivityListQuery();
+
+  useEffect(() => {
+    if (data) {
+      setActivities(data.activities);
+    }
+  }, [data]);
+
+  // 최근 본 게시글
   const cards = [
     {
       _id: '65617b6a9c6d76464c132459',
@@ -61,6 +74,9 @@ const ActivityPage = () => {
         <Category />
         <Border />
         <Filter />
+        <CardList>
+          <ActivityItem cards={activities} />
+        </CardList>
       </div>
     </ActivityContainer>
   );
