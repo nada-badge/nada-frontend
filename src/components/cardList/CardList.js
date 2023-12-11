@@ -6,10 +6,11 @@ const CardsContainer = styled.div`
   position: relative;
 
   & > .card-container {
-    width: calc(
-      375px - 15px
-    );
-    overflow-x: scroll; 
+    box-sizing: border-box;
+    width: 375px;
+    overflow-x: scroll;
+    padding-bottom: 12px; // 커스텀
+    padding-left: 15px;
   }
 `;
 
@@ -26,9 +27,6 @@ const CardListWrapper = styled.div`
   gap: 12px;
   align-items: flex-start;
   display: flex;
-  left: 15px;
-  position: relative;
-  padding-bottom: 12px; // 커스텀
 `;
 
 const CardList = ({ title, children, title_font }) => {
