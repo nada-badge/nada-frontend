@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
+import { Border } from '../../styles/community/CommunityStyle';
+import Category from '../../containers/community/Category';
+import Filter from '../../containers/community/Filter';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -14,6 +17,7 @@ const ActivityContainer = styled.div`
   gap: 12px;
   width: 375px;
   margin: 0px auto;
+  text-align: left;
 
   & > div {
     background-color: white;
@@ -53,6 +57,11 @@ const ActivityPage = () => {
       <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
         <RecentActivityItem cards={cards} />
       </CardList>
+      <div>
+        <Category />
+        <Border />
+        <Filter />
+      </div>
     </ActivityContainer>
   );
 };
