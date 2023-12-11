@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
-import { Star } from '../activity/Star';
+import { Star } from '../common/icon/Star';
 import { Link } from 'react-router-dom';
 
 const RecentActivityItem = ({ cards }) => {
