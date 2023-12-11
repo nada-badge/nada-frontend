@@ -29,7 +29,6 @@ export const PostContainer = styled.div`
     & > .title {
       ${applyFontStyles({
         font: 'subtitle-03',
-        color: '#000000',
       })};
       position: relative;
       white-space: nowrap;
@@ -40,7 +39,6 @@ export const PostContainer = styled.div`
     & > .text {
       ${applyFontStyles({
         font: 'body-01',
-        color: '#000000',
       })};
       position: relative;
       top: 5px;

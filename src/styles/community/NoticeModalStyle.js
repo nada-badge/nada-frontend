@@ -60,7 +60,6 @@ export const Layout = styled.div`
     &.text {
       ${applyFontStyles({
         font: 'subtitle-02',
-        color: '#000000',
       })};
       margin-top: -1px;
       position: relative;
@@ -79,7 +78,6 @@ export const Layout = styled.div`
     & > .text {
       ${applyFontStyles({
         font: 'subtitle-02',
-        color: '#000000',
       })};
       margin-top: -1.12px;
       position: relative;
