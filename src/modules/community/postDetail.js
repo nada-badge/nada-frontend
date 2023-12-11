@@ -21,6 +21,7 @@ const initialState = {
   },
   Comment: {
     position: 'comment',
+    userName: '',
     isCommentModal: Boolean(false),
     content: '',
     _id: '',
@@ -38,8 +39,8 @@ const PostDetailSlice = createSlice({
     changeCommentField: (state, { payload: { form, value } }) => {
       state.Comment[form] = value;
     },
-    initializeForm: (state) => {
-      state.PostDetail = initialState.PostDetail;
+    initializeForm: (state, { payload: { form } }) => {
+      state[form] = initialState[form];
     },
   },
 });

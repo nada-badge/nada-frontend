@@ -1,20 +1,26 @@
 import styled from 'styled-components';
-import { subtitle_02 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
-export const Layout = styled.div`
-  align-items: center;
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-`;
+export const Layout = {
+  alignItems: 'center',
+  display: 'inline-flex',
+  flexDirection: 'column',
+  position: 'relative',
+};
 
-export const List = styled.div`
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  position: relative;
-`;
+export const List = {
+  alignItems: 'flex-start',
+  display: 'inline-flex',
+  flex: '0 0 auto',
+  flexDirection: 'column',
+  position: 'relative',
+};
+
+export const Border = {
+  height: '16px',
+  position: 'relative',
+  width: '256px',
+};
 
 export const Menu = styled.div`
   align-items: center;
@@ -30,7 +36,10 @@ export const Menu = styled.div`
   width: 256px;
 
   & > .text-wrapper {
-    ${subtitle_02('var(--myspec-gray-scalegray-900)')}
+    ${applyFontStyles({
+      font: 'subtitle-02',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
     margin-top: -1.12px;
     position: relative;
     width: fit-content;
@@ -39,10 +48,4 @@ export const Menu = styled.div`
       color: red;
     }
   }
-`;
-
-export const Border = styled.div`
-  height: 16px;
-  position: relative;
-  width: 256px;
 `;

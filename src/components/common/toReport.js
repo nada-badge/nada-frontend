@@ -1,5 +1,4 @@
-/**toReport 모달이 열린 위치에 따라 쿼리에 사용할 api, idData를 매칭해주는
- */
+/**toReport 신고 시 모달이 열린 위치에 따라 쿼리에 사용할 api, idData를 전처리해주는 컴포넌트*/
 const toReport = (position, PostDetail) => {
   const positionsConfig = {
     post: {

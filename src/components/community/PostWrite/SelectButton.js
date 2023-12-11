@@ -7,8 +7,8 @@ import {
   deleteField,
   setField,
   initializeForm,
-} from '../../../modules/Community/postWrite';
-import { selectAllConfig } from '../../common/AreaFieldCategoryData';
+} from '../../../modules/community/postWrite';
+import { selectAllConfig } from '../../common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 
 export const SelectButton = ({ text }) => {

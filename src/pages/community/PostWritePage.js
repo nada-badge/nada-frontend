@@ -6,7 +6,7 @@ import useUpdate from '../../modules/queries/PostUpdateQuery';
 import {
   initializeAll,
   postWriteSelector,
-} from '../../modules/Community/postWrite';
+} from '../../modules/community/postWrite';
 import { setBarStatus } from '../../modules/bar';
 import { PostContainer, Border } from '../../styles/community/PostWriteStyle';
 import { Title } from '../../containers/community/postWrite/Title';
@@ -47,8 +47,8 @@ const PostWrite = () => {
 
   const OnSubmit = (e) => {
     e.preventDefault();
-    const userEmail = '20230904@nate.com';
-    const userName = '오늘닉네임';
+    const userEmail = 'maintest01@gmail.com';
+    const userName = 'maintest01';
     const _id = postwrite._id;
     const mainCategorys = postwrite.mainCategory;
     const categorys = postwrite.category;
