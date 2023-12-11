@@ -1,3 +1,4 @@
+/** AttributeInfoButton region, field, category 데이터를 라운드 버튼 형태로 출력하는 컴포넌트 */
 import classNames from 'classnames';
 import { Button, TextWarpper, Img } from '../../styles/community/SelectButton';
 

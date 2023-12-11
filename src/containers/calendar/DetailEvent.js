@@ -4,8 +4,8 @@ import { ModalBackGround } from '../../styles/calendar/index';
 
 const DayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
-const DetailEvent = ({ date, modalHandler }) => {
-  const { month_day, day_index } = date;
+const DetailEvent = ({ modal, modalHandler }) => {
+  const { month_day, day_index, events } = modal;
   const [title, setTitle] = useState(null);
   const outside = useRef();
 
@@ -26,7 +26,7 @@ const DetailEvent = ({ date, modalHandler }) => {
       <ModalBackGround ref={outside} onClick={onClick}>
         <div className="EventsContainer">
           <h2>{title}</h2>
-          <EventList />
+          <EventList>{events}</EventList>
         </div>
       </ModalBackGround>
     </>

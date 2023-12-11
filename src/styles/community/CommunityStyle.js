@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const CommunityPage = styled.div`
-  align-items: flex-start;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  position: relative;
-  align-items: flex-start;
+  justify-content: center;
+  width: 375px;
   text-align: left;
   gap: 12px 0px;
   background-color: var(--myspec-gray-scalegray-100);
+  margin: 0px auto;
 `;
 
 export const Border = styled.div`

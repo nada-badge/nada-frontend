@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { SelectAllButton } from '../../components/community/SelectAllButton';
 import { useSelector } from 'react-redux';
 import { filterSelector } from '../../modules/filter';
-import { selectConfig } from '../../components/common/AreaFieldCategoryData';
+import { selectConfig } from '../../components/common/AttributeData';
 
 export const FilterItems = ({ text }) => {
   const mainCategory = useSelector(

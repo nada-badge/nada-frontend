@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { body_01 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const Button = styled.div`
   align-items: center;
@@ -19,7 +19,10 @@ export const Button = styled.div`
 `;
 
 export const TextWarpper = styled.div`
-  ${body_01('--myspec-gray-scalegray-600')}
+  ${applyFontStyles({
+    font: 'body-01',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })};
   margin-top: -1px;
   position: relative;
   white-space: nowrap;
