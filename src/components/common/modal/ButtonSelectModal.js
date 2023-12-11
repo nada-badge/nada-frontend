@@ -1,6 +1,5 @@
 /**buttonSelectModal 여러 라운드 버튼 중 선택을 하는 형태인 모달 */
 import { useEffect } from 'react';
-import Modal from './Modal';
 import useModal from './useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -68,7 +67,7 @@ const ButtonSelectModal = () => {
   };
 
   return (
-    <Modal>
+    <div>
       <div style={List}>
         <SelectAllButton />
         {button.map((button, index) => (
@@ -84,7 +83,7 @@ const ButtonSelectModal = () => {
         act: setStatus,
         actColor: false,
       })}
-    </Modal>
+    </div>
   );
 };
 

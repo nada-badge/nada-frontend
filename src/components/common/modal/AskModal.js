@@ -1,5 +1,4 @@
 /** AskModal 게시글 신고 또는 삭제를 물어보는 모달 */
-import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import useModal from './useModal';
 import ModalButtonDiv from './ModalButtonDiv';
@@ -38,21 +37,19 @@ const AskModal = () => {
   };
 
   return (
-    <Modal>
-      <Layout>
-        <div className="title">
-          {contentType}을 {actionType}할까요?
-        </div>
-        <div className="border" />
-        <p className="content">{content}</p>
-        <div className="border-2" />
-        {ModalButtonDiv({
-          actText: actionType,
-          act: useAct,
-          isRed: true,
-        })}
-      </Layout>
-    </Modal>
+    <Layout>
+      <div className="title">
+        {contentType}을 {actionType}할까요?
+      </div>
+      <div className="border" />
+      <p className="content">{content}</p>
+      <div className="border-2" />
+      {ModalButtonDiv({
+        actText: actionType,
+        act: useAct,
+        isRed: true,
+      })}
+    </Layout>
   );
 };
 

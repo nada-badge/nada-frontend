@@ -1,6 +1,5 @@
 /** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
 import { useState } from 'react';
-import Modal from '../../common/modal/Modal';
 import useModal from '../../common/modal/useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -72,7 +71,7 @@ const MainCategoryModal = () => {
   };
 
   return (
-    <Modal>
+    <div>
       <div style={ListMain}>
         {output('모집 게시판', '모집')}
         {output('홍보 게시판', '홍보')}
@@ -85,7 +84,7 @@ const MainCategoryModal = () => {
         act: setStatus,
         isRed: false,
       })}
-    </Modal>
+    </div>
   );
 };
 
