@@ -69,23 +69,21 @@ const ButtonSelectModal = () => {
 
   return (
     <Modal>
-      <div>
-        <List>
-          <SelectAllButton />
-          {button.map((button, index) => (
-            <div key={index}>
-              <SelectButton text={button.text} />
-            </div>
-          ))}
-        </List>
-        <Border />
-        {ModalButtonDiv({
-          cancel: cancel,
-          actText: '확인',
-          act: setStatus,
-          actColor: false,
-        })}
+      <div style={List}>
+        <SelectAllButton />
+        {button.map((button, index) => (
+          <div key={index}>
+            <SelectButton text={button.text} />
+          </div>
+        ))}
       </div>
+      <div style={Border} />
+      {ModalButtonDiv({
+        cancel: cancel,
+        actText: '확인',
+        act: setStatus,
+        actColor: false,
+      })}
     </Modal>
   );
 };

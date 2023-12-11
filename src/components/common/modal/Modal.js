@@ -24,7 +24,8 @@ const Overlay = styled.div`
 `;
 
 const ModalWrap = styled.div`
-  width: 288px;
+  width: fit-content;
+  max-width: 350px;
   height: fit-content;
   border-radius: 20px;
   background-color: #fff;
@@ -35,7 +36,7 @@ const ModalWrap = styled.div`
 `;
 
 const Contents = styled.div`
-  margin: 16px 12px;
+  padding: 16px 12px;
 `;
 
 export default Modal;

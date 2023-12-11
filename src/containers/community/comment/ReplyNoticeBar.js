@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { initializeForm } from '../../../modules/community/postDetail';
+import { applyFontStyles } from '../../../styles/fontStyle';
 
 const ReplyNoticeBar = ({ name }) => {
   const dispatch = useDispatch();
@@ -50,26 +51,20 @@ const Bar = styled.div`
     top: 0;
 
     & > .name {
-      color: var(--myspec-primaryblue-1);
-      font-family: var(--caption-02-font-family);
-      font-size: var(--caption-02-font-size);
-      font-style: var(--caption-02-font-style);
-      font-weight: var(--caption-02-font-weight);
-      letter-spacing: var(--caption-02-letter-spacing);
-      line-height: var(--caption-02-line-height);
+      ${applyFontStyles({
+        font: 'caption-02',
+        color: 'var(--myspec-primaryblue-1)',
+      })};
       margin-top: -1px;
       position: relative;
       white-space: nowrap;
       width: fit-content;
     }
     & > .content {
-      color: var(--myspec-gray-scalegray-600);
-      font-family: var(--caption-02-font-family);
-      font-size: var(--caption-02-font-size);
-      font-style: var(--caption-02-font-style);
-      font-weight: var(--caption-02-font-weight);
-      letter-spacing: var(--caption-02-letter-spacing);
-      line-height: var(--caption-02-line-height);
+      ${applyFontStyles({
+        font: 'caption-02',
+        color: 'var(--myspec-gray-scalegray-600)',
+      })};
       margin-top: -1px;
       position: relative;
       white-space: nowrap;

@@ -11,15 +11,15 @@ export const MenuModal = () => {
 
   return (
     <Modal>
-      <Layout>
-        <List>
+      <div style={Layout}>
+        <div style={List}>
           {content.map((content, index) => {
             return <div key={index}>{MenuTypeConfig(content)}</div>;
           })}
-        </List>
-        <Border />
+        </div>
+        <div style={Border} />
         <ModalButton text={'닫기'} />
-      </Layout>
+      </div>
     </Modal>
   );
 };
