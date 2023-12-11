@@ -18,7 +18,6 @@ export const ContentsList = styled.div`
     & > .p {
       ${applyFontStyles({
         font: 'title-02',
-        color: 'var(--myspec-gray-scalegray-900)',
       })};
       margin-top: -1px;
       position: relative;
@@ -53,7 +52,6 @@ export const ContentsList = styled.div`
       & > .nickname {
         ${applyFontStyles({
           font: 'caption-02',
-          color: '#000000',
         })};
         margin-top: -1px;
         position: relative;
@@ -64,7 +62,6 @@ export const ContentsList = styled.div`
       & > .date {
         ${applyFontStyles({
           font: 'caption-03',
-          color: '#000000',
         })};
         position: relative;
         width: 136px;

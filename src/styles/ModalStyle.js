@@ -38,7 +38,6 @@ export const MainCategory = styled.div`
   & > .text-wrapper {
     ${applyFontStyles({
       font: 'subtitle-02',
-      color: '#000000',
     })};
     margin-top: -1.12px;
     position: relative;

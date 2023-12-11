@@ -47,7 +47,6 @@ export const ButtonList = styled.div`
     & > .text {
       ${applyFontStyles({
         font: 'subtitle-02',
-        color: 'var(--myspec-gray-scalegray-900)',
       })};
       left: 49px;
       position: absolute;
