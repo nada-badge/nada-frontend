@@ -1,16 +1,16 @@
 /** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
 import { useState } from 'react';
-import Modal from '../../common/modal/Modal';
 import useModal from '../../common/modal/useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   postWriteSelector,
   setField,
-} from '../../../modules/Community/postWrite';
+} from '../../../modules/community/postWrite';
 import {
   ListMain,
   Border,
   MainCategory,
+  TextWrapper,
   Img,
 } from '../../../styles/ModalStyle';
 import ModalButtonDiv from '../../common/modal/ModalButtonDiv';
@@ -32,14 +32,15 @@ const MainCategoryModal = () => {
   const output = (text, status) => {
     const active = status === nowClick;
     return (
-      <MainCategory
+      <div
+        style={MainCategory}
         onClick={() => {
           onClick(status);
         }}
       >
-        <div className="text-wrapper">{text}</div>
+        <div style={TextWrapper}>{text}</div>
         <Img className={active ? 'active vector' : 'vector'} />
-      </MainCategory>
+      </div>
     );
   };
 
@@ -70,22 +71,20 @@ const MainCategoryModal = () => {
   };
 
   return (
-    <Modal>
-      <div>
-        <ListMain>
-          {output('모집 게시판', '모집')}
-          {output('홍보 게시판', '홍보')}
-          {output('자유 게시판', '자유')}
-        </ListMain>
-        <Border />
-        {ModalButtonDiv({
-          cancel: cancels,
-          actText: '확인',
-          act: setStatus,
-          isRed: false,
-        })}
+    <div>
+      <div style={ListMain}>
+        {output('모집 게시판', '모집')}
+        {output('홍보 게시판', '홍보')}
+        {output('자유 게시판', '자유')}
       </div>
-    </Modal>
+      <div style={Border} />
+      {ModalButtonDiv({
+        cancel: cancels,
+        actText: '확인',
+        act: setStatus,
+        isRed: false,
+      })}
+    </div>
   );
 };
 

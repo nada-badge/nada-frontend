@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../../styles/community/CommunityBarStyle';
 import useModal from '../../../components/common/modal/useModal';
-import { PostDetailSelector } from '../../../modules/Community/postDetail';
+import { PostDetailSelector } from '../../../modules/community/postDetail';
+import CountComment from '../../../components/community/postDetail/CountComment';
 
 export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
   const id = useSelector(PostDetailSelector('PostDetail', '_id'));
+  const commentcount = CountComment();
 
   const openMenu = () => {
     openModal({
@@ -34,7 +36,7 @@ export const BottomBar = () => {
             <div className="ellipse-3" />
           </div>
         </div>
-        <div className="text">23</div>
+        <div className="text">{commentcount}</div>
       </div>
     </Bar>
   );

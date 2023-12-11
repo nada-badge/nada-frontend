@@ -1,4 +1,6 @@
+/** Reply 답장 컴포넌트  */
 import { ReplyStyle } from '../../../styles/community/CommentStyle';
+
 export const Reply = ({ sendComment }) => {
   return (
     <ReplyStyle onClick={sendComment}>

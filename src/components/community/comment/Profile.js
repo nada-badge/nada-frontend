@@ -1,3 +1,4 @@
+/** Profile 프로필 컴포넌트  */
 import Dateformat from '../Dateformat';
 import { ProfileStyle } from '../../../styles/community/CommentStyle';
 
