@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import '../../styles/calendar/Calendar.scss';
@@ -9,7 +9,8 @@ import { useGetEvents } from '../../modules/calendar/useGetEvents';
 
 const WeekCalendar = () => {
   // 서버에서 가져온 데이터
-  const events = useGetEvents();
+  const [dateSet, setDateSet] = useState({ start: '', end: '' });
+  const events = useGetEvents(dateSet);
 
   return (
     <>
@@ -29,6 +30,13 @@ const WeekCalendar = () => {
           eventContent={(info) => <EventBox text={info.event.title} />}
           // dayGridWeek은 'end + 1'로 표시해야한다. (적용전)
           events={events}
+          datesSet={(dateInfo) => {
+            setDateSet((prevDateSet) => ({
+              ...prevDateSet,
+              start: dateInfo.start,
+              end: dateInfo.end,
+            }));
+          }}
         />
       </div>
     </>
