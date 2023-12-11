@@ -7,7 +7,6 @@ import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../modules/calendar/calendar';
 import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import { useGetEvents } from '../modules/calendar/useGetEvents';
@@ -23,44 +22,15 @@ const CalendarPage = () => {
     setIsModal(false);
   };
 
-  const [date, setDate] = useState({
+  const [modal, setModal] = useState({
     month_day: '', // 일(day)
     day_index: '', // 요일[0~6]
+    events: [],
   });
 
-  const [dateSet, setDateSet] = useState([]);
+  const [dateSet, setDateSet] = useState({ start: '', end: '' });
 
-  // ** const events = useGetEvents(dateSet);
-  const events = useGetEvents();
-
-  const openHandler = useCallback((info) => {
-    // 모달 열기/닫기
-    setIsModal(!isModal);
-
-    // 클릭한 날짜 정보 추출
-    const { dateStr, date } = info;
-
-    // date 상태 업데이트
-    setDate((prevDateformat) => ({
-      ...prevDateformat,
-      month_day: dateStr,
-      day_index: date.getDay(),
-    }));
-  }, []);
-
-  useEffect(() => {
-    dispatch(changeField({ key: 'date', value: date.month_day }));
-    dispatch(
-      changeField({ key: 'events', value: filterEvent(date.month_day) }),
-    );
-    dispatch(
-      setBarStatus({
-        headerState: 'backBellMenu',
-        text: '캘린더',
-        isShowBottom: true,
-      }),
-    );
-  }, [date.month_day, events]);
+  const events = useGetEvents(dateSet);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(
@@ -70,9 +40,37 @@ const CalendarPage = () => {
     [events],
   );
 
+  const openHandler = useCallback(
+    (info) => {
+      // 모달 열기/닫기
+      setIsModal(!isModal);
+
+      // 클릭한 날짜 정보 추출
+      const { dateStr, date } = info;
+      // date 상태 업데이트
+      setModal((prevDateformat) => ({
+        ...prevDateformat,
+        month_day: dateStr,
+        day_index: date.getDay(),
+        events: filterEvent(dateStr),
+      }));
+    },
+    [setModal, filterEvent],
+  );
+
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'backBellMenu',
+        text: '캘린더',
+        isShowBottom: true,
+      }),
+    );
+  }, []);
+
   return (
     <Div>
-      {isModal && <DetailEvent date={date} modalHandler={modalHandler} />}
+      {isModal && <DetailEvent modal={modal} modalHandler={modalHandler} />}
 
       <div className="CalendarWrapper">
         <FullCalendar
