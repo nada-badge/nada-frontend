@@ -29,6 +29,7 @@ const Filterlist = styled.div`
   flex: 0 0 auto;
   gap: 8px;
   position: relative;
+  padding-bottom: 8px;
 
   & > .view {
     flex: 0 0 auto !important;
