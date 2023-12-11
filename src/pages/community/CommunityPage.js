@@ -14,6 +14,7 @@ import {
   Border,
   Contents,
 } from '../../styles/community/CommunityStyle';
+import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../components/search/SearchInput';
 
 const Community = () => {
@@ -42,9 +43,10 @@ const Community = () => {
       <SearchInput />
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
-        cards={community_cards}
-        type={'board'}
-      />
+        title_font={'subtitle-01'}
+      >
+        <BoardCardItem cards={community_cards} />
+      </CardList>
       <Contents>
         <div className="content">
           <Category />
