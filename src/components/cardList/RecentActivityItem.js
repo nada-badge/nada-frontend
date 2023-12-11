@@ -7,7 +7,7 @@ const RecentActivityItem = ({ cards }) => {
   return (
     <>
       {cards.map(({ _id, title, team, Dday, see }) => (
-        <CardContainer key={_id}>
+        <CardContainer>
           <Link to={`/activity/${_id}`}>
             <div>
               <div className="title">{title}</div>
@@ -16,9 +16,9 @@ const RecentActivityItem = ({ cards }) => {
                 <div className="Dday">D-{Dday}</div>
                 <div className="see">조회 {see}</div>
               </div>
-              <Star className="star" /> {/* ◀ svg 파일 */}
             </div>
           </Link>
+          <Star className="star" /> {/* ◀ svg 파일 */}
         </CardContainer>
       ))}
     </>
@@ -29,16 +29,27 @@ export default RecentActivityItem;
 
 const CardContainer = styled.div`
   box-sizing: border-box;
-  min-width: 184px;
+  width: 184px;
   height: 94px;
-  border-radius: 10px;
-  border: 1px solid #d9d9d9;
-  position: relative;
-  text-align: left;
-  padding: 10px;
 
   & > a {
     text-decoration: none;
+    display: inline-block;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    position: relative;
+    text-align: left;
+  }
+
+  & > svg {
+    position: relative;
+    top: calc(-24px - 10px);
+    left: -12px;
+    float: right;
   }
 
   & > a > div {
@@ -46,7 +57,6 @@ const CardContainer = styled.div`
       ${applyFontStyles({
         font: 'subtitle-03',
       })};
-      position: relative;
     }
 
     & > .team {
@@ -54,31 +64,31 @@ const CardContainer = styled.div`
         font: 'caption-02',
         color: 'var(--myspec-primaryblue-1)',
       })};
-      position: relative;
-      top: 4px;
+      padding-top: 4px;
     }
 
     & > .group {
-      height: 24px;
-      position: relative;
-      top: 14px;
+      padding-top: 14px;
       display: flex;
       width: fit-content;
       gap: 4px;
-      ${applyFontStyles({
-        font: 'caption-01',
-      })};
+
+      & :nth-child(1) {
+        ${applyFontStyles({
+          font: 'caption-01',
+        })};
+      }
+
+      & :nth-child(2) {
+        ${applyFontStyles({
+          font: 'caption-01',
+          color: 'var(--myspec-gray-scalegray-600)',
+        })};
+      }
 
       & > div {
         align-self: center;
       }
-    }
-
-    & > svg {
-      position: relative;
-      top: -12px;
-      left: calc(100% - 24px); // 전체 넓이 - 아이콘 크기(본인)
-      z-index: 2;
     }
   }
 `;
