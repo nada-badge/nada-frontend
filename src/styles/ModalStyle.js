@@ -2,48 +2,49 @@
 import styled from 'styled-components';
 import { applyFontStyles } from './fontStyle';
 
-export const List = styled.div`
-  align-items: center;
-  border-radius: 20px;
-  display: inline-flex;
-  flex-flow: row wrap;
-  position: relative;
-`;
+export const List = {
+  alignItems: 'center',
+  display: 'inline-flex',
+  flexFlow: 'row wrap',
+  position: 'relative',
+  width: '280px',
+  gap: '9px',
+  boxSizing: 'border-box',
+};
+export const Border = {
+  height: '16px',
+  position: 'relative',
+  width: '280px',
+};
 
-export const Border = styled.div`
-  height: 16px;
-  position: relative;
-  width: 280px;
-`;
+export const ListMain = {
+  alignItems: 'flex-start',
+  display: 'inline-flex',
+  flex: '0 0 auto',
+  flexDirection: 'column',
+  position: 'relative',
+};
 
-export const ListMain = styled.div`
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  position: relative;
-`;
+export const MainCategory = {
+  alignItems: 'center',
+  borderBottomStyle: 'solid',
+  borderBottomWidth: '1.12px',
+  borderColor: 'var(--myspec-gray-scalegray-200)',
+  display: 'inline-flex',
+  flex: '0 0 auto',
+  gap: '142px',
+  padding: '12px',
+  position: 'relative',
+};
 
-export const MainCategory = styled.div`
-  align-items: center;
-  border-bottom-style: solid;
-  border-bottom-width: 1.12px;
-  border-color: var(--myspec-gray-scalegray-200);
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 142px;
-  padding: 12px;
-  position: relative;
-
-  & > .text-wrapper {
-    ${applyFontStyles({
-      font: 'subtitle-02',
-    })};
-    margin-top: -1.12px;
-    position: relative;
-    width: fit-content;
-  }
-`;
+export const TextWrapper = {
+  ...applyFontStyles({
+    font: 'subtitle-02',
+  }),
+  marginTop: '-1.12px',
+  position: 'relative',
+  width: 'fit-content',
+};
 
 export const Img = styled.div`
   height: 9px;
