@@ -7,7 +7,7 @@ const RecentActivityItem = ({ cards }) => {
   return (
     <>
       {cards.map(({ _id, title, team, Dday, see }) => (
-        <CardContainer>
+        <CardContainer key={_id}>
           <Link to={`/activity/${_id}`}>
             <div>
               <div className="title">{title}</div>
