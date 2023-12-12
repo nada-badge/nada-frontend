@@ -38,9 +38,8 @@ const ActivityItem = ({ cards }) => {
     backgroundColor: '#1363ff',
     borderRadius: '8px',
     height: '26px',
-    left: '115px',
-    position: 'relative',
-    top: '10px',
+    margin: '10px',
+    float: 'right',
     width: '41px',
     textAlign: 'center',
   };
