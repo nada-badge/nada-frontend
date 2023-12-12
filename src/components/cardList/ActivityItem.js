@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { caption_01, subtitle_01 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 const CardContainer = styled.div`
   border-radius: 10px;
@@ -14,7 +14,9 @@ const CardContainer = styled.div`
     position: relative;
     width: 167px;
 
-    & > .Dday-wrapper {
+    & > .Dday {
+      box-sizing: border-box;
+      padding: 6px 8px;
       background-color: #1363ff;
       border-radius: 8px;
       height: 26px;
@@ -22,24 +24,20 @@ const CardContainer = styled.div`
       position: relative;
       top: 10px;
       width: 41px;
-
-      & > .Dday {
-        ${caption_01('#ffffff')};
-        height: 13px;
-        left: 8px;
-        position: absolute;
-        text-align: center;
-        top: 6px;
-      }
+      ${applyFontStyles({ font: 'caption-01', color: '#ffffff' })};
+      text-align: center;
     }
   }
   & > .title {
-    ${subtitle_01()};
-    white-space: inherit;
+    ${applyFontStyles({ font: 'subtitle-01' })};
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     position: relative;
-    /* paddding 값 빼기 */
-    height: calc(46px - 4px);
-    width: calc(175px - 8px);
+    box-sizing: border-box;
+    height: 51px;
+    width: 171px;
     margin: 0;
     padding: 4px 2px;
   }
@@ -52,9 +50,7 @@ const ActivityItem = ({ cards }) => {
         cards.map(({ activityName, Dday = 7 }, idx) => (
           <CardContainer key={idx}>
             <div className="imgContainer">
-              <div className="Dday-wrapper">
-                <div className="Dday">{`D - ${Dday}`}</div>
-              </div>
+              <div className="Dday">{`D - ${Dday}`}</div>
             </div>
             <p className="title">{activityName}</p>
           </CardContainer>
