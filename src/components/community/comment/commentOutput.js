@@ -49,7 +49,7 @@ const CommentOutPut = ({ comment }) => {
         </div>
       </CommentBox>
       {comment.replies.map((reply) => (
-        <div key={reply.id}>{ReplyOutPut({ reply })}</div>
+        <div key={reply.id}>{ReplyOutPut({ comment, reply })}</div>
       ))}
     </div>
   );
