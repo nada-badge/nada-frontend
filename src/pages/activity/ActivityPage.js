@@ -20,9 +20,17 @@ const ActivityContainer = styled.div`
   width: 375px;
   margin: 0px auto;
   text-align: left;
+  padding-bottom: 85px; // 하단 바
 
   & > div {
     background-color: white;
+  }
+
+  & > .acitivityList {
+    & > :nth-last-child(1) {
+      position: relative;
+      top: 12px;
+    }
   }
 `;
 
@@ -70,7 +78,7 @@ const ActivityPage = () => {
       <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
         <RecentActivityItem cards={cards} />
       </CardList>
-      <div>
+      <div className="acitivityList">
         <Category />
         <Border />
         <Filter />
