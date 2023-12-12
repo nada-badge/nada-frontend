@@ -10,6 +10,7 @@ import Category from '../../containers/community/Category';
 import Filter from '../../containers/community/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
+import GridList from '../../components/cardList/GridList';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -82,9 +83,9 @@ const ActivityPage = () => {
         <Category />
         <Border />
         <Filter />
-        <CardList>
+        <GridList>
           <ActivityItem cards={activities} />
-        </CardList>
+        </GridList>
       </div>
     </ActivityContainer>
   );
