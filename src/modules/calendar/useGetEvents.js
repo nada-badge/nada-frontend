@@ -1,7 +1,6 @@
 import useEventsQuery from '../queries/EventQuery';
 import { useEffect, useMemo, useState } from 'react';
 
-// 파리미터로 start, end를 받을 예정
 export const useGetEvents = (dateSet) => {
   const email = localStorage.getItem('email');
 
