@@ -42,7 +42,7 @@ const ActivityItem = ({ cards, style }) => {
     height: '26px',
     margin: '10px',
     float: 'right',
-    width: '41px',
+    minWidth: '41px',
     textAlign: 'center',
   };
 
