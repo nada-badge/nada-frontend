@@ -12,12 +12,6 @@ const ReplyOutPut = ({ comment, reply }) => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
 
-  const sendReply = () => {
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
-    dispatch(changeCommentField({ form: 'userName', value: comment.userName }));
-    dispatch(changeCommentField({ form: 'isReplying', value: true }));
-  };
-
   const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'reply_id', value: reply._id }));
@@ -39,7 +33,7 @@ const ReplyOutPut = ({ comment, reply }) => {
       <div className="content">{reply.content}</div>
       <div className="bottom">
         <Like />
-        <Reply sendComment={sendReply} />
+        <Reply comment={comment} />
       </div>
     </ReplyBox>
   );
