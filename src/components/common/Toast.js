@@ -11,7 +11,6 @@ export const Toast = ({ text }) => {
     hideProgressBar: true,
     closeOnClick: false,
     closeButton: false,
-    pauseOnHover: true,
     draggable: true,
     progress: undefined,
     theme: 'colored',
