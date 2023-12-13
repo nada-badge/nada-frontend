@@ -5,13 +5,13 @@ import ReplyOutPut from './replyOutput';
 import useModal from '../../common/usedInModal/useModal';
 import { Profile } from './Profile';
 import { Menu } from './Menu';
+import Content from './Content';
 import { Like } from './Like';
 import { Reply } from './Reply';
 
 const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
-  const content = comment.isDeleted ? '삭제된 댓글입니다.' : comment.content;
 
   // 댓글이 삭제되었고 답글이 없을 때, 아무것도 렌더링하지 않음
   if (comment.isDeleted && !comment.replies.length) {
@@ -35,13 +35,15 @@ const CommentOutPut = ({ comment }) => {
       <CommentBox>
         <div className="header">
           <Profile comment={comment} />
-          <Menu openMenu={openMenu} />
+          {!comment.isDeleted && <Menu openMenu={openMenu} />}
         </div>
-        <div className="content">{content}</div>
-        <div className="bottom">
-          <Like />
-          <Reply comment={comment} />
-        </div>
+        <Content comment={comment} />
+        {!comment.isDeleted && (
+          <div className="bottom">
+            <Like />
+            <Reply comment={comment} />
+          </div>
+        )}
       </CommentBox>
       {comment.replies.map((reply) => (
         <div key={reply.id}>{ReplyOutPut({ comment, reply })}</div>
