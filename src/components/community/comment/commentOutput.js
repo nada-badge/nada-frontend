@@ -21,13 +21,12 @@ const CommentOutPut = ({ comment }) => {
   const sendComment = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'userName', value: comment.userName }));
-    dispatch(changeCommentField({ form: 'position', value: 'reply' }));
+    dispatch(changeCommentField({ form: 'isReplying', value: true }));
   };
 
   const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'content', value: comment.content }));
-    dispatch(changeCommentField({ form: 'isCommentModal', value: true }));
     openModal({
       type: 'MenuModal',
       contentType: '댓글',

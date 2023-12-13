@@ -13,14 +13,15 @@ const ReplyOutPut = ({ comment, reply }) => {
   const { openModal } = useModal();
 
   const sendReply = () => {
-    //코드 추가 예정
+    dispatch(changeCommentField({ form: '_id', value: comment._id }));
+    dispatch(changeCommentField({ form: 'userName', value: comment.userName }));
+    dispatch(changeCommentField({ form: 'isReplying', value: true }));
   };
 
   const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'reply_id', value: reply._id }));
     dispatch(changeCommentField({ form: 'content', value: reply.content }));
-    dispatch(changeCommentField({ form: 'isCommentModal', value: false }));
     openModal({
       type: 'MenuModal',
       contentType: '댓글',
