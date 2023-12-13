@@ -1,13 +1,17 @@
 /**menuModalType 메뉴모달에 사용되는 행동 관리 컴포넌트 */
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Toast } from './Toast';
 import PrintCenteredText from './usedInModal/PrintCenteredText';
 import useModal from './usedInModal/useModal';
 import useSetButtonActive from '../../containers/community/postDetail/SetButtonActive';
+import { PostDetailSelector } from '../../modules/community/postDetail';
 
 export const MenuTypeConfig = (content) => {
   const { openModal } = useModal();
   const modal = useSelector(({ modal }) => modal);
+  const commentContent = useSelector(PostDetailSelector('Comment', 'content'));
   const { contentType, position } = modal;
   const navigate = useNavigate();
   const setButtonActive = useSetButtonActive();
@@ -52,7 +56,8 @@ export const MenuTypeConfig = (content) => {
   };
 
   const toCopy = () => {
-    //코드 추가 예정
+    Toast({ text: '댓글 내용이 복사되었어요' });
+    closeModal();
   };
 
   const Config = {
@@ -60,7 +65,16 @@ export const MenuTypeConfig = (content) => {
     Delete: <PrintCenteredText print={'삭제하기'} act={toDelete} />,
     Share: <PrintCenteredText print={'공유하기'} act={toShare} />,
     Update: <PrintCenteredText print={'수정하기'} act={toUpdate} />,
-    Copy: <PrintCenteredText print={'댓글 내용 복사하기'} act={toCopy} />,
+    Copy: (
+      <CopyToClipboard text={commentContent}>
+        <div>
+          <PrintCenteredText
+            print={'댓글 내용 복사하기'}
+            act={() => toCopy()}
+          />
+        </div>
+      </CopyToClipboard>
+    ),
   };
 
   return Config[content];
