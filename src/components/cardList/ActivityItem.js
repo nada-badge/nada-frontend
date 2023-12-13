@@ -15,6 +15,15 @@ const Title = styled.p`
   padding: 4px 2px;
 `;
 
+const ImgContainer = styled.div`
+  background-image: ${(props) =>
+    `url(
+      ${props.imgsrc})`};
+  background-size: 100% 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+`;
+
 const ActivityItem = ({ cards, style }) => {
   const CardContainerStyle = {
     borderRadius: '10px',
@@ -22,14 +31,6 @@ const ActivityItem = ({ cards, style }) => {
     maxWidth: '169px',
     textAlign: 'left',
     ...style,
-  };
-
-  const imgContainer = {
-    backgroundImage:
-      'url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-4727@2x.png)',
-    backgroundSize: '100% 100%',
-    aspectRatio: '1 / 1',
-    position: 'relative',
   };
 
   const DdayStyle = {
@@ -47,9 +48,9 @@ const ActivityItem = ({ cards, style }) => {
 
   const CardWrapper = (card) => (
     <div style={style} key={card.idx}>
-      <div style={imgContainer}>
+      <ImgContainer imgsrc={card.imageUrl}>
         <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
-      </div>
+      </ImgContainer>
       <Title>{card.activityName}</Title>
     </div>
   );

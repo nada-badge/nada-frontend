@@ -7,8 +7,8 @@ import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../containers/community/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
-import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
 import { Grid } from 'react-virtualized';
+import { useGetActivities } from '../../modules/activity/useGetActivities';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -34,14 +34,14 @@ const ActivityPage = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
 
-  // 게시글 불러오기
-  const { data } = useActivityListQuery();
+  // 활동글 불러오기
+  const data = useGetActivities();
 
   useEffect(() => {
     if (data) {
-      setActivities(data.activities);
+      setActivities(data);
     }
-  }, [data]);
+  }, [data, activities]);
 
   // 최근 본 게시글
   const cards = [
