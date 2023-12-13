@@ -1,5 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import { StyledToastContainer } from './components/common/Toast';
+import 'react-toastify/dist/ReactToastify.css';
 
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
@@ -59,6 +61,7 @@ const App = () => {
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
       </Routes>
+      <StyledToastContainer limit={1} />
     </div>
   );
 };
