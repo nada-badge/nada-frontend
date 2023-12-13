@@ -7,19 +7,13 @@ export const Bar = styled.div`
   border-color: var(--myspec-gray-scalegray-200);
   border-top-style: solid;
   border-top-width: 1px;
-  display: inline-flex;
   gap: 12px;
-
-  padding: 16px 15px 36px;
-
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-
   display: flex;
   flex-wrap: wrap;
-
   padding: 16px 15px;
   width: 345px;
 `;
@@ -27,7 +21,6 @@ export const Bar = styled.div`
 export const InputBar = styled.div`
   width: 345px;
   display: flex;
-  flwx-direction: row;
   gap: 8px;
 
   & > .input {
@@ -57,7 +50,6 @@ export const InputBar = styled.div`
       & > .wrapper {
         ${applyFontStyles({
           font: 'body-01',
-          color: 'var(--myspec-gray-scalegray-600)',
         })};
         background-color: var(--myspec-gray-scalegray-100);
         margin-top: -1px;
@@ -65,6 +57,13 @@ export const InputBar = styled.div`
         white-space: nowrap;
         width: fit-content;
         border: none;
+
+        ::placeholder {
+          ${applyFontStyles({
+            font: 'body-01',
+            color: 'var(--myspec-gray-scalegray-600)',
+          })};
+        }
       }
       & > .wrapper:focus {
         outline: none;
