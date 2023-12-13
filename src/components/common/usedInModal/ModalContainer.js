@@ -3,7 +3,6 @@ import React, { lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { modalSelector } from '../../../modules/community/modal';
-import styled from 'styled-components';
 // Lazy 로딩할 모달 컴포넌트들
 const MainCategoryModal = lazy(() =>
   import('../../community/PostWrite/MainCategoryModal'),
