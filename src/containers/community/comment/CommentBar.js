@@ -3,7 +3,13 @@ import classNames from 'classnames';
 import { useState, useEffect } from 'react';
 import { InputBar, Img } from '../../../styles/community/CommentBarStyle';
 
-const CommentBar = ({ inputValue, onChange, sendComment, isReply, name }) => {
+const CommentBar = ({
+  inputValue,
+  onChange,
+  sendComment,
+  isReplying,
+  name,
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -14,7 +20,7 @@ const CommentBar = ({ inputValue, onChange, sendComment, isReply, name }) => {
     <InputBar>
       <div className="input">
         <div className="text">
-          {isReply && <div className="name">@{name}</div>}
+          {isReplying && <div className="name">@{name}</div>}
           <input
             className="wrapper"
             onChange={onChange}
