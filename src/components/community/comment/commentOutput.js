@@ -1,4 +1,3 @@
-/**CommentOutPut 댓글을 출력하는 컴포넌트 */
 import { useDispatch } from 'react-redux';
 import { CommentBox } from '../../../styles/community/CommentStyle';
 import { changeCommentField } from '../../../modules/community/postDetail';
@@ -14,16 +13,12 @@ const CommentOutPut = ({ comment }) => {
   const { openModal } = useModal();
   const content = comment.isDeleted ? '삭제된 댓글입니다.' : comment.content;
 
+  // 댓글이 삭제되었고 답글이 없을 때, 아무것도 렌더링하지 않음
   if (comment.isDeleted && !comment.replies.length) {
-    return;
+    return null;
   }
 
-  const sendComment = () => {
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
-    dispatch(changeCommentField({ form: 'userName', value: comment.userName }));
-    dispatch(changeCommentField({ form: 'isReplying', value: true }));
-  };
-
+  // 댓글 메뉴 열기
   const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'content', value: comment.content }));
@@ -45,7 +40,7 @@ const CommentOutPut = ({ comment }) => {
         <div className="content">{content}</div>
         <div className="bottom">
           <Like />
-          <Reply sendComment={sendComment} />
+          <Reply comment={comment} />
         </div>
       </CommentBox>
       {comment.replies.map((reply) => (
