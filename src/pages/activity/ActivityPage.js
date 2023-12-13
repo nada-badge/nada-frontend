@@ -23,15 +23,9 @@ const ActivityContainer = styled.div`
 
   & > div {
     background-color: white;
-  }
 
-  & > .acitivityList {
-    padding: 12px;
-
-    & > :nth-last-child(1) {
-      position: relative;
-      top: 12px;
-      height: 100vh;
+    & > .filter {
+      padding: 12px;
     }
   }
 `;
@@ -98,17 +92,21 @@ const ActivityPage = () => {
       <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
         <RecentActivityItem cards={cards} />
       </CardList>
-      <Filter />
-      <Grid
-        cellRenderer={cellRenderer}
-        columnCount={2}
-        columnWidth={182}
-        height={500}
-        rowCount={rowCount}
-        rowHeight={222}
-        width={375}
-        style={{ boxSizing: 'border-box', padding: '0px 12px' }}
-      />
+      <div>
+        <div className="filter">
+          <Filter />
+        </div>
+        <Grid
+          cellRenderer={cellRenderer}
+          columnCount={2}
+          columnWidth={182}
+          height={500}
+          rowCount={rowCount}
+          rowHeight={222}
+          width={375}
+          style={{ boxSizing: 'border-box', padding: '0px 12px' }}
+        />
+      </div>
     </ActivityContainer>
   );
 };
