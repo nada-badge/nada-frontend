@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../containers/community/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
-import GridList from '../../components/cardList/GridList';
+import { Grid } from 'react-virtualized';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -74,20 +74,41 @@ const ActivityPage = () => {
     );
   }, []);
 
+  const cellRenderer = useCallback(
+    ({ columnIndex, key, rowIndex, style }) => {
+      const index = rowIndex * 2 + columnIndex;
+      const activity = activities[index];
+      return (
+        <div
+          style={{ ...style, boxSizing: 'border-box', paddingRight: '12px' }}
+          key={key}
+        >
+          {activity && <ActivityItem cards={activity} />}
+        </div>
+      );
+    },
+    [activities],
+  );
+
+  const rowCount = Math.ceil(activities.length / 2);
+
   return (
     <ActivityContainer>
       <SearchInput />
       <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
         <RecentActivityItem cards={cards} />
       </CardList>
-      <div className="acitivityList">
-        <Filter />
-        <div>
-          <GridList>
-            <ActivityItem cards={activities} />
-          </GridList>
-        </div>
-      </div>
+      <Filter />
+      <Grid
+        cellRenderer={cellRenderer}
+        columnCount={2}
+        columnWidth={182}
+        height={500}
+        rowCount={rowCount}
+        rowHeight={222}
+        width={375}
+        style={{ boxSizing: 'border-box', padding: '0px 12px' }}
+      />
     </ActivityContainer>
   );
 };
