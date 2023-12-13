@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
-import { Border } from '../../styles/community/CommunityStyle';
-import Category from '../../containers/community/Category';
 import Filter from '../../containers/community/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
@@ -28,9 +26,12 @@ const ActivityContainer = styled.div`
   }
 
   & > .acitivityList {
+    padding: 12px;
+
     & > :nth-last-child(1) {
       position: relative;
       top: 12px;
+      height: 100vh;
     }
   }
 `;
@@ -80,12 +81,12 @@ const ActivityPage = () => {
         <RecentActivityItem cards={cards} />
       </CardList>
       <div className="acitivityList">
-        <Category />
-        <Border />
         <Filter />
-        <GridList>
-          <ActivityItem cards={activities} />
-        </GridList>
+        <div>
+          <GridList>
+            <ActivityItem cards={activities} />
+          </GridList>
+        </div>
       </div>
     </ActivityContainer>
   );
