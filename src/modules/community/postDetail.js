@@ -26,6 +26,7 @@ const initialState = {
     _id: '',
     reply_id: '',
     isReplying: Boolean(false),
+    isUpdating: Boolean(false),
   },
 };
 
