@@ -74,7 +74,12 @@ const ActivityPage = () => {
       const activity = activities[index];
       return (
         <div
-          style={{ ...style, boxSizing: 'border-box', paddingRight: '12px' }}
+          style={{
+            ...style,
+            boxSizing: 'border-box',
+            paddingRight: '12px',
+            paddingBottom: '12px',
+          }}
           key={key}
         >
           {activity && <ActivityItem cards={activity} />}
@@ -100,9 +105,9 @@ const ActivityPage = () => {
           cellRenderer={cellRenderer}
           columnCount={2}
           columnWidth={182}
-          height={500}
+          height={rowCount * 222}
           rowCount={rowCount}
-          rowHeight={222}
+          rowHeight={234}
           width={375}
           style={{ boxSizing: 'border-box', padding: '0px 12px' }}
         />
