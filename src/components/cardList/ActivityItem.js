@@ -15,12 +15,13 @@ const Title = styled.p`
   padding: 4px 2px;
 `;
 
-const ActivityItem = ({ cards }) => {
+const ActivityItem = ({ cards, style }) => {
   const CardContainerStyle = {
     borderRadius: '10px',
     position: 'relative',
     maxWidth: '169px',
     textAlign: 'left',
+    ...style,
   };
 
   const imgContainer = {
@@ -44,17 +45,25 @@ const ActivityItem = ({ cards }) => {
     textAlign: 'center',
   };
 
+  const CardWrapper = (card) => (
+    <div style={style} key={card.idx}>
+      <div style={imgContainer}>
+        <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
+      </div>
+      <Title>{card.activityName}</Title>
+    </div>
+  );
+
   return (
     <>
-      {cards.length &&
-        cards.map(({ activityName, Dday = 7 }, idx) => (
-          <div style={CardContainerStyle} key={idx}>
-            <div style={imgContainer}>
-              <div style={DdayStyle}>{`D - ${Dday}`}</div>
+      {Array.isArray(cards)
+        ? cards.length &&
+          cards.map((card, idx) => (
+            <div style={CardContainerStyle} key={idx}>
+              {CardWrapper(card)}
             </div>
-            <Title>{activityName}</Title>
-          </div>
-        ))}
+          ))
+        : cards && CardWrapper(cards)}
     </>
   );
 };
