@@ -1,39 +1,13 @@
 import { useEffect } from 'react';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
-import styled from 'styled-components';
 import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
-
-const HomeContainer = styled.div`
-  text-align: left;
-  background-color: var(--myspec-gray-scalegray-100);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  width: 375px;
-  margin: 0px auto;
-
-  // 배너 크기만큼 공간 마련하기
-  & > .loading {
-    height: 118px;
-  }
-
-  & > div {
-    background-color: white;
-  }
-
-  & > .bottomNav_place {
-    position: relative;
-    top: -12px;
-    height: 85px;
-  }
-`;
+import '../styles/Home.scss';
 
 const Home = () => {
   const BannerSlider = React.lazy(() =>
@@ -74,8 +48,10 @@ const Home = () => {
   };
 
   return (
-    <HomeContainer>
-      <Suspense fallback={<div className="loading"></div>}>
+    <div className="pageContainer">
+      <Suspense
+        fallback={<div className="loading" style={{ height: '118px' }}></div>}
+      >
         <BannerSlider />
       </Suspense>
       <div onClick={onClick}>
@@ -90,7 +66,7 @@ const Home = () => {
       <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
         <ActivityItem cards={activity_cards} />
       </CardList>
-    </HomeContainer>
+    </div>
   );
 };
 
