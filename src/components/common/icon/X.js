@@ -1,5 +1,4 @@
 export const X = ({ color }) => {
-  console.log(color);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
