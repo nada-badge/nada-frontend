@@ -14,7 +14,7 @@ export const List = {
 export const Border = {
   height: '16px',
   position: 'relative',
-  width: '280px',
+  width: '256px',
 };
 
 export const ListMain = {

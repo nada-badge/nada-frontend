@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { CommentBox } from '../../../styles/community/CommentStyle';
 import { changeCommentField } from '../../../modules/community/postDetail';
 import ReplyOutPut from './replyOutput';
-import useModal from '../../common/modal/useModal';
+import useModal from '../../common/usedInModal/useModal';
 import { Profile } from './Profile';
 import { Menu } from './Menu';
 import { Like } from './Like';
