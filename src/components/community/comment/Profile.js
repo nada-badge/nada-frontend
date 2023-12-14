@@ -1,5 +1,5 @@
 /** Profile 프로필 컴포넌트  */
-import Dateformat from '../Dateformat';
+import Dateformat from '../../../modules/common/Dateformat';
 import { ProfileStyle } from '../../../styles/community/CommentStyle';
 
 export const Profile = ({ comment }) => {
