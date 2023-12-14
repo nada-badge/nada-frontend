@@ -21,6 +21,8 @@ export const Contents = styled.div`
   height: 546px;
   position: relative;
   width: 375px;
+  box-sizing: border-box;
+  padding: 12px 15px;
 
   & > .Content {
     align-items: flex-start;
