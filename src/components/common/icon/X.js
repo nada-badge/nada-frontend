@@ -10,7 +10,7 @@ export const X = ({ color }) => {
       <path
         d="M9.88964 1.00003L1 10M10 9.99997L1.11036 1"
         stroke={color ? color : '#000'}
-        stroke-width="1.01015"
+        strokeWidth="1.01015"
       />
     </svg>
   );
