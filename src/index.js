@@ -6,7 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Mobile, PC } from './styles/Responsive.js';
 import './index.css';
 import App from './App';
-import ModalContainer from './components/common/modal/ModalContainer.js';
+import ModalContainer from './components/common/usedInModal/ModalContainer.js';
 import BottomNav from './components/bar/BottomNav';
 import Header from './components/bar/Header';
 import authSlice from './modules/auth';

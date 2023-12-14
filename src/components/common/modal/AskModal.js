@@ -1,7 +1,7 @@
 /** AskModal 게시글 신고 또는 삭제를 물어보는 모달 */
 import { useSelector } from 'react-redux';
-import useModal from './useModal';
-import ModalButtonDiv from './ModalButtonDiv';
+import useModal from '../usedInModal/useModal';
+import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
 import preSetForQuery from '../preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';

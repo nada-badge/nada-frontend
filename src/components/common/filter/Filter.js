@@ -1,8 +1,8 @@
 /** Filter 메인페이지에서 필터를 관리하는 컨테이너 */
 import styled from 'styled-components';
-import { DropDown } from '../../components/community/Dropdown';
+import { DropDown } from './Dropdown';
 import { useSelector } from 'react-redux';
-import { filterSelector } from '../../modules/filter';
+import { filterSelector } from '../../../modules/filter';
 import { FilterItems } from './FilterItems';
 
 const Filter = () => {

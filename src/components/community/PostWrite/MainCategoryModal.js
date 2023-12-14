@@ -1,6 +1,6 @@
 /** MainCategoryModal postWrite 중 카테고리 button 클릭 시 나오는 모달 */
 import { useState } from 'react';
-import useModal from '../../common/modal/useModal';
+import useModal from '../../common/usedInModal/useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   postWriteSelector,
@@ -13,7 +13,7 @@ import {
   TextWrapper,
   Img,
 } from '../../../styles/ModalStyle';
-import ModalButtonDiv from '../../common/modal/ModalButtonDiv';
+import ModalButtonDiv from '../../common/usedInModal/ModalButtonDiv';
 
 const MainCategoryModal = () => {
   const { closeModal } = useModal();

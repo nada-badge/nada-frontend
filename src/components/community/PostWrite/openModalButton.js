@@ -1,7 +1,7 @@
 /** openModalButton, 게시물 등록 페이지에 모달을 여는 버튼 */
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import useModal from '../../common/modal/useModal';
+import useModal from '../../common/usedInModal/useModal';
 import {
   Filter,
   TextWarpper,
