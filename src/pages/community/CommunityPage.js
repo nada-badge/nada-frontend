@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import CardList from '../../components/cardList/CardList';
 import PostList from '../../containers/community/PostList';
 import Category from '../../containers/community/Category';
-import Filter from '../../containers/community/Filter';
+import Filter from '../../components/common/filter/Filter';
 import { PostWriteButton } from '../../containers/community/PostWriteButton';
 import { setBarStatus } from '../../modules/bar';
 import { initializeAll } from '../../modules/filter';

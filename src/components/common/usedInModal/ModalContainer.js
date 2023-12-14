@@ -8,11 +8,11 @@ import styled from 'styled-components';
 const MainCategoryModal = lazy(() =>
   import('../../community/PostWrite/MainCategoryModal'),
 );
-const ShareModal = lazy(() => import('./ShareModal'));
-const NoticeModal = lazy(() => import('./NoticeModal'));
-const AskModal = lazy(() => import('./AskModal'));
-const ButtonSelectModal = lazy(() => import('./ButtonSelectModal'));
-const MenuModal = lazy(() => import('./MenuModal'));
+const ShareModal = lazy(() => import('../modal/ShareModal'));
+const NoticeModal = lazy(() => import('../modal/NoticeModal'));
+const AskModal = lazy(() => import('../modal/AskModal'));
+const ButtonSelectModal = lazy(() => import('../modal/ButtonSelectModal'));
+const MenuModal = lazy(() => import('../modal/MenuModal'));
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
