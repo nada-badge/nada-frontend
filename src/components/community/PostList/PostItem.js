@@ -1,5 +1,6 @@
 /** PostItem, postList을 이루는 PostItem. */
 import { PostContainer } from '../../../styles/community/postItemStyle';
+import GetElapsedTime from '../../../modules/common/getElapsedTime';
 
 const PostItem = ({ card }) => {
   const { title, field, category, region, content, updatedAt } = card;
@@ -39,7 +40,9 @@ const PostItem = ({ card }) => {
           <div className="ellipse" />
           <div className="text-2">{category}</div>
           <div className="ellipse" />
-          <div className="text-2">{updatedAt}</div>
+          <div className="text-2">
+            <GetElapsedTime updatedAt={updatedAt} />
+          </div>
         </div>
       </div>
     </PostContainer>
