@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
-import Filter from '../../containers/community/Filter';
+import Filter from '../../components/common/filter/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { Grid } from 'react-virtualized';
 import { useGetActivities } from '../../modules/activity/useGetActivities';
