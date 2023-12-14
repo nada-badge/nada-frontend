@@ -2,7 +2,17 @@
 import { PostContainer } from '../../../styles/community/postItemStyle';
 
 const PostItem = ({ card }) => {
-  const { title, field, category, region, content, postAt } = card;
+  const { title, field, category, region, content, updatedAt } = card;
+
+  const DetailText = ({ text, isLast }) => {
+    return (
+      <>
+        <div className="text-2">
+          {text} {!isLast && <>,</>}
+        </div>
+      </>
+    );
+  };
 
   return (
     <PostContainer>
@@ -11,13 +21,25 @@ const PostItem = ({ card }) => {
         <div className="title">{title}</div>
         <div className="text">{content}</div>
         <div className="frame">
-          <div className="text-2">{region}</div>
+          {region.map((text, index) => (
+            <DetailText
+              key={index}
+              text={text}
+              isLast={index === region.length - 1}
+            />
+          ))}
           <div className="ellipse" />
-          <div className="text-2">{field}</div>
+          {field.map((text, index) => (
+            <DetailText
+              key={index}
+              text={text}
+              isLast={index === field.length - 1}
+            />
+          ))}
           <div className="ellipse" />
           <div className="text-2">{category}</div>
           <div className="ellipse" />
-          <div className="text-2">{postAt}</div>
+          <div className="text-2">{updatedAt}</div>
         </div>
       </div>
     </PostContainer>
