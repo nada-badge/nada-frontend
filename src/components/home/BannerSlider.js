@@ -41,15 +41,15 @@ const SliderWrapper = styled.div`
 `;
 
 const BannerSlider = () => {
-  const { data: imgs, error } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ['homeBanner'],
     queryFn: async () => {
-      const { data } = await client.get('home/banner');
-      return data.images;
+      const { data } = await client.get('home/banner/list');
+      return data.banners;
     },
   });
 
-  if (!imgs || error) {
+  if (!data || error) {
     return <div style={{ height: '118px' }}></div>;
   }
 
@@ -69,20 +69,25 @@ const BannerSlider = () => {
   };
 
   return (
-    <SliderWrapper>
-      <Slider {...settings}>
-        {imgs.length &&
-          imgs.map((img, idx) => (
-            <div key={idx}>
-              <img
-                alt="banner"
-                src={img}
-                style={{ height: '118px', margin: '0px auto' }}
-              />
-            </div>
-          ))}
-      </Slider>
-    </SliderWrapper>
+    <>
+      {data && (
+        <SliderWrapper>
+          <Slider {...settings}>
+            {data.map(({ imageUrl, linkedPageUrl }, idx) => (
+              <div key={idx}>
+                <a href={linkedPageUrl}>
+                  <img
+                    alt="banner"
+                    src={imageUrl}
+                    style={{ height: '118px', margin: '0px auto' }}
+                  />
+                </a>
+              </div>
+            ))}
+          </Slider>
+        </SliderWrapper>
+      )}
+    </>
   );
 };
 
