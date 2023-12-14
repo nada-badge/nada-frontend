@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import useModal from '../usedInModal/useModal';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
-import preSetForQuery from '../preSetForQuery';
+import preSetForQuery from '../../../modules/common/preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';
-import toReport from '../toReport';
+import toReport from '../../../modules/common/toReport';
 import useReport from '../../../modules/queries/useReport';
 import { Toast } from '../Toast';
 

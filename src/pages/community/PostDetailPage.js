@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
 import { ContentsList } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
-import Dateformat from '../../components/community/Dateformat';
+import Dateformat from '../../modules/common/Dateformat';
 import { setBarStatus } from '../../modules/bar';
 
 const PostDetail = () => {

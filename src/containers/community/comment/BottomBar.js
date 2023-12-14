@@ -6,7 +6,7 @@ import CommentBar from './CommentBar';
 import ReplyNoticeBar from './ReplyNoticeBar';
 import usePostQuery from '../../../modules/queries/usePostQuery';
 import useUpdateQuery from '../../../modules/queries/useUpdateQuery';
-import preSetForQuery from '../../../components/common/preSetForQuery';
+import preSetForQuery from '../../../modules/common/preSetForQuery';
 
 export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
