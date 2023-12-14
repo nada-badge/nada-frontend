@@ -20,7 +20,7 @@ export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
 
   return (
     <div style={ButtonList}>
-      <Cancel onClick={() => closeModal()} isColor={Boolean(cancelText)}>
+      <Cancel onClick={() => closeModal()} $isColor={Boolean(cancelText)}>
         <div className="text">{cancelText || '취소'}</div>
       </Cancel>
       {actText && (
@@ -36,7 +36,7 @@ export default ModalButtonDiv;
 
 const Cancel = styled.div`
   background: ${(props) =>
-    props.isColor
+    props.$isColor
       ? 'var(--myspec-primaryblue-1)'
       : 'var(--myspec-gray-scalegray-100)'};
   border-radius: 10px;
@@ -49,7 +49,7 @@ const Cancel = styled.div`
     ${(props) => {
       return applyFontStyles({
         font: 'subtitle-02',
-        color: props.isColor
+        color: props.$isColor
           ? 'var(--myspec-gray-scalewhite)'
           : 'var(--myspec-gray-scalegray-900)',
       });
@@ -74,5 +74,3 @@ const Act = styled.div`
     })}
   }
 `;
-
-
