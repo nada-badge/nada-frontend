@@ -34,8 +34,8 @@ const CommentBar = ({ inputValue, onChange, sendComment, isReply, name }) => {
         <path
           className="arrow"
           stroke="#D9D9D9"
-          stroke-linecap="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeWidth="2"
           d="m12 17 6-6 6 6m-6-4v12"
         />
       </Img>
