@@ -1,6 +1,6 @@
 /** MenuModal 메뉴 클릭 시, 여러가지 행동 리스트가 나오는 모달 */
 import { useSelector } from 'react-redux';
-import ModalButtonDiv from './ModalButtonDiv';
+import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { MenuTypeConfig } from '../menuModalType';
 import { List, Border, Layout } from '../../../styles/community/BarModalStyle';
 
