@@ -2,13 +2,13 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, setField } from '../../modules/filter';
+import { filterSelector, setField } from '../../../modules/filter';
 import {
   Dropdown,
   TextWarpper,
   Img,
-} from '../../styles/community/DropdownStyle';
-import { selectAllConfig } from '../common/AttributeData';
+} from '../../../styles/community/DropdownStyle';
+import { selectAllConfig } from '../AttributeData';
 
 export const DropDown = ({ content, text }) => {
   const dispatch = useDispatch();
