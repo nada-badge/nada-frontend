@@ -1,6 +1,6 @@
 /** ShareModal 공유 방법을 선택하는 모달 */
 import { Layout } from '../../../styles/community/NoticeModalStyle';
-import ModalButton from '../usedInModal/ModalButton';
+import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 
 const ShareModal = () => {
   return (
@@ -16,9 +16,9 @@ const ShareModal = () => {
         >
           <path
             stroke="#888"
-            stroke-linecap="round"
+            strokeLinecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            strokeWidth="2"
             d="m6 12.001 6-6m-4-3 .463-.536a5 5 0 1 1 7.071 7.072l-.534.464m-5 5-.397.534a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.001"
           />
         </svg>
@@ -40,7 +40,7 @@ const ShareModal = () => {
       </div>
 
       <div className="border-2" />
-      <ModalButton text={'닫기'} />
+      <ModalButtonDiv cancelText={'닫기'} />
     </Layout>
   );
 };

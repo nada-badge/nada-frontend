@@ -4,20 +4,18 @@ import { applyFontStyles } from '../fontStyle';
 export const Dropdown = styled.div`
   align-items: center;
   border-radius: 16px;
-  display: inline-flex;
-  overflow: hidden;
+  display: flex;
   position: relative;
+  padding: 4px 12px;
 
   &.unselected {
     background-color: var(--myspec-gray-scalegray-100);
     gap: 8px;
-    padding: 4px 12px;
   }
 
   &.opened {
     background-color: var(--myspec-primaryblue-1);
     gap: 8px;
-    padding: 4px 12px;
   }
 
   &.selected {
@@ -44,25 +42,5 @@ export const TextWarpper = styled.div`
 
   &.selected {
     color: var(--myspec-gray-scalewhite);
-  }
-`;
-
-export const Img = styled.div`
-  position: relative;
-  background-size: 100%;
-  height: 7.06px;
-  margin-right: -0.35px;
-  width: 12.71px;
-
-  &.unselected {
-    background-image: url('https://c.animaapp.com/hs22pPSO/img/vector-9-3.svg');
-  }
-
-  &.opened {
-    background-image: url('https://c.animaapp.com/hs22pPSO/img/vector-9-4.svg');
-  }
-
-  &.selected {
-    background-image: url('https://c.animaapp.com/SYOY3Elz/img/vector-8-1.svg');
   }
 `;
