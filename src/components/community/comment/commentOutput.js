@@ -6,7 +6,6 @@ import useModal from '../../common/usedInModal/useModal';
 import { Profile } from './Profile';
 import { Menu } from './Menu';
 import Content from './Content';
-import { Like } from './Like';
 import { Reply } from './Reply';
 
 const CommentOutPut = ({ comment }) => {
@@ -40,7 +39,6 @@ const CommentOutPut = ({ comment }) => {
         <Content comment={comment} />
         {!comment.isDeleted && (
           <div className="bottom">
-            <Like />
             <Reply comment={comment} />
           </div>
         )}
