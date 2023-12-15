@@ -1,39 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
-import styled from 'styled-components';
 import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
-
-const HomeContainer = styled.div`
-  text-align: left;
-  background-color: var(--myspec-gray-scalegray-100);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  width: 375px;
-  margin: 0px auto;
-
-  // 배너 크기만큼 공간 마련하기
-  & > .loading {
-    height: 118px;
-  }
-
-  & > div {
-    background-color: white;
-  }
-
-  & > .bottomNav_place {
-    position: relative;
-    top: -12px;
-    height: 85px;
-  }
-`;
+import { useGetActivities } from '../modules/activity/useGetActivities';
+import '../styles/Home.scss';
 
 const Home = () => {
   const BannerSlider = React.lazy(() =>
@@ -47,15 +22,16 @@ const Home = () => {
     { id: 3, title: '팀원 모집합니다.', category: '홍보' },
   ];
 
-  const activity_cards = [
-    { id: 1, title: '2023년 성북구 청년 소셜 벤처 혁신 경연대회', Dday: 7 },
-    {
-      id: 2,
-      title: '[파이꿈터 4기] 은둔고립청년 프로그램 꿈터에서 놀자!',
-      Dday: 4,
-    },
-    { id: 3, title: '[성신여대] 창업동아리 NADA 팀원추가 모집', Dday: 3 },
-  ];
+  const [activities, setActivities] = useState([]);
+
+  // 활동글 불러오기
+  const data = useGetActivities();
+
+  useEffect(() => {
+    if (data) {
+      setActivities(data);
+    }
+  }, [data, activities]);
 
   useEffect(() => {
     dispatch(
@@ -74,27 +50,25 @@ const Home = () => {
   };
 
   return (
-    <HomeContainer>
-      <Suspense fallback={<div className="loading"></div>}>
+    <div className="pageContainer">
+      <Suspense
+        fallback={<div className="loading" style={{ height: '118px' }}></div>}
+      >
         <BannerSlider />
       </Suspense>
-
       <div onClick={onClick}>
         <WeekCalendar className="calendarweek" />
       </div>
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
-        cards={community_cards}
-        type={'board'}
-      />
-      <CardList
-        title={'추천 대외활동'}
-        cards={activity_cards}
-        type={'activity'}
-        gapSize={8}
-      />
-      <div className="bottomNav_place" />
-    </HomeContainer>
+        title_font={'subtitle-01'}
+      >
+        <BoardCardItem cards={community_cards} />
+      </CardList>
+      <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
+        <ActivityItem cards={activities} />
+      </CardList>
+    </div>
   );
 };
 

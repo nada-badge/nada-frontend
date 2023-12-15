@@ -26,7 +26,7 @@ const ReplyNoticeBar = ({ name }) => {
         >
           <path
             stroke="#888"
-            stroke-width="1.01015"
+            strokeWidth="1.01015"
             d="M12.89 4 4 13m9 0L4.11 4"
           />
         </svg>

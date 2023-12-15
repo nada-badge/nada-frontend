@@ -13,6 +13,7 @@ export const applyFontStyles = ({ font, color }) => ({
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
         overflow: 'hidden',
+        wordBreak: 'keep-all',
       }
     : {}),
   ...(font.includes('body') ? { wordBreak: 'keep-all' } : {}),

@@ -4,77 +4,73 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-export const ModalButtonDiv = ({
-  cancelText = '취소',
-  actText,
-  act,
-  isRed,
-}) => {
+export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
   const { closeModal } = useModal();
 
-  const close = () => {
-    closeModal();
+  const ButtonList = {
+    alignItems: 'flex-start',
+    display: 'flex',
+    flex: '0 0 auto',
+    gap: '8px',
+    height: '48px',
+    position: 'relative',
+    width: '264px',
+    textAlign: 'center',
   };
 
   return (
-    <ButtonList>
-      <div className="cancel" onClick={close}>
-        <div className="text">{cancelText}</div>
-      </div>
-      <div className={classNames('act', { isRed })} onClick={() => act()}>
-        <div className="text">{actText}</div>
-      </div>
-    </ButtonList>
+    <div style={ButtonList}>
+      <Cancel onClick={() => closeModal()} $isColor={Boolean(cancelText)}>
+        <div className="text">{cancelText || '취소'}</div>
+      </Cancel>
+      {actText && (
+        <Act className={classNames('act', { isRed })} onClick={() => act()}>
+          <div className="text">{actText}</div>
+        </Act>
+      )}
+    </div>
   );
 };
 
 export default ModalButtonDiv;
 
-export const ButtonList = styled.div`
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 8px;
+const Cancel = styled.div`
+  background: ${(props) =>
+    props.$isColor
+      ? 'var(--myspec-primaryblue-1)'
+      : 'var(--myspec-gray-scalegray-100)'};
+  border-radius: 10px;
+  box-sizing: border-box;
   position: relative;
+  width: 100%;
+  padding: 12px;
 
-  & > .cancel {
-    background-color: var(--myspec-gray-scalegray-100);
-    border-radius: 10px;
-    height: 48px;
-    overflow: hidden;
-    position: relative;
-    width: 128px;
-    & > .text {
-      ${applyFontStyles({
+  & > .text {
+    ${(props) => {
+      return applyFontStyles({
         font: 'subtitle-02',
-      })};
-      left: 49px;
-      position: absolute;
-      text-align: center;
-      top: 11px;
-    }
+        color: props.$isColor
+          ? 'var(--myspec-gray-scalewhite)'
+          : 'var(--myspec-gray-scalegray-900)',
+      });
+    }};
   }
-
-  & > .act {
-    border-radius: 10px;
-    height: 48px;
-    overflow: hidden;
-    position: relative;
-    width: 128px;
-    display: flex;
-    background-color: var(--myspec-primaryblue-1);
-    &.isRed {
-      background-color: var(--myspec-primaryred-1);
-    }
-    & > .text {
-      ${applyFontStyles({
-        font: 'subtitle-01',
-        color: 'var(--myspec-gray-scalegray-100)',
-      })};
-      position: relative;
-      width: 128px;
-      top: 11px;
-      text-align: center;
-    }
+`;
+const Act = styled.div`
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  background-color: var(--myspec-primaryblue-1);
+  &.isRed {
+    background-color: var(--myspec-primaryred-1);
+  }
+  & > .text {
+    ${applyFontStyles({
+      font: 'subtitle_01',
+      color: 'var(--myspec-gray-scalegray-100)',
+    })}
   }
 `;

@@ -2,7 +2,7 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '../usedInModal/useModal';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
-import ModalButton from '../usedInModal/ModalButton';
+import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Toast } from '../Toast';
 
 const ShareModal = () => {
@@ -19,25 +19,23 @@ const ShareModal = () => {
     <Layout>
       <div className="title">공유하기</div>
       <div className="border-2" />
-      <CopyToClipboard text={url} onCopy={() => copyLink()}>
-        <div className="link">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            fill="none"
-          >
-            <path
-              stroke="#888"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m6 12.001 6-6m-4-3 .463-.536a5 5 0 1 1 7.071 7.072l-.534.464m-5 5-.397.534a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.001"
-            />
-          </svg>
-          <div className="text">링크 복사하기</div>
-        </div>
-      </CopyToClipboard>
+      <div className="link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="none"
+        >
+          <path
+            stroke="#888"
+            strokeLinecap="round"
+            stroke-linejoin="round"
+            strokeWidth="2"
+            d="m6 12.001 6-6m-4-3 .463-.536a5 5 0 1 1 7.071 7.072l-.534.464m-5 5-.397.534a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.001"
+          />
+        </svg>
+        <div className="text">링크 복사하기</div>
+      </div>
       <div className="kakaO">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +52,7 @@ const ShareModal = () => {
       </div>
 
       <div className="border-2" />
-      <ModalButton text={'닫기'} />
+      <ModalButtonDiv cancelText={'닫기'} />
     </Layout>
   );
 };
