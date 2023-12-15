@@ -12,8 +12,7 @@ const CommentPage = () => {
   const dispatch = useDispatch();
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
   const { comments } = PostDetail;
-  console.log('post : ', PostDetail);
-  console.log('post : ', !PostDetail.comments.length);
+
   useEffect(() => {
     dispatch(
       setBarStatus({ headerState: 'back', text: '댓글', isShowBottom: false }),
