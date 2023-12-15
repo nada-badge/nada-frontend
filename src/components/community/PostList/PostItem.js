@@ -8,9 +8,9 @@ const PostItem = ({ card }) => {
   const DetailText = ({ text, isLast }) => {
     return (
       <>
-        <div className="text-2">
+        <text className="text-2">
           {text} {!isLast && <>,</>}
-        </div>
+        </text>
       </>
     );
   };
@@ -22,26 +22,34 @@ const PostItem = ({ card }) => {
         <div className="title">{title}</div>
         <div className="text">{content}</div>
         <div className="frame">
-          {region.map((text, index) => (
-            <DetailText
-              key={index}
-              text={text}
-              isLast={index === region.length - 1}
-            />
-          ))}
+          <div className="nowrap">
+            {region.map((text, index) => (
+              <DetailText
+                key={index}
+                text={text}
+                isLast={index === region.length - 1}
+              />
+            ))}
+          </div>
           <div className="ellipse" />
-          {field.map((text, index) => (
-            <DetailText
-              key={index}
-              text={text}
-              isLast={index === field.length - 1}
-            />
-          ))}
+          <div className="nowrap">
+            {field.map((text, index) => (
+              <DetailText
+                key={index}
+                text={text}
+                isLast={index === field.length - 1}
+              />
+            ))}
+          </div>
           <div className="ellipse" />
-          <div className="text-2">{category}</div>
+          <div className="nowrap">
+            <text className="text-2">{category}</text>
+          </div>
           <div className="ellipse" />
-          <div className="text-2">
-            <GetElapsedTime updatedAt={updatedAt} />
+          <div className="nowrap">
+            <text className="text-2">
+              <GetElapsedTime updatedAt={updatedAt} />
+            </text>
           </div>
         </div>
       </div>
