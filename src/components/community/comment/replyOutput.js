@@ -5,7 +5,6 @@ import { changeCommentField } from '../../../modules/community/postDetail';
 import { ReplyBox } from '../../../styles/community/CommentStyle';
 import { Profile } from './Profile';
 import { Menu } from './Menu';
-import { Like } from './Like';
 import { Reply } from './Reply';
 
 const ReplyOutPut = ({ comment, reply }) => {
@@ -32,7 +31,6 @@ const ReplyOutPut = ({ comment, reply }) => {
       </div>
       <div className="content">{reply.content}</div>
       <div className="bottom">
-        <Like />
         <Reply comment={comment} />
       </div>
     </ReplyBox>
