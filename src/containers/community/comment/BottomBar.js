@@ -20,7 +20,6 @@ export const BottomBar = () => {
   const isReplying = PostDetail.Comment.isReplying;
   const isUpdating = PostDetail.Comment.isUpdating;
   const userName = PostDetail.Comment.userName;
-  console.log('position in bottom : ', PostDetail);
 
   const onChange = (e) => {
     setInputValue(e.target.value);
