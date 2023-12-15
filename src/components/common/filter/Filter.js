@@ -10,20 +10,21 @@ const Filter = () => {
   const isOpen = useSelector(filterSelector('buttonSelect', 'filter'));
 
   return (
-    <div>
+    <>
       <Filterlist>
         <DropDown content="region" text="지역" />
         <DropDown content="field" text="분야" />
         <DropDown content="category" text="종류" />
       </Filterlist>
       {isOpen && <FilterItems text={isOpen} />}
-    </div>
+    </>
   );
 };
 
 export default Filter;
 
 const Filterlist = styled.div`
+  height: fit-content;
   align-items: flex-start;
   display: inline-flex;
   flex: 0 0 auto;

@@ -1,63 +1,70 @@
 import styled from 'styled-components';
-import { caption_01, subtitle_01 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
-const CardContainer = styled.div`
-  border-radius: 10px;
+const Title = styled.p`
+  ${applyFontStyles({ font: 'subtitle-01' })};
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   position: relative;
-  width: 169px;
-  text-align: left;
-
-  & > .imgContainer {
-    background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/rectangle-4727@2x.png);
-    background-size: 100% 100%;
-    height: 167px;
-    position: relative;
-    width: 167px;
-
-    & > .Dday-wrapper {
-      background-color: #1363ff;
-      border-radius: 8px;
-      height: 26px;
-      left: 115px;
-      position: relative;
-      top: 10px;
-      width: 41px;
-
-      & > .Dday {
-        ${caption_01('#ffffff')};
-        height: 13px;
-        left: 8px;
-        position: absolute;
-        text-align: center;
-        top: 6px;
-      }
-    }
-  }
-  & > .title {
-    ${subtitle_01()};
-    white-space: inherit;
-    position: relative;
-    /* paddding 값 빼기 */
-    height: calc(46px - 4px);
-    width: calc(175px - 8px);
-    margin: 0;
-    padding: 4px 2px;
-  }
+  box-sizing: border-box;
+  height: 51px;
+  width: 171px;
+  margin: 0;
+  padding: 4px 2px;
 `;
 
-const ActivityItem = ({ cards }) => {
+const ImgContainer = styled.div`
+  background-image: ${(props) =>
+    `url(
+      ${props.$imgsrc})`};
+  background-size: 100% 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+`;
+
+const ActivityItem = ({ cards, style }) => {
+  const CardContainerStyle = {
+    borderRadius: '10px',
+    position: 'relative',
+    maxWidth: '169px',
+    textAlign: 'left',
+    ...style,
+  };
+
+  const DdayStyle = {
+    ...applyFontStyles({ font: 'caption-01', color: 'white' }),
+    boxSizing: 'border-box',
+    padding: '6px 8px',
+    backgroundColor: '#1363ff',
+    borderRadius: '8px',
+    height: '26px',
+    margin: '10px',
+    float: 'right',
+    minWidth: '41px',
+    textAlign: 'center',
+  };
+
+  const CardWrapper = (card) => (
+    <div style={style} key={card.idx}>
+      <ImgContainer $imgsrc={card.imageUrl}>
+        <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
+      </ImgContainer>
+      <Title>{card.activityName}</Title>
+    </div>
+  );
+
   return (
     <>
-      {cards.map(({ title, Dday }) => (
-        <CardContainer>
-          <div className="imgContainer">
-            <div className="Dday-wrapper">
-              <div className="Dday">{`D - ${Dday}`}</div>
+      {Array.isArray(cards)
+        ? cards.length &&
+          cards.map((card, idx) => (
+            <div style={CardContainerStyle} key={idx}>
+              {CardWrapper(card)}
             </div>
-          </div>
-          <p className="title">{title}</p>
-        </CardContainer>
-      ))}
+          ))
+        : cards && CardWrapper(cards)}
     </>
   );
 };

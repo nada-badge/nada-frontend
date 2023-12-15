@@ -34,13 +34,16 @@ const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await client.get('user/email', {
+        const { status } = await client.get('user/email', {
           params: { email: email },
         });
-        setError(data.result ? null : errorMessages.email_duplicate);
-        setDisabled(!data.result);
+        if (status === 200) {
+          setError(null);
+          setDisabled(false);
+        }
       } catch (error) {
-        console.error('데이터 가져오기 오류:', error);
+        setError(errorMessages.email_duplicate);
+        setDisabled(true);
       }
     };
 
