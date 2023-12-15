@@ -33,11 +33,3 @@ export const TextWarpper = styled.div`
   }
 `;
 
-export const Img = styled.div`
-  height: 7.06px;
-  margin-right: -0.35px;
-  width: 12.71px;
-  position: relative;
-  background-size: 80%;
-  background-image: url('https://c.animaapp.com/ECVOBGUR/img/x-2.svg');
-`;
