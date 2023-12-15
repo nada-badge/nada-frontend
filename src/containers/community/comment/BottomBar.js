@@ -7,6 +7,7 @@ import ReplyNoticeBar from './ReplyNoticeBar';
 import usePostQuery from '../../../modules/queries/usePostQuery';
 import useUpdateQuery from '../../../modules/queries/useUpdateQuery';
 import preSetForQuery from '../../../modules/common/preSetForQuery';
+import ModifyNoticeBar from './ModifyNoticeBar';
 
 export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
@@ -26,9 +27,7 @@ export const BottomBar = () => {
   };
 
   useEffect(() => {
-    if (isUpdating) {
-      setInputValue(content);
-    }
+    isUpdating ? setInputValue(content) : setInputValue('');
   }, [isUpdating]);
 
   const sendComment = () => {
@@ -44,6 +43,7 @@ export const BottomBar = () => {
   return (
     <Bar>
       {isReplying && <ReplyNoticeBar name={userName} />}
+      {isUpdating && <ModifyNoticeBar />}
       <CommentBar
         inputValue={inputValue}
         onChange={onChange}
