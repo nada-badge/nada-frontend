@@ -6,6 +6,7 @@ export const ProfileStyle = styled.div`
   display: inline-flex;
   gap: 12px;
   position: relative;
+  text-align: left;
 
   & > .image {
     background-color: var(--myspec-gray-scalegray-300);

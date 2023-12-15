@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
 import { ContentsList } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
-import Dateformat from '../../modules/common/Dateformat';
 import { setBarStatus } from '../../modules/bar';
+import { Profile } from '../../components/community/comment/Profile';
 
 const PostDetail = () => {
   const dispatch = useDispatch();
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
-  const { userName, title, content, updatedAt } = PostDetail;
+  const { title, content, updatedAt, registeredAt } = PostDetail;
+  const isEdited = !(updatedAt === registeredAt);
 
   useEffect(() => {
     dispatch(
@@ -29,11 +30,7 @@ const PostDetail = () => {
           <div className="p">{title}</div>
         </div>
         <div className="profile">
-          <div className="image" />
-          <div className="text">
-            <div className="nickname">{userName}</div>
-            <div className="date">{Dateformat(updatedAt)}</div>
-          </div>
+          <Profile comment={PostDetail} isEdited={isEdited} />
         </div>
         <div className="tag">
           <TagButtons />
