@@ -1,20 +1,18 @@
 import Slider from 'react-slick';
-import Banner1 from '../../images/Banner/Banner1.png';
-import Banner2 from '../../images/Banner/Banner2.png';
-import Banner3 from '../../images/Banner/Banner3.png';
-import Banner4 from '../../images/Banner/Banner4.png';
-import Banner5 from '../../images/Banner/Banner5.png';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { caption_02 } from '../../styles/fontStyle';
 import React from 'react';
+import client from '../../lib/api/client';
+import { useQuery } from '@tanstack/react-query';
 
 const SliderWrapper = styled.div`
   box-shadow: var(--drop-shadow);
   left: 0;
   position: relative;
   width: 100%;
+  height: 118px;
 
   // '1/5' 와 같은 페이징 표시
   & > div > .custom_paging {
@@ -43,6 +41,18 @@ const SliderWrapper = styled.div`
 `;
 
 const BannerSlider = () => {
+  const { data, error } = useQuery({
+    queryKey: ['homeBanner'],
+    queryFn: async () => {
+      const { data } = await client.get('home/banner/list');
+      return data.banners;
+    },
+  });
+
+  if (!data || error) {
+    return <div style={{ height: '118px' }}></div>;
+  }
+
   const settings = {
     dots: true, // Page Indicator Dot
     arrows: false,
@@ -59,25 +69,25 @@ const BannerSlider = () => {
   };
 
   return (
-    <SliderWrapper>
-      <Slider {...settings}>
-        <div>
-          <img alt="banner" src={Banner1} />
-        </div>
-        <div>
-          <img alt="banner" src={Banner2} />
-        </div>
-        <div>
-          <img alt="banner" src={Banner3} />
-        </div>
-        <div>
-          <img alt="banner" src={Banner4} />
-        </div>
-        <div>
-          <img alt="banner" src={Banner5} />
-        </div>
-      </Slider>
-    </SliderWrapper>
+    <>
+      {data && (
+        <SliderWrapper>
+          <Slider {...settings}>
+            {data.map(({ imageUrl, linkedPageUrl }, idx) => (
+              <div key={idx}>
+                <a href={linkedPageUrl}>
+                  <img
+                    alt="banner"
+                    src={imageUrl}
+                    style={{ height: '118px', margin: '0px auto' }}
+                  />
+                </a>
+              </div>
+            ))}
+          </Slider>
+        </SliderWrapper>
+      )}
+    </>
   );
 };
 
