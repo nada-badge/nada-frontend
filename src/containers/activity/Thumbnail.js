@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { Star } from '../../components/activity/Star';
+import { Star } from '../../components/common/icon/Star';
 import { caption_01, title_01 } from '../../styles/fontStyle';
 import HashTag from '../../components/activity/HashTag';
 
 const ThumbContainer = styled.div`
+  text-align: left;
   align-items: flex-start;
   display: inline-flex;
   flex-direction: column;

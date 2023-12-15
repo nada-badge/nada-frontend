@@ -45,5 +45,6 @@ const Item = styled.div`
   flex-wrap: wrap;
   gap: 8px 8px;
   position: relative;
+  padding-top: 8px;
   width: 345px;
 `;
