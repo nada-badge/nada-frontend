@@ -12,11 +12,6 @@ const CommentOutPut = ({ comment }) => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
 
-  // 댓글이 삭제되었고 답글이 없을 때, 아무것도 렌더링하지 않음
-  if (comment.isDeleted && !comment.replies.length) {
-    return null;
-  }
-
   // 댓글 메뉴 열기
   const openMenu = () => {
     dispatch(changeCommentField({ form: '_id', value: comment._id }));
@@ -31,18 +26,20 @@ const CommentOutPut = ({ comment }) => {
 
   return (
     <div>
-      <CommentBox>
-        <div className="header">
-          <Profile comment={comment} />
-          {!comment.isDeleted && <Menu openMenu={openMenu} />}
-        </div>
-        <Content comment={comment} />
-        {!comment.isDeleted && (
-          <div className="bottom">
-            <Reply comment={comment} />
+      {!(comment.isDeleted && !comment.replies.length) && (
+        <CommentBox>
+          <div className="header">
+            <Profile comment={comment} />
+            {!comment.isDeleted && <Menu openMenu={openMenu} />}
           </div>
-        )}
-      </CommentBox>
+          <Content comment={comment} />
+          {!comment.isDeleted && (
+            <div className="bottom">
+              <Reply comment={comment} />
+            </div>
+          )}
+        </CommentBox>
+      )}
       {comment.replies.map((reply) => (
         <div key={reply.id}>{ReplyOutPut({ comment, reply })}</div>
       ))}
