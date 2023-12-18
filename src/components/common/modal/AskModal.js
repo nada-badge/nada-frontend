@@ -35,7 +35,7 @@ const AskModal = () => {
       });
     }
     if (modal.position === 'comment' || modal.position === 'reply') {
-      Toast({ text: '댓글이 ' + actionType + '되었어요' });
+      Toast({ text: `댓글이 ${actionType}되었어요` });
       closeModal();
     } else {
       openModal({ type: 'NoticeModal', contentType, actionType });
