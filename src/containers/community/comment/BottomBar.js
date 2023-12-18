@@ -3,11 +3,10 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Bar } from '../../../styles/community/CommentBarStyle';
 import CommentBar from './CommentBar';
-import ReplyNoticeBar from './ReplyNoticeBar';
 import usePostQuery from '../../../modules/queries/usePostQuery';
 import useUpdateQuery from '../../../modules/queries/useUpdateQuery';
 import preSetForQuery from '../../../modules/common/preSetForQuery';
-import ModifyNoticeBar from './ModifyNoticeBar';
+import NoticeBar from './NoticeBar';
 
 export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
@@ -42,8 +41,8 @@ export const BottomBar = () => {
 
   return (
     <Bar>
-      {isReplying && <ReplyNoticeBar name={userName} />}
-      {isUpdating && <ModifyNoticeBar />}
+      {isReplying && <NoticeBar name={userName} isReply={true} />}
+      {isUpdating && <NoticeBar isReply={false} />}
       <CommentBar
         inputValue={inputValue}
         onChange={onChange}

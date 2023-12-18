@@ -1,21 +1,32 @@
-/** ModifyNoticeBar 수정 중임을 알려주는 알림창 */
+/** NoticeBar 수정 중임을 알려주는 알림창 */
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { initializeForm } from '../../../modules/community/postDetail';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-const ModifyNoticeBar = () => {
+const NoticeBar = ({ name, isReply }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
     dispatch(initializeForm({ form: 'Comment' }));
   };
 
+  const IsReplying = () => {
+    return (
+      <>
+        <div className="name">@{name}</div>
+        <div className="content">님에게 답글 남기는 중</div>
+      </>
+    );
+  };
+
+  const IsUpdating = () => {
+    return <div className="content">댓글을 수정하는 중</div>;
+  };
+
   return (
     <Bar>
-      <div className="text">
-        <div className="content">댓글을 수정하는 중</div>
-      </div>
+      <div className="text">{isReply ? <IsReplying /> : <IsUpdating />}</div>
       <div className="img" onClick={onClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +45,7 @@ const ModifyNoticeBar = () => {
   );
 };
 
-export default ModifyNoticeBar;
+export default NoticeBar;
 
 const Bar = styled.div`
   height: 18px;
@@ -49,6 +60,16 @@ const Bar = styled.div`
     position: absolute;
     top: 0;
 
+    & > .name {
+      ${applyFontStyles({
+        font: 'caption-02',
+        color: 'var(--myspec-primaryblue-1)',
+      })};
+      margin-top: -1px;
+      position: relative;
+      white-space: nowrap;
+      width: fit-content;
+    }
     & > .content {
       ${applyFontStyles({
         font: 'caption-02',
