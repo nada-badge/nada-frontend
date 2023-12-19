@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Bar } from '../../../styles/community/CommentBarStyle';
-import CommentBar from './CommentBar';
 import usePostQuery from '../../../modules/queries/usePostQuery';
 import useUpdateQuery from '../../../modules/queries/useUpdateQuery';
 import preSetForQuery from '../../../modules/common/preSetForQuery';
 import NoticeBar from './NoticeBar';
+import { InputBar, Img } from '../../../styles/community/CommentBarStyle';
+import { ArrowSvg } from '../../../icon/ArrowSvg';
 
 export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
@@ -20,13 +21,18 @@ export const BottomBar = () => {
   const isReplying = PostDetail.Comment.isReplying;
   const isUpdating = PostDetail.Comment.isUpdating;
   const userName = PostDetail.Comment.userName;
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setIsActive(!!inputValue);
+  }, [inputValue]);
 
   const onChange = (e) => {
     setInputValue(e.target.value);
   };
 
   useEffect(() => {
-    isUpdating ? setInputValue(content) : setInputValue('');
+    setInputValue(isUpdating ? content : '');
   }, [isUpdating]);
 
   const sendComment = () => {
@@ -43,13 +49,20 @@ export const BottomBar = () => {
     <Bar>
       {isReplying && <NoticeBar name={userName} isReply={true} />}
       {isUpdating && <NoticeBar isReply={false} />}
-      <CommentBar
-        inputValue={inputValue}
-        onChange={onChange}
-        sendComment={sendComment}
-        isReplying={isReplying}
-        name={userName}
-      />
+      <InputBar>
+        <div className="input">
+          <div className="text">
+            {isReplying && <div className="name">@{userName}</div>}
+            <input
+              className="wrapper"
+              onChange={onChange}
+              value={inputValue}
+              placeholder="댓글을 입력하세요"
+            />
+          </div>
+        </div>
+        <ArrowSvg onClick={sendComment} isActive={isActive} />
+      </InputBar>
     </Bar>
   );
 };
