@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterSelector, addField, deleteField } from '../../../modules/filter';
-import { selectAllConfig } from '../AttributeData';
+import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../AttributeInfoButton';
 
 export const SelectButton = ({ text }) => {

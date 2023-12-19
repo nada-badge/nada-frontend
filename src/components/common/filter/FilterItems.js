@@ -5,7 +5,7 @@ import { SelectButton } from './SelectButton';
 import { SelectAllButton } from './SelectAllButton';
 import { useSelector } from 'react-redux';
 import { filterSelector } from '../../../modules/filter';
-import { selectConfig } from '../AttributeData';
+import { selectConfig } from '../../../modules/common/AttributeData';
 
 export const FilterItems = ({ text }) => {
   const mainCategory = useSelector(

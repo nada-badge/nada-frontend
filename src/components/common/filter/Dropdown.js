@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterSelector, setField } from '../../../modules/filter';
 import { Dropdown, TextWarpper } from '../../../styles/community/DropdownStyle';
-import { selectAllConfig } from '../../common/AttributeData';
+import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { FilterHandler } from '../../common/icon/FilterHandler';
 
 export const DropDown = ({ content, text }) => {

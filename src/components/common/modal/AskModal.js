@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import useModal from '../usedInModal/useModal';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
-import preSetForQuery from '../preSetForQuery';
+import preSetForQuery from '../../../modules/common/preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';
-import toReport from '../toReport';
+import toReport from '../../../modules/common/toReport';
 import useReport from '../../../modules/queries/useReport';
+import { Toast } from '../Toast';
 
 const AskModal = () => {
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
   const { mutate } = useDelete();
   const reportMutate = useReport().mutate;
 
@@ -17,6 +18,7 @@ const AskModal = () => {
   const { contentType, actionType, content, position } = modal;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
   const activity = useSelector(({ activity }) => activity.activities);
+
   const useAct = () => {
     if (actionType === '삭제') {
       const config = preSetForQuery(position, PostDetail, activity);
@@ -32,8 +34,12 @@ const AskModal = () => {
         _id: config.idData,
       });
     }
-
-    openModal({ type: 'NoticeModal', contentType, actionType });
+    if (modal.position === 'comment' || modal.position === 'reply') {
+      Toast({ text: `댓글이 ${actionType}되었어요` });
+      closeModal();
+    } else {
+      openModal({ type: 'NoticeModal', contentType, actionType });
+    }
   };
 
   return (

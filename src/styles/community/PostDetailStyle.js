@@ -27,47 +27,7 @@ export const ContentsList = styled.div`
   }
 
   & > .profile {
-    align-items: center;
-    background-color: var(--myspec-gray-scalewhite);
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 12px;
-    justify-content: center;
     padding: 8px 15px;
-    position: relative;
-    & > .image {
-      background-color: var(--myspec-gray-scalegray-300);
-      border-radius: 30px;
-      height: 32px;
-      position: relative;
-      width: 32px;
-    }
-    & > .text {
-      align-items: flex-start;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      width: 301px;
-
-      & > .nickname {
-        ${applyFontStyles({
-          font: 'caption-02',
-        })};
-        margin-top: -1px;
-        position: relative;
-        width: 136px;
-        text-align: left;
-      }
-
-      & > .date {
-        ${applyFontStyles({
-          font: 'caption-03',
-        })};
-        position: relative;
-        width: 136px;
-        text-align: left;
-      }
-    }
   }
 
   & > .tag {

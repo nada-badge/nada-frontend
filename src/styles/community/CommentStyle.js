@@ -6,6 +6,7 @@ export const ProfileStyle = styled.div`
   display: inline-flex;
   gap: 12px;
   position: relative;
+  text-align: left;
 
   & > .image {
     background-color: var(--myspec-gray-scalegray-300);
@@ -31,14 +32,27 @@ export const ProfileStyle = styled.div`
       position: relative;
       width: 136px;
     }
+    & > .line {
+      display: flex;
+      flex-direction: row;
+      gap: 2px;
 
-    & > .date {
-      ${applyFontStyles({
-        font: 'caption-03',
-        color: 'var(--myspec-gray-scalegray-900)',
-      })};
-      position: relative;
-      width: 136px;
+      & > .date {
+        ${applyFontStyles({
+          font: 'caption-03',
+          color: 'var(--myspec-gray-scalegray-900)',
+        })};
+        position: relative;
+        display: flex;
+      }
+      & > .update {
+        ${applyFontStyles({
+          font: 'caption-03',
+          color: 'var(--myspec-primaryblue-1)',
+        })};
+        position: relative;
+        width: 136px;
+      }
     }
   }
 `;

@@ -22,10 +22,11 @@ const initialState = {
   Comment: {
     position: 'comment',
     userName: '',
-    isCommentModal: Boolean(false),
     content: '',
     _id: '',
     reply_id: '',
+    isReplying: Boolean(false),
+    isUpdating: Boolean(false),
   },
 };
 
