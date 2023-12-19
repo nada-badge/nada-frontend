@@ -71,25 +71,3 @@ export const InputBar = styled.div`
     }
   }
 `;
-
-export const Img = styled.svg`
-  width: 36px;
-  height: 36px;
-
-  & > .background {
-    width: 36px;
-    height: 36px;
-  }
-
-  &.isActive {
-    & > .background {
-      width: 36px;
-      height: 36px;
-      fill: #1363ff;
-    }
-
-    & > .arrow {
-      stroke: #fff;
-    }
-  }
-`;
