@@ -2,13 +2,10 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, setField } from '../../modules/filter';
-import {
-  Dropdown,
-  TextWarpper,
-  Img,
-} from '../../styles/community/DropdownStyle';
-import { selectAllConfig } from '../common/AreaFieldCategoryData';
+import { filterSelector, setField } from '../../../modules/filter';
+import { Dropdown, TextWarpper } from '../../../styles/community/DropdownStyle';
+import { selectAllConfig } from '../../common/AttributeData';
+import { FilterHandler } from '../../common/icon/FilterHandler';
 
 export const DropDown = ({ content, text }) => {
   const dispatch = useDispatch();
@@ -58,7 +55,7 @@ export const DropDown = ({ content, text }) => {
       }}
     >
       <TextWarpper className={state}>{text}</TextWarpper>
-      <Img className={state} />
+      <FilterHandler className={state} />
     </Dropdown>
   );
 };

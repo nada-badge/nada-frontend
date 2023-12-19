@@ -1,7 +1,6 @@
-/** YourMenuModal 메뉴 클릭 시, 타인이 작성한 글일 경우 나오는 모달 */
+/** MenuModal 메뉴 클릭 시, 여러가지 행동 리스트가 나오는 모달 */
 import { useSelector } from 'react-redux';
-import Modal from './Modal';
-import ModalButton from './ModalButton';
+import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { MenuTypeConfig } from '../menuModalType';
 import { List, Border, Layout } from '../../../styles/community/BarModalStyle';
 
@@ -10,17 +9,15 @@ export const MenuModal = () => {
   const { content } = modal;
 
   return (
-    <Modal>
-      <Layout>
-        <List>
-          {content.map((content, index) => {
-            return <div key={index}>{MenuTypeConfig(content)}</div>;
-          })}
-        </List>
-        <Border />
-        {ModalButton('닫기')}
-      </Layout>
-    </Modal>
+    <div style={Layout}>
+      <div style={List}>
+        {content.map((content, index) => {
+          return <div key={index}>{MenuTypeConfig(content)}</div>;
+        })}
+      </div>
+      <div style={Border} />
+      <ModalButtonDiv cancelText={'닫기'} />
+    </div>
   );
 };
 

@@ -4,17 +4,17 @@ import { useDispatch } from 'react-redux';
 import CardList from '../../components/cardList/CardList';
 import PostList from '../../containers/community/PostList';
 import Category from '../../containers/community/Category';
-import Filter from '../../containers/community/Filter';
+import Filter from '../../components/common/filter/Filter';
 import { PostWriteButton } from '../../containers/community/PostWriteButton';
 import { setBarStatus } from '../../modules/bar';
 import { initializeAll } from '../../modules/filter';
-import { initializeAll as initializeAllPostWrite } from '../../modules/Community/postWrite';
+import { initializeAll as initializeAllPostWrite } from '../../modules/community/postWrite';
 import {
   CommunityPage,
-  Search,
   Border,
   Contents,
 } from '../../styles/community/CommunityStyle';
+import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../components/search/SearchInput';
 
 const Community = () => {
@@ -43,9 +43,10 @@ const Community = () => {
       <SearchInput />
       <CardList
         title={'지금 인기 있는 게시글이에요🔥'}
-        cards={community_cards}
-        type={'board'}
-      />
+        title_font={'subtitle-01'}
+      >
+        <BoardCardItem cards={community_cards} />
+      </CardList>
       <Contents>
         <div className="content">
           <Category />

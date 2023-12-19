@@ -1,8 +1,7 @@
-/** ReportModal 게시글 신고를 물어보는 모달 */
-import Modal from './Modal';
+/** AskModal 게시글 신고 또는 삭제를 물어보는 모달 */
 import { useSelector } from 'react-redux';
-import useModal from './useModal';
-import ModalButtonDiv from './ModalButtonDiv';
+import useModal from '../usedInModal/useModal';
+import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
 import preSetForQuery from '../preSetForQuery';
 import useDelete from '../../../modules/queries/useDelete';
@@ -18,10 +17,9 @@ const AskModal = () => {
   const { contentType, actionType, content, position } = modal;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
   const activity = useSelector(({ activity }) => activity.activities);
-
   const useAct = () => {
     if (actionType === '삭제') {
-      const config = preSetForQuery(position, activity, PostDetail);
+      const config = preSetForQuery(position, PostDetail, activity);
       mutate({
         url: config.url,
         _id: config.idData,
@@ -39,21 +37,19 @@ const AskModal = () => {
   };
 
   return (
-    <Modal>
-      <Layout>
-        <div className="title">
-          {contentType}을{actionType}할까요?
-        </div>
-        <div className="border" />
-        <p className="content">{content}</p>
-        <div className="border-2" />
-        {ModalButtonDiv({
-          actText: actionType,
-          act: useAct,
-          isRed: true,
-        })}
-      </Layout>
-    </Modal>
+    <Layout>
+      <div className="title">
+        {contentType}을 {actionType}할까요?
+      </div>
+      <div className="border" />
+      <p className="content">{content}</p>
+      <div className="border-2" />
+      {ModalButtonDiv({
+        actText: actionType,
+        act: useAct,
+        isRed: true,
+      })}
+    </Layout>
   );
 };
 

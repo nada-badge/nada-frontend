@@ -6,18 +6,17 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Mobile, PC } from './styles/Responsive.js';
 import './index.css';
 import App from './App';
-import ModalContainer from './components/common/modal/ModalContainer.js';
+import ModalContainer from './components/common/usedInModal/ModalContainer.js';
 import BottomNav from './components/bar/BottomNav';
 import Header from './components/bar/Header';
 import authSlice from './modules/auth';
-import calendarSlice from './modules/calendar/calendar.js';
 import userSlice from './modules/user';
 import activitySlice from './modules/activity';
 import barSlice from './modules/bar';
 import filterSlice from './modules/filter.js';
-import postWriteSlice from './modules/Community/postWrite';
-import PostDetailSlice from './modules/Community/postDetail.js';
-import { modalSlice } from './modules/Community/modal';
+import postWriteSlice from './modules/community/postWrite.js';
+import PostDetailSlice from './modules/community/postDetail.js';
+import { modalSlice } from './modules/community/modal.js';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import './styles/common.scss';
@@ -29,7 +28,6 @@ const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     user: userSlice.reducer,
-    calendar: calendarSlice.reducer,
     activity: activitySlice.reducer,
     bar: barSlice.reducer,
     modal: modalSlice.reducer,

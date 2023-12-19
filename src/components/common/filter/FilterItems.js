@@ -1,11 +1,11 @@
 /** FilterItems 활성화 된 filter의 내용을 출력하기 위한 filter아이템 관리 컨테이너*/
 import { useEffect, useState } from 'react';
-import { SelectButton } from '../../components/community/SelectButton';
 import styled from 'styled-components';
-import { SelectAllButton } from '../../components/community/SelectAllButton';
+import { SelectButton } from './SelectButton';
+import { SelectAllButton } from './SelectAllButton';
 import { useSelector } from 'react-redux';
-import { filterSelector } from '../../modules/filter';
-import { selectConfig } from '../../components/common/AreaFieldCategoryData';
+import { filterSelector } from '../../../modules/filter';
+import { selectConfig } from '../AttributeData';
 
 export const FilterItems = ({ text }) => {
   const mainCategory = useSelector(
@@ -45,5 +45,6 @@ const Item = styled.div`
   flex-wrap: wrap;
   gap: 8px 8px;
   position: relative;
+  padding-top: 8px;
   width: 345px;
 `;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { subtitle_03, body_01 } from '../../styles/fontStyle';
 
 const DetailContent = styled.div`
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: 12px;

@@ -1,8 +1,8 @@
 /** Filter 메인페이지에서 필터를 관리하는 컨테이너 */
 import styled from 'styled-components';
-import { DropDown } from '../../components/community/Dropdown';
+import { DropDown } from './Dropdown';
 import { useSelector } from 'react-redux';
-import { filterSelector } from '../../modules/filter';
+import { filterSelector } from '../../../modules/filter';
 import { FilterItems } from './FilterItems';
 
 const Filter = () => {
@@ -10,20 +10,21 @@ const Filter = () => {
   const isOpen = useSelector(filterSelector('buttonSelect', 'filter'));
 
   return (
-    <div>
+    <>
       <Filterlist>
         <DropDown content="region" text="지역" />
         <DropDown content="field" text="분야" />
         <DropDown content="category" text="종류" />
       </Filterlist>
       {isOpen && <FilterItems text={isOpen} />}
-    </div>
+    </>
   );
 };
 
 export default Filter;
 
 const Filterlist = styled.div`
+  height: fit-content;
   align-items: flex-start;
   display: inline-flex;
   flex: 0 0 auto;

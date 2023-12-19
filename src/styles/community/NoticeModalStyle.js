@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { subtitle_01, subtitle_02, caption_02 } from '../fontStyle';
+import { applyFontStyles } from '../fontStyle';
 
 export const Layout = styled.div`
   align-items: center;
@@ -8,14 +8,21 @@ export const Layout = styled.div`
   position: relative;
 
   & > .title {
-    ${subtitle_01('var(--myspec-gray-scalegray-900)')}
+    ${applyFontStyles({
+      font: 'subtitle-01',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
+
     margin-top: -1px;
     position: relative;
     width: fit-content;
   }
 
   & > .content {
-    ${caption_02('var(--myspec-gray-scalegray-600)')}
+    ${applyFontStyles({
+      font: 'caption-02',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
     position: relative;
     text-align: center;
     width: fit-content;
@@ -51,7 +58,9 @@ export const Layout = styled.div`
     border-color: var(--myspec-gray-scalegray-200);
 
     &.text {
-      ${subtitle_02('#000000')}
+      ${applyFontStyles({
+        font: 'subtitle-02',
+      })};
       margin-top: -1px;
       position: relative;
       width: fit-content;
@@ -67,7 +76,9 @@ export const Layout = styled.div`
     height: 48px;
 
     & > .text {
-      ${subtitle_02('#000000')}
+      ${applyFontStyles({
+        font: 'subtitle-02',
+      })};
       margin-top: -1.12px;
       position: relative;
       width: fit-content;

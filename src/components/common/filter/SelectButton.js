@@ -1,9 +1,9 @@
 /** SelectButton  region, field, category 모달 내 개별요소에 대한 버튼 */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, addField, deleteField } from '../../modules/filter';
-import { selectAllConfig } from '../common/AreaFieldCategoryData';
-import { AttributeInfoButton } from '../common/AttributeInfoButton';
+import { filterSelector, addField, deleteField } from '../../../modules/filter';
+import { selectAllConfig } from '../AttributeData';
+import { AttributeInfoButton } from '../AttributeInfoButton';
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();

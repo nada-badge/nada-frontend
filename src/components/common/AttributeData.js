@@ -1,3 +1,5 @@
+/** AttributeDate region, field, category에 대한 정보를 관리하는 파일 */
+
 export const regionButtons = [
   { id: 1, text: '서울' },
   { id: 2, text: '부산' },
