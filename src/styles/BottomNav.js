@@ -1,8 +1,6 @@
 /*BottomNav 하단 네비게이션 바의 styled components */
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import communityActImage from '../icon/communityAct.png';
-import communityImage from '../icon/community.png';
 import { applyFontStyles } from './fontStyle';
 
 //하단바를 아래 위치하기
@@ -35,47 +33,6 @@ export const NavLinks = styled(NavLink)`
   gap: 3px;
   &:link {
     text-decoration: none;
-  }
-`;
-
-//개별 버튼의 이미지 설정
-export const Img = styled.div`
-  height: 26px;
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 26px;
-  background-size: 100%;
-
-  &.Home {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-home-4-fill-5@2x.png');
-    &.isActive {
-      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-home-4-fill-1@2x.png');
-    }
-  }
-  &.Activity {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mdi-briefcase-4.svg');
-    &.isActive {
-      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mdi-briefcase-5.svg');
-    }
-  }
-  &.Badge {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/award-5.svg');
-    &.isActive {
-      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/award-4.svg');
-    }
-  }
-  &.Community {
-    background-image: url(${communityImage});
-    &.isActive {
-      background-image: url(${communityActImage});
-    }
-  }
-  &.Mypage {
-    background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-user-2-fill-2.svg');
-    &.isActive {
-      background-image: url('https://generation-sessions.s3.amazonaws.com/2cb90188d2dd85d079e32d86f9d15fde/img/mingcute-user-2-fill-3.svg');
-    }
   }
 `;
 

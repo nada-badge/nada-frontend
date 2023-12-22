@@ -1,9 +1,10 @@
 /*BottomNav 하단 네비게이션 바를 관리하고 출력함*/
 import React from 'react';
-import { Navi, NavLinks, Img, Text } from '../../styles/BottomNav';
+import { Navi, NavLinks, Text } from '../../styles/BottomNav';
 import { barSelector } from '../../modules/bar';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
+import { BottomBarIconsSvg } from '../../icon/BottomBarIconsSvg';
 
 export const BottomNav = () => {
   const active = useSelector(barSelector('bottomStatus', 'isShowBottom'));
@@ -27,7 +28,7 @@ export const BottomNav = () => {
               <NavLinks to={path} className={content} key={id}>
                 {({ isActive }) => (
                   <>
-                    <Img className={classNames(content, { isActive })} />
+                    <BottomBarIconsSvg content={content} isActive={isActive} />
                     <Text className={classNames(content, { isActive })}>
                       {text}
                     </Text>
