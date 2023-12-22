@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import communityActImage from '../icon/communityAct.png';
 import communityImage from '../icon/community.png';
-import { caption_01 } from './fontStyle';
+import { applyFontStyles } from './fontStyle';
 
 //하단바를 아래 위치하기
 export const Navi = styled.nav`
@@ -81,7 +81,10 @@ export const Img = styled.div`
 
 //개별 버튼의 텍스트 설정
 export const Text = styled.div`
-${caption_01('var(--myspec-gray-scalegray-600)')}
+${applyFontStyles({
+  font: 'caption-01',
+  color: 'var(--myspec-gray-scalegray-600)',
+})};
   position: relative;
   text-align: center;
 
