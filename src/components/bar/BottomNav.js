@@ -1,4 +1,5 @@
 /*BottomNav 하단 네비게이션 바를 관리하고 출력함*/
+import React from 'react';
 import { Navi, NavLinks, Img, Text } from '../../styles/BottomNav';
 import { barSelector } from '../../modules/bar';
 import { useSelector } from 'react-redux';
@@ -41,4 +42,4 @@ export const BottomNav = () => {
   );
 };
 
-export default BottomNav;
+export default React.memo(BottomNav);
