@@ -7,7 +7,10 @@ import { SkeletonImageSvg } from '../../../icon/SkeletonImageSvg';
 
 export const Image = () => {
   const [imgFiles, setImgFiles] = useState([]);
-  console.log('imgFile : ', imgFiles);
+
+  const deleteImgFile = (img) => {
+    setImgFiles((prevFiles) => prevFiles.filter((file) => file !== img));
+  };
 
   const saveImgFile = (e) => {
     const files = e.target.files;
@@ -39,7 +42,7 @@ export const Image = () => {
         return (
           <PreViewImg>
             <img src={imgFile} alt="미리보기" className="img" />
-            <div className="xImg">
+            <div className="xImg" onClick={() => deleteImgFile(imgFile)}>
               <X color="#888888" />
             </div>
           </PreViewImg>
