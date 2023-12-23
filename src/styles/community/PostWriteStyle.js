@@ -86,5 +86,21 @@ export const Images = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 8px;
+`;
+
+export const PreViewImg = styled.div`
+  position: relative;
+
+  & > .img {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+  }
+  & > .xImg {
+    position: absolute;
+    left: 53px;
+    top: 2px;
+  }
 `;

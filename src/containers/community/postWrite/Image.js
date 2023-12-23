@@ -1,28 +1,23 @@
 /** Image 글작성 페이지에 Image 출력하는 컴테이너  */
-import { Images } from '../../../styles/community/PostWriteStyle';
+import { Images, PreViewImg } from '../../../styles/community/PostWriteStyle';
 import { useState } from 'react';
 import { X } from '../../../components/common/icon/X';
 import useImageQuery from '../../../modules/queries/useImageQuery';
 
 export const Image = () => {
-  const [imgFile, setImgFile] = useState('');
-  //const imgRef = useRef();
+  const [imgFiles, setImgFiles] = useState([]);
+  console.log('imgFile : ', imgFiles);
 
   const saveImgFile = (e) => {
-    console.log('image : ', e.target.files[0]);
-    const file = e.target.files[0];
+    const files = e.target.files;
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImgFile(reader.result);
-    };
-  };
-
-  const image = {
-    width: '72px',
-    height: '72px',
-    borderRadius: '10px',
+    [...files].forEach((file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImgFiles((prevFiles) => [...prevFiles, reader.result]);
+      };
+    });
   };
 
   return (
@@ -67,12 +62,16 @@ export const Image = () => {
         name="profile_img"
         onChange={saveImgFile}
       ></input>
-
-      <img
-        src={imgFile ? imgFile : `/images/icon/user.png`}
-        alt="미리보기"
-        style={image}
-      />
+      {imgFiles.map((imgFile) => {
+        return (
+          <PreViewImg>
+            <img src={imgFile} alt="미리보기" className="img" />
+            <div className="xImg">
+              <X color="#888888" />
+            </div>
+          </PreViewImg>
+        );
+      })}
     </Images>
   );
 };
