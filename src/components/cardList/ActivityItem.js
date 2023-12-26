@@ -51,9 +51,7 @@ const ActivityItem = ({ cards, style }) => {
   const CardWrapper = (card) => (
     <div style={style} key={card.idx}>
       <ImgContainer $imgsrc={card.imageUrl}>
-        <div style={DdayStyle}>{`D ${
-          card.Dday < 0 ? '+ ' + -card.Dday : '- ' + card.Dday
-        }`}</div>
+        <div style={DdayStyle}>{`D ${card.Dday}`}</div>
       </ImgContainer>
       <Title>{card.activityName}</Title>
     </div>
