@@ -12,7 +12,8 @@ export const useGetActivities = () => {
     }
 
     return (data.activities || []).map(
-      ({ activityName, endedAt, imageUrl }) => ({
+      ({ _id, activityName, endedAt, imageUrl }) => ({
+        _id: _id,
         activityName: activityName,
         Dday: calculateDDay(endedAt),
         imageUrl: imageUrl,

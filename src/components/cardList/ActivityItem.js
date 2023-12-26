@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { Link } from 'react-router-dom';
 
 const Title = styled.p`
   ${applyFontStyles({ font: 'subtitle-01' })};
@@ -30,6 +31,7 @@ const ActivityItem = ({ cards, style }) => {
     position: 'relative',
     maxWidth: '169px',
     textAlign: 'left',
+    textDecoration: 'none',
     ...style,
   };
 
@@ -47,12 +49,16 @@ const ActivityItem = ({ cards, style }) => {
   };
 
   const CardWrapper = (card) => (
-    <div style={style} key={card.idx}>
+    <Link
+      style={{ style, textDecorationLine: 'none'}}
+      key={card.idx}
+      to={`/activity/${card._id}`}
+    >
       <ImgContainer $imgsrc={card.imageUrl}>
         <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
       </ImgContainer>
       <Title>{card.activityName}</Title>
-    </div>
+    </Link>
   );
 
   return (
