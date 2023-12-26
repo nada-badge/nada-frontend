@@ -39,7 +39,7 @@ const titleData = [
   { id: 'recruit', text: '팀원모집' },
 ];
 
-const InfoContainer = () => {
+const InfoContainer = ({ info }) => {
   const [active, setActive] = useState(titleData[0].id);
 
   const onClick = (id) => {
@@ -61,13 +61,10 @@ const InfoContainer = () => {
           </div>
         ))}
       </div>
-      <ContentContainer active={active} />
+      {/* 상세 내용 */}
+      <ContentContainer active={active} info={info} />
       {active === titleData[0].id && (
-        <img
-          className="img"
-          alt=""
-          src="https://c.animaapp.com/DZnkZ85k/img/image-2.png"
-        />
+        <img className="img" alt="" src={info.activity.imageUrl} />
       )}
     </DetailContainer>
   );
