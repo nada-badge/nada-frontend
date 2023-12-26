@@ -29,15 +29,6 @@ const ThumbContainer = styled.div`
       display: flex;
       justify-content: space-between;
       position: relative;
-
-      & > .Dday {
-        padding: 4px 8px;
-        border-radius: 5px;
-        background: var(--myspec-gray-scalegray-400);
-        ${caption_01('var(--myspec-gray-scale-gray-800)')}
-        display: flex;
-        align-items: center;
-      }
     }
 
     & > .title {
@@ -51,19 +42,43 @@ const ThumbContainer = styled.div`
     }
   }
 `;
+
+const Dday = styled.div`
+  padding: 4px 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background: var(--myspec-gray-scalegray-400);
+  ${caption_01('var(--myspec-gray-scalegray-800)')}
+
+  &.active {
+    background: var(--myspec-primaryblue-1);
+    ${caption_01('var(--myspec-gray-scalewhite)')}
+  }
+`;
+
 const Thumbnail = ({ info }) => {
   const { activityName, region, field, category, imageUrl, endedAt } =
     info.activity;
 
   const TagContent = [region, field, category].flat();
+  const result_date = parseInt(
+    calculateDday(endedAt).replace(/[^\d-]/g, ''),
+    10,
+  );
 
   return (
     info && (
       <ThumbContainer>
+        {/* imageUrl 없는 경우 : +icon 추가하기 */}
         <img className="thumbnail-image" alt="thumbnail" src={imageUrl} />
         <div className="info-box">
           <div className="top">
-            <div className="Dday">{`D ${calculateDday(endedAt)}`}</div>
+            <Dday
+              className={
+                result_date >= -14 && result_date <= 0 ? 'active' : null
+              }
+            >{`D ${calculateDday(endedAt)}`}</Dday>
             <Star />
           </div>
           <div className="title">{activityName}</div>
