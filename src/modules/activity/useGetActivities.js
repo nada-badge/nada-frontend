@@ -1,5 +1,6 @@
 import { useMemo, useEffect, useState } from 'react';
 import { useActivityListQuery } from '../queries/ActivityQuery';
+import { calculateDday } from './calculateDday';
 
 export const useGetActivities = () => {
   const [activities, setActivities] = useState([]);
@@ -15,7 +16,7 @@ export const useGetActivities = () => {
       ({ _id, activityName, endedAt, imageUrl }) => ({
         _id: _id,
         activityName: activityName,
-        Dday: calculateDDay(endedAt),
+        Dday: calculateDday(endedAt),
         imageUrl: imageUrl,
       }),
     );
@@ -26,12 +27,6 @@ export const useGetActivities = () => {
 
     setActivities(Acitivities);
   }, [activities, data]);
-
-  function calculateDDay(endedAt) {
-    const endDate = new Date(endedAt);
-    const timeDiff = endDate - new Date();
-    return Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  }
 
   return activities;
 };

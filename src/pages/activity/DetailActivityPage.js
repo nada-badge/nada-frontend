@@ -48,7 +48,7 @@ const DetailActivityPage = () => {
 
   return (
     <DetailContainer>
-      <Thumbnail info={info} />
+      {info && <Thumbnail info={info} />}
       <InfoContainer info={info} />
     </DetailContainer>
   );

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Star } from '../../components/common/icon/Star';
 import { caption_01, title_01 } from '../../styles/fontStyle';
 import HashTag from '../../components/activity/HashTag';
+import { calculateDday } from '../../modules/activity/calculateDday';
 
 const ThumbContainer = styled.div`
   text-align: left;
@@ -50,27 +51,28 @@ const ThumbContainer = styled.div`
     }
   }
 `;
-const Thumbnail = () => {
+const Thumbnail = ({ info }) => {
+  const { activityName, region, field, category, imageUrl, endedAt } =
+    info.activity;
+
   return (
-    <ThumbContainer>
-      <img
-        className="thumbnail-image"
-        alt="thumbnail"
-        src="https://c.animaapp.com/lXzw4Thb/img/image-1@2x.png"
-      />
-      <div className="info-box">
-        <div className="top">
-          <div className="Dday"> D - 56 </div>
-          <Star />
+    info && (
+      <ThumbContainer>
+        <img className="thumbnail-image" alt="thumbnail" src={imageUrl} />
+        <div className="info-box">
+          <div className="top">
+            <div className="Dday">{`D ${calculateDday(endedAt)}`}</div>
+            <Star />
+          </div>
+          <div className="title">{activityName}</div>
+          <div className="tagBox">
+            <HashTag className="location">{region}</HashTag>
+            <HashTag className="domain">{field}</HashTag>
+            <HashTag className="activity"> {category}</HashTag>
+          </div>
         </div>
-        <div className="title">2023 안양시 정책공모전</div>
-        <div className="tagBox">
-          <HashTag className="location">경기</HashTag>
-          <HashTag className="domain">경영/경제/무역</HashTag>
-          <HashTag className="activity"> 공모전</HashTag>
-        </div>
-      </div>
-    </ThumbContainer>
+      </ThumbContainer>
+    )
   );
 };
 
