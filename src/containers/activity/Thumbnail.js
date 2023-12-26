@@ -55,6 +55,8 @@ const Thumbnail = ({ info }) => {
   const { activityName, region, field, category, imageUrl, endedAt } =
     info.activity;
 
+  const TagContent = [region, field, category].flat();
+
   return (
     info && (
       <ThumbContainer>
@@ -66,9 +68,9 @@ const Thumbnail = ({ info }) => {
           </div>
           <div className="title">{activityName}</div>
           <div className="tagBox">
-            <HashTag className="location">{region}</HashTag>
-            <HashTag className="domain">{field}</HashTag>
-            <HashTag className="activity"> {category}</HashTag>
+            {TagContent.map((hashtag) => (
+              <HashTag className="location">{hashtag}</HashTag>
+            ))}
           </div>
         </div>
       </ThumbContainer>
