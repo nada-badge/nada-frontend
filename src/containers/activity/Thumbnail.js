@@ -68,8 +68,10 @@ const Thumbnail = ({ info }) => {
           </div>
           <div className="title">{activityName}</div>
           <div className="tagBox">
-            {TagContent.map((hashtag) => (
-              <HashTag className="location">{hashtag}</HashTag>
+            {TagContent.map((hashtag, idx) => (
+              <HashTag key={idx} className="location">
+                {hashtag}
+              </HashTag>
             ))}
           </div>
         </div>
