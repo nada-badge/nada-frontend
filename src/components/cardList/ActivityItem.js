@@ -50,12 +50,12 @@ const ActivityItem = ({ cards, style }) => {
 
   const CardWrapper = (card) => (
     <Link
-      style={{ style, textDecorationLine: 'none'}}
+      style={{ style, textDecorationLine: 'none' }}
       key={card.idx}
       to={`/activity/${card._id}`}
     >
       <ImgContainer $imgsrc={card.imageUrl}>
-        <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
+        <div style={DdayStyle}>{`D ${card.Dday}`}</div>
       </ImgContainer>
       <Title>{card.activityName}</Title>
     </Link>
