@@ -24,9 +24,9 @@ export const useActivityListQuery = ({
     queryFn: async () => {
       const params = {
         ...(groupName && { groupName }),
-        category: category || '전체',
-        region: region || '전국',
-        field: field || '전체',
+        category: category || ['전체'],
+        region: region || ['전국'],
+        field: field || ['전체'],
       };
       const { data } = await client.get('/activity/list', {
         params,
