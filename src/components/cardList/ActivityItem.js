@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { Link } from 'react-router-dom';
+import imgNull from '../../icon/logoo.png';
 
 const Title = styled.p`
   ${applyFontStyles({ font: 'subtitle-01' })};
@@ -17,9 +18,11 @@ const Title = styled.p`
 `;
 
 const ImgContainer = styled.div`
-  background-image: ${(props) =>
-    `url(
-      ${props.$imgsrc})`};
+  background-image: ${(props) => {
+    return `url(
+      ${props.$imgsrc.length ? props.$imgsrc : imgNull})`;
+  }};
+  border-radius: 10px;
   background-size: 100% 100%;
   aspect-ratio: 1 / 1;
   position: relative;
