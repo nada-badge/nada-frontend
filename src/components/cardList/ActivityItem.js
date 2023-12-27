@@ -55,22 +55,23 @@ const ActivityItem = ({ cards, style }) => {
     ...style,
   };
 
-  const CardWrapper = (card) => (
-    <Link
-      style={{ style, textDecorationLine: 'none' }}
-      key={card.idx}
-      to={`/activity/${card._id}`}
-    >
-      <ImgContainer $imgsrc={card.imageUrl}>
-        <Dday
-          className={
-            parseInt(card.Dday.replace(/[^\d-]/g, ''), 10) < 14 ? 'active' : ''
-          }
-        >{`D ${card.Dday}`}</Dday>
-      </ImgContainer>
-      <Title>{card.activityName}</Title>
-    </Link>
-  );
+  const CardWrapper = (card) => {
+    const result_date = parseInt(card.Dday.replace(/[^\d-]/g, ''), 10);
+    return (
+      <Link
+        style={{ style, textDecorationLine: 'none' }}
+        key={card.idx}
+        to={`/activity/${card._id}`}
+      >
+        <ImgContainer $imgsrc={card.imageUrl}>
+          <Dday
+            className={result_date >= -14 && result_date <= 0 ? 'active' : null}
+          >{`D ${card.Dday}`}</Dday>
+        </ImgContainer>
+        <Title>{card.activityName}</Title>
+      </Link>
+    );
+  };
 
   return (
     <>
