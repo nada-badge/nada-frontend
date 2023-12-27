@@ -43,8 +43,10 @@ const ActivityPage = () => {
     }
   }, [data, activities]);
 
-  // 최근 본 게시글   const cards = localStorage.getItem('recentActivities');
-  const cards = JSON.parse(localStorage.getItem('recentActivitiesMap'));
+  // 최근 본 게시글
+  const cards = JSON.parse(
+    localStorage.getItem('recentActivitiesMap'),
+  ).reverse();
 
   useEffect(() => {
     dispatch(
