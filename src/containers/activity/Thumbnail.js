@@ -58,8 +58,7 @@ const Dday = styled.div`
 `;
 
 const Thumbnail = ({ info }) => {
-  const { activityName, region, field, category, imageUrl, endedAt } =
-    info.activity;
+  const { activityName, region, field, category, imageUrl, endedAt } = info;
 
   const TagContent = [region, field, category].flat();
   const result_date = parseInt(

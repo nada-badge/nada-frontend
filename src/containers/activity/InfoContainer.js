@@ -64,7 +64,7 @@ const InfoContainer = ({ info }) => {
       {/* 상세 내용 */}
       <ContentContainer active={active} info={info} />
       {active === titleData[0].id && (
-        <img className="img" alt="" src={info.activity.imageUrl} />
+        <img className="img" alt="" src={info.imageUrl} />
       )}
     </DetailContainer>
   );

@@ -20,7 +20,7 @@ const DetailContent = styled.div`
 `;
 
 const ContentContainer = ({ active, info }) => {
-  const { startedAt, endedAt, groupName, area } = info.activity;
+  const { startedAt, endedAt, groupName, area } = info;
 
   const formatDate = (start, end) => {
     let startDate = new Date(start);
