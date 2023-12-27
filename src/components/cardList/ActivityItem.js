@@ -25,6 +25,26 @@ const ImgContainer = styled.div`
   position: relative;
 `;
 
+const Dday = styled.div`
+  box-sizing: border-box;
+  padding: 6px 8px;
+  height: 26px;
+  margin: 10px;
+  float: right;
+  min-width: 41px;
+  text-align: center;
+  background: var(--myspec-gray-scalegray-400);
+  ${applyFontStyles({
+    font: 'caption-01',
+    color: '--myspec-gray-scalegray-800',
+  })}
+
+  &.active {
+    background: var(--myspec-primaryblue-1);
+    ${applyFontStyles({ font: 'caption-01', color: 'white' })}
+  }
+`;
+
 const ActivityItem = ({ cards, style }) => {
   const CardContainerStyle = {
     borderRadius: '10px',
@@ -35,19 +55,6 @@ const ActivityItem = ({ cards, style }) => {
     ...style,
   };
 
-  const DdayStyle = {
-    ...applyFontStyles({ font: 'caption-01', color: 'white' }),
-    boxSizing: 'border-box',
-    padding: '6px 8px',
-    backgroundColor: '#1363ff',
-    borderRadius: '8px',
-    height: '26px',
-    margin: '10px',
-    float: 'right',
-    minWidth: '41px',
-    textAlign: 'center',
-  };
-
   const CardWrapper = (card) => (
     <Link
       style={{ style, textDecorationLine: 'none' }}
@@ -55,7 +62,11 @@ const ActivityItem = ({ cards, style }) => {
       to={`/activity/${card._id}`}
     >
       <ImgContainer $imgsrc={card.imageUrl}>
-        <div style={DdayStyle}>{`D ${card.Dday}`}</div>
+        <Dday
+          className={
+            parseInt(card.Dday.replace(/[^\d-]/g, ''), 10) < 14 ? 'active' : ''
+          }
+        >{`D ${card.Dday}`}</Dday>
       </ImgContainer>
       <Title>{card.activityName}</Title>
     </Link>
