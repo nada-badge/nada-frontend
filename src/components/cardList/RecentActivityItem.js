@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 const RecentActivityItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ _id, title, team, Dday, see }) => (
+      {cards.map(([_id, content]) => (
         <CardContainer key={_id}>
           <Link to={`/activity/${_id}`}>
             <div>
-              <div className="title">{title}</div>
-              <div className="team">{team}</div>
+              <div className="title">{content.title}</div>
+              <div className="team">{content.team}</div>
               <div className="group">
-                <div className="Dday">D-{Dday}</div>
-                <div className="see">조회 {see}</div>
+                <div className="Dday">D {content.Dday}</div>
+                <div className="see">조회 {107}</div>
               </div>
             </div>
           </Link>
