@@ -26,6 +26,10 @@ const ImgContainer = styled.div`
 `;
 
 const Dday = styled.div`
+  ${applyFontStyles({
+    font: 'caption-01',
+    color: 'white',
+  })}
   box-sizing: border-box;
   padding: 6px 8px;
   height: 26px;
@@ -33,15 +37,11 @@ const Dday = styled.div`
   float: right;
   min-width: 41px;
   text-align: center;
-  background: var(--myspec-gray-scalegray-400);
-  ${applyFontStyles({
-    font: 'caption-01',
-    color: '--myspec-gray-scalegray-800',
-  })}
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
 
   &.active {
     background: var(--myspec-primaryblue-1);
-    ${applyFontStyles({ font: 'caption-01', color: 'white' })}
   }
 `;
 
