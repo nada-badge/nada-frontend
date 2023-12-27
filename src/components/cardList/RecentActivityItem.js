@@ -32,6 +32,10 @@ const CardContainer = styled.div`
   width: 184px;
   height: 94px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   & > a {
     text-decoration: none;
     display: inline-block;
