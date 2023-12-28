@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
+import imgNull from '../../icon/GrayLogo.png';
 
 const Title = styled.p`
   ${applyFontStyles({ font: 'subtitle-01' })};
@@ -16,9 +17,10 @@ const Title = styled.p`
 `;
 
 const ImgContainer = styled.div`
-  background-image: ${(props) =>
-    `url(
-      ${props.$imgsrc})`};
+  background-image: ${(props) => {
+    return `url(
+      ${props.$imgsrc.length ? props.$imgsrc : imgNull})`;
+  }};
   background-size: 100% 100%;
   aspect-ratio: 1 / 1;
   position: relative;
@@ -49,7 +51,7 @@ const ActivityItem = ({ cards, style }) => {
   const CardWrapper = (card) => (
     <div style={style} key={card.idx}>
       <ImgContainer $imgsrc={card.imageUrl}>
-        <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
+        <div style={DdayStyle}>{`D ${card.Dday}`}</div>
       </ImgContainer>
       <Title>{card.activityName}</Title>
     </div>
