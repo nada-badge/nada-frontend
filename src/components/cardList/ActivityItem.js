@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { Link } from 'react-router-dom';
-import imgNull from '../../icon/logoo.png';
+import imgNull from '../../icon/GrayLogo.png';
 
 const Title = styled.p`
   ${applyFontStyles({ font: 'subtitle-01' })};
