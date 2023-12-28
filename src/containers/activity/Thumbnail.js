@@ -58,7 +58,8 @@ const Dday = styled.div`
 `;
 
 const Thumbnail = ({ info }) => {
-  const { activityName, region, field, category, imageUrl, endedAt } = info;
+  const { _id, activityName, region, field, category, imageUrl, endedAt } =
+    info;
 
   const TagContent = [region, field, category].flat();
   const result_date = parseInt(
@@ -78,7 +79,7 @@ const Thumbnail = ({ info }) => {
                 result_date >= -14 && result_date <= 0 ? 'active' : null
               }
             >{`D ${calculateDday(endedAt)}`}</Dday>
-            <Star />
+            <Star _id={_id} />
           </div>
           <div className="title">{activityName}</div>
           <div className="tagBox">

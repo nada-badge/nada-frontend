@@ -18,7 +18,7 @@ const RecentActivityItem = ({ cards }) => {
               </div>
             </div>
           </Link>
-          <Star className="star" /> {/* ◀ svg 파일 */}
+          <Star className="star" _id={_id} /> {/* ◀ svg 파일 */}
         </CardContainer>
       ))}
     </>

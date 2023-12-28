@@ -1,11 +1,24 @@
 import { useState } from 'react';
+import { useInterestedMutation } from '../../../modules/queries/InterestedActivityQuery';
 
-export const Star = () => {
-
+export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);
 
-  const onClick = () => {
+  const mutation = useInterestedMutation();
+  const email = localStorage.getItem('email');
+
+  const onClick = async () => {
     setActive(!active);
+
+    // mutateAsync에서 사용할 type 값을 새로운 active 상태를 기반으로 설정
+    const type = active ? 'delete' : 'add';
+
+    const { data, status } = await mutation.mutateAsync({
+      type: type,
+      email: email,
+      _id: _id,
+    });
+    console.log(data, status);
   };
 
   return (
