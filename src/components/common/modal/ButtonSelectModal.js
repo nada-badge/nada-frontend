@@ -12,7 +12,10 @@ import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../../../styles/ModalStyle';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
-import { selectConfig, selectAllConfig } from '../AttributeData';
+import {
+  selectConfig,
+  selectAllConfig,
+} from '../../../modules/common/AttributeData';
 
 const ButtonSelectModal = () => {
   const { closeModal } = useModal();

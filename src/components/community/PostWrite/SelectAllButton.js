@@ -6,7 +6,7 @@ import {
   postWriteSelector,
   initializeForm,
 } from '../../../modules/community/postWrite';
-import { selectAllConfig } from '../../common/AttributeData';
+import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 
 export const SelectAllButton = () => {

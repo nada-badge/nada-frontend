@@ -1,8 +1,19 @@
 /** PostItem, postList을 이루는 PostItem. */
 import { PostContainer } from '../../../styles/community/postItemStyle';
+import GetElapsedTime from '../../../modules/common/getElapsedTime';
 
 const PostItem = ({ card }) => {
-  const { title, field, category, region, content, postAt } = card;
+  const { title, field, category, region, content, updatedAt } = card;
+
+  const DetailText = ({ text, isLast }) => {
+    return (
+      <>
+        <text className="text-2">
+          {text} {!isLast && <>,</>}
+        </text>
+      </>
+    );
+  };
 
   return (
     <PostContainer>
@@ -11,13 +22,35 @@ const PostItem = ({ card }) => {
         <div className="title">{title}</div>
         <div className="text">{content}</div>
         <div className="frame">
-          <div className="text-2">{region}</div>
+          <div className="nowrap">
+            {region.map((text, index) => (
+              <DetailText
+                key={index}
+                text={text}
+                isLast={index === region.length - 1}
+              />
+            ))}
+          </div>
           <div className="ellipse" />
-          <div className="text-2">{field}</div>
+          <div className="nowrap">
+            {field.map((text, index) => (
+              <DetailText
+                key={index}
+                text={text}
+                isLast={index === field.length - 1}
+              />
+            ))}
+          </div>
           <div className="ellipse" />
-          <div className="text-2">{category}</div>
+          <div className="nowrap">
+            <text className="text-2">{category}</text>
+          </div>
           <div className="ellipse" />
-          <div className="text-2">{postAt}</div>
+          <div className="nowrap">
+            <text className="text-2">
+              <GetElapsedTime updatedAt={updatedAt} />
+            </text>
+          </div>
         </div>
       </div>
     </PostContainer>

@@ -41,7 +41,6 @@ export const PostContainer = styled.div`
         font: 'body-01',
       })};
       position: relative;
-      top: 5px;
       white-space: nowrap;
       width: 268px;
       text-align: left;
@@ -50,23 +49,31 @@ export const PostContainer = styled.div`
     }
 
     & > .frame {
-      align-items: center;
       position: relative;
       margin-left: auto;
       display: flex;
       gap: 4px;
-      top: 12px;
-
-      & > .text-2 {
-        ${applyFontStyles({
-          font: 'caption-03',
-          color: 'var(--myspec-gray-scalegray-600)',
-        })};
-        margin-top: -1px;
+      max-width: 230px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      align-items: center;
+      & > .nowrap {
         position: relative;
-        text-align: right;
+        max-width: 70px;
         white-space: nowrap;
-        width: fit-content;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        top: -3px;
+
+        & > .text-2 {
+          ${applyFontStyles({
+            font: 'caption-03',
+            color: 'var(--myspec-gray-scalegray-600)',
+          })};
+          margin-top: -1px;
+          position: relative;
+          text-align: right;
+        }
       }
       & > .ellipse {
         background-color: var(--myspec-gray-scalegray-600);

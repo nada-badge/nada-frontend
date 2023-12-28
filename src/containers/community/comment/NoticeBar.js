@@ -1,22 +1,32 @@
-/** ReplyNoticeBar 답글 알림창 */
+/** NoticeBar 수정 중임을 알려주는 알림창 */
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { initializeForm } from '../../../modules/community/postDetail';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-const ReplyNoticeBar = ({ name }) => {
+const NoticeBar = ({ name, isReply }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
     dispatch(initializeForm({ form: 'Comment' }));
   };
 
-  return (
-    <Bar>
-      <div className="text">
+  const IsReplying = () => {
+    return (
+      <>
         <div className="name">@{name}</div>
         <div className="content">님에게 답글 남기는 중</div>
-      </div>
+      </>
+    );
+  };
+
+  const IsUpdating = () => {
+    return <div className="content">댓글을 수정하는 중</div>;
+  };
+
+  return (
+    <Bar>
+      <div className="text">{isReply ? <IsReplying /> : <IsUpdating />}</div>
       <div className="img" onClick={onClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +45,7 @@ const ReplyNoticeBar = ({ name }) => {
   );
 };
 
-export default ReplyNoticeBar;
+export default NoticeBar;
 
 const Bar = styled.div`
   height: 18px;
