@@ -3,6 +3,7 @@ import { applyFontStyles } from '../../styles/fontStyle';
 
 const CardsContainer = styled.div`
   box-sizing: border-box;
+  width: 100%;
   box-shadow: 0px 2px 5px #00000005;
   position: relative;
   padding: 12px 15px; // 커스텀

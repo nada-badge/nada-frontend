@@ -1,6 +1,7 @@
 // ************ BadgePage.js
 
 export const pageContainer = {
+  boxSizing: 'border-box',
   display: ' flex',
   width: ' 375px',
   margin: '0px auto',
