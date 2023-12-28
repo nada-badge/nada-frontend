@@ -6,6 +6,7 @@ import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useActivityQuery } from '../../modules/queries/ActivityQuery.js';
+import { calculateDday } from '../../modules/activity/calculateDday.js';
 
 const DetailContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -26,6 +27,37 @@ const DetailActivityPage = () => {
   const params = useParams();
   const { data, isLoading, isError } = useActivityQuery({ _id: params._id });
   const [info, setInfo] = useState();
+
+  // '최근 본 활동'으로 등록하기
+  useEffect(() => {
+    if (info) {
+      // recentActivitiesMap 불러오기
+      const recentActivitiesMap = new Map(
+        JSON.parse(localStorage.getItem('recentActivitiesMap')) || [],
+      );
+
+      // 기존 게시글 삭제하기
+      recentActivitiesMap.delete(info._id);
+
+      // 새로운 활동 추가하기
+      recentActivitiesMap.set(info._id, {
+        title: info.activityName,
+        team: info.groupName,
+        Dday: calculateDday(info.endedAt),
+      });
+
+      // 3개 이상이면, 삭제하기
+      if (recentActivitiesMap.size > 3) {
+        const oldestKey = [...recentActivitiesMap.keys()].shift();
+        recentActivitiesMap.delete(oldestKey);
+      }
+
+      localStorage.setItem(
+        'recentActivitiesMap',
+        JSON.stringify([...recentActivitiesMap]),
+      );
+    }
+  }, [info]);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -48,8 +80,8 @@ const DetailActivityPage = () => {
 
   return (
     <DetailContainer>
-      <Thumbnail info={info} />
-      <InfoContainer info={info} />
+      {info && <Thumbnail info={info} />}
+      {info && <InfoContainer info={info} />}
     </DetailContainer>
   );
 };

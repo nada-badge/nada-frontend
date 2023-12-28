@@ -8,7 +8,7 @@ export const useActivityQuery = ({ _id }) => {
       const { data } = await client.get('/activity', {
         params: { _id: _id },
       });
-      return data;
+      return data.activity;
     },
   });
 };
