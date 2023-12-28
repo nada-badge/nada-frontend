@@ -13,6 +13,9 @@ const ThumbContainer = styled.div`
 
   & > .thumbnail-image {
     width: 100%;
+    height: 33vh;
+    object-fit: cover;
+    object-position: top;
   }
 
   & > .info-box {
@@ -70,7 +73,6 @@ const Thumbnail = ({ info }) => {
   return (
     info && (
       <ThumbContainer>
-        {/* imageUrl 없는 경우 : +icon 추가하기 */}
         <img className="thumbnail-image" alt="thumbnail" src={imageUrl} />
         <div className="info-box">
           <div className="top">
