@@ -1,4 +1,5 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
+import '../../styles/Page.scss';
 
 const ActWritePage = () => {
   return (
