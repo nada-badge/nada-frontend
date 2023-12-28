@@ -1,9 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 
-export const useDeleteInterested = () => {
+export const useInterestedMutation = () => {
   return useMutation({
     mutationFn: ({ type, email, _id }) => {
+      console.log(type, email, _id);
       if (type === 'delete') {
         return client.delete('/calendar/bookmark', { email: email, _id: _id });
       } else if (type === 'add') {
