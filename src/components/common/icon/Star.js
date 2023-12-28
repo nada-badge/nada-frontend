@@ -4,7 +4,7 @@ import { useInterestedMutation } from '../../../modules/queries/InterestedActivi
 export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);
 
-  // [추후 수정 필요] 관심활동 등록 / 삭제 기능
+  // 관심활동 등록 (OK) / 삭제 기능
   const { mutate } = useInterestedMutation();
   const email = localStorage.getItem('email');
   const onClick = async () => {
@@ -13,12 +13,11 @@ export const Star = ({ _id }) => {
     // mutateAsync에서 사용할 type 값을 새로운 active 상태를 기반으로 설정
     const type = active ? 'delete' : 'add';
 
-    const { data, status } = mutate({
+    mutate({
       type: type,
       email: email,
       _id: _id,
     });
-    console.log(data, status);
   };
 
   return (
