@@ -3,10 +3,10 @@ import { Frame } from '../../../styles/community/PostWriteStyle';
 import { MainCategoryButton } from './MainCategoryButton';
 import { OpenModalButton } from '../../../components/community/PostWrite/openModalButton';
 
-export const FilterBar = () => {
+export const FilterBar = ({ type }) => {
   return (
     <Frame>
-      <MainCategoryButton />
+      { type ==='community' && <MainCategoryButton />} 
       <OpenModalButton content="region" />
       <OpenModalButton content="field" />
       <OpenModalButton content="category" />

@@ -89,7 +89,7 @@ const PostWrite = () => {
       <form onSubmit={OnSubmit}>
         <Title onChange={onChange} inputValue={inputValue} />
         <Border />
-        <FilterBar />
+        <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
         <Border />
         <Image />
