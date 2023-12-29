@@ -8,6 +8,9 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
 import CardList from '../../components/cardList/CardList';
 import ImgAdd from '../../icon/Activity/ImgAdd.png';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setBarStatus } from '../../modules/bar';
 
 const inputStyles = css`
   width: 100%;
@@ -125,6 +128,17 @@ const TextArea = styled.textarea`
 `;
 
 const ActWritePage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setBarStatus({
+        headerState: 'backPost',
+        text: '활동 공고 등록',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
+
   return (
     <form className="pageContainer">
       {/* ▼ 대표 이미지 등록하기 */}
