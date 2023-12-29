@@ -46,6 +46,10 @@ const InputWrapper = styled.div`
       background: none;
       border: none;
       padding: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 `;
