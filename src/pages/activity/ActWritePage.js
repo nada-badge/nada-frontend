@@ -1,11 +1,29 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import '../../styles/Page.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
+
+const inputStyles = css`
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--myspec-gray-scalegray-100);
+  &::placeholder {
+    ${applyFontStyles({
+      font: 'caption-02',
+      color: 'var(--myspec-gray-scalegray-400)',
+    })};
+  }
+  &:focus {
+    outline-width: 0;
+  }
+`;
 
 const ImgContainer = styled.div`
   width: 100%;
@@ -36,21 +54,17 @@ const InputInfo = styled.div`
   justify-content: center;
   gap: 12px;
 
-  & > .box {
+  .box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+    ${applyFontStyles({
+      font: 'subtitle-03',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })};
 
-    & > p {
-      ${applyFontStyles({
-        font: 'subtitle-03',
-        color: 'var(--myspec-gray-scalegray-600)',
-      })};
-      margin: 0px;
-    }
-
-    & > .inputBox {
+    .inputBox {
       width: 100%;
       display: flex;
       align-items: center;
@@ -61,53 +75,22 @@ const InputInfo = styled.div`
       })};
 
       &.flex {
-        display: flex;
         flex-direction: column;
       }
 
-      & > input {
-        width: 100%;
-        box-sizing: border-box;
-        border: none;
-        border-radius: 6px;
-        background: var(--myspec-gray-scalegray-100);
-        padding: 6px 8px;
-
-        &::placeholder {
-          ${applyFontStyles({
-            font: 'caption-02',
-            color: 'var(--myspec-gray-scalegray-400)',
-          })};
-        }
-
-        &:focus {
-          outline-width: 0;
-        }
+      input {
+        ${inputStyles}
       }
-      & > .urlBox {
+
+      .urlBox {
         display: flex;
         align-items: center;
-        width: 100%;
-        box-sizing: border-box;
-        border-radius: 6px;
-        background: var(--myspec-gray-scalegray-100);
-        padding: 6px 8px;
+        ${inputStyles}
         gap: 4px;
 
-        & > input {
-          border: none;
-          padding: 0px;
+        input {
+          padding: 0;
           background-color: inherit;
-          &::placeholder {
-            ${applyFontStyles({
-              font: 'caption-02',
-              color: 'var(--myspec-gray-scalegray-400)',
-            })};
-          }
-
-          &:focus {
-            outline-width: 0;
-          }
         }
       }
     }
@@ -117,7 +100,7 @@ const InputInfo = styled.div`
 const ActWritePage = () => {
   return (
     <form className="pageContainer">
-      {/* ▼ 이미지 등록하기 */}
+      {/* ▼ 대표 이미지 등록하기 */}
       <div>
         {/* {imgsrc && <ImgContainer $imgsrc={''} />} */}
         <NullImage>
@@ -136,14 +119,14 @@ const ActWritePage = () => {
       <div>
         <InputInfo>
           <div className="duration box">
-            <p> 접수 기간 </p>
+            접수 기간
             <div className="inputBox">
               <input className="startedAt" placeholder="0000.00.00" /> 부터
               <input className="endedAt" placeholder="0000.00.00" /> 까지
             </div>
           </div>
           <div className="group box">
-            <p> 기관 </p>
+            기관
             <div className="inputBox flex">
               <input
                 className="groupName"
@@ -159,7 +142,7 @@ const ActWritePage = () => {
             </div>
           </div>
           <div className="area box">
-            <p> 장소 </p>
+            장소
             <div className="inputBox flex">
               <input className="area" placeholder="활동 장소를 입력하세요." />
             </div>
