@@ -14,7 +14,7 @@ const RecentActivityItem = ({ cards }) => {
               <div className="team">{content.team}</div>
               <div className="group">
                 <div className="Dday">D {content.Dday}</div>
-                <div className="see">조회 {107}</div>
+                <div className="see">조회 {content.views}</div>
               </div>
             </div>
           </Link>

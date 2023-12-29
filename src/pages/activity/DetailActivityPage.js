@@ -44,6 +44,7 @@ const DetailActivityPage = () => {
         title: info.activityName,
         team: info.groupName,
         Dday: calculateDday(info.endedAt),
+        views: info.views,
       });
 
       // 3개 이상이면, 삭제하기
