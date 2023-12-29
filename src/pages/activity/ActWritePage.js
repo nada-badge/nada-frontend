@@ -6,6 +6,8 @@ import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
+import CardList from '../../components/cardList/CardList';
+import ImgAdd from '../../icon/Activity/ImgAdd.png';
 
 const inputStyles = css`
   width: 100%;
@@ -45,6 +47,13 @@ const NullImage = styled.div`
     align-items: center;
     flex-shrink: 0;
   }
+`;
+
+const NullImages = styled.div`
+  background-image: url(${ImgAdd});
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
 `;
 
 const InputInfo = styled.div`
@@ -94,6 +103,24 @@ const InputInfo = styled.div`
         }
       }
     }
+  }
+`;
+
+const TextArea = styled.textarea`
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 80px;
+  border: none;
+  padding: 12px 15px;
+
+  &::placeholder {
+    ${applyFontStyles({
+      font: 'caption-02',
+      color: 'var(--myspec-gray-scalegray-400)',
+    })};
+  }
+  &:focus {
+    outline-width: 0;
   }
 `;
 
@@ -149,8 +176,18 @@ const ActWritePage = () => {
           </div>
         </InputInfo>
       </div>
-      {/* 이미지 리스트 */}
-      {/* 내용 입력하기 */}
+
+      {/* ▼ 이미지 리스트 */}
+      <div className="image box">
+        <CardList>
+          <NullImages />
+        </CardList>
+      </div>
+
+      {/* ▼ 내용 입력하기 */}
+      <div className="content box">
+        <TextArea className="content" placeholder="내용을 입력하세요." />
+      </div>
     </form>
   );
 };
