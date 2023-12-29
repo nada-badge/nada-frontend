@@ -1,26 +1,24 @@
-import styled from 'styled-components';
 import { SearchInput } from '../../components/search/SearchInput';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../../modules/bar';
 import { SearchCategory } from '../../components/search/SearchCategory';
-import SortOrder from '../../components/search/SortOrder';
-
-const Container = styled.div`
-  background-color: var(--myspec-gray-scalegray-100);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 375px;
-  height: 100vh; // 수정가능
-
-  & > div {
-    background-color: white;
-  }
-`;
+import PostList from '../../containers/community/PostList';
+import { AlignBox } from '../../components/badge/AlignBox';
 
 const SearchActivityPage = () => {
+  const ContainerStyle = {
+    display: ' flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    margin: ' 0 auto',
+    width: ' 375px',
+  };
+
+  const ResultStyle = {
+    padding: '7px 15px',
+  };
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,12 +28,14 @@ const SearchActivityPage = () => {
   }, []);
 
   return (
-    <Container>
+    <div style={ContainerStyle}>
       <SearchInput />
       <SearchCategory list={['제목', '본문', '작성자']} />
-      <SortOrder />
-      {/* 활동 리스트 */}
-    </Container>
+      <div style={ResultStyle}>
+        <AlignBox text={'최신 순'} />
+        <PostList />
+      </div>
+    </div>
   );
 };
 
