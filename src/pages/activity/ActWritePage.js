@@ -71,13 +71,17 @@ const InputInfo = styled.div`
         border-radius: 6px;
         background: var(--myspec-gray-scalegray-100);
         padding: 6px 8px;
-      }
 
-      input::placeholder {
-        ${applyFontStyles({
-          font: 'caption-02',
-          color: 'var(--myspec-gray-scalegray-400)',
-        })};
+        &::placeholder {
+          ${applyFontStyles({
+            font: 'caption-02',
+            color: 'var(--myspec-gray-scalegray-400)',
+          })};
+        }
+
+        &:focus {
+          outline-width: 0;
+        }
       }
     }
   }
@@ -119,7 +123,7 @@ const ActWritePage = () => {
                 placeholder="주최 기관명을 작성해주세요."
               />
               <input
-                className="groupUrl"
+                className="intstituteURL"
                 placeholder="📎 주최 기관 홈페이지를 입력하세요. "
               />
             </div>
