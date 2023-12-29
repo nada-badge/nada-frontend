@@ -9,6 +9,7 @@ import Filter from '../../components/common/filter/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { Grid } from 'react-virtualized';
 import { useGetActivities } from '../../modules/activity/useGetActivities';
+import { AlignBox } from '../../components/badge/AlignBox';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -86,6 +87,7 @@ const ActivityPage = () => {
       <div>
         <div className="filter">
           <Filter />
+          <AlignBox text={'최신 순'} />
         </div>
         <Grid
           cellRenderer={cellRenderer}
