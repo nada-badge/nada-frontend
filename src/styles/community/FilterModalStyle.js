@@ -16,6 +16,10 @@ export const Filter = styled.div`
     gap: 8px;
     padding: 4px 12px;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const TextWarpper = styled.div`
