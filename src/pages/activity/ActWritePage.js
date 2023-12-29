@@ -5,6 +5,7 @@ import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { LinkSvg } from '../../icon/LinkSvg';
 
 const ImgContainer = styled.div`
   width: 100%;
@@ -83,6 +84,32 @@ const InputInfo = styled.div`
           outline-width: 0;
         }
       }
+      & > .urlBox {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        background: var(--myspec-gray-scalegray-100);
+        padding: 6px 8px;
+        gap: 4px;
+
+        & > input {
+          border: none;
+          padding: 0px;
+          background-color: inherit;
+          &::placeholder {
+            ${applyFontStyles({
+              font: 'caption-02',
+              color: 'var(--myspec-gray-scalegray-400)',
+            })};
+          }
+
+          &:focus {
+            outline-width: 0;
+          }
+        }
+      }
     }
   }
 `;
@@ -122,10 +149,13 @@ const ActWritePage = () => {
                 className="groupName"
                 placeholder="주최 기관명을 작성해주세요."
               />
-              <input
-                className="intstituteURL"
-                placeholder="📎 주최 기관 홈페이지를 입력하세요. "
-              />
+              <div className="urlBox">
+                <LinkSvg size={14} />
+                <input
+                  className="intstituteURL"
+                  placeholder="주최 기관 홈페이지를 입력하세요. "
+                />
+              </div>
             </div>
           </div>
           <div className="area box">
