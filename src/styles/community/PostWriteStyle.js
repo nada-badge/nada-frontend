@@ -97,6 +97,8 @@ export const PreViewImg = styled.div`
     width: 72px;
     height: 72px;
     border-radius: 10px;
+    background-size: 100%;
+    background-image: ${({ imgurl }) => `url('${imgurl}')`};
   }
   & > .xImg {
     position: absolute;

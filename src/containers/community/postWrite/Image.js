@@ -1,27 +1,21 @@
 /** Image 글작성 페이지에 Image 출력하는 컴테이너  */
 import { Images, PreViewImg } from '../../../styles/community/PostWriteStyle';
-import { useState } from 'react';
 import { X } from '../../../components/common/icon/X';
-import useImageQuery from '../../../modules/queries/useImageQuery';
 import { SkeletonImageSvg } from '../../../icon/SkeletonImageSvg';
+import useImageQuery from '../../../modules/queries/useImageQuery';
 
-export const Image = () => {
-  const [imgFiles, setImgFiles] = useState([]);
+export const Image = ({ imgFiles, setImgFiles }) => {
+  const { mutateAsync } = useImageQuery();
 
   const deleteImgFile = (img) => {
     setImgFiles((prevFiles) => prevFiles.filter((file) => file !== img));
   };
 
-  const saveImgFile = (e) => {
-    const files = e.target.files;
+  const saveImgFile = async (e) => {
+    const files = Array.from(e.target.files);
+    const result = await mutateAsync({ section: 'community', files: files });
 
-    [...files].forEach((file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        setImgFiles((prevFiles) => [...prevFiles, reader.result]);
-      };
-    });
+    setImgFiles((prevFiles) => [...prevFiles, result]);
   };
 
   return (
@@ -35,19 +29,17 @@ export const Image = () => {
         type="file"
         accept="image/*"
         id="upload-photo"
-        name="profile_img"
+        name="img"
         onChange={saveImgFile}
       ></input>
-      {imgFiles.map((imgFile) => {
-        return (
-          <PreViewImg>
-            <img src={imgFile} alt="미리보기" className="img" />
-            <div className="xImg" onClick={() => deleteImgFile(imgFile)}>
-              <X color="#888888" />
-            </div>
-          </PreViewImg>
-        );
-      })}
+      {imgFiles.map((imgFile, index) => (
+        <PreViewImg key={index} imgurl={imgFile[0].path}>
+          <div className="img" />
+          <div className="xImg" onClick={() => deleteImgFile(imgFile)}>
+            <X color="#888888" />
+          </div>
+        </PreViewImg>
+      ))}
     </Images>
   );
 };
