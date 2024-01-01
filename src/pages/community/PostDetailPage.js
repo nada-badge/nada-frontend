@@ -24,7 +24,7 @@ const PostDetail = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <ContentsList>
         <div className="title">
           <div className="p">{title}</div>
@@ -43,7 +43,7 @@ const PostDetail = () => {
         </div>
       </ContentsList>
       <BottomBar />
-    </div>
+    </>
   );
 };
 
