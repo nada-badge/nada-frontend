@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useInterestedMutation } from '../../../modules/queries/InterestedActivityQuery';
+import { useQuery } from '@tanstack/react-query';
+import client from '../../../lib/api/client';
+import { useEffect } from 'react';
 
 export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);
@@ -7,6 +10,25 @@ export const Star = ({ _id }) => {
   // 관심활동 등록 (OK) / 삭제 기능
   const { mutate } = useInterestedMutation();
   const email = localStorage.getItem('email');
+
+  // //북마크 여부 서버에서 불러오기
+  const { data } = useQuery({
+    queryKey: ['isBookmarked'],
+    queryFn: async () => {
+      const { data } = await client.get('/calendar/bookmark', {
+        params: {
+          email: email,
+          _id: _id,
+        },
+      });
+      return data.isBookmarked;
+    },
+  });
+
+  useEffect(() => {
+    setActive(data);
+  }, [data, setActive]);
+
   const onClick = async () => {
     setActive(!active);
 
