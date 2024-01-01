@@ -8,11 +8,11 @@ import {
   postWriteSelector,
 } from '../../modules/community/postWrite';
 import { setBarStatus } from '../../modules/bar';
-import { PostContainer, Border } from '../../styles/community/PostWriteStyle';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Content } from '../../containers/community/postWrite/Content';
 import { Image } from '../../containers/community/postWrite/Image';
+import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
@@ -91,17 +91,20 @@ const PostWrite = () => {
   };
 
   return (
-    <PostContainer>
-      <form onSubmit={OnSubmit} encType="multipart/form-data">
-        <Title onChange={onChange} inputValue={inputValue} />
-        <Border />
+    <form
+      className="pageContainer"
+      onSubmit={OnSubmit}
+      encType="multipart/form-data"
+    >
+      <Title onChange={onChange} inputValue={inputValue} />
+      <div>
         <FilterBar />
         <Content onChange={onChange} inputValue={inputValue} />
-        <Border />
-        <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
-        <button>테스트 제출 버튼</button>
-      </form>
-    </PostContainer>
+      </div>
+      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
+
+      <button>테스트 제출 버튼</button>
+    </form>
   );
 };
 
