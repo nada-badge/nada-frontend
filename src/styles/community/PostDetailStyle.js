@@ -49,6 +49,7 @@ export const ContentsList = styled.div`
     gap: 10px 12px;
     padding: 12px 15px 84px;
     position: relative;
+    flex-wrap: wrap;
 
     & > .text {
       ${applyFontStyles({
