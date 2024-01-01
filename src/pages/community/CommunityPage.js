@@ -9,13 +9,10 @@ import { PostWriteButton } from '../../containers/community/PostWriteButton';
 import { setBarStatus } from '../../modules/bar';
 import { initializeAll } from '../../modules/filter';
 import { initializeAll as initializeAllPostWrite } from '../../modules/community/postWrite';
-import {
-  CommunityPage,
-  Border,
-  Contents,
-} from '../../styles/community/CommunityStyle';
+import { Border, Contents } from '../../styles/community/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../components/search/SearchInput';
+import '../../styles/PageCommon.scss';
 
 const Community = () => {
   const dispatch = useDispatch();
@@ -39,24 +36,26 @@ const Community = () => {
   }, []);
 
   return (
-    <CommunityPage>
-      <SearchInput />
-      <CardList
-        title={'지금 인기 있는 게시글이에요🔥'}
-        title_font={'subtitle-01'}
-      >
-        <BoardCardItem cards={community_cards} />
-      </CardList>
-      <Contents>
-        <div className="content">
-          <Category />
-          <Border />
-          <Filter />
-          <PostList />
-        </div>
-      </Contents>
+    <>
+      <div className="pageContainer">
+        <SearchInput />
+        <CardList
+          title={'지금 인기 있는 게시글이에요🔥'}
+          title_font={'subtitle-01'}
+        >
+          <BoardCardItem cards={community_cards} />
+        </CardList>
+        <Contents>
+          <div className="content">
+            <Category />
+            <Border />
+            <Filter />
+            <PostList />
+          </div>
+        </Contents>
+      </div>
       <PostWriteButton />
-    </CommunityPage>
+    </>
   );
 };
 
