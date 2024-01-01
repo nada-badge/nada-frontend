@@ -46,7 +46,6 @@ export const ContentsList = styled.div`
     background-color: var(--myspec-gray-scalewhite);
     display: flex;
     flex: 0 0 auto;
-    flex-wrap: wrap;
     gap: 10px 12px;
     padding: 12px 15px 84px;
     position: relative;
@@ -56,9 +55,7 @@ export const ContentsList = styled.div`
         font: 'body-01',
         color: 'var(--myspec-gray-scalegray-900)',
       })};
-      margin-top: -1px;
-      position: relative;
-      width: 345px;
+      word-break: break-all;
       text-align: left;
     }
   }
