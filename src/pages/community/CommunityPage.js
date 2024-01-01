@@ -1,6 +1,6 @@
 /** CommunityPage 커뮤니티 메인 페이지 */
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CardList from '../../components/cardList/CardList';
 import PostList from '../../containers/community/PostList';
 import Category from '../../containers/community/Category';
@@ -16,6 +16,7 @@ import {
 } from '../../styles/community/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../components/search/SearchInput';
+import { changePostDetailField } from '../../modules/community/postDetail';
 
 const Community = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Community = () => {
     { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
     { id: 3, title: '팀원 모집합니다.', category: '홍보' },
   ];
+
   useEffect(() => {
     dispatch(
       setBarStatus({
@@ -37,6 +39,12 @@ const Community = () => {
       dispatch(initializeAll());
     };
   }, []);
+
+  const filter = useSelector(({ filter }) => filter);
+
+  const setData = (card) => {
+    dispatch(changePostDetailField({ value: card }));
+  };
 
   return (
     <CommunityPage>
@@ -52,7 +60,7 @@ const Community = () => {
           <Category />
           <Border />
           <Filter />
-          <PostList />
+          <PostList type={'community'} filter={filter} setData={setData} />
         </div>
       </Contents>
       <PostWriteButton />

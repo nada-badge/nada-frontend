@@ -2,20 +2,28 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 
-const useListQuery = ({ mainCategory, region, field, category }) => {
+const useListQuery = ({ type, filter }) => {
   return useQuery(
-    ['getPostList', mainCategory, region, field, category],
+    ['getPostList', type, filter],
     async () => {
-      const resp = await client.get('/community/post/list', {
-        params: {
-          mainCategory: mainCategory,
-          region: region,
-          field: field,
-          category: category,
-        },
-      });
+      // 커뮤니티 게시글 리스트
+      if (type === 'community') {
+        const { buttonSelect, subButtonSelect } = filter;
+        const resp = await client.get('/community/post/list', {
+          params: {
+            mainCategory: buttonSelect.maincategory,
+            region: subButtonSelect.region,
+            field: subButtonSelect.field,
+            category: subButtonSelect.category,
+          },
+        });
 
-      return resp.data.posts.reverse();
+        return resp.data.posts.reverse();
+
+        // 활동 검색 리스트
+      } else if (type === 'activity') {
+        const data = await client.get('/');
+      }
     },
     {
       retry: (failureCount, error) => {
