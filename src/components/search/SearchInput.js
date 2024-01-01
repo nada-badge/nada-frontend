@@ -1,60 +1,61 @@
-import { subtitle_02 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const InputWrapper = styled.div`
-  background: var(--myspec-gray-scale-white);
+const Form = styled.form`
   display: flex;
-  width: calc(375px - 30px);
-  height: calc(64px - 24px);
-  padding: 12px 15px;
-  justify-content: center;
-  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+  align-items: flex-start;
+  justify-content: space-between;
   flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--myspec-gray-scalegray-100);
 
-  & > form {
-    display: flex;
-    width: calc(345px - 24px);
-    height: calc(40px - 16px);
-    padding: 8px 12px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: calc(168px - 30px);
-    flex-shrink: 0;
-    border-radius: 10px;
+  & > .Input {
+    ${applyFontStyles({
+      font: 'subtitle-02',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })}
     background: var(--myspec-gray-scalegray-100);
+    border: none;
+    background-color: none;
 
-    & > .Input {
-      ${subtitle_02('var(--myspec-gray-scalegray-600)')}
-      background: var(--myspec-gray-scalegray-100);
-      border: none;
-      background-color: none;
-
-      &:focus {
-        outline: none;
-      }
-
-      &:focus::placeholder {
-        color: transparent;
-      }
+    &:focus {
+      outline: none;
     }
 
-    & > button {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      background: none;
-      border: none;
-      padding: 0;
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
 
-      &:hover {
-        cursor: pointer;
-      }
+  & > button {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 `;
 
 export const SearchInput = () => {
+  const InputWrapper = {
+    width: '100%',
+    display: 'flex',
+    boxSizing: 'border-box',
+    padding: '12px 15px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexShrink: 0,
+  };
+
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -63,8 +64,8 @@ export const SearchInput = () => {
   };
 
   return (
-    <InputWrapper>
-      <form onSubmit={onSubmit}>
+    <div style={InputWrapper}>
+      <Form onSubmit={onSubmit}>
         <input className="Input" placeholder="검색어를 입력하세요." required />
         <button>
           <svg
@@ -90,7 +91,7 @@ export const SearchInput = () => {
             />
           </svg>
         </button>
-      </form>
-    </InputWrapper>
+      </Form>
+    </div>
   );
 };
