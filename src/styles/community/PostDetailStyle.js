@@ -6,15 +6,16 @@ export const ContentsList = styled.div`
   display: inline-flex;
   flex-direction: column;
   position: relative;
+  width: 375px;
+  box-sizing: border-box;
 
   & > .title {
     background-color: var(--myspec-gray-scalewhite);
     flex: 0 0 auto;
-    flex-wrap: wrap;
-    gap: 10px 8px;
+
     padding: 8px 15px;
     position: relative;
-    width: 345px;
+
     & > .p {
       ${applyFontStyles({
         font: 'title-02',
@@ -38,7 +39,6 @@ export const ContentsList = styled.div`
     gap: 8px;
     padding: 8px 15px;
     position: relative;
-    width: 375px;
   }
 
   & > .content {
@@ -50,7 +50,7 @@ export const ContentsList = styled.div`
     gap: 10px 12px;
     padding: 12px 15px 84px;
     position: relative;
-    width: 375px;
+
     & > .text {
       ${applyFontStyles({
         font: 'body-01',
@@ -66,9 +66,10 @@ export const ContentsList = styled.div`
 
 export const ViewImg = styled.div`
   position: relative;
-
   width: 345px;
-  height: 345px;
-  background-size: 100%;
+  height: 450px;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: contain;
   background-image: ${({ imgurl }) => `url('${imgurl}')`};
 `;
