@@ -16,7 +16,8 @@ import { Image } from '../../containers/community/postWrite/Image';
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
-  const update = useUpdate().mutate;
+  const updateMutate = useUpdate().mutate;
+
   const dispatch = useDispatch();
 
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
@@ -26,6 +27,7 @@ const PostWrite = () => {
     title: PostDetail.title,
     content: PostDetail.content,
   });
+  const [imgFiles, setImgFiles] = useState([]);
 
   useEffect(() => {
     dispatch(
@@ -57,6 +59,8 @@ const PostWrite = () => {
     const title = e.target.title.value;
     const content = e.target.content.value;
 
+    const imageUrl = imgFiles;
+
     dispatch(initializeAll());
     if (isSubmit) {
       mutate({
@@ -68,9 +72,10 @@ const PostWrite = () => {
         regions,
         title,
         content,
+        imageUrl,
       });
     } else {
-      update({
+      updateMutate({
         _id,
         userEmail,
         userName,
@@ -80,19 +85,20 @@ const PostWrite = () => {
         regions,
         title,
         content,
+        imageUrl,
       });
     }
   };
 
   return (
     <PostContainer>
-      <form onSubmit={OnSubmit}>
+      <form onSubmit={OnSubmit} encType="multipart/form-data">
         <Title onChange={onChange} inputValue={inputValue} />
         <Border />
         <FilterBar />
         <Content onChange={onChange} inputValue={inputValue} />
         <Border />
-        <Image />
+        <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
         <button>테스트 제출 버튼</button>
       </form>
     </PostContainer>
