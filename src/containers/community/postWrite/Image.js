@@ -15,7 +15,9 @@ export const Image = ({ imgFiles, setImgFiles }) => {
     const files = Array.from(e.target.files);
     const result = await mutateAsync({ section: 'community', files: files });
 
-    setImgFiles((prevFiles) => [...prevFiles, result]);
+    result.forEach((item) => {
+      setImgFiles((prevFiles) => [...prevFiles, item.path]);
+    });
   };
 
   return (
@@ -33,7 +35,7 @@ export const Image = ({ imgFiles, setImgFiles }) => {
         onChange={saveImgFile}
       ></input>
       {imgFiles.map((imgFile, index) => (
-        <PreViewImg key={index} imgurl={imgFile[0].path}>
+        <PreViewImg key={index} imgurl={imgFile}>
           <div className="img" />
           <div className="xImg" onClick={() => deleteImgFile(imgFile)}>
             <X color="#888888" />
