@@ -20,15 +20,22 @@ const PostList = ({ type, filter, setData }) => {
 
   return (
     <div>
-      {data.map((card) => (
-        <Link
-          to={`/${type}/PostDetail/${card._id}`}
-          key={card._id}
-          onClick={() => setData(card)}
-        >
-          <PostItem key={card._id} card={card} />
-        </Link>
-      ))}
+      {type === 'community' &&
+        data.map((card) => (
+          <Link
+            to={`/${type}/PostDetail/${card._id}`}
+            key={card._id}
+            onClick={() => setData(card)}
+          >
+            <PostItem key={card._id} card={card} />
+          </Link>
+        ))}
+      {type === 'activity' &&
+        data.map((card) => (
+          <Link to={`/${type}/DetailActivity/${card._id}`} key={card._id}>
+            <PostItem key={card._id} card={card} />
+          </Link>
+        ))}
     </div>
   );
 };

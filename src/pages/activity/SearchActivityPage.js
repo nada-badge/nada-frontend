@@ -33,7 +33,7 @@ const SearchActivityPage = () => {
       <SearchCategory list={['제목', '본문', '작성자']} />
       <div style={ResultStyle}>
         <AlignBox text={'최신 순'} />
-        <PostList />
+        <PostList type={'activity'} filter={'activity'} />
       </div>
     </div>
   );
