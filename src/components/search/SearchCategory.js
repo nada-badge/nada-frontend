@@ -26,9 +26,7 @@ const CartegoryList = styled.div`
   }
 `;
 
-export const SearchCategory = ({ list }) => {
-  const [focus, setFocus] = useState('제목');
-
+export const SearchCategory = ({ list, focus, setFocus }) => {
   const onClick = (e) => {
     e.preventDefault();
     setFocus(e.target.innerText);

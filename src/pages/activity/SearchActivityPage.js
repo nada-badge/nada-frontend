@@ -1,5 +1,5 @@
 import { SearchInput } from '../../components/search/SearchInput';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../../modules/bar';
 import { SearchCategory } from '../../components/search/SearchCategory';
@@ -27,13 +27,19 @@ const SearchActivityPage = () => {
     );
   }, []);
 
+  const [focus, setFocus] = useState('제목');
+
   return (
     <div style={ContainerStyle}>
       <SearchInput />
-      <SearchCategory list={['제목', '본문', '작성자']} />
+      <SearchCategory
+        list={['제목', '본문', '작성자']}
+        focus={focus}
+        setFocus={setFocus}
+      />
       <div style={ResultStyle}>
         <AlignBox text={'최신 순'} />
-        <PostList type={'activity'} filter={'activity'} />
+        <PostList type={'activity'} filter={focus} />
       </div>
     </div>
   );
