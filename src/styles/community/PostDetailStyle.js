@@ -14,7 +14,7 @@ export const ContentsList = styled.div`
     gap: 10px 8px;
     padding: 8px 15px;
     position: relative;
-    width: 375px;
+    width: 345px;
     & > .p {
       ${applyFontStyles({
         font: 'title-02',
@@ -62,4 +62,13 @@ export const ContentsList = styled.div`
       text-align: left;
     }
   }
+`;
+
+export const ViewImg = styled.div`
+  position: relative;
+
+  width: 345px;
+  height: 345px;
+  background-size: 100%;
+  background-image: ${({ imgurl }) => `url('${imgurl}')`};
 `;
