@@ -21,6 +21,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import './styles/common.scss';
 import './styleguide.css';
+import searchSlice from './modules/search/search.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const store = configureStore({
     filter: filterSlice.reducer,
     postwrite: postWriteSlice.reducer,
     postdetail: PostDetailSlice.reducer,
+    search: searchSlice.reducer,
   },
   devTools: true,
 });
