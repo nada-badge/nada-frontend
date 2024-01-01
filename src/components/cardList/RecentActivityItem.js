@@ -8,7 +8,7 @@ const RecentActivityItem = ({ cards }) => {
     <>
       {cards.map(([_id, content]) => (
         <CardContainer key={_id}>
-          <Link to={`/activity/${_id}`}>
+          <Link to={`/activity/DetailActivity/${_id}`}>
             <div>
               <div className="title">{content.title}</div>
               <div className="team">{content.team}</div>

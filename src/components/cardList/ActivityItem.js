@@ -64,7 +64,7 @@ const ActivityItem = ({ cards, style }) => {
       <Link
         style={{ style, textDecorationLine: 'none' }}
         key={card.idx}
-        to={`/activity/${card._id}`}
+        to={`/activity/DetailActivity/${card._id}`}
       >
         <ImgContainer $imgsrc={card.imageUrl}>
           <Dday
