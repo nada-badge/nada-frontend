@@ -12,14 +12,19 @@ const PostList = ({ type, setData, result }) => {
     return <ErrorMessage />;
   }
 
+  const path = {
+    activity: 'DetailActivity',
+    community: 'PostDetail',
+  };
+
   return (
     <div>
       {data &&
         data.map((card) => (
           <Link
-            to={`/community/PostDetail/${card._id}`}
+            to={`/${type}/${path[type]}/${card._id}`}
             key={card._id}
-            onClick={() => setData(card)}
+            onClick={() => (setData ? setData(card) : {})}
           >
             <PostItem key={card._id} card={card} />
           </Link>
