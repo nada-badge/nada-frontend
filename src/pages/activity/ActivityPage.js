@@ -11,6 +11,7 @@ import { Grid } from 'react-virtualized';
 import { useGetActivities } from '../../modules/activity/useGetActivities';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useNavigate } from 'react-router-dom';
+import { changeField } from '../../modules/search/search';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -76,6 +77,10 @@ const ActivityPage = () => {
     },
     [activities],
   );
+
+  useEffect(() => {
+    dispatch(changeField({ value: '' }));
+  }, []);
 
   const rowCount = Math.ceil(activities.length / 2);
 
