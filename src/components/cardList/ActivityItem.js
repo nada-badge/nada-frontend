@@ -58,8 +58,11 @@ const ActivityItem = ({ cards, style }) => {
     ...style,
   };
 
+  const transNumber = (value) => {
+    return parseInt(value.replace(/[^\d-]/g, ''), 10);
+  };
+  
   const CardWrapper = (card) => {
-    const result_date = parseInt(card.Dday.replace(/[^\d-]/g, ''), 10);
     return (
       <Link
         style={{ style, textDecorationLine: 'none' }}
@@ -68,7 +71,11 @@ const ActivityItem = ({ cards, style }) => {
       >
         <ImgContainer $imgsrc={card.imageUrl}>
           <Dday
-            className={result_date >= -14 && result_date <= 0 ? 'active' : null}
+            className={
+              transNumber(card.Dday) >= -14 && transNumber(card.Dday) <= 0
+                ? 'active'
+                : null
+            }
           >{`D ${card.Dday}`}</Dday>
         </ImgContainer>
         <Title>{card.activityName}</Title>
