@@ -1,5 +1,5 @@
 /** CommunityPage 커뮤니티 메인 페이지 */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardList from '../../components/cardList/CardList';
 import PostList from '../../containers/community/PostList';
