@@ -10,7 +10,7 @@ const PostList = ({ type, dataSet, setData, isLoading, isError }) => {
   if (isError) {
     return <ErrorMessage />;
   }
-  
+
   return (
     <div>
       {dataSet &&

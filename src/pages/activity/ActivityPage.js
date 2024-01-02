@@ -10,6 +10,7 @@ import ActivityItem from '../../components/cardList/ActivityItem';
 import { Grid } from 'react-virtualized';
 import { useGetActivities } from '../../modules/activity/useGetActivities';
 import { AlignBox } from '../../components/badge/AlignBox';
+import { useNavigate } from 'react-router-dom';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -78,9 +79,15 @@ const ActivityPage = () => {
 
   const rowCount = Math.ceil(activities.length / 2);
 
+  const navigate = useNavigate();
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/activity/search');
+  };
+
   return (
     <ActivityContainer>
-      <SearchInput />
+      <SearchInput onSubmit={onSubmit} />
       <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
         <RecentActivityItem cards={cards} />
       </CardList>

@@ -1,6 +1,5 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, searchSelector } from '../../modules/search/search';
 
@@ -47,7 +46,7 @@ const Form = styled.form`
   }
 `;
 
-export const SearchInput = () => {
+export const SearchInput = ({ onSubmit }) => {
   const InputWrapper = {
     width: '100%',
     display: 'flex',
@@ -58,8 +57,6 @@ export const SearchInput = () => {
     flexShrink: 0,
   };
 
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const search = useSelector(searchSelector);
@@ -68,16 +65,12 @@ export const SearchInput = () => {
     dispatch(changeField({ value: e.target.value }));
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    navigate('/activity/search');
-  };
-
   return (
     <div style={InputWrapper}>
       <Form onSubmit={onSubmit}>
         <input
           className="Input"
+          name="searchInput"
           placeholder="검색어를 입력하세요."
           required
           onChange={onChange}
