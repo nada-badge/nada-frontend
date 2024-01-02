@@ -1,5 +1,5 @@
 /** CommunityPage 커뮤니티 메인 페이지 */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardList from '../../components/cardList/CardList';
 import PostList from '../../containers/community/PostList';
@@ -16,6 +16,7 @@ import {
 } from '../../styles/community/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../components/search/SearchInput';
+import useListQuery from '../../modules/queries/useListQuery';
 import { changePostDetailField } from '../../modules/community/postDetail';
 
 const Community = () => {
@@ -42,6 +43,16 @@ const Community = () => {
 
   const filter = useSelector(({ filter }) => filter);
 
+  // 서버에서 가져온 post 데이터 가져오기
+  const [post, setPost] = useState([]);
+  const { data, isLoading, isError } = useListQuery({ filter: filter });
+
+  useEffect(() => {
+    if (data) {
+      setPost(data);
+    }
+  }, [data]);
+
   const setData = (card) => {
     dispatch(changePostDetailField({ value: card }));
   };
@@ -60,7 +71,15 @@ const Community = () => {
           <Category />
           <Border />
           <Filter />
-          <PostList type={'community'} filter={filter} setData={setData} />
+          {post && (
+            <PostList
+              type={'community'}
+              dataSet={post}
+              setData={setData}
+              isLoading={isLoading}
+              isError={isError}
+            />
+          )}
         </div>
       </Contents>
       <PostWriteButton />
