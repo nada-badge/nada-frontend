@@ -29,29 +29,24 @@ const SearchActivityPage = () => {
     );
   }, []);
 
-  const search = useSelector(searchSelector);
-  const [focus, setFocus] = useState('제목');
-  const [value, setValue] = useState(search);
+  const { text, focus } = useSelector(searchSelector);
+  const [input, setInput] = useState(text);
 
   // 서버에서 검색 결과 불러오기
   const result = useSearchQuery({
     focus: focus,
-    value: value.value,
+    value: input,
   });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setValue(search);
+    setInput(text);
   };
 
   return (
     <div style={ContainerStyle}>
       <SearchInput onSubmit={onSubmit} />
-      <SearchCategory
-        list={['제목', '본문', '작성자']}
-        focus={focus}
-        setFocus={setFocus}
-      />
+      <SearchCategory list={['제목', '본문', '작성자']} focus={focus} />
       <div style={ResultStyle}>
         <AlignBox text={'최신 순'} />
         <PostList type={'activity'} result={result} />

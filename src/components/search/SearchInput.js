@@ -59,10 +59,10 @@ export const SearchInput = ({ onSubmit }) => {
 
   const dispatch = useDispatch();
 
-  const search = useSelector(searchSelector);
+  const { text } = useSelector(searchSelector);
 
   const onChange = (e) => {
-    dispatch(changeField({ value: e.target.value }));
+    dispatch(changeField({ key: 'text', value: e.target.value }));
   };
 
   return (
@@ -74,7 +74,7 @@ export const SearchInput = ({ onSubmit }) => {
           placeholder="검색어를 입력하세요."
           required
           onChange={onChange}
-          value={search.value}
+          value={text}
         />
         <button>
           <svg

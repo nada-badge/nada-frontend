@@ -1,15 +1,16 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: '',
+  focus: '제목',
+  text: '',
 };
 
 const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    changeField: (state, { payload: { value } }) => {
-      state.value = value;
+    changeField: (state, { payload: { key, value } }) => {
+      state[key] = value;
     },
   },
 });
@@ -17,8 +18,9 @@ const searchSlice = createSlice({
 export default searchSlice;
 export const { changeField } = searchSlice.actions;
 
-const searchSelect = (rootState) =>
-  rootState.search?.value || initialState.value;
-export const searchSelector = createSelector(searchSelect, (value) => ({
-  value,
+const searchSelect = (state) => state.search || initialState;
+
+export const searchSelector = createSelector(searchSelect, (field) => ({
+  text: field.text,
+  focus: field.focus,
 }));
