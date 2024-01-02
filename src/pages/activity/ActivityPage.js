@@ -8,10 +8,10 @@ import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { Grid } from 'react-virtualized';
-import { useGetActivities } from '../../modules/activity/useGetActivities';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../modules/search/search';
+import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
 
 const ActivityContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -38,7 +38,7 @@ const ActivityPage = () => {
   const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
-  const data = useGetActivities();
+  const { data } = useActivityListQuery();
 
   useEffect(() => {
     if (data) {

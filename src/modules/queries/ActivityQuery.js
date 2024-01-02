@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../lib/api/client';
+import { calculateDday } from '../activity/calculateDday';
 
 export const useActivityQuery = ({ _id }) => {
   return useQuery({
@@ -33,5 +34,15 @@ export const useActivityListQuery = ({
       });
       return data;
     },
+
+    select: (data) =>
+      (data.activities || []).map(
+        ({ _id, activityName, endedAt, imageUrl }) => ({
+          _id: _id,
+          activityName: activityName,
+          Dday: calculateDday(endedAt),
+          imageUrl: imageUrl,
+        }),
+      ),
   });
 };

@@ -5,12 +5,12 @@ import '../../styles/calendar/Calendar.scss';
 import '../../styles/calendar/WeekCalendar.scss';
 import TodayBox from '../../components/calendar/today';
 import EventBox from '../../components/calendar/event';
-import { useGetEvents } from '../../modules/calendar/useGetEvents';
+import useEventsQuery from '../../modules/queries/EventQuery';
 
 const WeekCalendar = () => {
   // 서버에서 가져온 데이터
   const [dateSet, setDateSet] = useState({ start: '', end: '' });
-  const events = useGetEvents(dateSet);
+  const { data: events } = useEventsQuery(dateSet);
 
   return (
     <>
