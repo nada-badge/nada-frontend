@@ -33,7 +33,8 @@ const SearchActivityPage = () => {
   const [focus, setFocus] = useState('제목');
   const [value, setValue] = useState(search);
 
-  const { data, isLoading, isError } = useSearchQuery({
+  // 서버에서 검색 결과 불러오기
+  const result = useSearchQuery({
     focus: focus,
     value: value.value,
   });
@@ -53,12 +54,7 @@ const SearchActivityPage = () => {
       />
       <div style={ResultStyle}>
         <AlignBox text={'최신 순'} />
-        <PostList
-          type={'activity'}
-          dataSet={data}
-          isLoading={isLoading}
-          isError={isError}
-        />
+        <PostList type={'activity'} result={result} />
       </div>
     </div>
   );

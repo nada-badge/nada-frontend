@@ -43,15 +43,8 @@ const Community = () => {
 
   const filter = useSelector(({ filter }) => filter);
 
-  // 서버에서 가져온 post 데이터 가져오기
-  const [post, setPost] = useState([]);
-  const { data, isLoading, isError } = useListQuery({ filter: filter });
-
-  useEffect(() => {
-    if (data) {
-      setPost(data);
-    }
-  }, [data]);
+  // 서버에서 가져온 query 결과 가져오기
+  const result = useListQuery({ filter: filter });
 
   const setData = (card) => {
     dispatch(changePostDetailField({ value: card }));
@@ -71,14 +64,8 @@ const Community = () => {
           <Category />
           <Border />
           <Filter />
-          {post && (
-            <PostList
-              type={'community'}
-              dataSet={post}
-              setData={setData}
-              isLoading={isLoading}
-              isError={isError}
-            />
+          {result && (
+            <PostList type={'community'} setData={setData} result={result} />
           )}
         </div>
       </Contents>
