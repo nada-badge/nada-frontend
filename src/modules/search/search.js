@@ -12,11 +12,14 @@ const searchSlice = createSlice({
     changeField: (state, { payload: { key, value } }) => {
       state[key] = value;
     },
+    initialized: () => {
+      return initialState;
+    },
   },
 });
 
 export default searchSlice;
-export const { changeField } = searchSlice.actions;
+export const { changeField, initialized } = searchSlice.actions;
 
 const searchSelect = (state) => state.search || initialState;
 
