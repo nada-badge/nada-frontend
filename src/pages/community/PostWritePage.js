@@ -8,15 +8,16 @@ import {
   postWriteSelector,
 } from '../../modules/community/postWrite';
 import { setBarStatus } from '../../modules/bar';
-import { PostContainer, Border } from '../../styles/community/PostWriteStyle';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Content } from '../../containers/community/postWrite/Content';
 import { Image } from '../../containers/community/postWrite/Image';
+import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
   const { mutate } = useSubmit();
-  const update = useUpdate().mutate;
+  const updateMutate = useUpdate().mutate;
+
   const dispatch = useDispatch();
 
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
@@ -26,6 +27,7 @@ const PostWrite = () => {
     title: PostDetail.title,
     content: PostDetail.content,
   });
+  const [imgFiles, setImgFiles] = useState([]);
 
   useEffect(() => {
     dispatch(
@@ -57,6 +59,8 @@ const PostWrite = () => {
     const title = e.target.title.value;
     const content = e.target.content.value;
 
+    const imageUrl = imgFiles;
+
     dispatch(initializeAll());
     if (isSubmit) {
       mutate({
@@ -68,9 +72,10 @@ const PostWrite = () => {
         regions,
         title,
         content,
+        imageUrl,
       });
     } else {
-      update({
+      updateMutate({
         _id,
         userEmail,
         userName,
@@ -80,22 +85,26 @@ const PostWrite = () => {
         regions,
         title,
         content,
+        imageUrl,
       });
     }
   };
 
   return (
-    <PostContainer>
-      <form onSubmit={OnSubmit}>
-        <Title onChange={onChange} inputValue={inputValue} />
-        <Border />
+    <form
+      className="pageContainer"
+      onSubmit={OnSubmit}
+      encType="multipart/form-data"
+    >
+      <Title onChange={onChange} inputValue={inputValue} />
+      <div>
         <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
-        <Border />
-        <Image />
-        <button>테스트 제출 버튼</button>
-      </form>
-    </PostContainer>
+      </div>
+      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
+
+      <button>테스트 제출 버튼</button>
+    </form>
   );
 };
 
