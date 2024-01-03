@@ -6,7 +6,7 @@ import Button from '../../../components/auth/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelector, changeField } from '../../../modules/auth';
 
-export const TeamTypeForm = ({ order, onSubmit }) => {
+const TeamTypeForm = ({ order, onSubmit }) => {
   const [teamType, setTeamType] = useState([
     { id: 11, text: '교내 동아리', checked: false },
     { id: 12, text: '연합 동아리', checked: false },
@@ -68,3 +68,5 @@ export const TeamTypeForm = ({ order, onSubmit }) => {
     </div>
   );
 };
+
+export default TeamTypeForm;
