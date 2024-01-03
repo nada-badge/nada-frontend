@@ -36,7 +36,7 @@ const DetailActivityPage = () => {
         JSON.parse(localStorage.getItem('recentActivitiesMap')) || [],
       );
 
-      // 기존 게시글 삭제하기
+      // 기존 게시글 삭제하기 (중복제거)
       recentActivitiesMap.delete(info._id);
 
       // 새로운 활동 추가하기
