@@ -47,9 +47,7 @@ const ActivityPage = () => {
   }, [data, activities]);
 
   // 최근 본 게시글
-  const cards = JSON.parse(
-    localStorage.getItem('recentActivitiesMap'),
-  ).reverse();
+  const recent = JSON.parse(localStorage.getItem('recentActivitiesMap'));
 
   useEffect(() => {
     dispatch(
@@ -93,9 +91,11 @@ const ActivityPage = () => {
   return (
     <ActivityContainer>
       <SearchInput onSubmit={onSubmit} />
-      <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
-        <RecentActivityItem cards={cards} />
-      </CardList>
+      {recent && (
+        <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
+          <RecentActivityItem cards={recent.reverse()} />
+        </CardList>
+      )}
       <div>
         <div className="filter">
           <Filter />
