@@ -2,6 +2,7 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, searchSelector } from '../../modules/search/search';
+import { SearchGlass } from '../../icon/SearchGlass';
 
 const Form = styled.form`
   display: flex;
@@ -33,9 +34,6 @@ const Form = styled.form`
   }
 
   & > button {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
     background: none;
     border: none;
     padding: 0;
@@ -67,7 +65,7 @@ export const SearchInput = ({ onSubmit }) => {
 
   return (
     <div style={InputWrapper}>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} id={'search'}>
         <input
           className="Input"
           name="searchInput"
@@ -77,28 +75,7 @@ export const SearchInput = ({ onSubmit }) => {
           value={text}
         />
         <button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-              stroke="#686868"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M20.9999 20.9999L16.6499 16.6499"
-              stroke="#686868"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <SearchGlass />
         </button>
       </Form>
     </div>
