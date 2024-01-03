@@ -98,7 +98,7 @@ const PostWrite = () => {
     >
       <Title onChange={onChange} inputValue={inputValue} />
       <div>
-        <FilterBar />
+        <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
       </div>
       <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
