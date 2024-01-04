@@ -8,12 +8,12 @@ import {
   Img,
 } from '../../../styles/community/FilterModalStyle';
 import { postWriteSelector } from '../../../modules/community/postWrite';
-import { toKorea } from '../../../modules/common/AttributeData';
+import { toKorean } from '../../../modules/common/AttributeData';
 
 export const OpenModalButton = ({ content }) => {
   const isActive = useSelector(postWriteSelector('ButtonActive', content));
   const { openModal } = useModal();
-  const text = toKorea(content);
+  const text = toKorean(content);
 
   const onClick = () => {
     openModal({ type: 'ButtonSelectModal', contentType: content });

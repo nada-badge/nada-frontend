@@ -1,6 +1,6 @@
 /** AttributeDate region, field, category에 대한 정보를 관리하는 파일 */
 
-export const regionButtons = [
+export const regionData = [
   { id: 1, text: '서울' },
   { id: 2, text: '부산' },
   { id: 3, text: '대구' },
@@ -18,7 +18,7 @@ export const regionButtons = [
   { id: 15, text: '해외' },
 ];
 
-export const fieldButtons = [
+export const fieldData = [
   { id: 1, text: '인문/사회' },
   { id: 2, text: '광고/마케팅' },
   { id: 3, text: '디자인/미술' },
@@ -39,7 +39,7 @@ export const fieldButtons = [
   { id: 18, text: '역사/탐방' },
 ];
 
-export const categoryButtons = [
+export const categoryData = [
   { id: 1, text: '공모전' },
   { id: 2, text: '연합 동아리' },
   { id: 3, text: '교내 동아리' },
@@ -53,9 +53,9 @@ export const categoryButtons = [
 
 export const selectConfig = ({ content, mainCategory }) => {
   const Config = {
-    region: regionButtons,
-    field: fieldButtons,
-    category: categoryButtons,
+    region: regionData,
+    field: fieldData,
+    category: categoryData,
   };
 
   if (content === 'category' && mainCategory === '모집') {
@@ -74,7 +74,7 @@ export const selectAllConfig = (content) => {
   return Config[content];
 };
 
-export const toKorea = (content) => {
+export const toKorean = (content) => {
   const Config = {
     region: '지역',
     field: '분야',
