@@ -47,7 +47,7 @@ const PostWrite = () => {
     });
   };
 
-  const OnSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
@@ -93,7 +93,7 @@ const PostWrite = () => {
   return (
     <form
       className="pageContainer"
-      onSubmit={OnSubmit}
+      onSubmit={onSubmit}
       encType="multipart/form-data"
     >
       <Title onChange={onChange} inputValue={inputValue} />
