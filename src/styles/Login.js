@@ -1,23 +1,19 @@
 import styled from 'styled-components';
+import { applyFontStyles } from './fontStyle';
 
 // -------------------------- LoginPage.js
 
 export const LoginBox = styled.div`
   background-color: #ffffff;
   border: 1px none;
-  width: 100vmin;
-  @media screen and (min-width: calc(375px * 3)) {
-    width: 30vw;
-  }
-`;
+  width: 375px;
 
-export const LogoBox = styled.div`
-  padding-top: calc(100% / 812 * 220);
-  height: 40px;
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
-  width: 345px;
+  & > svg {
+    display: flex;
+    padding-top: 220px;
+    margin: 0 auto;
+    position: relative;
+  }
 `;
 
 export const Logo = styled.img`
@@ -29,71 +25,52 @@ export const Logo = styled.img`
 // ---------------------------AuthForm.js
 
 export const InputBox = styled.div`
-  border: 2px solid;
-  border-color: var(--myspec-primaryblue-1);
-  border-radius: 10px;
-  height: 44px;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-
-  &.email {
-    top: 0;
-    width: 345px;
-  }
-
-  &.password {
-    top: 56px;
-    width: 345px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  
 
   & > input {
-    color: var(--myspec-gray-scalegray-600);
-    font-family: var(--body-01-font-family);
-    font-size: var(--body-01-font-size);
-    font-style: var(--body-01-font-style);
-    font-weight: var(--body-01-font-weight);
-    height: 21px;
-    left: 12px;
-    letter-spacing: var(--body-01-letter-spacing);
-    line-height: var(--body-01-line-height);
-    position: absolute;
-    top: 10px;
-    white-space: nowrap;
+    ${applyFontStyles({
+      font: 'body-01',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })}
+    border-radius: 10px;
+    background: var(--myspec-Gray-scale-Gray-200, #f2f2f2);
+    padding: 12px 250px 11px 12px;
+    align-items: center;
+    flex-shrink: 0;
     border: none;
     outline: none;
   }
 `;
 
 export const LoginBtn = styled.button`
-  background-color: var(--myspec-primaryblue-1);
-  border-radius: 10px;
-  height: 64px;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: ${(props) => props.$position.top || 0}px;
-  width: 345px;
+  display: flex;
+  /* margin-top: 316px; */
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
   border: none;
+  padding: 0;
+  width: 100%;
 
-  &.team {
-    background-color: var(--myspec-gray-scalegray-600);
-  }
+  & > a,
+  div {
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 10px;
+    ${applyFontStyles({ font: 'subtitle-01', color: '#fff' })}
+    text-decoration: none;
 
-  & > div {
-    color: #ffffff;
-    font-family: var(--subtitle-01-font-family);
-    font-size: var(--subtitle-01-font-size);
-    font-style: var(--subtitle-01-font-style);
-    font-weight: var(--subtitle-01-font-weight);
-    height: 24px;
-    left: 138px;
-    letter-spacing: var(--subtitle-01-letter-spacing);
-    line-height: var(--subtitle-01-line-height);
-    position: absolute;
-    text-align: center;
-    top: 19px;
-    white-space: nowrap;
+    &:nth-child(1) {
+      background: var(--myspec-primaryblue-1, #1363ff);
+    }
+
+    &:nth-child(2) {
+      background: var(--myspec-gray-scalegray-600);
+    }
   }
 `;
 

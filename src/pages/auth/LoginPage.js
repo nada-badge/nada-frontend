@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import AuthTemplate from '../../components/auth/AuthTemplate';
 import LoginForm from '../../containers/auth/login/LoginForm';
-import { LoginBox, LogoBox } from '../../styles/Login';
+import { LoginBox } from '../../styles/Login';
 import { useLocation } from 'react-router-dom';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
+import { MySpecLogo } from '../../icon/MySpecLogo';
 
 const locationMap = {
   '/login/personal': 'personal',
@@ -30,12 +31,7 @@ const LoginPage = () => {
   return (
     <AuthTemplate>
       <LoginBox>
-        <LogoBox>
-          <img
-            alt="Logo"
-            src="https://generation-sessions.s3.amazonaws.com/dccd720493d3d99169fdd13158e459fa/img/logo.svg"
-          />
-        </LogoBox>
+        <MySpecLogo className="LogoBox" />
         <LoginForm type={type} />
       </LoginBox>
     </AuthTemplate>
