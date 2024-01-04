@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
 import { useCallback, useEffect, useState } from 'react';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
@@ -64,7 +64,11 @@ const ActivityPage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({ headerState: 'bell', text: '활동', isShowBottom: true }),
+      changeBarStatus({
+        headerState: 'bell',
+        text: '활동',
+        isShowBottom: true,
+      }),
     );
   }, []);
 

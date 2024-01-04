@@ -7,7 +7,7 @@ import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../modules/bar';
+import { changeBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import { useGetEvents } from '../modules/calendar/useGetEvents';
 import React from 'react';
@@ -60,7 +60,7 @@ const CalendarPage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'backBellMenu',
         text: '캘린더',
         isShowBottom: true,

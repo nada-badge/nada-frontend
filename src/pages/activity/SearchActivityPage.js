@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { SearchInput } from '../../components/search/SearchInput';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { SearchCategory } from '../../components/search/SearchCategory';
 import SortOrder from '../../components/search/SortOrder';
 
@@ -25,7 +25,11 @@ const SearchActivityPage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({ headerState: 'bell', text: '활동', isShowBottom: true }),
+      changeBarStatus({
+        headerState: 'bell',
+        text: '활동',
+        isShowBottom: true,
+      }),
     );
   }, []);
 

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CommentOutPut from '../../components/community/comment/commentOutput';
 import { CommentList } from '../../styles/community/CommentStyle';
 import { BottomBar } from '../../containers/community/comment/BottomBar';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { applyFontStyles } from '../../styles/fontStyle';
 
 const CommentPage = () => {
@@ -15,7 +15,11 @@ const CommentPage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({ headerState: 'back', text: '댓글', isShowBottom: false }),
+      changeBarStatus({
+        headerState: 'back',
+        text: '댓글',
+        isShowBottom: false,
+      }),
     );
   }, []);
 
