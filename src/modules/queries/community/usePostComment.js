@@ -3,14 +3,13 @@ import { useMutation } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
 const usePostComment = () => {
-  const userEmail = 'maintest01@gmail.com';
   const userName = 'maintest01';
   //추후에 댓글 단 사람의 이메일과 이름으로 위 코드를 수정해야햠.
 
   return useMutation({
     mutationFn: ({ url, content }) =>
       client.post(`${url}`, {
-        userEmail: userEmail,
+        userEmail: localStorage.getItem('email'),
         userName: userName,
         content: content,
       }),

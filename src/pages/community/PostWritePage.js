@@ -49,7 +49,7 @@ const PostWrite = () => {
 
   const OnSubmit = (e) => {
     e.preventDefault();
-    const userEmail = 'maintest01@gmail.com';
+    const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
     const _id = postwrite._id;
     const mainCategorys = postwrite.mainCategory;
