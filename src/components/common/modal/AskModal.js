@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import useModal from '../usedInModal/useModal';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
-import preSetForQuery from '../../../modules/common/preSetForQuery';
+import preSetForQuery from '../../../modules/common/getBasicUrl';
 import useDeleteId from '../../../modules/queries/useDeleteId';
-import toReport from '../../../modules/common/toReport';
+import getReportUrl from '../../../modules/common/getReportUrl';
 import useReportId from '../../../modules/queries/useReportId';
 import { Toast } from '../Toast';
 
@@ -28,7 +28,7 @@ const AskModal = () => {
       });
     }
     if (actionType === '신고') {
-      const config = toReport(position, PostDetail);
+      const config = getReportUrl(position, PostDetail);
       reportMutate({
         url: config.url,
         _id: config.idData,
