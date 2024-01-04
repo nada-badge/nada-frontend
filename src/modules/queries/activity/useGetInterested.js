@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
-const useEventsQuery = ({ start, end }) => {
+export const useGetInterested = ({ start, end }) => {
   return useQuery({
-    queryKey: ['getEvnets'],
+    queryKey: ['getEvent'],
     queryFn: async () => {
       const email = localStorage.getItem('email');
 
@@ -21,5 +21,3 @@ const useEventsQuery = ({ start, end }) => {
       })),
   });
 };
-
-export default useEventsQuery;

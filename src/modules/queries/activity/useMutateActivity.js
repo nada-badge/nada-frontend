@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
-export const useInterested = () => {
+export const useMutateInterested = () => {
   return useMutation({
     mutationFn: ({ type, email, _id }) => {
       if (email && _id) {
