@@ -4,15 +4,15 @@ import useModal from '../usedInModal/useModal';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
 import preSetForQuery from '../../../modules/common/preSetForQuery';
-import useDelete from '../../../modules/queries/useDelete';
+import useDeleteId from '../../../modules/queries/useDeleteId';
 import toReport from '../../../modules/common/toReport';
-import useReport from '../../../modules/queries/useReport';
+import useReportId from '../../../modules/queries/useReportId';
 import { Toast } from '../Toast';
 
 const AskModal = () => {
   const { openModal, closeModal } = useModal();
-  const { mutate } = useDelete();
-  const reportMutate = useReport().mutate;
+  const { mutate } = useDeleteId();
+  const reportMutate = useReportId().mutate;
 
   const modal = useSelector(({ modal }) => modal);
   const { contentType, actionType, content, position } = modal;

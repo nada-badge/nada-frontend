@@ -1,8 +1,8 @@
 /** PostWritePage 글 작성을 진행하는 페이지 */
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import useSubmit from '../../modules/queries/PostWriteQuery';
-import useUpdate from '../../modules/queries/PostUpdateQuery';
+import usePostCommunity from '../../modules/queries/usePostCommunity';
+import usePatchCommunity from '../../modules/queries/usePatchCommunity';
 import {
   initializeAll,
   postWriteSelector,
@@ -15,8 +15,8 @@ import { Image } from '../../containers/community/postWrite/Image';
 import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
-  const { mutate } = useSubmit();
-  const updateMutate = useUpdate().mutate;
+  const { mutate } = usePostCommunity();
+  const updateMutate = usePatchCommunity().mutate;
 
   const dispatch = useDispatch();
 

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { changePostDetailField } from '../../modules/community/postDetail';
 import PostItem from '../../components/community/PostList/PostItem';
-import useListQuery from '../../modules/queries/useListQuery';
+import useGetCommunity from '../../modules/queries/useGetCommunity';
 import { ErrorMessage } from './ErrorMessage';
 const PostList = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const PostList = () => {
     data: postsData,
     isLoading,
     isError,
-  } = useListQuery({
+  } = useGetCommunity({
     mainCategory: buttonSelect.maincategory,
     region: subButtonSelect.region,
     field: subButtonSelect.field,

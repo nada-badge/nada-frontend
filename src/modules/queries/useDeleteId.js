@@ -1,9 +1,9 @@
-/** useDelete query. delete를 관리하는 query */
+/** useDeleteId id를 소유하고있는 컨텐츠를 삭제하는 delete query */
 
 import { useMutation } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 
-const useDelete = () => {
+const useDeleteId = () => {
   return useMutation({
     mutationFn: ({ url, _id }) => client.delete(`${url}`, { data: { _id } }),
     onSuccess: (data) => {
@@ -15,4 +15,4 @@ const useDelete = () => {
   });
 };
 
-export default useDelete;
+export default useDeleteId;
