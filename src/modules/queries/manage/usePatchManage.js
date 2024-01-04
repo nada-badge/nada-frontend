@@ -1,5 +1,5 @@
 /* usePatchManage 관리자 게시물 등록을 수행하는 쿼리 */
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
