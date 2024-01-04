@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthForm from '../../../components/auth/AuthForm';
 import { changeField, initializeForm } from '../../../modules/auth';
 import { useEffect, useState } from 'react';
-import useUserMutation from '../../../modules/queries/loginQuery';
+import useLogin from '../../../modules/queries/auth/useLogin';
 import { produce } from 'immer';
 import SocialLogin from './SocialLogin';
 import styled from 'styled-components';
@@ -26,7 +26,7 @@ const LoginForm = ({ type }) => {
     password: null,
   });
 
-  const mutation = useUserMutation();
+  const mutation = useLogin();
 
   const form = useSelector((state) => {
     return state.auth.login;

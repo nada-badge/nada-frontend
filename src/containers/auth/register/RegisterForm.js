@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm } from '../../../modules/auth';
 import { useNavigate } from 'react-router-dom';
 import {
-  useUserMutation,
-  useTeamUserMutation,
-} from '../../../modules/queries/registerQuery';
+  useUserSignup,
+  useTeamSignup,
+} from '../../../modules/queries/auth/useSignup';
 import { Frame, Div } from '../../../styles/Register';
 
 // 동적으로 불러오기
@@ -22,8 +22,8 @@ const RegisterForm = ({ type }) => {
   const dispatch = useDispatch();
   const register = useSelector(({ auth }) => auth[`${type}_register`]);
 
-  const { mutate: personal_mutatue } = useUserMutation(); // 회원가입 하기 (서버에 전송)
-  const { mutate: team_mutatue } = useTeamUserMutation();
+  const { mutate: personal_mutatue } = useUserSignup(); // 회원가입 하기 (서버에 전송)
+  const { mutate: team_mutatue } = useTeamSignup();
 
   const initializeTypeForm = {
     team: () => dispatch(initializeForm('team_register')),
