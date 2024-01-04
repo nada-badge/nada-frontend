@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { body_02 } from '../../styles/fontStyle';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeField } from '../../modules/search/search';
 
 const CartegoryList = styled.div`
   display: flex;
@@ -26,12 +27,11 @@ const CartegoryList = styled.div`
   }
 `;
 
-export const SearchCategory = ({ list }) => {
-  const [focus, setFocus] = useState('제목');
-
+export const SearchCategory = ({ list, focus }) => {
+  const dispatch = useDispatch();
   const onClick = (e) => {
     e.preventDefault();
-    setFocus(e.target.innerText);
+    dispatch(changeField({ key: 'focus', value: e.target.innerText }));
   };
 
   return (

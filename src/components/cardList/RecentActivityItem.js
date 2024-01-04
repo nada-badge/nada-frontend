@@ -6,19 +6,19 @@ import { Link } from 'react-router-dom';
 const RecentActivityItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ _id, title, team, Dday, see }) => (
+      {cards.map(([_id, content]) => (
         <CardContainer key={_id}>
-          <Link to={`/activity/${_id}`}>
+          <Link to={`/activity/DetailActivity/${_id}`}>
             <div>
-              <div className="title">{title}</div>
-              <div className="team">{team}</div>
+              <div className="title">{content.title}</div>
+              <div className="team">{content.team}</div>
               <div className="group">
-                <div className="Dday">D-{Dday}</div>
-                <div className="see">조회 {see}</div>
+                <div className="Dday">D {content.Dday}</div>
+                <div className="see">조회 {content.views}</div>
               </div>
             </div>
           </Link>
-          <Star className="star" /> {/* ◀ svg 파일 */}
+          <Star className="star" _id={_id} /> {/* ◀ svg 파일 */}
         </CardContainer>
       ))}
     </>
@@ -31,6 +31,10 @@ const CardContainer = styled.div`
   box-sizing: border-box;
   width: 184px;
   height: 94px;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   & > a {
     text-decoration: none;

@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
 import { useCallback, useEffect, useState } from 'react';
@@ -8,34 +7,18 @@ import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
 import { Grid } from 'react-virtualized';
-import { useGetActivities } from '../../modules/activity/useGetActivities';
-
-const ActivityContainer = styled.div`
-  background-color: var(--myspec-gray-scalegray-100);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  width: 375px;
-  margin: 0px auto;
-  text-align: left;
-  padding-bottom: 85px; // 하단 바
-
-  & > div {
-    background-color: white;
-
-    & > .filter {
-      padding: 12px;
-    }
-  }
-`;
+import { AlignBox } from '../../components/badge/AlignBox';
+import { useNavigate } from 'react-router-dom';
+import { initialized } from '../../modules/search/search';
+import { useActivityListQuery } from '../../modules/queries/ActivityQuery';
+import '../../styles/Page.scss';
 
 const ActivityPage = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
-  const data = useGetActivities();
+  const { data } = useActivityListQuery();
 
   useEffect(() => {
     if (data) {
@@ -44,23 +27,7 @@ const ActivityPage = () => {
   }, [data, activities]);
 
   // 최근 본 게시글
-  const cards = [
-    {
-      _id: '65617b6a9c6d76464c132459',
-      title: '2023년 성북구 청년소셜 커뮤니티',
-      team: '청년재단',
-      Dday: 14,
-      see: 307,
-    },
-    { _id: 2, title: '강북구 청년소셜', team: '재단', Dday: 114, see: 37 },
-    {
-      _id: 3,
-      title: '2023년 성북구 청년소셜',
-      team: '청년재단',
-      Dday: 14,
-      see: 307,
-    },
-  ];
+  const recent = JSON.parse(localStorage.getItem('recentActivitiesMap'));
 
   useEffect(() => {
     dispatch(
@@ -93,30 +60,42 @@ const ActivityPage = () => {
     [activities],
   );
 
-  const rowCount = Math.ceil(activities.length / 2);
+  // 검색 redux 초기화하기
+  useEffect(() => {
+    dispatch(initialized());
+  }, []);
+
+  const navigate = useNavigate();
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/activity/search');
+  };
 
   return (
-    <ActivityContainer>
-      <SearchInput />
-      <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
-        <RecentActivityItem cards={cards} />
-      </CardList>
+    <div className="pageContainer">
+      <SearchInput onSubmit={onSubmit} />
+      {recent && (
+        <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
+          <RecentActivityItem cards={recent.reverse()} />
+        </CardList>
+      )}
       <div>
-        <div className="filter">
+        <div style={{ padding: '12px' }}>
           <Filter />
+          <AlignBox text={'최신 순'} />
         </div>
         <Grid
           cellRenderer={cellRenderer}
           columnCount={2}
           columnWidth={182}
-          height={rowCount * 222}
-          rowCount={rowCount}
+          height={Math.ceil(activities.length / 2) * 222}
+          rowCount={Math.ceil(activities.length / 2)}
           rowHeight={234}
           width={375}
           style={{ boxSizing: 'border-box', padding: '0px 12px' }}
         />
       </div>
-    </ActivityContainer>
+    </div>
   );
 };
 

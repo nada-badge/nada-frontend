@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
-import { ContentsList } from '../../styles/community/PostDetailStyle';
+import { ContentsList, ViewImg } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
 import { changeBarStatus } from '../../modules/bar';
 import { Profile } from '../../components/community/comment/Profile';
@@ -10,7 +10,7 @@ import { Profile } from '../../components/community/comment/Profile';
 const PostDetail = () => {
   const dispatch = useDispatch();
   const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
-  const { title, content, updatedAt, registeredAt } = PostDetail;
+  const { title, content, updatedAt, registeredAt, imageUrl } = PostDetail;
   const isEdited = !(updatedAt === registeredAt);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const PostDetail = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <ContentsList>
         <div className="title">
           <div className="p">{title}</div>
@@ -37,12 +37,13 @@ const PostDetail = () => {
         </div>
         <div className="content">
           <div className="text">{content} </div>
-          <div className="image-2" />
-          <div className="image-2" />
+          {imageUrl.map((imgFile, index) => (
+            <ViewImg key={index} imgurl={imgFile} />
+          ))}
         </div>
       </ContentsList>
       <BottomBar />
-    </div>
+    </>
   );
 };
 

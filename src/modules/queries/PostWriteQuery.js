@@ -17,6 +17,7 @@ const useSubmit = () => {
       regions,
       title,
       content,
+      imageUrl,
     }) =>
       client.post(`/community/post`, {
         userEmail: userEmail,
@@ -27,6 +28,7 @@ const useSubmit = () => {
         region: regions,
         title: title,
         content: content,
+        imageUrl: imageUrl,
       }),
     onSuccess: (data) => {
       console.log('게시물이 등록되었습니다.', data);
