@@ -59,9 +59,9 @@ const RegisterForm = ({ type }) => {
 
     // 마지막 form 입력일때, 회원가입 실행하기
     if (order === forms[type].length - 1) {
-      if (type === 'personal') {
-        personal_mutatue(register);
-      } else team_mutatue(register);
+      const mutationFunction =
+        type === 'personal' ? personal_mutatue : team_mutatue;
+      mutationFunction(register);
     } else setOrder(order + 1);
   };
 
