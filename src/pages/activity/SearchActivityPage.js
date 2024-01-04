@@ -5,7 +5,7 @@ import { setBarStatus } from '../../modules/bar';
 import { SearchCategory } from '../../components/search/SearchCategory';
 import PostList from '../../containers/community/PostList';
 import { AlignBox } from '../../components/badge/AlignBox';
-import { useSearchQuery } from '../../modules/queries/useSearchQuery';
+import { useSearch } from '../../modules/queries/useSearch';
 import { searchSelector } from '../../modules/search/search';
 
 const SearchActivityPage = () => {
@@ -33,7 +33,7 @@ const SearchActivityPage = () => {
   const [input, setInput] = useState(text);
 
   // 서버에서 검색 결과 불러오기
-  const result = useSearchQuery({
+  const result = useSearch({
     focus: focus,
     value: input,
   });

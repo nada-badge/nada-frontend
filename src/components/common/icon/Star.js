@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useInterestedMutation } from '../../../modules/queries/InterestedActivityQuery';
+import { useInterested } from '../../../modules/queries/activity/useInterestedActivity';
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { useEffect } from 'react';
@@ -8,7 +8,7 @@ export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);
 
   // 관심활동 등록 (OK) / 삭제 기능
-  const { mutate } = useInterestedMutation();
+  const { mutate } = useInterested();
   const email = localStorage.getItem('email');
 
   // //북마크 여부 서버에서 불러오기

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
 import '../styles/Page.scss';
-import { useActivityListQuery } from '../modules/queries/ActivityQuery';
+import { useActivityList } from '../modules/queries/activity/useGetActivity';
 
 const Home = () => {
   const BannerSlider = React.lazy(() =>
@@ -25,7 +25,7 @@ const Home = () => {
   const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
-  const { data } = useActivityListQuery();
+  const { data } = useActivityList();
 
   useEffect(() => {
     if (data) {
