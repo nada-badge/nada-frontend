@@ -7,7 +7,7 @@ import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
-import { useGetActivities } from '../modules/activity/useGetActivities';
+import { useActivityListQuery } from '../modules/queries/ActivityQuery';
 import '../styles/PageCommon.scss';
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
   const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
-  const data = useGetActivities();
+  const { data } = useActivityListQuery();
 
   useEffect(() => {
     if (data) {

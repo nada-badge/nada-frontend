@@ -1,42 +1,37 @@
-import styled from 'styled-components';
-import { body_02 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
-const BoxW = styled.div`
-  display: flex;
-  padding: 8px 0px 8px 12px;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  ${body_02}
-`;
-
-export const AlignBox = () => {
+export const AlignBox = ({ text }) => {
   const BoxWrapper = {
+    width: 'fit-content',
     display: 'flex',
-    padding: '8px 0px 8px 12px',
+    padding: '0px 0px 8px 12px',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    gap: '8px',
-    ...body_02('var(--myspec-gray-scale-gray-700, #686868)'),
+    gap: '4px',
+    float: 'right',
+  };
+
+  const titleStyle = {
+    ...applyFontStyles({
+      font: 'body-02',
+      color: 'var(--myspec-gray-scalegray-600)',
+    }),
+    margin: '0',
   };
 
   return (
-    <BoxW>
+    <span style={BoxWrapper}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="14"
+        width="11"
         height="13"
-        viewBox="0 0 14 13"
+        viewBox="0 0 11 13"
         fill="none"
       >
-        <line y1="1.5" x2="14" y2="1.5" stroke="#686868" />
-        <line y1="6.5" x2="14" y2="6.5" stroke="#686868" />
-        <line y1="11.5" x2="14" y2="11.5" stroke="#686868" />
-        <circle cx="3.5" cy="1.5" r="1.5" fill="#686868" />
-        <circle cx="11.5" cy="6.5" r="1.5" fill="#686868" />
-        <circle cx="6.5" cy="11.5" r="1.5" fill="#686868" />
+        <path d="M1 4L3.64706 1.5V11.5" stroke="#888888" />
+        <path d="M10 9L7.35294 11.5L7.35294 1.5" stroke="#888888" />
       </svg>
-      <p>연도별 정렬</p>
-    </BoxW>
+      <p style={titleStyle}>{text || '연도별 정렬'}</p>
+    </span>
   );
 };

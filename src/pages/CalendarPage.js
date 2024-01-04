@@ -9,9 +9,9 @@ import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
-import { useGetEvents } from '../modules/calendar/useGetEvents';
 import React from 'react';
 import { Div } from '../styles/calendar/index';
+import useEventsQuery from '../modules/queries/EventQuery';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const CalendarPage = () => {
 
   const [dateSet, setDateSet] = useState({ start: '', end: '' });
 
-  const events = useGetEvents(dateSet);
+  const { data: events } = useEventsQuery(dateSet);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(

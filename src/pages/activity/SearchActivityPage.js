@@ -1,26 +1,26 @@
-import styled from 'styled-components';
 import { SearchInput } from '../../components/search/SearchInput';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { setBarStatus } from '../../modules/bar';
 import { SearchCategory } from '../../components/search/SearchCategory';
-import SortOrder from '../../components/search/SortOrder';
-
-const Container = styled.div`
-  background-color: var(--myspec-gray-scalegray-100);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 375px;
-  height: 100vh; // 수정가능
-
-  & > div {
-    background-color: white;
-  }
-`;
+import PostList from '../../containers/community/PostList';
+import { AlignBox } from '../../components/badge/AlignBox';
+import { useSearchQuery } from '../../modules/queries/useSearchQuery';
+import { searchSelector } from '../../modules/search/search';
 
 const SearchActivityPage = () => {
+  const ContainerStyle = {
+    display: ' flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    margin: ' 0 auto',
+    width: ' 375px',
+  };
+
+  const ResultStyle = {
+    padding: '7px 15px',
+  };
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,13 +29,29 @@ const SearchActivityPage = () => {
     );
   }, []);
 
+  const { text, focus } = useSelector(searchSelector);
+  const [input, setInput] = useState(text);
+
+  // 서버에서 검색 결과 불러오기
+  const result = useSearchQuery({
+    focus: focus,
+    value: input,
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setInput(text);
+  };
+
   return (
-    <Container>
-      <SearchInput />
-      <SearchCategory list={['제목', '본문', '작성자']} />
-      <SortOrder />
-      {/* 활동 리스트 */}
-    </Container>
+    <div style={ContainerStyle}>
+      <SearchInput onSubmit={onSubmit} />
+      <SearchCategory list={['제목', '본문', '작성자']} focus={focus} />
+      <div style={ResultStyle}>
+        <AlignBox text={'최신 순'} />
+        <PostList type={'activity'} result={result} />
+      </div>
+    </div>
   );
 };
 

@@ -2,20 +2,24 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
-const useGetCommunity = ({ mainCategory, region, field, category }) => {
+const useGetCommunity = ({ filter }) => {
   return useQuery(
-    ['getPostList', mainCategory, region, field, category],
+    ['getPostList', filter],
     async () => {
-      const resp = await client.get('/community/post/list', {
-        params: {
-          mainCategory: mainCategory,
-          region: region,
-          field: field,
-          category: category,
-        },
-      });
+      const { buttonSelect, subButtonSelect } = filter;
+      if (buttonSelect && subButtonSelect) {
+        const { region, field, category } = subButtonSelect;
+        const resp = await client.get('/community/post/list', {
+          params: {
+            mainCategory: buttonSelect.maincategory,
+            region: region,
+            field: field,
+            category: category,
+          },
+        });
 
-      return resp.data.posts.reverse();
+        return resp.data.posts.reverse();
+      }
     },
     {
       retry: (failureCount, error) => {
