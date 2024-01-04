@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 const TitleBox = styled.div`
   height: 80px;
-  position: relative;
   width: 345px;
-  margin-bottom: 46px;
 
   & > h1 {
     color: #000000;

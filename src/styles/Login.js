@@ -28,7 +28,6 @@ export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  
 
   & > input {
     ${applyFontStyles({
@@ -42,12 +41,13 @@ export const InputBox = styled.div`
     flex-shrink: 0;
     border: none;
     outline: none;
+    box-sizing: border-box;
+    width: 100%;
   }
 `;
 
 export const LoginBtn = styled.button`
   display: flex;
-  /* margin-top: 316px; */
   flex-direction: column;
   justify-content: center;
   gap: 12px;
@@ -55,6 +55,10 @@ export const LoginBtn = styled.button`
   border: none;
   padding: 0;
   width: 100%;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 
   & > a,
   div {

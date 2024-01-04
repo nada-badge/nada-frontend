@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Frame = styled.div`
-  height: 100%;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 375px;
-  top: 0;
+  margin: 0px auto;
+  gap: 24px;
 
-  & > .BackBtn {
-    height: 88px;
-    position: relative;
-    width: 375px;
+  & > .backBtnWrapper {
+    padding: 17px 8px 8px 8px;
+    width: fit-content;
   }
 `;
 
@@ -68,7 +69,6 @@ export const ErrorMessage = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
   position: relative;
 
   & > div {

@@ -7,6 +7,7 @@ import {
   useTeamSignup,
 } from '../../../modules/queries/auth/useSignup';
 import { Frame, Div } from '../../../styles/Register';
+import { BackSvg } from '../../../icon/BackSvg';
 
 // 동적으로 불러오기
 const EmailForm = lazy(() => import('./EmailForm'));
@@ -88,22 +89,17 @@ const RegisterForm = ({ type }) => {
 
   return (
     <Frame className="Frame">
-      <img
-        className="BackBtn"
-        alt="BackBtn"
-        onClick={goBack}
-        src="https://generation-sessions.s3.amazonaws.com/2332251fd8ff291f5e2010e035672d11/img/top.svg"
-      />
-      <Div>
-        <Suspense fallback={<div></div>}>
-          <Components
-            dispatchField={dispatchField}
-            onSubmit={onSubmit}
-            order={order}
-            type={type}
-          />
-        </Suspense>
-      </Div>
+      <div className="backBtnWrapper" onClick={goBack}>
+        <BackSvg />
+      </div>
+      <Suspense fallback={<div></div>}>
+        <Components
+          dispatchField={dispatchField}
+          onSubmit={onSubmit}
+          order={order}
+          type={type}
+        />
+      </Suspense>
     </Frame>
   );
 };
