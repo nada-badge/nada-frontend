@@ -1,8 +1,8 @@
 /** usePostCommunity 커뮤니티 게시글을 작성하는 쿼리 */
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import client from '../../lib/api/client';
-import { Toast } from '../../components/common/Toast';
+import client from '../../../lib/api/client';
+import { Toast } from '../../../components/common/Toast';
 
 const usePostCommunity = () => {
   const navigate = useNavigate();

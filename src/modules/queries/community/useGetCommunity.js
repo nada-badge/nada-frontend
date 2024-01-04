@@ -1,6 +1,6 @@
 /* useGetCommunity community의 list를 가져오는 쿼리 */
 import { useQuery } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
 const useGetCommunity = ({ mainCategory, region, field, category }) => {
   return useQuery(

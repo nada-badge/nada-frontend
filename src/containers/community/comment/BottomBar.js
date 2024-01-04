@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Bar } from '../../../styles/community/CommentBarStyle';
-import usePostComment from '../../../modules/queries/usePostComment';
-import usePatchComment from '../../../modules/queries/usePatchComment';
+import usePostComment from '../../../modules/queries/community/usePostComment';
+import usePatchComment from '../../../modules/queries/community/usePatchComment';
 import preSetForQuery from '../../../modules/common/preSetForQuery';
 import NoticeBar from './NoticeBar';
 import { InputBar, Img } from '../../../styles/community/CommentBarStyle';

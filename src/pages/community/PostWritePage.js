@@ -1,8 +1,8 @@
 /** PostWritePage 글 작성을 진행하는 페이지 */
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import usePostCommunity from '../../modules/queries/usePostCommunity';
-import usePatchCommunity from '../../modules/queries/usePatchCommunity';
+import usePostCommunity from '../../modules/queries/community/usePostCommunity';
+import usePatchCommunity from '../../modules/queries/community/usePatchCommunity';
 import {
   initializeAll,
   postWriteSelector,

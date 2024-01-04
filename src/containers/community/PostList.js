@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { changePostDetailField } from '../../modules/community/postDetail';
 import PostItem from '../../components/community/PostList/PostItem';
-import useGetCommunity from '../../modules/queries/useGetCommunity';
+import useGetCommunity from '../../modules/queries/community/useGetCommunity';
 import { ErrorMessage } from './ErrorMessage';
 const PostList = () => {
   const dispatch = useDispatch();

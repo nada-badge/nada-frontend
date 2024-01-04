@@ -1,7 +1,7 @@
 /** usePatchCommunity 커뮤니티 게시글을 수정 하는 쿼리 */
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
 const usePatchCommunity = () => {
   const navigate = useNavigate();

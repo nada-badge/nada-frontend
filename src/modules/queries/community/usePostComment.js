@@ -1,6 +1,6 @@
 /** usePostComment 댓글과 답글을 post하는 쿼리 */
 import { useMutation } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
 const usePostComment = () => {
   const userEmail = 'maintest01@gmail.com';
