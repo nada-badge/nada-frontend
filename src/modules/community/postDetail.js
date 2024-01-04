@@ -13,6 +13,7 @@ const initialState = {
     region: [],
     title: '',
     content: '',
+    imageUrl: [],
     comments: '',
     views: '',
     reports: '',

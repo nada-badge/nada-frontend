@@ -7,12 +7,12 @@ import { setBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
-import '../styles/Page.scss';
 import { useActivityList } from '../modules/queries/activity/useGetActivity';
+import '../styles/PageCommon.scss';
 
 const Home = () => {
-  const BannerSlider = React.lazy(() =>
-    import('../components/home/BannerSlider'),
+  const BannerSlider = React.lazy(
+    () => import('../components/home/BannerSlider'),
   );
 
   const dispatch = useDispatch();
