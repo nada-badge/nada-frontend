@@ -5,7 +5,7 @@ import {
   postWriteSelector,
   addField,
   deleteField,
-  setField,
+  changeField,
   initializeForm,
 } from '../../../modules/community/postWrite';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
@@ -22,7 +22,7 @@ export const SelectButton = ({ text }) => {
   const buttonAll = selectAllConfig(contentType);
 
   //region, field와 category의 타입차이로 인한 삼항 연산자
-  const setStatus = contentType === 'category' ? setField : addField;
+  const setStatus = contentType === 'category' ? changeField : addField;
   const deleteStatus =
     contentType === 'category' ? initializeForm : deleteField;
 

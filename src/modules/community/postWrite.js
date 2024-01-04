@@ -35,7 +35,7 @@ const postWriteSlice = createSlice({
   name: 'postWrite',
   initialState,
   reducers: {
-    setField: (state, { payload: { form, key, value } }) => {
+    changeField: (state, { payload: { form, key, value } }) => {
       state[form][key] = value;
     },
     setSubmit: (state, { payload: { value } }) => {
@@ -72,7 +72,7 @@ export const {
   deleteField,
   initializeForm,
   submitForm,
-  setField,
+  changeField,
   setSubmit,
   initializeAll,
 } = postWriteSlice.actions;

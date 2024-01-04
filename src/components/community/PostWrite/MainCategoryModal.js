@@ -4,7 +4,7 @@ import useModal from '../../common/usedInModal/useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   postWriteSelector,
-  setField,
+  changeField,
 } from '../../../modules/community/postWrite';
 import {
   ListMain,
@@ -50,7 +50,7 @@ const MainCategoryModal = () => {
 
   const setStatus = () => {
     dispatch(
-      setField({
+      changeField({
         form: 'postWriteSubmit',
         key: 'mainCategory',
         value: nowClick,
@@ -59,7 +59,7 @@ const MainCategoryModal = () => {
 
     if (!(nowClick === '카테고리')) {
       dispatch(
-        setField({
+        changeField({
           form: 'ButtonActive',
           key: 'mainCategory',
           value: true,

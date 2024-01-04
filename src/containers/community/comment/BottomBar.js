@@ -6,7 +6,7 @@ import usePostComment from '../../../modules/queries/community/usePostComment';
 import usePatchComment from '../../../modules/queries/community/usePatchComment';
 import preSetForQuery from '../../../modules/common/getBasicUrl';
 import NoticeBar from './NoticeBar';
-import { InputBar, Img } from '../../../styles/community/CommentBarStyle';
+import { InputBar } from '../../../styles/community/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
 
 export const BottomBar = () => {
