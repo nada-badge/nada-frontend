@@ -10,7 +10,7 @@ import CardList from '../../components/cardList/CardList';
 import ImgAdd from '../../icon/Activity/ImgAdd.png';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 
 const inputStyles = css`
   width: 100%;
@@ -131,7 +131,7 @@ const ActWritePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'backPost',
         text: '활동 공고 등록',
         isShowBottom: false,
