@@ -19,7 +19,23 @@ const DetailContent = styled.div`
   }
 `;
 
-const ContentContainer = ({ active }) => {
+const ContentContainer = ({ active, info }) => {
+  const { startedAt, endedAt, groupName, area } = info;
+
+  const formatDate = (start, end) => {
+    let startDate = new Date(start);
+    let endDate = new Date(end);
+    return `${
+      startDate.getMonth() + 1
+    }월 ${startDate.getDate()}일(${startDate.toLocaleDateString('ko-KR', {
+      weekday: 'short',
+    })}) ~ ${
+      endDate.getMonth() + 1
+    }월 ${endDate.getDate()}일(${endDate.toLocaleDateString('ko-KR', {
+      weekday: 'short',
+    })})`;
+  };
+
   return (
     <>
       {/* 상세 내용 */}
@@ -27,17 +43,15 @@ const ContentContainer = ({ active }) => {
         <DetailContent>
           <div className="duration">
             <div>접수기간</div>
-            <div>5월 2일(화) ~ 5월 19일(금)</div>
+            <div>{formatDate(startedAt, endedAt)}</div>
           </div>
           <div className="team">
             <div>기관</div>
-            <div>사단법인 파이나다운청년들</div>
+            <div>{groupName}</div>
           </div>
           <div className="place">
             <div>장소</div>
-            <div>
-              [사단법인 파이나다운청년들] 경기도 성남시 분당구 새마을로 12 4층
-            </div>
+            <div>{area}</div>
           </div>
         </DetailContent>
       )}

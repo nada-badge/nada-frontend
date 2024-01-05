@@ -26,7 +26,10 @@ const barSlice = createSlice({
       state.bottomStatus[key] = value;
     },
     //한번에 상단, 하단 상태를 설정하기 위한 함수
-    setBarStatus: (state, { payload: { headerState, text, isShowBottom } }) => {
+    changeBarStatus: (
+      state,
+      { payload: { headerState, text, isShowBottom } },
+    ) => {
       state.headerStatus.headerState = headerState;
       state.headerStatus.text = text;
       state.bottomStatus.isShowBottom = isShowBottom;
@@ -38,7 +41,7 @@ const barSlice = createSlice({
 });
 
 export default barSlice;
-export const { changeHeader, changeBottom, setBarStatus, initializeForm } =
+export const { changeHeader, changeBottom, changeBarStatus, initializeForm } =
   barSlice.actions;
 
 const barSelects = (type, field) => (rootState) => {

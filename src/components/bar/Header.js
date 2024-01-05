@@ -1,18 +1,16 @@
 /*Header 상단 바를 관리하고 출력함 */
+import React, { useState, useEffect, memo } from 'react';
+import { Top } from '../../styles/Header';
+import { HeaderType, HeaderTypeConfig } from '../../containers/HeaderType';
 import { barSelector } from '../../modules/bar';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import { Top } from '../../styles/Header';
-import { HeaderType } from '../../containers/HeaderType';
-import { HeaderTypeConfig } from '../../containers/HeaderType';
 
 const Header = () => {
   const pageStatus = useSelector(barSelector('headerStatus', 'headerState'));
   const pageNameStatus = useSelector(barSelector('headerStatus', 'text'));
   const navigate = useNavigate();
   const [activeHeaders, setActiveHeaders] = useState();
-
   //현재 상단값의 요소 존재여부값
   const [CurrentStatus, setCurrentStatus] = useState([
     { id: 'Logo', state: false },
@@ -53,4 +51,5 @@ const Header = () => {
   return Boolean(pageStatus) && <Top>{activeHeaders}</Top>;
 };
 
-export default Header;
+// React.memo를 사용하여 Header 컴포넌트를 메모이제이션
+export default memo(Header);

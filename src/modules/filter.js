@@ -21,7 +21,7 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    setField: (state, { payload: { form, key, value } }) => {
+    changeField: (state, { payload: { form, key, value } }) => {
       state[form][key] = value;
     },
     addField: (state, { payload: { form, key, value } }) => {
@@ -45,7 +45,7 @@ const filterSlice = createSlice({
 
 export default filterSlice;
 export const {
-  setField,
+  changeField,
   initializeForm,
   addField,
   deleteField,

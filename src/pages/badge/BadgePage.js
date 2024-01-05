@@ -3,7 +3,7 @@ import CardList from '../../components/cardList/CardList';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 
@@ -12,7 +12,7 @@ const BadgePage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'bell',
         text: '뱃지',
         isShowBottom: true,

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { ContentBox } from '../../components/badge/ContentBox';
 import { ActivityTable } from '../../components/badge/ActivityTable';
@@ -18,7 +18,7 @@ const DetailBadgePage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'bell',
         text: '뱃지',
         isShowBottom: true,

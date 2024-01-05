@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import {
   filterSelector,
-  setField,
+  changeField,
   initializeForm,
   initializeSub,
 } from '../../modules/filter';
@@ -16,7 +16,7 @@ const Category = () => {
   const onClick = (text) => {
     if (!(isOpen === text)) {
       dispatch(
-        setField({ form: 'buttonSelect', key: 'maincategory', value: text }),
+        changeField({ form: 'buttonSelect', key: 'maincategory', value: text }),
       );
       dispatch(initializeSub());
       dispatch(initializeForm({ form: 'buttonSelect', key: 'filter' }));

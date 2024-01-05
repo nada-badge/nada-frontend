@@ -7,11 +7,11 @@ import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../modules/bar';
+import { changeBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
-import { useGetEvents } from '../modules/calendar/useGetEvents';
 import React from 'react';
 import { Div } from '../styles/calendar/index';
+import { useGetInterested } from '../modules/queries/activity/useGetInterested';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const CalendarPage = () => {
 
   const [dateSet, setDateSet] = useState({ start: '', end: '' });
 
-  const events = useGetEvents(dateSet);
+  const { data: events } = useGetInterested(dateSet);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(
@@ -60,7 +60,7 @@ const CalendarPage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'backBellMenu',
         text: '캘린더',
         isShowBottom: true,

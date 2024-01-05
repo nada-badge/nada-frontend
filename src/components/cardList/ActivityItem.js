@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { Link } from 'react-router-dom';
+import imgNull from '../../icon/GrayLogo.png';
 
 const Title = styled.p`
   ${applyFontStyles({ font: 'subtitle-01' })};
@@ -16,12 +18,34 @@ const Title = styled.p`
 `;
 
 const ImgContainer = styled.div`
-  background-image: ${(props) =>
-    `url(
-      ${props.$imgsrc})`};
+  background-image: ${(props) => {
+    return `url(
+      ${props.$imgsrc.length ? props.$imgsrc : imgNull})`;
+  }};
+  border-radius: 10px;
   background-size: 100% 100%;
   aspect-ratio: 1 / 1;
   position: relative;
+`;
+
+const Dday = styled.div`
+  ${applyFontStyles({
+    font: 'caption-01',
+    color: 'white',
+  })}
+  box-sizing: border-box;
+  padding: 6px 8px;
+  height: 26px;
+  margin: 10px;
+  float: right;
+  min-width: 41px;
+  text-align: center;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+
+  &.active {
+    background: var(--myspec-primaryblue-1);
+  }
 `;
 
 const ActivityItem = ({ cards, style }) => {
@@ -30,30 +54,34 @@ const ActivityItem = ({ cards, style }) => {
     position: 'relative',
     maxWidth: '169px',
     textAlign: 'left',
+    textDecoration: 'none',
     ...style,
   };
 
-  const DdayStyle = {
-    ...applyFontStyles({ font: 'caption-01', color: 'white' }),
-    boxSizing: 'border-box',
-    padding: '6px 8px',
-    backgroundColor: '#1363ff',
-    borderRadius: '8px',
-    height: '26px',
-    margin: '10px',
-    float: 'right',
-    minWidth: '41px',
-    textAlign: 'center',
+  const transNumber = (value) => {
+    return parseInt(value.replace(/[^\d-]/g, ''), 10);
   };
-
-  const CardWrapper = (card) => (
-    <div style={style} key={card.idx}>
-      <ImgContainer $imgsrc={card.imageUrl}>
-        <div style={DdayStyle}>{`D - ${card.Dday}`}</div>
-      </ImgContainer>
-      <Title>{card.activityName}</Title>
-    </div>
-  );
+  
+  const CardWrapper = (card) => {
+    return (
+      <Link
+        style={{ style, textDecorationLine: 'none' }}
+        key={card.idx}
+        to={`/activity/DetailActivity/${card._id}`}
+      >
+        <ImgContainer $imgsrc={card.imageUrl}>
+          <Dday
+            className={
+              transNumber(card.Dday) >= -14 && transNumber(card.Dday) <= 0
+                ? 'active'
+                : null
+            }
+          >{`D ${card.Dday}`}</Dday>
+        </ImgContainer>
+        <Title>{card.activityName}</Title>
+      </Link>
+    );
+  };
 
   return (
     <>

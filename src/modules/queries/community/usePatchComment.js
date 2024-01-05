@@ -1,8 +1,8 @@
-/** usePostQuery 댓글과 답글을 update 하는 쿼리 */
+/** usePatchComment 댓글과 답글을 update 하는 쿼리 */
 import { useMutation } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
-const useUpdateQuery = () => {
+const usePatchComment = () => {
   return useMutation({
     mutationFn: ({ url, _id, content }) =>
       client.patch(`${url}`, {
@@ -18,4 +18,4 @@ const useUpdateQuery = () => {
   });
 };
 
-export default useUpdateQuery;
+export default usePatchComment;

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Star } from '../../components/common/icon/Star';
 import { caption_01, title_01 } from '../../styles/fontStyle';
 import HashTag from '../../components/activity/HashTag';
+import { calculateDday } from '../../modules/activity/calculateDday';
+import imgNull from '../../icon/GrayLogo.png';
 
 const ThumbContainer = styled.div`
   text-align: left;
@@ -12,6 +14,9 @@ const ThumbContainer = styled.div`
 
   & > .thumbnail-image {
     width: 100%;
+    height: 33vh;
+    object-fit: cover;
+    object-position: top;
   }
 
   & > .info-box {
@@ -28,15 +33,6 @@ const ThumbContainer = styled.div`
       display: flex;
       justify-content: space-between;
       position: relative;
-
-      & > .Dday {
-        padding: 4px 8px;
-        border-radius: 5px;
-        background: var(--myspec-gray-scalegray-400);
-        ${caption_01('var(--myspec-gray-scale-gray-800)')}
-        display: flex;
-        align-items: center;
-      }
     }
 
     & > .title {
@@ -50,27 +46,62 @@ const ThumbContainer = styled.div`
     }
   }
 `;
-const Thumbnail = () => {
+
+const Dday = styled.div`
+  padding: 4px 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background: var(--myspec-gray-scalegray-400);
+  ${caption_01('var(--myspec-gray-scalegray-800)')}
+
+  &.active {
+    background: var(--myspec-primaryblue-1);
+    ${caption_01('var(--myspec-gray-scalewhite)')}
+  }
+`;
+
+const Thumbnail = ({ info }) => {
+  const { _id, activityName, region, field, category, imageUrl, endedAt } =
+    info;
+
+  const TagContent = [region, field, category].flat();
+  const result_date = parseInt(
+    calculateDday(endedAt).replace(/[^\d-]/g, ''),
+    10,
+  );
+
   return (
-    <ThumbContainer>
-      <img
-        className="thumbnail-image"
-        alt="thumbnail"
-        src="https://c.animaapp.com/lXzw4Thb/img/image-1@2x.png"
-      />
-      <div className="info-box">
-        <div className="top">
-          <div className="Dday"> D - 56 </div>
-          <Star />
+    info && (
+      <ThumbContainer>
+        <img
+          className="thumbnail-image"
+          alt="thumbnail"
+          src={imageUrl}
+          onError={(e) => {
+            e.target.src = imgNull;
+          }}
+        />
+        <div className="info-box">
+          <div className="top">
+            <Dday
+              className={
+                result_date >= -14 && result_date <= 0 ? 'active' : null
+              }
+            >{`D ${calculateDday(endedAt)}`}</Dday>
+            <Star _id={_id} />
+          </div>
+          <div className="title">{activityName}</div>
+          <div className="tagBox">
+            {TagContent.map((hashtag, idx) => (
+              <HashTag key={idx} className="location">
+                {hashtag}
+              </HashTag>
+            ))}
+          </div>
         </div>
-        <div className="title">2023 안양시 정책공모전</div>
-        <div className="tagBox">
-          <HashTag className="location">경기</HashTag>
-          <HashTag className="domain">경영/경제/무역</HashTag>
-          <HashTag className="activity"> 공모전</HashTag>
-        </div>
-      </div>
-    </ThumbContainer>
+      </ThumbContainer>
+    )
   );
 };
 
