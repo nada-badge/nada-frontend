@@ -1,6 +1,6 @@
 /** getElapsedTime update date의 경과시간을 계산해주는 모듈  */
 
-const GetElapsedTime = ({ updatedAt }) => {
+const getElapsedTime = ({ updatedAt }) => {
   const milliSeconds = new Date() - new Date(updatedAt);
   const seconds = milliSeconds / 1000;
 
@@ -25,4 +25,4 @@ const GetElapsedTime = ({ updatedAt }) => {
   return `${Math.floor(years)}년 전`;
 };
 
-export default GetElapsedTime;
+export default getElapsedTime;

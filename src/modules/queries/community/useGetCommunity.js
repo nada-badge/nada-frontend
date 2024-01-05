@@ -1,8 +1,8 @@
-/* useListQuery community에 list를 가져오는 쿼리 */
+/* useGetCommunity community의 list를 가져오는 쿼리 */
 import { useQuery } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
-const useListQuery = ({ filter }) => {
+const useGetCommunity = ({ filter }) => {
   return useQuery(
     ['getPostList', filter],
     async () => {
@@ -33,4 +33,4 @@ const useListQuery = ({ filter }) => {
   );
 };
 
-export default useListQuery;
+export default useGetCommunity;

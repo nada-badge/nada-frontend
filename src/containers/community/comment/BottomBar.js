@@ -2,17 +2,17 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Bar } from '../../../styles/community/CommentBarStyle';
-import usePostQuery from '../../../modules/queries/usePostQuery';
-import useUpdateQuery from '../../../modules/queries/useUpdateQuery';
-import preSetForQuery from '../../../modules/common/preSetForQuery';
+import usePostComment from '../../../modules/queries/community/usePostComment';
+import usePatchComment from '../../../modules/queries/community/usePatchComment';
+import preSetForQuery from '../../../modules/common/getBasicUrl';
 import NoticeBar from './NoticeBar';
-import { InputBar, Img } from '../../../styles/community/CommentBarStyle';
+import { InputBar } from '../../../styles/community/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
 
 export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
-  const { mutate } = usePostQuery();
-  const update = useUpdateQuery().mutate;
+  const { mutate } = usePostComment();
+  const update = usePatchComment().mutate;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
 
   const position = PostDetail.Comment.position;

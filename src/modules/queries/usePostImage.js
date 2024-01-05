@@ -1,8 +1,8 @@
-/** useImageQuery image를 post하는 쿼리 */
+/** usePostImage image를 post하고 path를 반환받는 쿼리 */
 import { useMutation } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 
-const useImageQuery = () => {
+const usePostImage = () => {
   return useMutation({
     mutationFn: async ({ section, files }) => {
       const formData = new FormData();
@@ -18,7 +18,7 @@ const useImageQuery = () => {
         },
       });
 
-      return data; // 또는 필요한 데이터를 반환
+      return data;
     },
     onSuccess: (data) => {
       return data;
@@ -29,4 +29,4 @@ const useImageQuery = () => {
   });
 };
 
-export default useImageQuery;
+export default usePostImage;

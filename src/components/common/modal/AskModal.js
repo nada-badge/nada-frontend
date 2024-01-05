@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux';
 import useModal from '../usedInModal/useModal';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Layout } from '../../../styles/community/NoticeModalStyle';
-import preSetForQuery from '../../../modules/common/preSetForQuery';
-import useDelete from '../../../modules/queries/useDelete';
-import toReport from '../../../modules/common/toReport';
-import useReport from '../../../modules/queries/useReport';
+import preSetForQuery from '../../../modules/common/getBasicUrl';
+import useDeleteId from '../../../modules/queries/useDeleteId';
+import getReportUrl from '../../../modules/common/getReportUrl';
+import useReportId from '../../../modules/queries/useReportId';
 import { Toast } from '../Toast';
 
 const AskModal = () => {
   const { openModal, closeModal } = useModal();
-  const { mutate } = useDelete();
-  const reportMutate = useReport().mutate;
+  const { mutate } = useDeleteId();
+  const reportMutate = useReportId().mutate;
 
   const modal = useSelector(({ modal }) => modal);
   const { contentType, actionType, content, position } = modal;
@@ -28,7 +28,7 @@ const AskModal = () => {
       });
     }
     if (actionType === '신고') {
-      const config = toReport(position, PostDetail);
+      const config = getReportUrl(position, PostDetail);
       reportMutate({
         url: config.url,
         _id: config.idData,
