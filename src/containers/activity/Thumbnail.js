@@ -3,6 +3,7 @@ import { Star } from '../../components/common/icon/Star';
 import { caption_01, title_01 } from '../../styles/fontStyle';
 import HashTag from '../../components/activity/HashTag';
 import { calculateDday } from '../../modules/activity/calculateDday';
+import imgNull from '../../icon/GrayLogo.png';
 
 const ThumbContainer = styled.div`
   text-align: left;
@@ -73,7 +74,14 @@ const Thumbnail = ({ info }) => {
   return (
     info && (
       <ThumbContainer>
-        <img className="thumbnail-image" alt="thumbnail" src={imageUrl} />
+        <img
+          className="thumbnail-image"
+          alt="thumbnail"
+          src={imageUrl}
+          onError={(e) => {
+            e.target.src = imgNull;
+          }}
+        />
         <div className="info-box">
           <div className="top">
             <Dday

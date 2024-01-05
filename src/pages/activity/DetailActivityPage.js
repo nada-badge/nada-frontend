@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { setBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useActivityQuery } from '../../modules/queries/ActivityQuery.js';
+import { useActivity } from '../../modules/queries/activity/useGetActivity.js';
 import { calculateDday } from '../../modules/activity/calculateDday.js';
 
 const DetailContainer = styled.div`
@@ -25,7 +25,7 @@ const DetailContainer = styled.div`
 
 const DetailActivityPage = () => {
   const params = useParams();
-  const { data, isLoading, isError } = useActivityQuery({ _id: params._id });
+  const { data, isLoading, isError } = useActivity({ _id: params._id });
   const [info, setInfo] = useState();
 
   // '최근 본 활동'으로 등록하기

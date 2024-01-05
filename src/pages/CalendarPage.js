@@ -11,7 +11,7 @@ import { setBarStatus } from '../modules/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import React from 'react';
 import { Div } from '../styles/calendar/index';
-import useEventsQuery from '../modules/queries/EventQuery';
+import { useGetInterested } from '../modules/queries/activity/useGetInterested';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const CalendarPage = () => {
 
   const [dateSet, setDateSet] = useState({ start: '', end: '' });
 
-  const { data: events } = useEventsQuery(dateSet);
+  const { data: events } = useGetInterested(dateSet);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(

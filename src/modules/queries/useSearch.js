@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 
-export const useSearchQuery = ({ focus, value }) => {
+export const useSearch = ({ focus, value }) => {
   return useQuery({
     queryKey: ['searchQuery', focus, value],
     queryFn: async () => {
