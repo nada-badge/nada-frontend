@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
-export const useUserMutation = () => {
+export const useUserSignup = () => {
   return useMutation({
     mutationFn: ({ email, password, userName, phoneNumber }) =>
       client.post('/user/signUp', {
@@ -20,7 +20,7 @@ export const useUserMutation = () => {
   });
 };
 
-export const useTeamUserMutation = () => {
+export const useTeamSignup = () => {
   return useMutation({
     mutationFn: ({
       email,
