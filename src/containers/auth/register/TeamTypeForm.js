@@ -1,8 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 import Title from '../../../components/auth/Title';
-import { Form } from '../../../styles/Register';
-import Button from '../../../components/auth/Button';
+import { LoginBtn } from '../../../styles/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelector, changeField } from '../../../modules/auth';
 
@@ -16,6 +15,7 @@ const TeamTypeForm = ({ order, onSubmit }) => {
     { id: 21, text: '공공기관', checked: false },
     { id: 22, text: '사기업', checked: false },
   ]);
+  const [disabled, setDisabled] = useState(true);
 
   const category = useSelector(authSelector('team', 'category')); // userName 상태 가져오기
   const dispatch = useDispatch();
@@ -40,6 +40,12 @@ const TeamTypeForm = ({ order, onSubmit }) => {
     [teamType],
   );
 
+  useEffect(() => {
+    if (category) {
+      setDisabled(false);
+    } else setDisabled(true);
+  }, [category]);
+
   // 뒤로가기시, 이전 category값이 동일하게 표시
   useEffect(() => {
     if (category) {
@@ -55,17 +61,15 @@ const TeamTypeForm = ({ order, onSubmit }) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Title text={'단체 종류를'} />
-      <Form id={order} onSubmit={onSubmit}>
+      <form id={order} onSubmit={onSubmit}>
         <TeamTypeList teamType={teamType} onClick={onClick} />
-      </Form>
-      <Button
-        form={order}
-        text={'다음'}
-        style={{ position: 'relative', top: '30px' }}
-      />
-    </div>
+      </form>
+      <LoginBtn form={order} disabled={disabled}>
+        <div>다음</div>
+      </LoginBtn>
+    </>
   );
 };
 
