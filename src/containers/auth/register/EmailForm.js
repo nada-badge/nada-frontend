@@ -8,12 +8,12 @@ import Caution from '../../../components/auth/Caution';
 import useDebounce from '../../../modules/useDebounce';
 import { LoginBtn, InputBox } from '../../../styles/Login';
 
-const errorMessages = {
-  email_format: '이메일 형식이 올바르지 않아요.',
-  email_duplicate: '이미 등록된 이메일이에요.',
-};
-
 const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
+  const errorMessages = {
+    email_format: '이메일 형식이 올바르지 않아요.',
+    email_duplicate: '이미 등록된 이메일이에요.',
+  };
+
   const [error, setError] = useState(null); // error 메세지 관리
   const email = useSelector(authSelector(type, 'email')); // email 상태 가져오기
   const debounceVal = useDebounce(email);

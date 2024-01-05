@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
@@ -8,6 +7,7 @@ import CheckList from '../../../components/auth/CheckList/CheckList';
 import { LoginBtn, InputBox } from '../../../styles/Login';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
+import useDebounce from '../../../modules/useDebounce';
 
 const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
@@ -18,17 +18,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
 
   const userName = useSelector(authSelector(type, 'userName')); // userName 상태 가져오기
 
-  // userName 중복 검사하기
-  const { refetch } = useQuery({
-    queryKey: ['getUserName'],
-    queryFn: async () => {
-      const { data } = await client.get('user/userName', {
-        params: { userName: userName },
-      });
-      return data.result;
-    },
-  });
-
+  // userName 유효성 검사
   const checkUserName = useCallback(() => {
     setCheck(
       produce((draft) => {
@@ -37,6 +27,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
         draft[1].checked = textRegex.test(userName);
       }),
     );
+    return check.every((item) => item.checked);
   }, [userName]);
 
   // userName 입력이 변경될때마다 check 함수 실행하기
@@ -45,25 +36,22 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName, check]);
 
-  const handleFormSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      const isAllUserNameChecked = check.reduce(
-        (acc, current) => acc && current.checked,
-        true,
-      );
-      if (isAllUserNameChecked) {
-        // 닉네임이 유효할때, 중복 검사 진행
-        const { data } = await refetch();
-        setError(data ? null : '중복된 닉네임 입니다.');
-        if (data) {
-          onSubmit(e);
+  const debounceVal = useDebounce(userName);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { status } = await await client.get('user/userName', {
+          params: { userName: userName },
+        });
+        if (status === 200) {
+          setError(null);
         }
+      } catch (error) {
+        setError('중복된 닉네임 입니다.');
       }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [check, userName],
-  );
+    };
+    if (debounceVal && checkUserName()) fetchData(); // fetchData 함수 호출
+  }, [debounceVal]);
 
   // 폰번호에서 뒤로가기시, 이전 닉네임과 check값이 동일하게 표시
   useEffect(() => {
@@ -76,7 +64,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   return (
     <>
       <Title text={'사용할 닉네임을'} />
-      <form onSubmit={handleFormSubmit} id={order}>
+      <form onSubmit={onSubmit} id={order}>
         <InputBox>
           <input
             name="userName"
