@@ -1,10 +1,9 @@
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { Form, InputWrapper } from '../../../styles/Register';
+import { LoginBtn, InputBox } from '../../../styles/Login';
 import { useEffect } from 'react';
 import { authSelector } from '../../../modules/auth';
 import { useSelector } from 'react-redux';
-import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
@@ -33,24 +32,23 @@ const PhoneNumberForm = ({ dispatchField, onSubmit, order, type }) => {
   }, [error, phoneNumber]);
 
   return (
-    <div>
+    <>
       <Title text={'휴대폰 번호를'} />
-      <Form onSubmit={onSubmit} id={order}>
-        <div>
-          <InputWrapper $position>
-            <input
-              name="phoneNumber"
-              placeholder="번호"
-              onChange={onChange}
-              required
-            />
-          </InputWrapper>
-          {error && <Caution error={error} />}
-        </div>
-      </Form>
-
-      <Button form={order} text={'다음'} disabled={disabled} />
-    </div>
+      <form onSubmit={onSubmit} id={order}>
+        <InputBox>
+          <input
+            name="phoneNumber"
+            placeholder="번호"
+            onChange={onChange}
+            required
+          />
+        </InputBox>
+      </form>
+      <Caution error={error} />
+      <LoginBtn form={order} disabled={disabled}>
+        <div>다음</div>
+      </LoginBtn>
+    </>
   );
 };
 export default PhoneNumberForm;

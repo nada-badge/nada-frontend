@@ -74,9 +74,9 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
             required
           />
           <CheckList list={check} />
-          {error && <Caution error={error} />}
         </InputBox>
       </form>
+      <Caution error={error} />
       <LoginBtn form={order}>
         <div>다음</div>
       </LoginBtn>
