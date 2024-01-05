@@ -9,10 +9,11 @@ import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
 import { useActivityList } from '../modules/queries/activity/useGetActivity';
 import '../styles/PageCommon.scss';
+import { FixedSizeList as List } from 'react-window';
 
 const Home = () => {
-  const BannerSlider = React.lazy(
-    () => import('../components/home/BannerSlider'),
+  const BannerSlider = React.lazy(() =>
+    import('../components/home/BannerSlider'),
   );
 
   const dispatch = useDispatch();
@@ -49,6 +50,19 @@ const Home = () => {
     navigate('/calendar');
   };
 
+  const Column = ({ index, style }) => (
+    <div
+      style={{
+        ...style,
+        boxSizing: 'border-box',
+        paddingRight: '12px',
+      }}
+      key={index}
+    >
+      {activities[index] && <ActivityItem cards={activities[index]} />}
+    </div>
+  );
+  
   return (
     <div className="pageContainer">
       <Suspense
@@ -65,9 +79,20 @@ const Home = () => {
       >
         <BoardCardItem cards={community_cards} />
       </CardList>
-      <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
-        <ActivityItem cards={activities} />
-      </CardList>
+      <div>
+        <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
+          <List
+            height={222}
+            itemCount={activities.length + 1}
+            itemSize={182}
+            layout="horizontal"
+            width={375}
+            style={{ boxSizing: 'border-box' }}
+          >
+            {Column}
+          </List>
+        </CardList>
+      </div>
     </div>
   );
 };
