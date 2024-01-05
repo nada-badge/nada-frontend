@@ -5,8 +5,7 @@ import client from '../../../lib/api/client';
 import { authSelector } from '../../../modules/auth';
 import { produce } from 'immer';
 import CheckList from '../../../components/auth/CheckList/CheckList';
-import { InputWrapper, Form } from '../../../styles/Register';
-import Button from '../../../components/auth/Button';
+import { LoginBtn, InputBox } from '../../../styles/Login';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
@@ -75,25 +74,25 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Title text={'사용할 닉네임을'} />
-      <Form onSubmit={handleFormSubmit} id={order}>
-        <div>
-          <InputWrapper $position>
-            <input
-              name="userName"
-              placeholder="닉네임"
-              onChange={dispatchField}
-              value={userName}
-              required
-            />
-          </InputWrapper>
+      <form onSubmit={handleFormSubmit} id={order}>
+        <InputBox>
+          <input
+            name="userName"
+            placeholder="닉네임"
+            onChange={dispatchField}
+            value={userName}
+            required
+          />
           <CheckList list={check} />
           {error && <Caution error={error} />}
-        </div>
-      </Form>
-      <Button form={order} text={'다음'} />
-    </div>
+        </InputBox>
+      </form>
+      <LoginBtn form={order}>
+        <div>다음</div>
+      </LoginBtn>
+    </>
   );
 };
 

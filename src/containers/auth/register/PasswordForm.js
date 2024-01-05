@@ -87,7 +87,6 @@ const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
     <>
       <Title text={'사용할 비밀번호를'} />
       <form onSubmit={onSubmit} id={order}>
-        <div>
           <InputBox>
             <input
               type="password"
@@ -110,7 +109,6 @@ const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
             />
             <CheckList list={check.passwordConfirm} />
           </InputBox>
-        </div>
       </form>
       <LoginBtn form={order} disabled={disabled}>
         <div>다음</div>
