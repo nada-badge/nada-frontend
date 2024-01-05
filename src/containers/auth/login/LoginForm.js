@@ -5,16 +5,8 @@ import { useEffect, useState } from 'react';
 import useLogin from '../../../modules/queries/auth/useLogin';
 import { produce } from 'immer';
 import SocialLogin from './SocialLogin';
-import styled from 'styled-components';
 import LoginFooter from './LoginFooter';
 import { useNavigate } from 'react-router-dom';
-
-const Frame = styled.div`
-  height: 339px;
-  position: relative;
-  margin: 118px auto;
-  width: 345px;
-`;
 
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
@@ -63,7 +55,7 @@ const LoginForm = ({ type }) => {
     }
   };
   return (
-    <Frame>
+    <>
       <AuthForm
         form={form}
         onChange={onChange}
@@ -72,7 +64,7 @@ const LoginForm = ({ type }) => {
       />
       {type === 'personal' && <SocialLogin />}
       <LoginFooter type={type} />
-    </Frame>
+    </>
   );
 };
 

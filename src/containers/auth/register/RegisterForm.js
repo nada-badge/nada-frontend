@@ -6,7 +6,7 @@ import {
   useUserSignup,
   useTeamSignup,
 } from '../../../modules/queries/auth/useSignup';
-import { Frame, Div } from '../../../styles/Register';
+import { Frame } from '../../../styles/Register';
 import { BackSvg } from '../../../icon/BackSvg';
 
 // 동적으로 불러오기

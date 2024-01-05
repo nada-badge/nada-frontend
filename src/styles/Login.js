@@ -16,11 +16,6 @@ export const LoginBox = styled.div`
   }
 `;
 
-export const Logo = styled.img`
-  height: 40px;
-  position: relative;
-  width: 100%;
-`;
 
 // ---------------------------AuthForm.js
 
