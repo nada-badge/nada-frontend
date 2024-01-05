@@ -3,7 +3,7 @@ import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../modules/bar';
+import { changeBarStatus } from '../modules/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
@@ -35,7 +35,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'logo',
         text: '',
         isShowBottom: true,

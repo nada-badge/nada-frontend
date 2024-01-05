@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import AuthTemplate from '../../components/auth/AuthTemplate';
 import { LoginBox, Logo, LoginBtn, LogoBox } from '../../styles/Login';
 import { Link } from 'react-router-dom';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ const LogInSelect = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: '',
         text: '',
         isShowBottom: false,

@@ -1,6 +1,6 @@
 /* 하단 네비게이션 바 테스트를 위한 페이지 */
 import { useEffect } from 'react';
-import { setBarStatus } from '../modules/bar';
+import { changeBarStatus } from '../modules/bar';
 import { useDispatch } from 'react-redux';
 
 const Badge = () => {
@@ -8,7 +8,7 @@ const Badge = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'bell',
         text: '뱃지',
         isShowBottom: true,

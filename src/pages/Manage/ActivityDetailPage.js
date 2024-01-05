@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initializeForm, changeField } from '../../modules/activity';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import client from '../../lib/api/client';
 
 const ManageActivityDetail = () => {
@@ -34,7 +34,7 @@ const ManageActivityDetail = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'back',
         text: '게시물 정보',
         isShowBottom: false,

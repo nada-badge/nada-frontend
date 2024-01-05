@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import usePostManage from '../../modules/queries/manage/usePostManage';
 import usePatchManage from '../../modules/queries/manage/usePatchManage';
 import { activitySelector } from '../../modules/activity';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const ManageActivityWrite = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'back',
         text: '게시물 등록',
         isShowBottom: false,

@@ -7,7 +7,7 @@ import {
   initializeAll,
   postWriteSelector,
 } from '../../modules/community/postWrite';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Content } from '../../containers/community/postWrite/Content';
@@ -31,7 +31,7 @@ const PostWrite = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
         isShowBottom: false,

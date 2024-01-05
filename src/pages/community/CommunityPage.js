@@ -6,7 +6,7 @@ import PostList from '../../containers/community/PostList';
 import Category from '../../containers/community/Category';
 import Filter from '../../components/common/filter/Filter';
 import { PostWriteButton } from '../../containers/community/PostWriteButton';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { initializeAll } from '../../modules/filter';
 import { initializeAll as initializeAllPostWrite } from '../../modules/community/postWrite';
 import { Border, Contents } from '../../styles/community/CommunityStyle';
@@ -26,7 +26,7 @@ const Community = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'bell',
         text: '커뮤니티',
         isShowBottom: true,
