@@ -36,7 +36,7 @@ export const InputBox = styled.div`
     })}
     border-radius: 10px;
     background: var(--myspec-Gray-scale-Gray-200, #f2f2f2);
-    padding: 12px 250px 11px 12px;
+    padding: 12px 11px;
     align-items: center;
     flex-shrink: 0;
     border: none;
