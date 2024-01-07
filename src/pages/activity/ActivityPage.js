@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
-import { Grid } from 'react-virtualized';
+import { FixedSizeGrid as Grid } from 'react-window';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../modules/search/search';
@@ -39,7 +39,7 @@ const ActivityPage = () => {
     );
   }, []);
 
-  const cellRenderer = useCallback(
+  const Cell = useCallback(
     ({ columnIndex, key, rowIndex, style }) => {
       const index = rowIndex * 2 + columnIndex;
       const activity = activities[index];
@@ -85,7 +85,6 @@ const ActivityPage = () => {
           <AlignBox text={'최신 순'} />
         </div>
         <Grid
-          cellRenderer={cellRenderer}
           columnCount={2}
           columnWidth={182}
           height={Math.ceil(activities.length / 2) * 222}
@@ -93,7 +92,9 @@ const ActivityPage = () => {
           rowHeight={234}
           width={375}
           style={{ boxSizing: 'border-box', padding: '0px 12px' }}
-        />
+        >
+          {Cell}
+        </Grid>
       </div>
     </div>
   );
