@@ -1,17 +1,23 @@
 /** PostDetailPage 세부 게시글을 보여주는 페이지 */
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
-import { ContentsList, ViewImg } from '../../styles/community/PostDetailStyle';
+import { DetailPost, ViewImg } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
 import { changeBarStatus } from '../../modules/bar';
 import { Profile } from '../../components/community/comment/Profile';
+import { useGetPost } from '../../modules/queries/community/useGetCommunity';
+import { changePostDetailField } from '../../modules/community/postDetail';
 
 const PostDetail = () => {
   const dispatch = useDispatch();
-  const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
-  const { title, content, updatedAt, registeredAt, imageUrl } = PostDetail;
-  const isEdited = !(updatedAt === registeredAt);
+  const params = useParams();
+  const { data, isLoading, isError } = useGetPost({
+    _id: params._id,
+  });
+  const [info, setInfo] = useState();
+  const [isEdited, setIsEdited] = useState();
 
   useEffect(() => {
     dispatch(
@@ -23,25 +29,37 @@ const PostDetail = () => {
     );
   }, []);
 
+  useEffect(() => {
+    if (isLoading || isError) {
+      return;
+    }
+
+    setInfo(data);
+    setIsEdited(!(data.updatedAt === data.registeredAt));
+    dispatch(changePostDetailField({ value: data }));
+  }, [data]);
+
   return (
     <>
-      <ContentsList>
-        <div className="title">
-          <div className="p">{title}</div>
-        </div>
-        <div className="profile">
-          <Profile comment={PostDetail} isEdited={isEdited} />
-        </div>
-        <div className="tag">
-          <TagButtons />
-        </div>
-        <div className="content">
-          <div className="text">{content} </div>
-          {imageUrl.map((imgFile, index) => (
-            <ViewImg key={index} imgurl={imgFile} />
-          ))}
-        </div>
-      </ContentsList>
+      {info && (
+        <DetailPost>
+          <div className="title">
+            <div className="p">{info.title}</div>
+          </div>
+          <div className="profile">
+            <Profile comment={info} isEdited={isEdited} />
+          </div>
+          <div className="tag">
+            <TagButtons />
+          </div>
+          <div className="content">
+            <div className="text">{info.content} </div>
+            {info.imageUrl.map((imgFile, index) => (
+              <ViewImg key={index} imgurl={imgFile} />
+            ))}
+          </div>
+        </DetailPost>
+      )}
       <BottomBar />
     </>
   );
