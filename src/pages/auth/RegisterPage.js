@@ -1,4 +1,3 @@
-import AuthTemplate from '../../components/auth/AuthTemplate';
 import RegisterForm from '../../containers/auth/register/RegisterForm';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -24,9 +23,9 @@ const RegisterPage = () => {
     );
   }, []);
   return (
-    <AuthTemplate>
+    <>
       <RegisterForm type={registerMap[pathname]} />
-    </AuthTemplate>
+    </>
   );
 };
 export default RegisterPage;

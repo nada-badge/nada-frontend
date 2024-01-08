@@ -7,10 +7,14 @@ export const LoginBox = styled.div`
   background-color: #ffffff;
   border: 1px none;
   width: 375px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  justify-content: space-evenly;
 
   & > svg {
     display: flex;
-    padding-top: 220px;
     margin: 0 auto;
     position: relative;
   }
@@ -80,6 +84,8 @@ export const FooterWrapper = styled.div`
   ${applyFontStyles({
     font: 'body-01',
   })}
+  justify-content: center;
+  padding-top: 16px;
 
   & > div {
     align-items: center;

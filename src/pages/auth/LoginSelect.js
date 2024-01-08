@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import AuthTemplate from '../../components/auth/AuthTemplate';
 import { LoginBox, LoginBtn } from '../../styles/Login';
 import { Link } from 'react-router-dom';
 import { changeBarStatus } from '../../modules/bar';
@@ -19,15 +18,15 @@ const LogInSelect = () => {
   }, []);
 
   return (
-    <AuthTemplate className="AuthTemplate">
+    <>
       <LoginBox className="LoginBox">
         <MySpecLogo />
-        <LoginBtn className="LoginBtn" style={{ marginTop: '316px' }}>
+        <LoginBtn className="LoginBtn">
           <Link to="/login/personal">개인 회원</Link>
           <Link to="/login/team">단체 회원</Link>
         </LoginBtn>
       </LoginBox>
-    </AuthTemplate>
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ export const Frame = styled.div`
   gap: 24px;
 
   & > .backBtnWrapper {
-    padding: 17px 8px 8px 8px;
+    padding: 17px 8px 8px 0px;
     width: fit-content;
   }
 `;

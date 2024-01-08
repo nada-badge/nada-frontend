@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import AuthTemplate from '../../components/auth/AuthTemplate';
 import LoginForm from '../../containers/auth/login/LoginForm';
 import { LoginBox } from '../../styles/Login';
 import { useLocation } from 'react-router-dom';
@@ -9,12 +8,12 @@ import { MySpecLogo } from '../../icon/MySpecLogo';
 import SocialLogin from '../../containers/auth/login/SocialLogin';
 import LoginFooter from '../../containers/auth/login/LoginFooter';
 
-const locationMap = {
-  '/login/personal': 'personal',
-  '/login/team': 'team',
-};
-
 const LoginPage = () => {
+  const locationMap = {
+    '/login/personal': 'personal',
+    '/login/team': 'team',
+  };
+
   const location = useLocation();
   const dispatch = useDispatch();
   const [type, setType] = useState(null);
@@ -31,14 +30,20 @@ const LoginPage = () => {
   }, [location.pathname]);
 
   return (
-    <AuthTemplate>
+    <>
       <LoginBox>
-        <MySpecLogo className="LogoBox" />
-        <LoginForm type={type} />
-        {type === 'personal' && <SocialLogin />}
-        <LoginFooter type={type} />
+        <div>
+          <MySpecLogo className="LogoBox" />
+        </div>
+        <div>
+          <LoginForm type={type} />
+          <div>
+            {type === 'personal' && <SocialLogin />}
+            <LoginFooter type={type} />
+          </div>
+        </div>
       </LoginBox>
-    </AuthTemplate>
+    </>
   );
 };
 
