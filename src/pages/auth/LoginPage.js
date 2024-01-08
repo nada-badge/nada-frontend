@@ -6,6 +6,8 @@ import { useLocation } from 'react-router-dom';
 import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import { MySpecLogo } from '../../icon/MySpecLogo';
+import SocialLogin from '../../containers/auth/login/SocialLogin';
+import LoginFooter from '../../containers/auth/login/LoginFooter';
 
 const locationMap = {
   '/login/personal': 'personal',
@@ -33,6 +35,8 @@ const LoginPage = () => {
       <LoginBox>
         <MySpecLogo className="LogoBox" />
         <LoginForm type={type} />
+        {type === 'personal' && <SocialLogin />}
+        <LoginFooter type={type} />
       </LoginBox>
     </AuthTemplate>
   );

@@ -1,31 +1,19 @@
 import { Link } from 'react-router-dom';
-import { Div6 } from '../../../styles/Login';
-
-const positionMap = {
-  personal: '318px',
-  team: '212px',
-};
+import { RightArrowSvg } from '../../../icon/Login/RightArrowSvg';
+import { FooterWrapper } from '../../../styles/Login';
 
 const LoginFooter = ({ type }) => {
   return (
-    <Div6 $position={{ top: positionMap[type] }}>
+    <FooterWrapper $gap={24}>
       <div>
         <Link to={`/register/${type}`}>회원 가입하기</Link>
-        <img
-          className="vector-2"
-          alt="Vector"
-          src="https://generation-sessions.s3.amazonaws.com/beff57bde8d3f4caef4459378547b83e/img/vector-2-1.svg"
-        />
+        <RightArrowSvg />
       </div>
-      <div className="findId">
+      <div>
         <Link>아이디/비밀번호 찾기</Link>
-        <img
-          className="vector-2"
-          alt="Vector"
-          src="https://generation-sessions.s3.amazonaws.com/beff57bde8d3f4caef4459378547b83e/img/vector-2-1.svg"
-        />
+        <RightArrowSvg />
       </div>
-    </Div6>
+    </FooterWrapper>
   );
 };
 

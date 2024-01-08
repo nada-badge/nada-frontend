@@ -4,8 +4,6 @@ import { changeField, initializeForm } from '../../../modules/auth';
 import { useEffect, useState } from 'react';
 import useLogin from '../../../modules/queries/auth/useLogin';
 import { produce } from 'immer';
-import SocialLogin from './SocialLogin';
-import LoginFooter from './LoginFooter';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ type }) => {
@@ -62,8 +60,6 @@ const LoginForm = ({ type }) => {
         onSubmit={onSubmit}
         error={error}
       />
-      {type === 'personal' && <SocialLogin />}
-      <LoginFooter type={type} />
     </>
   );
 };
