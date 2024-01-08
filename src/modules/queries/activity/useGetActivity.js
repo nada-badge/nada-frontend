@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
+import { calculateDday } from '../../activity/calculateDday';
 
-export const useActivityQuery = ({ _id }) => {
+export const useActivity = ({ _id }) => {
   return useQuery({
     queryKey: ['getActivity'],
     queryFn: async () => {
@@ -13,7 +14,7 @@ export const useActivityQuery = ({ _id }) => {
   });
 };
 
-export const useActivityListQuery = ({
+export const useActivityList = ({
   groupName,
   field,
   region,
@@ -33,5 +34,15 @@ export const useActivityListQuery = ({
       });
       return data;
     },
+
+    select: (data) =>
+      (data.activities || []).map(
+        ({ _id, activityName, endedAt, imageUrl }) => ({
+          _id: _id,
+          activityName: activityName,
+          Dday: calculateDday(endedAt),
+          imageUrl: imageUrl,
+        }),
+      ),
   });
 };

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
 import { ContentsList, ViewImg } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { Profile } from '../../components/community/comment/Profile';
 
 const PostDetail = () => {
@@ -15,7 +15,7 @@ const PostDetail = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'back',
         text: '세부 게시글',
         isShowBottom: false,

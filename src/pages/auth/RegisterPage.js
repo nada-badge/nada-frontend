@@ -2,7 +2,7 @@ import AuthTemplate from '../../components/auth/AuthTemplate';
 import RegisterForm from '../../containers/auth/register/RegisterForm';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 
 const registerMap = {
@@ -16,7 +16,7 @@ const RegisterPage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: '',
         text: '',
         isShowBottom: false,

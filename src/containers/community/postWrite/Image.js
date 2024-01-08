@@ -2,10 +2,10 @@
 import { Images, PreViewImg } from '../../../styles/community/PostWriteStyle';
 import { X } from '../../../components/common/icon/X';
 import { SkeletonImageSvg } from '../../../icon/SkeletonImageSvg';
-import useImageQuery from '../../../modules/queries/useImageQuery';
+import usePostImage from '../../../modules/queries/usePostImage';
 
 export const Image = ({ imgFiles, setImgFiles }) => {
-  const { mutateAsync } = useImageQuery();
+  const { mutateAsync } = usePostImage();
 
   const deleteImgFile = (img) => {
     setImgFiles((prevFiles) => prevFiles.filter((file) => file !== img));

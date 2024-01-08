@@ -1,13 +1,13 @@
 /** PostWritePage 글 작성을 진행하는 페이지 */
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import useSubmit from '../../modules/queries/PostWriteQuery';
-import useUpdate from '../../modules/queries/PostUpdateQuery';
+import usePostCommunity from '../../modules/queries/community/usePostCommunity';
+import usePatchCommunity from '../../modules/queries/community/usePatchCommunity';
 import {
   initializeAll,
   postWriteSelector,
 } from '../../modules/community/postWrite';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Content } from '../../containers/community/postWrite/Content';
@@ -15,8 +15,8 @@ import { Image } from '../../containers/community/postWrite/Image';
 import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
-  const { mutate } = useSubmit();
-  const updateMutate = useUpdate().mutate;
+  const { mutate } = usePostCommunity();
+  const updateMutate = usePatchCommunity().mutate;
 
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const PostWrite = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
         isShowBottom: false,
@@ -47,9 +47,9 @@ const PostWrite = () => {
     });
   };
 
-  const OnSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const userEmail = 'maintest01@gmail.com';
+    const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
     const _id = postwrite._id;
     const mainCategorys = postwrite.mainCategory;
@@ -93,12 +93,12 @@ const PostWrite = () => {
   return (
     <form
       className="pageContainer"
-      onSubmit={OnSubmit}
+      onSubmit={onSubmit}
       encType="multipart/form-data"
     >
       <Title onChange={onChange} inputValue={inputValue} />
       <div>
-        <FilterBar />
+        <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
       </div>
       <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />

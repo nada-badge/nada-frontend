@@ -3,7 +3,7 @@ import AuthTemplate from '../../components/auth/AuthTemplate';
 import LoginForm from '../../containers/auth/login/LoginForm';
 import { LoginBox } from '../../styles/Login';
 import { useLocation } from 'react-router-dom';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 import { MySpecLogo } from '../../icon/MySpecLogo';
 
@@ -20,7 +20,7 @@ const LoginPage = () => {
   useEffect(() => {
     setType(locationMap[location.pathname]);
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: '',
         text: '',
         isShowBottom: false,

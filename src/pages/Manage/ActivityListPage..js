@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import {
   changeform,
   changeField,
@@ -18,7 +18,7 @@ const ManageActivityList = () => {
   //해당 화면의 상단, 하단바 설정
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'back',
         text: '게시물 목록',
         isShowBottom: false,

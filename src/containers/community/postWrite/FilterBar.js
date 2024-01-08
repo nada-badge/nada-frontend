@@ -5,15 +5,15 @@ import { OpenModalButton } from '../../../components/community/PostWrite/openMod
 import { postWriteSelector } from '../../../modules/community/postWrite';
 import { useSelector } from 'react-redux';
 
-export const FilterBar = () => {
+export const FilterBar = ({ type }) => {
+  
   const mainCategory = useSelector(
     postWriteSelector('postWriteSubmit', 'mainCategory'),
   );
-
-  //mainCategory가 "자유"일 시 OpenModalButton 버튼을 출럭하지 않음
+  
   return (
     <Frame>
-      <MainCategoryButton />
+      { type ==='community' && <MainCategoryButton />} 
       {mainCategory !== '자유' && (
         <>
           <OpenModalButton content="region" />

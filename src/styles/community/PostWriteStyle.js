@@ -8,6 +8,7 @@ export const TitleStyle = styled.div`
   flex-wrap: wrap;
   gap: 10px 10px;
   padding: 12px 15px;
+  box-sizing: border-box;
   position: relative;
 
   & > .div {
@@ -32,6 +33,7 @@ export const Frame = styled.div`
   flex: 0 0 auto;
   gap: 8px;
   padding: 12px 15px;
+  box-sizing: border-box;
   position: relative;
 `;
 
