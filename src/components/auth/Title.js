@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import React from 'react';
 
 const TitleBox = styled.h1`
   text-align: left;
@@ -22,4 +23,4 @@ const Title = ({ text }) => {
   );
 };
 
-export default Title;
+export default React.memo(Title);
