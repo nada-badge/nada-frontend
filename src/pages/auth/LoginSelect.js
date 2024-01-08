@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { LoginBox, LoginBtn } from '../../styles/Login';
+import { LoginBox, LoginBtn } from '../../styles/Auth';
 import { Link } from 'react-router-dom';
 import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';

@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 import useDebounce from '../../../modules/useDebounce';
-import { LoginBtn, InputBox } from '../../../styles/Login';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 
 const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   const errorMessages = {

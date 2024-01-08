@@ -4,7 +4,7 @@ import client from '../../../lib/api/client';
 import { authSelector } from '../../../modules/auth';
 import { produce } from 'immer';
 import CheckList from '../../../components/auth/CheckList/CheckList';
-import { LoginBtn, InputBox } from '../../../styles/Login';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 import useDebounce from '../../../modules/useDebounce';

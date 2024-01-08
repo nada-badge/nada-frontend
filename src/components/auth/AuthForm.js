@@ -1,5 +1,5 @@
 // 회원가입 또는 로그인 폼을 보여주기
-import { InputBox, LoginBtn } from '../../styles/Login';
+import { InputBox, LoginBtn } from '../../styles/Auth';
 
 const AuthForm = ({ form, onChange, onSubmit }) => {
   return (

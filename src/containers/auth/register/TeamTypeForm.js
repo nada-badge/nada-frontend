@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 import Title from '../../../components/auth/Title';
-import { LoginBtn } from '../../../styles/Login';
+import { LoginBtn } from '../../../styles/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelector, changeField } from '../../../modules/auth';
 
