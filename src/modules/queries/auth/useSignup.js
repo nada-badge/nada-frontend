@@ -1,45 +1,54 @@
 import { useMutation } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
-export const useUserSignup = () => {
-  return useMutation({
-    mutationFn: ({ email, password, userName, phoneNumber }) =>
-      client.post('/user/signUp', {
-        userType: 1,
-        email: email,
-        password: password,
-        userName: userName,
-        phoneNumber: phoneNumber,
-      }),
-    onSuccess: (data) => {
-      console.log('회원가입 완료', data);
-    },
-    onError: (error, data) => {
-      console.log('오류발생!', error, data);
-    },
-  });
-};
+export const useSignup = () => {
+  // 개인 회원
+  const postPersonalSignup = async ({
+    email,
+    password,
+    phoneNumber,
+    userName,
+  }) => {
+    return client.post('/user/signUp', {
+      userType: 1,
+      email: email,
+      password: password,
+      userName: userName,
+      phoneNumber: phoneNumber,
+    });
+  };
 
-export const useTeamSignup = () => {
-  return useMutation({
-    mutationFn: ({
-      email,
-      password,
-      phoneNumber,
-      groupName,
-      category,
-      represent,
-    }) =>
-      client.post('/user/signUp', {
-        email: email,
-        password: password,
-        userType: 2,
-        phoneNumber: phoneNumber,
-        groupName: groupName,
-        category: category,
-        represent: represent,
-      }),
+  // 단체 회원
+  const postTeamSignup = async ({
+    email,
+    password,
+    phoneNumber,
+    groupName,
+    category,
+    represent,
+  }) => {
+    return client.post('/user/signUp', {
+      email: email,
+      password: password,
+      userType: 2,
+      phoneNumber: phoneNumber,
+      groupName: groupName,
+      category: category,
+      represent: represent,
+    });
+  };
 
+  return useMutation({
+    mutationFn: ({ params, type }) => {
+      switch (type) {
+        case 'personal':
+          return postPersonalSignup(params);
+        case 'team':
+          return postTeamSignup(params);
+        default:
+          throw new Error('Invalid user type');
+      }
+    },
     onSuccess: (data) => {
       console.log('회원가입 완료', data);
     },
