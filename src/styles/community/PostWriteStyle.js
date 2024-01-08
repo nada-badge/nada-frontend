@@ -79,7 +79,7 @@ export const PreViewImg = styled.div`
     width: 72px;
     height: 72px;
     border-radius: 10px;
-    background-size: 100%;
+    background-size: cover;
     background-image: ${({ imgurl }) => `url('${imgurl}')`};
   }
   & > .xImg {

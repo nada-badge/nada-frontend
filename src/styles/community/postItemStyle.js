@@ -15,7 +15,7 @@ export const PostContainer = styled.div`
     left: 0;
     top: 13px;
     border-radius: 10px;
-    background-size: 100%;
+    background-size: cover;
     background-image: ${({ imgurl }) =>
       `url('${
         imgurl ? imgurl : 'https://c.animaapp.com/hs22pPSO/img/image-3.svg'
