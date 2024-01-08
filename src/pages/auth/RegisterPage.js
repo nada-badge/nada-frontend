@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 
-const registerMap = {
-  '/register/personal': 'personal',
-  '/register/team': 'team',
-};
-
 const RegisterPage = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+
+  const registerMap = {
+    '/register/personal': 'personal',
+    '/register/team': 'team',
+  };
 
   useEffect(() => {
     dispatch(
@@ -22,6 +22,7 @@ const RegisterPage = () => {
       }),
     );
   }, []);
+
   return (
     <>
       <RegisterForm type={registerMap[pathname]} />

@@ -2,44 +2,20 @@ import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm } from '../../../modules/auth';
 import { useNavigate } from 'react-router-dom';
-import {
-  useUserSignup,
-  useTeamSignup,
-} from '../../../modules/queries/auth/useSignup';
+import { useSignup } from '../../../modules/queries/auth/useSignup';
 import { Frame } from '../../../styles/Register';
 import { BackSvg } from '../../../icon/BackSvg';
 
+// 동적으로 불러오기
+const EmailForm = lazy(() => import('./EmailForm'));
+const PasswordForm = lazy(() => import('./PasswordForm'));
+const UserNameForm = lazy(() => import('./UserNameForm'));
+const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
+const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
+const RepresentForm = lazy(() => import('./RepresentForm'));
+const TeamNameForm = lazy(() => import('./TeamNameForm'));
+
 const RegisterForm = ({ type }) => {
-  // 동적으로 불러오기
-  const EmailForm = lazy(() => import('./EmailForm'));
-  const PasswordForm = lazy(() => import('./PasswordForm'));
-  const UserNameForm = lazy(() => import('./UserNameForm'));
-  const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
-  const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
-  const RepresentForm = lazy(() => import('./RepresentForm'));
-  const TeamNameForm = lazy(() => import('./TeamNameForm'));
-
-  const [order, setOrder] = useState(0); // 입력 순서
-  const dispatch = useDispatch();
-  const register = useSelector(({ auth }) => auth[`${type}_register`]);
-
-  const { mutate: personal_mutatue } = useUserSignup(); // 회원가입 하기 (서버에 전송)
-  const { mutate: team_mutatue } = useTeamSignup();
-
-  const initializeTypeForm = {
-    team: () => dispatch(initializeForm('team_register')),
-    personal: () => dispatch(initializeForm('personal_register')),
-  };
-
-  useEffect(() => {
-    initializeTypeForm[type]();
-    // Unmount시, 상태 초기화하기 (=지우기)
-    return () => {
-      initializeTypeForm[type]();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
   const forms = {
     personal: [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm],
@@ -52,31 +28,37 @@ const RegisterForm = ({ type }) => {
       PhoneNumberForm,
     ],
   };
-
+  const [order, setOrder] = useState(0); // 입력 순서
   const Components = forms[type][order];
 
+  const dispatch = useDispatch();
+  const register = useSelector(({ auth }) => auth[`${type}_register`]);
+
+  useEffect(() => {
+    dispatch(initializeForm(`${type}_register`));
+    // Unmount시, 상태 초기화하기 (=지우기)
+    return () => {
+      dispatch(initializeForm(`${type}_register`));
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // 회원가입 하기 (서버에 전송)
+  const { mutate } = useSignup();
   const onSubmit = (e) => {
     e.preventDefault();
 
     // 마지막 form 입력일때, 회원가입 실행하기
     if (order === forms[type].length - 1) {
-      const mutationFunction =
-        type === 'personal' ? personal_mutatue : team_mutatue;
-      mutationFunction(register);
+      mutate({ params: register, type: type });
     } else setOrder(order + 1);
   };
 
   // 입력 값을 상태에 반영하기
   const dispatchField = useCallback((e) => {
     const { value, name } = e.target;
-    const dispatchMap = {
-      team: () =>
-        dispatch(changeField({ form: 'team_register', key: name, value })),
-      personal: () =>
-        dispatch(changeField({ form: 'personal_register', key: name, value })),
-    };
-    dispatchMap[type]();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const fieldType = `${type}_register`;
+    dispatch(changeField({ form: fieldType, key: name, value }));
   }, []);
 
   // 뒤로가기
@@ -104,4 +86,4 @@ const RegisterForm = ({ type }) => {
   );
 };
 
-export default RegisterForm;
+export default React.memo(RegisterForm);
