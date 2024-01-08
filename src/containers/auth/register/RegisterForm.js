@@ -9,16 +9,16 @@ import {
 import { Frame } from '../../../styles/Register';
 import { BackSvg } from '../../../icon/BackSvg';
 
-// 동적으로 불러오기
-const EmailForm = lazy(() => import('./EmailForm'));
-const PasswordForm = lazy(() => import('./PasswordForm'));
-const UserNameForm = lazy(() => import('./UserNameForm'));
-const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
-const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
-const RepresentForm = lazy(() => import('./RepresentForm'));
-const TeamNameForm = lazy(() => import('./TeamNameForm'));
-
 const RegisterForm = ({ type }) => {
+  // 동적으로 불러오기
+  const EmailForm = lazy(() => import('./EmailForm'));
+  const PasswordForm = lazy(() => import('./PasswordForm'));
+  const UserNameForm = lazy(() => import('./UserNameForm'));
+  const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
+  const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
+  const RepresentForm = lazy(() => import('./RepresentForm'));
+  const TeamNameForm = lazy(() => import('./TeamNameForm'));
+
   const [order, setOrder] = useState(0); // 입력 순서
   const dispatch = useDispatch();
   const register = useSelector(({ auth }) => auth[`${type}_register`]);
