@@ -140,3 +140,12 @@ export const TitleBox = styled.h1`
   line-height: 36px;
   margin: 0;
 `;
+
+export const Explain = styled.div`
+  text-align: left;
+  ${applyFontStyles({
+    font: 'body-02',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })}
+  padding : 8px 0px;
+`;

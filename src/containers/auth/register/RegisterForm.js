@@ -14,11 +14,20 @@ const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
 const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
 const RepresentForm = lazy(() => import('./RepresentForm'));
 const TeamNameForm = lazy(() => import('./TeamNameForm'));
+const RegionForm = lazy(() => import('./RegionForm'));
+const FieldForm = lazy(() => import('./RegionForm'));
 
 const RegisterForm = ({ type }) => {
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
   const forms = {
-    personal: [EmailForm, PasswordForm, UserNameForm, PhoneNumberForm],
+    personal: [
+      RegionForm,
+      FieldForm,
+      EmailForm,
+      PasswordForm,
+      UserNameForm,
+      PhoneNumberForm,
+    ],
     team: [
       EmailForm,
       PasswordForm,
