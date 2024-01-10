@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../../modules/auth';
-import { LoginBtn, InputBox } from '../../../styles/Login';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import Title from '../../../components/auth/Title';
 const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
@@ -87,28 +87,28 @@ const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
     <>
       <Title text={'사용할 비밀번호를'} />
       <form onSubmit={onSubmit} id={order}>
-          <InputBox>
-            <input
-              type="password"
-              name="password"
-              placeholder="비밀번호"
-              onChange={dispatchField}
-              value={password}
-              required
-            />
-            <CheckList list={check.password} />
-            <div />
-            <div />
-            <input
-              type="password"
-              name="passwordConfirm"
-              placeholder="한 번 더 입력해주세요."
-              onChange={dispatchField}
-              value={passwordConfirm}
-              required
-            />
-            <CheckList list={check.passwordConfirm} />
-          </InputBox>
+        <InputBox>
+          <input
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            onChange={dispatchField}
+            value={password}
+            required
+          />
+          <CheckList list={check.password} />
+          <div />
+          <div />
+          <input
+            type="password"
+            name="passwordConfirm"
+            placeholder="한 번 더 입력해주세요."
+            onChange={dispatchField}
+            value={passwordConfirm}
+            required
+          />
+          <CheckList list={check.passwordConfirm} />
+        </InputBox>
       </form>
       <LoginBtn form={order} disabled={disabled}>
         <div>다음</div>

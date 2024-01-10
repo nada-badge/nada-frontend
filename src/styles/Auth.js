@@ -105,3 +105,38 @@ export const FooterWrapper = styled.div`
     text-align: center;
   }
 `;
+
+//  ----------------- RegisterForm.js
+
+export const RegisterBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 375px;
+  margin: 0px auto;
+  gap: 24px;
+
+  & > .backBtnWrapper {
+    padding: 17px 8px 8px 0px;
+    width: fit-content;
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  ${applyFontStyles({ font: 'body-02' })}
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+`;
+
+export const TitleBox = styled.h1`
+  text-align: left;
+  color: #000000;
+  font-family: 'Pretendard-Bold', Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  height: 72px;
+  letter-spacing: 0;
+  line-height: 36px;
+  margin: 0;
+`;

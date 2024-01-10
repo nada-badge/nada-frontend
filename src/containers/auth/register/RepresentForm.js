@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../../modules/auth';
-import { LoginBtn, InputBox } from '../../../styles/Login';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
