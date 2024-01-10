@@ -1,6 +1,9 @@
 /** SetButtonActive 커뮤니티 글 수정을 위해 postWritePage로 넘어가기 전 필요한 세팅을 하는 컨테이너 */
 import { useDispatch, useSelector } from 'react-redux';
-import { setSubmit, changeField } from '../../../modules/community/postWrite';
+import {
+  setSubmit,
+  changeField,
+} from '../../../modules/redux/community/postWrite';
 
 const useSetButtonActive = () => {
   const dispatch = useDispatch();

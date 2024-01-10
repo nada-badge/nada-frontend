@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeField, initializeForm } from '../../../modules/auth';
+import { changeField, initializeForm } from '../../../modules/redux/auth';
 import { useNavigate } from 'react-router-dom';
 import {
   useUserSignup,

@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, changeField } from '../../../modules/filter';
+import { filterSelector, changeField } from '../../../modules/redux/filter';
 import { Dropdown, TextWarpper } from '../../../styles/community/DropdownStyle';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { FilterHandler } from '../../common/icon/FilterHandler';

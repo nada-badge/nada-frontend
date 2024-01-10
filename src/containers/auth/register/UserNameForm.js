@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
-import { authSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/redux/auth';
 import { produce } from 'immer';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import { InputWrapper, Form } from '../../../styles/Register';

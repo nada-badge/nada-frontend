@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux';
 import TagButtons from '../../components/community/postDetail/TagButtons';
 import { DetailPost, ViewImg } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { Profile } from '../../components/community/comment/Profile';
 import { useGetPost } from '../../modules/queries/community/useGetCommunity';
-import { changePostDetailField } from '../../modules/community/postDetail';
+import { changePostDetailField } from '../../modules/redux/community/postDetail';
 
 const PostDetail = () => {
   const dispatch = useDispatch();

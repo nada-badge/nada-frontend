@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useState } from 'react';
 import { Form, InputWrapper } from '../../../styles/Register';
 import { useEffect } from 'react';
-import { authSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/redux/auth';
 import { useSelector } from 'react-redux';
 import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';

@@ -1,7 +1,7 @@
 /** SelectAllButton  region, field, category 모달 내 전체를 아우르는 버튼 */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, initializeForm } from '../../../modules/filter';
+import { filterSelector, initializeForm } from '../../../modules/redux/filter';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../AttributeInfoButton';
 

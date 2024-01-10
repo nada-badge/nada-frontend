@@ -1,7 +1,7 @@
 /** NoticeBar 수정 중임을 알려주는 알림창 */
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { initializeForm } from '../../../modules/community/postDetail';
+import { initializeForm } from '../../../modules/redux/community/postDetail';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
 const NoticeBar = ({ name, isReply }) => {

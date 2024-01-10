@@ -7,7 +7,7 @@ import {
   deleteField,
   changeField,
   initializeForm,
-} from '../../../modules/community/postWrite';
+} from '../../../modules/redux/community/postWrite';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 

@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { authSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/redux/auth';
 import { InputWrapper, Form } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';

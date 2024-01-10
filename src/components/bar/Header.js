@@ -2,7 +2,7 @@
 import React, { useState, useEffect, memo } from 'react';
 import { Top } from '../../styles/Header';
 import { HeaderType, HeaderTypeConfig } from '../../containers/HeaderType';
-import { barSelector } from '../../modules/bar';
+import { barSelector } from '../../modules/redux/bar';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 

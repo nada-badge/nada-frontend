@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../../styles/community/CommunityBarStyle';
 import useModal from '../../../components/common/usedInModal/useModal';
-import { PostDetailSelector } from '../../../modules/community/postDetail';
+import { PostDetailSelector } from '../../../modules/redux/community/postDetail';
 import CountComment from '../../../components/community/postDetail/CountComment';
 
 export const BottomBar = () => {

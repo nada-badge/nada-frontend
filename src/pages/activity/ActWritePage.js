@@ -10,7 +10,7 @@ import CardList from '../../components/cardList/CardList';
 import ImgAdd from '../../icon/Activity/ImgAdd.png';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 
 const inputStyles = css`
   width: 100%;

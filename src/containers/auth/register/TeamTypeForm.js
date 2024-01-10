@@ -4,7 +4,7 @@ import Title from '../../../components/auth/Title';
 import { Form } from '../../../styles/Register';
 import Button from '../../../components/auth/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { authSelector, changeField } from '../../../modules/auth';
+import { authSelector, changeField } from '../../../modules/redux/auth';
 
 const TeamTypeForm = ({ order, onSubmit }) => {
   const [teamType, setTeamType] = useState([
