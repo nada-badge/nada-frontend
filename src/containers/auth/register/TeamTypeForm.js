@@ -2,10 +2,10 @@ import React, { useCallback, useState, useEffect } from 'react';
 import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 import Title from '../../../components/auth/Title';
 import { LoginBtn } from '../../../styles/Auth';
-import { useDispatch, useSelector } from 'react-redux';
-import { authSelector, changeField } from '../../../modules/auth';
+import { useSelector } from 'react-redux';
+import { authSelector } from '../../../modules/auth';
 
-const TeamTypeForm = ({ order, onSubmit }) => {
+const TeamTypeForm = ({ dispatchField, order, onSubmit }) => {
   const [teamType, setTeamType] = useState([
     { id: 11, text: '교내 동아리', checked: false },
     { id: 12, text: '연합 동아리', checked: false },
@@ -18,7 +18,6 @@ const TeamTypeForm = ({ order, onSubmit }) => {
   const [disabled, setDisabled] = useState(true);
 
   const category = useSelector(authSelector('team', 'category')); // userName 상태 가져오기
-  const dispatch = useDispatch();
   const onClick = useCallback(
     (id) => {
       setTeamType(
@@ -28,13 +27,12 @@ const TeamTypeForm = ({ order, onSubmit }) => {
             : { ...team, checked: false },
         ),
       );
-      dispatch(
-        changeField({
-          form: 'team_register',
-          key: 'category',
+      dispatchField({
+        target: {
           value: id,
-        }),
-      );
+          name: 'category',
+        },
+      });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [teamType],
