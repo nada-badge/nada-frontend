@@ -56,6 +56,6 @@ const Icon = () => (
     fill="none"
     viewBox="0 0 17 12"
   >
-    <path stroke="#2FEDAF" stroke-width="2" d="m1 5.5 5.5 5 9.5-9" />
+    <path stroke="#2FEDAF" strokeWidth="2" d="m1 5.5 5.5 5 9.5-9" />
   </svg>
 );
