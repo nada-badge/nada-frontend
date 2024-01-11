@@ -115,6 +115,10 @@ export const RegisterBox = styled.div`
   width: 375px;
   margin: 0px auto;
   gap: 24px;
+  text-align: left;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 
   & > .backBtnWrapper {
     padding: 17px 8px 8px 0px;

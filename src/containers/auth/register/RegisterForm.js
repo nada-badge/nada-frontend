@@ -4,7 +4,6 @@ import { changeField, initializeForm } from '../../../modules/auth';
 import { useNavigate } from 'react-router-dom';
 import { useSignup } from '../../../modules/queries/auth/useSignup';
 import { BackSvg } from '../../../icon/BackSvg';
-import { RegisterBox } from '../../../styles/Auth';
 
 // 동적으로 불러오기
 const EmailForm = lazy(() => import('./EmailForm'));
@@ -79,7 +78,7 @@ const RegisterForm = ({ type }) => {
   };
 
   return (
-    <RegisterBox>
+    <>
       <div className="backBtnWrapper" onClick={goBack}>
         <BackSvg />
       </div>
@@ -91,7 +90,7 @@ const RegisterForm = ({ type }) => {
           type={type}
         />
       </Suspense>
-    </RegisterBox>
+    </>
   );
 };
 

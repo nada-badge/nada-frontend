@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
+import { RegisterBox } from '../../styles/Auth';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,9 @@ const RegisterPage = () => {
 
   return (
     <>
-      <RegisterForm type={registerMap[pathname]} />
+      <RegisterBox>
+        <RegisterForm type={registerMap[pathname]} />
+      </RegisterBox>
     </>
   );
 };
