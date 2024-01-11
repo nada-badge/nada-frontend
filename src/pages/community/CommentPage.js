@@ -9,6 +9,7 @@ import { CommentList } from '../../styles/community/CommentStyle';
 import { BottomBar } from '../../containers/community/comment/BottomBar';
 import { changeBarStatus } from '../../modules/redux/bar';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { changePostDetailField } from '../../modules/redux/community/postDetail';
 
 const CommentPage = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const CommentPage = () => {
     if (isLoading || isError) {
       return;
     }
-
+    dispatch(changePostDetailField({ value: { _id: params._id } }));
     setComments(data.comments);
   }, [data, isLoading, isError]);
 
