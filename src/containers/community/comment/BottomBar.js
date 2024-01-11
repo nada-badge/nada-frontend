@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Bar } from '../../../styles/community/CommentBarStyle';
 import usePostComment from '../../../modules/queries/community/usePostComment';
 import usePatchComment from '../../../modules/queries/community/usePatchComment';
-import preSetForQuery from '../../../modules/common/getBasicUrl';
+import getBasicUrl from '../../../modules/common/getBasicUrl';
 import NoticeBar from './NoticeBar';
 import { InputBar } from '../../../styles/community/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
@@ -14,9 +14,8 @@ export const BottomBar = () => {
   const { mutate } = usePostComment();
   const update = usePatchComment().mutate;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
-
   const position = PostDetail.Comment.position;
-  const { url, idData } = preSetForQuery(position, PostDetail);
+  const { url, idData } = getBasicUrl(position, PostDetail);
   const content = PostDetail.Comment.content;
   const isReplying = PostDetail.Comment.isReplying;
   const isUpdating = PostDetail.Comment.isUpdating;
