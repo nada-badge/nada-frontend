@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
-import AuthTemplate from '../../components/auth/AuthTemplate';
 import LoginForm from '../../containers/auth/login/LoginForm';
-import { LoginBox, LogoBox } from '../../styles/Login';
+import { LoginBox } from '../../styles/Auth';
 import { useLocation } from 'react-router-dom';
 import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch } from 'react-redux';
-
-const locationMap = {
-  '/login/personal': 'personal',
-  '/login/team': 'team',
-};
+import { MySpecLogo } from '../../icon/MySpecLogo';
+import SocialLogin from '../../containers/auth/login/SocialLogin';
+import LoginFooter from '../../containers/auth/login/LoginFooter';
 
 const LoginPage = () => {
+  const locationMap = {
+    '/login/personal': 'personal',
+    '/login/team': 'team',
+  };
+
   const location = useLocation();
   const dispatch = useDispatch();
   const [type, setType] = useState(null);
@@ -28,17 +30,20 @@ const LoginPage = () => {
   }, [location.pathname]);
 
   return (
-    <AuthTemplate>
+    <>
       <LoginBox>
-        <LogoBox>
-          <img
-            alt="Logo"
-            src="https://generation-sessions.s3.amazonaws.com/dccd720493d3d99169fdd13158e459fa/img/logo.svg"
-          />
-        </LogoBox>
-        <LoginForm type={type} />
+        <div>
+          <MySpecLogo className="LogoBox" />
+        </div>
+        <div>
+          <LoginForm type={type} />
+          <div>
+            {type === 'personal' && <SocialLogin />}
+            <LoginFooter type={type} />
+          </div>
+        </div>
       </LoginBox>
-    </AuthTemplate>
+    </>
   );
 };
 
