@@ -79,8 +79,8 @@ const ActivityPage = () => {
           <RecentActivityItem cards={recent.reverse()} />
         </CardList>
       )}
-      <div>
-        <div style={{ padding: '12px' }}>
+      <div style={{ padding: '16px' }}>
+        <div>
           <Filter />
           <AlignBox text={'최신 순'} />
         </div>
@@ -91,7 +91,7 @@ const ActivityPage = () => {
           rowCount={Math.ceil(activities.length / 2)}
           rowHeight={234}
           width={375}
-          style={{ boxSizing: 'border-box', padding: '0px 12px' }}
+          style={{ boxSizing: 'border-box', padding: '12px' }}
         >
           {Cell}
         </Grid>
