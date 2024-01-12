@@ -2,7 +2,7 @@ import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
 import { useCallback, useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
 import ActivityItem from '../../components/cardList/ActivityItem';
@@ -17,8 +17,10 @@ const ActivityPage = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
 
+  const filter = useSelector(({ filter }) => filter);
+
   // 활동글 불러오기
-  const { data } = useActivityList();
+  const { data, isError } = useActivityList({ filter: filter });
 
   useEffect(() => {
     if (data) {
