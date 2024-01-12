@@ -1,4 +1,4 @@
-/** CommentPage 댑글과 답글을 보여주는 페이지 */
+/** CommentPage 댓글과 답글을 보여주는 페이지 */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
