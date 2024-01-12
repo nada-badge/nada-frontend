@@ -1,30 +1,29 @@
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../../modules/auth';
-import { InputWrapper, Form } from '../../../styles/Register';
-import Button from '../../../components/auth/Button';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 import Title from '../../../components/auth/Title';
 
 const TeamNameForm = ({ dispatchField, onSubmit, order, type }) => {
   const groupName = useSelector(authSelector(type, 'groupName')); // userName 상태 가져오기
 
   return (
-    <div>
+    <>
       <Title text={'단체 이름을'} />
-      <Form onSubmit={onSubmit} id={order}>
-        <div>
-          <InputWrapper $position>
-            <input
-              name="groupName"
-              placeholder="단체 이름"
-              onChange={dispatchField}
-              value={groupName}
-              required
-            />
-          </InputWrapper>
-        </div>
-      </Form>
-      <Button form={order} text={'다음'} />
-    </div>
+      <form onSubmit={onSubmit} id={order}>
+        <InputBox>
+          <input
+            name="groupName"
+            placeholder="단체 이름"
+            onChange={dispatchField}
+            value={groupName}
+            required
+          />
+        </InputBox>
+      </form>
+      <LoginBtn form={order}>
+        <div>다음</div>
+      </LoginBtn>
+    </>
   );
 };
 

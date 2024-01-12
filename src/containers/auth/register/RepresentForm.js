@@ -1,8 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../../modules/auth';
-import { InputWrapper, Form } from '../../../styles/Register';
-import Button from '../../../components/auth/Button';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 import Title from '../../../components/auth/Title';
 import Caution from '../../../components/auth/Caution';
 
@@ -30,24 +29,24 @@ const RepresentForm = ({ dispatchField, onSubmit, order, type }) => {
   );
 
   return (
-    <div>
+    <>
       <Title text={'대표자 이름을'} />
-      <Form onSubmit={handleFormSubmit} id={order}>
-        <div>
-          <InputWrapper $position>
-            <input
-              name="represent"
-              placeholder="대표자 이름"
-              onChange={dispatchField}
-              value={represent}
-              required
-            />
-          </InputWrapper>
-          {error && <Caution error={error} />}
-        </div>
-      </Form>
-      <Button form={order} text={'다음'} />
-    </div>
+      <form onSubmit={handleFormSubmit} id={order}>
+        <InputBox>
+          <input
+            name="represent"
+            placeholder="대표자 이름"
+            onChange={dispatchField}
+            value={represent}
+            required
+          />
+        </InputBox>
+        {error && <Caution error={error} />}
+      </form>
+      <LoginBtn form={order}>
+        <div>다음</div>
+      </LoginBtn>
+    </>
   );
 };
 
