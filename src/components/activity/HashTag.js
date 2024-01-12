@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { caption_02 } from '../../styles/fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 const TextWrapper = styled.div`
   display: flex;
@@ -7,8 +7,11 @@ const TextWrapper = styled.div`
   align-items: center;
   gap: 8px;
   border-radius: 16px;
-  background: var(--myspec-gray-scale-gray-100);
-  ${caption_02('var(--myspec-gray-scale-gray-600)')}
+  background: var(--myspec-gray-scalegray-100);
+  ${applyFontStyles({
+    font: 'caption-02',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })}
 `;
 
 const HashTag = ({ children }) => {

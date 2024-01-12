@@ -25,6 +25,7 @@ import SearchActivityPage from './pages/activity/SearchActivityPage';
 
 import BadgePage from './pages/badge/BadgePage';
 import DetailBadgePage from './pages/badge/DetailBadgePage';
+import ActWritePage from './pages/activity/ActWritePage';
 
 const App = () => {
   return (
@@ -38,9 +39,14 @@ const App = () => {
 
         <Route path="/" element={<Home />} />
         <Route path="/calendar" element={<CalendarPage />} />
+
         <Route path="/activity" element={<ActivityPage />} />
-        <Route path="/activity/:_id" element={<DetailActivityPage />} />
+        <Route
+          path="/activity/DetailActivity/:_id"
+          element={<DetailActivityPage />}
+        />
         <Route path="/activity/search" element={<SearchActivityPage />} />
+        <Route path="/activity/ActWrite" element={<ActWritePage />} />
 
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/community/PostWrite" element={<PostWritePage />} />

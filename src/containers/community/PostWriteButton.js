@@ -2,7 +2,7 @@
 import { PostButton } from '../../styles/community/PostWriteButtonStyle';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setField } from '../../modules/community/postWrite';
+import { changeField } from '../../modules/community/postWrite';
 import { initializeForm } from '../../modules/community/postDetail';
 
 export const PostWriteButton = () => {
@@ -11,7 +11,7 @@ export const PostWriteButton = () => {
 
   const toPostWrite = () => {
     dispatch(initializeForm({ form: 'PostDetail' }));
-    dispatch(setField({ form: 'method', key: 'isSubmit', value: true }));
+    dispatch(changeField({ form: 'method', key: 'isSubmit', value: true }));
     navigate('/community/PostWrite');
   };
 

@@ -1,9 +1,9 @@
-/** postUpdateQuery 게시글을 수정 하는 쿼리 */
+/** usePatchCommunity 커뮤니티 게시글을 수정 하는 쿼리 */
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
-const useUpdate = () => {
+const usePatchCommunity = () => {
   const navigate = useNavigate();
 
   //1) postWrite에서 넘겨받은 값 /community/post에 post하기
@@ -43,4 +43,4 @@ const useUpdate = () => {
   });
 };
 
-export default useUpdate;
+export default usePatchCommunity;

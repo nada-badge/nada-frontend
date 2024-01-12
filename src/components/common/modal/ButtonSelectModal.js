@@ -6,7 +6,7 @@ import {
   initializeForm,
   submitForm,
   postWriteSelector,
-  setField,
+  changeField,
 } from '../../../modules/community/postWrite';
 import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
@@ -34,7 +34,7 @@ const ButtonSelectModal = () => {
   const buttonAll = selectAllConfig(contentType);
   useEffect(() => {
     dispatch(
-      setField({
+      changeField({
         form: 'postWriteSelect',
         key: contentType,
         value: Initialization,
@@ -54,7 +54,7 @@ const ButtonSelectModal = () => {
         ? !(status === buttonAll)
         : !(status[0] === buttonAll);
     dispatch(
-      setField({
+      changeField({
         form: 'ButtonActive',
         key: contentType,
         value: value,

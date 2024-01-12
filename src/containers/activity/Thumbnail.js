@@ -3,6 +3,7 @@ import { Star } from '../../components/common/icon/Star';
 import { caption_01, title_01 } from '../../styles/fontStyle';
 import HashTag from '../../components/activity/HashTag';
 import { calculateDday } from '../../modules/activity/calculateDday';
+import imgNull from '../../icon/GrayLogo.png';
 
 const ThumbContainer = styled.div`
   text-align: left;
@@ -13,6 +14,9 @@ const ThumbContainer = styled.div`
 
   & > .thumbnail-image {
     width: 100%;
+    height: 33vh;
+    object-fit: cover;
+    object-position: top;
   }
 
   & > .info-box {
@@ -70,8 +74,14 @@ const Thumbnail = ({ info }) => {
   return (
     info && (
       <ThumbContainer>
-        {/* imageUrl 없는 경우 : +icon 추가하기 */}
-        <img className="thumbnail-image" alt="thumbnail" src={imageUrl} />
+        <img
+          className="thumbnail-image"
+          alt="thumbnail"
+          src={imageUrl}
+          onError={(e) => {
+            e.target.src = imgNull;
+          }}
+        />
         <div className="info-box">
           <div className="top">
             <Dday

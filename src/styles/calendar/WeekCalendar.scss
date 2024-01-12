@@ -1,17 +1,18 @@
 // '2023년 9월' title 위치 설정하기
-.WeekCalendarWrapper{
-    div.fc-header-toolbar {
-        position: relative;
-        top:15px;
-        left:19px;
-        margin-bottom:25px !important
-    }
-    
-    // '2023년 9월'title text css 적용하기
-    h2.fc-toolbar-title{
-        color: #000000;
-        font-family: var(--title-01-font-family);
-        font-size: var(--title-01-font-size) !important;
-        font-weight: var( --title-01-font-weight);
-    }
+.WeekCalendarWrapper {
+  div.fc-header-toolbar {
+    box-sizing: border-box;
+    position: relative;
+    top: 15px;
+    margin-left: 19px;
+    margin-bottom: 25px !important;
+  }
+
+  // '2023년 9월'title text css 적용하기
+  h2.fc-toolbar-title {
+    color: #000000;
+    font-family: var(--title-01-font-family);
+    font-size: var(--title-01-font-size) !important;
+    font-weight: var(--title-01-font-weight);
+  }
 }

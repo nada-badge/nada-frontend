@@ -4,17 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import useSubmit from '../../modules/queries/ManageActivityQuery';
-import useUpdate from '../../modules/queries/ManageActivityUpdateQuery';
+import usePostManage from '../../modules/queries/manage/usePostManage';
+import usePatchManage from '../../modules/queries/manage/usePatchManage';
 import { activitySelector } from '../../modules/activity';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { mutate } = useSubmit();
-  const update = useUpdate().mutate;
+  const { mutate } = usePostManage();
+  const update = usePatchManage().mutate;
 
   const [board, setBoard] = useState(
     useSelector(({ activity }) => activity.activities),
@@ -26,7 +26,7 @@ const ManageActivityWrite = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'back',
         text: '게시물 등록',
         isShowBottom: false,

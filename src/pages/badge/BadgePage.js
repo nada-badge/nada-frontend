@@ -2,7 +2,7 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import CardList from '../../components/cardList/CardList';
 import { useDispatch } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 import SortOrder from '../../components/search/SortOrder';
@@ -14,7 +14,7 @@ const BadgePage = () => {
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'bell',
         text: '뱃지',
         isShowBottom: true,

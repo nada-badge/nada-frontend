@@ -1,7 +1,7 @@
 /*ManageHome 관리자용 메인 페이지 */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { setBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/bar';
 import { useDispatch } from 'react-redux';
 
 const ManageHome = () => {
@@ -10,7 +10,7 @@ const ManageHome = () => {
   //해당 페이지의 상단, 하단 설정
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'logo',
         text: '관리자용',
         isShowBottom: false,

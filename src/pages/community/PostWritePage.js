@@ -1,22 +1,23 @@
 /** PostWritePage 글 작성을 진행하는 페이지 */
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import useSubmit from '../../modules/queries/PostWriteQuery';
-import useUpdate from '../../modules/queries/PostUpdateQuery';
+import usePostCommunity from '../../modules/queries/community/usePostCommunity';
+import usePatchCommunity from '../../modules/queries/community/usePatchCommunity';
 import {
   initializeAll,
   postWriteSelector,
 } from '../../modules/community/postWrite';
-import { setBarStatus } from '../../modules/bar';
-import { PostContainer, Border } from '../../styles/community/PostWriteStyle';
+import { changeBarStatus } from '../../modules/bar';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Content } from '../../containers/community/postWrite/Content';
 import { Image } from '../../containers/community/postWrite/Image';
+import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
-  const { mutate } = useSubmit();
-  const update = useUpdate().mutate;
+  const { mutate } = usePostCommunity();
+  const updateMutate = usePatchCommunity().mutate;
+
   const dispatch = useDispatch();
 
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
@@ -26,10 +27,11 @@ const PostWrite = () => {
     title: PostDetail.title,
     content: PostDetail.content,
   });
+  const [imgFiles, setImgFiles] = useState([]);
 
   useEffect(() => {
     dispatch(
-      setBarStatus({
+      changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
         isShowBottom: false,
@@ -45,9 +47,9 @@ const PostWrite = () => {
     });
   };
 
-  const OnSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const userEmail = 'maintest01@gmail.com';
+    const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
     const _id = postwrite._id;
     const mainCategorys = postwrite.mainCategory;
@@ -56,6 +58,8 @@ const PostWrite = () => {
     const regions = postwrite.region;
     const title = e.target.title.value;
     const content = e.target.content.value;
+
+    const imageUrl = imgFiles;
 
     dispatch(initializeAll());
     if (isSubmit) {
@@ -68,9 +72,10 @@ const PostWrite = () => {
         regions,
         title,
         content,
+        imageUrl,
       });
     } else {
-      update({
+      updateMutate({
         _id,
         userEmail,
         userName,
@@ -80,22 +85,26 @@ const PostWrite = () => {
         regions,
         title,
         content,
+        imageUrl,
       });
     }
   };
 
   return (
-    <PostContainer>
-      <form onSubmit={OnSubmit}>
-        <Title onChange={onChange} inputValue={inputValue} />
-        <Border />
-        <FilterBar />
+    <form
+      className="pageContainer"
+      onSubmit={onSubmit}
+      encType="multipart/form-data"
+    >
+      <Title onChange={onChange} inputValue={inputValue} />
+      <div>
+        <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
-        <Border />
-        <Image />
-        <button>테스트 제출 버튼</button>
-      </form>
-    </PostContainer>
+      </div>
+      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
+
+      <button>테스트 제출 버튼</button>
+    </form>
   );
 };
 
