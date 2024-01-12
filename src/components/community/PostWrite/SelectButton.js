@@ -51,11 +51,6 @@ export const SelectButton = ({ text }) => {
   }, [state]);
 
   return (
-    <AttributeInfoButton
-      text={text}
-      onClick={onClick}
-      isActive={isActive}
-      isImg={true}
-    />
+    <AttributeInfoButton text={text} onClick={onClick} isActive={isActive} />
   );
 };

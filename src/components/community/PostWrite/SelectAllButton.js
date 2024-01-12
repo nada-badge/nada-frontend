@@ -36,7 +36,6 @@ export const SelectAllButton = () => {
       text={buttonAll}
       onClick={onClick}
       isActive={isActive}
-      isImg={false}
     />
   );
 };
