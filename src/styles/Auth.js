@@ -95,6 +95,7 @@ export const FooterWrapper = styled.div`
 
     & > a {
       text-decoration: none;
+      color: #000;
     }
   }
 
