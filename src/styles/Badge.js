@@ -1,3 +1,5 @@
+import { applyFontStyles } from './fontStyle';
+
 // ************ BadgePage.js
 
 export const pageContainer = {
@@ -45,3 +47,11 @@ export const imgItem = {
   borderRadius: '10px',
   background: 'var(--myspec-gray-scalegray-400)',
 };
+
+export const hideBadgeBox = Object.assign(
+  applyFontStyles({
+    font: 'body-02',
+    color: 'var(--myspec-primaryred-1)',
+  }),
+  { paddingTop: '16px', paddingBottom: '16px', textAlign: 'center' },
+);
