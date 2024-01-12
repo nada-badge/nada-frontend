@@ -16,19 +16,19 @@ export const SelectButton = ({ text }) => {
 
   const [isActive, setIsActive] = useState(state.includes(text));
   const form = 'subButtonSelect';
-  const slectAll = selectAllConfig(content);
+  const selectAll = selectAllConfig(content);
 
   const onClick = () => {
     const deactivateButton = () => {
       dispatch(deleteField({ form, key: content, value: text }));
       if (state.length === 1) {
-        dispatch(addField({ form, key: content, value: slectAll }));
+        dispatch(addField({ form, key: content, value: selectAll }));
       }
     };
 
     const activateButton = () => {
       dispatch(addField({ form, key: content, value: text }));
-      dispatch(deleteField({ form, key: content, value: slectAll }));
+      dispatch(deleteField({ form, key: content, value: selectAll }));
     };
 
     isActive ? deactivateButton() : activateButton();
