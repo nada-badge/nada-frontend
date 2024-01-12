@@ -1,10 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
-import { authSelector } from '../../../modules/auth';
-import { InputWrapper, Form } from '../../../styles/Register';
+import { authSelector } from '../../../modules/redux/auth';
+import { LoginBtn, InputBox } from '../../../styles/Auth';
 import CheckList from '../../../components/auth/CheckList/CheckList';
-import Button from '../../../components/auth/Button';
 import Title from '../../../components/auth/Title';
 const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
   // error 메세지 관리하기
@@ -85,43 +84,36 @@ const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Title text={'사용할 비밀번호를'} />
-      <Form onSubmit={onSubmit} id={order}>
-        <div>
-          <InputWrapper $position>
-            <input
-              type="password"
-              name="password"
-              placeholder="비밀번호"
-              onChange={dispatchField}
-              value={password}
-              required
-            />
-          </InputWrapper>
+      <form onSubmit={onSubmit} id={order}>
+        <InputBox>
+          <input
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            onChange={dispatchField}
+            value={password}
+            required
+          />
           <CheckList list={check.password} />
-        </div>
-        <div>
-          <InputWrapper $position={{ top: 109 }}>
-            <input
-              type="password"
-              name="passwordConfirm"
-              placeholder="한 번 더 입력해주세요."
-              onChange={dispatchField}
-              value={passwordConfirm}
-              required
-            />
-          </InputWrapper>
+          <div />
+          <div />
+          <input
+            type="password"
+            name="passwordConfirm"
+            placeholder="한 번 더 입력해주세요."
+            onChange={dispatchField}
+            value={passwordConfirm}
+            required
+          />
           <CheckList list={check.passwordConfirm} />
-        </div>
-      </Form>
-      <Button
-        form={order}
-        text={'다음'}
-        disabled={disabled}
-        style={{ marginTop: '30px' }}
-      />
-    </div>
+        </InputBox>
+      </form>
+      <LoginBtn form={order} disabled={disabled}>
+        <div>다음</div>
+      </LoginBtn>
+    </>
   );
 };
 export default PasswordForm;

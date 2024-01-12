@@ -1,7 +1,7 @@
 /**ReplyOutPut 답글을 출력하는 컴포넌트 */
 import { useDispatch } from 'react-redux';
 import useModal from '../../common/usedInModal/useModal';
-import { changeCommentField } from '../../../modules/community/postDetail';
+import { changeCommentField } from '../../../modules/redux/community/postDetail';
 import { ReplyBox } from '../../../styles/community/CommentStyle';
 import { Profile } from './Profile';
 import { Menu } from './Menu';

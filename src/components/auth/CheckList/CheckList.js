@@ -1,20 +1,19 @@
-import styled from 'styled-components';
 import CheckListItem from './CheckListItem';
 
-const CheckListBox = styled.div`
-  height: 21px;
-  position: relative;
-  display: inline-flex;
-  gap: 12px;
-`;
-
 const CheckList = ({ list }) => {
+  const BoxStyle = {
+    height: '21px',
+    position: 'relative',
+    display: 'inline-flex',
+    gap: '12px',
+  };
+
   return (
-    <CheckListBox>
+    <div style={BoxStyle}>
       {list.map((item) => (
         <CheckListItem text={item.text} key={item.id} checked={item.checked} />
       ))}
-    </CheckListBox>
+    </div>
   );
 };
 

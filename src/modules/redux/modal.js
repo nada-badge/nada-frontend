@@ -23,7 +23,7 @@ export const modalSlice = createSlice({
       state.content = content;
       state.position = position;
     },
-    closeModal: (state, action) => {
+    closeModal: () => {
       return initialState;
     },
   },

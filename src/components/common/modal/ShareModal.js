@@ -5,7 +5,8 @@ import { Layout } from '../../../styles/community/NoticeModalStyle';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Toast } from '../Toast';
 import { LinkSvg } from '../../../icon/LinkSvg';
-import { KakaoSvg } from '../../../icon/KakaoSvg';
+//import { KakaoSvg } from '../../../icon/KakaoSvg';
+//카카오톡 공유 기능은 서비스 출시 이후에 가능함으로 현재는 주석처리 해두었습니다.
 
 const ShareModal = () => {
   const { closeModal } = useModal();
@@ -26,10 +27,10 @@ const ShareModal = () => {
           <div className="text">링크 복사하기</div>
         </div>
       </CopyToClipboard>
-      <div className="kakaO">
+      {/* <div className="kakaO">
         <KakaoSvg />
         <div className="text">카카오톡 공유하기</div>
-      </div>
+      </div> */}
 
       <div className="border-2" />
       <ModalButtonDiv cancelText={'닫기'} />

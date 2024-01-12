@@ -7,7 +7,7 @@ import {
   submitForm,
   postWriteSelector,
   changeField,
-} from '../../../modules/community/postWrite';
+} from '../../../modules/redux/community/postWrite';
 import { SelectButton } from '../../community/PostWrite/SelectButton';
 import { SelectAllButton } from '../../community/PostWrite/SelectAllButton';
 import { List, Border } from '../../../styles/ModalStyle';

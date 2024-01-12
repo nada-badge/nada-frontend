@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { CommentBox } from '../../../styles/community/CommentStyle';
-import { changeCommentField } from '../../../modules/community/postDetail';
+import { changeCommentField } from '../../../modules/redux/community/postDetail';
 import ReplyOutPut from './replyOutput';
 import useModal from '../../common/usedInModal/useModal';
 import { Profile } from './Profile';
@@ -40,8 +40,8 @@ const CommentOutPut = ({ comment }) => {
           )}
         </CommentBox>
       )}
-      {comment.replies.map((reply) => (
-        <div key={reply.id}>{ReplyOutPut({ comment, reply })}</div>
+      {comment.replies.map((reply, index) => (
+        <div key={index}>{ReplyOutPut({ comment, reply })}</div>
       ))}
     </div>
   );
