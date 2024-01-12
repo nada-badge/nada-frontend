@@ -39,12 +39,13 @@ const Items = styled.div`
   width: 345px;
 `;
 
-const Item = styled.div`
+export const Item = styled.div`
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 8px;
   position: relative;
   padding-top: 8px;
-  width: 345px;
+  width: 100%;
+  box-sizing: border-box;
 `;
