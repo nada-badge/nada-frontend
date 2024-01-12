@@ -5,8 +5,14 @@ import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { ContentBox } from '../../components/badge/ContentBox';
 import { ActivityTable } from '../../components/badge/ActivityTable';
 import CardList from '../../components/cardList/CardList';
-import { viewContainer, layout_style, imgItem } from '../../styles/Badge';
+import {
+  viewContainer,
+  layout_style,
+  imgItem,
+  hideBadgeBox,
+} from '../../styles/Badge';
 import '../../styles/PageCommon.scss';
+import useModal from '../../components/common/usedInModal/useModal';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -37,6 +43,17 @@ const DetailBadgePage = () => {
     { start: '2023.04', end: '2023.06', name: '성북구 청년소셜 벤처' },
   ];
 
+  const { openModal } = useModal();
+
+  const onClick = () => {
+    openModal({
+      type: 'hideModal',
+      contentType: '뱃지',
+      actionType: '숨기기',
+      content: '숨긴 뱃지는 MY-숨긴 뱃지에서 관리할 수 있어요',
+    });
+  };
+
   return (
     <div style={viewContainer}>
       <div className="pageContainer">
@@ -57,6 +74,9 @@ const DetailBadgePage = () => {
             ))}
           </CardList>
         </ContentBox>
+        <div style={hideBadgeBox} onClick={onClick}>
+          이 뱃지 숨기기
+        </div>
       </div>
     </div>
   );
