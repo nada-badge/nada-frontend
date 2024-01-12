@@ -1,6 +1,6 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 
-export const AlignBox = ({ text }) => {
+export const AlignBox = ({ text, onClick }) => {
   const BoxWrapper = {
     width: 'fit-content',
     display: 'flex',
@@ -20,7 +20,7 @@ export const AlignBox = ({ text }) => {
   );
 
   return (
-    <span style={BoxWrapper}>
+    <span style={BoxWrapper} onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="11"
