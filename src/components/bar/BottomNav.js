@@ -1,7 +1,7 @@
 /*BottomNav 하단 네비게이션 바를 관리하고 출력함*/
 import React from 'react';
 import { Navi, NavLinks, Text } from '../../styles/BottomNav';
-import { barSelector } from '../../modules/bar';
+import { barSelector } from '../../modules/redux/bar';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { BottomBarIconsSvg } from '../../icon/BottomBarIconsSvg';

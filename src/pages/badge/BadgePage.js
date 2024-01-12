@@ -3,7 +3,7 @@ import CardList from '../../components/cardList/CardList';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 

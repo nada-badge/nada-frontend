@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import LoginForm from '../../containers/auth/login/LoginForm';
 import { LoginBox } from '../../styles/Auth';
 import { useLocation } from 'react-router-dom';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch } from 'react-redux';
 import { MySpecLogo } from '../../icon/MySpecLogo';
 import SocialLogin from '../../containers/auth/login/SocialLogin';

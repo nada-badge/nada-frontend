@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   postWriteSelector,
   initializeForm,
-} from '../../../modules/community/postWrite';
+} from '../../../modules/redux/community/postWrite';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 
@@ -36,7 +36,6 @@ export const SelectAllButton = () => {
       text={buttonAll}
       onClick={onClick}
       isActive={isActive}
-      isImg={false}
     />
   );
 };

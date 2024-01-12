@@ -6,8 +6,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import usePostManage from '../../modules/queries/manage/usePostManage';
 import usePatchManage from '../../modules/queries/manage/usePatchManage';
-import { activitySelector } from '../../modules/activity';
-import { changeBarStatus } from '../../modules/bar';
+import { activitySelector } from '../../modules/redux/activity';
+import { changeBarStatus } from '../../modules/redux/bar';
 
 const ManageActivityWrite = () => {
   const navigate = useNavigate();

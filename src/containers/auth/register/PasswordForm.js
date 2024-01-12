@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
-import { authSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/redux/auth';
 import { LoginBtn, InputBox } from '../../../styles/Auth';
 import CheckList from '../../../components/auth/CheckList/CheckList';
 import Title from '../../../components/auth/Title';

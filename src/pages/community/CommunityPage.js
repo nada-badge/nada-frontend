@@ -6,14 +6,13 @@ import PostList from '../../containers/community/PostList';
 import Category from '../../containers/community/Category';
 import Filter from '../../components/common/filter/Filter';
 import { PostWriteButton } from '../../containers/community/PostWriteButton';
-import { changeBarStatus } from '../../modules/bar';
-import { initializeAll } from '../../modules/filter';
-import { initializeAll as initializeAllPostWrite } from '../../modules/community/postWrite';
+import { changeBarStatus } from '../../modules/redux/bar';
+import { initializeAll } from '../../modules/redux/filter';
+import { initializeAll as initializeAllPostWrite } from '../../modules/redux/community/postWrite';
 import { Border, Contents } from '../../styles/community/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../components/search/SearchInput';
-import useGetCommunity from '../../modules/queries/community/useGetCommunity';
-import { changePostDetailField } from '../../modules/community/postDetail';
+import { useGetPostList } from '../../modules/queries/community/useGetCommunity';
 import '../../styles/PageCommon.scss';
 
 const Community = () => {
@@ -41,11 +40,7 @@ const Community = () => {
   const filter = useSelector(({ filter }) => filter);
 
   // 서버에서 가져온 query 결과 가져오기
-  const result = useGetCommunity({ filter: filter });
-
-  const setData = (card) => {
-    dispatch(changePostDetailField({ value: card }));
-  };
+  const result = useGetPostList({ filter: filter });
 
   return (
     <>
@@ -62,9 +57,7 @@ const Community = () => {
             <Category />
             <Border />
             <Filter />
-            {result && (
-              <PostList type={'community'} setData={setData} result={result} />
-            )}
+            {result && <PostList type={'community'} result={result} />}
           </div>
         </Contents>
       </div>

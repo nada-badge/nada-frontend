@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../fontStyle';
 
-export const ContentsList = styled.div`
+export const DetailPost = styled.div`
   align-items: flex-start;
   display: inline-flex;
   flex-direction: column;
