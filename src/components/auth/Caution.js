@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ErrorMessage } from '../../styles/Register';
+import { ErrorMessage } from '../../styles/Auth';
 import { WarningSvg } from '../../icon/WarningSvg';
 
 const CautionBox = styled.div`

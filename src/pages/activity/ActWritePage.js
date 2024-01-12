@@ -1,6 +1,6 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
 import styled, { css } from 'styled-components';
-import '../../styles/Page.scss';
+import '../../styles/PageCommon.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
@@ -28,15 +28,6 @@ const inputStyles = css`
   &:focus {
     outline-width: 0;
   }
-`;
-
-const ImgContainer = styled.div`
-  width: 100%;
-  height: 230px;
-  background-image: ${(props) =>
-    `url(
-      ${props.$imgsrc})`};
-  background-size: contain;
 `;
 
 const NullImage = styled.div`
