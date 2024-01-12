@@ -6,8 +6,8 @@ import { changeBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 import { AlignBox } from '../../components/badge/AlignBox';
-import { AlignModal } from '../../containers/badge/AlignModal';
 import React from 'react';
+import useModal from '../../components/common/usedInModal/useModal';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -22,18 +22,13 @@ const BadgePage = () => {
     );
   });
 
-  const [isModal, setModal] = useState(false);
-
   const [align, setAlign] = useState('연도별');
+  const { openModal } = useModal();
 
-  const openHandler = useCallback(() => {
+  const onClick = () => {
     console.log('openHandler');
-    setModal(!isModal);
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setModal(false);
-  }, []);
+    openModal({ type: 'AlignModal' });
+  };
 
   const badge_info = [
     {
@@ -67,7 +62,7 @@ const BadgePage = () => {
 
   return (
     <div style={pageContainer}>
-      {isModal && <AlignModal align={align} closeModal={closeModal} />}
+      {/* {isModal && <AlignModal align={align} closeModal={closeModal} />} */}
       <div
         style={Object.assign(
           applyFontStyles({ font: 'title-02', color: '' }),
@@ -85,7 +80,7 @@ const BadgePage = () => {
           justifyContent: 'flex-end',
         }}
       >
-        <AlignBox text={`${align} 정렬`} onClick={openHandler} />
+        <AlignBox text={`${align} 정렬`} onClick={onClick} />
       </div>
       <CardList title={2023} title_font={'subtitle-03'}>
         <BadgeItem cards={badge_info} />
