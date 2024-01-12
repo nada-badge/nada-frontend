@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
-import SortOrder from '../../components/search/SortOrder';
+import { AlignBox } from '../../components/badge/AlignBox';
 import { AlignModal } from '../../containers/badge/AlignModal';
 import React from 'react';
 
@@ -77,7 +77,16 @@ const BadgePage = () => {
         <div className="text">나의 뱃지</div>
         <div className="count">5</div>
       </div>
-      <SortOrder text={`${align} 정렬`} onClick={openHandler} />
+      <div
+        style={{
+          boxSizing: 'border-box',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'flex-end',
+        }}
+      >
+        <AlignBox text={`${align} 정렬`} onClick={openHandler} />
+      </div>
       <CardList title={2023} title_font={'subtitle-03'}>
         <BadgeItem cards={badge_info} />
       </CardList>

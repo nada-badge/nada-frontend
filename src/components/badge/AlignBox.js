@@ -11,13 +11,13 @@ export const AlignBox = ({ text }) => {
     float: 'right',
   };
 
-  const titleStyle = {
-    ...applyFontStyles({
+  const titleStyle = Object.assign(
+    applyFontStyles({
       font: 'body-02',
       color: 'var(--myspec-gray-scalegray-600)',
     }),
-    margin: '0',
-  };
+    { margin: '0' },
+  );
 
   return (
     <span style={BoxWrapper}>

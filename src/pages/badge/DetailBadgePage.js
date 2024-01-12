@@ -5,13 +5,8 @@ import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { ContentBox } from '../../components/badge/ContentBox';
 import { ActivityTable } from '../../components/badge/ActivityTable';
 import CardList from '../../components/cardList/CardList';
-import {
-  viewContainer,
-  contentsContainer,
-  badgeWrapper,
-  layout_style,
-  imgItem,
-} from '../../styles/Badge';
+import { viewContainer, layout_style, imgItem } from '../../styles/Badge';
+import '../../styles/PageCommon.scss';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -44,8 +39,8 @@ const DetailBadgePage = () => {
 
   return (
     <div style={viewContainer}>
-      <div style={contentsContainer}>
-        <div style={badgeWrapper}>
+      <div className="pageContainer">
+        <div style={{ padding: '24px 112px' }}>
           <BadgeItem cards={[badge_info]} $layout_style={layout_style} />
         </div>
         <ContentBox title={'뱃지 설명'}>

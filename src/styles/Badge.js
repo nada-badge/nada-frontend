@@ -2,13 +2,13 @@
 
 export const pageContainer = {
   boxSizing: 'border-box',
-  display: ' flex',
-  width: ' 375px',
+  display: 'flex',
+  width: '375px',
   margin: '0px auto',
-  padding: ' 16px 15px',
-  flexDirection: ' column',
-  alignItems: ' flex-start',
-  flexShrink: ' 0',
+  padding: '16px 15px',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  flexShrink: '0',
   background: 'var(--myspec-gray-scale-white, #FFF)',
 };
 
@@ -28,17 +28,6 @@ export const viewContainer = {
   overflowY: 'scroll',
   height: 'calc(100vh - 88px)',
   paddingBottom: '88px',
-};
-
-export const contentsContainer = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '12px',
-};
-
-export const badgeWrapper = {
-  background: 'white',
-  padding: '24px 112px',
 };
 
 export const layout_style = {
