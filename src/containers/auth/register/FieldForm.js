@@ -5,6 +5,7 @@ import { fieldData } from '../../../modules/common/AttributeData';
 import { Item } from '../../../components/common/filter/FilterItems';
 import { AttributeInfoButton } from '../../../components/common/AttributeInfoButton';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const FieldForm = ({ dispatchField, onSubmit, order, type }) => {
   const [disabled, setDisabled] = useState(true);
@@ -24,6 +25,10 @@ const FieldForm = ({ dispatchField, onSubmit, order, type }) => {
       },
     });
   };
+
+  useEffect(() => {
+    setDisabled(field.length);
+  }, [field]);
 
   return (
     <>

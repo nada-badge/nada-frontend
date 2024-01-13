@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { regionData } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../../../components/common/AttributeInfoButton';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const RegionForm = ({ dispatchField, onSubmit, order, type }) => {
   const [disabled, setDisabled] = useState(true);
@@ -24,6 +25,10 @@ const RegionForm = ({ dispatchField, onSubmit, order, type }) => {
       },
     });
   };
+
+  useEffect(() => {
+    setDisabled(!region.length);
+  }, [region]);
 
   return (
     <>
