@@ -4,8 +4,10 @@ import { TextWarpper } from '../../styles/community/SelectButton';
 
 export const AttributeInfoButton = ({ text, onClick, isActive }) => {
   return (
-    <div onClick={() => onClick()}>
-      <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
+    <div onClick={(e) => onClick(e)}>
+      <TextWarpper className={classNames({ isActive })} value={text}>
+        {text}
+      </TextWarpper>
     </div>
   );
 };
