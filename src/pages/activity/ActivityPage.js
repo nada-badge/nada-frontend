@@ -9,7 +9,7 @@ import { AlignBox } from '../../components/badge/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../modules/search/search';
 import { useActivityList } from '../../modules/queries/activity/useGetActivity';
-import '../../styles/Page.scss';
+import '../../styles/PageCommon.scss';
 import AcitivityList from '../../containers/activity/AcitivityList';
 
 const ActivityPage = () => {
