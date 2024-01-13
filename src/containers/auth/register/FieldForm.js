@@ -38,16 +38,18 @@ const FieldForm = ({ dispatchField, onSubmit, order, type }) => {
         어떻게 되시나요?
         <Explain>관심 분야를 바탕으로 공고를 띄워 드려요</Explain>
       </TitleBox>
-      <Item style={{ paddingTop: '45px' }}>
-        {fieldData.map(({ id, text }) => (
-          <AttributeInfoButton
-            key={id}
-            text={text}
-            onClick={onClick}
-            isActive={interestField.includes(text)}
-          />
-        ))}
-      </Item>
+      <form onSubmit={onSubmit} id={order}>
+        <Item style={{ paddingTop: '45px' }}>
+          {fieldData.map(({ id, text }) => (
+            <AttributeInfoButton
+              key={id}
+              text={text}
+              onClick={onClick}
+              isActive={interestField.includes(text)}
+            />
+          ))}
+        </Item>
+      </form>
       <LoginBtn form={order} disabled={disabled}>
         <div>다음</div>
       </LoginBtn>

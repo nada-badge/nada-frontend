@@ -39,15 +39,17 @@ const RegionForm = ({ dispatchField, onSubmit, order, type }) => {
         <br />
         <Explain>지역을 바탕으로 알맞는 정보를 추천해 드릴게요</Explain>
       </TitleBox>
-      <Item style={{ paddingTop: '45px' }}>
-        {regionData.map(({ id, text }) => (
-          <AttributeInfoButton
-            text={text}
-            onClick={onClick}
-            isActive={region.includes(text)}
-          />
-        ))}
-      </Item>
+      <form onSubmit={onSubmit} id={order}>
+        <Item style={{ paddingTop: '45px' }}>
+          {regionData.map(({ id, text }) => (
+            <AttributeInfoButton
+              text={text}
+              onClick={onClick}
+              isActive={region.includes(text)}
+            />
+          ))}
+        </Item>
+      </form>
       <LoginBtn form={order} disabled={disabled}>
         <div>다음</div>
       </LoginBtn>
