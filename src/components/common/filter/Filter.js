@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { DropDown } from './Dropdown';
 import { useSelector } from 'react-redux';
-import { filterSelector } from '../../../modules/filter';
+import { filterSelector } from '../../../modules/redux/filter';
 import { FilterItems } from './FilterItems';
 
 const Filter = () => {

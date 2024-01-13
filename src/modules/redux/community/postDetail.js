@@ -14,7 +14,7 @@ const initialState = {
     title: '',
     content: '',
     imageUrl: [],
-    comments: '',
+    comments: [],
     views: '',
     reports: '',
     registeredAt: '',

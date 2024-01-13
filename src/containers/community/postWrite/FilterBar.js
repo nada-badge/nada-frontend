@@ -2,18 +2,17 @@
 import { Frame } from '../../../styles/community/PostWriteStyle';
 import { MainCategoryButton } from './MainCategoryButton';
 import { OpenModalButton } from '../../../components/community/PostWrite/openModalButton';
-import { postWriteSelector } from '../../../modules/community/postWrite';
+import { postWriteSelector } from '../../../modules/redux/community/postWrite';
 import { useSelector } from 'react-redux';
 
 export const FilterBar = ({ type }) => {
-  
   const mainCategory = useSelector(
     postWriteSelector('postWriteSubmit', 'mainCategory'),
   );
-  
+
   return (
     <Frame>
-      { type ==='community' && <MainCategoryButton />} 
+      {type === 'community' && <MainCategoryButton />}
       {mainCategory !== '자유' && (
         <>
           <OpenModalButton content="region" />

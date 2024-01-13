@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { LoginBox, LoginBtn } from '../../styles/Auth';
 import { Link } from 'react-router-dom';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch } from 'react-redux';
 import { MySpecLogo } from '../../icon/MySpecLogo';
 

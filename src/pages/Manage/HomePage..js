@@ -1,7 +1,7 @@
 /*ManageHome 관리자용 메인 페이지 */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch } from 'react-redux';
 
 const ManageHome = () => {

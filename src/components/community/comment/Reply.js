@@ -1,6 +1,6 @@
 /** Reply 답장 컴포넌트  */
 import { useDispatch } from 'react-redux';
-import { changeCommentField } from '../../../modules/community/postDetail';
+import { changeCommentField } from '../../../modules/redux/community/postDetail';
 import { ReplyStyle } from '../../../styles/community/CommentStyle';
 
 export const Reply = ({ comment }) => {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeField, initializeForm } from '../../../modules/auth';
+import { changeField, initializeForm } from '../../../modules/redux/auth';
 import { useNavigate } from 'react-router-dom';
 import { useSignup } from '../../../modules/queries/auth/useSignup';
 import { BackSvg } from '../../../icon/BackSvg';
+import { RegisterBox } from '../../../styles/Auth';
 
 // 동적으로 불러오기
 const EmailForm = lazy(() => import('./EmailForm'));
