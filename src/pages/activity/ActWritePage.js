@@ -4,6 +4,7 @@ import '../../styles/PageCommon.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
+import { Image } from '../../containers/community/postWrite/Image';
 import { Content } from '../../containers/community/postWrite/Content';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
@@ -113,6 +114,7 @@ const InputInfo = styled.div`
 const ActWritePage = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState({});
+  const [imgFiles, setImgFiles] = useState([]);
 
   useEffect(() => {
     dispatch(
@@ -184,11 +186,7 @@ const ActWritePage = () => {
       </div>
 
       {/* ▼ 이미지 리스트 */}
-      <div className="image box">
-        <CardList>
-          <NullImages />
-        </CardList>
-      </div>
+      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
 
       {/* ▼ 내용 입력하기 */}
       <Content onChange={onChange} inputValue={inputValue} />
