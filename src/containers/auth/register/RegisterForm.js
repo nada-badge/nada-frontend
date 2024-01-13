@@ -21,11 +21,11 @@ const RegisterForm = ({ type }) => {
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
   const forms = {
     personal: [
-      RegionForm,
-      FieldForm,
       EmailForm,
       PasswordForm,
       UserNameForm,
+      RegionForm,
+      FieldForm,
       PhoneNumberForm,
     ],
     team: [
