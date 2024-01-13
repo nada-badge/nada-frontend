@@ -4,7 +4,6 @@ import { changeField, initializeForm } from '../../../modules/redux/auth';
 import { useNavigate } from 'react-router-dom';
 import { useSignup } from '../../../modules/queries/auth/useSignup';
 import { BackSvg } from '../../../icon/BackSvg';
-import { RegisterBox } from '../../../styles/Auth';
 
 // 동적으로 불러오기
 const EmailForm = lazy(() => import('./EmailForm'));
@@ -15,7 +14,7 @@ const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
 const RepresentForm = lazy(() => import('./RepresentForm'));
 const TeamNameForm = lazy(() => import('./TeamNameForm'));
 const RegionForm = lazy(() => import('./RegionForm'));
-const FieldForm = lazy(() => import('./RegionForm'));
+const FieldForm = lazy(() => import('./FieldForm'));
 
 const RegisterForm = ({ type }) => {
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기

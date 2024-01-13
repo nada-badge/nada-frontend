@@ -1,4 +1,4 @@
-import { authSelector } from '../../../modules/auth';
+import { authSelector } from '../../../modules/redux/auth';
 import { TitleBox, Explain, LoginBtn } from '../../../styles/Auth';
 import { useState } from 'react';
 import { fieldData } from '../../../modules/common/AttributeData';
@@ -10,25 +10,25 @@ import { useEffect } from 'react';
 const FieldForm = ({ dispatchField, onSubmit, order, type }) => {
   const [disabled, setDisabled] = useState(true);
 
-  const field = useSelector(authSelector(type, 'field'));
+  const interestField = useSelector(authSelector(type, 'interestField'));
 
   const onClick = (e) => {
     const value = e.target.innerText;
-    const updatedField = field.includes(value)
-      ? field.filter((item) => item !== value) // 기존 Field 존재하면, 삭제하기
-      : [...field, value]; // 기존 Field 없으면, 추가하기
+    const updatedField = interestField.includes(value)
+      ? interestField.filter((item) => item !== value) // 기존 Field 존재하면, 삭제하기
+      : [...interestField, value]; // 기존 Field 없으면, 추가하기
 
     dispatchField({
       target: {
         value: updatedField,
-        name: 'field',
+        name: 'interestField',
       },
     });
   };
 
   useEffect(() => {
-    setDisabled(field.length);
-  }, [field]);
+    setDisabled(!interestField.length);
+  }, [interestField]);
 
   return (
     <>
@@ -36,15 +36,15 @@ const FieldForm = ({ dispatchField, onSubmit, order, type }) => {
         관심 분야가
         <br />
         어떻게 되시나요?
+        <Explain>관심 분야를 바탕으로 공고를 띄워 드려요</Explain>
       </TitleBox>
-      <Explain>관심 분야를 바탕으로 공고를 띄워 드려요</Explain>
       <Item style={{ paddingTop: '45px' }}>
         {fieldData.map(({ id, text }) => (
           <AttributeInfoButton
             key={id}
             text={text}
             onClick={onClick}
-            isActive={field.includes(text)}
+            isActive={interestField.includes(text)}
           />
         ))}
       </Item>
