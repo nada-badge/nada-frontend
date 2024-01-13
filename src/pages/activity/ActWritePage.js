@@ -2,6 +2,7 @@
 import styled, { css } from 'styled-components';
 import '../../styles/PageCommon.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
+import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Image } from '../../containers/community/postWrite/Image';
@@ -114,6 +115,7 @@ const InputInfo = styled.div`
 const ActWritePage = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState({});
+  const [thumbnail, setThumbnail] = useState([]);
   const [imgFiles, setImgFiles] = useState([]);
 
   useEffect(() => {
@@ -138,10 +140,11 @@ const ActWritePage = () => {
     <form className="pageContainer">
       {/* ▼ 대표 이미지 등록하기 */}
       <div>
+        <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
         {/* {imgsrc && <ImgContainer $imgsrc={''} />} */}
-        <NullImage>
+        {/* <NullImage>
           <ImgAddSvg />
-        </NullImage>
+        </NullImage> */}
       </div>
 
       {/* ▼ 제목 + 필터 */}
@@ -186,7 +189,7 @@ const ActWritePage = () => {
       </div>
 
       {/* ▼ 이미지 리스트 */}
-      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
+      <Image section="activity" imgFiles={imgFiles} setImgFiles={setImgFiles} />
 
       {/* ▼ 내용 입력하기 */}
       <Content onChange={onChange} inputValue={inputValue} />
