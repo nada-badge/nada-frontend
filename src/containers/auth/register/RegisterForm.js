@@ -1,3 +1,4 @@
+// 회원가입 - 회원가입을 전체적으로 관리하는 컨테이너
 import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm } from '../../../modules/redux/auth';
