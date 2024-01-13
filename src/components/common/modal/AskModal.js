@@ -15,7 +15,7 @@ const AskModal = () => {
   const reportMutate = useReportId().mutate;
 
   const modal = useSelector(({ modal }) => modal);
-  const { contentType, actionType, content, position } = modal;
+  const { title, contentType, actionType, content, position } = modal;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
   const activity = useSelector(({ activity }) => activity.activities);
 
@@ -38,15 +38,18 @@ const AskModal = () => {
       Toast({ text: `댓글이 ${actionType}되었어요` });
       closeModal();
     } else {
-      openModal({ type: 'NoticeModal', contentType, actionType });
+      openModal({
+        type: 'NoticeModal',
+        title: `${contentType}이 ${actionType}되었어요`,
+        contentType,
+        actionType,
+      });
     }
   };
 
   return (
     <Layout>
-      <div className="title">
-        {contentType}을 {actionType}할까요?
-      </div>
+      <div className="title">{title}</div>
       <div className="border" />
       <p className="content">{content}</p>
       <div className="border-2" />

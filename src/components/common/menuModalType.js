@@ -22,6 +22,7 @@ export const MenuTypeConfig = (content) => {
   const toReport = () => {
     openModal({
       type: 'AskModal',
+      title: `${contentType}을 신고할까요?`,
       contentType: contentType,
       actionType: '신고',
       content: `신고한 ${contentType}은 서비스 운영원칙에 따라 처리돼요`,
@@ -32,6 +33,7 @@ export const MenuTypeConfig = (content) => {
   const toDelete = () => {
     openModal({
       type: 'AskModal',
+      title: `${contentType}을 삭제할까요?`,
       contentType: contentType,
       actionType: '삭제',
       content: `한 번 삭제한 ${contentType}은 복구할 수 없어요`,
