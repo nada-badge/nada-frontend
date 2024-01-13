@@ -3,7 +3,7 @@ import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
 import Title from '../../../components/auth/Title';
 import { LoginBtn } from '../../../styles/Auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { authSelector, changeField } from '../../../modules/auth';
+import { authSelector, changeField } from '../../../modules/redux/auth';
 
 const TeamTypeForm = ({ order, onSubmit }) => {
   const [teamType, setTeamType] = useState([

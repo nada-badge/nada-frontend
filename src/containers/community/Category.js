@@ -6,7 +6,7 @@ import {
   changeField,
   initializeForm,
   initializeSub,
-} from '../../modules/filter';
+} from '../../modules/redux/filter';
 import { Categorylist, Wrapper } from '../../styles/community/CategoryStyle';
 
 const Category = () => {

@@ -2,7 +2,16 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
-const useGetCommunity = ({ filter }) => {
+export const useGetPost = ({ _id }) => {
+  return useQuery(['getPost'], async () => {
+    const { data } = await client.get('/community/post', {
+      params: { _id: _id },
+    });
+    return data.post;
+  });
+};
+
+export const useGetPostList = ({ filter }) => {
   return useQuery(
     ['getPostList', filter],
     async () => {
@@ -32,5 +41,3 @@ const useGetCommunity = ({ filter }) => {
     },
   );
 };
-
-export default useGetCommunity;

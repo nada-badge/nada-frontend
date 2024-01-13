@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import PostItem from '../../components/community/PostList/PostItem';
 import { ErrorMessage } from './ErrorMessage';
-const PostList = ({ type, setData, result }) => {
+const PostList = ({ type, result }) => {
   const { data, isLoading, isError } = result;
   if (isLoading) {
     return <div>Loading...</div>;
@@ -21,11 +21,7 @@ const PostList = ({ type, setData, result }) => {
     <div>
       {data &&
         data.map((card) => (
-          <Link
-            to={`/${type}/${path[type]}/${card._id}`}
-            key={card._id}
-            onClick={() => (setData ? setData(card) : {})}
-          >
+          <Link to={`/${type}/${path[type]}/${card._id}`} key={card._id}>
             <PostItem key={card._id} card={card} />
           </Link>
         ))}

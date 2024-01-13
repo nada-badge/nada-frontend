@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import AuthForm from '../../../components/auth/AuthForm';
-import { changeField, initializeForm } from '../../../modules/auth';
+import { changeField, initializeForm } from '../../../modules/redux/auth';
 import { useEffect, useState } from 'react';
 import useLogin from '../../../modules/queries/auth/useLogin';
 import { produce } from 'immer';

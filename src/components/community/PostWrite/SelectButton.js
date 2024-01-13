@@ -7,7 +7,7 @@ import {
   deleteField,
   changeField,
   initializeForm,
-} from '../../../modules/community/postWrite';
+} from '../../../modules/redux/community/postWrite';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
 import { AttributeInfoButton } from '../../common/AttributeInfoButton';
 
@@ -51,11 +51,6 @@ export const SelectButton = ({ text }) => {
   }, [state]);
 
   return (
-    <AttributeInfoButton
-      text={text}
-      onClick={onClick}
-      isActive={isActive}
-      isImg={true}
-    />
+    <AttributeInfoButton text={text} onClick={onClick} isActive={isActive} />
   );
 };

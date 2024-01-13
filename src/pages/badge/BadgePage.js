@@ -2,7 +2,7 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import CardList from '../../components/cardList/CardList';
 import { useDispatch } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 import { AlignBox } from '../../components/badge/AlignBox';
