@@ -1,6 +1,6 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
 import styled, { css } from 'styled-components';
-import '../../styles/Page.scss';
+import '../../styles/PageCommon.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
