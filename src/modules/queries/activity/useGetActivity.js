@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { calculateDday } from '../../activity/calculateDday';
 
+// 활동글 하나 불러오기
 export const useActivity = ({ _id }) => {
   return useQuery({
     queryKey: ['getActivity'],
@@ -14,6 +15,7 @@ export const useActivity = ({ _id }) => {
   });
 };
 
+// 활동글 여러개 불러오기
 export const useActivityList = ({
   groupName,
   field,
