@@ -6,14 +6,13 @@ import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
-import ActivityItem from '../components/cardList/ActivityItem';
 import { useActivityList } from '../modules/queries/activity/useGetActivity';
 import '../styles/PageCommon.scss';
-import { FixedSizeList as List } from 'react-window';
+import { RecommendList } from '../containers/home/RecommendList';
 
 const Home = () => {
-  const BannerSlider = React.lazy(() =>
-    import('../components/home/BannerSlider'),
+  const BannerSlider = React.lazy(
+    () => import('../components/home/BannerSlider'),
   );
 
   const dispatch = useDispatch();
@@ -26,13 +25,13 @@ const Home = () => {
   const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
-  const { data } = useActivityList();
+  const { data: activityData } = useActivityList();
 
   useEffect(() => {
-    if (data) {
-      setActivities(data);
+    if (activityData) {
+      setActivities(activityData);
     }
-  }, [data, activities]);
+  }, [activityData, activities]);
 
   useEffect(() => {
     dispatch(
@@ -50,19 +49,6 @@ const Home = () => {
     navigate('/calendar');
   };
 
-  const Column = ({ index, style }) => (
-    <div
-      style={{
-        ...style,
-        boxSizing: 'border-box',
-        paddingRight: '12px',
-      }}
-      key={index}
-    >
-      {activities[index] && <ActivityItem cards={activities[index]} />}
-    </div>
-  );
-  
   return (
     <div className="pageContainer">
       <Suspense
@@ -79,19 +65,8 @@ const Home = () => {
       >
         <BoardCardItem cards={community_cards} />
       </CardList>
-      <div>
-        <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
-          <List
-            height={222}
-            itemCount={activities.length + 1}
-            itemSize={182}
-            layout="horizontal"
-            width={375}
-            style={{ boxSizing: 'border-box' }}
-          >
-            {Column}
-          </List>
-        </CardList>
+      <div className="RecommendList">
+        <RecommendList activities={activities} />
       </div>
     </div>
   );
