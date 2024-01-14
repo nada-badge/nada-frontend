@@ -6,8 +6,8 @@ import usePatchCommunity from '../../modules/queries/community/usePatchCommunity
 import {
   initializeAll,
   postWriteSelector,
-} from '../../modules/community/postWrite';
-import { changeBarStatus } from '../../modules/bar';
+} from '../../modules/redux/community/postWrite';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
 import { Content } from '../../containers/community/postWrite/Content';

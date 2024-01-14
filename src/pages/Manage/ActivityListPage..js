@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import {
   changeform,
   changeField,
   initializeForm,
-} from '../../modules/activity.js';
+} from '../../modules/redux/activity.js';
 import client from '../../lib/api/client.js';
 
 const ManageActivityList = () => {

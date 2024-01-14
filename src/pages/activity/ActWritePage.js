@@ -1,6 +1,6 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
 import styled, { css } from 'styled-components';
-import '../../styles/Page.scss';
+import '../../styles/PageCommon.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
@@ -10,7 +10,7 @@ import CardList from '../../components/cardList/CardList';
 import ImgAdd from '../../icon/Activity/ImgAdd.png';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 
 const inputStyles = css`
   width: 100%;

@@ -1,17 +1,21 @@
-/** CommentPage 댑글과 답글을 보여주는 페이지 */
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+/** CommentPage 댓글과 답글을 보여주는 페이지 */
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useGetComment } from '../../modules/queries/community/useGetComment';
 import styled from 'styled-components';
 import CommentOutPut from '../../components/community/comment/commentOutput';
 import { CommentList } from '../../styles/community/CommentStyle';
 import { BottomBar } from '../../containers/community/comment/BottomBar';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { changePostDetailField } from '../../modules/redux/community/postDetail';
 
 const CommentPage = () => {
   const dispatch = useDispatch();
-  const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
-  const { comments } = PostDetail;
+  const params = useParams();
+  const { data, isLoading, isError } = useGetComment({ _id: params._id });
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     dispatch(
@@ -23,9 +27,17 @@ const CommentPage = () => {
     );
   }, []);
 
+  useEffect(() => {
+    if (isLoading || isError) {
+      return;
+    }
+    dispatch(changePostDetailField({ value: { _id: params._id } }));
+    setComments(data.comments);
+  }, [data, isLoading, isError]);
+
   return (
     <div>
-      {!PostDetail.comments.length && <Message>댓글을 남겨보세요</Message>}
+      {!comments.length && <Message>댓글을 남겨보세요</Message>}
       <CommentList>
         {comments.map((comment) => (
           <CommentOutPut key={comment._id} comment={comment} />

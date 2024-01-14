@@ -7,7 +7,7 @@ import TodayBox from '../components/calendar/today';
 import DetailEvent from '../containers/calendar/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../modules/bar';
+import { changeBarStatus } from '../modules/redux/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import React from 'react';
 import { Div } from '../styles/calendar/index';

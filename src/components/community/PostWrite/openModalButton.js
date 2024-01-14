@@ -7,7 +7,7 @@ import {
   TextWarpper,
   Img,
 } from '../../../styles/community/FilterModalStyle';
-import { postWriteSelector } from '../../../modules/community/postWrite';
+import { postWriteSelector } from '../../../modules/redux/community/postWrite';
 import { toKorean } from '../../../modules/common/AttributeData';
 
 export const OpenModalButton = ({ content }) => {

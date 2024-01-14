@@ -1,5 +1,5 @@
 import { SearchInput } from '../../components/search/SearchInput';
-import { changeBarStatus } from '../../modules/bar';
+import { changeBarStatus } from '../../modules/redux/bar';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchCategory } from '../../components/search/SearchCategory';

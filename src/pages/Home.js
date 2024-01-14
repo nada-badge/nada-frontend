@@ -3,7 +3,7 @@ import CardList from '../components/cardList/CardList';
 import WeekCalendar from '../containers/calendar/WeekCalendar';
 import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../modules/bar';
+import { changeBarStatus } from '../modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';

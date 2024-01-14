@@ -3,7 +3,7 @@ import { PostContainer } from '../../../styles/community/postItemStyle';
 import GetElapsedTime from '../../../modules/common/getElapsedTime';
 
 const PostItem = ({ card }) => {
-  const { title, field, category, region, content, updatedAt } = card;
+  const { title, field, category, region, content, updatedAt, imageUrl } = card;
 
   const DetailText = ({ text, isLast }) => {
     return (
@@ -16,7 +16,7 @@ const PostItem = ({ card }) => {
   };
 
   return (
-    <PostContainer>
+    <PostContainer imgurl={imageUrl[0]}>
       <div className="image" />
       <div className="innerBox">
         <div className="title">{title}</div>
