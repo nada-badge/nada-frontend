@@ -34,7 +34,10 @@ const AskModal = () => {
         _id: config.idData,
       });
     }
-    if (modal.position === 'comment' || modal.position === 'reply') {
+    if (actionType === '숨기기') {
+      Toast({ text: `숨겨진 뱃지는 마이 페이지에서 확인할 수 있습니다.` });
+      closeModal();
+    } else if (modal.position === 'comment' || modal.position === 'reply') {
       Toast({ text: `댓글이 ${actionType}되었어요` });
       closeModal();
     } else {

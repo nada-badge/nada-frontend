@@ -49,6 +49,7 @@ const DetailBadgePage = () => {
     openModal({
       type: 'hideModal',
       contentType: '뱃지',
+      title: '이 뱃지를 숨길까요?',
       actionType: '숨기기',
       content: '숨긴 뱃지는 MY-숨긴 뱃지에서 관리할 수 있어요',
     });
