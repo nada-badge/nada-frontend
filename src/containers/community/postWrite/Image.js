@@ -1,6 +1,6 @@
 /** Image 글작성 페이지에 Image 출력하는 컴테이너  */
 import { Images, PreViewImg } from '../../../styles/community/PostWriteStyle';
-import { X } from '../../../components/common/icon/X';
+import { X } from '../../../icon/X';
 import { SkeletonImageSvg } from '../../../icon/SkeletonImageSvg';
 import usePostImage from '../../../modules/queries/usePostImage';
 
