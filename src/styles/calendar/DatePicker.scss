@@ -24,7 +24,6 @@
     line-height: var(--subtitle-01-line-height);
 
     .month {
-      // color: colors.$WHITE;
       font-size: 16px;
       font-weight: 500;
     }
@@ -66,6 +65,10 @@
         word-break: keep-all;
       }
     }
+  }
+  //현재 월 이외의 날짜는 회색글자로 보여주기
+  .react-datepicker__day--outside-month {
+    color: var(--myspec-gray-scalegray-500);
   }
   //단일로 선택된 시작 날짜
   .react-datepicker__day--selected {
