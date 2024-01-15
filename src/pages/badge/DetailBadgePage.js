@@ -5,12 +5,7 @@ import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { ContentBox } from '../../components/badge/ContentBox';
 import { ActivityTable } from '../../components/badge/ActivityTable';
 import CardList from '../../components/cardList/CardList';
-import {
-  viewContainer,
-  layout_style,
-  imgItem,
-  hideBadgeBox,
-} from '../../styles/Badge';
+import { layout_style, imgItem, hideBadgeBox } from '../../styles/Badge';
 import '../../styles/PageCommon.scss';
 import useModal from '../../components/common/usedInModal/useModal';
 
@@ -56,7 +51,7 @@ const DetailBadgePage = () => {
   };
 
   return (
-    <div style={viewContainer}>
+    <>
       <div className="pageContainer">
         <div style={{ padding: '24px 112px' }}>
           <BadgeItem cards={[badge_info]} $layout_style={layout_style} />
@@ -79,7 +74,7 @@ const DetailBadgePage = () => {
           이 뱃지 숨기기
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

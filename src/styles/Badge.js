@@ -23,14 +23,6 @@ export const myBadge = {
 };
 
 // ********* DetailBadge.js
-export const viewContainer = {
-  width: ' 375px',
-  margin: '0 auto',
-  background: 'var(--myspec-gray-scalegray-border)',
-  overflowY: 'scroll',
-  height: 'calc(100vh - 88px)',
-  paddingBottom: '88px',
-};
 
 export const layout_style = {
   width: '150px',
