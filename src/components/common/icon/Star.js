@@ -23,6 +23,7 @@ export const Star = ({ _id }) => {
       });
       return data.isBookmarked;
     },
+    retry: 0,
   });
 
   useEffect(() => {

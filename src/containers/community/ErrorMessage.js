@@ -12,7 +12,10 @@ export const ErrorMessage = () => {
 };
 
 export const Error = styled.div`
-  position: relative;
+  padding-top: 82px;
+  padding-bottom: 128px;
+  display: block;
+  flex-direction: column;
 
   & > .ErrorTitle {
     ${applyFontStyles({
@@ -20,10 +23,7 @@ export const Error = styled.div`
       color: 'var(--myspec-gray-scalegray-600)',
     })};
     height: 21px;
-    left: 109px;
-    position: absolute;
     text-align: center;
-    top: 82px;
     white-space: nowrap;
   }
 
@@ -34,10 +34,7 @@ export const Error = styled.div`
     })};
 
     height: 18px;
-    left: 120px;
-    position: absolute;
     text-align: center;
-    top: 105px;
     white-space: nowrap;
   }
 `;

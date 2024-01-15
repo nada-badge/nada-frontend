@@ -1,4 +1,4 @@
-import InfoContainer from '../../containers/activity/InfoContainer.js';
+import ContentContainer from '../../containers/activity/ContentContainer.js';
 import Thumbnail from '../../containers/activity/Thumbnail.js';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
@@ -81,8 +81,13 @@ const DetailActivityPage = () => {
 
   return (
     <DetailContainer>
-      {info && <Thumbnail info={info} />}
-      {info && <InfoContainer info={info} />}
+      {info && (
+        <>
+          <Thumbnail info={info} />
+          <ContentContainer info={info} />
+          <img className="img" alt="" src={info.imageUrl} />
+        </>
+      )}
     </DetailContainer>
   );
 };
