@@ -11,6 +11,8 @@ const initialState = {
     passwordConfirm: '',
     userName: '',
     phoneNumber: '',
+    region: [],
+    interestField: [],
   },
   team_register: {
     email: '',
