@@ -4,7 +4,7 @@ import { calculateDday } from '../../activity/calculateDday';
 
 export const useActivity = ({ _id }) => {
   return useQuery({
-    queryKey: ['getActivity'],
+    queryKey: ['getActivity', _id],
     queryFn: async () => {
       const { data } = await client.get('/activity', {
         params: { _id: _id },
