@@ -20,7 +20,7 @@ const DetailBadgePage = () => {
   useEffect(() => {
     dispatch(
       changeBarStatus({
-        headerState: 'bell',
+        headerState: 'back',
         text: '뱃지',
         isShowBottom: true,
       }),
