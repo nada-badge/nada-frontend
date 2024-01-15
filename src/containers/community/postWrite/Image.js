@@ -1,10 +1,10 @@
 /** Image 글작성 페이지에 Image 출력하는 컴테이너  */
 import { Images, PreViewImg } from '../../../styles/community/PostWriteStyle';
-import { X } from '../../../components/common/icon/X';
+import { X } from '../../../icon/X';
 import { SkeletonImageSvg } from '../../../icon/SkeletonImageSvg';
 import usePostImage from '../../../modules/queries/usePostImage';
 
-export const Image = ({ imgFiles, setImgFiles }) => {
+export const Image = ({ section, imgFiles, setImgFiles }) => {
   const { mutateAsync } = usePostImage();
 
   const deleteImgFile = (img) => {
@@ -13,7 +13,7 @@ export const Image = ({ imgFiles, setImgFiles }) => {
 
   const saveImgFile = async (e) => {
     const files = Array.from(e.target.files);
-    const result = await mutateAsync({ section: 'community', files: files });
+    const result = await mutateAsync({ section: section, files: files });
 
     result.forEach((item) => {
       setImgFiles((prevFiles) => [...prevFiles, item.path]);

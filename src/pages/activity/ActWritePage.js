@@ -2,15 +2,19 @@
 import styled, { css } from 'styled-components';
 import '../../styles/PageCommon.scss';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
+import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
+import { Image } from '../../containers/community/postWrite/Image';
+import { Content } from '../../containers/community/postWrite/Content';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
 import CardList from '../../components/cardList/CardList';
 import ImgAdd from '../../icon/Activity/ImgAdd.png';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../modules/redux/bar';
+import useModal from '../../components/common/usedInModal/useModal';
 
 const inputStyles = css`
   width: 100%;
@@ -109,26 +113,13 @@ const InputInfo = styled.div`
   }
 `;
 
-const TextArea = styled.textarea`
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 80px;
-  border: none;
-  padding: 12px 15px;
-
-  &::placeholder {
-    ${applyFontStyles({
-      font: 'caption-02',
-      color: 'var(--myspec-gray-scalegray-400)',
-    })};
-  }
-  &:focus {
-    outline-width: 0;
-  }
-`;
-
 const ActWritePage = () => {
   const dispatch = useDispatch();
+  const { openModal } = useModal();
+  const [inputValue, setInputValue] = useState({});
+  const [thumbnail, setThumbnail] = useState();
+  const [imgFiles, setImgFiles] = useState([]);
+
   useEffect(() => {
     dispatch(
       changeBarStatus({
@@ -139,20 +130,32 @@ const ActWritePage = () => {
     );
   }, []);
 
+  const onChange = (event) => {
+    const { value, name } = event.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
+  const openCalendar = () => {
+    openModal({ type: 'CalendarModal' });
+  };
+
   return (
     <form className="pageContainer">
       {/* ▼ 대표 이미지 등록하기 */}
       <div>
+        <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
         {/* {imgsrc && <ImgContainer $imgsrc={''} />} */}
-        <NullImage>
+        {/* <NullImage>
           <ImgAddSvg />
-        </NullImage>
+        </NullImage> */}
       </div>
 
       {/* ▼ 제목 + 필터 */}
       <div>
-        <Title onChange={'onChange'} inputValue={'inputValue'} />{' '}
-        {/* ▲ onChange, inputValue 추후 수정 필요 */}
+        <Title onChange={onChange} inputValue={inputValue} />
         <FilterBar type={'activity'} />
       </div>
 
@@ -162,7 +165,12 @@ const ActWritePage = () => {
           <div className="duration box">
             접수 기간
             <div className="inputBox">
-              <input className="startedAt" placeholder="0000.00.00" /> 부터
+              <input
+                className="startedAt"
+                placeholder="0000.00.00"
+                onClick={openCalendar}
+              />{' '}
+              부터
               <input className="endedAt" placeholder="0000.00.00" /> 까지
             </div>
           </div>
@@ -192,16 +200,10 @@ const ActWritePage = () => {
       </div>
 
       {/* ▼ 이미지 리스트 */}
-      <div className="image box">
-        <CardList>
-          <NullImages />
-        </CardList>
-      </div>
+      <Image section="activity" imgFiles={imgFiles} setImgFiles={setImgFiles} />
 
       {/* ▼ 내용 입력하기 */}
-      <div className="content box">
-        <TextArea className="content" placeholder="내용을 입력하세요." />
-      </div>
+      <Content onChange={onChange} inputValue={inputValue} />
     </form>
   );
 };

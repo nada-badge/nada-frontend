@@ -49,15 +49,23 @@ export const ContentStyle = styled.div`
   & > .text {
     ${applyFontStyles({
       font: 'body-01',
-      color: 'var(--myspec-gray-scalegray-600)',
+      color: 'var(--myspec-gray-scalegray-900)',
     })};
     margin-top: -1px;
     position: relative;
     width: 345px;
     border: none;
-  }
-  & > .text:focus {
-    outline: none;
+
+    &::placeholder {
+      ${applyFontStyles({
+        font: 'body-01',
+        color: 'var(--myspec-gray-scalegray-400)',
+      })};
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
