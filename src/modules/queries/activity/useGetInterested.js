@@ -12,6 +12,7 @@ export const useGetInterested = ({ start, end }) => {
       });
       return data;
     },
+    staleTime: 60000,
     select: (data) =>
       (data.activities || []).map((e, idx) => ({
         title: e.activityName,

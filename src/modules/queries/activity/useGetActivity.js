@@ -11,6 +11,7 @@ export const useActivity = ({ _id }) => {
       });
       return data.activity;
     },
+    staleTime: 90000,
   });
 };
 
@@ -30,7 +31,7 @@ export const useActivityList = ({ filter } = {}) => {
       });
       return data;
     },
-    staleTime: 10000,
+    staleTime: 90000,
     select: (data) =>
       (data.activities || []).map(
         ({ _id, activityName, endedAt, imageUrl }) => ({
