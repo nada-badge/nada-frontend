@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import usePostImage from '../../modules/queries/usePostImage';
+import useDeleteImage from '../../modules/queries/useDeleteImage';
 import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
-import { X } from '../../components/common/icon/X';
+import { X } from '../../icon/X';
 
 export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
   const { mutateAsync } = usePostImage();
+  const { mutate } = useDeleteImage();
 
   const deleteImgFile = () => {
+    mutate({ imageUrl: thumbnail[0] });
     setThumbnail();
   };
 
