@@ -14,6 +14,7 @@ import ImgAdd from '../../icon/Activity/ImgAdd.png';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../modules/redux/bar';
+import useModal from '../../components/common/usedInModal/useModal';
 
 const inputStyles = css`
   width: 100%;
@@ -114,8 +115,9 @@ const InputInfo = styled.div`
 
 const ActWritePage = () => {
   const dispatch = useDispatch();
+  const { openModal } = useModal();
   const [inputValue, setInputValue] = useState({});
-  const [thumbnail, setThumbnail] = useState([]);
+  const [thumbnail, setThumbnail] = useState();
   const [imgFiles, setImgFiles] = useState([]);
 
   useEffect(() => {
@@ -134,6 +136,10 @@ const ActWritePage = () => {
       ...inputValue,
       [name]: value,
     });
+  };
+
+  const openCalendar = () => {
+    openModal({ type: 'CalendarModal' });
   };
 
   return (
@@ -159,7 +165,12 @@ const ActWritePage = () => {
           <div className="duration box">
             접수 기간
             <div className="inputBox">
-              <input className="startedAt" placeholder="0000.00.00" /> 부터
+              <input
+                className="startedAt"
+                placeholder="0000.00.00"
+                onClick={openCalendar}
+              />{' '}
+              부터
               <input className="endedAt" placeholder="0000.00.00" /> 까지
             </div>
           </div>
