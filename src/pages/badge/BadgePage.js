@@ -1,13 +1,12 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 import CardList from '../../components/cardList/CardList';
 import { useDispatch } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
 import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 import { AlignBox } from '../../components/badge/AlignBox';
 import React from 'react';
-import useModal from '../../components/common/usedInModal/useModal';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -23,11 +22,9 @@ const BadgePage = () => {
   });
 
   const [align, setAlign] = useState('연도별');
-  const { openModal } = useModal();
 
   const onClick = () => {
-    console.log('openHandler');
-    openModal({ type: 'AlignModal' });
+    setAlign((prevAlign) => (prevAlign === '연도별' ? '종류별' : '연도별'));
   };
 
   const badge_info = [
@@ -62,7 +59,6 @@ const BadgePage = () => {
 
   return (
     <div style={pageContainer}>
-      {/* {isModal && <AlignModal align={align} closeModal={closeModal} />} */}
       <div
         style={Object.assign(
           applyFontStyles({ font: 'title-02', color: '' }),
