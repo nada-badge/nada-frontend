@@ -35,7 +35,7 @@ const CalendarModal = () => {
           selectsRange
           locale={'ko'}
           showPopperArrow={false}
-          fixedHeight
+          fixedHeight={false}
           inline
           renderCustomHeader={({
             date,
