@@ -56,7 +56,7 @@
         display: inline-grid;
         align-items: center;
         box-sizing: border-box;
-        color: #000000;
+
         font-family: var(--body-01-font-family);
         font-size: var(--body-01-font-size);
         font-style: var(--body-01-font-style);
@@ -71,10 +71,6 @@
   .react-datepicker__day--selected {
     border-radius: 50%;
     background-color: var(--myspec-primaryblue-1);
-    color: white;
-    .react-datepicker__day {
-      color: white;
-    }
   }
   //기간 선택 중 또는 후에 시작 날짜
   .react-datepicker__day--selecting-range-start,
@@ -84,6 +80,7 @@
   }
   //기간 선택 중 마우스 커서가 올라가있는 날짜
   .react-datepicker__day--selecting-range-end {
+    color: black;
     border-radius: 0px 20px 20px 0px;
     background-color: rgba(19, 99, 255, 0.1);
   }
@@ -96,12 +93,14 @@
       .react-datepicker__day--selecting-range-start,
       .react-datepicker__day--selecting-range-end
     ) {
+    color: black;
     border-radius: 0px;
     background-color: rgba(19, 99, 255, 0.1);
   }
 
   //선택된 기간 중 끝 날짜
-  .react-datepicker__day--range-end {
+  .react-datepicker__day--range-end:not(.react-datepicker__day--range-start) {
+    color: white;
     border-radius: 0px 20px 20px 0px;
     background-color: var(--myspec-primaryblue-1);
   }
