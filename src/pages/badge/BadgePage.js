@@ -1,12 +1,11 @@
 import { applyFontStyles } from '../../styles/fontStyle';
-import CardList from '../../components/cardList/CardList';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { pageContainer, myBadge } from '../../styles/Badge';
 import { AlignBox } from '../../components/badge/AlignBox';
 import React from 'react';
+import { BadgeList } from '../../containers/badge/BadgeList';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -78,9 +77,7 @@ const BadgePage = () => {
       >
         <AlignBox text={`${align} 정렬`} onClick={onClick} />
       </div>
-      <CardList title={2023} title_font={'subtitle-03'}>
-        <BadgeItem cards={badge_info} />
-      </CardList>
+      <BadgeList badge_info={badge_info} />
     </div>
   );
 };
