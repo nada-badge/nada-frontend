@@ -2,7 +2,7 @@ import { BadgeItem } from '../../components/cardList/BadgeItem';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { FixedSizeList as List } from 'react-window';
 
-export const BadgeList = ({ badge_info }) => {
+export const BadgeList = ({ title, badge_info }) => {
   const Column = ({ index, style }) => (
     <div
       style={{
@@ -24,7 +24,7 @@ export const BadgeList = ({ badge_info }) => {
           textAlign: 'left',
         })}
       >
-        2023
+        {title}
       </div>
       <List
         height={195}

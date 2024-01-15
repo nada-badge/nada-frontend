@@ -12,6 +12,7 @@ export const pageContainer = {
   alignItems: 'flex-start',
   flexShrink: '0',
   background: 'var(--myspec-gray-scale-white, #FFF)',
+  paddingBottom: '88px',
 };
 
 export const myBadge = {

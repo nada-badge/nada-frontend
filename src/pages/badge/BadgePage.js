@@ -21,10 +21,23 @@ const BadgePage = () => {
   });
 
   const [align, setAlign] = useState('연도별');
+  const [category, setCategory] = useState(['2023']);
 
   const onClick = () => {
     setAlign((prevAlign) => (prevAlign === '연도별' ? '종류별' : '연도별'));
   };
+
+  useEffect(() => {
+    // badgeType 종류들을 추출
+    const badgeTypes = [
+      ...new Set(
+        badge_info.map((item) =>
+          align === '종류별' ? item.badgeType : item.year,
+        ),
+      ),
+    ];
+    setCategory(badgeTypes);
+  }, [align]);
 
   const badge_info = [
     {
@@ -64,8 +77,7 @@ const BadgePage = () => {
           myBadge,
         )}
       >
-        <div className="text">나의 뱃지</div>
-        <div className="count">5</div>
+        <div className="text">나의 뱃지 {badge_info.length}</div>
       </div>
       <div
         style={{
@@ -77,7 +89,14 @@ const BadgePage = () => {
       >
         <AlignBox text={`${align} 정렬`} onClick={onClick} />
       </div>
-      <BadgeList badge_info={badge_info} />
+      {category.map((el) => (
+        <BadgeList
+          title={el}
+          badge_info={badge_info.filter((item) =>
+            Object.values(item).includes(el),
+          )}
+        />
+      ))}
     </div>
   );
 };
