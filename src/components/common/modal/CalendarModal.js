@@ -51,20 +51,17 @@ const CalendarModal = () => {
                 className="monthButton"
                 disabled={prevMonthButtonDisabled}
               />
-
               <div>
                 <span className="month">
                   {date.getFullYear()}년 {date.getMonth() + 1}월{' '}
                 </span>
               </div>
-              <div>
-                <AngleBracket
-                  Direction="right"
-                  onClick={increaseMonth}
-                  className="monthButton"
-                  disabled={nextMonthButtonDisabled}
-                />
-              </div>
+              <AngleBracket
+                Direction="right"
+                onClick={increaseMonth}
+                className="monthButton"
+                disabled={nextMonthButtonDisabled}
+              />
             </div>
           )}
         />

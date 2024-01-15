@@ -1,4 +1,4 @@
-export const AngleBracket = ({ Direction }) => {
+export const AngleBracket = ({ Direction, onClick }) => {
   const result = Direction === 'right' ? 'm1 13 6-6-6-6' : 'M7 1 1 7l6 6';
   return (
     <svg
@@ -7,6 +7,7 @@ export const AngleBracket = ({ Direction }) => {
       height="14"
       fill="none"
       viewBox="0 0 8 14"
+      onClick={onClick}
     >
       <path stroke="#1A1A1A" d={result} />
     </svg>
