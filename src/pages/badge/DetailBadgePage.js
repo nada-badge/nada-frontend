@@ -8,6 +8,8 @@ import CardList from '../../components/cardList/CardList';
 import { layout_style, imgItem, hideBadgeBox } from '../../styles/Badge';
 import '../../styles/PageCommon.scss';
 import useModal from '../../components/common/usedInModal/useModal';
+import { decodeJwtToken } from '../../modules/decodeJwtToken';
+import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -54,6 +56,8 @@ const DetailBadgePage = () => {
     });
   };
 
+  const { userType } = decodeJwtToken(localStorage.getItem('token'));
+
   return (
     <>
       <div className="pageContainer">
@@ -64,6 +68,18 @@ const DetailBadgePage = () => {
         <ContentBox title={'활동 내역'}>
           <ActivityTable info={data.activity_info} />
         </ContentBox>
+        {userType === 1 && (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <ContentBox title={'발급 명단'} />
+            <RightArrowSvg width={10} />
+          </div>
+        )}
         <ContentBox title={'활동 사진'}>
           <CardList>
             {Array.from({ length: 4 }, () => 1).map((item, idx) => (
