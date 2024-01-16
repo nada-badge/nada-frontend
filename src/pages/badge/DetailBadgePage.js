@@ -10,6 +10,7 @@ import '../../styles/PageCommon.scss';
 import useModal from '../../components/common/usedInModal/useModal';
 import { decodeJwtToken } from '../../modules/decodeJwtToken';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
+import { SpaceBetween } from '../../components/search/SearchCategory';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -69,16 +70,10 @@ const DetailBadgePage = () => {
           <ActivityTable info={data.activity_info} />
         </ContentBox>
         {userType === 1 && (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
+          <SpaceBetween>
             <ContentBox title={'발급 명단'} />
             <RightArrowSvg width={10} />
-          </div>
+          </SpaceBetween>
         )}
         <ContentBox title={'활동 사진'}>
           <CardList>
