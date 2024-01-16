@@ -21,28 +21,30 @@ export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
 
   return (
     <>
-      <label htmlFor="upload-thumbnail">
+      {thumbnail ? (
         <NullImage imgurl={thumbnail}>
-          {thumbnail ? (
-            <>
-              <div className="img" />
-              <div className="xImg" onClick={() => deleteImgFile()}>
-                <X color="#FFFFFF" size={14} bold={2} />
-              </div>
-            </>
-          ) : (
-            <ImgAddSvg />
-          )}
+          <div className="img" />
+          <div className="xImg" onClick={deleteImgFile}>
+            <X color="#FFFFFF" size={14} bold={2} />
+          </div>
         </NullImage>
-      </label>
-      <input
-        style={{ display: 'none' }}
-        type="file"
-        accept="image/*"
-        id="upload-thumbnail"
-        name="img"
-        onChange={saveImgFile}
-      ></input>
+      ) : (
+        <>
+          <label htmlFor="upload-thumbnail">
+            <NullImage>
+              <ImgAddSvg />
+            </NullImage>
+          </label>
+          <input
+            style={{ display: 'none' }}
+            type="file"
+            accept="image/*"
+            id="upload-thumbnail"
+            name="img"
+            onChange={saveImgFile}
+          ></input>
+        </>
+      )}
     </>
   );
 };
