@@ -21,7 +21,7 @@ export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
 
   return (
     <>
-      <label htmlFor="upload-photo">
+      <label htmlFor="upload-thumbnail">
         <NullImage imgurl={thumbnail}>
           {thumbnail ? (
             <>
@@ -39,7 +39,7 @@ export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
         style={{ display: 'none' }}
         type="file"
         accept="image/*"
-        id="upload-photo"
+        id="upload-thumbnail"
         name="img"
         onChange={saveImgFile}
       ></input>
