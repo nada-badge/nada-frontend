@@ -3,13 +3,14 @@ import { useMutateInterested } from '../../../modules/queries/activity/useMutate
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { useEffect } from 'react';
+import { decodeJwtToken } from '../../../modules/decodeJwtToken';
 
 export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);
 
   // 관심활동 등록 (OK) / 삭제 기능
   const { mutate } = useMutateInterested();
-  const email = localStorage.getItem('email');
+  const { email } = decodeJwtToken(localStorage.getItem('token'));
 
   // //북마크 여부 서버에서 불러오기
   const { data } = useQuery({
