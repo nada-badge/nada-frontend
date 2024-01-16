@@ -10,7 +10,6 @@ import ModalContainer from './components/common/usedInModal/ModalContainer.js';
 import BottomNav from './components/bar/BottomNav';
 import Header from './components/bar/Header';
 import authSlice from './modules/redux/auth.js';
-import userSlice from './modules/user';
 import activitySlice from './modules/redux/activity.js';
 import barSlice from './modules/redux/bar.js';
 import filterSlice from './modules/redux/filter.js';
@@ -28,7 +27,6 @@ const queryClient = new QueryClient();
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
-    user: userSlice.reducer,
     activity: activitySlice.reducer,
     bar: barSlice.reducer,
     modal: modalSlice.reducer,
