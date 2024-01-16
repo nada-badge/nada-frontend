@@ -11,6 +11,7 @@ import { AlignBox } from '../../components/badge/AlignBox';
 import React from 'react';
 import { BadgeList } from '../../containers/badge/BadgeList';
 import { decodeJwtToken } from '../../modules/decodeJwtToken';
+import IssueBadgeBtn from '../../components/badge/IssueBadgeBtn';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,9 @@ const BadgePage = () => {
   const [category, setCategory] = useState(['2023']);
 
   // 상단 카테고리 userType에 따라 설정하기
+  const { userType } = decodeJwtToken(localStorage.getItem('token'));
+
   useEffect(() => {
-    const { userType } = decodeJwtToken(localStorage.getItem('token'));
     if (userType === 1) {
       setTitle(['나의 뱃지']);
     } else {
@@ -105,6 +107,7 @@ const BadgePage = () => {
           )}
         />
       ))}
+      {userType === 2 && <IssueBadgeBtn />}
     </div>
   );
 };
