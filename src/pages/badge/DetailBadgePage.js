@@ -32,11 +32,15 @@ const DetailBadgePage = () => {
     role: '팀원',
   };
 
-  const activity_info = [
-    { start: '2023.01', end: '2023.02', name: '활동 계획 수립' },
-    { start: '2023.03', end: '2023.04', name: '에창패 공모전' },
-    { start: '2023.04', end: '2023.06', name: '성북구 청년소셜 벤처' },
-  ];
+  const data = {
+    content:
+      '블록체인 뱃지를 기반으로 취업에 관한 전방위적 기능을 제공하고자 하는 IT 창업 동아리 TEAM NADA입니다.',
+    activity_info: [
+      { start: '2023.01', end: '2023.02', name: '활동 계획 수립' },
+      { start: '2023.03', end: '2023.04', name: '에창패 공모전' },
+      { start: '2023.04', end: '2023.06', name: '성북구 청년소셜 벤처' },
+    ],
+  };
 
   const { openModal } = useModal();
 
@@ -56,12 +60,9 @@ const DetailBadgePage = () => {
         <div style={{ padding: '24px 112px' }}>
           <BadgeItem cards={badge_info} $layout_style={layout_style} />
         </div>
-        <ContentBox title={'뱃지 설명'}>
-          블록체인 뱃지를 기반으로 취업에 관한 전방위적 기능을 제공하고자 하는
-          IT 창업 동아리 TEAM NADA입니다.
-        </ContentBox>
+        <ContentBox title={'뱃지 설명'}>{data.content}</ContentBox>
         <ContentBox title={'활동 내역'}>
-          <ActivityTable info={activity_info} />
+          <ActivityTable info={data.activity_info} />
         </ContentBox>
         <ContentBox title={'활동 사진'}>
           <CardList>
