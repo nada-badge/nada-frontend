@@ -1,11 +1,16 @@
-import { applyFontStyles } from '../../styles/fontStyle';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { pageContainer, myBadge } from '../../styles/Badge';
+import {
+  pageContainer,
+  myBadge,
+  textWrapper,
+  alignBox,
+} from '../../styles/Badge';
 import { AlignBox } from '../../components/badge/AlignBox';
 import React from 'react';
 import { BadgeList } from '../../containers/badge/BadgeList';
+import { decodeJwtToken } from '../../modules/decodeJwtToken';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -20,8 +25,19 @@ const BadgePage = () => {
     );
   });
 
+  const [title, setTitle] = useState([]);
   const [align, setAlign] = useState('연도별');
   const [category, setCategory] = useState(['2023']);
+
+  // 상단 카테고리 userType에 따라 설정하기
+  useEffect(() => {
+    const { userType } = decodeJwtToken(localStorage.getItem('token'));
+    if (userType === 1) {
+      setTitle(['나의 뱃지']);
+    } else {
+      setTitle(['발급한 뱃지', '발급중인 뱃지']);
+    }
+  }, []);
 
   const onClick = () => {
     setAlign((prevAlign) => (prevAlign === '연도별' ? '종류별' : '연도별'));
@@ -71,22 +87,14 @@ const BadgePage = () => {
 
   return (
     <div style={pageContainer}>
-      <div
-        style={Object.assign(
-          applyFontStyles({ font: 'title-02', color: '' }),
-          myBadge,
-        )}
-      >
-        <div className="text">나의 뱃지 {badge_info.length}</div>
+      <div style={myBadge}>
+        {title.map((el) => (
+          <div style={textWrapper}>
+            {el} {badge_info.length}
+          </div>
+        ))}
       </div>
-      <div
-        style={{
-          boxSizing: 'border-box',
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'flex-end',
-        }}
-      >
+      <div style={alignBox}>
         <AlignBox text={`${align} 정렬`} onClick={onClick} />
       </div>
       {category.map((el) => (

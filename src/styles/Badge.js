@@ -15,12 +15,27 @@ export const pageContainer = {
   paddingBottom: '88px',
 };
 
-export const myBadge = {
-  display: 'flex',
-  paddingBottom: '0px',
-  alignItems: 'center',
-  gap: '8px',
+export const myBadge = Object.assign(
+  applyFontStyles({
+    font: 'title-02',
+  }),
+  {
+    display: 'flex',
+    paddingBottom: '0px',
+    alignItems: 'center',
+    gap: '20px',
+  },
+);
+
+export const textWrapper = {
   borderBottom: '2px solid var(--myspec-primaryblue-1, #1363ff)',
+};
+
+export const alignBox = {
+  boxSizing: 'border-box',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'flex-end',
 };
 
 // ********* DetailBadge.js
