@@ -7,6 +7,7 @@ import { FilterBar } from '../../containers/common/FilterBar';
 import { Image } from '../../containers/common/Image';
 import { Content } from '../../containers/common/Content';
 import { Insitute } from '../../containers/common/Institute';
+import { Area } from '../../containers/common/Area';
 import { TextInput } from '../../styles/community/PostWriteStyle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -126,29 +127,26 @@ const ActWritePage = () => {
       </div>
 
       {/* ▼ 접수기간 + 기관 + 장소 */}
-      <div>
+      <>
         <InputInfo>
-          <TextInput className="duration box">
-            접수 기간
-            <div className="inputBox">
-              <input
-                className="startedAt"
-                placeholder="0000.00.00"
-                onClick={openCalendar}
-              />{' '}
-              부터
-              <input className="endedAt" placeholder="0000.00.00" /> 까지
+          <TextInput>
+            <div className="duration box">
+              접수 기간
+              <div className="inputBox">
+                <input
+                  className="startedAt"
+                  placeholder="0000.00.00"
+                  onClick={openCalendar}
+                />{' '}
+                부터
+                <input className="endedAt" placeholder="0000.00.00" /> 까지
+              </div>
             </div>
           </TextInput>
-          <Insitute />
-          <TextInput className="area box">
-            장소
-            <div className="inputBox flex">
-              <input className="area" placeholder="활동 장소를 입력하세요." />
-            </div>
-          </TextInput>
+          <Insitute onChange={onChange} inputValue={inputValue} />
+          <Area onChange={onChange} inputValue={inputValue} />
         </InputInfo>
-      </div>
+      </>
 
       {/* ▼ 이미지 리스트 */}
       <Image section="activity" imgFiles={imgFiles} setImgFiles={setImgFiles} />

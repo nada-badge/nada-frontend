@@ -1,0 +1,20 @@
+/** Area 글작성 페이지에 Area 출력하는 컴테이너  */
+import { TextInput } from '../../styles/community/PostWriteStyle';
+
+export const Area = ({ onChange, inputValue }) => {
+  return (
+    <TextInput>
+      <div className="area box">
+        장소
+        <div className="inputBox flex">
+          <input
+            className="area"
+            onChange={onChange}
+            value={inputValue.area}
+            placeholder="활동 장소를 입력하세요."
+          />
+        </div>
+      </div>
+    </TextInput>
+  );
+};
