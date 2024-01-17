@@ -3,7 +3,7 @@ import client from '../../../lib/api/client';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-const usePatchManage = () => {
+const usePatchActivity = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: ({
@@ -13,20 +13,27 @@ const usePatchManage = () => {
       field,
       category,
       region,
+      institute,
+      intstituteURL,
+      area,
       content,
-      start,
-      ended,
+      imageUrl,
+      startedAt,
+      endedAt,
     }) =>
       client.patch(`/activity`, {
-        _id: _id,
         activityName: activityName,
         groupName: groupName,
         field: field,
         category: category,
         region: region,
+        institute: institute,
+        intstituteURL: intstituteURL,
+        area: area,
         content: content,
-        startedAt: start,
-        endedAt: ended,
+        imageUrl: imageUrl,
+        startedAt: startedAt,
+        endedAt: endedAt,
       }),
     onSuccess: (data) => {
       console.log('게시물이 수정되었습니다.', data);
@@ -41,4 +48,4 @@ const usePatchManage = () => {
   });
 };
 
-export default usePatchManage;
+export default usePatchActivity;
