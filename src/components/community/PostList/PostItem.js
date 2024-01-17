@@ -16,7 +16,7 @@ const PostItem = ({ card }) => {
   };
 
   return (
-    <PostContainer imgurl={imageUrl[0]}>
+    <PostContainer imgurl={imageUrl}>
       <div className="image" />
       <div className="innerBox">
         <div className="title">{title}</div>

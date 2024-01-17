@@ -38,6 +38,12 @@ export const useGetPostList = ({ filter }) => {
         // 다른 에러는 기본적으로 리트라이
         return failureCount < 3; // 여기서는 최대 3번까지 리트라이
       },
+      select: (data) => {
+        return (data || []).map((item) => ({
+          ...item,
+          imageUrl: item.imageUrl[0],
+        }));
+      },
     },
   );
 };
