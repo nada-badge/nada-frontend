@@ -9,9 +9,15 @@ import { Content } from '../../containers/community/postWrite/Content';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeBarStatus } from '../../modules/redux/bar';
+import {
+  initializeAll,
+  postWriteSelector,
+} from '../../modules/redux/community/postWrite';
 import useModal from '../../components/common/usedInModal/useModal';
+import usePostActivity from '../../modules/queries/activity/usePostActivity';
+import usePatchActivity from '../../modules/queries/activity/usePatchActivity';
 
 const inputStyles = css`
   width: 100%;
@@ -87,6 +93,10 @@ const ActWritePage = () => {
   const [inputValue, setInputValue] = useState({});
   const [thumbnail, setThumbnail] = useState();
   const [imgFiles, setImgFiles] = useState([]);
+  const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
+  const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
+  const { mutate } = usePostActivity();
+  const updateMutate = usePatchActivity().mutate;
 
   useEffect(() => {
     dispatch(
@@ -110,8 +120,58 @@ const ActWritePage = () => {
     openModal({ type: 'CalendarModal' });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const groupName = localStorage.getItem('groupName');
+    const _id = postwrite._id;
+    const category = postwrite.category;
+    const field = postwrite.field;
+    const region = postwrite.region;
+    const startedAt = postwrite.startedAt;
+    const endedAt = postwrite.endedAt;
+    const activityName = e.target.activityName.value;
+    const content = e.target.content.value;
+    const institute = e.target.institute.value;
+    const intstituteURL = e.target.intstituteURL.value;
+    const area = e.target.area.value;
+    const imageUrl = imgFiles;
+
+    dispatch(initializeAll());
+    if (isSubmit) {
+      mutate({
+        activityName,
+        groupName,
+        field,
+        category,
+        region,
+        institute,
+        intstituteURL,
+        area,
+        content,
+        imageUrl,
+        startedAt,
+        endedAt,
+      });
+    } else {
+      updateMutate({
+        _id,
+        activityName,
+        groupName,
+        field,
+        category,
+        region,
+        institute,
+        intstituteURL,
+        area,
+        content,
+        imageUrl,
+        startedAt,
+        endedAt,
+      });
+    }
+  };
   return (
-    <form className="pageContainer">
+    <form onSubmit={onSubmit} className="pageContainer">
       {/* ▼ 대표 이미지 등록하기 */}
       <div>
         <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
