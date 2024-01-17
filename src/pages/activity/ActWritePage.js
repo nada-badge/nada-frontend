@@ -1,7 +1,6 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
 import styled, { css } from 'styled-components';
 import '../../styles/PageCommon.scss';
-import { ImgAddSvg } from '../../icon/Activity/ImgAddSvg';
 import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
 import { Title } from '../../containers/community/postWrite/Title';
 import { FilterBar } from '../../containers/community/postWrite/FilterBar';
@@ -9,8 +8,6 @@ import { Image } from '../../containers/community/postWrite/Image';
 import { Content } from '../../containers/community/postWrite/Content';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { LinkSvg } from '../../icon/LinkSvg';
-import CardList from '../../components/cardList/CardList';
-import ImgAdd from '../../icon/Activity/ImgAdd.png';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../modules/redux/bar';
@@ -32,35 +29,6 @@ const inputStyles = css`
   &:focus {
     outline-width: 0;
   }
-`;
-
-const ImgContainer = styled.div`
-  width: 100%;
-  height: 230px;
-  background-image: ${(props) =>
-    `url(
-      ${props.$imgsrc})`};
-  background-size: contain;
-`;
-
-const NullImage = styled.div`
-  display: flex;
-  width: 375px;
-  height: 230px;
-  background: var(--myspec-gray-scalegray-200, #f2f2f2);
-  & > svg {
-    padding: 97px 160px 88px 170px;
-    justify-content: flex-end;
-    align-items: center;
-    flex-shrink: 0;
-  }
-`;
-
-const NullImages = styled.div`
-  background-image: url(${ImgAdd});
-  width: 72px;
-  height: 72px;
-  flex-shrink: 0;
 `;
 
 const InputInfo = styled.div`
@@ -147,10 +115,6 @@ const ActWritePage = () => {
       {/* ▼ 대표 이미지 등록하기 */}
       <div>
         <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
-        {/* {imgsrc && <ImgContainer $imgsrc={''} />} */}
-        {/* <NullImage>
-          <ImgAddSvg />
-        </NullImage> */}
       </div>
 
       {/* ▼ 제목 + 필터 */}

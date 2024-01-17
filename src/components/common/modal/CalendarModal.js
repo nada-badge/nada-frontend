@@ -4,9 +4,6 @@ import { useSelector } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import '../../../styles/calendar/DatePicker.scss';
 import ko from 'date-fns/locale/ko';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import styled from 'styled-components';
 import { AngleBracket } from '../../../icon/AngleBracket';
@@ -16,6 +13,7 @@ const CalendarModal = () => {
   const modal = useSelector(({ modal }) => modal);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
+
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
