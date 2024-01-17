@@ -2,12 +2,12 @@
 import styled, { css } from 'styled-components';
 import '../../styles/PageCommon.scss';
 import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
-import { Title } from '../../containers/community/postWrite/Title';
-import { FilterBar } from '../../containers/community/postWrite/FilterBar';
-import { Image } from '../../containers/community/postWrite/Image';
-import { Content } from '../../containers/community/postWrite/Content';
-import { applyFontStyles } from '../../styles/fontStyle';
-import { LinkSvg } from '../../icon/LinkSvg';
+import { Title } from '../../containers/common/Title';
+import { FilterBar } from '../../containers/common/FilterBar';
+import { Image } from '../../containers/common/Image';
+import { Content } from '../../containers/common/Content';
+import { Insitute } from '../../containers/common/Institute';
+import { TextInput } from '../../styles/community/PostWriteStyle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBarStatus } from '../../modules/redux/bar';
@@ -19,24 +19,6 @@ import useModal from '../../components/common/usedInModal/useModal';
 import usePostActivity from '../../modules/queries/activity/usePostActivity';
 import usePatchActivity from '../../modules/queries/activity/usePatchActivity';
 
-const inputStyles = css`
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  padding: 6px 8px;
-  border-radius: 6px;
-  background: var(--myspec-gray-scalegray-100);
-  &::placeholder {
-    ${applyFontStyles({
-      font: 'caption-02',
-      color: 'var(--myspec-gray-scalegray-400)',
-    })};
-  }
-  &:focus {
-    outline-width: 0;
-  }
-`;
-
 const InputInfo = styled.div`
   display: flex;
   padding: 10px 15px;
@@ -44,46 +26,6 @@ const InputInfo = styled.div`
   justify-content: center;
   gap: 12px;
 
-  .box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    ${applyFontStyles({
-      font: 'subtitle-03',
-      color: 'var(--myspec-gray-scalegray-600)',
-    })};
-
-    .inputBox {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      ${applyFontStyles({
-        font: 'caption-02',
-        color: 'var(--myspec-gray-scalegray-600)',
-      })};
-
-      &.flex {
-        flex-direction: column;
-      }
-
-      input {
-        ${inputStyles}
-      }
-
-      .urlBox {
-        display: flex;
-        align-items: center;
-        ${inputStyles}
-        gap: 4px;
-
-        input {
-          padding: 0;
-          background-color: inherit;
-        }
-      }
-    }
   }
 `;
 
@@ -186,7 +128,7 @@ const ActWritePage = () => {
       {/* ▼ 접수기간 + 기관 + 장소 */}
       <div>
         <InputInfo>
-          <div className="duration box">
+          <TextInput className="duration box">
             접수 기간
             <div className="inputBox">
               <input
@@ -197,29 +139,14 @@ const ActWritePage = () => {
               부터
               <input className="endedAt" placeholder="0000.00.00" /> 까지
             </div>
-          </div>
-          <div className="group box">
-            기관
-            <div className="inputBox flex">
-              <input
-                className="groupName"
-                placeholder="주최 기관명을 작성해주세요."
-              />
-              <div className="urlBox">
-                <LinkSvg size={14} />
-                <input
-                  className="intstituteURL"
-                  placeholder="주최 기관 홈페이지를 입력하세요. "
-                />
-              </div>
-            </div>
-          </div>
-          <div className="area box">
+          </TextInput>
+          <Insitute />
+          <TextInput className="area box">
             장소
             <div className="inputBox flex">
               <input className="area" placeholder="활동 장소를 입력하세요." />
             </div>
-          </div>
+          </TextInput>
         </InputInfo>
       </div>
 
