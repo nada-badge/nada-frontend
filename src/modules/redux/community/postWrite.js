@@ -28,6 +28,8 @@ const initialState = {
     region: ['전국'],
     field: ['전체'],
     category: '전체',
+    startedAt: '',
+    endedAt: '',
   },
 };
 

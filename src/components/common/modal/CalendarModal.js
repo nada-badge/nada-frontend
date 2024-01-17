@@ -1,24 +1,46 @@
 /** CalendarModal 캘린더를 통해 start, end 날짜 정하는 모달 */
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import '../../../styles/calendar/DatePicker.scss';
 import ko from 'date-fns/locale/ko';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
+import { changeField } from '../../../modules/redux/community/postWrite';
 import styled from 'styled-components';
 import { AngleBracket } from '../../../icon/AngleBracket';
 registerLocale('ko', ko);
 
 const CalendarModal = () => {
+  const dispatch = useDispatch();
+
   const modal = useSelector(({ modal }) => modal);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
-
+  console.log('date : ', startDate, ' : ', endDate);
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
   };
+
+  const setStatus = () => {
+    console.log('클릭됨');
+    dispatch(
+      changeField({
+        form: 'postWriteSubmit',
+        key: 'startedAt',
+        value: startDate,
+      }),
+    );
+    dispatch(
+      changeField({
+        form: 'postWriteSubmit',
+        key: 'endedAt',
+        value: endDate,
+      }),
+    );
+  };
+
   return (
     <Layout>
       {/* <캘린더 라이브러리를 사용해서 들어가기> */}
@@ -65,7 +87,7 @@ const CalendarModal = () => {
         />
       </div>
       {/** ▼act 추가 */}
-      <ModalButtonDiv actText={'확인'} />
+      <ModalButtonDiv actText={'확인'} act={setStatus} />
     </Layout>
   );
 };

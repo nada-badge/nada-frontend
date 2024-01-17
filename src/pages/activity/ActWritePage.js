@@ -115,18 +115,14 @@ const ActWritePage = () => {
   };
   return (
     <form onSubmit={onSubmit} className="pageContainer">
-      {/* ▼ 대표 이미지 등록하기 */}
       <div>
         <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
       </div>
-
-      {/* ▼ 제목 + 필터 */}
       <div>
         <Title onChange={onChange} inputValue={inputValue} />
         <FilterBar type={'activity'} />
       </div>
-
-      {/* ▼ 접수기간 + 기관 + 장소 */}
+      {/* ▼ 접수기간 수정 필요 */}
       <>
         <InputInfo>
           <TextInput>
@@ -147,11 +143,7 @@ const ActWritePage = () => {
           <Area onChange={onChange} inputValue={inputValue} />
         </InputInfo>
       </>
-
-      {/* ▼ 이미지 리스트 */}
       <Image section="activity" imgFiles={imgFiles} setImgFiles={setImgFiles} />
-
-      {/* ▼ 내용 입력하기 */}
       <Content onChange={onChange} inputValue={inputValue} />
     </form>
   );
