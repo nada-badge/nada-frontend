@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import usePostActivity from '../../modules/queries/activity/usePostActivity';
-import usePatchActivity from '../../modules/queries/activity/usePatchActivity';
+import usePostActivity from '../../Acitivity/modules/queries/usePostActivity';
+import usePatchActivity from '../../Acitivity/modules/queries/usePatchActivity';
 import { activitySelector } from '../../modules/redux/activity';
 import { changeBarStatus } from '../../modules/redux/bar';
 

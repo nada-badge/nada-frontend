@@ -1,12 +1,12 @@
-import ContentContainer from '../../containers/activity/ContentContainer.js';
-import Thumbnail from '../../containers/activity/Thumbnail.js';
+import ContentContainer from '../container/ContentContainer.js';
+import Thumbnail from '../container/Thumbnail.js';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useActivity } from '../../modules/queries/activity/useGetActivity.js';
-import { calculateDday } from '../../modules/activity/calculateDday.js';
+import { useActivity } from '../modules/queries/useGetActivity.js';
+import { calculateDday } from '../modules/calculateDday.js';
 
 const DetailContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);

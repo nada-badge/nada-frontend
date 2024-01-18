@@ -1,7 +1,7 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
 import styled from 'styled-components';
 import '../../styles/PageCommon.scss';
-import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
+import { ThumbnailInput } from '../container/ThumbnailInput';
 import { Title } from '../../containers/common/postInput/Title';
 import { FilterBar } from '../../containers/common/postInput/FilterBar';
 import { Image } from '../../containers/common/postInput/Image';
@@ -17,9 +17,8 @@ import {
   postWriteSelector,
 } from '../../modules/redux/community/postWrite';
 import useModal from '../../components/common/usedInModal/useModal';
-import usePostActivity from '../../modules/queries/activity/usePostActivity';
-import usePatchActivity from '../../modules/queries/activity/usePatchActivity';
-
+import usePostActivity from '../modules/queries/usePostActivity';
+import usePatchActivity from '../modules/queries/usePatchActivity';
 
 const InputInfo = styled.div`
   display: flex;

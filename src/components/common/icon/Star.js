@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useMutateInterested } from '../../../modules/queries/activity/useMutateActivity';
+import { useMutateInterested } from '../../../Acitivity/modules/queries/useMutateActivity';
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { useEffect } from 'react';

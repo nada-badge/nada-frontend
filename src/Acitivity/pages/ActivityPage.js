@@ -8,9 +8,9 @@ import Filter from '../../components/common/filter/Filter';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../modules/search/search';
-import { useActivityList } from '../../modules/queries/activity/useGetActivity';
+import { useActivityList } from '../modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
-import AcitivityList from '../../containers/activity/AcitivityList';
+import AcitivityList from '../container/AcitivityList';
 
 const ActivityPage = () => {
   const dispatch = useDispatch();

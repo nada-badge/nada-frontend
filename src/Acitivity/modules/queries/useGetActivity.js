@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
-import { calculateDday } from '../../activity/calculateDday';
+import { calculateDday } from '../calculateDday';
 
 export const useActivity = ({ _id }) => {
   return useQuery({

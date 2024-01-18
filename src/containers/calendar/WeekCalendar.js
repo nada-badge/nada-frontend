@@ -5,7 +5,7 @@ import '../../styles/calendar/Calendar.scss';
 import '../../styles/calendar/WeekCalendar.scss';
 import TodayBox from '../../components/calendar/today';
 import EventBox from '../../components/calendar/event';
-import { useGetInterested } from '../../modules/queries/activity/useGetInterested';
+import { useGetInterested } from '../../Acitivity/modules/queries/useGetInterested';
 
 const WeekCalendar = () => {
   // 서버에서 가져온 데이터

@@ -14,18 +14,18 @@ import ActivityListPage from './pages/Manage/ActivityListPage.';
 
 import Home from './pages/Home';
 import CalendarPage from './pages/CalendarPage';
-import ActivityPage from './pages/activity/ActivityPage';
-import DetailActivityPage from './pages/activity/DetailActivityPage';
+import ActivityPage from './Acitivity/pages/ActivityPage';
+import DetailActivityPage from './Acitivity/pages/DetailActivityPage';
 import CommunityPage from './pages/community/CommunityPage';
 import PostWritePage from './pages/community/PostWritePage';
 import PostDetailPage from './pages/community/PostDetailPage';
 import CommentPage from './pages/community/CommentPage';
 import MyPage from './testpage/myPage';
-import SearchActivityPage from './pages/activity/SearchActivityPage';
+import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 
 import BadgePage from './pages/badge/BadgePage';
 import DetailBadgePage from './pages/badge/DetailBadgePage';
-import ActWritePage from './pages/activity/ActWritePage';
+import ActWritePage from './Acitivity/pages/ActWritePage';
 
 const App = () => {
   return (

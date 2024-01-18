@@ -7,12 +7,12 @@ import { changeBarStatus } from '../modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
 import ActivityItem from '../components/cardList/ActivityItem';
-import { useActivityList } from '../modules/queries/activity/useGetActivity';
+import { useActivityList } from '../Acitivity/modules/queries/useGetActivity';
 import '../styles/PageCommon.scss';
 
 const Home = () => {
-  const BannerSlider = React.lazy(() =>
-    import('../components/home/BannerSlider'),
+  const BannerSlider = React.lazy(
+    () => import('../components/home/BannerSlider'),
   );
 
   const dispatch = useDispatch();

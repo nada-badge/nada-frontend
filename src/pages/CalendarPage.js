@@ -11,7 +11,7 @@ import { changeBarStatus } from '../modules/redux/bar';
 import { filter } from '../modules/calendar/filterEvent';
 import React from 'react';
 import { Div } from '../styles/calendar/index';
-import { useGetInterested } from '../modules/queries/activity/useGetInterested';
+import { useGetInterested } from '../Acitivity/modules/queries/useGetInterested';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
