@@ -5,11 +5,13 @@ import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 
 const NoticeModal = () => {
   const modal = useSelector(({ modal }) => modal);
-  const { title } = modal;
+  const { contentType, actionType } = modal;
 
   return (
     <Layout>
-      <div className="text">{title}</div>
+      <div className="text">
+        {contentType}이 {actionType}되었어요
+      </div>
       <div className="border-2" />
       <img
         className="img"

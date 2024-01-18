@@ -41,12 +41,7 @@ const AskModal = () => {
       Toast({ text: `댓글이 ${actionType}되었어요` });
       closeModal();
     } else {
-      openModal({
-        type: 'NoticeModal',
-        title: `${contentType}이 ${actionType}되었어요`,
-        contentType,
-        actionType,
-      });
+      openModal({ type: 'NoticeModal', contentType, actionType });
     }
   };
 
