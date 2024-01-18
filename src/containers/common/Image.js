@@ -1,4 +1,4 @@
-/** Image 글작성 페이지에 Image 출력하는 컴테이너  */
+/** Image 글작성 페이지에 Image 출력하는 컨테이너  */
 import { Images, PreViewImg } from '../../styles/community/PostWriteStyle';
 import { X } from '../../icon/X';
 import { SkeletonImageSvg } from '../../icon/SkeletonImageSvg';

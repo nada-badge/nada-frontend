@@ -1,4 +1,4 @@
-/** Content 글작성 페이지에 내용 input을 받는 컴테이너  */
+/** Content 글작성 페이지에 내용 input을 받는 컨테이너  */
 import { ContentStyle } from '../../styles/community/PostWriteStyle';
 
 export const Content = ({ onChange, inputValue }) => {
