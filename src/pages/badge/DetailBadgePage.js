@@ -49,7 +49,7 @@ const DetailBadgePage = () => {
 
   const onClick = () => {
     openModal({
-      type: 'hideModal',
+      type: 'AskModal',
       contentType: '뱃지',
       title: '이 뱃지를 숨길까요?',
       actionType: '숨기기',

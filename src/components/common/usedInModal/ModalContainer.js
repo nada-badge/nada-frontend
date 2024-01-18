@@ -20,7 +20,6 @@ const MODAL_COMPONENTS = {
   AskModal: AskModal,
   MenuModal: MenuModal,
   ButtonSelectModal: ButtonSelectModal,
-  hideModal: AskModal,
 };
 
 const ModalContainer = () => {
