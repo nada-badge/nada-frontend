@@ -90,8 +90,8 @@ const BadgePage = () => {
   return (
     <div style={pageContainer}>
       <div style={myBadge}>
-        {title.map((el) => (
-          <div style={textWrapper}>
+        {title.map((el, idx) => (
+          <div key={idx} style={textWrapper}>
             {el} {badge_info.length}
           </div>
         ))}
@@ -99,8 +99,9 @@ const BadgePage = () => {
       <div style={alignBox}>
         <AlignBox text={`${align} 정렬`} onClick={onClick} />
       </div>
-      {category.map((el) => (
+      {category.map((el, idx) => (
         <BadgeList
+          key={idx}
           title={el}
           badge_info={badge_info.filter((item) =>
             Object.values(item).includes(el),
