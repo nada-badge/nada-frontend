@@ -64,13 +64,13 @@ const ActWritePage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { activityName, content, institute, intstituteURL, area } = e.target;
-    const groupName = localStorage.getItem('groupName');
+    //const groupName = localStorage.getItem('groupName');
     const { _id, category, field, region, startedAt, endedAt } = postwrite;
     const imageUrl = imgFiles;
 
     const data = {
       activityName: activityName.value,
-      groupName,
+      //groupName,
       _id,
       category,
       field,
