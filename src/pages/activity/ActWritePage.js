@@ -20,6 +20,7 @@ import useModal from '../../components/common/usedInModal/useModal';
 import usePostActivity from '../../modules/queries/activity/usePostActivity';
 import usePatchActivity from '../../modules/queries/activity/usePatchActivity';
 
+
 const InputInfo = styled.div`
   display: flex;
   padding: 10px 15px;

@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
+import { decodeJwtToken } from '../../decodeJwtToken';
 
 export const useGetInterested = ({ start, end }) => {
   return useQuery({
     queryKey: ['getEvent'],
     queryFn: async () => {
-      const email = localStorage.getItem('email');
+      const { email } = decodeJwtToken(localStorage.getItem('email'));
 
       const { data } = await client.get('calendar/bookmark/list', {
         params: { email: email, start: start, end: end },

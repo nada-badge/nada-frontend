@@ -3,7 +3,8 @@ import { body_01, caption_02, subtitle_01 } from '../../styles/fontStyle';
 
 const BadgeContainer = styled.div`
   display: flex;
-  width: ${({ $layout_style }) => $layout_style?.width || 'calc(132px - 12px)'};
+  box-sizing: border-box;
+  width: ${({ $layout_style }) => $layout_style?.width || '132px'};
   height: ${({ $layout_style }) => $layout_style?.height || '195px'};
   flex-direction: column;
   justify-content: center;
@@ -31,6 +32,7 @@ const BadgeContainer = styled.div`
       padding-top: ${({ $layout_style }) => $layout_style?.paddingTop || ''};
       width: inherit;
       ${subtitle_01('var(--myspec-gray-scale-gray-900, #1A1A1A)')}
+      white-space: nowrap;
     }
 
     & > .roleWrapper {
@@ -45,21 +47,20 @@ const BadgeContainer = styled.div`
 `;
 
 export const BadgeItem = ({ cards, $layout_style }) => {
+  const { img_src, badgeType, title, team, role } = cards;
   return (
     <>
-      {cards.map(({ img_src, badgeType, title, team, role }, idx) => (
-        <BadgeContainer key={idx} $layout_style={$layout_style}>
-          <div className="imgWrapper" src={img_src} />
-          <div className="textWrapper">
-            <div className="badgeType"> {badgeType} </div>
-            <div className="title"> {title}</div>
-            <div className="roleWrapper">
-              {team && <div className="team">{team}</div>}
-              <div className="role">{role}</div>
-            </div>
+      <BadgeContainer $layout_style={$layout_style}>
+        <div className="imgWrapper" src={img_src} />
+        <div className="textWrapper">
+          <div className="badgeType"> {badgeType} </div>
+          <div className="title"> {title}</div>
+          <div className="roleWrapper">
+            {team && <div className="team">{team}</div>}
+            <div className="role">{role}</div>
           </div>
-        </BadgeContainer>
-      ))}
+        </div>
+      </BadgeContainer>
     </>
   );
 };

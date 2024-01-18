@@ -15,7 +15,7 @@ const AskModal = () => {
   const reportMutate = useReportId().mutate;
 
   const modal = useSelector(({ modal }) => modal);
-  const { contentType, actionType, content, position } = modal;
+  const { title, contentType, actionType, content, position } = modal;
   const PostDetail = useSelector(({ postdetail }) => postdetail);
   const activity = useSelector(({ activity }) => activity.activities);
 
@@ -34,7 +34,10 @@ const AskModal = () => {
         _id: config.idData,
       });
     }
-    if (modal.position === 'comment' || modal.position === 'reply') {
+    if (actionType === '숨기기') {
+      Toast({ text: `숨겨진 뱃지는 마이 페이지에서 확인할 수 있습니다.` });
+      closeModal();
+    } else if (modal.position === 'comment' || modal.position === 'reply') {
       Toast({ text: `댓글이 ${actionType}되었어요` });
       closeModal();
     } else {
@@ -44,9 +47,7 @@ const AskModal = () => {
 
   return (
     <Layout>
-      <div className="title">
-        {contentType}을 {actionType}할까요?
-      </div>
+      <div className="title">{title}</div>
       <div className="border" />
       <p className="content">{content}</p>
       <div className="border-2" />

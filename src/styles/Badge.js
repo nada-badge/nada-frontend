@@ -1,44 +1,44 @@
+import { applyFontStyles } from './fontStyle';
+
 // ************ BadgePage.js
 
 export const pageContainer = {
-  display: ' flex',
-  width: ' 375px',
-  margin: '0px auto',
-  padding: ' 16px 15px',
-  flexDirection: ' column',
-  alignItems: ' flex-start',
-  flexShrink: ' 0',
-  background: 'var(--myspec-gray-scale-white, #FFF)',
-};
-
-export const myBadge = {
+  boxSizing: 'border-box',
   display: 'flex',
-  paddingBottom: '0px',
-  alignItems: 'center',
-  gap: '8px',
-  borderBottom: '2px solid var(--myspec-primaryblue-1, #1363ff)',
-};
-
-// ********* DetailBadge.js
-export const viewContainer = {
-  width: ' 375px',
-  margin: '0 auto',
-  background: 'var(--myspec-gray-scalegray-border)',
-  overflowY: 'scroll',
-  height: 'calc(100vh - 88px)',
+  width: '375px',
+  margin: '0px auto',
+  padding: '16px 15px',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  flexShrink: '0',
+  background: 'var(--myspec-gray-scale-white, #FFF)',
   paddingBottom: '88px',
 };
 
-export const contentsContainer = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '12px',
+export const myBadge = Object.assign(
+  applyFontStyles({
+    font: 'title-02',
+  }),
+  {
+    display: 'flex',
+    paddingBottom: '0px',
+    alignItems: 'center',
+    gap: '20px',
+  },
+);
+
+export const textWrapper = {
+  borderBottom: '2px solid var(--myspec-primaryblue-1, #1363ff)',
 };
 
-export const badgeWrapper = {
-  background: 'white',
-  padding: '24px 112px',
+export const alignBox = {
+  boxSizing: 'border-box',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'flex-end',
 };
+
+// ********* DetailBadge.js
 
 export const layout_style = {
   width: '150px',
@@ -55,3 +55,11 @@ export const imgItem = {
   borderRadius: '10px',
   background: 'var(--myspec-gray-scalegray-400)',
 };
+
+export const hideBadgeBox = Object.assign(
+  applyFontStyles({
+    font: 'body-02',
+    color: 'var(--myspec-primaryred-1)',
+  }),
+  { paddingTop: '16px', paddingBottom: '16px', textAlign: 'center' },
+);

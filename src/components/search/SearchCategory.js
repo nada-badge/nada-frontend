@@ -3,10 +3,12 @@ import { body_02 } from '../../styles/fontStyle';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../modules/search/search';
 
-const CartegoryList = styled.div`
+// badge에서도 사용하는 컴포넌트
+export const SpaceBetween = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 
   & > .searchFocus {
@@ -35,7 +37,7 @@ export const SearchCategory = ({ list, focus }) => {
   };
 
   return (
-    <CartegoryList>
+    <SpaceBetween>
       {list.map((el) => (
         <div
           className={`searchFocus${el === focus ? ' focus' : ''}`}
@@ -45,6 +47,6 @@ export const SearchCategory = ({ list, focus }) => {
           {el}
         </div>
       ))}
-    </CartegoryList>
+    </SpaceBetween>
   );
 };

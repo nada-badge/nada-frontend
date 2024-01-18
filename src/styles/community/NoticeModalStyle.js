@@ -26,6 +26,7 @@ export const Layout = styled.div`
     position: relative;
     text-align: center;
     width: fit-content;
+    margin: 0;
   }
 
   & > .img {

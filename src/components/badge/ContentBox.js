@@ -18,7 +18,7 @@ export const ContentBox = ({ title, children }) => {
   return (
     <div style={ExplainBadge}>
       <div style={titleStyle}>{title}</div>
-      <div style={explainStyle}>{children}</div>
+      {children && <div style={explainStyle}>{children}</div>}
     </div>
   );
 };

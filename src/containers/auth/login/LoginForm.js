@@ -48,7 +48,6 @@ const LoginForm = ({ type }) => {
       if (status === 200) {
         navigate('/');
         localStorage.setItem('token', data.token);
-        localStorage.setItem('email', email);
       }
     }
   };

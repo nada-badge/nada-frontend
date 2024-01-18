@@ -1,11 +1,17 @@
-import { applyFontStyles } from '../../styles/fontStyle';
-import CardList from '../../components/cardList/CardList';
-import { AlignBox } from '../../components/badge/AlignBox';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { BadgeItem } from '../../components/cardList/BadgeItem';
-import { pageContainer, myBadge } from '../../styles/Badge';
+import {
+  pageContainer,
+  myBadge,
+  textWrapper,
+  alignBox,
+} from '../../styles/Badge';
+import { AlignBox } from '../../components/badge/AlignBox';
+import React from 'react';
+import { BadgeList } from '../../containers/badge/BadgeList';
+import { decodeJwtToken } from '../../modules/decodeJwtToken';
+import IssueBadgeBtn from '../../components/badge/IssueBadgeBtn';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -19,6 +25,37 @@ const BadgePage = () => {
       }),
     );
   });
+
+  const [title, setTitle] = useState([]);
+  const [align, setAlign] = useState('연도별');
+  const [category, setCategory] = useState(['2023']);
+
+  // 상단 카테고리 userType에 따라 설정하기
+  const { userType } = decodeJwtToken(localStorage.getItem('token'));
+
+  useEffect(() => {
+    if (userType === 1) {
+      setTitle(['나의 뱃지']);
+    } else {
+      setTitle(['발급한 뱃지', '발급중인 뱃지']);
+    }
+  }, []);
+
+  const onClick = () => {
+    setAlign((prevAlign) => (prevAlign === '연도별' ? '종류별' : '연도별'));
+  };
+
+  useEffect(() => {
+    // badgeType 종류들을 추출
+    const badgeTypes = [
+      ...new Set(
+        badge_info.map((item) =>
+          align === '종류별' ? item.badgeType : item.year,
+        ),
+      ),
+    ];
+    setCategory(badgeTypes);
+  }, [align]);
 
   const badge_info = [
     {
@@ -52,21 +89,28 @@ const BadgePage = () => {
 
   return (
     <div style={pageContainer}>
-      <div
-        style={Object.assign(
-          applyFontStyles({ font: 'title-02', color: '' }),
-          myBadge,
-        )}
-      >
-        <div className="text">나의 뱃지</div>
-        <div className="count">5</div>
+      <div style={myBadge}>
+        {title.map((el, idx) => (
+          <div key={idx} style={textWrapper}>
+            {el} {badge_info.length}
+          </div>
+        ))}
       </div>
-      <AlignBox />
-      <CardList title={2023} title_font={'subtitle-03'}>
-        <BadgeItem cards={badge_info} />
-      </CardList>
+      <div style={alignBox}>
+        <AlignBox text={`${align} 정렬`} onClick={onClick} />
+      </div>
+      {category.map((el, idx) => (
+        <BadgeList
+          key={idx}
+          title={el}
+          badge_info={badge_info.filter((item) =>
+            Object.values(item).includes(el),
+          )}
+        />
+      ))}
+      {userType === 2 && <IssueBadgeBtn />}
     </div>
   );
 };
 
-export default BadgePage;
+export default React.memo(BadgePage);

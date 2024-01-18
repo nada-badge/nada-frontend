@@ -7,12 +7,15 @@ const useModal = () => {
 
   const handleOpenModal = ({
     type,
+    title,
     contentType,
     actionType,
     content,
     position,
   }) => {
-    dispatch(openModal({ type, contentType, actionType, content, position }));
+    dispatch(
+      openModal({ type, title, contentType, actionType, content, position }),
+    );
   };
 
   const handleCloseModal = (type) => {
