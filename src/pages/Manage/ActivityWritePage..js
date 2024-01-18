@@ -6,7 +6,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import usePostActivity from '../../Acitivity/modules/queries/usePostActivity';
 import usePatchActivity from '../../Acitivity/modules/queries/usePatchActivity';
-import { activitySelector } from '../../modules/redux/activity';
+import { activitySelector } from '../../Acitivity/modules/activity';
 import { changeBarStatus } from '../../modules/redux/bar';
 
 const ManageActivityWrite = () => {

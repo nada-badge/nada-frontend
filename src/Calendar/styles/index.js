@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { title_02 } from '../fontStyle';
+import { title_02 } from '../../styles/fontStyle';
 
 export const Div = styled.div`
   background-color: #ffffff;

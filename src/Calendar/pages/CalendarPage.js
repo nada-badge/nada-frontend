@@ -1,17 +1,17 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import '../styles/calendar/Calendar.scss';
-import EventBox from '../components/calendar/event';
-import TodayBox from '../components/calendar/today';
-import DetailEvent from '../containers/calendar/DetailEvent';
+import '../styles/Calendar.scss';
+import EventBox from '../components/event';
+import TodayBox from '../components/today';
+import DetailEvent from '../containers/DetailEvent';
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../modules/redux/bar';
-import { filter } from '../modules/calendar/filterEvent';
+import { changeBarStatus } from '../../modules/redux/bar';
+import { filter } from '../modules/filterEvent';
 import React from 'react';
-import { Div } from '../styles/calendar/index';
-import { useGetInterested } from '../Acitivity/modules/queries/useGetInterested';
+import { Div } from '../styles/index';
+import { useGetInterested } from '../../Acitivity/modules/queries/useGetInterested';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();

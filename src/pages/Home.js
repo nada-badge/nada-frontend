@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import CardList from '../components/cardList/CardList';
-import WeekCalendar from '../containers/calendar/WeekCalendar';
+import WeekCalendar from '../Calendar/containers/WeekCalendar';
 import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../modules/redux/bar';

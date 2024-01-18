@@ -10,7 +10,7 @@ import ModalContainer from './components/common/usedInModal/ModalContainer.js';
 import BottomNav from './components/bar/BottomNav';
 import Header from './components/bar/Header';
 import authSlice from './Auth/modules/auth.js';
-import activitySlice from './modules/redux/activity.js';
+import activitySlice from './Acitivity/modules/activity.js';
 import barSlice from './modules/redux/bar.js';
 import filterSlice from './modules/redux/filter.js';
 import postWriteSlice from './modules/redux/community/postWrite.js';

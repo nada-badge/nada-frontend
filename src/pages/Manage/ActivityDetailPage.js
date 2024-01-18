@@ -1,7 +1,7 @@
 /* ManageActivityDetail 관리자가 activity의 세부사항을 확인하고 수정, 삭제할 수 있는 페이지 */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeForm, changeField } from '../../modules/redux/activity';
+import { initializeForm, changeField } from '../../Acitivity/modules/activity';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';

@@ -7,7 +7,7 @@ import {
   changeform,
   changeField,
   initializeForm,
-} from '../../modules/redux/activity.js';
+} from '../../Acitivity/modules/activity.js';
 import client from '../../lib/api/client.js';
 
 const ManageActivityList = () => {

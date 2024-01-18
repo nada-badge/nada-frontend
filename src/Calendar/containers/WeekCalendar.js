@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import '../../styles/calendar/Calendar.scss';
-import '../../styles/calendar/WeekCalendar.scss';
-import TodayBox from '../../components/calendar/today';
-import EventBox from '../../components/calendar/event';
+import '../styles/Calendar.scss';
+import '../styles/WeekCalendar.scss';
+import TodayBox from '../components/today';
+import EventBox from '../components/event';
 import { useGetInterested } from '../../Acitivity/modules/queries/useGetInterested';
 
 const WeekCalendar = () => {

@@ -7,7 +7,7 @@ import CheckList from '../../components/CheckList/CheckList';
 import { LoginBtn, InputBox } from '../../styles/Auth';
 import Title from '../../components/Title';
 import Caution from '../../components/Caution';
-import useDebounce from '../../../modules/useDebounce';
+import useDebounce from '../../modules/useDebounce';
 
 const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리

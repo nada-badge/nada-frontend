@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import EventList from '../../components/calendar/EventList/EventList';
-import { ModalBackGround } from '../../styles/calendar/index';
+import EventList from '../components/EventList/EventList';
+import { ModalBackGround } from '../styles/index';
 
 const DayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
