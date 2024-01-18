@@ -69,7 +69,7 @@ const DetailBadgePage = () => {
         <ContentBox title={'활동 내역'}>
           <ActivityTable info={data.activity_info} />
         </ContentBox>
-        {userType === 1 && (
+        {userType === 2 && (
           <SpaceBetween>
             <ContentBox title={'발급 명단'} />
             <RightArrowSvg width={10} />
