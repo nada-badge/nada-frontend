@@ -42,6 +42,7 @@ const ThumbContainer = styled.div`
 
     & > .tagBox {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
     }
   }

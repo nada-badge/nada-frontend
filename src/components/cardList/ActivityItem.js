@@ -20,7 +20,7 @@ const Title = styled.p`
 const ImgContainer = styled.div`
   background-image: ${(props) => {
     return `url(
-      ${props.$imgsrc.length ? props.$imgsrc : imgNull})`;
+      ${props.$imgsrc ? props.$imgsrc : imgNull})`;
   }};
   border-radius: 10px;
   background-size: 100% 100%;
@@ -61,7 +61,7 @@ const ActivityItem = ({ cards, style }) => {
   const transNumber = (value) => {
     return parseInt(value.replace(/[^\d-]/g, ''), 10);
   };
-  
+
   const CardWrapper = (card) => {
     return (
       <Link
