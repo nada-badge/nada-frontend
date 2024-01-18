@@ -1,5 +1,5 @@
-/** Title 글작성 페이지에 Title을 출력하는 컴테이너  */
-import { TitleStyle } from '../../../styles/community/PostWriteStyle';
+/** Title 글작성 페이지에 Title을 출력하는 컨테이너  */
+import { TitleStyle } from '../../styles/community/PostWriteStyle';
 
 export const Title = ({ onChange, inputValue }) => {
   return (

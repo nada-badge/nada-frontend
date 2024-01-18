@@ -19,7 +19,7 @@ const DetailContent = styled.div`
   }
 `;
 
-const ContentContainer = ({ active, info }) => {
+const ContentContainer = ({ info }) => {
   const { startedAt, endedAt, groupName, area } = info;
 
   const formatDate = (start, end) => {
@@ -38,26 +38,20 @@ const ContentContainer = ({ active, info }) => {
 
   return (
     <>
-      {/* 상세 내용 */}
-      {active.includes('detail') && (
-        <DetailContent>
-          <div className="duration">
-            <div>접수기간</div>
-            <div>{formatDate(startedAt, endedAt)}</div>
-          </div>
-          <div className="team">
-            <div>기관</div>
-            <div>{groupName}</div>
-          </div>
-          <div className="place">
-            <div>장소</div>
-            <div>{area}</div>
-          </div>
-        </DetailContent>
-      )}
-
-      {/* 팀원 모집 */}
-      {active.includes('recruit')}
+      <DetailContent>
+        <div className="duration">
+          <div>접수기간</div>
+          <div>{formatDate(startedAt, endedAt)}</div>
+        </div>
+        <div className="team">
+          <div>기관</div>
+          <div>{groupName}</div>
+        </div>
+        <div className="place">
+          <div>장소</div>
+          <div>{area}</div>
+        </div>
+      </DetailContent>
     </>
   );
 };

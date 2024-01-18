@@ -1,4 +1,4 @@
-/** postWrite 커뮤니티 작성 페이지와 관련된 정보를 관리하는 리덕스 */
+/** postWrite 게시글 작성 페이지와 관련된 정보를 관리하는 리덕스 */
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
@@ -28,6 +28,8 @@ const initialState = {
     region: ['전국'],
     field: ['전체'],
     category: '전체',
+    startedAt: '',
+    endedAt: '',
   },
 };
 

@@ -13,7 +13,7 @@ export const Star = ({ _id }) => {
 
   // //북마크 여부 서버에서 불러오기
   const { data } = useQuery({
-    queryKey: ['isBookmarked'],
+    queryKey: ['isBookmarked', _id],
     queryFn: async () => {
       const { data } = await client.get('/calendar/bookmark', {
         params: {
@@ -23,6 +23,8 @@ export const Star = ({ _id }) => {
       });
       return data.isBookmarked;
     },
+    staleTime: 0,
+    retry: 0,
   });
 
   useEffect(() => {

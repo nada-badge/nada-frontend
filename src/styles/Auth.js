@@ -95,6 +95,7 @@ export const FooterWrapper = styled.div`
 
     & > a {
       text-decoration: none;
+      color: #000;
     }
   }
 
@@ -115,6 +116,10 @@ export const RegisterBox = styled.div`
   width: 375px;
   margin: 0px auto;
   gap: 24px;
+  text-align: left;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 
   & > .backBtnWrapper {
     padding: 17px 8px 8px 0px;
@@ -127,4 +132,25 @@ export const ErrorMessage = styled.div`
   margin-top: -1px;
   position: relative;
   width: fit-content;
+`;
+
+export const TitleBox = styled.h1`
+  text-align: left;
+  color: #000000;
+  font-family: 'Pretendard-Bold', Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  height: 72px;
+  letter-spacing: 0;
+  line-height: 36px;
+  margin: 0;
+`;
+
+export const Explain = styled.div`
+  text-align: left;
+  ${applyFontStyles({
+    font: 'body-02',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })}
+  padding : 8px 0px;
 `;

@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import usePostManage from '../../modules/queries/manage/usePostManage';
-import usePatchManage from '../../modules/queries/manage/usePatchManage';
+import usePostActivity from '../../modules/queries/activity/usePostActivity';
+import usePatchActivity from '../../modules/queries/activity/usePatchActivity';
 import { activitySelector } from '../../modules/redux/activity';
 import { changeBarStatus } from '../../modules/redux/bar';
 
@@ -13,8 +13,8 @@ const ManageActivityWrite = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { mutate } = usePostManage();
-  const update = usePatchManage().mutate;
+  const { mutate } = usePostActivity();
+  const update = usePatchActivity().mutate;
 
   const [board, setBoard] = useState(
     useSelector(({ activity }) => activity.activities),

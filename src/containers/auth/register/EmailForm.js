@@ -1,3 +1,4 @@
+// 회원가입 - 이메일을 입력받는 컨테이너
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';

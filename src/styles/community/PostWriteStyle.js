@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled, css } from 'styled-components';
 import { applyFontStyles } from '../fontStyle';
 
 export const TitleStyle = styled.div`
@@ -37,6 +37,67 @@ export const Frame = styled.div`
   position: relative;
 `;
 
+const inputStyles = css`
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--myspec-gray-scalegray-100);
+  &::placeholder {
+    ${applyFontStyles({
+      font: 'caption-02',
+      color: 'var(--myspec-gray-scalegray-400)',
+    })};
+  }
+  &:focus {
+    outline-width: 0;
+  }
+`;
+
+export const TextInput = styled.div`
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    ${applyFontStyles({
+      font: 'subtitle-03',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })};
+
+    .inputBox {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      ${applyFontStyles({
+        font: 'caption-02',
+        color: 'var(--myspec-gray-scalegray-600)',
+      })};
+
+      &.flex {
+        flex-direction: column;
+      }
+
+      input {
+        ${inputStyles}
+      }
+
+      .urlBox {
+        display: flex;
+        align-items: center;
+        ${inputStyles}
+        gap: 4px;
+
+        input {
+          padding: 0;
+          background-color: inherit;
+        }
+      }
+    }
+`;
+
 export const ContentStyle = styled.div`
   align-items: flex-start;
   display: flex;
@@ -49,15 +110,23 @@ export const ContentStyle = styled.div`
   & > .text {
     ${applyFontStyles({
       font: 'body-01',
-      color: 'var(--myspec-gray-scalegray-600)',
+      color: 'var(--myspec-gray-scalegray-900)',
     })};
     margin-top: -1px;
     position: relative;
     width: 345px;
     border: none;
-  }
-  & > .text:focus {
-    outline: none;
+
+    &::placeholder {
+      ${applyFontStyles({
+        font: 'body-01',
+        color: 'var(--myspec-gray-scalegray-400)',
+      })};
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
