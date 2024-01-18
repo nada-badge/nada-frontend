@@ -26,8 +26,6 @@ const InputInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-
-  }
 `;
 
 const ActWritePage = () => {
