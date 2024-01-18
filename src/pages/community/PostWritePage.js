@@ -90,7 +90,11 @@ const PostWrite = () => {
         <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
       </div>
-      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
+      <Image
+        imgFiles={imgFiles}
+        section="community"
+        setImgFiles={setImgFiles}
+      />
 
       <button>테스트 제출 버튼</button>
     </form>
