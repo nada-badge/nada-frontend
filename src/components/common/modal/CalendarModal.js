@@ -73,7 +73,7 @@ const CalendarModal = () => {
               />
               <div>
                 <span className="month">
-                  {date.getFullYear()}년 {date.getMonth() + 1}월{' '}
+                  {date.getFullYear()}년 {date.getMonth() + 1}월
                 </span>
               </div>
               <AngleBracket

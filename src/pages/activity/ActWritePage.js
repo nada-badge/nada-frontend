@@ -1,5 +1,5 @@
 /** ActWritePage 글 작성을 진행하는 페이지 */
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import '../../styles/PageCommon.scss';
 import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
 import { Title } from '../../containers/common/Title';
@@ -65,54 +65,31 @@ const ActWritePage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const { activityName, content, institute, intstituteURL, area } = e.target;
     const groupName = localStorage.getItem('groupName');
-    const _id = postwrite._id;
-    const category = postwrite.category;
-    const field = postwrite.field;
-    const region = postwrite.region;
-    const startedAt = postwrite.startedAt;
-    const endedAt = postwrite.endedAt;
-    const activityName = e.target.activityName.value;
-    const content = e.target.content.value;
-    const institute = e.target.institute.value;
-    const intstituteURL = e.target.intstituteURL.value;
-    const area = e.target.area.value;
+    const { _id, category, field, region, startedAt, endedAt } = postwrite;
     const imageUrl = imgFiles;
 
+    const data = {
+      activityName: activityName.value,
+      groupName,
+      _id,
+      category,
+      field,
+      region,
+      institute,
+      intstituteURL: intstituteURL.value,
+      area: area.value,
+      content: content.value,
+      imageUrl,
+      startedAt,
+      endedAt,
+    };
+
     dispatch(initializeAll());
-    if (isSubmit) {
-      mutate({
-        activityName,
-        groupName,
-        field,
-        category,
-        region,
-        institute,
-        intstituteURL,
-        area,
-        content,
-        imageUrl,
-        startedAt,
-        endedAt,
-      });
-    } else {
-      updateMutate({
-        _id,
-        activityName,
-        groupName,
-        field,
-        category,
-        region,
-        institute,
-        intstituteURL,
-        area,
-        content,
-        imageUrl,
-        startedAt,
-        endedAt,
-      });
-    }
+    isSubmit ? mutate(data) : updateMutate(data);
   };
+
   return (
     <form onSubmit={onSubmit} className="pageContainer">
       <div>
@@ -133,7 +110,7 @@ const ActWritePage = () => {
                   className="startedAt"
                   placeholder="0000.00.00"
                   onClick={openCalendar}
-                />{' '}
+                />
                 부터
                 <input className="endedAt" placeholder="0000.00.00" /> 까지
               </div>
