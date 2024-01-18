@@ -7,4 +7,4 @@ export const decodeJwtToken = (token) => {
   return JSON.parse(jsonPayload);
 };
 // 예시
-//let {email, userType} = decodeJwtToken(data.token);
+//let {email, userType} = decodeJwtToken('token');
