@@ -1,14 +1,14 @@
 /** openModalButton, 게시물 등록 페이지에 모달을 여는 버튼 */
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import useModal from '../../../components/common/usedInModal/useModal';
+import useModal from './usedInModal/useModal';
 import {
   Filter,
   TextWarpper,
   Img,
-} from '../../../styles/community/FilterModalStyle';
-import { postWriteSelector } from '../../../modules/redux/community/postWrite';
-import { toKorean } from '../../../modules/common/AttributeData';
+} from '../../styles/community/FilterModalStyle';
+import { postWriteSelector } from '../../modules/redux/community/postWrite';
+import { toKorean } from '../../modules/common/AttributeData';
 
 export const OpenModalButton = ({ content }) => {
   const isActive = useSelector(postWriteSelector('ButtonActive', content));

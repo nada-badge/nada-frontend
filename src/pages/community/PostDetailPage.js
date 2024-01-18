@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import TagButtons from '../../components/community/postDetail/TagButtons';
+import TagButtons from '../../components/common/TagButtons';
 import { DetailPost, ViewImg } from '../../styles/community/PostDetailStyle';
 import { BottomBar } from '../../containers/community/postDetail/BottomBar';
 import { changeBarStatus } from '../../modules/redux/bar';

@@ -5,7 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Toast } from './Toast';
 import PrintCenteredText from './usedInModal/PrintCenteredText';
 import useModal from './usedInModal/useModal';
-import useSetButtonActive from '../../containers/community/postDetail/SetButtonActive';
+import useSetButtonActive from '../../modules/common/SetButtonActive';
 import { PostDetailSelector } from '../../modules/redux/community/postDetail';
 import { changeCommentField } from '../../modules/redux/community/postDetail';
 

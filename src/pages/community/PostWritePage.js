@@ -8,15 +8,15 @@ import {
   postWriteSelector,
 } from '../../modules/redux/community/postWrite';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { Title } from '../../containers/common/Title';
-import { FilterBar } from '../../containers/common/FilterBar';
-import { Content } from '../../containers/common/Content';
-import { Image } from '../../containers/common/Image';
+import { Title } from '../../containers/common/postInput/Title';
+import { FilterBar } from '../../containers/common/postInput/FilterBar';
+import { Content } from '../../containers/common/postInput/Content';
+import { Image } from '../../containers/common/postInput/Image';
 import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
-  const { mutate } = usePostCommunity();
-  const updateMutate = usePatchCommunity().mutate;
+  const { mutate: post } = usePostCommunity();
+  const { mutate: update } = usePatchCommunity();
 
   const dispatch = useDispatch();
 
@@ -49,44 +49,33 @@ const PostWrite = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
-    const _id = postwrite._id;
-    const mainCategorys = postwrite.mainCategory;
-    const categorys = postwrite.category;
-    const fields = postwrite.field;
-    const regions = postwrite.region;
+    const { _id, mainCategory, category, field, region } = postwrite;
+
     const title = e.target.title.value;
     const content = e.target.content.value;
-
     const imageUrl = imgFiles;
 
     dispatch(initializeAll());
+
+    const formData = {
+      userEmail,
+      userName,
+      mainCategorys: mainCategory,
+      categorys: category,
+      fields: field,
+      regions: region,
+      title,
+      content,
+      imageUrl,
+    };
+
     if (isSubmit) {
-      mutate({
-        userEmail,
-        userName,
-        mainCategorys,
-        categorys,
-        fields,
-        regions,
-        title,
-        content,
-        imageUrl,
-      });
+      post(formData);
     } else {
-      updateMutate({
-        _id,
-        userEmail,
-        userName,
-        mainCategorys,
-        categorys,
-        fields,
-        regions,
-        title,
-        content,
-        imageUrl,
-      });
+      update({ _id, ...formData });
     }
   };
 
@@ -101,7 +90,11 @@ const PostWrite = () => {
         <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
       </div>
-      <Image imgFiles={imgFiles} setImgFiles={setImgFiles} />
+      <Image
+        imgFiles={imgFiles}
+        section="community"
+        setImgFiles={setImgFiles}
+      />
 
       <button>테스트 제출 버튼</button>
     </form>
