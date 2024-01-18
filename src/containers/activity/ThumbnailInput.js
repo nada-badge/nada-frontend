@@ -55,6 +55,7 @@ const NullImage = styled.div`
   width: 375px;
   height: 230px;
   background: var(--myspec-gray-scalegray-200, #f2f2f2);
+  cursor: pointer;
   & > .img {
     width: 100%;
     height: 100%;
