@@ -77,7 +77,10 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
         </InputBox>
       </form>
       <Caution error={error} />
-      <LoginBtn form={order}>
+      <LoginBtn
+        form={order}
+        disabled={error || !check.every((item) => item.checked)}
+      >
         <div>다음</div>
       </LoginBtn>
     </>

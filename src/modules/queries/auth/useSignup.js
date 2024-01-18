@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
+import { useNavigate } from 'react-router-dom';
 
 export const useSignup = () => {
   // 개인 회원
@@ -38,6 +39,8 @@ export const useSignup = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   return useMutation({
     mutationFn: ({ params, type }) => {
       switch (type) {
@@ -51,6 +54,7 @@ export const useSignup = () => {
     },
     onSuccess: (data) => {
       console.log('회원가입 완료', data);
+      navigate('/login');
     },
     onError: (error, data) => {
       console.log('오류발생!', error, data);

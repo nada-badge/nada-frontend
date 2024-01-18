@@ -3,7 +3,7 @@ import client from '../../../lib/api/client';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-const usePostManage = () => {
+const usePostActivity = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: ({
@@ -12,9 +12,13 @@ const usePostManage = () => {
       field,
       category,
       region,
+      institute,
+      intstituteURL,
+      area,
       content,
-      start,
-      ended,
+      imageUrl,
+      startedAt,
+      endedAt,
     }) =>
       client.post(`/activity`, {
         activityName: activityName,
@@ -22,9 +26,13 @@ const usePostManage = () => {
         field: field,
         category: category,
         region: region,
+        institute: institute,
+        intstituteURL: intstituteURL,
+        area: area,
         content: content,
-        startedAt: start,
-        endedAt: ended,
+        imageUrl: imageUrl,
+        startedAt: startedAt,
+        endedAt: endedAt,
       }),
     onSuccess: (data) => {
       console.log('게시물이 등록되었습니다.', data);
@@ -39,4 +47,4 @@ const usePostManage = () => {
   });
 };
 
-export default usePostManage;
+export default usePostActivity;

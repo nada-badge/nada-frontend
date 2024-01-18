@@ -1,12 +1,10 @@
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
-import ActivityItem from '../../components/cardList/ActivityItem';
-import { FixedSizeGrid as Grid } from 'react-window';
 import { AlignBox } from '../../components/badge/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../modules/search/search';
@@ -17,8 +15,10 @@ const ActivityPage = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
 
+  const filter = useSelector(({ filter }) => filter);
+
   // 활동글 불러오기
-  const { data } = useActivityList();
+  const { data, isError } = useActivityList({ filter: filter });
 
   useEffect(() => {
     if (data) {
@@ -39,27 +39,6 @@ const ActivityPage = () => {
     );
   }, []);
 
-  const Cell = useCallback(
-    ({ columnIndex, key, rowIndex, style }) => {
-      const index = rowIndex * 2 + columnIndex;
-      const activity = activities[index];
-      return (
-        <div
-          style={{
-            ...style,
-            boxSizing: 'border-box',
-            paddingRight: '12px',
-            paddingBottom: '12px',
-          }}
-          key={key}
-        >
-          {activity && <ActivityItem cards={activity} />}
-        </div>
-      );
-    },
-    [activities],
-  );
-
   // 검색 redux 초기화하기
   useEffect(() => {
     dispatch(initialized());
@@ -79,22 +58,12 @@ const ActivityPage = () => {
           <RecentActivityItem cards={recent.reverse()} />
         </CardList>
       )}
-      <div>
-        <div style={{ padding: '12px' }}>
+      <div style={{ padding: '16px' }}>
+        <div>
           <Filter />
           <AlignBox text={'최신 순'} />
         </div>
-        <Grid
-          columnCount={2}
-          columnWidth={182}
-          height={Math.ceil(activities.length / 2) * 222}
-          rowCount={Math.ceil(activities.length / 2)}
-          rowHeight={234}
-          width={375}
-          style={{ boxSizing: 'border-box', padding: '0px 12px' }}
-        >
-          {Cell}
-        </Grid>
+        <AcitivityList activities={activities} isError={isError} />
       </div>
     </div>
   );

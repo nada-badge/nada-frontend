@@ -8,10 +8,10 @@ import {
   postWriteSelector,
 } from '../../modules/redux/community/postWrite';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { Title } from '../../containers/community/postWrite/Title';
-import { FilterBar } from '../../containers/community/postWrite/FilterBar';
-import { Content } from '../../containers/community/postWrite/Content';
-import { Image } from '../../containers/community/postWrite/Image';
+import { Title } from '../../containers/common/Title';
+import { FilterBar } from '../../containers/common/FilterBar';
+import { Content } from '../../containers/common/Content';
+import { Image } from '../../containers/common/Image';
 import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
