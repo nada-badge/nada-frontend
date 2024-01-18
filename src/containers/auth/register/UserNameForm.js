@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
 import { authSelector } from '../../../modules/redux/auth';
@@ -18,17 +18,19 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
 
   const userName = useSelector(authSelector(type, 'userName')); // userName 상태 가져오기
 
+  const debounceVal = useDebounce(userName);
+
   // userName 유효성 검사
-  const checkUserName = useCallback(() => {
+  const checkUserName = () => {
     setCheck(
       produce((draft) => {
-        draft[0].checked = userName.length >= 1 && userName.length <= 8;
+        draft[0].checked = debounceVal.length >= 1 && debounceVal.length <= 8;
         const textRegex = new RegExp(/^[가-힣a-zA-Z]+$/);
-        draft[1].checked = textRegex.test(userName);
+        draft[1].checked = textRegex.test(debounceVal);
       }),
     );
     return check.every((item) => item.checked);
-  }, [userName]);
+  };
 
   // userName 입력이 변경될때마다 check 함수 실행하기
   useEffect(() => {
@@ -36,11 +38,10 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName, check]);
 
-  const debounceVal = useDebounce(userName);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { status } = await await client.get('user/userName', {
+        const { status } = await client.get('user/userName', {
           params: { userName: userName },
         });
         if (status === 200) {
@@ -50,7 +51,7 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
         setError('중복된 닉네임 입니다.');
       }
     };
-    if (debounceVal && checkUserName()) fetchData(); // fetchData 함수 호출
+    if (checkUserName()) fetchData(); // fetchData 함수 호출
   }, [debounceVal]);
 
   // 폰번호에서 뒤로가기시, 이전 닉네임과 check값이 동일하게 표시
