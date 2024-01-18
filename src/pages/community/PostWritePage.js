@@ -15,8 +15,8 @@ import { Image } from '../../containers/community/postWrite/Image';
 import '../../styles/PageCommon.scss';
 
 const PostWrite = () => {
-  const { mutate } = usePostCommunity();
-  const updateMutate = usePatchCommunity().mutate;
+  const { mutate: post } = usePostCommunity();
+  const { mutate: update } = usePatchCommunity();
 
   const dispatch = useDispatch();
 
@@ -73,9 +73,9 @@ const PostWrite = () => {
     };
 
     if (isSubmit) {
-      mutate(formData);
+      post(formData);
     } else {
-      updateMutate({ _id, ...formData });
+      update({ _id, ...formData });
     }
   };
 
