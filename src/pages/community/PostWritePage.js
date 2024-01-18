@@ -49,44 +49,33 @@ const PostWrite = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
-    const _id = postwrite._id;
-    const mainCategorys = postwrite.mainCategory;
-    const categorys = postwrite.category;
-    const fields = postwrite.field;
-    const regions = postwrite.region;
+    const { _id, mainCategory, category, field, region } = postwrite;
+
     const title = e.target.title.value;
     const content = e.target.content.value;
-
     const imageUrl = imgFiles;
 
     dispatch(initializeAll());
+
+    const formData = {
+      userEmail,
+      userName,
+      mainCategorys: mainCategory,
+      categorys: category,
+      fields: field,
+      regions: region,
+      title,
+      content,
+      imageUrl,
+    };
+
     if (isSubmit) {
-      mutate({
-        userEmail,
-        userName,
-        mainCategorys,
-        categorys,
-        fields,
-        regions,
-        title,
-        content,
-        imageUrl,
-      });
+      mutate(formData);
     } else {
-      updateMutate({
-        _id,
-        userEmail,
-        userName,
-        mainCategorys,
-        categorys,
-        fields,
-        regions,
-        title,
-        content,
-        imageUrl,
-      });
+      updateMutate({ _id, ...formData });
     }
   };
 
