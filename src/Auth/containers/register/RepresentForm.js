@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { authSelector } from '../../../modules/redux/auth';
-import { LoginBtn, InputBox } from '../../../styles/Auth';
-import Title from '../../../components/auth/Title';
-import Caution from '../../../components/auth/Caution';
+import { authSelector } from '../../modules/auth';
+import { LoginBtn, InputBox } from '../../styles/Auth';
+import Title from '../../components/Title';
+import Caution from '../../components/Caution';
 
 const RepresentForm = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리

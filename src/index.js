@@ -9,7 +9,7 @@ import App from './App';
 import ModalContainer from './components/common/usedInModal/ModalContainer.js';
 import BottomNav from './components/bar/BottomNav';
 import Header from './components/bar/Header';
-import authSlice from './modules/redux/auth.js';
+import authSlice from './Auth/modules/auth.js';
 import activitySlice from './modules/redux/activity.js';
 import barSlice from './modules/redux/bar.js';
 import filterSlice from './modules/redux/filter.js';

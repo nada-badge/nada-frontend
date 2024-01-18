@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
-import { decodeJwtToken } from '../../../modules/decodeJwtToken';
+import { decodeJwtToken } from '../../../Auth/modules/decodeJwtToken';
 
 export const useGetInterested = ({ start, end }) => {
   return useQuery({

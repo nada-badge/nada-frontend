@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
-import { authSelector } from '../../../modules/redux/auth';
+import { authSelector } from '../../modules/auth';
 import { useCallback } from 'react';
-import Title from '../../../components/auth/Title';
-import Caution from '../../../components/auth/Caution';
+import Title from '../../components/Title';
+import Caution from '../../components/Caution';
 import useDebounce from '../../../modules/useDebounce';
-import { LoginBtn, InputBox } from '../../../styles/Auth';
+import { LoginBtn, InputBox } from '../../styles/Auth';
 
 const EmailForm = ({ dispatchField, onSubmit, order, type }) => {
   const errorMessages = {

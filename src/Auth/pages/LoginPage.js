@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import LoginForm from '../../containers/auth/login/LoginForm';
-import { LoginBox } from '../../styles/Auth';
+import LoginForm from '../containers/login/LoginForm';
+import { LoginBox } from '../styles/Auth';
 import { useLocation } from 'react-router-dom';
 import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch } from 'react-redux';
 import { MySpecLogo } from '../../icon/MySpecLogo';
-import SocialLogin from '../../containers/auth/login/SocialLogin';
-import LoginFooter from '../../containers/auth/login/LoginFooter';
+import SocialLogin from '../containers/login/SocialLogin';
+import LoginFooter from '../containers/login/LoginFooter';
 
 const LoginPage = () => {
   const locationMap = {

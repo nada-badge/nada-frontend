@@ -10,7 +10,7 @@ import {
 import { AlignBox } from '../../components/badge/AlignBox';
 import React from 'react';
 import { BadgeList } from '../../containers/badge/BadgeList';
-import { decodeJwtToken } from '../../modules/decodeJwtToken';
+import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import IssueBadgeBtn from '../../components/badge/IssueBadgeBtn';
 
 const BadgePage = () => {

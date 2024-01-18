@@ -1,9 +1,9 @@
-import RegisterForm from '../../containers/auth/register/RegisterForm';
+import RegisterForm from '../containers/register/RegisterForm';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch } from 'react-redux';
-import { RegisterBox } from '../../styles/Auth';
+import { RegisterBox } from '../styles/Auth';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

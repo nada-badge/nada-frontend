@@ -8,7 +8,7 @@ import CardList from '../../components/cardList/CardList';
 import { layout_style, imgItem, hideBadgeBox } from '../../styles/Badge';
 import '../../styles/PageCommon.scss';
 import useModal from '../../components/common/usedInModal/useModal';
-import { decodeJwtToken } from '../../modules/decodeJwtToken';
+import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import { SpaceBetween } from '../../components/search/SearchCategory';
 

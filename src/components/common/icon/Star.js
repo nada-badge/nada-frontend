@@ -3,7 +3,7 @@ import { useMutateInterested } from '../../../Acitivity/modules/queries/useMutat
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { useEffect } from 'react';
-import { decodeJwtToken } from '../../../modules/decodeJwtToken';
+import { decodeJwtToken } from '../../../Auth/modules/decodeJwtToken';
 
 export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);

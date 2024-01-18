@@ -1,9 +1,9 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import TeamTypeList from '../../../components/auth/TeamType/TeamTypeList';
-import Title from '../../../components/auth/Title';
-import { LoginBtn } from '../../../styles/Auth';
+import TeamTypeList from '../../components/TeamType/TeamTypeList';
+import Title from '../../components/Title';
+import { LoginBtn } from '../../styles/Auth';
 import { useSelector } from 'react-redux';
-import { authSelector } from '../../../modules/redux/auth';
+import { authSelector } from '../../modules/auth';
 
 const TeamTypeForm = ({ dispatchField, order, onSubmit }) => {
   const [teamType, setTeamType] = useState([

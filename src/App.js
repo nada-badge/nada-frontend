@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import { StyledToastContainer } from './components/common/Toast';
 import 'react-toastify/dist/ReactToastify.css';
 
-import LoginPage from './pages/auth/LoginPage';
-import RegisterPage from './pages/auth/RegisterPage';
-import LogInSelect from './pages/auth/LoginSelect';
+import LoginPage from './Auth/pages/LoginPage';
+import RegisterPage from './Auth/pages/RegisterPage';
+import LogInSelect from './Auth/pages/LoginSelect';
 
 import HomePage from './pages/Manage/HomePage.';
 import ActivityDetailPage from './pages/Manage/ActivityDetailPage';

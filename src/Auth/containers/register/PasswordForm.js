@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
-import { authSelector } from '../../../modules/redux/auth';
-import { LoginBtn, InputBox } from '../../../styles/Auth';
-import CheckList from '../../../components/auth/CheckList/CheckList';
-import Title from '../../../components/auth/Title';
+import { authSelector } from '../../modules/auth';
+import { LoginBtn, InputBox } from '../../styles/Auth';
+import CheckList from '../../components/CheckList/CheckList';
+import Title from '../../components/Title';
 const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {
   // error 메세지 관리하기
   const [check, setCheck] = useState({

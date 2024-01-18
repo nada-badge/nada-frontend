@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
-import { authSelector } from '../../../modules/redux/auth';
+import { authSelector } from '../../modules/auth';
 import { produce } from 'immer';
-import CheckList from '../../../components/auth/CheckList/CheckList';
-import { LoginBtn, InputBox } from '../../../styles/Auth';
-import Title from '../../../components/auth/Title';
-import Caution from '../../../components/auth/Caution';
+import CheckList from '../../components/CheckList/CheckList';
+import { LoginBtn, InputBox } from '../../styles/Auth';
+import Title from '../../components/Title';
+import Caution from '../../components/Caution';
 import useDebounce from '../../../modules/useDebounce';
 
 const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {

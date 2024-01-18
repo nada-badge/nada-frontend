@@ -1,9 +1,9 @@
 // 회원가입 - 회원가입을 전체적으로 관리하는 컨테이너
 import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeField, initializeForm } from '../../../modules/redux/auth';
+import { changeField, initializeForm } from '../../modules/auth';
 import { useNavigate } from 'react-router-dom';
-import { useSignup } from '../../../modules/queries/auth/useSignup';
+import { useSignup } from '../../modules/useSignup';
 import { BackSvg } from '../../../icon/BackSvg';
 
 // 동적으로 불러오기

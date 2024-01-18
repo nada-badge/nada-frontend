@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { changeBarStatus } from '../modules/redux/bar';
 import { useDispatch } from 'react-redux';
-import { decodeJwtToken } from '../modules/decodeJwtToken';
+import { decodeJwtToken } from '../Auth/modules/decodeJwtToken';
 
 const MyPage = () => {
   const dispatch = useDispatch();

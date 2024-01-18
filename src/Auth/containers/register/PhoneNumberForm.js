@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { LoginBtn, InputBox } from '../../../styles/Auth';
+import { LoginBtn, InputBox } from '../../styles/Auth';
 import { useEffect } from 'react';
-import { authSelector } from '../../../modules/redux/auth';
+import { authSelector } from '../../modules/auth';
 import { useSelector } from 'react-redux';
-import Title from '../../../components/auth/Title';
-import Caution from '../../../components/auth/Caution';
+import Title from '../../components/Title';
+import Caution from '../../components/Caution';
 
 const PhoneNumberForm = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null);
