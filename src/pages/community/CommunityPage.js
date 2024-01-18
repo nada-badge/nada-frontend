@@ -2,10 +2,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardList from '../../components/cardList/CardList';
-import PostList from '../../containers/community/PostList';
+import PostList from '../../components/common/postList/PostList';
 import Category from '../../containers/community/Category';
 import Filter from '../../components/common/filter/Filter';
-import { PostWriteButton } from '../../containers/community/PostWriteButton';
+import { PostWriteButton } from '../../containers/common/PostWriteButton';
 import { changeBarStatus } from '../../modules/redux/bar';
 import { initializeAll } from '../../modules/redux/filter';
 import { initializeAll as initializeAllPostWrite } from '../../modules/redux/community/postWrite';

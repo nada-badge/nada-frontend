@@ -1,6 +1,6 @@
 /** Insitute 글작성 페이지에 Insitute 출력하는 컨테이너  */
-import { TextInput } from '../../styles/community/PostWriteStyle';
-import { LinkSvg } from '../../icon/LinkSvg';
+import { TextInput } from '../../../styles/community/PostWriteStyle';
+import { LinkSvg } from '../../../icon/LinkSvg';
 
 export const Insitute = ({ onChange, inputValue }) => {
   return (

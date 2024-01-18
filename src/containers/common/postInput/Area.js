@@ -1,5 +1,5 @@
 /** Area 글작성 페이지에 Area 출력하는 컨테이너  */
-import { TextInput } from '../../styles/community/PostWriteStyle';
+import { TextInput } from '../../../styles/community/PostWriteStyle';
 
 export const Area = ({ onChange, inputValue }) => {
   return (

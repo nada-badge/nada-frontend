@@ -1,8 +1,8 @@
 /** FilterBar 글작성 페이지에 filter를 출력하는 컨테이너  */
-import { Frame } from '../../styles/community/PostWriteStyle';
-import { MainCategoryButton } from '../community/postWrite/MainCategoryButton';
-import { OpenModalButton } from '../../components/community/PostWrite/openModalButton';
-import { postWriteSelector } from '../../modules/redux/community/postWrite';
+import { Frame } from '../../../styles/community/PostWriteStyle';
+import { MainCategoryButton } from '../../community/postWrite/MainCategoryButton';
+import { OpenModalButton } from '../../../components/common/openModalButton';
+import { postWriteSelector } from '../../../modules/redux/community/postWrite';
 import { useSelector } from 'react-redux';
 
 export const FilterBar = ({ type }) => {

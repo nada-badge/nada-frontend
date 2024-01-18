@@ -2,12 +2,12 @@
 import styled from 'styled-components';
 import '../../styles/PageCommon.scss';
 import { ThumbnailInput } from '../../containers/activity/ThumbnailInput';
-import { Title } from '../../containers/common/Title';
-import { FilterBar } from '../../containers/common/FilterBar';
-import { Image } from '../../containers/common/Image';
-import { Content } from '../../containers/common/Content';
-import { Insitute } from '../../containers/common/Institute';
-import { Area } from '../../containers/common/Area';
+import { Title } from '../../containers/common/postInput/Title';
+import { FilterBar } from '../../containers/common/postInput/FilterBar';
+import { Image } from '../../containers/common/postInput/Image';
+import { Content } from '../../containers/common/postInput/Content';
+import { Insitute } from '../../containers/common/postInput/Institute';
+import { Area } from '../../containers/common/postInput/Area';
 import { TextInput } from '../../styles/community/PostWriteStyle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
