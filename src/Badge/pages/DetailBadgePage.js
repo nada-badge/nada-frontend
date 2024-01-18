@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../modules/redux/bar';
-import { BadgeItem } from '../../components/cardList/BadgeItem';
+import { BadgeItem } from '../components/BadgeItem';
 import { ContentBox } from '../components/ContentBox';
 import { ActivityTable } from '../components/ActivityTable';
 import CardList from '../../components/cardList/CardList';

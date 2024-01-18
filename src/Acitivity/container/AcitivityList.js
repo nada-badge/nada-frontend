@@ -1,6 +1,6 @@
 // ActivitiyPage 하단 액티비티 보여주는 리스트
 import { FixedSizeGrid as Grid } from 'react-window';
-import ActivityItem from '../../components/cardList/ActivityItem';
+import ActivityItem from '../components/ActivityItem';
 import { ErrorMessage } from '../../containers/common/ErrorMessage';
 
 const AcitivityList = ({ activities, isError }) => {

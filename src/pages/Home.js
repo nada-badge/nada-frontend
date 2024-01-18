@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../components/cardList/BoardCardItem';
-import ActivityItem from '../components/cardList/ActivityItem';
+import ActivityItem from '../Acitivity/components/ActivityItem';
 import { useActivityList } from '../Acitivity/modules/queries/useGetActivity';
 import '../styles/PageCommon.scss';
 

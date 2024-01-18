@@ -1,4 +1,4 @@
-import { BadgeItem } from '../../components/cardList/BadgeItem';
+import { BadgeItem } from '../components/BadgeItem';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { FixedSizeList as List } from 'react-window';
 
