@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchCategory } from '../../components/search/SearchCategory';
 import PostList from '../../components/common/postList/PostList';
-import { AlignBox } from '../../components/badge/AlignBox';
+import { AlignBox } from '../../Badge/components/AlignBox';
 import { useSearch } from '../../modules/queries/useSearch';
 import { searchSelector } from '../../modules/search/search';
 

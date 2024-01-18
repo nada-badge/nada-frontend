@@ -1,17 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../modules/redux/bar';
-import {
-  pageContainer,
-  myBadge,
-  textWrapper,
-  alignBox,
-} from '../../styles/Badge';
-import { AlignBox } from '../../components/badge/AlignBox';
+import { pageContainer, myBadge, textWrapper, alignBox } from '../styles/Badge';
+import { AlignBox } from '../components/AlignBox';
 import React from 'react';
-import { BadgeList } from '../../containers/badge/BadgeList';
+import { BadgeList } from '../containers/BadgeList';
 import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
-import IssueBadgeBtn from '../../components/badge/IssueBadgeBtn';
+import IssueBadgeBtn from '../components/IssueBadgeBtn';
 
 const BadgePage = () => {
   const dispatch = useDispatch();

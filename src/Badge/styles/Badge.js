@@ -1,4 +1,4 @@
-import { applyFontStyles } from './fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 // ************ BadgePage.js
 

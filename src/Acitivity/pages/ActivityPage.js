@@ -5,7 +5,7 @@ import { changeBarStatus } from '../../modules/redux/bar';
 import { useDispatch, useSelector } from 'react-redux';
 import RecentActivityItem from '../../components/cardList/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';
-import { AlignBox } from '../../components/badge/AlignBox';
+import { AlignBox } from '../../Badge/components/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../modules/search/search';
 import { useActivityList } from '../modules/queries/useGetActivity';

@@ -23,8 +23,8 @@ import CommentPage from './pages/community/CommentPage';
 import MyPage from './testpage/myPage';
 import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 
-import BadgePage from './pages/badge/BadgePage';
-import DetailBadgePage from './pages/badge/DetailBadgePage';
+import BadgePage from './Badge/pages/BadgePage';
+import DetailBadgePage from './Badge/pages/DetailBadgePage';
 import ActWritePage from './Acitivity/pages/ActWritePage';
 
 const App = () => {
