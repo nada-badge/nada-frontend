@@ -1,7 +1,10 @@
 import React from 'react';
 import { InputBox, LoginBtn, TitleBox } from '../../../styles/Survey';
+import { useSelector } from 'react-redux';
 
 const NameForm = ({ onSubmit, order, dispatchField }) => {
+  const name = useSelector(({ badge }) => badge.name);
+
   return (
     <>
       <TitleBox>
@@ -15,6 +18,7 @@ const NameForm = ({ onSubmit, order, dispatchField }) => {
             name="name"
             placeholder="20자 이내로 입력해 주세요."
             onChange={dispatchField}
+            value={name}
             required
           />
         </InputBox>
