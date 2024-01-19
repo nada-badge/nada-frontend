@@ -6,18 +6,17 @@ import { useNavigate } from 'react-router-dom';
 import { useSignup } from '../../modules/queries/useSignup';
 import { BackSvg } from '../../../icon/BackSvg';
 
-// 동적으로 불러오기
-const EmailForm = lazy(() => import('./EmailForm'));
-const PasswordForm = lazy(() => import('./PasswordForm'));
-const UserNameForm = lazy(() => import('./UserNameForm'));
-const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
-const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
-const RepresentForm = lazy(() => import('./RepresentForm'));
-const TeamNameForm = lazy(() => import('./TeamNameForm'));
-const RegionForm = lazy(() => import('./RegionForm'));
-const FieldForm = lazy(() => import('./FieldForm'));
-
 const RegisterForm = ({ type }) => {
+  // 동적으로 불러오기
+  const EmailForm = lazy(() => import('./EmailForm'));
+  const PasswordForm = lazy(() => import('./PasswordForm'));
+  const UserNameForm = lazy(() => import('./UserNameForm'));
+  const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
+  const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
+  const RepresentForm = lazy(() => import('./RepresentForm'));
+  const TeamNameForm = lazy(() => import('./TeamNameForm'));
+  const RegionForm = lazy(() => import('./RegionForm'));
+  const FieldForm = lazy(() => import('./FieldForm'));
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
   const forms = {
     personal: [
