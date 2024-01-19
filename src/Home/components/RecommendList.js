@@ -1,5 +1,5 @@
 // 추천 대외활동 보여주는 컴포넌트
-import ActivityItem from '../../components/cardList/ActivityItem';
+import ActivityItem from '../../Acitivity/components/ActivityItem';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { FixedSizeList as List } from 'react-window';
 
