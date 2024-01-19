@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { body_02 } from '../../styles/fontStyle';
 import { useDispatch } from 'react-redux';
-import { changeField } from '../../modules/search/search';
+import { changeField } from '../modules/redux/search';
 
 // badge에서도 사용하는 컴포넌트
 export const SpaceBetween = styled.div`

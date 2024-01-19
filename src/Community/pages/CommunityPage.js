@@ -11,7 +11,7 @@ import { initializeAll } from '../../modules/redux/filter';
 import { initializeAll as initializeAllPostWrite } from '../modules/redux/postWrite';
 import { Border, Contents } from '../styles/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
-import { SearchInput } from '../../components/search/SearchInput';
+import { SearchInput } from '../../Search/components/SearchInput';
 import { useGetPostList } from '../modules/queries/useGetCommunity';
 import '../../styles/PageCommon.scss';
 

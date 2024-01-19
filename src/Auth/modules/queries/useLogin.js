@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import client from '../../lib/api/client';
+import client from '../../../lib/api/client';
 
 const useLogin = () => {
   return useMutation({

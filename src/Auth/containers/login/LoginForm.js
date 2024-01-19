@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import AuthForm from '../../components/AuthForm';
-import { changeField, initializeForm } from '../../modules/auth';
+import { changeField, initializeForm } from '../../modules/redux/auth';
 import { useEffect, useState } from 'react';
-import useLogin from '../../modules/useLogin';
+import useLogin from '../../modules/queries/useLogin';
 import { produce } from 'immer';
 import { useNavigate } from 'react-router-dom';
 

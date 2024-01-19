@@ -1,7 +1,7 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeField, searchSelector } from '../../modules/search/search';
+import { changeField, searchSelector } from '../modules/redux/search';
 import { SearchGlass } from '../../icon/SearchGlass';
 
 const Form = styled.form`

@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
-import CardList from '../components/cardList/CardList';
-import WeekCalendar from '../Calendar/containers/WeekCalendar';
+import CardList from '../../components/cardList/CardList';
+import WeekCalendar from '../../Calendar/containers/WeekCalendar';
 import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeBarStatus } from '../Bar/modules/redux/bar';
+import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
-import BoardCardItem from '../components/cardList/BoardCardItem';
-import ActivityItem from '../Acitivity/components/ActivityItem';
-import { useActivityList } from '../Acitivity/modules/queries/useGetActivity';
-import '../styles/PageCommon.scss';
+import BoardCardItem from '../../components/cardList/BoardCardItem';
+import ActivityItem from '../../Acitivity/components/ActivityItem';
+import { useActivityList } from '../../Acitivity/modules/queries/useGetActivity';
+import '../../styles/PageCommon.scss';
 
 const Home = () => {
-  const BannerSlider = React.lazy(() =>
-    import('../components/home/BannerSlider'),
-  );
+  const BannerSlider = React.lazy(() => import('../components/BannerSlider'));
 
   const dispatch = useDispatch();
   const community_cards = [

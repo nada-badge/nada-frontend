@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import client from '../../../lib/api/client';
-import { authSelector } from '../../modules/auth';
+import { authSelector } from '../../modules/redux/auth';
 import { useCallback } from 'react';
 import Title from '../../components/Title';
 import Caution from '../../components/Caution';

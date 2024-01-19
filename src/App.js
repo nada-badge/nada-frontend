@@ -12,7 +12,7 @@ import ActivityDetailPage from './Manage/pages/ActivityDetailPage';
 import ActivityWritePage from './Manage/pages/ActivityWritePage.';
 import ActivityListPage from './Manage/pages/ActivityListPage.';
 
-import Home from './pages/Home';
+import Home from './Home/page/Home';
 import CalendarPage from './Calendar/pages/CalendarPage';
 import ActivityPage from './Acitivity/pages/ActivityPage';
 import DetailActivityPage from './Acitivity/pages/DetailActivityPage';

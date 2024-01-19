@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useState } from 'react';
 import { LoginBtn, InputBox } from '../../styles/Auth';
 import { useEffect } from 'react';
-import { authSelector } from '../../modules/auth';
+import { authSelector } from '../../modules/redux/auth';
 import { useSelector } from 'react-redux';
 import Title from '../../components/Title';
 import Caution from '../../components/Caution';

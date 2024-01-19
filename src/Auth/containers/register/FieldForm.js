@@ -1,5 +1,5 @@
 // 회원가입 - 관심분야를 입력받는 컨테이너
-import { authSelector } from '../../modules/auth';
+import { authSelector } from '../../modules/redux/auth';
 import { TitleBox, Explain, LoginBtn } from '../../styles/Auth';
 import { useState } from 'react';
 import { fieldData } from '../../../modules/common/AttributeData';

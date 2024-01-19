@@ -9,7 +9,7 @@ import App from './App';
 import ModalContainer from './components/common/usedInModal/ModalContainer.js';
 import BottomNav from './Bar/containers/BottomNav.js';
 import Header from './Bar/containers/Header.js';
-import authSlice from './Auth/modules/auth.js';
+import authSlice from './Auth/modules/redux/auth.js';
 import activitySlice from './Acitivity/modules/activity.js';
 import barSlice from './Bar/modules/redux/bar.js';
 import filterSlice from './modules/redux/filter.js';
@@ -20,7 +20,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import './styles/common.scss';
 import './styleguide.css';
-import searchSlice from './modules/search/search.js';
+import searchSlice from './Search/modules/redux/search.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();

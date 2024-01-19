@@ -1,12 +1,12 @@
-import { SearchInput } from '../../components/search/SearchInput';
+import { SearchInput } from '../../Search/components/SearchInput';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SearchCategory } from '../../components/search/SearchCategory';
+import { SearchCategory } from '../../Search/components/SearchCategory';
 import PostList from '../../components/common/postList/PostList';
 import { AlignBox } from '../../Badge/components/AlignBox';
 import { useSearch } from '../../modules/queries/useSearch';
-import { searchSelector } from '../../modules/search/search';
+import { searchSelector } from '../../Search/modules/redux/search';
 
 const SearchActivityPage = () => {
   const ContainerStyle = {

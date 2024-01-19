@@ -10,7 +10,7 @@ import '../../styles/PageCommon.scss';
 import useModal from '../../components/common/usedInModal/useModal';
 import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
-import { SpaceBetween } from '../../components/search/SearchCategory';
+import { SpaceBetween } from '../../Search/components/SearchCategory';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
