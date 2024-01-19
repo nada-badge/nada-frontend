@@ -1,10 +1,12 @@
 /* 하단 네비게이션 바 테스트를 위한 페이지 */
 import { useEffect } from 'react';
-import { changeBarStatus } from '../modules/redux/bar';
+import { changeBarStatus } from '../Bar/modules/redux/bar';
 import { useDispatch } from 'react-redux';
+import { decodeJwtToken } from '../Auth/modules/decodeJwtToken';
 
 const MyPage = () => {
   const dispatch = useDispatch();
+  const { email, userType } = decodeJwtToken(localStorage.getItem('token'));
 
   useEffect(() => {
     dispatch(
@@ -16,7 +18,13 @@ const MyPage = () => {
     );
   });
 
-  return <div>myPage 입니다.</div>;
+  return (
+    <>
+      <div>myPage 입니다. </div>
+      <div>{email}</div>
+      <div>{userType}</div>
+    </>
+  );
 };
 
 export default MyPage;

@@ -1,11 +1,11 @@
 /**TagButton 태그된 요소를 출력하는 컴포넌트 */
-import { Button, TextWarpper } from '../../styles/community/SelectButton';
+import { TextWarpper } from '../../Community/styles/SelectButton';
 
 const TagButton = ({ tag }) => {
   return (
-    <Button>
+    <div>
       <TextWarpper>{tag}</TextWarpper>
-    </Button>
+    </div>
   );
 };
 export default TagButton;

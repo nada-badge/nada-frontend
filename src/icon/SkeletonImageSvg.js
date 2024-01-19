@@ -6,6 +6,7 @@ export const SkeletonImageSvg = () => {
       height="72"
       fill="none"
       viewBox="0 0 72 72"
+      style={{ cursor: 'pointer' }}
     >
       <rect width="72" height="72" fill="#F8F8F8" rx="10" />
       <path

@@ -3,30 +3,29 @@ import { Route, Routes } from 'react-router-dom';
 import { StyledToastContainer } from './components/common/Toast';
 import 'react-toastify/dist/ReactToastify.css';
 
-import LoginPage from './pages/auth/LoginPage';
-import RegisterPage from './pages/auth/RegisterPage';
-import LogInSelect from './pages/auth/LoginSelect';
+import LoginPage from './Auth/pages/LoginPage';
+import RegisterPage from './Auth/pages/RegisterPage';
+import LogInSelect from './Auth/pages/LoginSelect';
 
-import HomePage from './pages/Manage/HomePage.';
-import ActivityDetailPage from './pages/Manage/ActivityDetailPage';
-import ActivityWritePage from './pages/Manage/ActivityWritePage.';
-import ActivityListPage from './pages/Manage/ActivityListPage.';
+import HomePage from './Manage/pages/HomePage.';
+import ActivityDetailPage from './Manage/pages/ActivityDetailPage';
+import ActivityWritePage from './Manage/pages/ActivityWritePage.';
+import ActivityListPage from './Manage/pages/ActivityListPage.';
 
-import Home from './pages/Home';
-import CalendarPage from './pages/CalendarPage';
-import ActivityPage from './pages/activity/ActivityPage';
-import DetailActivityPage from './pages/activity/DetailActivityPage';
-import Badge from './testpage/badge';
-import CommunityPage from './pages/community/CommunityPage';
-import PostWritePage from './pages/community/PostWritePage';
-import PostDetailPage from './pages/community/PostDetailPage';
-import CommentPage from './pages/community/CommentPage';
+import Home from './Home/page/Home';
+import CalendarPage from './Calendar/pages/CalendarPage';
+import ActivityPage from './Acitivity/pages/ActivityPage';
+import DetailActivityPage from './Acitivity/pages/DetailActivityPage';
+import CommunityPage from './Community/pages/CommunityPage';
+import PostWritePage from './Community/pages/PostWritePage';
+import PostDetailPage from './Community/pages/PostDetailPage';
+import CommentPage from './Community/pages/CommentPage';
 import MyPage from './testpage/myPage';
-import SearchActivityPage from './pages/activity/SearchActivityPage';
+import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 
-import BadgePage from './pages/badge/BadgePage';
-import DetailBadgePage from './pages/badge/DetailBadgePage';
-import ActWritePage from './pages/activity/ActWritePage';
+import BadgePage from './Badge/pages/BadgePage';
+import DetailBadgePage from './Badge/pages/DetailBadgePage';
+import ActWritePage from './Acitivity/pages/ActWritePage';
 
 const App = () => {
   return (
@@ -48,8 +47,6 @@ const App = () => {
         />
         <Route path="/activity/search" element={<SearchActivityPage />} />
         <Route path="/activity/ActWrite" element={<ActWritePage />} />
-
-        <Route path="/badge" element={<Badge />} />
 
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/community/PostWrite" element={<PostWritePage />} />
