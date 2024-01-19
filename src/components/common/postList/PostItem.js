@@ -1,5 +1,5 @@
 /** PostItem, postList을 이루는 PostItem. */
-import { PostContainer } from '../../../styles/community/postItemStyle';
+import { PostContainer } from '../../../Community/styles/postItemStyle';
 import GetElapsedTime from '../../../modules/common/getElapsedTime';
 
 const PostItem = ({ card }) => {

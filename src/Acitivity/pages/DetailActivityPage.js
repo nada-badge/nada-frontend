@@ -2,7 +2,7 @@ import ContentContainer from '../container/ContentContainer.js';
 import Thumbnail from '../container/Thumbnail.js';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { changeBarStatus } from '../../modules/redux/bar.js';
+import { changeBarStatus } from '../../Bar/modules/redux/bar.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useActivity } from '../modules/queries/useGetActivity.js';

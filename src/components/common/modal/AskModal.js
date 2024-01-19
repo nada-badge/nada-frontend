@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import useModal from '../usedInModal/useModal';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
-import { Layout } from '../../../styles/community/NoticeModalStyle';
+import { Layout } from '../../../Community/styles/NoticeModalStyle';
 import getBasicUrl from '../../../modules/common/getBasicUrl';
 import useDeleteId from '../../../modules/queries/useDeleteId';
 import getReportUrl from '../../../modules/common/getReportUrl';

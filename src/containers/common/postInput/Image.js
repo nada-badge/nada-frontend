@@ -1,5 +1,5 @@
 /** Image 글작성 페이지에 Image 출력하는 컨테이너  */
-import { Images, PreViewImg } from '../../../styles/community/PostWriteStyle';
+import { Images, PreViewImg } from '../../../Community/styles/PostWriteStyle';
 import { X } from '../../../icon/X';
 import { SkeletonImageSvg } from '../../../icon/SkeletonImageSvg';
 import usePostImage from '../../../modules/queries/usePostImage';

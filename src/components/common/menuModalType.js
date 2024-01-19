@@ -6,8 +6,8 @@ import { Toast } from './Toast';
 import PrintCenteredText from './usedInModal/PrintCenteredText';
 import useModal from './usedInModal/useModal';
 import useSetButtonActive from '../../modules/common/SetButtonActive';
-import { PostDetailSelector } from '../../modules/redux/community/postDetail';
-import { changeCommentField } from '../../modules/redux/community/postDetail';
+import { PostDetailSelector } from '../../Community/modules/redux/postDetail';
+import { changeCommentField } from '../../Community/modules/redux/postDetail';
 
 export const MenuTypeConfig = (content) => {
   const { openModal } = useModal();

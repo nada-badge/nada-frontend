@@ -1,7 +1,7 @@
 /** ShareModal 공유 방법을 선택하는 모달 */
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '../usedInModal/useModal';
-import { Layout } from '../../../styles/community/NoticeModalStyle';
+import { Layout } from '../../../Community/styles/NoticeModalStyle';
 import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
 import { Toast } from '../Toast';
 import { LinkSvg } from '../../../icon/LinkSvg';

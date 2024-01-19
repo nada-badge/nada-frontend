@@ -1,7 +1,7 @@
 import RegisterForm from '../containers/register/RegisterForm';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { changeBarStatus } from '../../modules/redux/bar';
+import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch } from 'react-redux';
 import { RegisterBox } from '../styles/Auth';
 

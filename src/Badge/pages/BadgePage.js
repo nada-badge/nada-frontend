@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { changeBarStatus } from '../../modules/redux/bar';
+import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { pageContainer, myBadge, textWrapper, alignBox } from '../styles/Badge';
 import { AlignBox } from '../components/AlignBox';
 import React from 'react';

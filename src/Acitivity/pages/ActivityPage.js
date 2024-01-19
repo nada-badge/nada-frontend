@@ -1,7 +1,7 @@
 import CardList from '../../components/cardList/CardList';
 import { SearchInput } from '../../components/search/SearchInput';
 import { useEffect, useState } from 'react';
-import { changeBarStatus } from '../../modules/redux/bar';
+import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch, useSelector } from 'react-redux';
 import RecentActivityItem from '../components/RecentActivityItem';
 import Filter from '../../components/common/filter/Filter';

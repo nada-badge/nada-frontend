@@ -7,19 +7,19 @@ import LoginPage from './Auth/pages/LoginPage';
 import RegisterPage from './Auth/pages/RegisterPage';
 import LogInSelect from './Auth/pages/LoginSelect';
 
-import HomePage from './pages/Manage/HomePage.';
-import ActivityDetailPage from './pages/Manage/ActivityDetailPage';
-import ActivityWritePage from './pages/Manage/ActivityWritePage.';
-import ActivityListPage from './pages/Manage/ActivityListPage.';
+import HomePage from './Manage/pages/HomePage.';
+import ActivityDetailPage from './Manage/pages/ActivityDetailPage';
+import ActivityWritePage from './Manage/pages/ActivityWritePage.';
+import ActivityListPage from './Manage/pages/ActivityListPage.';
 
 import Home from './pages/Home';
 import CalendarPage from './Calendar/pages/CalendarPage';
 import ActivityPage from './Acitivity/pages/ActivityPage';
 import DetailActivityPage from './Acitivity/pages/DetailActivityPage';
-import CommunityPage from './pages/community/CommunityPage';
-import PostWritePage from './pages/community/PostWritePage';
-import PostDetailPage from './pages/community/PostDetailPage';
-import CommentPage from './pages/community/CommentPage';
+import CommunityPage from './Community/pages/CommunityPage';
+import PostWritePage from './Community/pages/PostWritePage';
+import PostDetailPage from './Community/pages/PostDetailPage';
+import CommentPage from './Community/pages/CommentPage';
 import MyPage from './testpage/myPage';
 import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 

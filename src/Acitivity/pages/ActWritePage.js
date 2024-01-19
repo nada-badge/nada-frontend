@@ -8,14 +8,14 @@ import { Image } from '../../containers/common/postInput/Image';
 import { Content } from '../../containers/common/postInput/Content';
 import { Insitute } from '../../containers/common/postInput/Institute';
 import { Area } from '../../containers/common/postInput/Area';
-import { TextInput } from '../../styles/community/PostWriteStyle';
+import { TextInput } from '../../Community/styles/PostWriteStyle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBarStatus } from '../../modules/redux/bar';
+import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import {
   initializeAll,
   postWriteSelector,
-} from '../../modules/redux/community/postWrite';
+} from '../../Community/modules/redux/postWrite';
 import useModal from '../../components/common/usedInModal/useModal';
 import usePostActivity from '../modules/queries/usePostActivity';
 import usePatchActivity from '../modules/queries/usePatchActivity';
