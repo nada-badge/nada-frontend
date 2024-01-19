@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useMutateInterested } from '../../../Acitivity/modules/queries/useMutateActivity';
+import { useMutateInterested } from '../Acitivity/modules/queries/useMutateActivity';
 import { useQuery } from '@tanstack/react-query';
-import client from '../../../lib/api/client';
+import client from '../lib/api/client';
 import { useEffect } from 'react';
-import { decodeJwtToken } from '../../../Auth/modules/decodeJwtToken';
+import { decodeJwtToken } from '../Auth/modules/decodeJwtToken';
 
 export const Star = ({ _id }) => {
   const [active, setActive] = useState(false);
