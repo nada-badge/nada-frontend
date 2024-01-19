@@ -19,11 +19,12 @@ const NameForm = ({ onSubmit, order, dispatchField }) => {
             placeholder="20자 이내로 입력해 주세요."
             onChange={dispatchField}
             value={name}
+            maxLength={20}
             required
           />
         </InputBox>
       </form>
-      <LoginBtn form={order}>
+      <LoginBtn form={order} disabled={!(name.length > 0)}>
         <div>다음</div>
       </LoginBtn>
     </>
