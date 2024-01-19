@@ -2,20 +2,20 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector, changeField } from '../../../modules/filter';
-import { Dropdown, TextWarpper } from '../../../styles/community/DropdownStyle';
+import { filterSelector, changeField } from '../../../modules/redux/filter';
+import { Dropdown, TextWarpper } from '../../../Community/styles/DropdownStyle';
 import { selectAllConfig } from '../../../modules/common/AttributeData';
-import { FilterHandler } from '../../common/icon/FilterHandler';
+import { FilterHandler } from '../../../icon/FilterHandler';
 
 export const DropDown = ({ content, text }) => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState('unselected');
-  const slectAll = selectAllConfig(content);
+  const selectAll = selectAllConfig(content);
 
   //해당 dropDown이 표현하는 region/field/category 의 선택값 불러오기
   const select = useSelector(filterSelector('subButtonSelect', content));
-  const closeState = slectAll === select[0] ? 'unselected' : 'selected';
+  const closeState = selectAll === select[0] ? 'unselected' : 'selected';
   //현재 community 메인페이지에서 클린된 filter의 이름 불러오기
   const isOpen = useSelector(filterSelector('buttonSelect', 'filter'));
   const maincategory = useSelector(

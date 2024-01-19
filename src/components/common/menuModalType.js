@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Toast } from './Toast';
-import PrintCenteredText from './usedInModal/PrintCenteredText';
-import useModal from './usedInModal/useModal';
-import useSetButtonActive from '../../containers/community/postDetail/SetButtonActive';
-import { PostDetailSelector } from '../../modules/community/postDetail';
-import { changeCommentField } from '../../modules/community/postDetail';
+import PrintCenteredText from '../../Modal/components/usedInModal/PrintCenteredText';
+import useModal from '../../Modal/modules/useModal';
+import useSetButtonActive from '../../modules/common/SetButtonActive';
+import { PostDetailSelector } from '../../Community/modules/redux/postDetail';
+import { changeCommentField } from '../../Community/modules/redux/postDetail';
 
 export const MenuTypeConfig = (content) => {
   const { openModal } = useModal();
@@ -22,6 +22,7 @@ export const MenuTypeConfig = (content) => {
   const toReport = () => {
     openModal({
       type: 'AskModal',
+      title: `${contentType}을 신고할까요?`,
       contentType: contentType,
       actionType: '신고',
       content: `신고한 ${contentType}은 서비스 운영원칙에 따라 처리돼요`,
@@ -32,6 +33,7 @@ export const MenuTypeConfig = (content) => {
   const toDelete = () => {
     openModal({
       type: 'AskModal',
+      title: `${contentType}을 삭제할까요?`,
       contentType: contentType,
       actionType: '삭제',
       content: `한 번 삭제한 ${contentType}은 복구할 수 없어요`,
