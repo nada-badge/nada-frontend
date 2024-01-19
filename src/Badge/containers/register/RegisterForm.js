@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { useState, useCallback } from 'react';
-import NameForm from './NameForm';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../modules/redux/badge';
 import { useNavigate } from 'react-router-dom';
 import { BackSvg } from '../../../icon/BackSvg';
 
 const RegisterForm = () => {
+  const NameForm = lazy(() => import('./NameForm'));
+
   const [order, setOrder] = useState(0);
   const forms = [NameForm];
   const Components = forms[order];
@@ -38,11 +39,13 @@ const RegisterForm = () => {
       <div className="backBtnWrapper" onClick={goBack}>
         <BackSvg />
       </div>
-      <Components
-        dispatchField={dispatchField}
-        onSubmit={onSubmit}
-        order={order}
-      />
+      <Suspense fallback={<div></div>}>
+        <Components
+          dispatchField={dispatchField}
+          onSubmit={onSubmit}
+          order={order}
+        />
+      </Suspense>
     </>
   );
 };
