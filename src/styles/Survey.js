@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { applyFontStyles } from '../../styles/fontStyle';
+import { applyFontStyles } from './fontStyle';
 
 // -------------------------- LoginPage.js
 

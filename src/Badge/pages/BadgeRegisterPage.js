@@ -1,4 +1,4 @@
-import { RegisterBox } from '../../Auth/styles/Auth';
+import { RegisterBox } from '../../styles/Survey';
 import RegisterForm from '../containers/register/RegisterForm';
 
 const BadgeRegisterPage = () => {

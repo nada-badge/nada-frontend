@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputBox, LoginBtn, TitleBox } from '../../../Auth/styles/Auth';
+import { InputBox, LoginBtn, TitleBox } from '../../../styles/Survey';
 
 const NameForm = ({ onSubmit, order, dispatchField }) => {
   return (
