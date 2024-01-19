@@ -6,7 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Mobile, PC } from './styles/Responsive.js';
 import './index.css';
 import App from './App';
-import ModalContainer from './components/common/usedInModal/ModalContainer.js';
+import ModalContainer from './Modal/components/ModalContainer.js';
 import BottomNav from './Bar/containers/BottomNav.js';
 import Header from './Bar/containers/Header.js';
 import authSlice from './Auth/modules/redux/auth.js';
@@ -15,7 +15,7 @@ import barSlice from './Bar/modules/redux/bar.js';
 import filterSlice from './modules/redux/filter.js';
 import postWriteSlice from './Community/modules/redux/postWrite.js';
 import PostDetailSlice from './Community/modules/redux/postDetail.js';
-import { modalSlice } from './modules/redux/modal.js';
+import { modalSlice } from './Modal/modules/redux/modal.js';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import './styles/common.scss';

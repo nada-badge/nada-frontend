@@ -1,13 +1,13 @@
 /** AskModal 게시글 신고 또는 삭제를 물어보는 모달 */
 import { useSelector } from 'react-redux';
-import useModal from '../usedInModal/useModal';
-import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
-import { Layout } from '../../../Community/styles/NoticeModalStyle';
-import getBasicUrl from '../../../modules/common/getBasicUrl';
-import useDeleteId from '../../../modules/queries/useDeleteId';
-import getReportUrl from '../../../modules/common/getReportUrl';
-import useReportId from '../../../modules/queries/useReportId';
-import { Toast } from '../Toast';
+import useModal from '../modules/useModal';
+import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import { Layout } from '../../Community/styles/NoticeModalStyle';
+import getBasicUrl from '../../modules/common/getBasicUrl';
+import useDeleteId from '../../modules/queries/useDeleteId';
+import getReportUrl from '../../modules/common/getReportUrl';
+import useReportId from '../../modules/queries/useReportId';
+import { Toast } from '../../components/common/Toast';
 
 const AskModal = () => {
   const { openModal, closeModal } = useModal();

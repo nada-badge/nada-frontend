@@ -1,21 +1,21 @@
 /**buttonSelectModal 여러 라운드 버튼 중 선택을 하는 형태인 모달 */
 import { useEffect } from 'react';
-import useModal from '../usedInModal/useModal';
+import useModal from '../modules/useModal';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   initializeForm,
   submitForm,
   postWriteSelector,
   changeField,
-} from '../../../Community/modules/redux/postWrite';
-import { SelectButton } from '../../../Community/components/PostWrite/SelectButton';
-import { SelectAllButton } from '../../../Community/components/PostWrite/SelectAllButton';
-import { List, Border } from '../../../styles/ModalStyle';
-import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
+} from '../../Community/modules/redux/postWrite';
+import { SelectButton } from '../../Community/components/PostWrite/SelectButton';
+import { SelectAllButton } from '../../Community/components/PostWrite/SelectAllButton';
+import { List, Border } from '../styles/ModalStyle';
+import ModalButtonDiv from './usedInModal/ModalButtonDiv';
 import {
   selectConfig,
   selectAllConfig,
-} from '../../../modules/common/AttributeData';
+} from '../../modules/common/AttributeData';
 
 const ButtonSelectModal = () => {
   const { closeModal } = useModal();

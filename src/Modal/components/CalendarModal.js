@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import '../../../styles/DatePicker.scss';
 import ko from 'date-fns/locale/ko';
-import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
-import { changeField } from '../../../Community/modules/redux/postWrite';
+import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import { changeField } from '../../Community/modules/redux/postWrite';
 import styled from 'styled-components';
-import { AngleBracket } from '../../../icon/AngleBracket';
+import { AngleBracket } from '../../icon/AngleBracket';
 registerLocale('ko', ko);
 
 const CalendarModal = () => {

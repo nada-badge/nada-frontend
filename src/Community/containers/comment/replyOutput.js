@@ -1,6 +1,6 @@
 /**ReplyOutPut 답글을 출력하는 컴포넌트 */
 import { useDispatch } from 'react-redux';
-import useModal from '../../../components/common/usedInModal/useModal';
+import useModal from '../../../Modal/modules/useModal';
 import { changeCommentField } from '../../modules/redux/postDetail';
 import { ReplyBox } from '../../styles/CommentStyle';
 import { Profile } from '../../components/comment/Profile';

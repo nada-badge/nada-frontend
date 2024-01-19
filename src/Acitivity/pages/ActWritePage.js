@@ -16,7 +16,7 @@ import {
   initializeAll,
   postWriteSelector,
 } from '../../Community/modules/redux/postWrite';
-import useModal from '../../components/common/usedInModal/useModal';
+import useModal from '../../Modal/modules/useModal';
 import usePostActivity from '../modules/queries/usePostActivity';
 import usePatchActivity from '../modules/queries/usePatchActivity';
 

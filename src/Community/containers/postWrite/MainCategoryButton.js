@@ -1,7 +1,7 @@
 /** MainCategoryButton 메인카테고리 버튼 */
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
-import useModal from '../../../components/common/usedInModal/useModal';
+import useModal from '../../../Modal/modules/useModal';
 import { Filter, TextWarpper, Img } from '../../styles/FilterModalStyle';
 import { postWriteSelector } from '../../modules/redux/postWrite';
 

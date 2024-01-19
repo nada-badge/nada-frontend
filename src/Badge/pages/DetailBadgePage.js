@@ -7,7 +7,7 @@ import { ActivityTable } from '../components/ActivityTable';
 import CardList from '../../components/cardList/CardList';
 import { layout_style, imgItem, hideBadgeBox } from '../styles/Badge';
 import '../../styles/PageCommon.scss';
-import useModal from '../../components/common/usedInModal/useModal';
+import useModal from '../../Modal/modules/useModal';
 import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import { SpaceBetween } from '../../Search/components/SearchCategory';

@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../styles/CommunityBarStyle';
-import useModal from '../../../components/common/usedInModal/useModal';
+import useModal from '../../../Modal/modules/useModal';
 import { PostDetailSelector } from '../../modules/redux/postDetail';
 import CountComment from '../../components/postDetail/CountComment';
 

@@ -2,17 +2,17 @@
 import React, { lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
-import { modalSelector } from '../../../modules/redux/modal';
+import { modalSelector } from '../modules/redux/modal';
 // Lazy 로딩할 모달 컴포넌트들
 const MainCategoryModal = lazy(() =>
-  import('../../../Community/components/PostWrite/MainCategoryModal'),
+  import('../../Community/components/PostWrite/MainCategoryModal'),
 );
-const ShareModal = lazy(() => import('../modal/ShareModal'));
-const NoticeModal = lazy(() => import('../modal/NoticeModal'));
-const AskModal = lazy(() => import('../modal/AskModal'));
-const ButtonSelectModal = lazy(() => import('../modal/ButtonSelectModal'));
-const MenuModal = lazy(() => import('../modal/MenuModal'));
-const CalendarModal = lazy(() => import('../modal/CalendarModal'));
+const ShareModal = lazy(() => import('./ShareModal'));
+const NoticeModal = lazy(() => import('./NoticeModal'));
+const AskModal = lazy(() => import('./AskModal'));
+const ButtonSelectModal = lazy(() => import('./ButtonSelectModal'));
+const MenuModal = lazy(() => import('./MenuModal'));
+const CalendarModal = lazy(() => import('./CalendarModal'));
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,

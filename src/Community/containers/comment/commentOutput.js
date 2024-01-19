@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { CommentBox } from '../../styles/CommentStyle';
 import { changeCommentField } from '../../modules/redux/postDetail';
 import ReplyOutPut from './replyOutput';
-import useModal from '../../../components/common/usedInModal/useModal';
+import useModal from '../../../Modal/modules/useModal';
 import { Profile } from '../../components/comment/Profile';
 import { Menu } from '../../components/comment/Menu';
 import Content from '../../components/comment/Content';

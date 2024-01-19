@@ -1,6 +1,6 @@
 /** ModalStyle 모달에서 공통적으로 사용하는 스타일 */
 import styled from 'styled-components';
-import { applyFontStyles } from './fontStyle';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 export const List = {
   alignItems: 'center',

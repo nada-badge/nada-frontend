@@ -1,8 +1,8 @@
 /** MenuModal 메뉴 클릭 시, 여러가지 행동 리스트가 나오는 모달 */
 import { useSelector } from 'react-redux';
-import ModalButtonDiv from '../usedInModal/ModalButtonDiv';
-import { MenuTypeConfig } from '../menuModalType';
-import { List, Border, Layout } from '../../../Community/styles/BarModalStyle';
+import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import { MenuTypeConfig } from '../../components/common/menuModalType';
+import { List, Border, Layout } from '../../Community/styles/BarModalStyle';
 
 export const MenuModal = () => {
   const modal = useSelector(({ modal }) => modal);
