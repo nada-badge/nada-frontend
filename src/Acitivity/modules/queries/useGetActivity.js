@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { calculateDday } from '../calculateDday';
+import { useSelector } from 'react-redux';
 
 // 활동글 하나 불러오기
 export const useActivity = ({ _id }) => {
@@ -16,7 +17,9 @@ export const useActivity = ({ _id }) => {
   });
 };
 
-export const useActivityList = ({ filter } = {}) => {
+// 필터에 맞게 여러 활동글 불러오기
+export const useActivityList = () => {
+  const filter = useSelector(({ filter }) => filter);
   const { region, field, category } = filter.subButtonSelect;
 
   return useQuery({
