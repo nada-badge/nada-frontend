@@ -3,6 +3,8 @@ import { useState, useCallback } from 'react';
 import NameForm from './NameForm';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../modules/redux/badge';
+import { useNavigate } from 'react-router-dom';
+import { BackSvg } from '../../../icon/BackSvg';
 
 const RegisterForm = () => {
   const [order, setOrder] = useState(0);
@@ -23,8 +25,19 @@ const RegisterForm = () => {
     dispatch(changeField({ key: name, value }));
   }, []);
 
+  // 뒤로가기
+  const navigate = useNavigate();
+  const goBack = () => {
+    if (order === 0) {
+      navigate(-1);
+    } else setOrder(order - 1);
+  };
+
   return (
     <>
+      <div className="backBtnWrapper" onClick={goBack}>
+        <BackSvg />
+      </div>
       <Components
         dispatchField={dispatchField}
         onSubmit={onSubmit}
