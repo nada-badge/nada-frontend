@@ -47,3 +47,15 @@ export const useGetPostList = ({ filter }) => {
     },
   );
 };
+
+// 인기 게시글을 불러오기
+export const useGetTopPost = () => {
+  return useQuery({
+    queryKey: ['getTopPost'],
+    queryFn: async () => {
+      const { data } = await client.get('/community/topPost');
+      return data.posts;
+    },
+    staleTime: 9000000,
+  });
+};
