@@ -1,5 +1,14 @@
+import { RegisterBox } from '../../Auth/styles/Auth';
+import RegisterForm from '../containers/register/RegisterForm';
+
 const BadgeRegisterPage = () => {
-  return <div>BadgeRegisterPage</div>;
+  return (
+    <>
+      <RegisterBox>
+        <RegisterForm />
+      </RegisterBox>
+    </>
+  );
 };
 
 export default BadgeRegisterPage;
