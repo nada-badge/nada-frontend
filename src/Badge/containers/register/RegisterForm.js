@@ -1,9 +1,8 @@
-import React, { lazy, Suspense } from 'react';
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../modules/redux/badge';
 import { useNavigate } from 'react-router-dom';
-import { BackSvg } from '../../../icon/BackSvg';
+import { changeBarStatus } from '../../../Bar/modules/redux/bar';
 
 const RegisterForm = () => {
   const NameForm = lazy(() => import('./NameForm'));
@@ -34,11 +33,18 @@ const RegisterForm = () => {
     } else setOrder(order - 1);
   };
 
+  useEffect(() => {
+    dispatch(
+      changeBarStatus({
+        headerState: 'back',
+        text: '뱃지 발급',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
+
   return (
     <>
-      <div className="backBtnWrapper" onClick={goBack}>
-        <BackSvg />
-      </div>
       <Suspense fallback={<div></div>}>
         <Components
           dispatchField={dispatchField}
