@@ -64,7 +64,7 @@ const App = () => {
 
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
-        <Route path="/badge/write" element={<BadgeRegisterPage />} />
+        <Route path="/badge/BadgeRegister" element={<BadgeRegisterPage />} />
       </Routes>
       <StyledToastContainer limit={1} />
     </div>
