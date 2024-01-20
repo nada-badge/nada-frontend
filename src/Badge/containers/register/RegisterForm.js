@@ -30,9 +30,10 @@ const Indicator = styled.div`
 
 const RegisterForm = () => {
   const NameForm = lazy(() => import('./NameForm'));
+  const ShapeForm = lazy(() => import('./ShapeForm'));
 
   const [order, setOrder] = useState(0);
-  const forms = [NameForm];
+  const forms = [NameForm, ShapeForm];
   const Components = forms[order];
 
   const onSubmit = (e) => {
@@ -48,14 +49,6 @@ const RegisterForm = () => {
     const { value, name } = e.target;
     dispatch(changeField({ key: name, value }));
   }, []);
-
-  // 뒤로가기
-  const navigate = useNavigate();
-  const goBack = () => {
-    if (order === 0) {
-      navigate(-1);
-    } else setOrder(order - 1);
-  };
 
   useEffect(() => {
     dispatch(

@@ -53,6 +53,8 @@ export const LoginBtn = styled.button`
   border: none;
   padding: 0;
   width: 100%;
+  height: fit-content;
+  align-self: end;
 
   &:disabled {
     opacity: 0.3;
