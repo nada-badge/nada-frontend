@@ -1,29 +1,34 @@
 import React, { useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../modules/redux/badge';
-import { useNavigate } from 'react-router-dom';
 import { changeBarStatus } from '../../../Bar/modules/redux/bar';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-const Indicator = styled.div`
-  display: inline-flex;
-  justify-self: end;
+const TopContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  ${applyFontStyles({
+    font: 'body-01',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })}
   height: fit-content;
-  padding: 2px 12px;
-  gap: 2px;
-  border-radius: 23px;
-  background: var(--myspec-Gray-scale-Gray-300, #e4e4e4);
-  width: fit-content;
 
-  & > span {
-    ${applyFontStyles({
-      font: 'subtitle-01',
-      color: 'var(--myspec-gray-scalegray-600)',
-    })}
+  & > .indicator {
+    padding: 2px 12px;
+    gap: 2px;
+    border-radius: 23px;
+    background: var(--myspec-Gray-scale-Gray-300, #e4e4e4);
+    justify-self: end;
+    & > span {
+      ${applyFontStyles({
+        font: 'subtitle-01',
+        color: 'var(--myspec-gray-scalegray-600)',
+      })}
 
-    &:nth-child(1) {
-      color: var(--myspec-primaryblue-1);
+      &:nth-child(1) {
+        color: var(--myspec-primaryblue-1);
+      }
     }
   }
 `;
@@ -62,11 +67,20 @@ const RegisterForm = () => {
 
   return (
     <>
-      <Indicator>
-        <span>{order + 1}</span>
-        <span>/</span>
-        <span>{forms.length}</span>
-      </Indicator>
+      <TopContainer>
+        <div
+          onClick={() => {
+            setOrder(order - 1);
+          }}
+        >
+          {order > 0 && '뒤로가기'}
+        </div>
+        <div className="indicator">
+          <span>{order + 1}</span>
+          <span>/</span>
+          <span>{forms.length}</span>
+        </div>
+      </TopContainer>
       <Suspense fallback={<div></div>}>
         <Components
           dispatchField={dispatchField}
