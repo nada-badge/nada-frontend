@@ -36,9 +36,10 @@ const TopContainer = styled.div`
 const RegisterForm = () => {
   const NameForm = lazy(() => import('./NameForm'));
   const ShapeForm = lazy(() => import('./ShapeForm'));
+  const ExplainForm = lazy(() => import('./ExplainForm'));
 
   const [order, setOrder] = useState(0);
-  const forms = [NameForm, ShapeForm];
+  const forms = [NameForm, ShapeForm, ExplainForm];
   const Components = forms[order];
 
   const onSubmit = (e) => {

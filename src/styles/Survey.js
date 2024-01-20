@@ -27,7 +27,8 @@ export const InputBox = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  & > input {
+  & > input,
+  textarea {
     ${applyFontStyles({
       font: 'body-01',
       color: 'var(--myspec-gray-scalegray-600)',
@@ -41,6 +42,7 @@ export const InputBox = styled.div`
     outline: none;
     box-sizing: border-box;
     width: 100%;
+    height: fit-content;
   }
 `;
 
