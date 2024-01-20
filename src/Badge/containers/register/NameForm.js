@@ -24,7 +24,11 @@ const NameForm = ({ onSubmit, order, dispatchField }) => {
           />
         </InputBox>
       </form>
-      <LoginBtn form={order} disabled={!(name.length > 0)}>
+      <LoginBtn
+        form={order}
+        disabled={!(name.length > 0)}
+        style={{ marginBottom: '50px' }}
+      >
         <div>다음</div>
       </LoginBtn>
     </>
