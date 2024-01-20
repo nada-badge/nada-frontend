@@ -1,12 +1,14 @@
-import { RegisterBox } from '../../styles/Survey';
+import { CenterGrid } from '../../styles/Survey';
 import RegisterForm from '../containers/register/RegisterForm';
 
 const BadgeRegisterPage = () => {
   return (
     <>
-      <RegisterBox>
-        <RegisterForm />
-      </RegisterBox>
+      <div>
+        <CenterGrid>
+          <RegisterForm />
+        </CenterGrid>
+      </div>
     </>
   );
 };

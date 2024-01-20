@@ -154,3 +154,18 @@ export const Explain = styled.div`
   })}
   padding : 8px 0px;
 `;
+
+// ---------------------BadgeWrite.js
+export const CenterGrid = styled.div`
+  display: grid;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
+  width: 375px;
+  height: calc(100vh - 88px); // 상단바
+  margin: 0px auto;
+  gap: 24px;
+  text-align: left;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+`;
