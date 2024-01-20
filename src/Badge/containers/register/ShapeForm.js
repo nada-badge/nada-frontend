@@ -27,7 +27,7 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
       <form onSubmit={onSubmit} id={order}>
         <RoundSpaceBetween>
           <div>사진 업로드하기</div>
-          <RightArrowSvg />
+          <RightArrowSvg width={8} height={16} />
         </RoundSpaceBetween>
         <ShapeGrid />
       </form>
