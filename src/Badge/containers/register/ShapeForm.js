@@ -14,11 +14,12 @@ const RoundSpaceBetween = styled(SpaceBetween)`
   box-sizing: border-box;
 `;
 
-const fixedBtn = {
-  position: 'fixed',
-  maxWidth: '345px',
-  border: 'none',
-};
+const FixedLoginBtn = styled(LoginBtn)`
+  position: fixed;
+  max-width: 345px;
+  border: none;
+  margin-bottom: 50px;
+`;
 
 const ShapeForm = ({ onSubmit, order, dispatchField }) => {
   return (
@@ -31,15 +32,9 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
         </RoundSpaceBetween>
         <ShapeGrid />
       </form>
-      <LoginBtn
-        form={order}
-        style={Object.assign(fixedBtn, {
-          marginBottom: '50px',
-        })}
-        disabled={true}
-      >
+      <FixedLoginBtn form={order} disabled={false}>
         <div>다음</div>
-      </LoginBtn>
+      </FixedLoginBtn>
     </>
   );
 };
