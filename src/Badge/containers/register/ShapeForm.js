@@ -4,13 +4,21 @@ import styled from 'styled-components';
 import { RightArrowSvg } from '../../../icon/Login/RightArrowSvg';
 import { SpaceBetween } from '../../../Search/components/SearchCategory';
 import { applyFontStyles } from '../../../styles/fontStyle';
+import ShapeGrid from '../../components/ShapeGrid';
 
 const RoundSpaceBetween = styled(SpaceBetween)`
   ${applyFontStyles({ font: 'body-01' })}
   padding: 13px;
   border-radius: 20px;
   background: var(--myspec-gray-scalegray-100, #f8f8f8);
+  box-sizing: border-box;
 `;
+
+const fixedBtn = {
+  position: 'fixed',
+  maxWidth: '345px',
+  border: 'none',
+};
 
 const ShapeForm = ({ onSubmit, order, dispatchField }) => {
   return (
@@ -21,8 +29,15 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
           <div>사진 업로드하기</div>
           <RightArrowSvg />
         </RoundSpaceBetween>
+        <ShapeGrid />
       </form>
-      <LoginBtn form={order} style={{ marginBottom: '50px' }}>
+      <LoginBtn
+        form={order}
+        style={Object.assign(fixedBtn, {
+          marginBottom: '50px',
+        })}
+        disabled={true}
+      >
         <div>다음</div>
       </LoginBtn>
     </>
