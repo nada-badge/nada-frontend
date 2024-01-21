@@ -12,6 +12,9 @@ import { addActivities } from '../../modules/redux/badge';
 
 const ButtonContainer = styled(ButtonList)`
   width: 100%;
+  align-items: end;
+  bottom: 50px;
+
   & > div {
     height: fit-content;
     & > .text {
@@ -34,10 +37,12 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         거의 다 왔어요 <br />
         활동 내역을 추가해 주세요
       </TitleBox>
-      <form onSubmit={onSubmit} id={order}>
-        {activities.map((el, index) => (
-          <ActivityInputItem key={index} content={el} index={index} />
-        ))}
+      <form onSubmit={onSubmit} id={order} style={{ overflowY: 'scroll' }}>
+        <div>
+          {activities.map((el, index) => (
+            <ActivityInputItem key={index} content={el} index={index} />
+          ))}
+        </div>
       </form>
       <ButtonContainer>
         <Cancel onClick={() => onClick()}>
