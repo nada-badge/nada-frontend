@@ -3,6 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   name: '',
   explain: '',
+  activities: [
+    {
+      content: '',
+      started: '',
+      ended: '',
+    },
+  ],
 };
 
 const badgeSlice = createSlice({
@@ -15,8 +22,15 @@ const badgeSlice = createSlice({
     initialized: () => {
       return initialState;
     },
+    addActivities: (state, { payload: value }) => {
+      state.activities = [...state.activities, value];
+    },
+    deleteActivities: (state, { payload: index }) => {
+      state.activities = state.activities.filter((_, i) => i !== index);
+    },
   },
 });
 
 export default badgeSlice;
-export const { changeField, initialized } = badgeSlice.actions;
+export const { changeField, initialized, addActivities, deleteActivities } =
+  badgeSlice.actions;

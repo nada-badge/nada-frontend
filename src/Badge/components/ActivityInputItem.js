@@ -4,8 +4,11 @@ import { FilterHandler } from '../../icon/FilterHandler';
 import { X } from '../../icon/X';
 import { InputBox } from '../../styles/Survey';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { useDispatch } from 'react-redux';
+import { deleteActivities } from '../modules/redux/badge';
 
 const InputContainer = styled(InputBox)`
+  margin: 40px auto;
   & > .inputWrapper {
     display: flex;
     justify-content: space-between;
@@ -28,7 +31,11 @@ const InputContainer = styled(InputBox)`
   }
 `;
 
-const ActivityInputItem = () => {
+const ActivityInputItem = ({ index }) => {
+  const dispatch = useDispatch();
+  const onClick = () => {
+    dispatch(deleteActivities(index));
+  };
   return (
     <InputContainer>
       <div className="inputWrapper">
@@ -37,7 +44,9 @@ const ActivityInputItem = () => {
           placeholder="내용을 입력해주세요."
           required
         />
-        <X size={12} bold={2} />
+        <div onClick={() => onClick()}>
+          <X size={12} bold={2} />
+        </div>
       </div>
       <div className="dateWrapper">
         <Dropdown className={'unselected'}>

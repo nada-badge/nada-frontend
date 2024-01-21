@@ -7,6 +7,8 @@ import {
 } from '../../../Modal/components/usedInModal/ModalButtonDiv';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { addActivities } from '../../modules/redux/badge';
 
 const ButtonContainer = styled(ButtonList)`
   width: 100%;
@@ -19,6 +21,13 @@ const ButtonContainer = styled(ButtonList)`
 `;
 
 const ActivityForm = ({ onSubmit, order, dispatchField }) => {
+  const activities = useSelector(({ badge }) => badge.activities);
+  const dispatch = useDispatch();
+
+  const onClick = () => {
+    dispatch(addActivities({ content: '', started: '', end: '' }));
+  };
+
   return (
     <>
       <TitleBox>
@@ -26,10 +35,12 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         활동 내역을 추가해 주세요
       </TitleBox>
       <form onSubmit={onSubmit} id={order}>
-        <ActivityInputItem />
+        {activities.map((el, index) => (
+          <ActivityInputItem key={index} content={el} index={index} />
+        ))}
       </form>
       <ButtonContainer>
-        <Cancel>
+        <Cancel onClick={() => onClick()}>
           <div className="text">내역 추가하기</div>
         </Cancel>
         <Act>
