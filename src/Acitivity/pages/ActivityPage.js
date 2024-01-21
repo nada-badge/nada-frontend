@@ -61,7 +61,7 @@ const ActivityPage = () => {
       )}
       <div style={{ padding: '16px' }}>
         <div>
-          <Filter />
+          <Filter position="activity" />
           <AlignBox text={'최신 순'} />
         </div>
         <AcitivityList activities={activities} isError={isError} />
