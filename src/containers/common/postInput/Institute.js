@@ -11,6 +11,7 @@ export const Insitute = ({ onChange, inputValue }) => {
           <input
             className="institute"
             onChange={onChange}
+            name="institute"
             value={inputValue.institute}
             placeholder="주최 기관명을 작성해주세요."
           />
@@ -19,6 +20,7 @@ export const Insitute = ({ onChange, inputValue }) => {
             <input
               className="intstituteURL"
               onChange={onChange}
+              name="intstituteURL"
               value={inputValue.intstituteURL}
               placeholder="주최 기관 홈페이지를 입력하세요. "
             />

@@ -64,8 +64,8 @@ const ActWritePage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { activityName, content, institute, intstituteURL, area } = e.target;
-    //const groupName = localStorage.getItem('groupName');
     const { _id, category, field, region, startedAt, endedAt } = postwrite;
+    //const groupName = localStorage.getItem('groupName');
 
     const data = {
       activityName: activityName.value,
@@ -85,7 +85,7 @@ const ActWritePage = () => {
     };
 
     dispatch(initializeAll());
-    isSubmit ? mutate(data) : updateMutate(data);
+    //isSubmit ? mutate(data) : updateMutate(data);
   };
 
   return (
@@ -97,7 +97,11 @@ const ActWritePage = () => {
         />
       </div>
       <div>
-        <Title onChange={onChange} inputValue={inputValue} />
+        <Title
+          name="activityName"
+          onChange={onChange}
+          inputValue={inputValue}
+        />
         <FilterBar type={'activity'} />
       </div>
       {/* ▼ 접수기간 수정 필요 */}
@@ -127,6 +131,7 @@ const ActWritePage = () => {
         setImgFiles={setExtraImageUrl}
       />
       <Content onChange={onChange} inputValue={inputValue} />
+      <button onSubmit={onSubmit} />
     </form>
   );
 };
