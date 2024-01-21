@@ -61,7 +61,6 @@ export const selectConfig = ({
     field: fieldData,
     category: categoryData,
   };
-  console.log('position', position, mainCategory);
 
   if (content === 'category') {
     if (position === 'activity') return Config[content].slice(0, 8);

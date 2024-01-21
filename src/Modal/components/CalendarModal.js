@@ -24,7 +24,6 @@ const CalendarModal = () => {
   const [endDate, setEndDate] = useState(
     useSelector(postWriteSelector('postWriteSubmit', 'endedAt')),
   );
-  console.log('date : ', startDate, ' : ', endDate);
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -32,7 +31,6 @@ const CalendarModal = () => {
   };
 
   const setStatus = () => {
-    console.log('startDate.toISOString:', startDate);
     dispatch(
       changeField({
         form: 'postWriteSubmit',
