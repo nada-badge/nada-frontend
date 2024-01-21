@@ -32,8 +32,8 @@ const ActWritePage = () => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
   const [inputValue, setInputValue] = useState({});
-  const [thumbnail, setThumbnail] = useState();
-  const [imgFiles, setImgFiles] = useState([]);
+  const [mainImageUrl, setMainImageUrl] = useState();
+  const [extraImageUrls, setExtraImageUrl] = useState([]);
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
   const { mutate } = usePostActivity();
@@ -66,7 +66,6 @@ const ActWritePage = () => {
     const { activityName, content, institute, intstituteURL, area } = e.target;
     //const groupName = localStorage.getItem('groupName');
     const { _id, category, field, region, startedAt, endedAt } = postwrite;
-    const imageUrl = imgFiles;
 
     const data = {
       activityName: activityName.value,
@@ -79,7 +78,8 @@ const ActWritePage = () => {
       intstituteURL: intstituteURL.value,
       area: area.value,
       content: content.value,
-      imageUrl,
+      mainImageUrl,
+      extraImageUrls,
       startedAt,
       endedAt,
     };
@@ -91,7 +91,10 @@ const ActWritePage = () => {
   return (
     <form onSubmit={onSubmit} className="pageContainer">
       <div>
-        <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
+        <ThumbnailInput
+          thumbnail={mainImageUrl}
+          setThumbnail={setMainImageUrl}
+        />
       </div>
       <div>
         <Title onChange={onChange} inputValue={inputValue} />
@@ -118,7 +121,11 @@ const ActWritePage = () => {
           <Area onChange={onChange} inputValue={inputValue} />
         </InputInfo>
       </>
-      <Image section="activity" imgFiles={imgFiles} setImgFiles={setImgFiles} />
+      <Image
+        section="activity"
+        imgFiles={extraImageUrls}
+        setImgFiles={setExtraImageUrl}
+      />
       <Content onChange={onChange} inputValue={inputValue} />
     </form>
   );
