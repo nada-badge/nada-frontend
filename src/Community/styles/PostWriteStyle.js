@@ -80,6 +80,14 @@ export const TextInput = styled.div`
         flex-direction: column;
       }
 
+      .date{
+        ${applyFontStyles({
+          font: 'caption-02',
+          color: 'var(--myspec-gray-scalegray-900)',
+        })};
+        cursor: pointer;
+      }
+
       input {
         ${inputStyles}
       }

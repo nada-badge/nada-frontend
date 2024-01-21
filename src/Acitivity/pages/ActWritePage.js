@@ -19,6 +19,7 @@ import {
 import useModal from '../../Modal/modules/useModal';
 import usePostActivity from '../modules/queries/usePostActivity';
 import usePatchActivity from '../modules/queries/usePatchActivity';
+import getDateFormat from '../../modules/common/getDateFormat';
 
 const InputInfo = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ const ActWritePage = () => {
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
   const { mutate } = usePostActivity();
   const updateMutate = usePatchActivity().mutate;
+  const { startedAt, endedAt } = postwrite;
 
   useEffect(() => {
     dispatch(
@@ -64,7 +66,7 @@ const ActWritePage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { activityName, content, institute, intstituteURL, area } = e.target;
-    const { _id, category, field, region, startedAt, endedAt } = postwrite;
+    const { _id, category, field, region } = postwrite;
     //const groupName = localStorage.getItem('groupName');
 
     const data = {
@@ -112,12 +114,22 @@ const ActWritePage = () => {
               접수 기간
               <div className="inputBox">
                 <input
-                  className="startedAt"
+                  className="date"
                   placeholder="0000.00.00"
                   onClick={openCalendar}
+                  value={getDateFormat({ preDate: startedAt, type: 'number' })}
+                  readonly
+                  required
                 />
                 부터
-                <input className="endedAt" placeholder="0000.00.00" /> 까지
+                <input
+                  className="date"
+                  placeholder="0000.00.00"
+                  onClick={openCalendar}
+                  value={getDateFormat({ preDate: endedAt, type: 'number' })}
+                  readonly
+                />
+                까지
               </div>
             </div>
           </TextInput>
