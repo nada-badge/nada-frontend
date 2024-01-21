@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import '../../styles/DatePicker.scss';
+import '../styles/DatePicker.scss';
 import useModal from '../modules/useModal';
 import ModalButtonDiv from './usedInModal/ModalButtonDiv';
 import {
@@ -32,6 +32,7 @@ const CalendarModal = () => {
   };
 
   const setStatus = () => {
+    console.log('startDate.toISOString:', startDate);
     dispatch(
       changeField({
         form: 'postWriteSubmit',
@@ -39,13 +40,21 @@ const CalendarModal = () => {
         value: startDate,
       }),
     );
-    dispatch(
-      changeField({
-        form: 'postWriteSubmit',
-        key: 'endedAt',
-        value: endDate,
-      }),
-    );
+    endDate
+      ? dispatch(
+          changeField({
+            form: 'postWriteSubmit',
+            key: 'endedAt',
+            value: endDate,
+          }),
+        )
+      : dispatch(
+          changeField({
+            form: 'postWriteSubmit',
+            key: 'endedAt',
+            value: startDate,
+          }),
+        );
     closeModal();
   };
 
