@@ -15,7 +15,7 @@ const getDateFormat = ({ preDate, type }) => {
     number: `${year}.${month}.${day}`,
   };
 
-  return Config[type];
+  return preDate ? Config[type] : '';
 };
 
 export default getDateFormat;
