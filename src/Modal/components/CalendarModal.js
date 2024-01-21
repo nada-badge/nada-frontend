@@ -3,15 +3,17 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import '../../styles/DatePicker.scss';
-import ko from 'date-fns/locale/ko';
+import useModal from '../modules/useModal';
 import ModalButtonDiv from './usedInModal/ModalButtonDiv';
 import { changeField } from '../../Community/modules/redux/postWrite';
 import styled from 'styled-components';
 import { AngleBracket } from '../../icon/AngleBracket';
+import ko from 'date-fns/locale/ko';
 registerLocale('ko', ko);
 
 const CalendarModal = () => {
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
 
   const modal = useSelector(({ modal }) => modal);
   const [startDate, setStartDate] = useState(new Date());
@@ -39,6 +41,7 @@ const CalendarModal = () => {
         value: endDate,
       }),
     );
+    closeModal();
   };
 
   return (
