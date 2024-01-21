@@ -28,13 +28,14 @@ export const InputBox = styled.div`
   gap: 12px;
 
   & > input,
-  textarea {
+  textarea,
+  .inputWrapper input {
     ${applyFontStyles({
       font: 'body-01',
       color: 'var(--myspec-gray-scalegray-600)',
     })}
     border-radius: 10px;
-    background: var(--myspec-Gray-scale-Gray-200, #f2f2f2);
+    background: var(--myspec-gray-scalegray-200, #f2f2f2);
     padding: 12px 11px;
     align-items: center;
     flex-shrink: 0;
