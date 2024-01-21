@@ -14,7 +14,7 @@ const RoundSpaceBetween = styled(SpaceBetween)`
   box-sizing: border-box;
 `;
 
-const FixedLoginBtn = styled(LoginBtn)`
+export const FixedLoginBtn = styled(LoginBtn)`
   position: fixed;
   max-width: 345px;
   border: none;

@@ -37,9 +37,10 @@ const RegisterForm = () => {
   const NameForm = lazy(() => import('./NameForm'));
   const ShapeForm = lazy(() => import('./ShapeForm'));
   const ExplainForm = lazy(() => import('./ExplainForm'));
+  const ActivityForm = lazy(() => import('./ActivityForm'));
 
   const [order, setOrder] = useState(0);
-  const forms = [NameForm, ShapeForm, ExplainForm];
+  const forms = [NameForm, ShapeForm, ExplainForm, ActivityForm];
   const Components = forms[order];
 
   const onSubmit = (e) => {
