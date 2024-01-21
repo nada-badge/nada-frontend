@@ -2,6 +2,7 @@
 import client from '../../../lib/api/client';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { Toast } from '../../../components/common/Toast';
 
 const usePostActivity = () => {
   const navigate = useNavigate();
@@ -38,13 +39,13 @@ const usePostActivity = () => {
       }),
     onSuccess: (data) => {
       console.log('게시물이 등록되었습니다.', data);
-      alert('등록되었습니다.');
-      navigate('/manage/Activity');
+      navigate(-1);
+      Toast({ text: '등록되었습니다.' });
     },
     onError: (error) => {
       console.log('게시물 등록에 실패하였습니다.', error);
-      alert('실패.');
-      navigate('/manage/Activity');
+      navigate(-1);
+      Toast({ text: '오류 발생!' });
     },
   });
 };
