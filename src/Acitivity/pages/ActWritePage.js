@@ -8,7 +8,7 @@ import { Image } from '../../containers/common/postInput/Image';
 import { Content } from '../../containers/common/postInput/Content';
 import { Insitute } from '../../containers/common/postInput/Institute';
 import { Area } from '../../containers/common/postInput/Area';
-import { TextInput } from '../../Community/styles/PostWriteStyle';
+import { Period } from '../container/Period';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
@@ -16,10 +16,8 @@ import {
   initializeAll,
   postWriteSelector,
 } from '../../Community/modules/redux/postWrite';
-import useModal from '../../Modal/modules/useModal';
 import usePostActivity from '../modules/queries/usePostActivity';
 import usePatchActivity from '../modules/queries/usePatchActivity';
-import getDateFormat from '../../modules/common/getDateFormat';
 
 const InputInfo = styled.div`
   display: flex;
@@ -31,7 +29,6 @@ const InputInfo = styled.div`
 
 const ActWritePage = () => {
   const dispatch = useDispatch();
-  const { openModal } = useModal();
   const [inputValue, setInputValue] = useState({});
   const [mainImageUrl, setMainImageUrl] = useState();
   const [extraImageUrl, setExtraImageUrl] = useState([]);
@@ -40,8 +37,6 @@ const ActWritePage = () => {
   const { mutate } = usePostActivity();
   const updateMutate = usePatchActivity().mutate;
   const { startedAt, endedAt } = postwrite;
-
-  console.log('ActWritePage start : ', startedAt, ' : ', endedAt);
 
   useEffect(() => {
     dispatch(
@@ -59,10 +54,6 @@ const ActWritePage = () => {
       ...inputValue,
       [name]: value,
     });
-  };
-
-  const openCalendar = () => {
-    openModal({ type: 'CalendarModal' });
   };
 
   const onSubmit = (e) => {
@@ -89,9 +80,7 @@ const ActWritePage = () => {
     };
 
     dispatch(initializeAll());
-    //isSubmit ? mutate(data) : updateMutate(data);
-
-    mutate(data);
+    isSubmit ? mutate(data) : updateMutate(data);
   };
 
   return (
@@ -110,33 +99,9 @@ const ActWritePage = () => {
         />
         <FilterBar type={'activity'} />
       </div>
-      {/* ▼ 접수기간 수정 필요 */}
       <>
         <InputInfo>
-          <TextInput>
-            <div className="duration box">
-              접수 기간
-              <div className="inputBox">
-                <input
-                  className="date"
-                  placeholder="0000.00.00"
-                  onClick={openCalendar}
-                  value={getDateFormat({ preDate: startedAt, type: 'number' })}
-                  readonly
-                  required
-                />
-                부터
-                <input
-                  className="date"
-                  placeholder="0000.00.00"
-                  onClick={openCalendar}
-                  value={getDateFormat({ preDate: endedAt, type: 'number' })}
-                  readonly
-                />
-                까지
-              </div>
-            </div>
-          </TextInput>
+          <Period onChange={onChange} startedAt={startedAt} endedAt={endedAt} />
           <Insitute onChange={onChange} inputValue={inputValue} />
           <Area onChange={onChange} inputValue={inputValue} />
         </InputInfo>
