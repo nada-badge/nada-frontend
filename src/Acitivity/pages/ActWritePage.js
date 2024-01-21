@@ -34,12 +34,14 @@ const ActWritePage = () => {
   const { openModal } = useModal();
   const [inputValue, setInputValue] = useState({});
   const [mainImageUrl, setMainImageUrl] = useState();
-  const [extraImageUrls, setExtraImageUrl] = useState([]);
+  const [extraImageUrl, setExtraImageUrl] = useState([]);
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
   const { mutate } = usePostActivity();
   const updateMutate = usePatchActivity().mutate;
   const { startedAt, endedAt } = postwrite;
+
+  console.log('ActWritePage start : ', startedAt, ' : ', endedAt);
 
   useEffect(() => {
     dispatch(
@@ -71,23 +73,25 @@ const ActWritePage = () => {
 
     const data = {
       activityName: activityName.value,
-      //groupName,
+      groupName: 'NADA',
       _id,
       category,
       field,
       region,
-      institute,
+      institute: institute.value,
       intstituteURL: intstituteURL.value,
       area: area.value,
       content: content.value,
       mainImageUrl,
-      extraImageUrls,
+      extraImageUrl,
       startedAt,
       endedAt,
     };
 
     dispatch(initializeAll());
     //isSubmit ? mutate(data) : updateMutate(data);
+
+    mutate(data);
   };
 
   return (
@@ -139,11 +143,11 @@ const ActWritePage = () => {
       </>
       <Image
         section="activity"
-        imgFiles={extraImageUrls}
+        imgFiles={extraImageUrl}
         setImgFiles={setExtraImageUrl}
       />
       <Content onChange={onChange} inputValue={inputValue} />
-      <button onSubmit={onSubmit} />
+      <button type="submit">테스트 Submit</button>
     </form>
   );
 };
