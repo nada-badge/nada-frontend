@@ -1,3 +1,4 @@
+// 활동 이력을 입력받는 컨테이너
 import { TitleBox } from '../../../styles/Survey';
 import ActivityInputItem from '../../components/ActivityInputItem';
 import {

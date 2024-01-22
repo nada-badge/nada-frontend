@@ -1,3 +1,4 @@
+// 뱃지 발급의 전 과정을 관리하는 index 컨테이너
 import React, { useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../modules/redux/badge';

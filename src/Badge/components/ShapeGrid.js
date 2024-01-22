@@ -1,3 +1,4 @@
+// 뱃지 모양 보여주는 그리드 컴포넌트
 import styled from 'styled-components';
 
 const GridContainer = styled.div`

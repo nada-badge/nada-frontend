@@ -1,4 +1,4 @@
-import React from 'react';
+// 뱃지 이름을 입력받는 컨테이너
 import { InputBox, LoginBtn, TitleBox } from '../../../styles/Survey';
 import { useSelector } from 'react-redux';
 

@@ -1,3 +1,4 @@
+// 활동 이력을 입력받는 컴포넌트
 import styled from 'styled-components';
 import { Dropdown, TextWarpper } from '../../Community/styles/DropdownStyle';
 import { FilterHandler } from '../../icon/FilterHandler';
