@@ -16,7 +16,7 @@ const initialState = {
   },
   postWriteSelect: {
     // 사용자가 선택한 버튼에 대한 정보를 관리
-    mainCategory: '카테고리',
+    mainCategory: '',
     region: ['전국'],
     field: ['전체'],
     category: '전체',
@@ -24,7 +24,7 @@ const initialState = {
   postWriteSubmit: {
     //최종적으로 제출될 정보를 관리
     _id: '',
-    mainCategory: '카테고리',
+    mainCategory: '',
     region: ['전국'],
     field: ['전체'],
     category: '전체',
