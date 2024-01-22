@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CardList from '../../components/cardList/CardList';
 import WeekCalendar from '../../Calendar/containers/WeekCalendar';
 import React, { Suspense } from 'react';
@@ -9,27 +9,18 @@ import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { useActivityList } from '../../Acitivity/modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
 import { RecommendList } from '../components/RecommendList';
+import { useGetTopPost } from '../../Community/modules/queries/useGetCommunity';
 
 const Home = () => {
   const BannerSlider = React.lazy(() => import('../components/BannerSlider'));
 
   const dispatch = useDispatch();
-  const community_cards = [
-    { id: 1, title: '유용한 활동 사이트', category: '자유' },
-    { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
-    { id: 3, title: '팀원 모집합니다.', category: '홍보' },
-  ];
-
-  const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
   const { data: activityData } = useActivityList();
 
-  useEffect(() => {
-    if (activityData) {
-      setActivities(activityData);
-    }
-  }, [activityData, activities]);
+  // 인기글 불러오기
+  const { data: postData } = useGetTopPost();
 
   useEffect(() => {
     dispatch(
@@ -61,10 +52,10 @@ const Home = () => {
         title={'지금 인기 있는 게시글이에요🔥'}
         title_font={'subtitle-01'}
       >
-        <BoardCardItem cards={community_cards} />
+        {postData && <BoardCardItem cards={postData} />}
       </CardList>
       <div className="RecommendList">
-        <RecommendList activities={activities} />
+        {activityData && <RecommendList activities={activityData} />}
       </div>
     </div>
   );
