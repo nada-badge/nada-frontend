@@ -31,6 +31,7 @@ const PostWrite = () => {
       changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
+        position: 'community',
         isShowBottom: false,
       }),
     );
