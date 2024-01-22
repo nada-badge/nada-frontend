@@ -117,7 +117,9 @@ export const HeaderTypeConfig = (navigate, status, pageNameStatus) => {
     ),
     Post: (
       <Overlap>
-        <div className="Post">완료</div>
+        <button className="Post" type="submit" form="community">
+          완료
+        </button>
       </Overlap>
     ),
   };
