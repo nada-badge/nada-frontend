@@ -1,6 +1,16 @@
 // 뱃지 이름을 입력받는 컨테이너
+import styled from 'styled-components';
 import { InputBox, LoginBtn, TitleBox } from '../../../styles/Survey';
 import { useSelector } from 'react-redux';
+import { applyFontStyles } from '../../../styles/fontStyle';
+
+export const MarginBtn = styled(LoginBtn)`
+  margin-bottom: 50px;
+
+  & > div {
+    ${applyFontStyles({ font: 'title-01', color: 'white' })}
+  }
+`;
 
 const NameForm = ({ onSubmit, order, dispatchField }) => {
   const name = useSelector(({ badge }) => badge.name);
@@ -24,13 +34,13 @@ const NameForm = ({ onSubmit, order, dispatchField }) => {
           />
         </InputBox>
       </form>
-      <LoginBtn
+      <MarginBtn
         form={order}
         disabled={!(name.length > 0)}
         style={{ marginBottom: '50px' }}
       >
         <div>다음</div>
-      </LoginBtn>
+      </MarginBtn>
     </>
   );
 };

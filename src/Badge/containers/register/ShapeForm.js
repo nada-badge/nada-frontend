@@ -19,6 +19,9 @@ export const FixedLoginBtn = styled(LoginBtn)`
   max-width: 345px;
   border: none;
   margin-bottom: 50px;
+  & > div {
+    ${applyFontStyles({ font: 'title-01', color: 'white' })}
+  }
 `;
 
 const ShapeForm = ({ onSubmit, order, dispatchField }) => {
