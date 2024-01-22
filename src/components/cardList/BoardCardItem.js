@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { caption_01, caption_02 } from '../../styles/fontStyle';
+import { Link } from 'react-router-dom';
 
-const CardContainer = styled.div`
+const CardContainer = styled(Link)`
   background-color: var(--myspec-gray-scalegray-100);
   border-radius: 10px;
   height: 148px;
@@ -9,6 +10,7 @@ const CardContainer = styled.div`
   position: relative;
   width: 120px;
   text-align: left;
+  text-decoration: none;
 
   & > .image-2 {
     background-image: url(https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-2@2x.png);
@@ -39,8 +41,8 @@ const CardContainer = styled.div`
 const BoardCardItem = ({ cards }) => {
   return (
     <>
-      {cards.map(({ title, category }, idx) => (
-        <CardContainer key={idx}>
+      {cards.map(({ _id, title, category }, idx) => (
+        <CardContainer key={idx} to={`/community/PostDetail/${_id}`}>
           <div className="image-2" />
           <div className="category">{category}</div>
           <div className="title">{title}</div>
