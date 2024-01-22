@@ -11,7 +11,7 @@ import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { addActivities } from '../../modules/redux/badge';
 
-const ButtonContainer = styled(ButtonList)`
+export const ButtonContainer = styled(ButtonList)`
   width: 100%;
   align-items: end;
   bottom: 50px;
