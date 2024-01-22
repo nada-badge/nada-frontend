@@ -28,9 +28,19 @@ const badgeSlice = createSlice({
     deleteActivities: (state, { payload: index }) => {
       state.activities = state.activities.filter((_, i) => i !== index);
     },
+    changeActivities: (state, { payload: { index, name, value } }) => {
+      if (state.activities[index]) {
+        state.activities[index][name] = value;
+      }
+    },
   },
 });
 
 export default badgeSlice;
-export const { changeField, initialized, addActivities, deleteActivities } =
-  badgeSlice.actions;
+export const {
+  changeField,
+  initialized,
+  addActivities,
+  deleteActivities,
+  changeActivities,
+} = badgeSlice.actions;

@@ -4,8 +4,8 @@ import { FilterHandler } from '../../icon/FilterHandler';
 import { X } from '../../icon/X';
 import { InputBox } from '../../styles/Survey';
 import { applyFontStyles } from '../../styles/fontStyle';
-import { useDispatch } from 'react-redux';
-import { deleteActivities } from '../modules/redux/badge';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteActivities, changeActivities } from '../modules/redux/badge';
 
 const InputContainer = styled(InputBox)`
   margin: 40px auto;
@@ -33,15 +33,28 @@ const InputContainer = styled(InputBox)`
 
 const ActivityInputItem = ({ index }) => {
   const dispatch = useDispatch();
+
+  const activitiyContent = useSelector(
+    ({ badge }) => badge.activities[index].content,
+  );
+
   const onClick = () => {
     dispatch(deleteActivities(index));
   };
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    dispatch(changeActivities({ index, name, value }));
+  };
+
   return (
     <InputContainer>
       <div className="inputWrapper">
         <input
-          name="activityList"
+          name="content"
           placeholder="내용을 입력해주세요."
+          onChange={(e) => onChange(e)}
+          value={activitiyContent}
           required
         />
         <div onClick={() => onClick()}>
