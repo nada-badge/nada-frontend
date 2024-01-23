@@ -38,7 +38,7 @@ const badgeSlice = createSlice({
       state.teams = [...state.teams, value];
     },
     deleteTeam: (state, { payload: index }) => {
-      state.teams = state.teams.filter((_, i) => i !== !index);
+      state.teams = state.teams.filter((_, i) => i !== index);
     },
   },
 });

@@ -22,7 +22,14 @@ const InputContainer = styled(InputBox)`
   }
 `;
 
-const InputBoxWithX = ({ name, placeholder, onChange, onClose, value }) => {
+const InputBoxWithX = ({
+  name,
+  index,
+  placeholder,
+  onChange,
+  onClose,
+  value,
+}) => {
   return (
     <InputContainer>
       <div className="inputWrapper">
@@ -33,7 +40,7 @@ const InputBoxWithX = ({ name, placeholder, onChange, onClose, value }) => {
           value={value}
           required
         />
-        <div onClick={() => onClose()}>
+        <div onClick={() => onClose(index)}>
           <X size={12} bold={2} />
         </div>
       </div>
