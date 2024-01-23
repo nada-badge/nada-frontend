@@ -23,7 +23,7 @@ const badgeSlice = createSlice({
     initialized: () => {
       return initialState;
     },
-    addActivitiy: (state, { payload: value }) => {
+    addActivity: (state, { payload: value }) => {
       state.activities = [...state.activities, value];
     },
     deleteActivity: (state, { payload: index }) => {
