@@ -58,7 +58,7 @@ const ActWritePage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { activityName, content, institute, intstituteURL, area } = e.target;
+    const { activityName, content, institute, instituteURL, area } = e.target;
     const { _id, category, field, region } = postwrite;
     //const groupName = localStorage.getItem('groupName');
 
@@ -70,7 +70,7 @@ const ActWritePage = () => {
       field,
       region,
       institute: institute.value,
-      intstituteURL: intstituteURL.value,
+      instituteURL: instituteURL.value,
       area: area.value,
       content: content.value,
       mainImageUrl,

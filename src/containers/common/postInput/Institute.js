@@ -7,8 +7,8 @@ export const Insitute = ({ onChange, inputValue }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    setIsActive(!!inputValue.intstituteURL);
-  }, [inputValue.intstituteURL]);
+    setIsActive(Boolean(inputValue.instituteURL));
+  }, [inputValue.instituteURL]);
 
   return (
     <TextInput>
@@ -25,10 +25,10 @@ export const Insitute = ({ onChange, inputValue }) => {
           <div className="urlBox">
             <LinkSvg size={14} isActive={isActive} />
             <input
-              className={isActive ? 'intstituteURL isActive' : 'intstituteURL'}
+              className={isActive ? 'instituteURL isActive' : 'instituteURL'}
               onChange={onChange}
-              name="intstituteURL"
-              value={inputValue.intstituteURL}
+              name="instituteURL"
+              value={inputValue.instituteURL}
               placeholder="주최 기관 홈페이지를 입력하세요. "
             />
           </div>
