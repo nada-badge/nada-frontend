@@ -164,7 +164,7 @@ export const Explain = styled.div`
 export const CenterGrid = styled.div`
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 28px minmax(73px, auto) auto 115px;
+  grid-template-rows: 28px minmax(36px, 94px) auto 115px;
   justify-content: space-between;
   width: 375px;
   height: calc(100vh - 88px); // 상단바
