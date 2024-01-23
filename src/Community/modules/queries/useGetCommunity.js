@@ -54,8 +54,16 @@ export const useGetTopPost = () => {
     queryKey: ['getTopPost'],
     queryFn: async () => {
       const { data } = await client.get('/community/topPost');
+      console.log(data.posts);
       return data.posts;
     },
     staleTime: 9000000,
+    select: (data) =>
+      (data || []).map(({ _id, title, category, imageUrl }) => ({
+        _id,
+        title,
+        category,
+        imageUrl: imageUrl[0],
+      })),
   });
 };
