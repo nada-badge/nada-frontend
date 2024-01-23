@@ -51,7 +51,7 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
         </Explain>
       </TitleBox>
 
-      <div style={{ height: '100%' }}>
+      <div style={{ overflowY: 'scroll' }}>
         <ButtonWrapper onClick={onClick}>
           <AddOperator color={'var(--myspec-primaryblue-1)'} />
           <span> 팀 추가하기 </span>
@@ -73,7 +73,7 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
         <Cancel onClick={() => {}}>
           <div className="text">건너뛰기</div>
         </Cancel>
-        <Act>
+        <Act onClick={onSubmit}>
           <div className="text" style={{ color: 'white' }}>
             다음
           </div>

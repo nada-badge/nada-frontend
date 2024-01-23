@@ -49,7 +49,7 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         <Cancel onClick={() => onClick()}>
           <div className="text">내역 추가하기</div>
         </Cancel>
-        <Act>
+        <Act onClick={onSubmit}>
           <div className="text" style={{ color: 'white' }}>
             다음
           </div>
