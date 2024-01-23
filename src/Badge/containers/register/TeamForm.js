@@ -8,6 +8,9 @@ import {
   Cancel,
   Act,
 } from '../../../Modal/components/usedInModal/ModalButtonDiv';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTeam } from '../../modules/redux/badge';
+import InputBoxWithX from '../../components/InputBoxWithX';
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -22,6 +25,14 @@ const ButtonWrapper = styled.div`
 `;
 
 const TeamForm = ({ onSubmit, order, dispatchField }) => {
+  const dispatch = useDispatch();
+
+  // 팀 추가하기
+  const onClick = () => {
+    dispatch(addTeam(''));
+  };
+  const teams = useSelector(({ badge }) => badge.teams);
+
   return (
     <>
       <TitleBox>
@@ -32,10 +43,21 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
           팀이 없다면 건너뛰기를 눌러주세요
         </Explain>
       </TitleBox>
-      <ButtonWrapper>
-        <AddOperator color={'var(--myspec-primaryblue-1)'} />
-        <span> 팀 추가하기 </span>
-      </ButtonWrapper>
+      <div>
+        <ButtonWrapper onClick={onClick}>
+          <AddOperator color={'var(--myspec-primaryblue-1)'} />
+          <span> 팀 추가하기 </span>
+        </ButtonWrapper>
+        {teams.map((el, index) => (
+          <InputBoxWithX
+            name={'team'}
+            placeholder={'팀 이름을 입력해주세요'}
+            onChange={''}
+            onClose={''}
+            value={''}
+          />
+        ))}
+      </div>
       <ButtonContainer>
         <Cancel onClick={() => {}}>
           <div className="text">건너뛰기</div>
