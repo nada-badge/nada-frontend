@@ -38,13 +38,13 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         거의 다 왔어요 <br />
         활동 내역을 추가해 주세요
       </TitleBox>
-      <form onSubmit={onSubmit} id={order} style={{ overflowY: 'scroll' }}>
+      <div style={{ overflowY: 'scroll' }}>
         <div>
           {activities.map((el, index) => (
             <ActivityInputItem key={index} content={el} index={index} />
           ))}
         </div>
-      </form>
+      </div>
       <ButtonContainer>
         <Cancel onClick={() => onClick()}>
           <div className="text">내역 추가하기</div>

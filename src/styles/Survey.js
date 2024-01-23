@@ -145,7 +145,7 @@ export const TitleBox = styled.h1`
   font-family: 'Pretendard-Bold', Helvetica;
   font-size: 24px;
   font-weight: 700;
-  height: 72px;
+  height: fit-content;
   letter-spacing: 0;
   line-height: 36px;
   margin: 0;
@@ -164,6 +164,7 @@ export const Explain = styled.div`
 export const CenterGrid = styled.div`
   display: grid;
   grid-auto-columns: 1fr;
+  grid-template-rows: 28px minmax(73px, auto) auto 115px;
   justify-content: space-between;
   width: 375px;
   height: calc(100vh - 88px); // 상단바

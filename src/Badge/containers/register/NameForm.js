@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
 export const MarginBtn = styled(LoginBtn)`
-  margin-bottom: 50px;
+  position: relative;
+  bottom: 50px;
 
   & > div {
     ${applyFontStyles({ font: 'title-01', color: 'white' })}
@@ -34,11 +35,7 @@ const NameForm = ({ onSubmit, order, dispatchField }) => {
           />
         </InputBox>
       </form>
-      <MarginBtn
-        form={order}
-        disabled={!(name.length > 0)}
-        style={{ marginBottom: '50px' }}
-      >
+      <MarginBtn form={order} disabled={!(name.length > 0)}>
         <div>다음</div>
       </MarginBtn>
     </>

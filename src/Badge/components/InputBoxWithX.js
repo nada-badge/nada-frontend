@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 
 const InputContainer = styled(InputBox)`
-  margin: 40px auto;
+  margin-bottom: 16px;
 
   & > .inputWrapper {
     display: flex;

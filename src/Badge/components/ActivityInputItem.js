@@ -9,6 +9,7 @@ import InputBoxWithX from './InputBoxWithX';
 
 const DateWrapper = styled.div`
   display: flex;
+  margin-bottom: 40px;
 
   & > span {
     ${applyFontStyles({
