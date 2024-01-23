@@ -7,19 +7,8 @@ import { applyFontStyles } from '../../../styles/fontStyle';
 export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
   const { closeModal } = useModal();
 
-  const ButtonList = {
-    alignItems: 'flex-start',
-    display: 'flex',
-    flex: '0 0 auto',
-    gap: '8px',
-    height: '48px',
-    position: 'relative',
-    width: '264px',
-    textAlign: 'center',
-  };
-
   return (
-    <div style={ButtonList}>
+    <ButtonList>
       <Cancel onClick={() => closeModal()} $isColor={Boolean(cancelText)}>
         <div className="text">{cancelText || '취소'}</div>
       </Cancel>
@@ -28,13 +17,23 @@ export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
           <div className="text">{actText}</div>
         </Act>
       )}
-    </div>
+    </ButtonList>
   );
 };
 
 export default ModalButtonDiv;
 
-const Cancel = styled.div`
+export const ButtonList = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 264px;
+  text-align: center;
+`;
+
+export const Cancel = styled.div`
   background: ${(props) =>
     props.$isColor
       ? 'var(--myspec-primaryblue-1)'
@@ -56,7 +55,7 @@ const Cancel = styled.div`
     }};
   }
 `;
-const Act = styled.div`
+export const Act = styled.div`
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;

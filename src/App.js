@@ -26,6 +26,7 @@ import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 import BadgePage from './Badge/pages/BadgePage';
 import DetailBadgePage from './Badge/pages/DetailBadgePage';
 import ActWritePage from './Acitivity/pages/ActWritePage';
+import BadgeRegisterPage from './Badge/pages/BadgeRegisterPage';
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const App = () => {
 
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
+        <Route path="/badge/BadgeRegister" element={<BadgeRegisterPage />} />
       </Routes>
       <StyledToastContainer limit={1} />
     </div>
