@@ -4,7 +4,7 @@ import { Dropdown, TextWarpper } from '../../Community/styles/DropdownStyle';
 import { FilterHandler } from '../../icon/FilterHandler';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteActivity, changeActivity } from '../modules/redux/badge';
+import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
 
 const DateWrapper = styled.div`
@@ -26,12 +26,12 @@ const ActivityInputItem = ({ index }) => {
   );
 
   const onClose = () => {
-    dispatch(deleteActivity(index));
+    dispatch(deleteList({ type: 'activities', index }));
   };
 
   const onChange = (e) => {
     const { value, name } = e.target;
-    dispatch(changeActivity({ index, name, value }));
+    dispatch(changeIndexField({ type: 'activities', index, name, value }));
   };
 
   return (

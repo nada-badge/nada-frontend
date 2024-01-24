@@ -9,7 +9,7 @@ import {
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { addActivity } from '../../modules/redux/badge';
+import { addList } from '../../modules/redux/badge';
 
 export const ButtonContainer = styled(ButtonList)`
   width: 100%;
@@ -29,7 +29,12 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(addActivity({ content: '', started: '', end: '' }));
+    dispatch(
+      addList({
+        type: 'activities',
+        value: { content: '', started: '', end: '' },
+      }),
+    );
   };
 
   return (

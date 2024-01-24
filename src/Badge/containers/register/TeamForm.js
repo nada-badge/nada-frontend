@@ -9,7 +9,7 @@ import {
   Act,
 } from '../../../Modal/components/usedInModal/ModalButtonDiv';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTeam, changeTeam, deleteTeam } from '../../modules/redux/badge';
+import { addList, changeTeam, deleteList } from '../../modules/redux/badge';
 import InputBoxWithX from '../../components/InputBoxWithX';
 
 const ButtonWrapper = styled.div`
@@ -34,12 +34,12 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
 
   // 팀 추가하기
   const onClick = () => {
-    dispatch(addTeam(''));
+    dispatch(addList({ type: 'teams', value: '' }));
   };
 
   // 팀 제거하기
   const onClose = (index) => {
-    dispatch(deleteTeam(index));
+    dispatch(deleteList({ type: 'teams', index }));
   };
   const teams = useSelector(({ badge }) => badge.teams);
 
@@ -71,7 +71,7 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
           <InputBoxWithX
             key={index}
             index={index}
-            name={'team'}
+            name={'teams'}
             placeholder={'팀 이름을 입력해주세요'}
             onChange={onChange}
             onClose={onClose}

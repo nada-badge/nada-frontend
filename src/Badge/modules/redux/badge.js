@@ -11,6 +11,15 @@ const initialState = {
     },
   ],
   teams: [],
+  issueList: [
+    {
+      name: '',
+      role: '',
+      birth: '',
+      email: '',
+      number: '',
+    },
+  ],
 };
 
 const badgeSlice = createSlice({
@@ -23,22 +32,23 @@ const badgeSlice = createSlice({
     initialized: () => {
       return initialState;
     },
-    addActivity: (state, { payload: value }) => {
-      state.activities = [...state.activities, value];
+
+    // add, delete
+    addList: (state, { payload: { type, value } }) => {
+      state[type] = [...state[type], value];
     },
-    deleteActivity: (state, { payload: index }) => {
-      state.activities = state.activities.filter((_, i) => i !== index);
+    deleteList: (state, { payload: { type, index } }) => {
+      state[type] = state[type].filter((_, i) => i !== index);
     },
-    changeActivity: (state, { payload: { index, name, value } }) => {
-      if (state.activities[index]) {
-        state.activities[index][name] = value;
+
+    // change
+    changeIndexField: (state, { payload: { type, index, name, value } }) => {
+      if (state[type][index]) {
+        state[type][index][name] = value;
       }
     },
-    addTeam: (state, { payload: value }) => {
-      state.teams = [...state.teams, value];
-    },
-    deleteTeam: (state, { payload: index }) => {
-      state.teams = state.teams.filter((_, i) => i !== index);
+    changeTeam: (state, { payload: { index, value } }) => {
+      state.teams[index] = value;
     },
   },
 });
@@ -47,9 +57,9 @@ export default badgeSlice;
 export const {
   changeField,
   initialized,
-  addActivity,
-  deleteActivity,
-  changeActivity,
+  addList,
+  deleteList,
+  changeIndexField,
   addTeam,
-  deleteTeam,
+  changeTeam,
 } = badgeSlice.actions;
