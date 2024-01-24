@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { addList, changeTeam, deleteList } from '../../modules/redux/badge';
 import InputBoxWithX from '../../components/InputBoxWithX';
+import { useState, useEffect } from 'react';
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ const ButtonWrapper = styled.div`
 
 const TeamForm = ({ onSubmit, order, dispatchField }) => {
   const dispatch = useDispatch();
+  const [disabled, setDisabled] = useState(true);
 
   const onChange = (e, index) => {
     const { value } = e.target;
@@ -42,6 +44,15 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
     dispatch(deleteList({ type: 'teams', index }));
   };
   const teams = useSelector(({ badge }) => badge.teams);
+
+  useEffect(() => {
+    // 배열 안에 빈 요소가 하나라도 있으면 true를 반환
+    if (teams.some((team) => team === '') || teams.length === 0) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [teams]);
 
   return (
     <>
@@ -79,11 +90,12 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
           />
         ))}
       </div>
+
       <ButtonContainer>
         <Cancel onClick={onSubmit}>
           <div className="text">건너뛰기</div>
         </Cancel>
-        <Act onClick={onSubmit}>
+        <Act onClick={onSubmit} form={order} className={disabled && 'disabled'}>
           <div className="text" style={{ color: 'white' }}>
             다음
           </div>

@@ -72,4 +72,8 @@ export const Act = styled.div`
       color: 'var(--myspec-gray-scalegray-100)',
     })}
   }
+
+  &.disabled {
+    opacity: 0.3;
+  }
 `;

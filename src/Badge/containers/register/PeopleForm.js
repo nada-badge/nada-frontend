@@ -2,6 +2,7 @@ import { TitleBox } from '../../../styles/Survey';
 import { useSelector } from 'react-redux';
 
 import PeopleInfoInput from '../../components/PeopleInfoInput';
+import IssueListTeam from '../../components/IssueListTeam';
 
 const PeopleForm = ({ onSubmit }) => {
   const teams = useSelector(({ badge }) => badge.teams);
@@ -16,6 +17,9 @@ const PeopleForm = ({ onSubmit }) => {
 
       {/* 팀 추가를 하지 않았을때, */}
       {teams.length === 0 && <PeopleInfoInput onSubmit={onSubmit} />}
+
+      {/* 팀 추가를 했을때,  */}
+      {teams.length !== 0 && <IssueListTeam onSubmit={onSubmit} />}
     </>
   );
 };
