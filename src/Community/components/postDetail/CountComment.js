@@ -3,13 +3,17 @@ import { useSelector } from 'react-redux';
 import { PostDetailSelector } from '../../modules/redux/postDetail';
 
 const CountComment = () => {
-  const comments = useSelector(PostDetailSelector('PostDetail', 'comments'));
+  const data = useSelector(PostDetailSelector('PostData', 'data'));
 
-  const totalComments = comments.reduce(
-    (acc, comment) =>
-      acc + comment.replies.length + (comment.isDeleted ? 0 : 1),
-    0,
-  );
+  let totalComments = 0;
+
+  if (data && data.comments) {
+    totalComments = data.comments.reduce(
+      (acc, comment) =>
+        acc + comment.replies.length + (comment.isDeleted ? 0 : 1),
+      0,
+    );
+  }
 
   return totalComments;
 };
