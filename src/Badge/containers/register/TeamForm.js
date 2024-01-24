@@ -9,7 +9,7 @@ import {
   Act,
 } from '../../../Modal/components/usedInModal/ModalButtonDiv';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTeam, deleteTeam } from '../../modules/redux/badge';
+import { addTeam, changeTeam, deleteTeam } from '../../modules/redux/badge';
 import InputBoxWithX from '../../components/InputBoxWithX';
 
 const ButtonWrapper = styled.div`
@@ -28,6 +28,11 @@ const ButtonWrapper = styled.div`
 
 const TeamForm = ({ onSubmit, order, dispatchField }) => {
   const dispatch = useDispatch();
+
+  const onChange = (e, index) => {
+    const { value } = e.target;
+    dispatch(changeTeam({ index, value }));
+  };
 
   // 팀 추가하기
   const onClick = () => {
@@ -63,14 +68,14 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
             index={index}
             name={'team'}
             placeholder={'팀 이름을 입력해주세요'}
-            onChange={''}
+            onChange={onChange}
             onClose={onClose}
-            value={''}
+            value={el}
           />
         ))}
       </div>
       <ButtonContainer>
-        <Cancel onClick={() => {}}>
+        <Cancel onClick={onSubmit}>
           <div className="text">건너뛰기</div>
         </Cancel>
         <Act onClick={onSubmit}>
