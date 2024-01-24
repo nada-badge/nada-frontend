@@ -142,6 +142,8 @@ export const ContentStyle = styled.div`
     margin-top: -1px;
     position: relative;
     width: 345px;
+    height: 466px;
+    word-wrap: break-word;
     border: none;
 
     &::placeholder {
