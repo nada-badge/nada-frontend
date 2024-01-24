@@ -9,7 +9,6 @@ import InputBoxWithX from './InputBoxWithX';
 
 const DateWrapper = styled.div`
   display: flex;
-  margin-bottom: 40px;
 
   & > span {
     ${applyFontStyles({
@@ -36,7 +35,7 @@ const ActivityInputItem = ({ index }) => {
   };
 
   return (
-    <>
+    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
       <InputBoxWithX
         name={'content'}
         placeholder={'내용을 입력해주세요.'}
@@ -55,7 +54,7 @@ const ActivityInputItem = ({ index }) => {
           <FilterHandler className={'unselected'} />
         </Dropdown>
       </DateWrapper>
-    </>
+    </div>
   );
 };
 

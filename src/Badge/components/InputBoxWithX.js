@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 
 const InputContainer = styled(InputBox)`
-  margin-bottom: 16px;
-
   & > .inputWrapper {
     display: flex;
     justify-content: space-between;
@@ -36,7 +34,7 @@ const InputBoxWithX = ({
         <input
           name={name}
           placeholder={placeholder}
-          onChange={(e) => onChange(e)}
+          onChange={(e) => onChange(e, index)}
           value={value}
           required
         />

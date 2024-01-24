@@ -39,7 +39,7 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         활동 내역을 추가해 주세요
       </TitleBox>
       <div style={{ overflowY: 'scroll' }}>
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {activities.map((el, index) => (
             <ActivityInputItem key={index} content={el} index={index} />
           ))}

@@ -22,8 +22,6 @@ const ButtonWrapper = styled.div`
   background: var(--myspec-gray-scalegray-100, #f2f2f2);
   gap: 8px;
   ${applyFontStyles({ font: 'body-02', color: 'var(--myspec-primaryblue-1)' })}
-
-  margin-bottom: 16px;
 `;
 
 const TeamForm = ({ onSubmit, order, dispatchField }) => {
@@ -56,7 +54,14 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
         </Explain>
       </TitleBox>
 
-      <div style={{ overflowY: 'scroll' }}>
+      <div
+        style={{
+          overflowY: 'scroll',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
         <ButtonWrapper onClick={onClick}>
           <AddOperator color={'var(--myspec-primaryblue-1)'} />
           <span> 팀 추가하기 </span>
