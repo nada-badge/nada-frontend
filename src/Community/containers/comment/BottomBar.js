@@ -15,13 +15,13 @@ export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
   const { mutate: post } = usePostComment();
   const { mutate: update } = usePatchComment();
-  const PostDetail = useSelector(({ postdetail }) => postdetail);
-  const position = PostDetail.Comment.position;
+  const comment = useSelector(({ comment }) => comment);
+  const position = comment.position;
 
-  const content = PostDetail.Comment.content;
-  const isReplying = PostDetail.Comment.isReplying;
-  const isUpdating = PostDetail.Comment.isUpdating;
-  const userName = PostDetail.Comment.userName;
+  const content = comment.content;
+  const isReplying = comment.isReplying;
+  const isUpdating = comment.isUpdating;
+  const userName = comment.userName;
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export const BottomBar = () => {
   }, [isUpdating]);
 
   const sendComment = () => {
-    const { url, idData } = getBasicUrl(position, PostDetail);
+    const { url, idData } = getBasicUrl(position, comment);
 
     if (isUpdating) {
       update({ url, _id: idData, content: inputValue });

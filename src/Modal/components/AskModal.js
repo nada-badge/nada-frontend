@@ -16,19 +16,20 @@ const AskModal = () => {
 
   const modal = useSelector(({ modal }) => modal);
   const { title, contentType, actionType, content, position } = modal;
-  const PostDetail = useSelector(({ postdetail }) => postdetail);
+  const postDetail = useSelector(({ postdetail }) => postdetail);
+  const comment = useSelector(({ comment }) => comment.Comment);
   const activity = useSelector(({ activity }) => activity.activities);
 
   const useAct = () => {
     if (actionType === '삭제') {
-      const config = getBasicUrl(position, PostDetail, activity);
+      const config = getBasicUrl(position, postDetail, comment, activity);
       mutate({
         url: config.url,
         _id: config.idData,
       });
     }
     if (actionType === '신고') {
-      const config = getReportUrl(position, PostDetail);
+      const config = getReportUrl(position, postDetail, comment);
       reportMutate({
         url: config.url,
         _id: config.idData,
