@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux';
 import { changeField } from '../../Community/modules/redux/postWrite';
 import { initializeForm } from '../../Community/modules/redux/postDetail';
 
-export const GoToWriteButton = (isActivity = false) => {
+export const GoToWriteButton = ({ isActivity = false }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  console.log('isActive', isActivity);
   const toPostWrite = () => {
     dispatch(initializeForm({ form: 'PostDetail' }));
     dispatch(changeField({ form: 'method', key: 'isSubmit', value: true }));
