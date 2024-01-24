@@ -5,10 +5,9 @@ import { ReplyStyle } from '../../styles/CommentStyle';
 
 export const Reply = ({ comment }) => {
   const dispatch = useDispatch();
-
   const sendComment = () => {
     dispatch(changeCommentField({ form: 'position', value: 'reply' }));
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
+    dispatch(changeCommentField({ form: 'comment_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'userName', value: comment.userName }));
     dispatch(changeCommentField({ form: 'isReplying', value: true }));
     dispatch(changeCommentField({ form: 'isUpdating', value: false }));

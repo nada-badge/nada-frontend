@@ -10,7 +10,6 @@ const useSetButtonActive = () => {
   const PostData = useSelector(({ postdetail }) => postdetail.PostData.data);
 
   const setButtonActive = () => {
-    console.log('useSetButtonActive PostData:', PostData);
     //수정할 게시글의 데이터를 postWrite status 중 submit 값으로 보내줌
     dispatch(setSubmit({ value: PostData }));
     dispatch(changeField({ form: 'method', key: 'isSubmit', value: false }));

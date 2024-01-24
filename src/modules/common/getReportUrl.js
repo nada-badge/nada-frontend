@@ -3,14 +3,14 @@ const getReportUrl = (position, PostDetail) => {
   const positionsConfig = {
     post: {
       url: '/community/post/report',
-      idData: PostDetail.PostDetail._id,
+      idData: PostDetail.PostData.data._id,
     },
     comment: {
-      url: `/community/comment/report/${PostDetail.PostDetail._id}`,
-      idData: PostDetail.Comment._id,
+      url: `/community/comment/report/${PostDetail.Comment.post_id}`,
+      idData: PostDetail.Comment.comment_id,
     },
     reply: {
-      url: `/community/reply/report/${PostDetail.PostDetail._id}/${PostDetail.Comment._id}`,
+      url: `/community/reply/report/${PostDetail.Comment.post_id}/${PostDetail.Comment.comment_id}`,
       idData: PostDetail.Comment.reply_id,
     },
   };

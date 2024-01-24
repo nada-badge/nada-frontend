@@ -12,7 +12,7 @@ const ReplyOutPut = ({ comment, reply }) => {
   const { openModal } = useModal();
 
   const openMenu = () => {
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
+    dispatch(changeCommentField({ form: 'comment_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'reply_id', value: reply._id }));
     dispatch(changeCommentField({ form: 'content', value: reply.content }));
     openModal({

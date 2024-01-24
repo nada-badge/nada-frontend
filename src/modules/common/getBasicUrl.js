@@ -5,14 +5,14 @@ const getBasicUrl = (position, PostDetail, activity = '') => {
     activity: { url: '/activity', idData: activity._id },
     post: {
       url: '/community/post',
-      idData: PostDetail.PostDetail._id,
+      idData: PostDetail.PostData.data._id,
     },
     comment: {
-      url: `/community/comment/${PostDetail.PostDetail._id}`,
-      idData: PostDetail.Comment._id,
+      url: `/community/comment/${PostDetail.Comment.post_id}`,
+      idData: PostDetail.Comment.comment_id,
     },
     reply: {
-      url: `/community/reply/${PostDetail.PostDetail._id}/${PostDetail.Comment._id}`,
+      url: `/community/reply/${PostDetail.Comment.post_id}/${PostDetail.Comment.comment_id}`,
       idData: PostDetail.Comment.reply_id,
     },
   };

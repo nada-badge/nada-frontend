@@ -14,7 +14,7 @@ const CommentOutPut = ({ comment }) => {
 
   // 댓글 메뉴 열기
   const openMenu = () => {
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
+    dispatch(changeCommentField({ form: 'comment_id', value: comment._id }));
     dispatch(changeCommentField({ form: 'content', value: comment.content }));
     openModal({
       type: 'MenuModal',

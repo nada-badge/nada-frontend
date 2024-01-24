@@ -9,9 +9,8 @@ import CountComment from '../../components/postDetail/CountComment';
 export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
-  const id = useSelector(PostDetailSelector('PostDetail', '_id'));
+  const data = useSelector(PostDetailSelector('PostData', 'data'));
   const commentcount = CountComment();
-
   const openMenu = () => {
     openModal({
       type: 'MenuModal',
@@ -22,7 +21,7 @@ export const BottomBar = () => {
   };
 
   const openComment = () => {
-    navigate(`/community/Comment/${id}`);
+    navigate(`/community/Comment/${data._id}`);
   };
 
   return (

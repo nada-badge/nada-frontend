@@ -6,15 +6,13 @@ const initialState = {
   PostData: {
     data: {},
   },
-  PostDetail: {
-    _id: '',
-  },
   Comment: {
     position: 'comment',
+    post_id: '',
+    comment_id: '',
+    reply_id: '',
     userName: '',
     content: '',
-    _id: '',
-    reply_id: '',
     isReplying: Boolean(false),
     isUpdating: Boolean(false),
   },
@@ -24,9 +22,6 @@ const PostDetailSlice = createSlice({
   name: 'PostDetail',
   initialState,
   reducers: {
-    changePostDetailField: (state, { payload: { value } }) => {
-      state.PostDetail = value;
-    },
     changeCommentField: (state, { payload: { form, value } }) => {
       state.Comment[form] = value;
     },
@@ -40,12 +35,8 @@ const PostDetailSlice = createSlice({
 });
 
 export default PostDetailSlice;
-export const {
-  changePostDetailField,
-  changeCommentField,
-  changePostDataField,
-  initializeForm,
-} = PostDetailSlice.actions;
+export const { changeCommentField, changePostDataField, initializeForm } =
+  PostDetailSlice.actions;
 
 const PostDetailSelects = (type, field) => (rootState) => {
   return rootState.postdetail[type][field] || initialState[type][field];
