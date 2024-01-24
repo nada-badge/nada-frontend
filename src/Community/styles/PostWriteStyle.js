@@ -85,7 +85,7 @@ export const TextInput = styled.div`
         flex-direction: column;
       }
 
-      .date{
+      .date {
         ${applyFontStyles({
           font: 'caption-02',
           color: 'var(--myspec-gray-scalegray-900)',
@@ -108,7 +108,7 @@ export const TextInput = styled.div`
           background-color: inherit;
         }
 
-        &>.isActive{
+        & > .isActive {
           ${applyFontStyles({
             font: 'caption-02',
             color: 'var(--myspec-primaryblue-1)',
@@ -116,6 +116,7 @@ export const TextInput = styled.div`
         }
       }
     }
+  }
 `;
 
 export const ContentStyle = styled.div`
