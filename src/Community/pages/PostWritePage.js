@@ -18,11 +18,11 @@ const PostWrite = () => {
   const dispatch = useDispatch();
 
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
-  const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
+  const postData = useSelector(({ postdetail }) => postdetail.PostData).data;
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
   const [inputValue, setInputValue] = useState({
-    title: PostDetail.title,
-    content: PostDetail.content,
+    title: postData.title,
+    content: postData.content,
   });
   const [imgFiles, setImgFiles] = useState([]);
 

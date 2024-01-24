@@ -3,22 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
 const initialState = {
+  PostData: {
+    data: {},
+  },
   PostDetail: {
     _id: '',
-    userEmail: '',
-    userName: '',
-    mainCategory: '',
-    category: '',
-    field: [],
-    region: [],
-    title: '',
-    content: '',
-    imageUrl: [],
-    comments: [],
-    views: '',
-    reports: '',
-    registeredAt: '',
-    updatedAt: '',
   },
   Comment: {
     position: 'comment',
@@ -41,6 +30,9 @@ const PostDetailSlice = createSlice({
     changeCommentField: (state, { payload: { form, value } }) => {
       state.Comment[form] = value;
     },
+    changePostDataField: (state, { payload: { value } }) => {
+      state.PostData.data = value;
+    },
     initializeForm: (state, { payload: { form } }) => {
       state[form] = initialState[form];
     },
@@ -48,8 +40,12 @@ const PostDetailSlice = createSlice({
 });
 
 export default PostDetailSlice;
-export const { changePostDetailField, changeCommentField, initializeForm } =
-  PostDetailSlice.actions;
+export const {
+  changePostDetailField,
+  changeCommentField,
+  changePostDataField,
+  initializeForm,
+} = PostDetailSlice.actions;
 
 const PostDetailSelects = (type, field) => (rootState) => {
   return rootState.postdetail[type][field] || initialState[type][field];
@@ -58,26 +54,4 @@ const PostDetailSelects = (type, field) => (rootState) => {
 export const PostDetailSelector = createSelector(
   PostDetailSelects,
   (field) => field,
-);
-
-const selectPostDetail = (state) => state.PostDetail.PostDetail || initialState;
-
-export const PostDetailsSelector = createSelector(
-  selectPostDetail,
-  (PostDetail) => ({
-    _id: PostDetail._id,
-    userEmail: PostDetail.userEmail,
-    userName: PostDetail.userName,
-    mainCategory: PostDetail.mainCategory,
-    cateegory: PostDetail.cateegory,
-    field: PostDetail.field,
-    region: PostDetail.region,
-    title: PostDetail.title,
-    content: PostDetail.content,
-    comments: PostDetail.comments,
-    views: PostDetail.views,
-    reports: PostDetail.reports,
-    registeredAt: PostDetail.registeredAt,
-    updatedAt: PostDetail.updatedAt,
-  }),
 );

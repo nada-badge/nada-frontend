@@ -8,8 +8,7 @@ import { BottomBar } from '../containers/postDetail/BottomBar';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { Profile } from '../components/comment/Profile';
 import { useGetPost } from '../modules/queries/useGetCommunity';
-import { changePostDetailField } from '../modules/redux/postDetail';
-
+import { changePostDataField } from '../modules/redux/postDetail';
 const PostDetail = () => {
   const dispatch = useDispatch();
   const params = useParams();
@@ -36,7 +35,7 @@ const PostDetail = () => {
 
     setInfo(data);
     setIsEdited(!(data.updatedAt === data.registeredAt));
-    dispatch(changePostDetailField({ value: data }));
+    dispatch(changePostDataField({ value: data }));
   }, [data]);
 
   return (
