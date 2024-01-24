@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { InputBox } from '../../styles/Survey';
 import { useDispatch } from 'react-redux';
 import InputBoxWithX from './InputBoxWithX';
-import { changeIndexField } from '../modules/redux/badge';
+import { changeIndexField, deleteList } from '../modules/redux/badge';
 
 const InputGrid = styled(InputBox)`
   width: 100%;
@@ -35,6 +35,10 @@ const IssueListInputItem = ({ index, content }) => {
     dispatch(changeIndexField({ type: 'issueList', index, name, value }));
   };
 
+  const onClose = () => {
+    dispatch(deleteList({ type: 'issueList', index }));
+  };
+
   return (
     <InputGrid>
       <InputBoxWithX
@@ -43,6 +47,7 @@ const IssueListInputItem = ({ index, content }) => {
         onChange={onChange}
         value={name}
         placeholder={'이름'}
+        onClose={onClose}
       />
       <input
         onChange={onChange}
