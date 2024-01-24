@@ -164,10 +164,10 @@ export const Explain = styled.div`
 export const CenterGrid = styled.div`
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 28px min-content 1fr 115px;
+  grid-template-rows: min-content 1fr 115px;
   justify-content: space-between;
   width: 375px;
-  height: calc(100vh - 88px); // 상단바
+  height: calc(100vh - (88px + 79px)); // 상단바 + ( 뒤로가기 , indicator 높이)
   margin: 0px auto;
   gap: 24px;
   text-align: left;

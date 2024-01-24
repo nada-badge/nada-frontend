@@ -13,6 +13,7 @@ const InputContainer = styled(InputBox)`
       ${applyFontStyles({
         font: 'subtitle-02',
       })}
+      width:inherit;
       &::placeholder {
         color: 'var(--myspec-gray-scalegray-500)';
       }

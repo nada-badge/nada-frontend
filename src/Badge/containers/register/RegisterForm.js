@@ -5,6 +5,7 @@ import { changeField } from '../../modules/redux/badge';
 import { changeBarStatus } from '../../../Bar/modules/redux/bar';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
+import { CenterGrid } from '../../../styles/Survey';
 
 const TopContainer = styled.div`
   display: flex;
@@ -14,6 +15,10 @@ const TopContainer = styled.div`
     color: 'var(--myspec-gray-scalegray-600)',
   })}
   height: fit-content;
+  width: 375px;
+  padding: 0px 16px 32px 16px;
+  margin: 0 auto;
+  box-sizing: border-box;
 
   & > .indicator {
     padding: 2px 12px;
@@ -40,9 +45,17 @@ const RegisterForm = () => {
   const ExplainForm = lazy(() => import('./ExplainForm'));
   const ActivityForm = lazy(() => import('./ActivityForm'));
   const TeamForm = lazy(() => import('./TeamForm'));
+  const PeopleForm = lazy(() => import('./PeopleForm'));
 
   const [order, setOrder] = useState(0);
-  const forms = [TeamForm, NameForm, ShapeForm, ExplainForm, ActivityForm];
+  const forms = [
+    TeamForm,
+    PeopleForm,
+    NameForm,
+    ShapeForm,
+    ExplainForm,
+    ActivityForm,
+  ];
   const Components = forms[order];
 
   const onSubmit = (e) => {
@@ -85,13 +98,15 @@ const RegisterForm = () => {
           <span>{forms.length}</span>
         </div>
       </TopContainer>
-      <Suspense fallback={<div></div>}>
-        <Components
-          dispatchField={dispatchField}
-          onSubmit={onSubmit}
-          order={order}
-        />
-      </Suspense>
+      <CenterGrid>
+        <Suspense fallback={<div></div>}>
+          <Components
+            dispatchField={dispatchField}
+            onSubmit={onSubmit}
+            order={order}
+          />
+        </Suspense>
+      </CenterGrid>
     </>
   );
 };
