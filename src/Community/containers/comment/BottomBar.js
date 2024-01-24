@@ -13,8 +13,8 @@ import { initializeForm } from '../../modules/redux/postDetail';
 export const BottomBar = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState();
-  const { mutate } = usePostComment();
-  const update = usePatchComment().mutate;
+  const { mutate: post } = usePostComment();
+  const { mutate: update } = usePatchComment();
   const PostDetail = useSelector(({ postdetail }) => postdetail);
   const position = PostDetail.Comment.position;
   const { url, idData } = getBasicUrl(position, PostDetail);
@@ -40,7 +40,7 @@ export const BottomBar = () => {
     if (isUpdating) {
       update({ url, _id: idData, content: inputValue });
     } else {
-      mutate({ url, content: inputValue });
+      post({ url, content: inputValue });
     }
 
     dispatch(initializeForm({ form: 'Comment' }));
