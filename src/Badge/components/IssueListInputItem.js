@@ -31,7 +31,6 @@ const IssueListInputItem = ({ index, content }) => {
 
   const onChange = (e) => {
     const { value, name } = e.target;
-    console.log(value, name);
     dispatch(changeIndexField({ type: 'issueList', index, name, value }));
   };
 
