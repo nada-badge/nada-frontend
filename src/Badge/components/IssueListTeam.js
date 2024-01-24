@@ -8,12 +8,14 @@ const IssueListTeam = () => {
 
   return (
     <>
-      {teams.map((team) => (
-        <TextWithSvg>
-          <div>{team}</div>
-          <RightArrowSvg width={8} height={16} />
-        </TextWithSvg>
-      ))}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {teams.map((team) => (
+          <TextWithSvg>
+            <div>{team}</div>
+            <RightArrowSvg width={8} height={16} />
+          </TextWithSvg>
+        ))}
+      </div>
       <FixedLoginBtn disabled={false}>
         <div>다음</div>
       </FixedLoginBtn>

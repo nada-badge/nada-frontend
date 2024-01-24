@@ -12,8 +12,10 @@ const InputContainer = styled(InputBox)`
     input {
       ${applyFontStyles({
         font: 'subtitle-02',
-        color: 'var(--myspec-gray-scalegray-500)',
       })}
+      &::placeholder {
+        color: 'var(--myspec-gray-scalegray-500)';
+      }
       background: var(--myspec-gray-scalegray-100);
       width: calc(100% - 12px - 16px); // 전체화면 - X.svg - gap
     }
