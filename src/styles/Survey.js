@@ -175,3 +175,17 @@ export const CenterGrid = styled.div`
   padding-right: 16px;
   box-sizing: border-box;
 `;
+
+export const TextWithSvg = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  ${applyFontStyles({ font: 'subtitle-01' })}
+  padding: 13px;
+  border-radius: 20px;
+  background: var(--myspec-gray-scalegray-100, #f8f8f8);
+  box-sizing: border-box;
+  height: fit-content;
+`;

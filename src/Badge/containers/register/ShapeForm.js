@@ -1,17 +1,13 @@
 // 뱃지 모양을 입력받는 컨테이너
-import { LoginBtn, TitleBox } from '../../../styles/Survey';
+import { LoginBtn, TextWithSvg, TitleBox } from '../../../styles/Survey';
 import styled from 'styled-components';
 import { RightArrowSvg } from '../../../icon/Login/RightArrowSvg';
-import { SpaceBetween } from '../../../Search/components/SearchCategory';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import ShapeGrid from '../../components/ShapeGrid';
 
-const RoundSpaceBetween = styled(SpaceBetween)`
+const RoundSpaceBetween = styled(TextWithSvg)`
   ${applyFontStyles({ font: 'body-01' })}
-  padding: 13px;
   border-radius: 20px;
-  background: var(--myspec-gray-scalegray-100, #f8f8f8);
-  box-sizing: border-box;
 `;
 
 export const FixedLoginBtn = styled(LoginBtn)`
