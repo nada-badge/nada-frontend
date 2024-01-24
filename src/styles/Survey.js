@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { applyFontStyles } from '../../styles/fontStyle';
+import { applyFontStyles } from './fontStyle';
 
 // -------------------------- LoginPage.js
 
@@ -27,13 +27,15 @@ export const InputBox = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  & > input {
+  & > input,
+  textarea,
+  .inputWrapper input {
     ${applyFontStyles({
       font: 'body-01',
       color: 'var(--myspec-gray-scalegray-600)',
     })}
     border-radius: 10px;
-    background: var(--myspec-Gray-scale-Gray-200, #f2f2f2);
+    background: var(--myspec-gray-scalegray-200, #f2f2f2);
     padding: 12px 11px;
     align-items: center;
     flex-shrink: 0;
@@ -41,6 +43,7 @@ export const InputBox = styled.div`
     outline: none;
     box-sizing: border-box;
     width: 100%;
+    height: fit-content;
   }
 `;
 
@@ -53,6 +56,8 @@ export const LoginBtn = styled.button`
   border: none;
   padding: 0;
   width: 100%;
+  height: fit-content;
+  align-self: end;
 
   &:disabled {
     opacity: 0.3;
@@ -153,4 +158,19 @@ export const Explain = styled.div`
     color: 'var(--myspec-gray-scalegray-600)',
   })}
   padding : 8px 0px;
+`;
+
+// ---------------------BadgeWrite.js
+export const CenterGrid = styled.div`
+  display: grid;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
+  width: 375px;
+  height: calc(100vh - 88px); // 상단바
+  margin: 0px auto;
+  gap: 24px;
+  text-align: left;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 `;

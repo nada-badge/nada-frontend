@@ -21,6 +21,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './styles/common.scss';
 import './styleguide.css';
 import searchSlice from './Search/modules/redux/search.js';
+import badgeSlice from './Badge/modules/redux/badge.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const store = configureStore({
     postwrite: postWriteSlice.reducer,
     postdetail: PostDetailSlice.reducer,
     search: searchSlice.reducer,
+    badge: badgeSlice.reducer,
   },
   devTools: true,
 });

@@ -1,3 +1,4 @@
+// '뱃지 발급하기' 버튼
 import styled from 'styled-components';
 import { AddOperator } from '../../icon/AddOperator';
 import { applyFontStyles } from '../../styles/fontStyle';

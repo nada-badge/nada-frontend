@@ -39,11 +39,16 @@ export const Frame = styled.div`
 
 const inputStyles = css`
   width: 100%;
+  height: 30px;
   box-sizing: border-box;
   border: none;
   padding: 6px 8px;
   border-radius: 6px;
   background: var(--myspec-gray-scalegray-100);
+  ${applyFontStyles({
+    font: 'caption-02',
+    color: 'var(--myspec-gray-scalegray-900)',
+  })};
   &::placeholder {
     ${applyFontStyles({
       font: 'caption-02',
@@ -80,6 +85,14 @@ export const TextInput = styled.div`
         flex-direction: column;
       }
 
+      .date {
+        ${applyFontStyles({
+          font: 'caption-02',
+          color: 'var(--myspec-gray-scalegray-900)',
+        })};
+        cursor: pointer;
+      }
+
       input {
         ${inputStyles}
       }
@@ -94,8 +107,16 @@ export const TextInput = styled.div`
           padding: 0;
           background-color: inherit;
         }
+
+        & > .isActive {
+          ${applyFontStyles({
+            font: 'caption-02',
+            color: 'var(--myspec-primaryblue-1)',
+          })};
+        }
       }
     }
+  }
 `;
 
 export const ContentStyle = styled.div`
