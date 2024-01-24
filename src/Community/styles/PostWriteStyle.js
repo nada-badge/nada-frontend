@@ -12,14 +12,20 @@ export const TitleStyle = styled.div`
   position: relative;
 
   & > .div {
-    ${applyFontStyles({
-      font: 'title-02',
-      color: 'var(--myspec-gray-scalegray-600)',
-    })};
     margin-top: -1px;
     position: relative;
     width: 345px;
     border: none;
+    ${applyFontStyles({
+      font: 'title-02',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
+    &::placeholder {
+      ${applyFontStyles({
+        font: 'title-02',
+        color: 'var(--myspec-gray-scalegray-400)',
+      })};
+    }
   }
   & > .div:focus {
     outline: none;

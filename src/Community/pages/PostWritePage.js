@@ -85,7 +85,7 @@ const PostWrite = () => {
       onSubmit={onSubmit}
       encType="multipart/form-data"
     >
-      <Title onChange={onChange} inputValue={inputValue} />
+      <Title name="title" onChange={onChange} inputValue={inputValue} />
       <div>
         <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
@@ -95,8 +95,6 @@ const PostWrite = () => {
         section="community"
         setImgFiles={setImgFiles}
       />
-
-      <button>테스트 제출 버튼</button>
     </form>
   );
 };
