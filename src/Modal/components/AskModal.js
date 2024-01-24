@@ -11,8 +11,8 @@ import { Toast } from '../../components/common/Toast';
 
 const AskModal = () => {
   const { openModal, closeModal } = useModal();
-  const { mutate } = useDeleteId();
-  const reportMutate = useReportId().mutate;
+  const { mutate: toDelete } = useDeleteId();
+  const { mutate: report } = useReportId();
 
   const modal = useSelector(({ modal }) => modal);
   const { title, contentType, actionType, content, position } = modal;
@@ -23,14 +23,14 @@ const AskModal = () => {
   const useAct = () => {
     if (actionType === '삭제') {
       const config = getBasicUrl(position, postDetail, comment, activity);
-      mutate({
+      toDelete({
         url: config.url,
         _id: config.idData,
       });
     }
     if (actionType === '신고') {
       const config = getReportUrl(position, postDetail, comment);
-      reportMutate({
+      report({
         url: config.url,
         _id: config.idData,
       });
