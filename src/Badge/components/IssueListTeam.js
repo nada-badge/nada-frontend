@@ -3,7 +3,7 @@ import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import { FixedLoginBtn } from '../containers/register/ShapeForm';
 import { TextWithSvg } from '../../styles/Survey';
 
-const IssueListTeam = () => {
+const IssueListTeam = ({ onSubmit }) => {
   const teams = useSelector(({ badge }) => badge.teams);
 
   return (
@@ -16,7 +16,7 @@ const IssueListTeam = () => {
           </TextWithSvg>
         ))}
       </div>
-      <FixedLoginBtn disabled={false}>
+      <FixedLoginBtn onClick={onSubmit} disabled={false}>
         <div>다음</div>
       </FixedLoginBtn>
     </>

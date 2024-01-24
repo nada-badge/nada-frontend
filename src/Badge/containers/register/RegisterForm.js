@@ -16,7 +16,7 @@ const TopContainer = styled.div`
   })}
   height: fit-content;
   width: 375px;
-  padding: 0px 16px 32px 16px;
+  padding: 19px 16px 32px 16px;
   margin: 0 auto;
   box-sizing: border-box;
 
@@ -46,8 +46,11 @@ const RegisterForm = () => {
   const ActivityForm = lazy(() => import('./ActivityForm'));
   const TeamForm = lazy(() => import('./TeamForm'));
   const PeopleForm = lazy(() => import('./PeopleForm'));
+  const PriviewBadge = lazy(() => import('./PreviewBadge'));
 
   const [order, setOrder] = useState(0);
+  const [preview, setPreview] = useState(false);
+
   const forms = [
     TeamForm,
     PeopleForm,
@@ -61,7 +64,7 @@ const RegisterForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (order === forms.length - 1) {
-      // 마지막 form 입력일때, 뱃지 등록 실행하기
+      setPreview(true);
     } else setOrder(order + 1);
   };
 
@@ -98,15 +101,22 @@ const RegisterForm = () => {
           <span>{forms.length}</span>
         </div>
       </TopContainer>
-      <CenterGrid>
+      {order < forms.length - 1 && (
+        <CenterGrid>
+          <Suspense fallback={<div></div>}>
+            <Components
+              dispatchField={dispatchField}
+              onSubmit={onSubmit}
+              order={order}
+            />
+          </Suspense>
+        </CenterGrid>
+      )}
+      {preview && (
         <Suspense fallback={<div></div>}>
-          <Components
-            dispatchField={dispatchField}
-            onSubmit={onSubmit}
-            order={order}
-          />
+          <PriviewBadge />
         </Suspense>
-      </CenterGrid>
+      )}
     </>
   );
 };
