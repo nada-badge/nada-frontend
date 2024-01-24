@@ -4,12 +4,21 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
+export const BottomButton = ({
+  cancelText,
+  cancelAct,
+  actText,
+  act,
+  isRed,
+}) => {
   const { closeModal } = useModal();
 
   return (
     <ButtonList>
-      <Cancel onClick={() => closeModal()} $isColor={Boolean(cancelText)}>
+      <Cancel
+        onClick={() => (cancelAct ? cancelAct() : closeModal())}
+        $isColor={Boolean(cancelText)}
+      >
         <div className="text">{cancelText || '취소'}</div>
       </Cancel>
       {actText && (
@@ -21,7 +30,7 @@ export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
   );
 };
 
-export default ModalButtonDiv;
+export default BottomButton;
 
 export const ButtonList = styled.div`
   align-items: flex-start;

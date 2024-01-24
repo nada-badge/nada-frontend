@@ -1,11 +1,28 @@
 /** NoticeModal 삭제 또는 신고가 정상적으로 되었음을 알리는 모달 */
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import useModal from '../modules/useModal';
 import { Layout } from '../../Community/styles/NoticeModalStyle';
 import ModalButtonDiv from './usedInModal/ModalButtonDiv';
 
 const NoticeModal = () => {
+  const navigate = useNavigate();
+  const { closeModal } = useModal();
+
   const modal = useSelector(({ modal }) => modal);
   const { contentType, actionType } = modal;
+
+  const onDelete = () => {
+    closeModal();
+    navigate(-1);
+  };
+
+  const Button = () => {
+    if (actionType === '삭제' && contentType === '글') {
+      return <ModalButtonDiv cancelText={'확인'} cancelAct={onDelete} />;
+    }
+    return <ModalButtonDiv cancelText={'확인'} />;
+  };
 
   return (
     <Layout>
@@ -19,7 +36,7 @@ const NoticeModal = () => {
         src="https://c.animaapp.com/jSDFsaX0/img/check.svg"
       />
       <div className="border-2" />
-      <ModalButtonDiv cancelText={'확인'} />
+      <Button />
     </Layout>
   );
 };
