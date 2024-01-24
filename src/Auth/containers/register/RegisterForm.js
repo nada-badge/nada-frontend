@@ -95,4 +95,4 @@ const RegisterForm = ({ type }) => {
   );
 };
 
-export default React.memo(RegisterForm);
+export default RegisterForm;
