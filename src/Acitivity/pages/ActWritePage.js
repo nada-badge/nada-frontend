@@ -43,6 +43,7 @@ const ActWritePage = () => {
       changeBarStatus({
         headerState: 'backPost',
         text: '활동 공고 등록',
+        position: 'activity',
         isShowBottom: false,
       }),
     );
@@ -84,7 +85,7 @@ const ActWritePage = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="pageContainer">
+    <form onSubmit={onSubmit} id="activity" className="pageContainer">
       <div>
         <ThumbnailInput
           thumbnail={mainImageUrl}

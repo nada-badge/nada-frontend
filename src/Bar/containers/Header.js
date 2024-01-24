@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const pageStatus = useSelector(barSelector('headerStatus', 'headerState'));
   const pageNameStatus = useSelector(barSelector('headerStatus', 'text'));
+  const position = useSelector(barSelector('headerStatus', 'position'));
+
   const navigate = useNavigate();
   const [activeHeaders, setActiveHeaders] = useState();
   //현재 상단값의 요소 존재여부값
@@ -42,7 +44,12 @@ const Header = () => {
     setActiveHeaders(
       CurrentStatus.filter((item) => item.state).map((item) => (
         <React.Fragment key={item.id}>
-          {HeaderTypeConfig(navigate, { status: item.id }, pageNameStatus)}
+          {HeaderTypeConfig(
+            navigate,
+            { status: item.id },
+            pageNameStatus,
+            position,
+          )}
         </React.Fragment>
       )),
     );

@@ -31,6 +31,7 @@ const PostWrite = () => {
       changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
+        position: 'community',
         isShowBottom: false,
       }),
     );
@@ -80,6 +81,7 @@ const PostWrite = () => {
   return (
     <form
       className="pageContainer"
+      id="community"
       onSubmit={onSubmit}
       encType="multipart/form-data"
     >
