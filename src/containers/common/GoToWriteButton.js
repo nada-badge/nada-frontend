@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { changeField } from '../../Community/modules/redux/postWrite';
 import { initializeForm } from '../../Community/modules/redux/postDetail';
 
-export const GoToWriteButton = (isActivity = false) => {
+export const GoToWriteButton = ({ isActivity = false }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
