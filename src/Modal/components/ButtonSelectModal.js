@@ -11,7 +11,7 @@ import {
 import { SelectButton } from '../../Community/components/PostWrite/SelectButton';
 import { SelectAllButton } from '../../Community/components/PostWrite/SelectAllButton';
 import { List, Border } from '../styles/ModalStyle';
-import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import BottomButton from './usedInModal/BottomButton';
 import {
   selectConfig,
   selectAllConfig,
@@ -80,7 +80,7 @@ const ButtonSelectModal = () => {
         ))}
       </div>
       <div style={Border} />
-      {ModalButtonDiv({
+      {BottomButton({
         cancel: cancel,
         actText: '확인',
         act: setStatus,

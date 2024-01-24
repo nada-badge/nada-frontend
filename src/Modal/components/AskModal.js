@@ -1,7 +1,7 @@
 /** AskModal 게시글 신고 또는 삭제를 물어보는 모달 */
 import { useSelector } from 'react-redux';
 import useModal from '../modules/useModal';
-import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import BottomButton from './usedInModal/BottomButton';
 import { Layout } from '../../Community/styles/NoticeModalStyle';
 import getBasicUrl from '../../modules/common/getBasicUrl';
 import useDeleteId from '../../modules/queries/useDeleteId';
@@ -51,7 +51,7 @@ const AskModal = () => {
       <div className="border" />
       <p className="content">{content}</p>
       <div className="border-2" />
-      {ModalButtonDiv({
+      {BottomButton({
         actText: actionType,
         act: useAct,
         isRed: true,

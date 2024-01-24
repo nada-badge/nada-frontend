@@ -1,4 +1,4 @@
-/** ModalButtonDiv 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
+/** BottomButton 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
 import useModal from '../../modules/useModal';
 import styled from 'styled-components';
 import classNames from 'classnames';

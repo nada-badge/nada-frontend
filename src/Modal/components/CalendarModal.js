@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import '../styles/DatePicker.scss';
 import useModal from '../modules/useModal';
-import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import BottomButton from './usedInModal/BottomButton';
 import {
   changeField,
   postWriteSelector,
@@ -102,7 +102,7 @@ const CalendarModal = () => {
         />
       </div>
       {/** ▼act 추가 */}
-      <ModalButtonDiv actText={'확인'} act={setStatus} />
+      <BottomButton actText={'확인'} act={setStatus} />
     </Layout>
   );
 };

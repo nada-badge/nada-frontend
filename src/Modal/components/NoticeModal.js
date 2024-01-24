@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useModal from '../modules/useModal';
 import { Layout } from '../../Community/styles/NoticeModalStyle';
-import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import BottomButton from './usedInModal/BottomButton';
 
 const NoticeModal = () => {
   const navigate = useNavigate();
@@ -19,9 +19,9 @@ const NoticeModal = () => {
 
   const Button = () => {
     if (actionType === '삭제' && contentType === '글') {
-      return <ModalButtonDiv cancelText={'확인'} cancelAct={onDelete} />;
+      return <BottomButton cancelText={'확인'} cancelAct={onDelete} />;
     }
-    return <ModalButtonDiv cancelText={'확인'} />;
+    return <BottomButton cancelText={'확인'} />;
   };
 
   return (
