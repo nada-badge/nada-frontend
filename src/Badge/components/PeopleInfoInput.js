@@ -11,7 +11,14 @@ const PeopleInfoInput = ({ onSubmit }) => {
     dispatch(
       addList({
         type: 'issueList',
-        value: { name: '', role: '', birth: '', email: '', number: '' },
+        value: {
+          name: '',
+          role: '',
+          birth: '',
+          email: '',
+          number: '',
+          team: '',
+        },
       }),
     );
   };

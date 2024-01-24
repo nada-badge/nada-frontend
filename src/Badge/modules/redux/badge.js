@@ -18,6 +18,7 @@ const initialState = {
       birth: '',
       email: '',
       number: '',
+      team: '',
     },
   ],
 };
