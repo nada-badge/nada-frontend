@@ -6,7 +6,7 @@ export const useGetInterested = ({ start, end }) => {
   return useQuery({
     queryKey: ['getEvent'],
     queryFn: async () => {
-      const { email } = decodeJwtToken(localStorage.getItem('email'));
+      const { email } = decodeJwtToken(localStorage.getItem('token'));
 
       const { data } = await client.get('calendar/bookmark/list', {
         params: { email: email, start: start, end: end },
