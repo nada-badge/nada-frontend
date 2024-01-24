@@ -9,14 +9,14 @@ export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
   const { mutate } = useDeleteImage();
 
   const deleteImgFile = () => {
-    mutate({ imageUrl: thumbnail[0] });
+    mutate({ imageUrl: thumbnail });
     setThumbnail();
   };
 
   const saveImgFile = async (e) => {
     const files = Array.from(e.target.files);
     const result = await mutateAsync({ section: 'activity', files: files });
-    setThumbnail(result.path);
+    setThumbnail(result.path[0]);
   };
 
   return (
