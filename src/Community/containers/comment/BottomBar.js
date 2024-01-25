@@ -8,7 +8,7 @@ import getBasicUrl from '../../../modules/common/getBasicUrl';
 import NoticeBar from './NoticeBar';
 import { InputBar } from '../../styles/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
-import { initializeForm } from '../../modules/redux/postDetail';
+import { initializeForm } from '../../modules/redux/postData';
 
 export const BottomBar = () => {
   const dispatch = useDispatch();

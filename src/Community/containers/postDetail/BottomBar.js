@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../styles/CommunityBarStyle';
 import useModal from '../../../Modal/modules/useModal';
-import { PostDetailSelector } from '../../modules/redux/postDetail';
+import { postDataSelector } from '../../modules/redux/postData';
 import CountComment from '../../components/postDetail/CountComment';
 
 export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
-  const data = useSelector(PostDetailSelector('PostData', 'data'));
+  const data = useSelector(postDataSelector('data'));
   const commentcount = CountComment();
   const openMenu = () => {
     openModal({

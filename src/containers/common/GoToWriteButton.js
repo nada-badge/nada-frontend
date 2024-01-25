@@ -3,14 +3,14 @@ import { PostButton } from '../../Community/styles/PostWriteButtonStyle';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeField } from '../../Community/modules/redux/postWrite';
-import { initializeForm } from '../../Community/modules/redux/postDetail';
+import { initializeForm } from '../../Community/modules/redux/postData';
 
 export const GoToWriteButton = ({ isActivity = false }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toPostWrite = () => {
-    dispatch(initializeForm({ form: 'PostDetail' }));
+    dispatch(initializeForm());
     dispatch(changeField({ form: 'method', key: 'isSubmit', value: true }));
 
     isActivity

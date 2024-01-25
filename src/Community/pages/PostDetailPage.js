@@ -8,7 +8,7 @@ import { BottomBar } from '../containers/postDetail/BottomBar';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { Profile } from '../components/comment/Profile';
 import { useGetPost } from '../modules/queries/useGetCommunity';
-import { changePostDataField } from '../modules/redux/postDetail';
+import { changePostDataField } from '../modules/redux/postData';
 const PostDetail = () => {
   const dispatch = useDispatch();
   const params = useParams();
