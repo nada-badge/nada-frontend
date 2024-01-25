@@ -10,7 +10,7 @@ export const Profile = ({ comment, isEdited = comment.isEdited }) => {
         <div className="name">{comment.userName}</div>
         <div className="line">
           <div className="date">
-            {getDateFormat({ preDate: comment.updatedAt, type: 'text' })}
+            {getDateFormat({ preDate: comment.registeredAt, type: 'text' })}
           </div>
           {isEdited && <div className="update">(수정됨)</div>}
         </div>
