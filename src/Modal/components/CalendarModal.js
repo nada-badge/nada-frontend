@@ -5,10 +5,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import '../styles/DatePicker.scss';
 import useModal from '../modules/useModal';
 import BottomButton from './usedInModal/BottomButton';
-import {
-  changeField,
-  postWriteSelector,
-} from '../../Community/modules/redux/postWrite';
+import { changeField, postWriteSelector } from '../../modules/redux/postWrite';
 import styled from 'styled-components';
 import { AngleBracket } from '../../icon/AngleBracket';
 import ko from 'date-fns/locale/ko';

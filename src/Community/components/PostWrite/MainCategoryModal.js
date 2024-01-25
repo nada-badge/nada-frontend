@@ -2,7 +2,10 @@
 import { useState } from 'react';
 import useModal from '../../../Modal/modules/useModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { postWriteSelector, changeField } from '../../modules/redux/postWrite';
+import {
+  postWriteSelector,
+  changeField,
+} from '../../../modules/redux/postWrite';
 import {
   ListMain,
   Border,

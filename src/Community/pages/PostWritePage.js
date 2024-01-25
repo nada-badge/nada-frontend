@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import usePostCommunity from '../modules/queries/usePostCommunity';
 import usePatchCommunity from '../modules/queries/usePatchCommunity';
-import { initializeAll, postWriteSelector } from '../modules/redux/postWrite';
+import {
+  initializeAll,
+  postWriteSelector,
+} from '../../modules/redux/postWrite';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { Title } from '../../containers/common/postInput/Title';
 import { FilterBar } from '../../containers/common/postInput/FilterBar';
