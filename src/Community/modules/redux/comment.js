@@ -38,7 +38,7 @@ export default commentSlice;
 export const { changeField, initializeForm } = commentSlice.actions;
 
 const commentSelects = (field) => (rootState) => {
-  return rootState.comment[field] || initialState[field];
+  return rootState.comment.comment[field] || initialState.comment[field];
 };
 
 export const commentSelector = createSelector(commentSelects, (field) => field);
