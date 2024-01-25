@@ -32,7 +32,6 @@ const PostDetail = () => {
     if (isLoading || isError) {
       return;
     }
-
     setInfo(data);
     setIsEdited(!(data.updatedAt === data.registeredAt));
     dispatch(changePostDataField({ value: data }));

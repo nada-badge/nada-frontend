@@ -10,6 +10,7 @@ export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
   const data = useSelector(postDataSelector('data'));
+
   const commentcount = CountComment();
   const openMenu = () => {
     openModal({

@@ -25,7 +25,7 @@ export default postDataSlice;
 export const { changePostDataField, initializeForm } = postDataSlice.actions;
 
 const postDataSelects = (field) => (rootState) => {
-  return rootState.postData[field] || initialState[field];
+  return rootState.postData.postData[field] || initialState.postData[field];
 };
 
 export const postDataSelector = createSelector(

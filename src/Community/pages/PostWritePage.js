@@ -21,7 +21,7 @@ const PostWrite = () => {
   const dispatch = useDispatch();
 
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
-  const postData = useSelector(({ postdetail }) => postdetail.PostData).data;
+  const postData = useSelector(({ postData }) => postData.postData).data;
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
   const [inputValue, setInputValue] = useState({
     title: postData.title,
