@@ -24,7 +24,9 @@ const PostWrite = () => {
     title: postData.title,
     content: postData.content,
   });
-  const [imgFiles, setImgFiles] = useState([]);
+  const [imgFiles, setImgFiles] = useState(
+    postData.imageUrl ? postData.imageUrl : [],
+  );
 
   useEffect(() => {
     dispatch(
@@ -56,7 +58,6 @@ const PostWrite = () => {
     const title = e.target.title.value;
     const content = e.target.content.value;
     const imageUrl = imgFiles;
-
     dispatch(initializeAll());
 
     const formData = {
