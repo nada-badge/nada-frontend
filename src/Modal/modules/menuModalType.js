@@ -2,9 +2,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Toast } from './Toast';
-import PrintCenteredText from '../../Modal/components/usedInModal/PrintCenteredText';
-import useModal from '../../Modal/modules/useModal';
+import { Toast } from '../../components/common/Toast';
+import PrintCenteredText from '../components/usedInModal/PrintCenteredText';
+import useModal from './useModal';
 import useSetButtonActive from '../../modules/common/SetButtonActive';
 import {
   changeField,
