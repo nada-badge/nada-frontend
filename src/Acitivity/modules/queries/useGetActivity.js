@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 import { calculateDday } from '../calculateDday';
+import { useSelector } from 'react-redux';
+import { decodeJwtToken } from '../../../Auth/modules/decodeJwtToken';
 
+// 활동글 하나 불러오기
 export const useActivity = ({ _id }) => {
   return useQuery({
     queryKey: ['getActivity', _id],
@@ -15,7 +18,9 @@ export const useActivity = ({ _id }) => {
   });
 };
 
-export const useActivityList = ({ filter } = {}) => {
+// 필터에 맞게 여러 활동글 불러오기
+export const useActivityList = () => {
+  const filter = useSelector(({ filter }) => filter);
   const { region, field, category } = filter.subButtonSelect;
 
   return useQuery({
@@ -49,6 +54,20 @@ export const useActivityList = ({ filter } = {}) => {
         return false; // 리트라이 하지 않음
       }
       return failureCount < 3; // 여기서는 최대 3번까지 리트라이
+    },
+  });
+};
+
+// 사용자에게 추천하는 활동 리스트
+export const useRecommendActivities = () => {
+  return useQuery({
+    queryKey: ['getRecommendActivities'],
+    queryFn: async () => {
+      const { email } = decodeJwtToken(localStorage.getItem('token'));
+      const { data } = await client.get('/acitivity/recommend', {
+        params: { email: email },
+      });
+      return data;
     },
   });
 };
