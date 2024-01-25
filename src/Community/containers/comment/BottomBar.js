@@ -15,7 +15,7 @@ export const BottomBar = () => {
   const [inputValue, setInputValue] = useState();
   const { mutate: post } = usePostComment();
   const { mutate: update } = usePatchComment();
-  const comment = useSelector(({ comment }) => comment);
+  const comment = useSelector(({ comment }) => comment.Comment);
   const position = comment.position;
 
   const content = comment.content;
@@ -37,7 +37,10 @@ export const BottomBar = () => {
   }, [isUpdating]);
 
   const sendComment = () => {
-    const { url, idData } = getBasicUrl(position, comment);
+    const { url, idData } = getBasicUrl({
+      position: position,
+      comment: comment,
+    });
 
     if (isUpdating) {
       update({ url, _id: idData, content: inputValue });
