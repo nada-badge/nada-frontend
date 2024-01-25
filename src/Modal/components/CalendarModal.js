@@ -2,21 +2,28 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import '../../styles/DatePicker.scss';
-import ko from 'date-fns/locale/ko';
+import '../styles/DatePicker.scss';
+import useModal from '../modules/useModal';
 import ModalButtonDiv from './usedInModal/ModalButtonDiv';
-import { changeField } from '../../Community/modules/redux/postWrite';
+import {
+  changeField,
+  postWriteSelector,
+} from '../../Community/modules/redux/postWrite';
 import styled from 'styled-components';
 import { AngleBracket } from '../../icon/AngleBracket';
+import ko from 'date-fns/locale/ko';
 registerLocale('ko', ko);
 
 const CalendarModal = () => {
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
 
-  const modal = useSelector(({ modal }) => modal);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-  console.log('date : ', startDate, ' : ', endDate);
+  const [startDate, setStartDate] = useState(
+    useSelector(postWriteSelector('postWriteSubmit', 'startedAt')),
+  );
+  const [endDate, setEndDate] = useState(
+    useSelector(postWriteSelector('postWriteSubmit', 'endedAt')),
+  );
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -24,7 +31,6 @@ const CalendarModal = () => {
   };
 
   const setStatus = () => {
-    console.log('클릭됨');
     dispatch(
       changeField({
         form: 'postWriteSubmit',
@@ -32,13 +38,22 @@ const CalendarModal = () => {
         value: startDate,
       }),
     );
-    dispatch(
-      changeField({
-        form: 'postWriteSubmit',
-        key: 'endedAt',
-        value: endDate,
-      }),
-    );
+    endDate
+      ? dispatch(
+          changeField({
+            form: 'postWriteSubmit',
+            key: 'endedAt',
+            value: endDate,
+          }),
+        )
+      : dispatch(
+          changeField({
+            form: 'postWriteSubmit',
+            key: 'endedAt',
+            value: startDate,
+          }),
+        );
+    closeModal();
   };
 
   return (

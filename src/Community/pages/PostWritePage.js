@@ -31,6 +31,7 @@ const PostWrite = () => {
       changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
+        position: 'community',
         isShowBottom: false,
       }),
     );
@@ -38,6 +39,7 @@ const PostWrite = () => {
 
   const onChange = (event) => {
     const { value, name } = event.target;
+
     setInputValue({
       ...inputValue,
       [name]: value,
@@ -49,8 +51,8 @@ const PostWrite = () => {
 
     const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
-    const { _id, mainCategory, category, field, region } = postwrite;
-
+    const { _id, category, field, region } = postwrite;
+    const mainCategory = e.target.mainCategory.value;
     const title = e.target.title.value;
     const content = e.target.content.value;
     const imageUrl = imgFiles;
@@ -79,6 +81,7 @@ const PostWrite = () => {
   return (
     <form
       className="pageContainer"
+      id="community"
       onSubmit={onSubmit}
       encType="multipart/form-data"
     >

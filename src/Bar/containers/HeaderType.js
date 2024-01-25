@@ -87,7 +87,12 @@ export const HeaderType = [
 ];
 
 //각 요소에 대한 구현
-export const HeaderTypeConfig = (navigate, status, pageNameStatus) => {
+export const HeaderTypeConfig = (
+  navigate,
+  status,
+  pageNameStatus,
+  position,
+) => {
   const Config = {
     Texts: <Textwrapper>{pageNameStatus}</Textwrapper>,
     Back: (
@@ -117,7 +122,9 @@ export const HeaderTypeConfig = (navigate, status, pageNameStatus) => {
     ),
     Post: (
       <Overlap>
-        <div className="Post">완료</div>
+        <button className="Post" type="submit" form={position}>
+          완료
+        </button>
       </Overlap>
     ),
   };
