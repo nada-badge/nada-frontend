@@ -8,14 +8,14 @@ import getBasicUrl from '../../../modules/common/getBasicUrl';
 import NoticeBar from './NoticeBar';
 import { InputBar } from '../../styles/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
-import { initializeForm } from '../../../modules/redux/postData';
+import { initializeForm } from '../../modules/redux/comment';
 
 export const BottomBar = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState();
   const { mutate: post } = usePostComment();
   const { mutate: update } = usePatchComment();
-  const comment = useSelector(({ comment }) => comment.Comment);
+  const comment = useSelector(({ comment }) => comment.comment);
   const position = comment.position;
 
   const content = comment.content;
@@ -48,7 +48,7 @@ export const BottomBar = () => {
       post({ url, content: inputValue });
     }
 
-    dispatch(initializeForm({ form: 'Comment' }));
+    dispatch(initializeForm());
     setInputValue('');
   };
 

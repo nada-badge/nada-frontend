@@ -15,7 +15,7 @@ import barSlice from './Bar/modules/redux/bar.js';
 import filterSlice from './modules/redux/filter.js';
 import postWriteSlice from './modules/redux/postWrite.js';
 import postDataSlice from './modules/redux/postData.js';
-import CommentSlice from './Community/modules/redux/comment.js';
+import commentSlice from './Community/modules/redux/comment.js';
 import { modalSlice } from './Modal/modules/redux/modal.js';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -35,7 +35,7 @@ const store = configureStore({
     filter: filterSlice.reducer,
     postwrite: postWriteSlice.reducer,
     postData: postDataSlice.reducer,
-    comment: CommentSlice.reducer,
+    comment: commentSlice.reducer,
     search: searchSlice.reducer,
     badge: badgeSlice.reducer,
   },

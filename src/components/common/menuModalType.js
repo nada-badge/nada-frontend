@@ -8,14 +8,14 @@ import useModal from '../../Modal/modules/useModal';
 import useSetButtonActive from '../../modules/common/SetButtonActive';
 import {
   changeField,
-  CommentSelector,
+  commentSelector,
 } from '../../Community/modules/redux/comment';
 
 export const MenuTypeConfig = (content) => {
   const { openModal } = useModal();
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);
-  const commentContent = useSelector(CommentSelector('content'));
+  const commentContent = useSelector(commentSelector('content'));
   const { contentType, position } = modal;
   const navigate = useNavigate();
   const setButtonActive = useSetButtonActive();

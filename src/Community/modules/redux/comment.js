@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
 const initialState = {
-  Comment: {
+  comment: {
     position: 'comment',
     post_id: '',
     comment_id: '',
@@ -15,30 +15,30 @@ const initialState = {
   },
 };
 
-const CommentSlice = createSlice({
-  name: 'PostDetail',
+const commentSlice = createSlice({
+  name: 'comment',
   initialState,
   reducers: {
     changeField: (state, { payload: { form, value } }) => {
-      state.Comment[form] = value;
+      state.comment[form] = value;
     },
     initializeForm: (state) => {
-      state.Comment.position = initialState.Comment.position;
-      state.Comment.comment_id = initialState.Comment.comment_id;
-      state.Comment.reply_id = initialState.Comment.reply_id;
-      state.Comment.userName = initialState.Comment.userName;
-      state.Comment.content = initialState.Comment.content;
-      state.Comment.isReplying = initialState.Comment.isReplying;
-      state.Comment.isUpdating = initialState.Comment.isUpdating;
+      state.comment.position = initialState.comment.position;
+      state.comment.comment_id = initialState.comment.comment_id;
+      state.comment.reply_id = initialState.comment.reply_id;
+      state.comment.userName = initialState.comment.userName;
+      state.comment.content = initialState.comment.content;
+      state.comment.isReplying = initialState.comment.isReplying;
+      state.comment.isUpdating = initialState.comment.isUpdating;
     },
   },
 });
 
-export default CommentSlice;
-export const { changeField, initializeForm } = CommentSlice.actions;
+export default commentSlice;
+export const { changeField, initializeForm } = commentSlice.actions;
 
-const CommentSelects = (field) => (rootState) => {
+const commentSelects = (field) => (rootState) => {
   return rootState.comment[field] || initialState[field];
 };
 
-export const CommentSelector = createSelector(CommentSelects, (field) => field);
+export const commentSelector = createSelector(commentSelects, (field) => field);
