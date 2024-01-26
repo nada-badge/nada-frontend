@@ -64,10 +64,19 @@ export const useRecommendActivities = () => {
     queryKey: ['getRecommendActivities'],
     queryFn: async () => {
       const { email } = decodeJwtToken(localStorage.getItem('token'));
-      const { data } = await client.get('/acitivity/recommend', {
+      const { data } = await client.get('/activity/recommend', {
         params: { email: email },
       });
       return data;
     },
+    select: (data) =>
+      (data.recommendActivity || []).map(
+        ({ _id, activityName, endedAt, mainImageUrl }) => ({
+          _id: _id,
+          activityName: activityName,
+          Dday: calculateDday(endedAt),
+          imageUrl: mainImageUrl,
+        }),
+      ),
   });
 };
