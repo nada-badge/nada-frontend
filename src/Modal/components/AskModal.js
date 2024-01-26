@@ -16,7 +16,7 @@ const AskModal = () => {
 
   const modal = useSelector(({ modal }) => modal);
   const { title, contentType, actionType, content, position } = modal;
-  const postData = useSelector(({ postData }) => postData).postData;
+  const postData = useSelector(({ postData }) => postData.postData);
   const comment = useSelector(({ comment }) => comment.comment);
   const activity = useSelector(({ activity }) => activity.activities);
 

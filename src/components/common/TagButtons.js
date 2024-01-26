@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import TagButton from './TagButton';
 
 const TagButtons = () => {
-  const postData = useSelector(({ postData }) => postData.postData);
-  const { region, field, category } = postData.data;
+  const { data } = useSelector(({ postData }) => postData.postData);
+  const { region, field, category } = data;
   const combinedArray = [...region, ...field, category];
 
   return (

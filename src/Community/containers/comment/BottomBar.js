@@ -16,12 +16,7 @@ export const BottomBar = () => {
   const { mutate: post } = usePostComment();
   const { mutate: update } = usePatchComment();
   const comment = useSelector(({ comment }) => comment.comment);
-  const position = comment.position;
-
-  const content = comment.content;
-  const isReplying = comment.isReplying;
-  const isUpdating = comment.isUpdating;
-  const userName = comment.userName;
+  const { position, content, isReplying, isUpdating, userName } = comment;
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {

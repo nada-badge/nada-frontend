@@ -18,10 +18,15 @@ const NoticeModal = () => {
   };
 
   const Button = () => {
-    if (actionType === '삭제' && contentType === '글') {
-      return <BottomButton cancelText={'확인'} cancelAct={onDelete} />;
-    }
-    return <BottomButton cancelText={'확인'} />;
+    const isDeleteContent = actionType === '삭제' && contentType === '글';
+    const cancelText = '확인';
+
+    return (
+      <BottomButton
+        cancelText={cancelText}
+        cancelAct={isDeleteContent && onDelete}
+      />
+    );
   };
 
   return (
