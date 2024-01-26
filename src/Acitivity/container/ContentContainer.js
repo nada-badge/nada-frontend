@@ -20,7 +20,7 @@ const DetailContent = styled.div`
 `;
 
 const ContentContainer = ({ info }) => {
-  const { startedAt, endedAt, groupName, area } = info;
+  const { startedAt, endedAt, institute, area } = info;
 
   const formatDate = (start, end) => {
     let startDate = new Date(start);
@@ -45,7 +45,7 @@ const ContentContainer = ({ info }) => {
         </div>
         <div className="team">
           <div>기관</div>
-          <div>{groupName}</div>
+          <div>{institute}</div>
         </div>
         <div className="place">
           <div>장소</div>
