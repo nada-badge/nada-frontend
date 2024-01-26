@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { RightArrowSvg } from '../../../icon/Login/RightArrowSvg';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import ShapeGrid from '../../components/ShapeGrid';
+import { useState } from 'react';
 
 const RoundSpaceBetween = styled(TextWithSvg)`
   ${applyFontStyles({ font: 'body-01' })}
@@ -21,7 +22,10 @@ export const FixedLoginBtn = styled(LoginBtn)`
 `;
 
 const ShapeForm = ({ onSubmit, order, dispatchField }) => {
+  const [active, setActive] = useState(null);
+
   const onClick = (dataset) => {
+    setActive(Number(dataset.value)); // 문자열로 저장된 값이므로 숫자로 변환
     const { value, name } = dataset;
     dispatchField({
       target: {
@@ -39,9 +43,9 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
           <div>사진 업로드하기</div>
           <RightArrowSvg width={8} height={16} />
         </RoundSpaceBetween>
-        <ShapeGrid onClick={onClick} />
+        <ShapeGrid onClick={onClick} active={active} />
       </form>
-      <FixedLoginBtn form={order} disabled={false}>
+      <FixedLoginBtn form={order} disabled={active === null}>
         <div>다음</div>
       </FixedLoginBtn>
     </>

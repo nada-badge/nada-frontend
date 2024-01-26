@@ -22,13 +22,10 @@ const GridContainer = styled.div`
     }
   }
 `;
-const ShapeGrid = ({ onClick }) => {
-  const [active, setActive] = useState();
-
+const ShapeGrid = ({ active, onClick }) => {
   const handleClick = (e) => {
     const { dataset } = e.currentTarget;
     onClick(dataset);
-    setActive(Number(dataset.value)); // 문자열로 저장된 값이므로 숫자로 변환
   };
 
   const array = Array.from({ length: 6 }, () => 0);
