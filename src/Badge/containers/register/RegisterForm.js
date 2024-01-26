@@ -49,7 +49,6 @@ const RegisterForm = () => {
   const PriviewBadge = lazy(() => import('./PreviewBadge'));
 
   const [order, setOrder] = useState(0);
-  const [preview, setPreview] = useState(false);
 
   const forms = [
     NameForm,
@@ -58,13 +57,13 @@ const RegisterForm = () => {
     TeamForm,
     ActivityForm,
     PeopleForm,
+    PriviewBadge,
   ];
   const Components = forms[order];
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (order === forms.length - 1) {
-      setPreview(true);
+    if (order === forms.length) {
     } else setOrder(order + 1);
   };
 
@@ -101,22 +100,16 @@ const RegisterForm = () => {
           <span>{forms.length}</span>
         </div>
       </TopContainer>
-      {order < forms.length - 1 && (
-        <CenterGrid>
-          <Suspense fallback={<div></div>}>
-            <Components
-              dispatchField={dispatchField}
-              onSubmit={onSubmit}
-              order={order}
-            />
-          </Suspense>
-        </CenterGrid>
-      )}
-      {preview && (
+
+      <CenterGrid>
         <Suspense fallback={<div></div>}>
-          <PriviewBadge />
+          <Components
+            dispatchField={dispatchField}
+            onSubmit={onSubmit}
+            order={order}
+          />
         </Suspense>
-      )}
+      </CenterGrid>
     </>
   );
 };

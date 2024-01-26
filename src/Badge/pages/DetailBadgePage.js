@@ -16,13 +16,15 @@ const DetailBadgePage = ({ isPreview }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      changeBarStatus({
-        headerState: 'back',
-        text: '뱃지',
-        isShowBottom: true,
-      }),
-    );
+    if (!isPreview) {
+      dispatch(
+        changeBarStatus({
+          headerState: 'back',
+          text: '뱃지',
+          isShowBottom: true,
+        }),
+      );
+    }
   });
 
   const badge_info = {
