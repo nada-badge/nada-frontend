@@ -1,7 +1,7 @@
 import ContentContainer from '../container/ContentContainer.js';
 import Thumbnail from '../container/Thumbnail.js';
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../Bar/modules/redux/bar.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
