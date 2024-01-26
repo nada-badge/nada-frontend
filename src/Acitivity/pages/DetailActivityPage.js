@@ -77,19 +77,19 @@ const DetailActivityPage = () => {
     const paragraphs = content.split('\\n');
     return paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>);
   };
-
+  console.log('data : ', data);
   return (
     <DetailContainer>
       {data && (
         <>
           <Thumbnail info={data} />
           <ContentContainer info={data} />
-          <img className="img" alt="" src={data.mainImageUrl} />
+
           <div>{ContentWithLineBreaks(data.content)}</div>
           {data.extraImageUrl.length !== 0 &&
-            data.extraImageUrl.map((el, index) => (
+            data.extraImageUrl.map((url, index) => (
               <>
-                <img key={index} className="img" alt="" src={el} />
+                <img key={index} className="img" alt="" src={url} />
               </>
             ))}
         </>
