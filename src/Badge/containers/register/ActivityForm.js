@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { addList } from '../../modules/redux/badge';
+import { useState, useEffect } from 'react';
 
 export const ButtonContainer = styled(ButtonList)`
   width: 100%;
@@ -25,6 +26,7 @@ export const ButtonContainer = styled(ButtonList)`
 `;
 
 const ActivityForm = ({ onSubmit, order, dispatchField }) => {
+  const [disabled, setDisabeld] = useState(false);
   const activities = useSelector(({ badge }) => badge.activities);
   const dispatch = useDispatch();
 
@@ -36,6 +38,19 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
       }),
     );
   };
+
+  // activities 속성 중에 하나라도 빈 값이 있으면, disabled=true
+  /*const hasEmptyValue = (arr) => {
+    return arr.some((obj) => Object.values(obj).some((value) => value === ''));
+  };
+
+  useEffect(() => {
+    if (hasEmptyValue) {
+      setDisabeld(true);
+    } else {
+      setDisabeld(false);
+    }
+  }, [activities]);*/
 
   return (
     <>
@@ -54,7 +69,7 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         <Cancel onClick={() => onClick()}>
           <div className="text">내역 추가하기</div>
         </Cancel>
-        <Act onClick={onSubmit}>
+        <Act onClick={onSubmit} className={disabled && 'disabled'}>
           <div className="text" style={{ color: 'white' }}>
             다음
           </div>
