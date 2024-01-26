@@ -52,12 +52,12 @@ const RegisterForm = () => {
   const [preview, setPreview] = useState(false);
 
   const forms = [
-    TeamForm,
-    PeopleForm,
     NameForm,
     ShapeForm,
     ExplainForm,
+    TeamForm,
     ActivityForm,
+    PeopleForm,
   ];
   const Components = forms[order];
 

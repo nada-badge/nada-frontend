@@ -3,6 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   name: '',
   explain: '',
+  shape: {
+    index: '',
+    src: '',
+  },
   activities: [
     {
       content: '',

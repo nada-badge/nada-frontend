@@ -21,6 +21,16 @@ export const FixedLoginBtn = styled(LoginBtn)`
 `;
 
 const ShapeForm = ({ onSubmit, order, dispatchField }) => {
+  const onClick = (dataset) => {
+    const { value, name } = dataset;
+    dispatchField({
+      target: {
+        name,
+        value: { index: value, src: '' },
+      },
+    });
+  };
+
   return (
     <>
       <TitleBox>뱃지 모양을 골라 주세요.</TitleBox>
@@ -29,7 +39,7 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
           <div>사진 업로드하기</div>
           <RightArrowSvg width={8} height={16} />
         </RoundSpaceBetween>
-        <ShapeGrid />
+        <ShapeGrid onClick={onClick} />
       </form>
       <FixedLoginBtn form={order} disabled={false}>
         <div>다음</div>
