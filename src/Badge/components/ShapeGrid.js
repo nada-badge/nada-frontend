@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 // 뱃지 모양 보여주는 그리드 컴포넌트
 import styled from 'styled-components';
 
@@ -15,20 +15,28 @@ const GridContainer = styled.div`
     aspect-ratio: 1/1;
     border-radius: 20px;
     background-color: var(--myspec-gray-scalegray-100, #f8f8f8);
+    box-sizing: border-box;
+
+    &.active {
+      border: 4px solid var(--myspec-primaryblue-1, #1363ff);
+    }
   }
 `;
 const ShapeGrid = ({ onClick }) => {
-  const { index: selected } = useSelector(({ badge }) => badge.shape);
+  const [active, setActive] = useState();
+
   const handleClick = (e) => {
     const { dataset } = e.currentTarget;
     onClick(dataset);
+    setActive(Number(dataset.value)); // 문자열로 저장된 값이므로 숫자로 변환
   };
+
   const array = Array.from({ length: 6 }, () => 0);
   return (
     <GridContainer>
       {array.map((el, index) => (
         <div
-          className={index === selected ? 'active' : ''}
+          className={index === active ? 'active' : ''}
           onClick={(e) => handleClick(e)}
           data-name={'shape'}
           key={index}
