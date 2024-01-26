@@ -36,11 +36,11 @@ const ContentContainer = ({ info }) => {
   const formatDate = (start, end) => {
     let startDate = new Date(start);
     let endDate = new Date(end);
-    return `${
+    return `${startDate.getFullYear()}년${
       startDate.getMonth() + 1
     }월 ${startDate.getDate()}일(${startDate.toLocaleDateString('ko-KR', {
       weekday: 'short',
-    })}) ~ ${
+    })}) ~ ${startDate.getFullYear()}년${
       endDate.getMonth() + 1
     }월 ${endDate.getDate()}일(${endDate.toLocaleDateString('ko-KR', {
       weekday: 'short',
