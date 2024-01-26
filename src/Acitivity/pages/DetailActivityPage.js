@@ -1,13 +1,14 @@
 import ContentContainer from '../container/ContentContainer.js';
 import Thumbnail from '../container/Thumbnail.js';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { changeBarStatus } from '../../Bar/modules/redux/bar.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useActivity } from '../modules/queries/useGetActivity.js';
 import { calculateDday } from '../modules/calculateDday.js';
 import { applyFontStyles } from '../../styles/fontStyle.js';
+import { Image } from '../container/Image.js';
 
 const DetailContainer = styled.div`
   background-color: var(--myspec-gray-scalegray-100);
@@ -77,21 +78,15 @@ const DetailActivityPage = () => {
     const paragraphs = content.split('\\n');
     return paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>);
   };
-  console.log('data : ', data);
+
   return (
     <DetailContainer>
       {data && (
         <>
           <Thumbnail info={data} />
           <ContentContainer info={data} />
-
+          {data.extraImageUrl.length !== 0 && <Image data={data} />}
           <div>{ContentWithLineBreaks(data.content)}</div>
-          {data.extraImageUrl.length !== 0 &&
-            data.extraImageUrl.map((url, index) => (
-              <>
-                <img key={index} className="img" alt="" src={url} />
-              </>
-            ))}
         </>
       )}
     </DetailContainer>
