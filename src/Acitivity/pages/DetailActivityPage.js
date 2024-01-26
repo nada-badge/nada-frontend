@@ -73,6 +73,11 @@ const DetailActivityPage = () => {
     );
   }, []);
 
+  const ContentWithLineBreaks = (content) => {
+    const paragraphs = content.split('\\n');
+    return paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>);
+  };
+
   return (
     <DetailContainer>
       {data && (
@@ -80,7 +85,7 @@ const DetailActivityPage = () => {
           <Thumbnail info={data} />
           <ContentContainer info={data} />
           <img className="img" alt="" src={data.mainImageUrl} />
-          <div>{data.context}</div>
+          <div>{ContentWithLineBreaks(data.content)}</div>
           {data.extraImageUrl.length !== 0 &&
             data.extraImageUrl.map((el, index) => (
               <>
