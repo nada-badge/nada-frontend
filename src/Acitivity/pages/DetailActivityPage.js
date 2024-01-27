@@ -86,7 +86,9 @@ const DetailActivityPage = () => {
           <Thumbnail info={data} />
           <ContentContainer info={data} />
           {data.extraImageUrl.length !== 0 && <Image data={data} />}
-          <div>{ContentWithLineBreaks(data.content)}</div>
+          <div style={{ padding: '0px 15px' }}>
+            {ContentWithLineBreaks(data.content)}
+          </div>
         </>
       )}
     </DetailContainer>
