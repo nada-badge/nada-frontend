@@ -10,14 +10,13 @@ import { PostDetailSelector } from '../../Community/modules/redux/postDetail';
 import { changeCommentField } from '../../Community/modules/redux/postDetail';
 
 export const MenuTypeConfig = (content) => {
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
   const dispatch = useDispatch();
   const modal = useSelector(({ modal }) => modal);
   const commentContent = useSelector(PostDetailSelector('Comment', 'content'));
   const { contentType, position } = modal;
   const navigate = useNavigate();
   const setButtonActive = useSetButtonActive();
-  const { closeModal } = useModal();
 
   const toReport = () => {
     openModal({
