@@ -30,6 +30,16 @@ const DetailContainer = styled.div`
 const DetailActivityPage = () => {
   const params = useParams();
   const { data } = useActivity({ _id: params._id });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      changeBarStatus({
+        headerState: 'backMenu',
+        text: '활동 정보',
+        isShowBottom: false,
+      }),
+    );
+  }, []);
 
   // '최근 본 활동'으로 등록하기
   useEffect(() => {
@@ -62,17 +72,6 @@ const DetailActivityPage = () => {
       );
     }
   }, [data]);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(
-      changeBarStatus({
-        headerState: 'back',
-        text: '활동 정보',
-        isShowBottom: true,
-      }),
-    );
-  }, []);
 
   const ContentWithLineBreaks = (content) => {
     const paragraphs = content.split('\\n');
