@@ -1,7 +1,8 @@
 /*Header 상단 바를 관리하고 출력함 */
 import React, { useState, useEffect, memo } from 'react';
 import { Top } from '../styles/Header';
-import { HeaderType, HeaderTypeConfig } from './HeaderType';
+import { HeaderType } from './HeaderType';
+import HeaderTypeConfig from './HeaderTypeConfig';
 import { barSelector } from '../modules/redux/bar';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
