@@ -8,10 +8,9 @@ import useDeleteImage from '../../../modules/queries/useDeleteImage';
 export const Image = ({ section, imgFiles, setImgFiles }) => {
   const { mutateAsync } = usePostImage();
   const { mutate } = useDeleteImage();
-
   const deleteImgFile = (img) => {
-    mutate({ imageUrl: img });
     setImgFiles((prevFiles) => prevFiles.filter((file) => file !== img));
+    mutate({ imageUrl: img });
   };
 
   const saveImgFile = async (e) => {

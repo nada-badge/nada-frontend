@@ -8,7 +8,7 @@ import Filter from '../../components/common/filter/Filter';
 import { GoToWriteButton } from '../../containers/common/GoToWriteButton';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { initializeAll } from '../../modules/redux/filter';
-import { initializeAll as initializeAllPostWrite } from '../modules/redux/postWrite';
+import { initializeAll as initializeAllPostWrite } from '../../modules/redux/postWrite';
 import { Border, Contents } from '../styles/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../Search/components/SearchInput';
