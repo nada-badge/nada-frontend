@@ -3,6 +3,7 @@ import Thumbnail from '../container/Thumbnail.js';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { changeBarStatus } from '../../Bar/modules/redux/bar.js';
+import { changePostDataField } from '../../modules/redux/postData.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useActivity } from '../modules/queries/useGetActivity.js';
@@ -37,6 +38,7 @@ const DetailActivityPage = () => {
         headerState: 'backMenu',
         text: '활동 정보',
         isShowBottom: false,
+        position: 'activity',
       }),
     );
   }, []);
@@ -71,6 +73,8 @@ const DetailActivityPage = () => {
         JSON.stringify([...recentActivitiesMap]),
       );
     }
+
+    dispatch(changePostDataField({ value: data }));
   }, [data]);
 
   const ContentWithLineBreaks = (content) => {
