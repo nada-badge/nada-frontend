@@ -13,12 +13,12 @@ import {
 
 export const MenuTypeConfig = (content) => {
   const { openModal, closeModal } = useModal();
-  const dispatch = useDispatch();
-  const modal = useSelector(({ modal }) => modal);
-  const commentContent = useSelector(commentSelector('content'));
-  const { contentType, position } = modal;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const setButtonActive = useSetButtonActive();
+  const modal = useSelector(({ modal }) => modal);
+  const { contentType, position } = modal;
+  const commentContent = useSelector(commentSelector('content'));
 
   const toReport = () => {
     openModal({
@@ -51,6 +51,10 @@ export const MenuTypeConfig = (content) => {
   };
 
   const toUpdate = () => {
+    if (position === 'activity') {
+      setButtonActive();
+      navigate('/activity/ActWrite');
+    }
     if (position === 'post') {
       setButtonActive();
       navigate('/community/PostWrite');
