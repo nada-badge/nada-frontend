@@ -3,13 +3,15 @@ import React, { useState, useEffect, memo } from 'react';
 import { Top } from '../styles/Header';
 import { HeaderType } from './HeaderType';
 import HeaderTypeConfig from './HeaderTypeConfig';
-import { barSelector } from '../modules/redux/bar';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const pageStatus = useSelector(barSelector('headerStatus', 'headerState'));
-  const pageNameStatus = useSelector(barSelector('headerStatus', 'text'));
-  const position = useSelector(barSelector('headerStatus', 'position'));
+  const bar = useSelector(({ bar }) => bar);
+  const {
+    headerState: pageStatus,
+    text: pageNameStatus,
+    position,
+  } = bar.headerStatus;
   const [activeHeaders, setActiveHeaders] = useState();
   //현재 상단값의 요소 존재여부값
   const [CurrentStatus, setCurrentStatus] = useState([
