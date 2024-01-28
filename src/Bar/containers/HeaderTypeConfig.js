@@ -6,25 +6,26 @@ import { Overlap, Img, Textwrapper } from '../styles/Header';
 const HeaderTypeConfig = ({ status, pageNameStatus, position }) => {
   const navigate = useNavigate();
   const { openModal } = useModal();
-  // const openMenu = () => {
-  //   openModal({
-  //     type: 'MenuModal',
-  //     contentType: '글',
-  //     content: ['Copy', 'Update', 'Delete', 'Report'],
-  //     position: position,
-  //   });
-  // };
+
+  const openMenu = () => {
+    openModal({
+      type: 'MenuModal',
+      contentType: '글',
+      content: ['Copy', 'Update', 'Delete', 'Report'],
+      position: position,
+    });
+  };
 
   const Config = {
     Texts: <Textwrapper>{pageNameStatus}</Textwrapper>,
     Back: (
       <Overlap>
-        <Img onClick={() => navigate(-1)} className="Back" />
+        <Img className="Back" onClick={() => navigate(-1)} />
       </Overlap>
     ),
     Menu: (
       <Overlap>
-        <Img className="Menu" />
+        <Img className="Menu" onClick={() => openMenu()} />
       </Overlap>
     ),
     Bell: (
