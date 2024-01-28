@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import useModal from '../../Modal/modules/useModal';
 import { Overlap, Img, Textwrapper } from '../styles/Header';
 
 //각 요소에 대한 구현
-const HeaderTypeConfig = (navigate, status, pageNameStatus, position) => {
+const HeaderTypeConfig = ({ status, pageNameStatus, position }) => {
+  const navigate = useNavigate();
   const { openModal } = useModal();
   // const openMenu = () => {
   //   openModal({
@@ -49,7 +51,7 @@ const HeaderTypeConfig = (navigate, status, pageNameStatus, position) => {
     ),
   };
 
-  return Config[status.status];
+  return Config[status];
 };
 
 export default HeaderTypeConfig;
