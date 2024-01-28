@@ -23,13 +23,10 @@ const commentSlice = createSlice({
       state.comment[form] = value;
     },
     initializeForm: (state) => {
-      state.comment.position = initialState.comment.position;
-      state.comment.comment_id = initialState.comment.comment_id;
-      state.comment.reply_id = initialState.comment.reply_id;
-      state.comment.userName = initialState.comment.userName;
-      state.comment.content = initialState.comment.content;
-      state.comment.isReplying = initialState.comment.isReplying;
-      state.comment.isUpdating = initialState.comment.isUpdating;
+      state.comment = {
+        ...initialState.comment,
+        post_id: state.comment.post_id,
+      };
     },
   },
 });
