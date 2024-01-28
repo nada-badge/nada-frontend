@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import useModal from '../../../Modal/modules/useModal';
 import { Filter, Img } from '../../styles/FilterModalStyle';
-import { postWriteSelector } from '../../modules/redux/postWrite';
+import { postWriteSelector } from '../../../modules/redux/postWrite';
 
 export const MainCategoryButton = () => {
   const text = useSelector(

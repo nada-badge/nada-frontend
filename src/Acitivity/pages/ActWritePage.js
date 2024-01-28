@@ -15,7 +15,7 @@ import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import {
   initializeAll,
   postWriteSelector,
-} from '../../Community/modules/redux/postWrite';
+} from '../../modules/redux/postWrite';
 import usePostActivity from '../modules/queries/usePostActivity';
 import usePatchActivity from '../modules/queries/usePatchActivity';
 

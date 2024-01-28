@@ -1,15 +1,24 @@
-/** ModalButtonDiv 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
+/** BottomButton 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
 import useModal from '../../modules/useModal';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
+export const BottomButton = ({
+  cancelText,
+  cancelAct,
+  actText,
+  act,
+  isRed,
+}) => {
   const { closeModal } = useModal();
 
   return (
     <ButtonList>
-      <Cancel onClick={() => closeModal()} $isColor={Boolean(cancelText)}>
+      <Cancel
+        onClick={() => (cancelAct ? cancelAct() : closeModal())}
+        $isColor={Boolean(cancelText)}
+      >
         <div className="text">{cancelText || '취소'}</div>
       </Cancel>
       {actText && (
@@ -21,7 +30,7 @@ export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
   );
 };
 
-export default ModalButtonDiv;
+export default BottomButton;
 
 export const ButtonList = styled.div`
   align-items: flex-start;
