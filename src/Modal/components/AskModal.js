@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux';
 import useModal from '../modules/useModal';
 import BottomButton from './usedInModal/BottomButton';
 import { Layout } from '../../Community/styles/NoticeModalStyle';
-import getBasicUrl from '../../modules/common/getBasicUrl';
+import getDataForApi from '../../modules/common/getDataForApi';
 import useDeleteId from '../../modules/queries/useDeleteId';
-import getReportUrl from '../../modules/common/getReportUrl';
 import useReportId from '../../modules/queries/useReportId';
 import { Toast } from '../../components/common/Toast';
 
@@ -21,14 +20,19 @@ const AskModal = () => {
 
   const useAct = () => {
     if (actionType === '삭제') {
-      const config = getBasicUrl({ position, postData, comment });
+      const config = getDataForApi({ position, postData, comment });
       toDelete({
         url: config.url,
         _id: config.idData,
       });
     }
     if (actionType === '신고') {
-      const config = getReportUrl({ position, postData, comment });
+      const config = getDataForApi({
+        position,
+        postData,
+        comment,
+        isReport: true,
+      });
       report({
         url: config.url,
         _id: config.idData,
