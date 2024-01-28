@@ -18,11 +18,10 @@ const AskModal = () => {
   const { title, contentType, actionType, content, position } = modal;
   const postData = useSelector(({ postData }) => postData.postData);
   const comment = useSelector(({ comment }) => comment.comment);
-  const activity = useSelector(({ activity }) => activity.activities);
 
   const useAct = () => {
     if (actionType === '삭제') {
-      const config = getBasicUrl({ position, postData, comment, activity });
+      const config = getBasicUrl({ position, postData, comment });
       toDelete({
         url: config.url,
         _id: config.idData,

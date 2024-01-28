@@ -10,7 +10,6 @@ const Header = () => {
   const pageStatus = useSelector(barSelector('headerStatus', 'headerState'));
   const pageNameStatus = useSelector(barSelector('headerStatus', 'text'));
   const position = useSelector(barSelector('headerStatus', 'position'));
-
   const [activeHeaders, setActiveHeaders] = useState();
   //현재 상단값의 요소 존재여부값
   const [CurrentStatus, setCurrentStatus] = useState([
