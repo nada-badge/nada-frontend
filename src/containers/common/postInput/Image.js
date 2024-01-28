@@ -39,6 +39,7 @@ export const Image = ({ section, imgFiles, setImgFiles }) => {
       {imgFiles.map((imgFile, index) => (
         <PreViewImg key={index} imgurl={imgFile}>
           <div className="img" />
+          <div className="gradient" />
           <div className="xImg" onClick={() => deleteImgFile(imgFile)}>
             <X color="#888888" size={12} bold={1.01} />
           </div>

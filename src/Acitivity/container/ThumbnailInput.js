@@ -24,6 +24,7 @@ export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
       {thumbnail ? (
         <NullImage imgurl={thumbnail}>
           <div className="img" />
+          <div className="gradient" />
           <div className="xImg" onClick={deleteImgFile}>
             <X color="#FFFFFF" size={14} bold={2} />
           </div>
@@ -62,6 +63,13 @@ const NullImage = styled.div`
     background-size: cover;
     background-position: center;
     background-image: ${({ imgurl }) => `url('${imgurl}')`};
+  }
+  & > .gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background: linear-gradient(180deg, #000000a9 0%, transparent 100%);
   }
   & > .xImg {
     position: absolute;

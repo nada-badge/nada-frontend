@@ -180,9 +180,17 @@ export const PreViewImg = styled.div`
     background-size: cover;
     background-image: ${({ imgurl }) => `url('${imgurl}')`};
   }
+  & > .gradient {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    top: 0px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #000000a9 0%, transparent 100%);
+  }
   & > .xImg {
     position: absolute;
     left: 53px;
     top: 2px;
-  }
+  }gradient
 `;
