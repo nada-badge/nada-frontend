@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../modules/redux/bar';
+import { AlarmHeader } from '../containers/AlarmHeader';
 
 const AlarmPage = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,14 @@ const AlarmPage = () => {
       }),
     );
   }, []);
+
+  return (
+    <>
+      <div className="pageContainer">
+        <AlarmHeader />
+      </div>
+    </>
+  );
 };
 
 export default AlarmPage;
