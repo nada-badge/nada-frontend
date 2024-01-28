@@ -28,7 +28,7 @@ export const RecommendList = ({ activities }) => {
       </div>
       <List
         height={250}
-        itemCount={activities.length + 1}
+        itemCount={activities.length}
         itemSize={182}
         layout="horizontal"
         width={375}

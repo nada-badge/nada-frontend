@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
-import { useActivityList } from '../../Acitivity/modules/queries/useGetActivity';
+import { useRecommendActivities } from '../../Acitivity/modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
 import { RecommendList } from '../components/RecommendList';
 import { useGetTopPost } from '../../Community/modules/queries/useGetCommunity';
@@ -17,7 +17,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   // 활동글 불러오기
-  const { data: activityData } = useActivityList();
+  const { data: activityData } = useRecommendActivities();
+  console.log(activityData);
 
   // 인기글 불러오기
   const { data: postData } = useGetTopPost();
