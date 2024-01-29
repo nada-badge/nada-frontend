@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { applyFontStyles } from '../../styles/fontStyle';
+import { AngleBracket } from '../../icon/AngleBracket';
 
 const ManageHome = () => {
   const dispatch = useDispatch();
@@ -19,12 +22,49 @@ const ManageHome = () => {
   }, []);
 
   return (
-    <div>
-      <div>관리자 홈 화면 입니다.</div>
-      <Link to="/manage/Activity">등록되어있는 활동 게시판</Link>
-      <hr />
-    </div>
+    <>
+      <div className="pageContainer">
+        <List>
+          <div className="title">관리자님 안녕하세요!</div>
+          <Link to="/manage/Activity" className="activity">
+            활동 관리하기
+            <AngleBracket Direction={'right'} />
+          </Link>
+        </List>
+      </div>
+    </>
   );
 };
 
 export default ManageHome;
+
+export const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 500px;
+
+  & > .title {
+    padding: 12px 15px;
+    ${applyFontStyles({
+      font: 'title-01',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
+  }
+
+  & > .activity {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: none;
+    gap: 11px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--myspec-gray-scalegray-200);
+
+    ${applyFontStyles({
+      font: 'title-02',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
+  }
+`;
