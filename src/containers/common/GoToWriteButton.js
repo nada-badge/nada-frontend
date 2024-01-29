@@ -8,7 +8,6 @@ import { initializeForm } from '../../modules/redux/postData';
 export const GoToWriteButton = ({ isActivity = false }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const toPostWrite = () => {
     dispatch(initializeForm());
     dispatch(changeField({ form: 'method', key: 'isSubmit', value: true }));

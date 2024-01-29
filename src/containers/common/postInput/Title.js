@@ -8,7 +8,7 @@ export const Title = ({ name, onChange, inputValue }) => {
         className="div"
         name={name}
         onChange={onChange}
-        value={inputValue.title}
+        value={inputValue}
         placeholder="제목을 입력하세요"
         required
       />
