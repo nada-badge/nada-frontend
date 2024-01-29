@@ -1,4 +1,4 @@
-/** AlarmHeader 글작성 페이지에 Title을 출력하는 컨테이너  */
+/** AlarmHeader 알람 페이지에 상단바를 출력하는 컨테이너  */
 import { styled } from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 
