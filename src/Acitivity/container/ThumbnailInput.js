@@ -1,3 +1,4 @@
+/** ThumbnailInput 게시글의 썸네일 이미지 input을 관리하는 컨테이너 */
 import styled from 'styled-components';
 import usePostImage from '../../modules/queries/usePostImage';
 import useDeleteImage from '../../modules/queries/useDeleteImage';
@@ -8,11 +9,13 @@ export const ThumbnailInput = ({ thumbnail, setThumbnail }) => {
   const { mutateAsync } = usePostImage();
   const { mutate } = useDeleteImage();
 
+  //x 클릭 시 이미지 삭제
   const deleteImgFile = () => {
     mutate({ imageUrl: thumbnail });
     setThumbnail();
   };
 
+  //선택된 이미지를 백엔드에 upload하고 반환된 path값을 thumbnail 저장
   const saveImgFile = async (e) => {
     const files = Array.from(e.target.files);
     const result = await mutateAsync({ section: 'activity', files: files });
