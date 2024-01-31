@@ -1,6 +1,7 @@
 /** CommunityPage 커뮤니티 메인 페이지 */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import CardList from '../../components/cardList/CardList';
 import PostList from '../../components/common/postList/PostList';
 import Category from '../containers/Category';
@@ -17,6 +18,8 @@ import '../../styles/PageCommon.scss';
 
 const Community = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const community_cards = [
     { id: 1, title: '유용한 활동 사이트', category: '자유' },
     { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
@@ -42,10 +45,15 @@ const Community = () => {
   // 서버에서 가져온 query 결과 가져오기
   const result = useGetPostList({ filter: filter });
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/activity/search');
+  };
+
   return (
     <>
       <div className="pageContainer">
-        <SearchInput />
+        <SearchInput onSubmit={onSubmit} />
         <CardList
           title={'지금 인기 있는 게시글이에요🔥'}
           title_font={'subtitle-01'}
