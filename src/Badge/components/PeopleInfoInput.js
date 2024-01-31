@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import IssueListInputItem from './IssueListInputItem';
 import { ButtonContainer } from '../containers/register/ActivityForm';
-import { Cancel, Act } from '../../Modal/components/usedInModal/ModalButtonDiv';
+import { Cancel, Act } from '../../Modal/components/usedInModal/BottomButton';
 import { addList } from '../modules/redux/badge';
 
 const PeopleInfoInput = ({ onSubmit }) => {
