@@ -15,6 +15,7 @@ import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../Search/components/SearchInput';
 import { useGetPostList } from '../modules/queries/useGetCommunity';
 import '../../styles/PageCommon.scss';
+import { changeField } from '../../Search/modules/redux/search';
 
 const Community = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,12 @@ const Community = () => {
         headerState: 'bell',
         text: '커뮤니티',
         isShowBottom: true,
+      }),
+    );
+    dispatch(
+      changeField({
+        key: 'position',
+        value: 'community',
       }),
     );
     return () => {

@@ -12,6 +12,7 @@ import { useActivityList } from '../modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
 import AcitivityList from '../container/AcitivityList';
 import { GoToWriteButton } from '../../containers/common/GoToWriteButton';
+import { changeField } from '../../Search/modules/redux/search';
 
 const ActivityPage = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,12 @@ const ActivityPage = () => {
         headerState: 'bell',
         text: '활동',
         isShowBottom: true,
+      }),
+    );
+    dispatch(
+      changeField({
+        key: 'position',
+        value: 'community',
       }),
     );
   }, []);
