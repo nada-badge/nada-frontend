@@ -26,8 +26,16 @@ const ManageHome = () => {
       <div className="pageContainer">
         <List>
           <div className="title">관리자님 안녕하세요!</div>
-          <Link to="/manage/Activity" className="activity">
-            활동 관리하기
+          <Link to="/manage/Activity" className="link">
+            활동 게시글 관리하기
+            <AngleBracket Direction={'right'} />
+          </Link>
+          <Link to="/manage/Activity" className="link">
+            활동 신고글 확인하기
+            <AngleBracket Direction={'right'} />
+          </Link>
+          <Link to="/manage/Activity" className="link">
+            커뮤니티 신고글 확인하기
             <AngleBracket Direction={'right'} />
           </Link>
         </List>
@@ -52,7 +60,7 @@ export const List = styled.div`
     })};
   }
 
-  & > .activity {
+  & > .link {
     padding: 12px 15px;
     display: flex;
     align-items: center;
