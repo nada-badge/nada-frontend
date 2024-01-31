@@ -3,11 +3,26 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   name: '',
   explain: '',
+  shape: {
+    index: '',
+    src: '',
+  },
   activities: [
     {
       content: '',
       started: '',
       ended: '',
+    },
+  ],
+  teams: [],
+  issueList: [
+    {
+      name: '',
+      role: '',
+      birth: '',
+      email: '',
+      number: '',
+      team: '',
     },
   ],
 };
@@ -22,16 +37,23 @@ const badgeSlice = createSlice({
     initialized: () => {
       return initialState;
     },
-    addActivities: (state, { payload: value }) => {
-      state.activities = [...state.activities, value];
+
+    // add, delete
+    addList: (state, { payload: { type, value } }) => {
+      state[type] = [...state[type], value];
     },
-    deleteActivities: (state, { payload: index }) => {
-      state.activities = state.activities.filter((_, i) => i !== index);
+    deleteList: (state, { payload: { type, index } }) => {
+      state[type] = state[type].filter((_, i) => i !== index);
     },
-    changeActivities: (state, { payload: { index, name, value } }) => {
-      if (state.activities[index]) {
-        state.activities[index][name] = value;
+
+    // change
+    changeIndexField: (state, { payload: { type, index, name, value } }) => {
+      if (state[type][index]) {
+        state[type][index][name] = value;
       }
+    },
+    changeTeam: (state, { payload: { index, value } }) => {
+      state.teams[index] = value;
     },
   },
 });
@@ -40,7 +62,9 @@ export default badgeSlice;
 export const {
   changeField,
   initialized,
-  addActivities,
-  deleteActivities,
-  changeActivities,
+  addList,
+  deleteList,
+  changeIndexField,
+  addTeam,
+  changeTeam,
 } = badgeSlice.actions;

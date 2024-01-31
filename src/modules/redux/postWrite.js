@@ -46,6 +46,8 @@ const postWriteSlice = createSlice({
       state.postWriteSubmit.region = value.region;
       state.postWriteSubmit.field = value.field;
       state.postWriteSubmit.category = value.category;
+      state.postWriteSubmit.startedAt = value.startedAt;
+      state.postWriteSubmit.endedAt = value.endedAt;
     },
     addField: (state, { payload: { form, key, value } }) => {
       state[form][key].push(value);

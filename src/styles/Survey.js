@@ -145,7 +145,7 @@ export const TitleBox = styled.h1`
   font-family: 'Pretendard-Bold', Helvetica;
   font-size: 24px;
   font-weight: 700;
-  height: 72px;
+  height: fit-content;
   letter-spacing: 0;
   line-height: 36px;
   margin: 0;
@@ -164,13 +164,28 @@ export const Explain = styled.div`
 export const CenterGrid = styled.div`
   display: grid;
   grid-auto-columns: 1fr;
+  grid-template-rows: min-content 1fr 115px;
   justify-content: space-between;
   width: 375px;
-  height: calc(100vh - 88px); // 상단바
+  height: calc(100vh - (88px + 79px)); // 상단바 + ( 뒤로가기 , indicator 높이)
   margin: 0px auto;
   gap: 24px;
   text-align: left;
   padding-left: 16px;
   padding-right: 16px;
   box-sizing: border-box;
+`;
+
+export const TextWithSvg = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  ${applyFontStyles({ font: 'subtitle-01' })}
+  padding: 13px;
+  border-radius: 20px;
+  background: var(--myspec-gray-scalegray-100, #f8f8f8);
+  box-sizing: border-box;
+  height: fit-content;
 `;

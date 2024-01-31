@@ -21,6 +21,7 @@ const SearchPage = () => {
     padding: '7px 15px',
   };
 
+  // 상단바
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const SearchPage = () => {
     );
   }, []);
 
+  // redux에서 조회한 값 (redux > search > focus, text)
   const { text, focus } = useSelector(searchSelector);
   const [input, setInput] = useState(text);
 
@@ -42,6 +44,7 @@ const SearchPage = () => {
     value: input,
   });
 
+  // 검색 버튼 누르면, input 상태 변경하기
   const onSubmit = (e) => {
     e.preventDefault();
     setInput(text);

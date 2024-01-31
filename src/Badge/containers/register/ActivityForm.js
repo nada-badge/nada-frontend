@@ -9,9 +9,10 @@ import {
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { addActivities } from '../../modules/redux/badge';
+import { addList } from '../../modules/redux/badge';
+import { useState, useEffect } from 'react';
 
-const ButtonContainer = styled(ButtonList)`
+export const ButtonContainer = styled(ButtonList)`
   width: 100%;
   align-items: end;
   bottom: 50px;
@@ -25,12 +26,31 @@ const ButtonContainer = styled(ButtonList)`
 `;
 
 const ActivityForm = ({ onSubmit, order, dispatchField }) => {
+  const [disabled, setDisabeld] = useState(false);
   const activities = useSelector(({ badge }) => badge.activities);
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(addActivities({ content: '', started: '', end: '' }));
+    dispatch(
+      addList({
+        type: 'activities',
+        value: { content: '', started: '', end: '' },
+      }),
+    );
   };
+
+  // activities 속성 중에 하나라도 빈 값이 있으면, disabled=true
+  /*const hasEmptyValue = (arr) => {
+    return arr.some((obj) => Object.values(obj).some((value) => value === ''));
+  };
+
+  useEffect(() => {
+    if (hasEmptyValue) {
+      setDisabeld(true);
+    } else {
+      setDisabeld(false);
+    }
+  }, [activities]);*/
 
   return (
     <>
@@ -38,18 +58,18 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
         거의 다 왔어요 <br />
         활동 내역을 추가해 주세요
       </TitleBox>
-      <form onSubmit={onSubmit} id={order} style={{ overflowY: 'scroll' }}>
-        <div>
+      <div style={{ overflowY: 'scroll' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {activities.map((el, index) => (
             <ActivityInputItem key={index} content={el} index={index} />
           ))}
         </div>
-      </form>
+      </div>
       <ButtonContainer>
         <Cancel onClick={() => onClick()}>
           <div className="text">내역 추가하기</div>
         </Cancel>
-        <Act>
+        <Act onClick={onSubmit} className={disabled && 'disabled'}>
           <div className="text" style={{ color: 'white' }}>
             다음
           </div>
