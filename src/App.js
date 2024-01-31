@@ -10,8 +10,8 @@ import LogInSelect from './Auth/pages/LoginSelect';
 import HomePage from './Manage/pages/HomePage.';
 import AlarmPage from './Bar/pages/AlarmPage';
 
-import ActivityListPage from './Manage/pages/ActivityListPage.';
-import CommunityReport from './Manage/pages/CommunityReport';
+import ActivityManagePage from './Manage/pages/ActivityManagePage';
+import CommunityManagePage from './Manage/pages/CommunityManagePage';
 
 import Home from './Home/page/Home';
 import CalendarPage from './Calendar/pages/CalendarPage';
@@ -59,8 +59,11 @@ const App = () => {
         <Route path="/myPage" element={<MyPage />} />
 
         <Route path="/manage" element={<HomePage />} />
-        <Route path="/manage/activity" element={<ActivityListPage />} />
-        <Route path="/manage/community/report" element={<CommunityReport />} />
+        <Route path="/manage/activity" element={<ActivityManagePage />} />
+        <Route
+          path="/manage/community/report"
+          element={<CommunityManagePage />}
+        />
 
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
