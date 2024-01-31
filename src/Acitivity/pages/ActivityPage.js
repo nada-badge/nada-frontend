@@ -49,7 +49,7 @@ const ActivityPage = () => {
   const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
-    navigate('/activity/search');
+    navigate('/search');
   };
 
   return (

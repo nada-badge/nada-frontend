@@ -47,7 +47,7 @@ const Community = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    navigate('/activity/search');
+    navigate('/search');
   };
 
   return (
