@@ -8,7 +8,7 @@ import { AlignBox } from '../../Badge/components/AlignBox';
 import { useSearch } from '../../modules/queries/useSearch';
 import { searchSelector } from '../../Search/modules/redux/search';
 
-const SearchActivityPage = () => {
+const SearchPage = () => {
   const ContainerStyle = {
     display: ' flex',
     justifyContent: 'center',
@@ -59,4 +59,4 @@ const SearchActivityPage = () => {
   );
 };
 
-export default SearchActivityPage;
+export default SearchPage;
