@@ -18,6 +18,26 @@ export const useSearchActivity = ({ focus, value }) => {
         return data.result;
       }
     },
+    select: (data) =>
+      (data || []).map(
+        ({
+          _id,
+          activityName,
+          mainImageUrl,
+          region,
+          field,
+          category,
+          content,
+        }) => ({
+          _id,
+          title: activityName,
+          imageUrl: mainImageUrl,
+          region,
+          field,
+          category,
+          content,
+        }),
+      ),
   });
 };
 
