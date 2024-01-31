@@ -34,16 +34,17 @@ export const useActivityList = () => {
       const { data } = await client.get('/activity/list', {
         params,
       });
+      console.log(data);
       return data;
     },
     staleTime: 90000,
     select: (data) =>
       (data.activities || []).map(
-        ({ _id, activityName, endedAt, imageUrl }) => ({
+        ({ _id, activityName, endedAt, mainImageUrl }) => ({
           _id: _id,
           activityName: activityName,
           Dday: calculateDday(endedAt),
-          imageUrl: imageUrl,
+          mainImageUrl,
         }),
       ),
     onError: (error) => {

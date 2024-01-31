@@ -29,13 +29,27 @@ const InputInfo = styled.div`
 
 const ActWritePage = () => {
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState({});
-  const [mainImageUrl, setMainImageUrl] = useState();
-  const [extraImageUrl, setExtraImageUrl] = useState([]);
+  const { mutate: post } = usePostActivity();
+  const { mutate: update } = usePatchActivity();
+
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
+  const postData = useSelector(({ postData }) => postData.postData).data;
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
-  const { mutate } = usePostActivity();
-  const updateMutate = usePatchActivity().mutate;
+
+  const [inputValue, setInputValue] = useState({
+    activityName: postData.activityName || '',
+    content: postData.content || '',
+    institute: postData.institute || '',
+    instituteURL: postData.instituteURL || '',
+    area: postData.area || '',
+  });
+
+  const [mainImageUrl, setMainImageUrl] = useState(
+    postData.mainImageUrl ? postData.mainImageUrl : '',
+  );
+  const [extraImageUrl, setExtraImageUrl] = useState(
+    postData.extraImageUrl ? postData.extraImageUrl : [],
+  );
   const { startedAt, endedAt } = postwrite;
 
   useEffect(() => {
@@ -81,7 +95,7 @@ const ActWritePage = () => {
     };
 
     dispatch(initializeAll());
-    isSubmit ? mutate(data) : updateMutate(data);
+    isSubmit ? post(data) : update(data);
   };
 
   return (
@@ -96,7 +110,7 @@ const ActWritePage = () => {
         <Title
           name="activityName"
           onChange={onChange}
-          inputValue={inputValue}
+          inputValue={inputValue.activityName}
         />
         <FilterBar type={'activity'} />
       </div>
@@ -113,7 +127,6 @@ const ActWritePage = () => {
         setImgFiles={setExtraImageUrl}
       />
       <Content onChange={onChange} inputValue={inputValue} />
-      <button type="submit">테스트 Submit</button>
     </form>
   );
 };

@@ -1,17 +1,17 @@
 /*Header 상단 바를 관리하고 출력함 */
 import React, { useState, useEffect, memo } from 'react';
 import { Top } from '../styles/Header';
-import { HeaderType, HeaderTypeConfig } from './HeaderType';
-import { barSelector } from '../modules/redux/bar';
+import { HeaderType } from './HeaderType';
+import HeaderTypeConfig from './HeaderTypeConfig';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const pageStatus = useSelector(barSelector('headerStatus', 'headerState'));
-  const pageNameStatus = useSelector(barSelector('headerStatus', 'text'));
-  const position = useSelector(barSelector('headerStatus', 'position'));
-
-  const navigate = useNavigate();
+  const bar = useSelector(({ bar }) => bar);
+  const {
+    headerState: pageStatus,
+    text: pageNameStatus,
+    position,
+  } = bar.headerStatus;
   const [activeHeaders, setActiveHeaders] = useState();
   //현재 상단값의 요소 존재여부값
   const [CurrentStatus, setCurrentStatus] = useState([
@@ -44,12 +44,11 @@ const Header = () => {
     setActiveHeaders(
       CurrentStatus.filter((item) => item.state).map((item) => (
         <React.Fragment key={item.id}>
-          {HeaderTypeConfig(
-            navigate,
-            { status: item.id },
-            pageNameStatus,
-            position,
-          )}
+          <HeaderTypeConfig
+            status={item.id}
+            pageNameStatus={pageNameStatus}
+            position={position}
+          />
         </React.Fragment>
       )),
     );

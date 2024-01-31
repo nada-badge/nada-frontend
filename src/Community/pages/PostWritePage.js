@@ -89,7 +89,7 @@ const PostWrite = () => {
       onSubmit={onSubmit}
       encType="multipart/form-data"
     >
-      <Title name="title" onChange={onChange} inputValue={inputValue} />
+      <Title name="title" onChange={onChange} inputValue={inputValue.title} />
       <div>
         <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />

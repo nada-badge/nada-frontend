@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Bar } from '../../styles/CommentBarStyle';
 import usePostComment from '../../modules/queries/usePostComment';
 import usePatchComment from '../../modules/queries/usePatchComment';
-import getBasicUrl from '../../../modules/common/getBasicUrl';
+import getDataForApi from '../../../modules/common/getDataForApi';
 import NoticeBar from './NoticeBar';
 import { InputBar } from '../../styles/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
@@ -32,7 +32,7 @@ export const BottomBar = () => {
   }, [isUpdating]);
 
   const sendComment = () => {
-    const { url, idData } = getBasicUrl({
+    const { url, idData } = getDataForApi({
       position: position,
       comment: comment,
     });
