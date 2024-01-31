@@ -10,6 +10,7 @@ import LogInSelect from './Auth/pages/LoginSelect';
 import HomePage from './Manage/pages/HomePage.';
 
 import ActivityListPage from './Manage/pages/ActivityListPage.';
+import CommunityReport from './Manage/pages/CommunityReport';
 
 import Home from './Home/page/Home';
 import CalendarPage from './Calendar/pages/CalendarPage';
@@ -56,8 +57,8 @@ const App = () => {
         <Route path="/myPage" element={<MyPage />} />
 
         <Route path="/manage" element={<HomePage />} />
-
-        <Route path="/manage/Activity" element={<ActivityListPage />} />
+        <Route path="/manage/activity" element={<ActivityListPage />} />
+        <Route path="/manage/community/report" element={<CommunityReport />} />
 
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
