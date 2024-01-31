@@ -26,9 +26,9 @@ const SearchPage = () => {
   useEffect(() => {
     dispatch(
       changeBarStatus({
-        headerState: 'bell',
-        text: '활동',
-        isShowBottom: true,
+        headerState: 'back',
+        text: '검색',
+        isShowBottom: false,
       }),
     );
   }, []);
