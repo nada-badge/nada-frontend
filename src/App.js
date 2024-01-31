@@ -10,8 +10,6 @@ import LogInSelect from './Auth/pages/LoginSelect';
 import HomePage from './Manage/pages/HomePage.';
 import AlarmPage from './Bar/pages/AlarmPage';
 
-import ActivityDetailPage from './Manage/pages/ActivityDetailPage';
-import ActivityWritePage from './Manage/pages/ActivityWritePage.';
 import ActivityListPage from './Manage/pages/ActivityListPage.';
 import CommunityReport from './Manage/pages/CommunityReport';
 
