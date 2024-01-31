@@ -7,7 +7,7 @@ import { ButtonContainer } from './ActivityForm';
 import {
   Cancel,
   Act,
-} from '../../../Modal/components/usedInModal/ModalButtonDiv';
+} from '../../../Modal/components/usedInModal/BottomButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { addList, changeTeam, deleteList } from '../../modules/redux/badge';
 import InputBoxWithX from '../../components/InputBoxWithX';
