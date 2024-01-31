@@ -5,7 +5,7 @@ import {
   ButtonList,
   Cancel,
   Act,
-} from '../../../Modal/components/usedInModal/ModalButtonDiv';
+} from '../../../Modal/components/usedInModal/BottomButton';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
