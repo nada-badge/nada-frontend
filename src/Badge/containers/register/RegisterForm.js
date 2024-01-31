@@ -5,6 +5,7 @@ import { changeField } from '../../modules/redux/badge';
 import { changeBarStatus } from '../../../Bar/modules/redux/bar';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
+import { CenterGrid } from '../../../styles/Survey';
 
 const TopContainer = styled.div`
   display: flex;
@@ -14,6 +15,10 @@ const TopContainer = styled.div`
     color: 'var(--myspec-gray-scalegray-600)',
   })}
   height: fit-content;
+  width: 375px;
+  padding: 19px 16px 32px 16px;
+  margin: 0 auto;
+  box-sizing: border-box;
 
   & > .indicator {
     padding: 2px 12px;
@@ -39,15 +44,26 @@ const RegisterForm = () => {
   const ShapeForm = lazy(() => import('./ShapeForm'));
   const ExplainForm = lazy(() => import('./ExplainForm'));
   const ActivityForm = lazy(() => import('./ActivityForm'));
+  const TeamForm = lazy(() => import('./TeamForm'));
+  const PeopleForm = lazy(() => import('./PeopleForm'));
+  const PriviewBadge = lazy(() => import('./PreviewBadge'));
 
   const [order, setOrder] = useState(0);
-  const forms = [NameForm, ShapeForm, ExplainForm, ActivityForm];
+
+  const forms = [
+    NameForm,
+    ShapeForm,
+    ExplainForm,
+    TeamForm,
+    ActivityForm,
+    PeopleForm,
+    PriviewBadge,
+  ];
   const Components = forms[order];
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (order === forms.length - 1) {
-      // 마지막 form 입력일때, 뱃지 등록 실행하기
+    if (order === forms.length) {
     } else setOrder(order + 1);
   };
 
@@ -84,13 +100,16 @@ const RegisterForm = () => {
           <span>{forms.length}</span>
         </div>
       </TopContainer>
-      <Suspense fallback={<div></div>}>
-        <Components
-          dispatchField={dispatchField}
-          onSubmit={onSubmit}
-          order={order}
-        />
-      </Suspense>
+
+      <CenterGrid>
+        <Suspense fallback={<div></div>}>
+          <Components
+            dispatchField={dispatchField}
+            onSubmit={onSubmit}
+            order={order}
+          />
+        </Suspense>
+      </CenterGrid>
     </>
   );
 };
