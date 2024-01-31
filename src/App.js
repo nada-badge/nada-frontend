@@ -21,7 +21,7 @@ import PostWritePage from './Community/pages/PostWritePage';
 import PostDetailPage from './Community/pages/PostDetailPage';
 import CommentPage from './Community/pages/CommentPage';
 import MyPage from './testpage/myPage';
-import SearchPage from './Acitivity/pages/SearchPage';
+import SearchPage from './Search/pages/SearchPage';
 
 import BadgePage from './Badge/pages/BadgePage';
 import DetailBadgePage from './Badge/pages/DetailBadgePage';
