@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SearchCategory } from '../components/SearchCategory';
 import PostList from '../../components/common/postList/PostList';
 import { AlignBox } from '../../Badge/components/AlignBox';
-import { useSearch } from '../../modules/queries/useSearch';
+import { useSearchActivity } from '../../modules/queries/useSearch';
 import { searchSelector } from '../modules/redux/search';
 
 const SearchPage = () => {
@@ -39,7 +39,7 @@ const SearchPage = () => {
   const [input, setInput] = useState(text);
 
   // 서버에서 검색 결과 불러오기
-  const result = useSearch({
+  const result = useSearchActivity({
     focus: focus,
     value: input,
   });
