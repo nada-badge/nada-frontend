@@ -40,6 +40,7 @@ const SearchPage = () => {
   // redux에서 조회한 값 (redux > search > focus, text)
   const { position, text, focus } = useSelector(searchSelector);
   const [input, setInput] = useState(text);
+  const isMaincategory = position === 'community';
 
   // 서버에서 검색 결과 불러오기
   const result = useSearchActivity({
@@ -55,7 +56,7 @@ const SearchPage = () => {
 
   return (
     <div style={ContainerStyle}>
-      <SearchInput onSubmit={onSubmit} />
+      <SearchInput onSubmit={onSubmit} isMaincategory={isMaincategory} />
       <SearchCategory list={['제목', '본문', '작성자']} focus={focus} />
       <div style={ResultStyle}>
         <AlignBox text={'최신 순'} />
