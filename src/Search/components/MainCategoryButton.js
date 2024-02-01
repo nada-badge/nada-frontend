@@ -1,7 +1,10 @@
 import { applyFontStyles } from '../../styles/fontStyle';
 import { FilterHandler } from '../../icon/FilterHandler';
+import useModal from '../../Modal/modules/useModal';
 
 export const MainCategoryButton = () => {
+  const { openModal } = useModal();
+
   const MainCategoryStyle = {
     minWidth: '56px',
     height: '40px',
@@ -18,8 +21,12 @@ export const MainCategoryButton = () => {
     }),
   };
 
+  const onClick = () => {
+    openModal({ type: 'MainCategoryModal' });
+  };
+
   return (
-    <div style={MainCategoryStyle}>
+    <div style={MainCategoryStyle} onClick={() => onClick()}>
       모집
       <FilterHandler isSmall={true} className="unselected" color={'black'} />
     </div>
