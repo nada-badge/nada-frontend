@@ -62,7 +62,9 @@ const ActivityPage = () => {
   return (
     <>
       <div className="pageContainer">
-        <SearchInput onSubmit={onSubmit} />
+        <div style={{ backgroundColor: 'var(--myspec-gray-scalewhite)' }}>
+          <SearchInput onSubmit={onSubmit} />
+        </div>
         {recent && (
           <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
             <RecentActivityItem cards={recent.reverse()} />

@@ -60,7 +60,9 @@ const Community = () => {
   return (
     <>
       <div className="pageContainer">
-        <SearchInput onSubmit={onSubmit} />
+        <div style={{ backgroundColor: 'var(--myspec-gray-scalewhite)' }}>
+          <SearchInput onSubmit={onSubmit} />
+        </div>
         <CardList
           title={'지금 인기 있는 게시글이에요🔥'}
           title_font={'subtitle-01'}
