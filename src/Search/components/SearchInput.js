@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, searchSelector } from '../modules/redux/search';
 import { SearchGlass } from '../../icon/SearchGlass';
-import { MainCategory } from '../../Modal/styles/ModalStyle';
-import { FilterHandler } from '../../icon/FilterHandler';
+import { MainCategoryButton } from './MainCategoryButton';
 
 const Form = styled.form`
   display: flex;
@@ -58,21 +57,6 @@ export const SearchInput = ({ onSubmit, isMaincategory }) => {
     backgroundColor: 'var(--myspec-gray-scalegray-100)',
   };
 
-  const MainCategoryStyle = {
-    minWidth: '56px',
-    backgroundColor: 'var(--myspec-gray-scalegray-200)',
-    borderRadius: '10px  0px 0px 10px ',
-    display: 'flex',
-    boxSizing: 'border-box',
-    padding: '7px 10px',
-    gap: '4px',
-    alignItems: 'center',
-    ...applyFontStyles({
-      font: 'body-01',
-      color: 'var(--myspec-gray-scalegray-900)',
-    }),
-  };
-
   const dispatch = useDispatch();
 
   // redux에서 검색어 추출하기
@@ -85,16 +69,7 @@ export const SearchInput = ({ onSubmit, isMaincategory }) => {
 
   return (
     <div style={InputWrapper}>
-      {isMaincategory && (
-        <div style={MainCategoryStyle}>
-          모집
-          <FilterHandler
-            isSmall={true}
-            className="unselected"
-            color={'black'}
-          />
-        </div>
-      )}
+      {isMaincategory && <MainCategoryButton />}
       <Form onSubmit={onSubmit} id={'search'}>
         <input
           className="Input"
