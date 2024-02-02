@@ -6,7 +6,6 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
-import Monthpicker from './Monthpicker';
 import { openModal } from '../../Modal/modules/redux/modal';
 import useModal from '../../Modal/modules/useModal';
 

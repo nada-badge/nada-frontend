@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import '../styles/DatePicker.scss';
+import '../../Badge/styles/MonthPicker.scss';
 import useModal from '../modules/useModal';
 import BottomButton from './usedInModal/BottomButton';
 import { changeField } from '../../modules/redux/postWrite';

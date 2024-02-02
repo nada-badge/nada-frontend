@@ -79,7 +79,7 @@ const ModalContainer = () => {
       {/* Suspense를 사용하여 동적으로 로딩된 모달을 대기 */}
       <Suspense fallback={<div style={Loading}> Loading...</div>}>
         <div style={Overlay}>
-          <div style={ModalWrap}>
+          <div style={ModalWrap} className="modalWrapper">
             <Modal {...props} />
           </div>
         </div>
