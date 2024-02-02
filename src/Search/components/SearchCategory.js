@@ -10,6 +10,7 @@ export const SpaceBetween = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  ${body_02('var(--myspec-gray-scalegray-600)')}
 
   & > .searchFocus {
     flex-grow: 1;
@@ -20,10 +21,11 @@ export const SpaceBetween = styled.div`
     border-bottom: 2px solid var(--myspec-gray-scale-gray-400, #d9d9d9);
 
     // text style
-    ${body_02('var(--myspec-gray-scale-gray-600)')}
+
     text-align: center;
 
     &.focus {
+      ${body_02('var(--myspec-gray-scalegray-900)')}
       border-bottom: 2px solid var(--myspec-primary-blue-1, #1363ff);
     }
   }
