@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux';
+import { searchSelector } from '../modules/redux/search';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { FilterHandler } from '../../icon/FilterHandler';
 import useModal from '../../Modal/modules/useModal';
 
 export const MainCategoryButton = () => {
   const { openModal } = useModal();
+  const { mainCategory } = useSelector(searchSelector);
 
   const MainCategoryStyle = {
     minWidth: '56px',
@@ -27,7 +30,7 @@ export const MainCategoryButton = () => {
 
   return (
     <div style={MainCategoryStyle} onClick={() => onClick()}>
-      모집
+      {mainCategory}
       <FilterHandler isSmall={true} className="unselected" color={'black'} />
     </div>
   );

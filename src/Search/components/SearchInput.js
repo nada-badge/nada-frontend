@@ -43,7 +43,7 @@ const Form = styled.form`
   }
 `;
 
-export const SearchInput = ({ onSubmit, isMaincategory }) => {
+export const SearchInput = ({ onSubmit, isMaincategory, mainCategory }) => {
   const InputWrapper = {
     width: '345px',
     height: '40px',

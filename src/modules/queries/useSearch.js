@@ -51,7 +51,6 @@ export const useSearchCommunity = ({ mainCategory, focus, value }) => {
           본문: 'content',
           작성자: 'userName',
         };
-        console.log('useSearchCommunity ', mainCategory, keys[focus], value);
 
         const { data } = await client.get('/community/post/search', {
           params: {

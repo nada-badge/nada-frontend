@@ -13,14 +13,19 @@ import {
 import BottomButton from './usedInModal/BottomButton';
 import { ModalPropsSelector } from '../modules/redux/modal';
 import { changeField as changeSearch } from '../../Search/modules/redux/search';
+import { searchSelector } from '../../Search/modules/redux/search';
 
 const MainCategoryModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const position = useSelector(ModalPropsSelector('position'));
+  const { mainCategory } = useSelector(searchSelector);
+  const postMaincategory = useSelector(
+    postWriteSelector('postWriteSubmit', 'mainCategory'),
+  );
   //postWriteSubit값으로 nowClick 초기화
   const [nowClick, setNowClick] = useState(
-    useSelector(postWriteSelector('postWriteSubmit', 'mainCategory')),
+    position === 'search' ? mainCategory : postMaincategory,
   );
   //현재 선택된 값이 바뀔 때마다 select 리덕스 값을 업데이트
   const onClick = (nowClick) => {
