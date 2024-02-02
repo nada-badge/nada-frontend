@@ -8,6 +8,7 @@ import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
 import { openModal } from '../../Modal/modules/redux/modal';
 import useModal from '../../Modal/modules/useModal';
+import { useCallback } from 'react';
 
 const DateWrapper = styled.div`
   display: flex;
@@ -23,9 +24,20 @@ const DateWrapper = styled.div`
 const ActivityInputItem = ({ index }) => {
   const dispatch = useDispatch();
 
-  const activitiyContent = useSelector(
-    ({ badge }) => badge.activities[index].content,
+  const { content, started, ended } = useSelector(
+    ({ badge }) => badge.activities[index],
   );
+
+  const formatDate = useCallback((inputDate) => {
+    if (inputDate === '') {
+      return '2023.08';
+    }
+    const dateObject = new Date(inputDate);
+    const year = dateObject.getFullYear();
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+
+    return `${year}.${month}`;
+  }, []);
 
   const onClose = () => {
     dispatch(deleteList({ type: 'activities', index }));
@@ -38,8 +50,8 @@ const ActivityInputItem = ({ index }) => {
 
   const { openModal } = useModal();
 
-  const openCalendar = () => {
-    openModal({ type: 'MonthModal' });
+  const openCalendar = (contentType) => {
+    openModal({ type: 'MonthModal', contentType, content: index });
   };
 
   return (
@@ -49,16 +61,30 @@ const ActivityInputItem = ({ index }) => {
         placeholder={'내용을 입력해주세요.'}
         onChange={onChange}
         onClose={onClose}
-        value={activitiyContent}
+        value={content}
       />
       <DateWrapper>
-        <Dropdown className={'unselected'} onClick={openCalendar}>
-          <TextWarpper className={'unselected'}>2023.01</TextWarpper>
+        <Dropdown
+          className={'unselected'}
+          onClick={() => {
+            openCalendar('started');
+          }}
+        >
+          <TextWarpper className={'unselected'}>
+            {formatDate(started)}
+          </TextWarpper>
           <FilterHandler className={'unselected'} />
         </Dropdown>
         <span> ~ </span>
-        <Dropdown className={'unselected'}>
-          <TextWarpper className={'unselected'}>2023.02</TextWarpper>
+        <Dropdown
+          className={'unselected'}
+          onClick={() => {
+            openCalendar('ended');
+          }}
+        >
+          <TextWarpper className={'unselected'}>
+            {formatDate(ended)}
+          </TextWarpper>
           <FilterHandler className={'unselected'} />
         </Dropdown>
       </DateWrapper>
