@@ -1,0 +1,92 @@
+.react-datepicker__portal {
+  > div {
+    position: fixed;
+    bottom: 0px;
+  }
+  background-color: rgba(0, 0, 0, 0.5);
+}
+// 상단의 삼각형
+.react-datepicker__triangle {
+  display: none;
+}
+
+// 팝업의 제일 상단 요소
+.react-datepicker-popper {
+  box-sizing: border-box;
+  min-width: 375px;
+  position: fixed !important;
+  bottom: 0px !important;
+  height: fit-content;
+  inset: auto auto auto 0px !important;
+}
+
+.react-datepicker {
+  border: none;
+  width: 100%;
+}
+
+.react-datepicker__month-container {
+  width: 100%;
+}
+
+// ' < 2024 > ' 를 나타내는 헤더
+.react-datepicker__header {
+  background-color: white;
+  padding-top: 36px;
+  border: none;
+
+  color: var(--myspec-gray-scalegray-900, #1a1a1a);
+  text-align: center;
+
+  /* Title 02 */
+  font-family: var(--title-02-font-family);
+  font-size: var(--title-02-font-size);
+  font-style: var(--title-02-font-style);
+  font-weight: var(--title-02-font-weight);
+  line-height: var(--title-02-line-height); /* 27px */
+}
+
+.react-datepicker__navigation {
+  margin-top: 30px;
+}
+
+// [1,2,3] [4,5,6] ... [10,11,12] 월
+.react-datepicker__month-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    box-sizing: border-box;
+    padding: 8px;
+    min-width: 122px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  color: var(--myspec-gray-scalegray-900, #1a1a1a);
+  text-align: center;
+
+  /* Subtitle 02 */
+  font-family: var(--subtitle-02-font-family);
+  font-size: var(--subtitle-02-font-size);
+  font-style: var(--subtitle-02-font-style);
+  font-weight: var(--subtitle-02-font-weight);
+  line-height: var(--subtitle-02-line-height);
+}
+
+// 하단의 [ 취소 ] [ 확인 ] 버튼
+.react-datepicker__children-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+// 선택한 '월'
+.react-datepicker__month-text--selected {
+  border-radius: 10px;
+  background: var(--myspec-gray-scalegray-300, #e4e4e4);
+  font-weight: 700;
+
+  &:hover {
+    background: var(--myspec-gray-scalegray-500, rgba(187, 187, 187, 1));
+  }
+}

@@ -6,6 +6,7 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
+import Monthpicker from './Monthpicker';
 
 const DateWrapper = styled.div`
   display: flex;
@@ -44,10 +45,11 @@ const ActivityInputItem = ({ index }) => {
         value={activitiyContent}
       />
       <DateWrapper>
-        <Dropdown className={'unselected'}>
+        {/* <Dropdown className={'unselected'}>
           <TextWarpper className={'unselected'}>2023.01</TextWarpper>
           <FilterHandler className={'unselected'} />
-        </Dropdown>
+        </Dropdown> */}
+        <Monthpicker />
         <span> ~ </span>
         <Dropdown className={'unselected'}>
           <TextWarpper className={'unselected'}>2023.02</TextWarpper>
