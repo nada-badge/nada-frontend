@@ -17,7 +17,7 @@ const Form = styled.form`
   & > .Input {
     ${applyFontStyles({
       font: 'subtitle-02',
-      color: 'var(--myspec-gray-scalegray-600)',
+      color: 'var(--myspec-gray-scalegray-900)',
     })}
     background: var(--myspec-gray-scalegray-100);
     border: none;
@@ -26,7 +26,6 @@ const Form = styled.form`
     &:focus {
       outline: none;
     }
-
     &:focus::placeholder {
       color: transparent;
     }
@@ -43,7 +42,7 @@ const Form = styled.form`
   }
 `;
 
-export const SearchInput = ({ onSubmit, isMaincategory, mainCategory }) => {
+export const SearchInput = ({ onSubmit, isMaincategory }) => {
   const InputWrapper = {
     width: '345px',
     height: '40px',
