@@ -22,7 +22,7 @@ import CommunityPage from './Community/pages/CommunityPage';
 import PostWritePage from './Community/pages/PostWritePage';
 import PostDetailPage from './Community/pages/PostDetailPage';
 import CommentPage from './Community/pages/CommentPage';
-import MyPage from './testpage/myPage';
+import { MyPage } from './MyPage/pages/MyPagePage';
 import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 
 import BadgePage from './Badge/pages/BadgePage';
