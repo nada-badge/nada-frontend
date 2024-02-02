@@ -7,11 +7,6 @@ import { Content } from '../components/Content';
 export const MyPage = () => {
   const dispatch = useDispatch();
 
-  const list = {
-    display: 'flex',
-    flexDirection: 'row',
-  };
-
   useEffect(() => {
     dispatch(
       changeBarStatus({
@@ -24,11 +19,28 @@ export const MyPage = () => {
 
   return (
     <div className="pageContainer">
-      <div style={list}>
-        <div>
-          <Title text={'커뮤니티'} />
-          <Content url={'/mypage'} text={'내가 작성한 글'} />
-        </div>{' '}
+      <div>
+        <Title text={'커뮤니티'} />
+        <Content url={'/mypage'} text={'내가 작성한 글'} />
+        <Content url={'/mypage'} text={'내가 댓글 단 글'} />
+        <Content url={'/mypage'} text={'내가 좋아요한 글'} />
+      </div>
+      <div>
+        <Title text={'설정'} />
+        <Content url={'/mypage'} text={'알림'} />
+        <Content url={'/mypage'} text={'관심 분야'} />
+      </div>
+      <div>
+        <Title text={'이용안내'} />
+        <Content url={'/mypage'} text={'문의하기'} />
+        <Content url={'/mypage'} text={'공지사항'} />
+        <Content url={'/mypage'} text={'버전정보'} />
+        <Content url={'/mypage'} text={'이용약관'} />
+      </div>
+      <div>
+        <Title text={'기타'} />
+        <Content url={'/mypage'} text={'로그아웃'} />
+        <Content url={'/mypage'} text={'탈퇴하기'} />
       </div>
     </div>
   );
