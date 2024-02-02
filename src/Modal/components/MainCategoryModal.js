@@ -11,16 +11,17 @@ import {
   Img,
 } from '../styles/ModalStyle';
 import BottomButton from './usedInModal/BottomButton';
+import { ModalPropsSelector } from '../modules/redux/modal';
+import { changeField as changeSearch } from '../../Search/modules/redux/search';
 
 const MainCategoryModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
-
+  const position = useSelector(ModalPropsSelector('position'));
   //postWriteSubit값으로 nowClick 초기화
   const [nowClick, setNowClick] = useState(
     useSelector(postWriteSelector('postWriteSubmit', 'mainCategory')),
   );
-
   //현재 선택된 값이 바뀔 때마다 select 리덕스 값을 업데이트
   const onClick = (nowClick) => {
     setNowClick(nowClick);
@@ -46,24 +47,32 @@ const MainCategoryModal = () => {
   };
 
   const setStatus = () => {
-    dispatch(
-      changeField({
-        form: 'postWriteSubmit',
-        key: 'mainCategory',
-        value: nowClick,
-      }),
-    );
-
-    if (!(nowClick === '카테고리')) {
+    if (position === 'search') {
       dispatch(
-        changeField({
-          form: 'ButtonActive',
+        changeSearch({
           key: 'mainCategory',
-          value: true,
+          value: nowClick,
         }),
       );
-    }
+    } else {
+      dispatch(
+        changeField({
+          form: 'postWriteSubmit',
+          key: 'mainCategory',
+          value: nowClick,
+        }),
+      );
 
+      if (!(nowClick === '카테고리')) {
+        dispatch(
+          changeField({
+            form: 'ButtonActive',
+            key: 'mainCategory',
+            value: true,
+          }),
+        );
+      }
+    }
     closeModal();
   };
 
