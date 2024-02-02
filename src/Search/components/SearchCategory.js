@@ -19,9 +19,6 @@ export const SpaceBetween = styled.div`
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid var(--myspec-gray-scale-gray-400, #d9d9d9);
-
-    // text style
-
     text-align: center;
 
     &.focus {
