@@ -4,13 +4,13 @@ import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { Title } from '../components/Title';
 import { Content } from '../components/Content';
 
-export const MyPage = () => {
+const MyPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(
       changeBarStatus({
-        headerState: 'back',
+        headerState: 'backBell',
         text: 'MY',
         isShowBottom: true,
       }),
@@ -23,7 +23,6 @@ export const MyPage = () => {
         <Title text={'커뮤니티'} />
         <Content url={'/mypage'} text={'내가 작성한 글'} />
         <Content url={'/mypage'} text={'내가 댓글 단 글'} />
-        <Content url={'/mypage'} text={'내가 좋아요한 글'} />
       </div>
       <div>
         <Title text={'설정'} />
@@ -33,7 +32,7 @@ export const MyPage = () => {
       <div>
         <Title text={'이용안내'} />
         <Content url={'/mypage'} text={'문의하기'} />
-        <Content url={'/mypage'} text={'공지사항'} />
+        <Content url={'/myPage/notice'} text={'공지사항'} />
         <Content url={'/mypage'} text={'버전정보'} />
         <Content url={'/mypage'} text={'이용약관'} />
       </div>
@@ -45,3 +44,5 @@ export const MyPage = () => {
     </div>
   );
 };
+
+export default MyPage;
