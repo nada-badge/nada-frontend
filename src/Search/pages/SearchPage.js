@@ -38,12 +38,18 @@ const SearchPage = () => {
   }, []);
 
   // redux에서 조회한 값 (redux > search > focus, text)
-  const { position, text, focus } = useSelector(searchSelector);
+  const { position, text, focus, mainCategory } = useSelector(searchSelector);
   const [input, setInput] = useState(text);
+  //const [result, setResult ] = useState();
   const isMaincategory = position === 'community';
 
   // 서버에서 검색 결과 불러오기
-  const result = useSearchActivity({
+  const comResult = useSearchCommunity({
+    mainCategory: mainCategory,
+    focus: focus,
+    value: input,
+  });
+  const actResult = useSearchActivity({
     focus: focus,
     value: input,
   });
@@ -60,7 +66,10 @@ const SearchPage = () => {
       <SearchCategory list={['제목', '본문', '작성자']} focus={focus} />
       <div style={ResultStyle}>
         <AlignBox text={'최신 순'} />
-        <PostList type={'activity'} result={result} />
+        <PostList
+          type={position}
+          result={isMaincategory ? comResult : actResult}
+        />
       </div>
     </div>
   );
