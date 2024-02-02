@@ -45,15 +45,22 @@ export const useSearchCommunity = ({ mainCategory, focus, value }) => {
   return useQuery({
     queryKey: ['searchCommunityQuery', mainCategory, focus, value],
     queryFn: async () => {
-      if (value) {
+      if (mainCategory && value) {
+        const keys = {
+          제목: 'title',
+          본문: 'content',
+          작성자: 'userName',
+        };
+        console.log('useSearchCommunity ', mainCategory, keys[focus], value);
+
         const { data } = await client.get('/community/post/search', {
           params: {
             mainCategory: mainCategory,
-            searchBy: focus,
+            searchBy: keys[focus],
             searchWord: value,
           },
         });
-        return data.result;
+        return data.posts;
       }
     },
   });
