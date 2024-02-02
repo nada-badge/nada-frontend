@@ -22,7 +22,10 @@ import CommunityPage from './Community/pages/CommunityPage';
 import PostWritePage from './Community/pages/PostWritePage';
 import PostDetailPage from './Community/pages/PostDetailPage';
 import CommentPage from './Community/pages/CommentPage';
-import { MyPage } from './MyPage/pages/MyPagePage';
+
+import MyPage from './MyPage/pages/MyPagePage';
+import NoticePage from './MyPage/pages/NoticePage';
+
 import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 
 import BadgePage from './Badge/pages/BadgePage';
@@ -58,6 +61,7 @@ const App = () => {
         <Route path="/community/Comment/:_id" element={<CommentPage />} />
 
         <Route path="/myPage" element={<MyPage />} />
+        <Route path="/myPage/notice" element={<NoticePage />} />
 
         <Route path="/manage" element={<HomePage />} />
 
