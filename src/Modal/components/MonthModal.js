@@ -31,14 +31,13 @@ const MonthModal = () => {
     <Layout className="Layout">
       <DatePicker
         selected={date}
-        onChange={(date) => setDate(date)}
+        onChange={(date) => setDate(date)} // 여기서 dateformat 수정하기
         dateFormat="yyyy/MM"
         showMonthYearPicker
         showFullMonthYearPicker
         inline
         locale={'ko'}
       >
-        {/** ▼act 추가 */}
         <BottomButton actText={'확인'} act={setStatus} />
       </DatePicker>
     </Layout>
