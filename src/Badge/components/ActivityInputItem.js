@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
 import Monthpicker from './Monthpicker';
+import { openModal } from '../../Modal/modules/redux/modal';
+import useModal from '../../Modal/modules/useModal';
 
 const DateWrapper = styled.div`
   display: flex;
@@ -35,6 +37,12 @@ const ActivityInputItem = ({ index }) => {
     dispatch(changeIndexField({ type: 'activities', index, name, value }));
   };
 
+  const { openModal } = useModal();
+
+  const openCalendar = () => {
+    openModal({ type: 'MonthModal' });
+  };
+
   return (
     <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
       <InputBoxWithX
@@ -45,11 +53,10 @@ const ActivityInputItem = ({ index }) => {
         value={activitiyContent}
       />
       <DateWrapper>
-        {/* <Dropdown className={'unselected'}>
+        <Dropdown className={'unselected'} onClick={openCalendar}>
           <TextWarpper className={'unselected'}>2023.01</TextWarpper>
           <FilterHandler className={'unselected'} />
-        </Dropdown> */}
-        <Monthpicker />
+        </Dropdown>
         <span> ~ </span>
         <Dropdown className={'unselected'}>
           <TextWarpper className={'unselected'}>2023.02</TextWarpper>

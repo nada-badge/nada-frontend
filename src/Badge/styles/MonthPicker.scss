@@ -13,7 +13,7 @@
 // 팝업의 제일 상단 요소
 .react-datepicker-popper {
   box-sizing: border-box;
-  min-width: 375px;
+  width: 100%;
   position: fixed !important;
   bottom: 0px !important;
   height: fit-content;
@@ -21,18 +21,22 @@
 }
 
 .react-datepicker {
+  box-sizing: border-box;
+
   border: none;
   width: 100%;
 }
 
 .react-datepicker__month-container {
+  box-sizing: border-box;
+
   width: 100%;
 }
 
 // ' < 2024 > ' 를 나타내는 헤더
 .react-datepicker__header {
   background-color: white;
-  padding-top: 36px;
+  padding-top: 20px;
   border: none;
 
   color: var(--myspec-gray-scalegray-900, #1a1a1a);
@@ -47,11 +51,13 @@
 }
 
 .react-datepicker__navigation {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 // [1,2,3] [4,5,6] ... [10,11,12] 월
 .react-datepicker__month-wrapper {
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -76,8 +82,29 @@
 
 // 하단의 [ 취소 ] [ 확인 ] 버튼
 .react-datepicker__children-container {
-  margin: 0 auto;
+  margin: 0px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+
+  & > div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 12px 0px 12px;
+
+    & > .act > .text {
+      color: var(--myspec-gray-scalegray-100, white);
+      text-align: center;
+
+      /* Subtitle 02 */
+      font-family: var(--subtitle-01-font-family);
+      font-size: var(--subtitle-01-font-size);
+      font-style: var(--subtitle-01-font-style);
+      font-weight: var(--subtitle-01-font-weight);
+      line-height: var(--subtitle-01-line-height);
+    }
+  }
 }
 
 // 선택한 '월'
