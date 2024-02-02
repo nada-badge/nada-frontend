@@ -1,4 +1,4 @@
-// 검색 Query
+// useSearch 검색을 위한 쿼리
 import { useQuery } from '@tanstack/react-query';
 import client from '../../lib/api/client';
 

@@ -1,3 +1,4 @@
+/**SearchCategory. 검색 중  카테고리를 설정하는 컴포넌트  */
 import styled from 'styled-components';
 import { body_02 } from '../../styles/fontStyle';
 import { useDispatch } from 'react-redux';

@@ -1,3 +1,4 @@
+/**MainCategoryButton. 검색 페이지에서 mainCategory Modal을 open하는 버튼 */
 import { useSelector } from 'react-redux';
 import { searchSelector } from '../modules/redux/search';
 import { applyFontStyles } from '../../styles/fontStyle';

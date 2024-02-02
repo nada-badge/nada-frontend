@@ -1,3 +1,4 @@
+/**SearchPage 검색에 대한 결과를 출력하고 조건을 설정하는 페이지 */
 import { SearchInput } from '../components/SearchInput';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useEffect, useState } from 'react';

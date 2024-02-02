@@ -1,3 +1,4 @@
+/** SearchInput 검색어 입력 창 */
 import { applyFontStyles } from '../../styles/fontStyle';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';

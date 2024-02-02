@@ -1,3 +1,4 @@
+/**search, search 와 관련한 데이터를 관리하는 리덕스 */
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
