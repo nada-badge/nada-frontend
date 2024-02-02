@@ -22,7 +22,7 @@ export const MainCategoryButton = () => {
   };
 
   const onClick = () => {
-    openModal({ type: 'MainCategoryModal' });
+    openModal({ type: 'MainCategoryModal', position: 'search' });
   };
 
   return (

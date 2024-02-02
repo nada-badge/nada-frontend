@@ -2,6 +2,7 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
   position: '', // [activity,community]
+  mainCategory: '모집',
   focus: '제목', // [제목, 본문, 작성자]
   text: '', // 검색어
 };
@@ -28,4 +29,5 @@ export const searchSelector = createSelector(searchSelect, (field) => ({
   position: field.position,
   text: field.text,
   focus: field.focus,
+  mainCategory: field.mainCategory,
 }));
