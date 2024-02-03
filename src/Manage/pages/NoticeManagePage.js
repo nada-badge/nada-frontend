@@ -19,7 +19,7 @@ const NoticeManagePage = () => {
 
   return (
     <LayoutStyle>
-      <Header text={'공지사항 게시글'} url={'/community/PostWrite'} />
+      <Header text={'공지사항 게시글'} url={'/manage/notice/write'} />
     </LayoutStyle>
   );
 };
