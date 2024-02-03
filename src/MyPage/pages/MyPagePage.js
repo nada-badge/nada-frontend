@@ -33,7 +33,11 @@ const MyPage = () => {
         <Title text={'이용안내'} />
         <Content url={'/mypage'} text={'문의하기'} />
         <Content url={'/myPage/notice'} text={'공지사항'} />
-        <Content url={'/mypage'} text={'버전정보'} />
+        <Content
+          url={'/mypage'}
+          text={'버전정보'}
+          version={'1.5.22(2023121021)'}
+        />
         <Content url={'/mypage'} text={'이용약관'} />
       </div>
       <div>

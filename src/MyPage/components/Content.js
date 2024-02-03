@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { AngleBracket } from '../../icon/AngleBracket';
 import { applyFontStyles } from '../../styles/fontStyle';
 
-export const Content = ({ url, text, Direction }) => {
+export const Content = ({ url, text, version }) => {
   const link = {
     width: '375px',
     height: '60px',
@@ -19,10 +19,25 @@ export const Content = ({ url, text, Direction }) => {
     }),
   };
 
+  const versionStyle = {
+    ...applyFontStyles({
+      font: 'body-02',
+      color: 'var(--myspec-gray-scalegray-600)',
+    }),
+  };
+
+  const rightOutput = () => {
+    return version ? (
+      <div style={versionStyle}>{version}</div>
+    ) : (
+      <AngleBracket Direction={'right'} />
+    );
+  };
+
   return (
     <Link to={url} style={link}>
       {text}
-      <AngleBracket Direction={Direction || 'right'} />
+      {rightOutput()}
     </Link>
   );
 };
