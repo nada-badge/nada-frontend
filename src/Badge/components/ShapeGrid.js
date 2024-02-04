@@ -29,7 +29,7 @@ const GridContainer = styled.div`
     }
   }
 `;
-const ShapeGrid = ({ active, onClick, imgFiles }) => {
+const ShapeGrid = ({ active, onClick, newImg }) => {
   const [icons, setIcons] = useState([
     badge_01,
     badge_02,
@@ -44,10 +44,12 @@ const ShapeGrid = ({ active, onClick, imgFiles }) => {
   };
 
   useEffect(() => {
-    if (imgFiles !== null) {
-      setIcons((prev) => [imgFiles, ...prev]);
+    if (newImg !== null) {
+      setIcons((prev) => [newImg, ...prev]);
     }
-  }, [imgFiles]);
+  }, [newImg]);
+
+  console.log(icons);
 
   return (
     <GridContainer>
@@ -62,6 +64,7 @@ const ShapeGrid = ({ active, onClick, imgFiles }) => {
           data-name={'shape'}
           key={index}
           data-value={index}
+          imgInfo={icon}
         />
       ))}
     </GridContainer>
