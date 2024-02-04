@@ -6,6 +6,7 @@ import badge_03 from '../icon/3.webp';
 import badge_04 from '../icon/4.webp';
 import badge_05 from '../icon/5.webp';
 import badge_06 from '../icon/6.webp';
+import { useEffect, useState } from 'react';
 
 const GridContainer = styled.div`
   margin-top: 20px;
@@ -28,17 +29,29 @@ const GridContainer = styled.div`
     }
   }
 `;
-const ShapeGrid = ({ active, onClick }) => {
+const ShapeGrid = ({ active, onClick, imgFiles }) => {
+  const [icons, setIcons] = useState([
+    badge_01,
+    badge_02,
+    badge_03,
+    badge_04,
+    badge_05,
+    badge_06,
+  ]);
   const handleClick = (e) => {
     const { dataset } = e.currentTarget;
     onClick(dataset);
   };
 
-  const icon = [badge_01, badge_02, badge_03, badge_04, badge_05, badge_06];
+  useEffect(() => {
+    if (imgFiles !== null) {
+      setIcons((prev) => [imgFiles, ...prev]);
+    }
+  }, [imgFiles]);
 
   return (
     <GridContainer>
-      {icon.map((icon, index) => (
+      {icons.map((icon, index) => (
         <div
           style={{
             backgroundImage: `url(${icon})`,
