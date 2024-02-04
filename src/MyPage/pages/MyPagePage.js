@@ -26,7 +26,7 @@ const MyPage = () => {
       </div>
       <div>
         <Title text={'설정'} />
-        <Content url={'/mypage'} text={'알림'} />
+        <Content url={'/mypage/alarmSetting'} text={'알림'} />
         <Content url={'/mypage'} text={'관심 분야'} />
       </div>
       <div>
