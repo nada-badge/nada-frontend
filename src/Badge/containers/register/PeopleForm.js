@@ -12,11 +12,11 @@ const PeopleForm = ({ onSubmit }) => {
 
   // 팀 추가시, 팀 리스트를 보여주는 index 화면인지 아닌지
   // setList로 현재 들어온 팀 소속을 설정해줍니다.
-  const [list, setList] = useState('index');
+  const [teamName, setTeamName] = useState('');
 
   return (
     <>
-      {list === 'index' && (
+      {teamName === '' && (
         <TitleBox>
           발급 받을 사람의
           <br />
@@ -24,14 +24,14 @@ const PeopleForm = ({ onSubmit }) => {
         </TitleBox>
       )}
 
-      {list !== 'index' && <TitleBox>{list}</TitleBox>}
+      {teamName && <TitleBox>{teamName}</TitleBox>}
 
       {/* 팀 추가를 하지 않았을때, */}
       {teams.length === 0 && <PeopleInfoInput onSubmit={onSubmit} />}
 
       {/* 팀 추가를 했을때,  */}
       {teams.length !== 0 && (
-        <IssueListTeam onSubmit={onSubmit} list={list} setList={setList} />
+        <IssueListTeam onSubmit={onSubmit} teamName={teamName} setTeamName={setTeamName} />
       )}
     </>
   );
