@@ -8,6 +8,7 @@ import ActivityItem from '../../Acitivity/components/ActivityItem';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import Header from '../containers/Header';
 import { ReportsButton } from '../components/ReportsButton';
+import { initializeForm } from '../../modules/redux/postData';
 
 const ActivityManagePage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const ActivityManagePage = () => {
   const { data, isError } = useActivityList();
 
   useEffect(() => {
+    dispatch(initializeForm());
     dispatch(
       changeBarStatus({
         headerState: '',

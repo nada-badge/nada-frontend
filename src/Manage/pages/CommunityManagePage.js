@@ -8,6 +8,7 @@ import { useGetPostList } from '../../Community/modules/queries/useGetCommunity'
 import Category from '../../Community/containers/Category';
 import Filter from '../../components/common/filter/Filter';
 import { ReportsButton } from '../components/ReportsButton';
+import { initializeForm } from '../../modules/redux/postData';
 
 const CommunityManagePage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const CommunityManagePage = () => {
   const result = useGetPostList({ filter: filter });
 
   useEffect(() => {
+    dispatch(initializeForm());
     dispatch(
       changeBarStatus({
         headerState: '',
