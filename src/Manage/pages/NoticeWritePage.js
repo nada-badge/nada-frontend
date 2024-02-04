@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../containers/Header';
+import usePostNotice from '../modules/queries/usePostNotice';
 
 const NoticeWritePage = () => {
+  const { mutate } = usePostNotice();
   const [input, setInput] = useState({
     title: '',
     content: '',
@@ -22,10 +24,14 @@ const NoticeWritePage = () => {
     });
   };
 
+  const onSubmit = (e) => {
+    mutate({ title: input.title, content: input.content });
+  };
+
   return (
     <LayoutStyle>
       <Header text={'공지사항 게시글'} url={''} />
-      <form style={form}>
+      <form style={form} onSubmit={onSubmit}>
         제목
         <input
           id="title"
