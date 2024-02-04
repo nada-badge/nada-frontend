@@ -9,6 +9,7 @@ import InputBoxWithX from './InputBoxWithX';
 import { openModal } from '../../Modal/modules/redux/modal';
 import useModal from '../../Modal/modules/useModal';
 import { useCallback } from 'react';
+import { useMemo } from 'react';
 
 const DateWrapper = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ const ActivityInputItem = ({ index }) => {
 
   const formatDate = useCallback((inputDate) => {
     if (inputDate === '') {
-      return '2023.08';
+      inputDate = new Date();
     }
     const dateObject = new Date(inputDate);
     const year = dateObject.getFullYear();

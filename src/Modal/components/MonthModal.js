@@ -22,7 +22,12 @@ const MonthModal = () => {
 
   const setStatus = () => {
     dispatch(
-      changeIndexField({ type: 'activities', index, name, value: date }),
+      changeIndexField({
+        type: 'activities',
+        index,
+        name,
+        value: date.toISOString(),
+      }),
     );
     closeModal();
   };
