@@ -31,7 +31,7 @@ const MyPage = () => {
       </div>
       <div>
         <Title text={'이용안내'} />
-        <Content url={'/mypage'} text={'문의하기'} />
+        <Content url={'/mypage/contact'} text={'문의하기'} />
         <Content url={'/myPage/notice'} text={'공지사항'} />
         <Content
           url={'/mypage'}
