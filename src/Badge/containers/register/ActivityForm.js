@@ -25,7 +25,7 @@ export const ButtonContainer = styled(ButtonList)`
   }
 `;
 
-const ActivityForm = ({ onSubmit, order, dispatchField }) => {
+const ActivityForm = ({ onSubmit, order }) => {
   const [disabled, setDisabeld] = useState(false);
   const activities = useSelector(({ badge }) => badge.activities);
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
     dispatch(
       addList({
         type: 'activities',
-        value: { content: '', started: '', end: '' },
+        value: { content: '', started: '', ended: '' },
       }),
     );
   };
