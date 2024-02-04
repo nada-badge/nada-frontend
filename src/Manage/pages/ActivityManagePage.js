@@ -16,7 +16,7 @@ const ActivityManagePage = () => {
   const [showReports, setShowReports] = useState(false);
 
   // 활동글 불러오기
-  const { data, isError } = useActivityList();
+  const { data } = useActivityList();
 
   useEffect(() => {
     dispatch(initializeForm());
