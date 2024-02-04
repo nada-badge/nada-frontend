@@ -6,12 +6,13 @@ import styled from 'styled-components';
 import { useActivityList } from '../../Acitivity/modules/queries/useGetActivity';
 import ActivityItem from '../../Acitivity/components/ActivityItem';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
-import { TextWarpper } from '../../Community/styles/SelectButton';
 import Header from '../containers/Header';
+import { ReportsButton } from '../components/ReportsButton';
 
 const ActivityManagePage = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
+  const [showReports, setShowReports] = useState(false);
 
   // 활동글 불러오기
   const { data, isError } = useActivityList();
@@ -28,9 +29,13 @@ const ActivityManagePage = () => {
 
   useEffect(() => {
     if (data) {
-      setActivities(data);
+      if (showReports) {
+        const filteredActivity = activities.filter((item) => item.reports);
+        console.log('filteredActivity: ', activities);
+        setActivities(filteredActivity);
+      } else setActivities(data);
     }
-  }, [data, activities]);
+  }, [showReports]);
 
   const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * 4 + columnIndex;
@@ -53,7 +58,11 @@ const ActivityManagePage = () => {
   return (
     <LayoutStyle>
       <Header text={'활동 게시글'} url={'/activity/ActWrite'} />
-      <TextWarpper>신고된 게시글</TextWarpper>
+      <ReportsButton
+        showReports={showReports}
+        setShowReports={setShowReports}
+      />
+
       <Grid
         columnCount={6}
         columnWidth={182}
