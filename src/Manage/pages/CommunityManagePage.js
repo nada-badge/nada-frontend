@@ -9,6 +9,7 @@ import Category from '../../Community/containers/Category';
 import Filter from '../../components/common/filter/Filter';
 import { ReportsButton } from '../components/ReportsButton';
 import { initializeForm } from '../../modules/redux/postData';
+import { initializeAll as initializeFilter } from '../../modules/redux/filter';
 
 const CommunityManagePage = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const CommunityManagePage = () => {
         isShowBottom: false,
       }),
     );
+    return () => dispatch(initializeFilter());
   }, []);
 
   useEffect(() => {
