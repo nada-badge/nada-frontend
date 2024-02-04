@@ -17,18 +17,16 @@ export const ToggleContent = ({ text, isActive, setIsActive }) => {
   };
 
   return (
-    <div className="pageContainer">
-      <div style={layout}>
-        <div>{text}</div>
-        <ToggleSwitch>
-          <CheckBox
-            type="checkbox"
-            checked={isActive}
-            onChange={() => setIsActive(!isActive)}
-          />
-          <ToggleSlider />
-        </ToggleSwitch>
-      </div>{' '}
+    <div style={layout}>
+      <div>{text}</div>
+      <ToggleSwitch>
+        <CheckBox
+          type="checkbox"
+          checked={isActive}
+          onChange={() => setIsActive(!isActive)}
+        />
+        <ToggleSlider />
+      </ToggleSwitch>
     </div>
   );
 };
