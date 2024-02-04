@@ -39,7 +39,7 @@ const CommunityManagePage = () => {
         setPosts(result);
       }
     }
-  }, [showReports]);
+  }, [result, showReports]);
 
   return (
     <LayoutStyle>

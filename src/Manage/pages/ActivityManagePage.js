@@ -37,7 +37,7 @@ const ActivityManagePage = () => {
         setActivities(filteredActivity);
       } else setActivities(data);
     }
-  }, [showReports]);
+  }, [data, showReports]);
 
   const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * 4 + columnIndex;
