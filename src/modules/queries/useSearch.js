@@ -62,5 +62,17 @@ export const useSearchCommunity = ({ mainCategory, focus, value }) => {
         return data.posts;
       }
     },
+    select: (data) =>
+      (data || []).map(
+        ({ _id, title, imageUrl, region, field, category, content }) => ({
+          _id,
+          title,
+          imageUrl: imageUrl[0] ? imageUrl[0] : '',
+          region,
+          field,
+          category,
+          content,
+        }),
+      ),
   });
 };
