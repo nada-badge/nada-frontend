@@ -11,7 +11,7 @@ const ContactPage = () => {
     dispatch(
       changeBarStatus({
         headerState: 'back',
-        text: '공지사항',
+        text: '문의사항',
         isShowBottom: false,
       }),
     );
