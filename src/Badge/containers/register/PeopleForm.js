@@ -24,14 +24,25 @@ const PeopleForm = ({ onSubmit }) => {
         </TitleBox>
       )}
 
-      {teamName && <TitleBox>{teamName}</TitleBox>}
+      {teamName && (
+        <TitleBox
+          style={{ textDecoration: 'underline' }}
+          onClick={() => {
+            setTeamName('');
+          }}
+        >{`<　${teamName}`}</TitleBox>
+      )}
 
       {/* 팀 추가를 하지 않았을때, */}
       {teams.length === 0 && <PeopleInfoInput onSubmit={onSubmit} />}
 
       {/* 팀 추가를 했을때,  */}
       {teams.length !== 0 && (
-        <IssueListTeam onSubmit={onSubmit} teamName={teamName} setTeamName={setTeamName} />
+        <IssueListTeam
+          onSubmit={onSubmit}
+          teamName={teamName}
+          setTeamName={setTeamName}
+        />
       )}
     </>
   );
