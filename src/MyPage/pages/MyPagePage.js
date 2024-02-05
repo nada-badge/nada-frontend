@@ -10,7 +10,7 @@ const MyPage = () => {
   useEffect(() => {
     dispatch(
       changeBarStatus({
-        headerState: 'backBell',
+        headerState: 'Bell',
         text: 'MY',
         isShowBottom: true,
       }),
