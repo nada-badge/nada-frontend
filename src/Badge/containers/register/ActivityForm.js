@@ -40,17 +40,19 @@ const ActivityForm = ({ onSubmit, order }) => {
   };
 
   // activities 속성 중에 하나라도 빈 값이 있으면, disabled=true
-  /*const hasEmptyValue = (arr) => {
-    return arr.some((obj) => Object.values(obj).some((value) => value === ''));
+  const hasEmptyValue = () => {
+    return activities.some((obj) =>
+      Object.values(obj).some((value) => value === ''),
+    );
   };
 
   useEffect(() => {
-    if (hasEmptyValue) {
+    if (hasEmptyValue()) {
       setDisabeld(true);
     } else {
       setDisabeld(false);
     }
-  }, [activities]);*/
+  }, [activities]);
 
   return (
     <>
