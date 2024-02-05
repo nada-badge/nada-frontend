@@ -18,12 +18,12 @@ const PreviewBadge = () => {
 
   const data = {
     content: explain,
-    activities,
+    activity_info: activities,
   };
 
   return (
     <>
-      <div style={{ position: 'absolute', left: '16px' }}>
+      <div style={{ minWidth: 'calc(375px - 16px)', boxSizing: 'border-box' }}>
         <div>
           <TitleBox>
             발급할 뱃지의 미리보기예요
