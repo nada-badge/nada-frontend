@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import { LayoutStyle } from './HomePage.';
 import Header from '../containers/Header';
 import usePostNotice from '../modules/queries/usePostNotice';
 import { applyFontStyles } from '../../styles/fontStyle';
@@ -74,10 +74,3 @@ const NoticeWritePage = () => {
 };
 
 export default NoticeWritePage;
-
-export const LayoutStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  gap: 8px;
-`;

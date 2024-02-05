@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FixedSizeGrid as Grid } from 'react-window';
-import styled from 'styled-components';
+import { LayoutStyle } from './HomePage.';
 import { useActivityList } from '../../Acitivity/modules/queries/useGetActivity';
 import ActivityItem from '../../Acitivity/components/ActivityItem';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
@@ -80,10 +80,3 @@ const ActivityManagePage = () => {
 };
 
 export default ActivityManagePage;
-
-export const LayoutStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  gap: 8px;
-`;

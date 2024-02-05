@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import { LayoutStyle } from './HomePage.';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import Header from '../containers/Header';
 
@@ -25,10 +25,3 @@ const NoticeManagePage = () => {
 };
 
 export default NoticeManagePage;
-
-export const LayoutStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  gap: 8px;
-`;

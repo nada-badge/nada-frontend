@@ -42,6 +42,7 @@ export const LayoutStyle = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
+  gap: 8px;
 `;
 
 export const List = styled.div`
@@ -59,7 +60,5 @@ export const List = styled.div`
       color: 'var(--myspec-gray-scalegray-900)',
     })};
   }
-
-
-  }
+}
 `;
