@@ -32,16 +32,13 @@ const CommunityManagePage = () => {
   }, []);
 
   useEffect(() => {
-    if (result) {
-      if (showReports) {
-        const filteredActivity = result.data.filter((item) => item.reports);
-        console.log('filteredCommunity: ', filteredActivity);
-        setPosts(filteredActivity);
-      } else {
-        setPosts(result);
-      }
+    if (result.data && showReports) {
+      const filteredActivity = result.data.filter((item) => item.reports);
+      setPosts({ data: filteredActivity });
+    } else {
+      setPosts(result);
     }
-  }, [result, showReports]);
+  }, [result.data, result.isLoading, showReports]);
 
   return (
     <LayoutStyle>

@@ -33,7 +33,6 @@ const ActivityManagePage = () => {
     if (data) {
       if (showReports) {
         const filteredActivity = activities.filter((item) => item.reports);
-        console.log('filteredActivity: ', activities);
         setActivities(filteredActivity);
       } else setActivities(data);
     }
