@@ -8,8 +8,7 @@ import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
 import { openModal } from '../../Modal/modules/redux/modal';
 import useModal from '../../Modal/modules/useModal';
-import { useCallback } from 'react';
-import { useMemo } from 'react';
+import { YYYYdotMM } from '../../modules/common/formatDate';
 
 const DateWrapper = styled.div`
   display: flex;
@@ -28,17 +27,6 @@ const ActivityInputItem = ({ index }) => {
   const { content, started, ended } = useSelector(
     ({ badge }) => badge.activities[index],
   );
-
-  const formatDate = useCallback((inputDate) => {
-    if (inputDate === '') {
-      inputDate = new Date();
-    }
-    const dateObject = new Date(inputDate);
-    const year = dateObject.getFullYear();
-    const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
-
-    return `${year}.${month}`;
-  }, []);
 
   const onClose = () => {
     dispatch(deleteList({ type: 'activities', index }));
@@ -72,7 +60,7 @@ const ActivityInputItem = ({ index }) => {
           }}
         >
           <TextWarpper className={'unselected'}>
-            {formatDate(started)}
+            {YYYYdotMM(started)}
           </TextWarpper>
           <FilterHandler className={'unselected'} />
         </Dropdown>
@@ -83,9 +71,7 @@ const ActivityInputItem = ({ index }) => {
             openCalendar('ended');
           }}
         >
-          <TextWarpper className={'unselected'}>
-            {formatDate(ended)}
-          </TextWarpper>
+          <TextWarpper className={'unselected'}>{YYYYdotMM(ended)}</TextWarpper>
           <FilterHandler className={'unselected'} />
         </Dropdown>
       </DateWrapper>
