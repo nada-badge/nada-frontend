@@ -44,12 +44,10 @@ const ShapeGrid = ({ active, onClick, newImg }) => {
   };
 
   useEffect(() => {
-    if (newImg !== null) {
+    if (newImg.length !== 0) {
       setIcons((prev) => [newImg, ...prev]);
     }
   }, [newImg]);
-
-  console.log(icons);
 
   return (
     <GridContainer>
