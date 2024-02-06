@@ -10,7 +10,7 @@ import {
   useSearchActivity,
   useSearchCommunity,
 } from '../../modules/queries/useSearch';
-import { searchSelector } from '../modules/redux/search';
+import { searchSelector, initialized } from '../modules/redux/search';
 
 const SearchPage = () => {
   const ContainerStyle = {
@@ -36,6 +36,7 @@ const SearchPage = () => {
         isShowBottom: false,
       }),
     );
+    return () => dispatch(initialized());
   }, []);
 
   // redux에서 조회한 값 (redux > search > focus, text)
