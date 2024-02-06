@@ -10,9 +10,10 @@ import LogInSelect from './Auth/pages/LoginSelect';
 import HomePage from './Manage/pages/HomePage.';
 import AlarmPage from './Bar/pages/AlarmPage';
 
-import ActivityDetailPage from './Manage/pages/ActivityDetailPage';
-import ActivityWritePage from './Manage/pages/ActivityWritePage.';
-import ActivityListPage from './Manage/pages/ActivityListPage.';
+import ActivityManagePage from './Manage/pages/ActivityManagePage';
+import CommunityManagePage from './Manage/pages/CommunityManagePage';
+import NoticeManagePage from './Manage/pages/NoticeManagePage';
+import NoticeWritePage from './Manage/pages/NoticeWritePage';
 
 import Home from './Home/page/Home';
 import CalendarPage from './Calendar/pages/CalendarPage';
@@ -60,10 +61,10 @@ const App = () => {
         <Route path="/myPage" element={<MyPage />} />
 
         <Route path="/manage" element={<HomePage />} />
-
-        <Route path="/manage/Activity" element={<ActivityListPage />} />
-        <Route path="/manage/Activity/:_id" element={<ActivityDetailPage />} />
-        <Route path="/manage/ActivityWrite" element={<ActivityWritePage />} />
+        <Route path="/manage/activity" element={<ActivityManagePage />} />
+        <Route path="/manage/community" element={<CommunityManagePage />} />
+        <Route path="/manage/notice" element={<NoticeManagePage />} />
+        <Route path="/manage/notice/write" element={<NoticeWritePage />} />
 
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
