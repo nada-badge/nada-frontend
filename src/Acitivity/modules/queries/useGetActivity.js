@@ -40,11 +40,12 @@ export const useActivityList = () => {
     staleTime: 90000,
     select: (data) =>
       (data.activities || []).map(
-        ({ _id, activityName, endedAt, mainImageUrl }) => ({
+        ({ _id, activityName, endedAt, mainImageUrl, reports }) => ({
           _id: _id,
           activityName: activityName,
           Dday: calculateDday(endedAt),
           mainImageUrl,
+          reports,
         }),
       ),
     onError: (error) => {
