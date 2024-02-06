@@ -14,6 +14,7 @@ import { searchSelector, initialized } from '../modules/redux/search';
 
 const SearchPage = () => {
   const ContainerStyle = {
+    paddingTop: '85px',
     display: ' flex',
     justifyContent: 'center',
     flexDirection: 'column',
