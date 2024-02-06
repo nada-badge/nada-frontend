@@ -23,7 +23,12 @@ import CommunityPage from './Community/pages/CommunityPage';
 import PostWritePage from './Community/pages/PostWritePage';
 import PostDetailPage from './Community/pages/PostDetailPage';
 import CommentPage from './Community/pages/CommentPage';
-import MyPage from './testpage/myPage';
+
+import MyPage from './MyPage/pages/MyPagePage';
+import NoticePage from './MyPage/pages/NoticePage';
+import AlarmSettingPage from './MyPage/pages/AlarmSettingPage';
+import ContactPage from './MyPage/pages/ContactPage';
+
 import SearchPage from './Search/pages/SearchPage';
 
 import BadgePage from './Badge/pages/BadgePage';
@@ -60,6 +65,9 @@ const App = () => {
         <Route path="/search" element={<SearchPage />} />
 
         <Route path="/myPage" element={<MyPage />} />
+        <Route path="/myPage/notice" element={<NoticePage />} />
+        <Route path="/myPage/alarmSetting" element={<AlarmSettingPage />} />
+        <Route path="/myPage/contact" element={<ContactPage />} />
 
         <Route path="/manage" element={<HomePage />} />
         <Route path="/manage/activity" element={<ActivityManagePage />} />
