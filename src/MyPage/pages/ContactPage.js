@@ -36,7 +36,7 @@ const ContactPage = () => {
       </Contact>
       <div style={{ height: '400px' }} />
       <MarginBtn onClick={() => openContactModal()}>
-        <div>다음</div>
+        <div>이메일 보내기 ↗</div>
       </MarginBtn>
     </div>
   );

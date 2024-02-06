@@ -13,7 +13,14 @@ const ContactModal = () => {
   const modal = useSelector(({ modal }) => modal);
   const { contentType: name, content: index } = modal;
 
-  return <Layout className="Layout"></Layout>;
+  return (
+    <Layout className="Layout">
+      <Header>
+        <div onClick={closeModal}>취소</div>
+        <div>새로운 메시지</div>
+      </Header>
+    </Layout>
+  );
 };
 
 export default ContactModal;
@@ -24,3 +31,4 @@ export const Layout = styled.div`
   flex-direction: column;
   position: relative;
 `;
+export const Header = styled.div``;
