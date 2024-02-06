@@ -24,7 +24,7 @@ import PostWritePage from './Community/pages/PostWritePage';
 import PostDetailPage from './Community/pages/PostDetailPage';
 import CommentPage from './Community/pages/CommentPage';
 import MyPage from './testpage/myPage';
-import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
+import SearchPage from './Search/pages/SearchPage';
 
 import BadgePage from './Badge/pages/BadgePage';
 import DetailBadgePage from './Badge/pages/DetailBadgePage';
@@ -50,13 +50,14 @@ const App = () => {
           path="/activity/DetailActivity/:_id"
           element={<DetailActivityPage />}
         />
-        <Route path="/activity/search" element={<SearchActivityPage />} />
         <Route path="/activity/ActWrite" element={<ActWritePage />} />
 
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/community/PostWrite" element={<PostWritePage />} />
         <Route path="/community/PostDetail/:_id" element={<PostDetailPage />} />
         <Route path="/community/Comment/:_id" element={<CommentPage />} />
+
+        <Route path="/search" element={<SearchPage />} />
 
         <Route path="/myPage" element={<MyPage />} />
 
