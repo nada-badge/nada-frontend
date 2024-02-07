@@ -26,6 +26,7 @@ const ExplainForm = ({ onSubmit, order, dispatchField }) => {
             value={explain}
             maxLength={120}
             required
+            style={{ resize: 'none' }}
           />
         </InputBox>
       </form>
