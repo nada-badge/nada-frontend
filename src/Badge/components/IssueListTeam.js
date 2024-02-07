@@ -4,10 +4,28 @@ import { FixedLoginBtn } from '../containers/register/ShapeForm';
 import { TextWithSvg } from '../../styles/Survey';
 import IssueListInputItem from './IssueListInputItem';
 import { addList } from '../modules/redux/badge';
+import { useState, useEffect } from 'react';
 
 const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
   const issueList = useSelector(({ badge }) => badge.issueList);
   const teams = useSelector(({ badge }) => badge.teams);
+
+  const [disabled, setDisabled] = useState(true);
+
+  // issueList 속성 중에 하나라도 빈 값이 있으면, disabled=true
+  const hasEmptyValue = () => {
+    return issueList.some((obj) =>
+      Object.values(obj).some((value) => value === ''),
+    );
+  };
+
+  useEffect(() => {
+    if (hasEmptyValue()) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [issueList]);
 
   const dispatch = useDispatch();
 
@@ -29,6 +47,7 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
 
   return (
     <>
+      {/* 팀 존재 o, 팀 리스트를 보여줄때 */}
       {teamName === '' && (
         <>
           <div
@@ -45,11 +64,13 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
               </TextWithSvg>
             ))}
           </div>
-          <FixedLoginBtn onClick={onSubmit} disabled={false}>
+          <FixedLoginBtn onClick={onSubmit} disabled={disabled}>
             <div>다음</div>
           </FixedLoginBtn>
         </>
       )}
+
+      {/* 팀 존재 o, 특정 팀을 클릭했을때*/}
       {teamName && (
         <>
           <div
@@ -61,7 +82,12 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
             }}
           >
             {issueList.map((el, index) => (
-              <IssueListInputItem key={index} content={el} index={index} />
+              <IssueListInputItem
+                key={index}
+                content={el}
+                index={index}
+                teamName={teamName}
+              />
             ))}
           </div>
           <FixedLoginBtn
