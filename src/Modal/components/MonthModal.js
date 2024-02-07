@@ -8,17 +8,52 @@ import BottomButton from './usedInModal/BottomButton';
 import styled from 'styled-components';
 import ko from 'date-fns/locale/ko';
 import { changeIndexField } from '../../Badge/modules/redux/badge';
+import { useEffect } from 'react';
 
 registerLocale('ko', ko);
 
 const MonthModal = () => {
   const [date, setDate] = useState(new Date());
 
+  // 1년 후까지
+  const [maxMonth, setMaxMonth] = useState(
+    new Date(
+      new Date().getFullYear() + 1,
+      new Date().getMonth(),
+      new Date().getDate(),
+    ),
+  );
+  // 100년 전부터
+  const [minMonth, setMinMonth] = useState(
+    new Date(
+      new Date().getFullYear() - 100,
+      new Date().getMonth(),
+      new Date().getDate(),
+    ),
+  );
+
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
   const modal = useSelector(({ modal }) => modal);
   const { contentType: name, content: index } = modal;
+
+  const { started, ended } = useSelector(
+    ({ badge }) => badge.activities[index],
+  );
+
+  useEffect(() => {
+    if (name === 'started') {
+      setMaxMonth(date);
+      if (ended) {
+        setMaxMonth(new Date(ended));
+      }
+    } else if (name === 'ended') {
+      if (started) {
+        setMinMonth(new Date(started));
+      }
+    }
+  }, [started, ended]);
 
   const setStatus = () => {
     dispatch(
@@ -42,6 +77,8 @@ const MonthModal = () => {
         showFullMonthYearPicker
         inline
         locale={'ko'}
+        minDate={minMonth}
+        maxDate={maxMonth}
       >
         <BottomButton actText={'확인'} act={setStatus} />
       </DatePicker>
