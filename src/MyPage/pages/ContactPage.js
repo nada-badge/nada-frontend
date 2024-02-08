@@ -4,7 +4,7 @@ import useModal from '../../Modal/modules/useModal';
 import styled from 'styled-components';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { applyFontStyles } from '../../styles/fontStyle';
-import { MarginBtn } from '../../Badge/containers/register/NameForm';
+import { BottomButton } from '../components/BottomButton';
 
 const ContactPage = () => {
   const dispatch = useDispatch();
@@ -35,9 +35,9 @@ const ContactPage = () => {
         </div>
       </Contact>
       <div style={{ height: '400px' }} />
-      <MarginBtn onClick={() => openContactModal()}>
-        <div>이메일 보내기 ↗</div>
-      </MarginBtn>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <BottomButton text={'이메일 보내기'} act={openContactModal} />
+      </div>
     </div>
   );
 };
