@@ -49,16 +49,17 @@ const PostItem = ({ card }) => {
           <div className="nowrap">
             <text className="text-2">{category}</text>
           </div>
-          {!location.pathname.includes('search') && (
-            <>
-              <div className="ellipse" />
-              <div className="nowrap">
-                <text className="text-2">
-                  <GetElapsedTime registeredAt={registeredAt} />
-                </text>
-              </div>
-            </>
-          )}
+          {!location.pathname.includes('search') &&
+            !location.pathname.includes('myPage') && (
+              <>
+                <div className="ellipse" />
+                <div className="nowrap">
+                  <text className="text-2">
+                    <GetElapsedTime registeredAt={registeredAt} />
+                  </text>
+                </div>
+              </>
+            )}
         </div>
       </div>
     </PostContainer>
