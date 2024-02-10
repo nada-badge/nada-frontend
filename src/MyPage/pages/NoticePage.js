@@ -7,7 +7,7 @@ import { useGetNoticeList } from '../modules/queries/useGetNotice';
 
 const NoticePage = () => {
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useGetNoticeList();
+  const { data } = useGetNoticeList();
   useEffect(() => {
     dispatch(
       changeBarStatus({
