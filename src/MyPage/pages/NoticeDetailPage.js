@@ -10,8 +10,6 @@ const NoticeDetailPage = () => {
   const params = useParams();
   const { data, isLoading, isError } = useGetNotice({ _id: params._id });
   const [info, setInfo] = useState();
-  console.log('Detail params : ', params._id);
-  console.log('Detail data : ', data);
 
   useEffect(() => {
     dispatch(
