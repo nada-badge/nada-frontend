@@ -17,7 +17,7 @@ const NoticeDetailPage = () => {
     dispatch(
       changeBarStatus({
         headerState: 'back',
-        text: '공지사항',
+        text: '세부 공지사항',
         isShowBottom: false,
       }),
     );

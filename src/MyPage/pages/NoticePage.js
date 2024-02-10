@@ -20,8 +20,8 @@ const NoticePage = () => {
 
   return (
     <div className="pageContainer" style={{ gap: '0' }}>
-      {data.notices &&
-        data.notices.map((card) => (
+      {data[1] &&
+        data.map((card) => (
           <Link
             to={`/myPage/notice/${card._id}`}
             key={card._id}
