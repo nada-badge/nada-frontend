@@ -28,6 +28,7 @@ import MyPage from './MyPage/pages/MyPagePage';
 import NoticePage from './MyPage/pages/NoticePage';
 import AlarmSettingPage from './MyPage/pages/AlarmSettingPage';
 import ContactPage from './MyPage/pages/ContactPage';
+import MyPostPage from './MyPage/pages/MyPostPage';
 
 import SearchPage from './Search/pages/SearchPage';
 
@@ -68,6 +69,7 @@ const App = () => {
         <Route path="/myPage/notice" element={<NoticePage />} />
         <Route path="/myPage/alarmSetting" element={<AlarmSettingPage />} />
         <Route path="/myPage/contact" element={<ContactPage />} />
+        <Route path="/myPage/myPost" element={<MyPostPage />} />
 
         <Route path="/manage" element={<HomePage />} />
         <Route path="/manage/activity" element={<ActivityManagePage />} />

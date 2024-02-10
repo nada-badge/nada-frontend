@@ -21,7 +21,7 @@ const MyPage = () => {
     <div className="pageContainer">
       <div>
         <Title text={'커뮤니티'} />
-        <Content url={'/mypage'} text={'내가 작성한 글'} />
+        <Content url={'/myPage/myPost'} text={'내가 작성한 글'} />
         <Content url={'/mypage'} text={'내가 댓글 단 글'} />
       </div>
       <div>
