@@ -6,8 +6,10 @@ export const useGetNotice = ({ _id }) => {
   return useQuery(
     ['getNotice'],
     async () => {
-      const { data } = await client.get(`/mypage/notice`);
-      return data;
+      const { data } = await client.get(`/mypage/notice`, {
+        params: { _id: _id },
+      });
+      return data.notice;
     },
     {
       enabled: Boolean(_id), // _id 값이 존재하는 경우에만 쿼리 실행
