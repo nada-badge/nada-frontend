@@ -19,14 +19,19 @@ const Layout = styled.div`
   padding: 13px 15px;
   box-sizing: border-box;
   background-color: white;
+  white-space: nowrap;
 
   & > .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
     ${applyFontStyles({
       font: 'subtitle-03',
       color: 'var(--myspec-gray-scalegray-900)',
     })}
   }
   & > .content {
+    overflow: hidden;
+    text-overflow: ellipsis;
     ${applyFontStyles({
       font: 'body-01',
       color: 'var(--myspec-gray-scalegray-900)',
