@@ -14,3 +14,10 @@ export const useGetNotice = ({ _id }) => {
     },
   );
 };
+
+export const useGetNoticeList = () => {
+  return useQuery(['getNotice'], async () => {
+    const { data } = await client.get(`/mypage/notice/list`);
+    return data;
+  });
+};
