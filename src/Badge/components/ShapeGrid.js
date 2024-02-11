@@ -38,6 +38,7 @@ const ShapeGrid = ({ active, onClick, newImg }) => {
     badge_05,
     badge_06,
   ]);
+
   const handleClick = (e) => {
     const { dataset } = e.currentTarget;
     onClick(dataset);
@@ -62,7 +63,7 @@ const ShapeGrid = ({ active, onClick, newImg }) => {
           data-name={'shape'}
           key={index}
           data-value={index}
-          imgInfo={icon}
+          data-src={icon}
         />
       ))}
     </GridContainer>

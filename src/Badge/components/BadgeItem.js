@@ -52,7 +52,7 @@ export const BadgeItem = ({ cards, $layout_style }) => {
   return (
     <>
       <BadgeContainer $layout_style={$layout_style}>
-        <div className="imgWrapper" src={img_src} />
+        <img className="imgWrapper" src={img_src} alt="badge_icon" />
         <div className="textWrapper">
           <div className="badgeType"> {badgeType} </div>
           <div className="title"> {title}</div>

@@ -28,11 +28,11 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
 
   const onClick = (dataset) => {
     setActive(Number(dataset.value)); // 문자열로 저장된 값이므로 숫자로 변환
-    const { value, name } = dataset;
+    const { value, name, src } = dataset;
     dispatchField({
       target: {
         name,
-        value: { index: value, src: dataset.imgInfo },
+        value: { index: value, src },
       },
     });
   };

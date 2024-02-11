@@ -9,7 +9,7 @@ const PreviewBadge = () => {
   );
 
   const badge_info = {
-    img_src: '', // shape
+    img_src: shape.src,
     badgeType: '교내 동아리', // 수정 필요
     title: name,
     team: teams[0],
