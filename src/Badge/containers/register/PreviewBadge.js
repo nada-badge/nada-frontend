@@ -1,11 +1,29 @@
 import { Explain, TitleBox } from '../../../styles/Survey';
 import '../../../styles/PageCommon.scss';
-import DetailBadgePage from '../../pages/DetailBadgePage';
+import BadgeDetailsView from '../BadgeDetailsView';
+import { useSelector } from 'react-redux';
 
 const PreviewBadge = () => {
+  const { name, explain, shape, activities, teams, issueList } = useSelector(
+    ({ badge }) => badge,
+  );
+
+  const badge_info = {
+    img_src: '', // shape
+    badgeType: '교내 동아리', // 수정 필요
+    title: name,
+    team: teams[0],
+    role: '팀원', // team[0] 의 소속된 사람들 중에서 가져와야함
+  };
+
+  const data = {
+    content: explain,
+    activity_info: activities,
+  };
+
   return (
     <>
-      <div style={{ position: 'absolute', left: '16px' }}>
+      <div style={{ minWidth: 'calc(375px - 16px)', boxSizing: 'border-box' }}>
         <div>
           <TitleBox>
             발급할 뱃지의 미리보기예요
@@ -16,7 +34,11 @@ const PreviewBadge = () => {
             </Explain>
           </TitleBox>
         </div>
-        <DetailBadgePage isPreview={true} />
+        <BadgeDetailsView
+          badge_info={badge_info}
+          data={data}
+          isPreview={true}
+        />
       </div>
     </>
   );
