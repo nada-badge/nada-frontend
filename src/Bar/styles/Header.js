@@ -37,7 +37,7 @@ export const Overlap = styled.div`
 export const Img = styled.div`
   height: 20px;
   left: 0;
-  position: absolute;
+  position: relative;
   top: 2px;
   width: 18px;
   background-size: 100%;
