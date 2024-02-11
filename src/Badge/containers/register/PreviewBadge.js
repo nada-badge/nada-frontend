@@ -13,8 +13,8 @@ const PreviewBadge = () => {
     img_src: shape.src,
     badgeType: '교내 동아리', // 수정 필요
     title: name,
-    team: teams[0],
-    role: '팀원', // team[0] 의 소속된 사람들 중에서 가져와야함
+    team: issueList[0].team,
+    role: issueList[0].role, // team[0] 의 소속된 사람들 중에서 가져와야함
   };
 
   const data = {
