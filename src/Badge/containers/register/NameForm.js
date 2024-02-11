@@ -36,7 +36,7 @@ const NameForm = ({ onSubmit, order, dispatchField }) => {
         </InputBox>
       </form>
       <MarginBtn form={order} disabled={!(name.length > 0)}>
-        <div style={{ padding: '14px 0px' }}>다음</div>
+        <div>다음</div>
       </MarginBtn>
     </>
   );

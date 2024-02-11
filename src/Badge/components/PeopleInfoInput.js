@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import IssueListInputItem from './IssueListInputItem';
+import { ButtonContainer } from '../containers/register/ActivityForm';
+import { Cancel, Act } from '../../Modal/components/usedInModal/BottomButton';
 import { addList } from '../modules/redux/badge';
-import BottomButton from './BottomButton';
 
 const PeopleInfoInput = ({ onSubmit }) => {
   const issueList = useSelector(({ badge }) => badge.issueList);
@@ -37,12 +38,16 @@ const PeopleInfoInput = ({ onSubmit }) => {
         ))}
       </div>
 
-      <BottomButton
-        grayAct={() => onClick()}
-        grayText={'발급자 추가하기'}
-        act={(e) => onSubmit(e)}
-        actText={'다음'}
-      />
+      <ButtonContainer>
+        <Cancel onClick={() => onClick()}>
+          <div className="text">발급자 추가하기</div>
+        </Cancel>
+        <Act onClick={onSubmit}>
+          <div className="text" style={{ color: 'white' }}>
+            다음
+          </div>
+        </Act>
+      </ButtonContainer>
     </>
   );
 };

@@ -3,7 +3,6 @@ import { InputBox } from '../../styles/Survey';
 import { useDispatch } from 'react-redux';
 import InputBoxWithX from './InputBoxWithX';
 import { changeIndexField, deleteList } from '../modules/redux/badge';
-import { useEffect } from 'react';
 
 const InputGrid = styled(InputBox)`
   width: 100%;
@@ -26,7 +25,7 @@ const InputGrid = styled(InputBox)`
   }
 `;
 
-const IssueListInputItem = ({ index, content, teamName }) => {
+const IssueListInputItem = ({ index, content }) => {
   const dispatch = useDispatch();
   const { name, role, birth, number, email } = content;
 
@@ -38,17 +37,6 @@ const IssueListInputItem = ({ index, content, teamName }) => {
   const onClose = () => {
     dispatch(deleteList({ type: 'issueList', index }));
   };
-
-  useEffect(() => {
-    dispatch(
-      changeIndexField({
-        type: 'issueList',
-        index,
-        name: 'team',
-        value: teamName,
-      }),
-    );
-  }, [teamName]);
 
   return (
     <InputGrid>

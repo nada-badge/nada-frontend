@@ -6,9 +6,6 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteList, changeIndexField } from '../modules/redux/badge';
 import InputBoxWithX from './InputBoxWithX';
-import { openModal } from '../../Modal/modules/redux/modal';
-import useModal from '../../Modal/modules/useModal';
-import { YYYYdotMM } from '../../modules/common/formatDate';
 
 const DateWrapper = styled.div`
   display: flex;
@@ -24,8 +21,8 @@ const DateWrapper = styled.div`
 const ActivityInputItem = ({ index }) => {
   const dispatch = useDispatch();
 
-  const { content, started, ended } = useSelector(
-    ({ badge }) => badge.activities[index],
+  const activitiyContent = useSelector(
+    ({ badge }) => badge.activities[index].content,
   );
 
   const onClose = () => {
@@ -37,12 +34,6 @@ const ActivityInputItem = ({ index }) => {
     dispatch(changeIndexField({ type: 'activities', index, name, value }));
   };
 
-  const { openModal } = useModal();
-
-  const openCalendar = (contentType) => {
-    openModal({ type: 'MonthModal', contentType, content: index });
-  };
-
   return (
     <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
       <InputBoxWithX
@@ -50,28 +41,16 @@ const ActivityInputItem = ({ index }) => {
         placeholder={'내용을 입력해주세요.'}
         onChange={onChange}
         onClose={onClose}
-        value={content}
+        value={activitiyContent}
       />
       <DateWrapper>
-        <Dropdown
-          className={'unselected'}
-          onClick={() => {
-            openCalendar('started');
-          }}
-        >
-          <TextWarpper className={'unselected'}>
-            {YYYYdotMM(started)}
-          </TextWarpper>
+        <Dropdown className={'unselected'}>
+          <TextWarpper className={'unselected'}>2023.01</TextWarpper>
           <FilterHandler className={'unselected'} />
         </Dropdown>
         <span> ~ </span>
-        <Dropdown
-          className={'unselected'}
-          onClick={() => {
-            openCalendar('ended');
-          }}
-        >
-          <TextWarpper className={'unselected'}>{YYYYdotMM(ended)}</TextWarpper>
+        <Dropdown className={'unselected'}>
+          <TextWarpper className={'unselected'}>2023.02</TextWarpper>
           <FilterHandler className={'unselected'} />
         </Dropdown>
       </DateWrapper>

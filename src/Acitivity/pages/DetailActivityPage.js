@@ -7,7 +7,7 @@ import { changePostDataField } from '../../modules/redux/postData.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useActivity } from '../modules/queries/useGetActivity.js';
-import { calculateDday } from '../../modules/common/formatDate.js';
+import { calculateDday } from '../modules/calculateDday.js';
 import { applyFontStyles } from '../../styles/fontStyle.js';
 import { Image } from '../container/Image.js';
 

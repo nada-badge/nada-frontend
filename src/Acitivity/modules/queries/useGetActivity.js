@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
-import { calculateDday } from '../../../modules/common/formatDate';
+import { calculateDday } from '../calculateDday';
 import { useSelector } from 'react-redux';
 import { decodeJwtToken } from '../../../Auth/modules/decodeJwtToken';
 

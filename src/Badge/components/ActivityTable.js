@@ -1,6 +1,5 @@
-import { YYYYdotMM } from '../../modules/common/formatDate';
-
 // 활동 이력을 보여주는 컴포넌트
+import React from 'react';
 
 export const ActivityTable = ({ info }) => {
   const tableLayout = {
@@ -25,14 +24,14 @@ export const ActivityTable = ({ info }) => {
 
   return (
     <div style={tableLayout}>
-      {info.map(({ started, ended, content }, idx) => (
+      {info.map(({ start, end, name }, idx) => (
         <div style={rowLayout} key={idx}>
           <div style={periodLayout}>
-            <div>{YYYYdotMM(started)}</div>
+            <div>{start}</div>
             <div> ~ </div>
-            <div>{YYYYdotMM(ended)}</div>
+            <div>{end}</div>
           </div>
-          <div>{content}</div>
+          <div>{name}</div>
         </div>
       ))}
     </div>
