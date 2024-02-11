@@ -21,6 +21,7 @@
 }
 
 .react-datepicker {
+  width: 375px;
   border-radius: 20px 20px 0px 0px;
   border: none;
   padding-bottom: 10px;
@@ -48,6 +49,10 @@
   margin-top: 15px;
 }
 
+.react-datepicker__month-container {
+  width: inherit;
+}
+
 // [1,2,3] [4,5,6] ... [10,11,12] 월
 .react-datepicker__month-wrapper {
   display: flex;
@@ -56,7 +61,7 @@
   > div {
     box-sizing: border-box;
     padding: 8px;
-    min-width: 122px;
+    min-width: 102px;
     display: flex !important;
     align-items: center;
     justify-content: center;
