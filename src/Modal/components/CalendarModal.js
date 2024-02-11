@@ -26,7 +26,7 @@ const CalendarModal = () => {
     setStartDate(start);
     setEndDate(end);
   };
-
+  console.log('Start : ', startDate, ' : ', endDate, ':', !endDate);
   const setStatus = () => {
     dispatch(
       changeField({
@@ -95,7 +95,7 @@ const CalendarModal = () => {
           )}
         />
       </div>
-      <BottomButton actText={'확인'} act={setStatus} />
+      <BottomButton actText={'확인'} act={setStatus} disabled={!endDate} />
     </Layout>
   );
 };
