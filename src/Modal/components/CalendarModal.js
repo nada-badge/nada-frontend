@@ -55,9 +55,6 @@ const CalendarModal = () => {
 
   return (
     <Layout>
-      {/* <캘린더 라이브러리를 사용해서 들어가기> */}
-      {/* onClick 시 postWrite 리덕스테 값 저장하기*/}
-      {/* 확인 시 postWrite submit에 리덕스테 값 저장하기*/}
       <div>
         <DatePicker
           selected={startDate}
@@ -98,7 +95,6 @@ const CalendarModal = () => {
           )}
         />
       </div>
-      {/** ▼act 추가 */}
       <BottomButton actText={'확인'} act={setStatus} />
     </Layout>
   );
