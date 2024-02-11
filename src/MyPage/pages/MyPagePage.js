@@ -3,6 +3,20 @@ import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { Title } from '../components/Title';
 import { Content } from '../components/Content';
+import { ProfileStyle } from '../../Community/styles/CommentStyle';
+import styled from 'styled-components';
+import { applyFontStyles } from '../../styles/fontStyle';
+
+const MyPageProfile = styled(ProfileStyle)`
+  & > .image {
+    width: ${(prop) => `${prop.imgSize}px`};
+    height: ${(prop) => `${prop.imgSize}px`};
+  }
+
+  & > .name {
+    ${applyFontStyles({ font: 'title-01' })}
+  }
+`;
 
 const MyPage = () => {
   const dispatch = useDispatch();
@@ -19,6 +33,14 @@ const MyPage = () => {
 
   return (
     <div className="pageContainer">
+      <div>
+        <Content url={'/myPage/profile'}>
+          <MyPageProfile imgSize={54}>
+            <div className="image" width={'54px'} height={'54px'} />
+            <div className="name">{'김나다'}</div>
+          </MyPageProfile>
+        </Content>
+      </div>
       <div>
         <Title text={'커뮤니티'} />
         <Content url={'/myPage/myPost'} text={'내가 작성한 글'} />

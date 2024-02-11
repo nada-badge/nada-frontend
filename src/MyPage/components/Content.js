@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { AngleBracket } from '../../icon/AngleBracket';
 import { applyFontStyles } from '../../styles/fontStyle';
 
-export const Content = ({ url, text, version }) => {
+export const Content = ({ url, text, version, children }) => {
   const link = {
     width: '375px',
-    height: '60px',
+    height: 'fit-content',
     padding: '18px 17px',
     boxSizing: 'border-box',
     display: 'flex',
@@ -36,6 +36,7 @@ export const Content = ({ url, text, version }) => {
 
   return (
     <Link to={url} style={link}>
+      {children}
       {text}
       {rightOutput()}
     </Link>
