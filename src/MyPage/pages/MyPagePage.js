@@ -7,7 +7,7 @@ import { ProfileStyle } from '../../Community/styles/CommentStyle';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 
-const MyPageProfile = styled(ProfileStyle)`
+export const MyPageProfile = styled(ProfileStyle)`
   & > .image {
     width: ${(prop) => `${prop.imgSize}px`};
     height: ${(prop) => `${prop.imgSize}px`};
