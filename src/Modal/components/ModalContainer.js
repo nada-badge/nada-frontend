@@ -11,6 +11,7 @@ const AskModal = lazy(() => import('./AskModal'));
 const ButtonSelectModal = lazy(() => import('./ButtonSelectModal'));
 const MenuModal = lazy(() => import('./MenuModal'));
 const CalendarModal = lazy(() => import('./CalendarModal'));
+const MonthModal = lazy(() => import('./MonthModal'));
 const ContactModal = lazy(() => import('./ContactModal'));
 
 const MODAL_COMPONENTS = {
@@ -21,6 +22,7 @@ const MODAL_COMPONENTS = {
   MenuModal: MenuModal,
   ButtonSelectModal: ButtonSelectModal,
   CalendarModal: CalendarModal,
+  MonthModal: MonthModal,
   ContactModal: ContactModal,
 };
 
@@ -77,7 +79,7 @@ const ModalContainer = () => {
       {/* Suspense를 사용하여 동적으로 로딩된 모달을 대기 */}
       <Suspense fallback={<div style={Loading}> Loading...</div>}>
         <div style={Overlay}>
-          <div style={ModalWrap}>
+          <div style={ModalWrap} className="modalWrapper">
             <Modal {...props} />
           </div>
         </div>
