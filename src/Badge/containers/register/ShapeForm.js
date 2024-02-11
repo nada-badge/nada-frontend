@@ -69,7 +69,7 @@ const ShapeForm = ({ onSubmit, order, dispatchField }) => {
         <ShapeGrid onClick={onClick} active={active} newImg={newImg} />
       </form>
       <FixedLoginBtn form={order} disabled={active === null}>
-        <div>다음</div>
+        <div style={{ padding: '14px 0px' }}>다음</div>
       </FixedLoginBtn>
     </>
   );

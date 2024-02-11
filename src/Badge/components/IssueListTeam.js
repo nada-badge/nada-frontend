@@ -65,7 +65,7 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
             ))}
           </div>
           <FixedLoginBtn onClick={onSubmit} disabled={disabled}>
-            <div>다음</div>
+            <div style={{ padding: '14px 0px' }}>다음</div>
           </FixedLoginBtn>
         </>
       )}
