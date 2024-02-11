@@ -107,4 +107,5 @@ export const Layout = styled.div`
   display: inline-flex;
   flex-direction: column;
   position: relative;
+  gap: 16px;
 `;
