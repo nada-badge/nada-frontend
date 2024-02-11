@@ -30,6 +30,7 @@ import NoticeDetailPage from './MyPage/pages/NoticeDetailPage';
 import AlarmSettingPage from './MyPage/pages/AlarmSettingPage';
 import ContactPage from './MyPage/pages/ContactPage';
 import MyPostPage from './MyPage/pages/MyPostPage';
+import TermsOfUsePage from './MyPage/pages/TermsOfUsePage';
 
 import SearchPage from './Search/pages/SearchPage';
 
@@ -72,6 +73,7 @@ const App = () => {
         <Route path="/myPage/alarmSetting" element={<AlarmSettingPage />} />
         <Route path="/myPage/contact" element={<ContactPage />} />
         <Route path="/myPage/myPost" element={<MyPostPage />} />
+        <Route path="/myPage/termsOfUse" element={<TermsOfUsePage />} />
 
         <Route path="/manage" element={<HomePage />} />
         <Route path="/manage/activity" element={<ActivityManagePage />} />

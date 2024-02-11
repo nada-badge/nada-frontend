@@ -38,7 +38,7 @@ const MyPage = () => {
           text={'버전정보'}
           version={'1.5.22(2023121021)'}
         />
-        <Content url={'/mypage'} text={'이용약관'} />
+        <Content url={'/myPage/termsOfUse'} text={'이용약관'} />
       </div>
       <div>
         <Title text={'기타'} />
