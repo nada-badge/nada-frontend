@@ -2,6 +2,7 @@
 
 .react-datepicker {
   border: none;
+  text-align: center;
   .react-datepicker__header {
     background-color: white;
   }
@@ -29,6 +30,7 @@
     }
   }
   .react-datepicker__day-names {
+    display: flex;
     > div {
       width: 40px;
       height: 26px;
@@ -72,12 +74,14 @@
   }
   //단일로 선택된 시작 날짜
   .react-datepicker__day--selected {
+    color: white;
     border-radius: 50%;
     background-color: var(--myspec-primaryblue-1);
   }
   //기간 선택 중 또는 후에 시작 날짜
   .react-datepicker__day--selecting-range-start,
   .react-datepicker__day--range-start:not(.react-datepicker__day--range-end) {
+    color: white;
     border-radius: 20px 0px 0px 20px;
     background-color: var(--myspec-primaryblue-1);
   }
