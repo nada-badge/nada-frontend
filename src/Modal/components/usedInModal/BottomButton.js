@@ -9,6 +9,7 @@ export const BottomButton = ({
   cancelAct,
   actText,
   act,
+  disabled,
   isRed,
 }) => {
   const { closeModal } = useModal();
@@ -22,7 +23,11 @@ export const BottomButton = ({
         <div className="text">{cancelText || '취소'}</div>
       </Cancel>
       {actText && (
-        <Act className={classNames('act', { isRed })} onClick={() => act()}>
+        <Act
+          className={classNames('act', { isRed })}
+          onClick={() => act()}
+          disabled={disabled}
+        >
           <div className="text">{actText}</div>
         </Act>
       )}
@@ -38,15 +43,15 @@ export const ButtonList = styled.div`
   flex: 0 0 auto;
   gap: 8px;
   position: relative;
-  width: 264px;
   text-align: center;
+  width: 264px;
 `;
 
 export const Cancel = styled.div`
   background: ${(props) =>
     props.$isColor
       ? 'var(--myspec-primaryblue-1)'
-      : 'var(--myspec-gray-scalegray-100)'};
+      : 'var(--myspec-gray-scalegray-200)'};
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;
@@ -64,10 +69,11 @@ export const Cancel = styled.div`
     }};
   }
 `;
-export const Act = styled.div`
+export const Act = styled.button`
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;
+  border: none;
   width: 100%;
   height: 100%;
   padding: 12px;
@@ -75,14 +81,16 @@ export const Act = styled.div`
   &.isRed {
     background-color: var(--myspec-primaryred-1);
   }
-  & > .text {
-    ${applyFontStyles({
-      font: 'subtitle_01',
-      color: 'var(--myspec-gray-scalegray-100)',
-    })}
+
+  &:disabled {
+    opacity: 0.3;
   }
 
-  &.disabled {
-    opacity: 0.3;
+  & > .text {
+    text-decoration: none;
+    ${applyFontStyles({
+      font: 'subtitle-01',
+      color: 'var(--myspec-gray-scalegray-100)',
+    })};
   }
 `;
