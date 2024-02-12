@@ -17,6 +17,15 @@ const UserNameForm = React.lazy(
 const PhoneNumberForm = React.lazy(
   () => import('../../Auth/containers/register/PhoneNumberForm'),
 );
+const TeamNameForm = React.lazy(
+  () => import('../../Auth/containers/register/TeamNameForm'),
+);
+const TeamTypeForm = React.lazy(
+  () => import('../../Auth/containers/register/TeamTypeForm'),
+);
+const RepresentForm = React.lazy(
+  () => import('../../Auth/containers/register/RepresentForm'),
+);
 
 const EditPage = () => {
   const params = useParams();
@@ -27,6 +36,9 @@ const EditPage = () => {
     userName: UserNameForm,
     phoneNumber: PhoneNumberForm,
     password: PasswordForm,
+    teamName: TeamNameForm,
+    teamType: TeamTypeForm,
+    represent: RepresentForm,
   };
 
   const dispatch = useDispatch();

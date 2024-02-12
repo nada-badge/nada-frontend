@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import CameraSvg from '../icon/CameraSvg';
+import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 
 const LinkContent = styled(LinkWrapper)`
   ${applyFontStyles({ font: 'subtitle-01' })}
@@ -38,6 +39,9 @@ const Profile = () => {
       닉네임: 'userName',
       '휴대폰 번호': 'phoneNumber',
       비밀번호: 'password',
+      단체이름: 'teamName',
+      단체종류: 'teamType',
+      대표자: 'represent',
     };
 
     return (
@@ -50,6 +54,8 @@ const Profile = () => {
       </LinkContent>
     );
   };
+
+  const { userType } = decodeJwtToken(localStorage.getItem('token'));
 
   return (
     <div className="pageContainer">
@@ -70,10 +76,25 @@ const Profile = () => {
         </div>
       </div>
       <div>
-        <ContentWrapper text="이메일" version={'nada@gmail.com'} />
-        <ContentWrapper text="닉네임" version={'김나다'} />
-        <ContentWrapper text="휴대폰 번호" version={'010-1234-5678'} />
-        <ContentWrapper text="비밀번호" version={'*******'} />
+        {userType === 1 && (
+          <>
+            <ContentWrapper text="이메일" version={'nada@gmail.com'} />
+            <ContentWrapper text="닉네임" version={'김나다'} />
+            <ContentWrapper text="휴대폰 번호" version={'010-1234-5678'} />
+            <ContentWrapper text="비밀번호" version={'*******'} />
+          </>
+        )}
+
+        {userType === 2 && (
+          <>
+            <ContentWrapper text="이메일" version={'myspec@gmail.com'} />
+            <ContentWrapper text="단체이름" version={'myspec'} />
+            <ContentWrapper text="단체종류" version={'교내동아리'} />
+            <ContentWrapper text="대표자" version={'김나다'} />
+            <ContentWrapper text="휴대폰 번호" version={'010-1234-5678'} />
+            <ContentWrapper text="비밀번호" version={'*******'} />
+          </>
+        )}
       </div>
     </div>
   );
