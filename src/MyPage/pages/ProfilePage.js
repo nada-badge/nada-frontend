@@ -45,7 +45,7 @@ const Profile = () => {
         <div>{text}</div>
         <div className="rightBox">
           <div className="info">{version}</div>
-          <RightArrowSvg width={10} />
+          <RightArrowSvg width={10} height={19} />
         </div>
       </LinkContent>
     );
