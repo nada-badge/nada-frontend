@@ -33,8 +33,15 @@ const Profile = () => {
   }, []);
 
   const ContentWrapper = ({ text, version }) => {
+    const urlText = {
+      이메일: 'email',
+      닉네임: 'userName',
+      '휴대폰 번호': 'phoneNumber',
+      비밀번호: 'password',
+    };
+
     return (
-      <LinkContent>
+      <LinkContent to={`/myPage/profile/edit/${urlText[text]}`}>
         <div>{text}</div>
         <div className="rightBox">
           <div className="info">{version}</div>
