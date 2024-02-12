@@ -6,6 +6,7 @@ import { LinkWrapper } from '../components/Content';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
+import CameraSvg from '../icon/CameraSvg';
 
 const LinkContent = styled(LinkWrapper)`
   ${applyFontStyles({ font: 'subtitle-01' })}
@@ -47,6 +48,9 @@ const Profile = () => {
     <div className="pageContainer">
       <div style={{ width: '100%' }}>
         <div style={{ margin: '0 auto', width: 'fit-content' }}>
+          <div style={{ position: 'relative', top: '120px', left: '70px' }}>
+            <CameraSvg />
+          </div>
           <BadgeItem
             cards={{ img_src: '', badgeType: '개인회원', title: '김나다' }}
             $layout_style={{
