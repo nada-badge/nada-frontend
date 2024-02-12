@@ -1,10 +1,22 @@
-import { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useParams } from 'react-router-dom';
-import EmailForm from '../../Auth/containers/register/EmailForm';
 import { changeField } from '../../Auth/modules/redux/auth';
 import { RegisterBox } from '../../styles/Survey';
+
+const EmailForm = React.lazy(
+  () => import('../../Auth/containers/register/EmailForm'),
+);
+const PasswordForm = React.lazy(
+  () => import('../../Auth/containers/register/PasswordForm'),
+);
+const UserNameForm = React.lazy(
+  () => import('../../Auth/containers/register/UserNameForm'),
+);
+const PhoneNumberForm = React.lazy(
+  () => import('../../Auth/containers/register/PhoneNumberForm'),
+);
 
 const EditPage = () => {
   const params = useParams();
@@ -12,9 +24,9 @@ const EditPage = () => {
 
   const mapContainer = {
     email: EmailForm,
-    // userName: UserNamePage,
-    // phoneNumber: PhoneNumberForm,
-    // password: PasswordForm,
+    userName: UserNameForm,
+    phoneNumber: PhoneNumberForm,
+    password: PasswordForm,
   };
 
   const dispatch = useDispatch();
@@ -41,12 +53,14 @@ const EditPage = () => {
   return (
     <div>
       <RegisterBox>
-        <Component
-          dispatchField={dispatchField}
-          onSubmit={() => {}} // 서버 업데이트, 뒤로 가기
-          order={0}
-          type={'personal'}
-        />
+        <Suspense fallback={<div></div>}>
+          <Component
+            dispatchField={dispatchField}
+            onSubmit={() => {}} // 서버 업데이트, 뒤로 가기
+            order={0}
+            type={'personal'}
+          />
+        </Suspense>
       </RegisterBox>
     </div>
   );
