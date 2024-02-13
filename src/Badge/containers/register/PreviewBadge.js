@@ -13,8 +13,8 @@ const PreviewBadge = () => {
     img_src: shape.src,
     badgeType: '교내 동아리', // 수정 필요
     title: name,
-    team: issueList[0].team,
-    role: issueList[0].role, // team[0] 의 소속된 사람들 중에서 가져와야함
+    team: issueList[0][0].team,
+    role: issueList[0][0].role, // team[0] 의 소속된 사람들 중에서 가져와야함
   };
 
   const data = {
@@ -41,7 +41,7 @@ const PreviewBadge = () => {
           isPreview={true}
         />
       </div>
-      <MarginBtn disabled={!(name.length > 0)}>
+      <MarginBtn>
         <div style={{ padding: '14px 0px' }}>뱃지 발급하기</div>
       </MarginBtn>
     </>

@@ -2,8 +2,13 @@ import styled from 'styled-components';
 import { InputBox } from '../../styles/Survey';
 import { useDispatch } from 'react-redux';
 import InputBoxWithX from './InputBoxWithX';
-import { changeIndexField, deleteList } from '../modules/redux/badge';
-import { useEffect } from 'react';
+import {
+  changeIndexField,
+  deleteList,
+  changeIssueList,
+  deleteIssueList,
+} from '../modules/redux/badge';
+import { useEffect, useState } from 'react';
 
 const InputGrid = styled(InputBox)`
   width: 100%;
@@ -32,23 +37,20 @@ const IssueListInputItem = ({ index, content, teamName }) => {
 
   const onChange = (e) => {
     const { value, name } = e.target;
-    dispatch(changeIndexField({ type: 'issueList', index, name, value }));
+    if (teamName) {
+      dispatch(changeIssueList({ index, name, teamName, value }));
+    } else {
+      dispatch(changeIndexField({ type: 'issueList', index, name, value }));
+    }
   };
 
   const onClose = () => {
-    dispatch(deleteList({ type: 'issueList', index }));
+    if (teamName) {
+      dispatch(deleteIssueList({ teamName, index }));
+    } else {
+      dispatch(deleteList({ type: 'issueList', index }));
+    }
   };
-
-  useEffect(() => {
-    dispatch(
-      changeIndexField({
-        type: 'issueList',
-        index,
-        name: 'team',
-        value: teamName,
-      }),
-    );
-  }, [teamName]);
 
   return (
     <InputGrid>

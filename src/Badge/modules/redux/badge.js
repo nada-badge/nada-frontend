@@ -55,6 +55,39 @@ const badgeSlice = createSlice({
     changeTeam: (state, { payload: { index, value } }) => {
       state.teams[index] = value;
     },
+
+    // team or notTeam
+    changeIssueListFormat: (state) => {
+      state.issueList = state.teams.map((team) => [
+        {
+          name: '',
+          role: '',
+          birth: '',
+          email: '',
+          number: '',
+          team: team,
+        },
+      ]);
+    },
+
+    changeIssueList: (state, { payload: { index, name, teamName, value } }) => {
+      let idx = state.teams.indexOf(teamName);
+      if (state.issueList[idx]) {
+        state.issueList[idx][index][name] = value;
+      }
+    },
+
+    addIssueList: (state, { payload: { teamName, value } }) => {
+      const idx = state.teams.indexOf(teamName);
+      if (state.issueList[idx]) {
+        state.issueList[idx].push(value); // 값 추가
+      }
+    },
+
+    deleteIssueList: (state, { payload: { teamName, index } }) => {
+      let idx = state.teams.indexOf(teamName);
+      state.issueList[idx] = state.issueList[idx].filter((_, i) => i !== index);
+    },
   },
 });
 
@@ -67,4 +100,8 @@ export const {
   changeIndexField,
   addTeam,
   changeTeam,
+  changeIssueListFormat,
+  changeIssueList,
+  addIssueList,
+  deleteIssueList,
 } = badgeSlice.actions;
