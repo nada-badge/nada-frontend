@@ -1,6 +1,6 @@
 /** PostItem, postList을 이루는 PostItem. */
-import { PostContainer } from '../../../Community/styles/postItemStyle';
-import GetElapsedTime from '../../../modules/common/getElapsedTime';
+import { PostContainer } from '../../Community/styles/postItemStyle';
+import GetElapsedTime from '../../modules/common/getElapsedTime';
 import { useLocation } from 'react-router-dom';
 
 const PostItem = ({ card }) => {

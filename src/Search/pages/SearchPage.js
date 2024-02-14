@@ -4,7 +4,7 @@ import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchCategory } from '../components/SearchCategory';
-import PostList from '../../components/common/postList/PostList';
+import PostList from '../../components/postList/PostList';
 import { AlignBox } from '../../Badge/components/AlignBox';
 import {
   useSearchActivity,

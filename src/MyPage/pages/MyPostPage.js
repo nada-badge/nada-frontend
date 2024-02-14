@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useGetMyPost } from '../modules/queries/useGetMyPost';
-import PostList from '../../components/common/postList/PostList';
+import PostList from '../../components/postList/PostList';
 import { Contents } from '../../Community/styles/CommunityStyle';
 
 const MyPostPage = () => {
