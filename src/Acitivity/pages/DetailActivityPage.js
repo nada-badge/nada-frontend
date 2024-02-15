@@ -19,6 +19,7 @@ const DetailContainer = styled.div`
   gap: 12px;
   width: 375px;
   margin: 0px auto;
+  padding-top: 88px;
   padding-bottom: 88px;
   text-align: left;
   ${applyFontStyles({ font: 'body-01' })};
