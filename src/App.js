@@ -31,6 +31,7 @@ import AlarmSettingPage from './MyPage/pages/AlarmSettingPage';
 import ContactPage from './MyPage/pages/ContactPage';
 import MyPostPage from './MyPage/pages/MyPostPage';
 import TermsOfUsePage from './MyPage/pages/TermsOfUsePage';
+import Profile from './MyPage/pages/ProfilePage';
 
 import SearchPage from './Search/pages/SearchPage';
 
@@ -38,6 +39,7 @@ import BadgePage from './Badge/pages/BadgePage';
 import DetailBadgePage from './Badge/pages/DetailBadgePage';
 import ActWritePage from './Acitivity/pages/ActWritePage';
 import BadgeRegisterPage from './Badge/pages/BadgeRegisterPage';
+import EditPage from './MyPage/pages/EditPage';
 
 const App = () => {
   return (
@@ -74,6 +76,9 @@ const App = () => {
         <Route path="/myPage/contact" element={<ContactPage />} />
         <Route path="/myPage/myPost" element={<MyPostPage />} />
         <Route path="/myPage/termsOfUse" element={<TermsOfUsePage />} />
+
+        <Route path="/myPage/profile" element={<Profile />} />
+        <Route path="/myPage/profile/edit/:_type" element={<EditPage />} />
 
         <Route path="/manage" element={<HomePage />} />
         <Route path="/manage/activity" element={<ActivityManagePage />} />
