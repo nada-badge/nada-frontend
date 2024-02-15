@@ -8,7 +8,7 @@ import { NoticeContent } from '../components/NoticeContent';
 
 const NoticeManagePage = () => {
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useGetNoticeList();
+  const { data } = useGetNoticeList();
   console.log('notice data : ', data);
   useEffect(() => {
     dispatch(
