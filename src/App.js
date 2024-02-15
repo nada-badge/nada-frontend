@@ -23,8 +23,16 @@ import CommunityPage from './Community/pages/CommunityPage';
 import PostWritePage from './Community/pages/PostWritePage';
 import PostDetailPage from './Community/pages/PostDetailPage';
 import CommentPage from './Community/pages/CommentPage';
-import MyPage from './testpage/myPage';
-import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
+
+import MyPage from './MyPage/pages/MyPagePage';
+import NoticePage from './MyPage/pages/NoticePage';
+import NoticeDetailPage from './MyPage/pages/NoticeDetailPage';
+import AlarmSettingPage from './MyPage/pages/AlarmSettingPage';
+import ContactPage from './MyPage/pages/ContactPage';
+import MyPostPage from './MyPage/pages/MyPostPage';
+import TermsOfUsePage from './MyPage/pages/TermsOfUsePage';
+
+import SearchPage from './Search/pages/SearchPage';
 
 import BadgePage from './Badge/pages/BadgePage';
 import DetailBadgePage from './Badge/pages/DetailBadgePage';
@@ -50,7 +58,6 @@ const App = () => {
           path="/activity/DetailActivity/:_id"
           element={<DetailActivityPage />}
         />
-        <Route path="/activity/search" element={<SearchActivityPage />} />
         <Route path="/activity/ActWrite" element={<ActWritePage />} />
 
         <Route path="/community" element={<CommunityPage />} />
@@ -58,7 +65,15 @@ const App = () => {
         <Route path="/community/PostDetail/:_id" element={<PostDetailPage />} />
         <Route path="/community/Comment/:_id" element={<CommentPage />} />
 
+        <Route path="/search" element={<SearchPage />} />
+
         <Route path="/myPage" element={<MyPage />} />
+        <Route path="/myPage/notice" element={<NoticePage />} />
+        <Route path="/myPage/notice/:_id" element={<NoticeDetailPage />} />
+        <Route path="/myPage/alarmSetting" element={<AlarmSettingPage />} />
+        <Route path="/myPage/contact" element={<ContactPage />} />
+        <Route path="/myPage/myPost" element={<MyPostPage />} />
+        <Route path="/myPage/termsOfUse" element={<TermsOfUsePage />} />
 
         <Route path="/manage" element={<HomePage />} />
         <Route path="/manage/activity" element={<ActivityManagePage />} />

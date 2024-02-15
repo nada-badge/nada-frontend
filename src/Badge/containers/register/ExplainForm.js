@@ -1,6 +1,7 @@
 // 뱃지에 대한 설명을 입력받는 컨테이너
-import { Explain, InputBox, LoginBtn, TitleBox } from '../../../styles/Survey';
+import { Explain, InputBox, TitleBox } from '../../../styles/Survey';
 import { useSelector } from 'react-redux';
+import { MarginBtn } from './NameForm';
 
 const ExplainForm = ({ onSubmit, order, dispatchField }) => {
   const explain = useSelector(({ badge }) => badge.explain);
@@ -25,16 +26,13 @@ const ExplainForm = ({ onSubmit, order, dispatchField }) => {
             value={explain}
             maxLength={120}
             required
+            style={{ resize: 'none' }}
           />
         </InputBox>
       </form>
-      <LoginBtn
-        form={order}
-        disabled={!(explain.length > 0)}
-        style={{ marginBottom: '50px' }}
-      >
-        <div>다음</div>
-      </LoginBtn>
+      <MarginBtn form={order} disabled={!(explain.length > 0)}>
+        <div style={{ padding: '14px 0px' }}>다음</div>
+      </MarginBtn>
     </>
   );
 };

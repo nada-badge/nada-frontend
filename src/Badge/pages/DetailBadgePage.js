@@ -1,16 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
-import { BadgeItem } from '../components/BadgeItem';
-import { ContentBox } from '../components/ContentBox';
-import { ActivityTable } from '../components/ActivityTable';
-import CardList from '../../components/cardList/CardList';
-import { layout_style, imgItem, hideBadgeBox } from '../styles/Badge';
 import '../../styles/PageCommon.scss';
 import useModal from '../../Modal/modules/useModal';
-import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
-import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
-import { SpaceBetween } from '../../Search/components/SearchCategory';
+import BadgeDetailsView from '../containers/BadgeDetailsView';
 
 const DetailBadgePage = () => {
   const dispatch = useDispatch();
@@ -47,7 +40,7 @@ const DetailBadgePage = () => {
 
   const { openModal } = useModal();
 
-  const onClick = () => {
+  const hide = () => {
     openModal({
       type: 'AskModal',
       contentType: '뱃지',
@@ -57,34 +50,15 @@ const DetailBadgePage = () => {
     });
   };
 
-  const { userType } = decodeJwtToken(localStorage.getItem('token'));
-
   return (
     <>
       <div className="pageContainer">
-        <div style={{ padding: '24px 112px' }}>
-          <BadgeItem cards={badge_info} $layout_style={layout_style} />
-        </div>
-        <ContentBox title={'뱃지 설명'}>{data.content}</ContentBox>
-        <ContentBox title={'활동 내역'}>
-          <ActivityTable info={data.activity_info} />
-        </ContentBox>
-        {userType === 2 && (
-          <SpaceBetween>
-            <ContentBox title={'발급 명단'} />
-            <RightArrowSvg width={10} />
-          </SpaceBetween>
-        )}
-        <ContentBox title={'활동 사진'}>
-          <CardList>
-            {Array.from({ length: 4 }, () => 1).map((item, idx) => (
-              <div style={imgItem} key={idx} />
-            ))}
-          </CardList>
-        </ContentBox>
-        <div style={hideBadgeBox} onClick={onClick}>
-          이 뱃지 숨기기
-        </div>
+        <BadgeDetailsView
+          badge_info={badge_info}
+          data={data}
+          isPreview={false}
+          hide={hide}
+        />
       </div>
     </>
   );

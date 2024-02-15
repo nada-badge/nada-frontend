@@ -32,7 +32,7 @@ const ButtonWrapper = styled.div`
 const IssueBadgeBtn = () => {
   return (
     <ButtonWrapper>
-      <AddOperator />
+      <AddOperator color={'#2FEDAF'} />
       <div> 뱃지 발급하기 </div>
     </ButtonWrapper>
   );
