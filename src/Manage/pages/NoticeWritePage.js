@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LayoutStyle } from './HomePage.';
 import Header from '../containers/Header';
 import usePostNotice from '../modules/queries/usePostNotice';
 import { applyFontStyles } from '../../styles/fontStyle';
 
 const NoticeWritePage = () => {
+  const navigate = useNavigate();
   const { mutate } = usePostNotice();
   const [input, setInput] = useState({
     title: '',
@@ -43,6 +45,7 @@ const NoticeWritePage = () => {
       title: '',
       content: '',
     });
+    navigate('/manage/notice');
   };
 
   return (
