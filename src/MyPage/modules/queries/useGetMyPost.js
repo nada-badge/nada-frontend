@@ -13,6 +13,8 @@ export const useGetMyPost = ({ email }) => {
     },
     {
       enabled: Boolean(email), // _id 값이 존재하는 경우에만 쿼리 실행
+      cacheTime: 60 * 1000, // 1분 (단위: 밀리초)
+      staleTime: 10 * 1000, // 10초 (단위: 밀리초)
       select: (data) => {
         return (data || []).map((item) => ({
           ...item,

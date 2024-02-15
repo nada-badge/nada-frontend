@@ -18,8 +18,15 @@ export const useGetNotice = ({ _id }) => {
 };
 
 export const useGetNoticeList = () => {
-  return useQuery(['getNoticeList'], async () => {
-    const { data } = await client.get(`/mypage/notice/list`);
-    return data.notices;
-  });
+  return useQuery(
+    ['getNoticeList'],
+    async () => {
+      const { data } = await client.get(`/mypage/notice/list`);
+      return data.notices;
+    },
+    {
+      cacheTime: 900 * 1000, // 15분 (단위: 밀리초)
+      staleTime: 600 * 1000, // 10분 (단위: 밀리초)
+    },
+  );
 };
