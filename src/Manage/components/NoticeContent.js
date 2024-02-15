@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
+import useDeleteId from '../../modules/queries/useDeleteId';
 
 export const NoticeContent = ({ data }) => {
+  const { mutate } = useDeleteId();
+
+  const onDelete = () => {
+    mutate({
+      url: '/mypage/notice',
+      _id: data._id,
+    });
+  };
+
   return (
     <Layout>
       <div className="title">{data.title}</div>
       <div className="content">{data.content}</div>
-      <div className="date">{data.registeredAt}</div>
+      <div className="bottom">
+        <button>수정</button>
+        <button onClick={onDelete}>삭제</button>
+        {data.registeredAt}
+      </div>
     </Layout>
   );
 };
@@ -21,6 +35,7 @@ const Layout = styled.div`
   box-sizing: border-box;
   background-color: white;
   text-align: left;
+  border-bottom: 2px solid var(--myspec-gray-scale-gray-400, #d9d9d9);
   & > .title {
     ${applyFontStyles({
       font: 'subtitle-03',
@@ -35,8 +50,10 @@ const Layout = styled.div`
       color: 'var(--myspec-gray-scalegray-900)',
     })}
   }
-  & > .date {
+  & > .bottom {
     margin-left: auto;
+    display: flex;
+    gap: 10px;
     ${applyFontStyles({
       font: 'caption-03',
       color: 'var(--myspec-gray-scalegray-600)',
