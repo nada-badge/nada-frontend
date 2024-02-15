@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 
-export const NoticeContent = () => {
+export const NoticeContent = ({ data }) => {
   return (
-    <div className="pageContainer">
-      <Layout>
-        <div className="title">공지사항 제목을 작성해주세요</div>
-        <div className="content">
-          본문 내용입니다.본문 내용입니다.본문 .....
-        </div>
-        <div className="date">2023.01.01</div>
-      </Layout>
-    </div>
+    <Layout>
+      <div className="title">{data.title}</div>
+      <div className="content">{data.content}</div>
+      <div className="date">{data.registeredAt}</div>
+    </Layout>
   );
 };
 
@@ -22,14 +18,20 @@ const Layout = styled.div`
   height: 90px;
   padding: 13px 15px;
   box-sizing: border-box;
+  background-color: white;
+  white-space: nowrap;
 
   & > .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
     ${applyFontStyles({
       font: 'subtitle-03',
       color: 'var(--myspec-gray-scalegray-900)',
     })}
   }
   & > .content {
+    overflow: hidden;
+    text-overflow: ellipsis;
     ${applyFontStyles({
       font: 'body-01',
       color: 'var(--myspec-gray-scalegray-900)',

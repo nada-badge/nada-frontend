@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch, useSelector } from 'react-redux';
 import RecentActivityItem from '../components/RecentActivityItem';
-import Filter from '../../components/common/filter/Filter';
+import Filter from '../../components/filter/Filter';
 import { AlignBox } from '../../Badge/components/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../Search/modules/redux/search';

@@ -21,7 +21,7 @@ const MyPage = () => {
     <div className="pageContainer">
       <div>
         <Title text={'커뮤니티'} />
-        <Content url={'/mypage'} text={'내가 작성한 글'} />
+        <Content url={'/myPage/myPost'} text={'내가 작성한 글'} />
         <Content url={'/mypage'} text={'내가 댓글 단 글'} />
       </div>
       <div>
@@ -38,7 +38,7 @@ const MyPage = () => {
           text={'버전정보'}
           version={'1.5.22(2023121021)'}
         />
-        <Content url={'/mypage'} text={'이용약관'} />
+        <Content url={'/myPage/termsOfUse'} text={'이용약관'} />
       </div>
       <div>
         <Title text={'기타'} />

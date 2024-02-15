@@ -1,6 +1,6 @@
 /** PostItem, postList을 이루는 PostItem. */
-import { PostContainer } from '../../../Community/styles/postItemStyle';
-import GetElapsedTime from '../../../modules/common/getElapsedTime';
+import { PostContainer } from '../../Community/styles/postItemStyle';
+import GetElapsedTime from '../../modules/common/getElapsedTime';
 import { useLocation } from 'react-router-dom';
 
 const PostItem = ({ card }) => {
@@ -49,16 +49,17 @@ const PostItem = ({ card }) => {
           <div className="nowrap">
             <text className="text-2">{category}</text>
           </div>
-          {!location.pathname.includes('search') && (
-            <>
-              <div className="ellipse" />
-              <div className="nowrap">
-                <text className="text-2">
-                  <GetElapsedTime registeredAt={registeredAt} />
-                </text>
-              </div>
-            </>
-          )}
+          {!location.pathname.includes('search') &&
+            !location.pathname.includes('myPage') && (
+              <>
+                <div className="ellipse" />
+                <div className="nowrap">
+                  <text className="text-2">
+                    <GetElapsedTime registeredAt={registeredAt} />
+                  </text>
+                </div>
+              </>
+            )}
         </div>
       </div>
     </PostContainer>
