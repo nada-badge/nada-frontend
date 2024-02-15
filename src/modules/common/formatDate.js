@@ -22,6 +22,20 @@ export const YYYYdotMM = (inputDate) => {
   return `${year}.${month}`;
 };
 
+// 년(year), 월(month), 일(date) 추출하기
+// '2023.02.03'. '2024.06'
+export const YYYYdotMMdotDate = (inputDate) => {
+  if (inputDate === '') {
+    inputDate = new Date();
+  }
+  const dateObject = new Date(inputDate);
+  const year = dateObject.getFullYear();
+  const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+  const date = dateObject.getDate().toString().padStart(2, '0');
+
+  return `${year}.${month}.${date}`;
+};
+
 // 년(year), 월(month), 일(day) 추출하기
 export const formatDate = (start, end) => {
   let startDate = new Date(start);

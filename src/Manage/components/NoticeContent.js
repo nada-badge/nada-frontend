@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 import useDeleteId from '../../modules/queries/useDeleteId';
+import { YYYYdotMMdotDate } from '../../modules/common/formatDate';
 
 export const NoticeContent = ({ data }) => {
   const { mutate } = useDeleteId();
@@ -19,7 +20,7 @@ export const NoticeContent = ({ data }) => {
       <div className="bottom">
         <button>수정</button>
         <button onClick={onDelete}>삭제</button>
-        {data.registeredAt}
+        {YYYYdotMMdotDate(data.registeredAt)}
       </div>
     </Layout>
   );
