@@ -2,9 +2,9 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
-export const useGetNotice = () => {
-  return useQuery(['getNotice'], async () => {
-    const { data } = await client.get(`/mypage/notice/list`, {});
-    return data;
+export const useGetNoticeList = () => {
+  return useQuery(['getNoticeList'], async () => {
+    const { data } = await client.get(`/mypage/notice/list`);
+    return data.notices.reverse();
   });
 };
