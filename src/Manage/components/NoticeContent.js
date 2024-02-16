@@ -14,7 +14,13 @@ export const NoticeContent = ({ data }) => {
 
   const onUpdate = () => {
     dispatch(changePostDataField({ value: data }));
-    dispatch(changeField('method', 'isSubmit', false));
+    dispatch(
+      changeField({
+        form: 'method',
+        key: 'isSubmit',
+        value: false,
+      }),
+    );
     navigate('/manage/notice/write');
   };
 

@@ -1,16 +1,22 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { LayoutStyle } from './HomePage.';
 import Header from '../containers/Header';
 import usePostNotice from '../modules/queries/usePostNotice';
+import usePatchNotice from '../modules/queries/usePatchNotice';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { postWriteSelector } from '../../modules/redux/postWrite';
 
 const NoticeWritePage = () => {
   const navigate = useNavigate();
-  const { mutate } = usePostNotice();
+  const { mutate: post } = usePostNotice();
+  const { mutate: update } = usePatchNotice();
+  const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
+  const postData = useSelector(({ postData }) => postData.postData.data);
   const [input, setInput] = useState({
-    title: '',
-    content: '',
+    title: postData.title,
+    content: postData.content,
   });
 
   const form = {
@@ -40,7 +46,14 @@ const NoticeWritePage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate({ title: input.title, content: input.content });
+    isSubmit
+      ? post({ title: input.title, content: input.content })
+      : update({
+          _id: postData._id,
+          title: input.title,
+          content: input.content,
+        });
+
     setInput({
       title: '',
       content: '',
