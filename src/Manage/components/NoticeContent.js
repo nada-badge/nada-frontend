@@ -1,10 +1,22 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { applyFontStyles } from '../../styles/fontStyle';
 import useDeleteId from '../../modules/queries/useDeleteId';
 import { YYYYdotMMdotDate } from '../../modules/common/formatDate';
+import { changePostDataField } from '../../modules/redux/postData';
+import { changeField } from '../../modules/redux/postWrite';
 
 export const NoticeContent = ({ data }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { mutate } = useDeleteId();
+
+  const onUpdate = () => {
+    dispatch(changePostDataField({ value: data }));
+    dispatch(changeField('method', 'isSubmit', false));
+    navigate('/manage/notice/write');
+  };
 
   const onDelete = () => {
     mutate({
@@ -18,7 +30,7 @@ export const NoticeContent = ({ data }) => {
       <div className="title">{data.title}</div>
       <div className="content">{data.content}</div>
       <div className="bottom">
-        <button>수정</button>
+        <button onClick={onUpdate}>수정</button>
         <button onClick={onDelete}>삭제</button>
         {YYYYdotMMdotDate(data.registeredAt)}
       </div>
