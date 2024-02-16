@@ -1,3 +1,4 @@
+/**NoticeManagePage 관리자용 공지사항 관리 페이지 */
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { LayoutStyle } from './HomePage.';

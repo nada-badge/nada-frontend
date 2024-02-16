@@ -1,3 +1,4 @@
+/**NoticeContent 관리자용 공지사항 출력 컴포넌트 */
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';

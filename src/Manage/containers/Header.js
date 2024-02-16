@@ -1,3 +1,4 @@
+/**Header 관리자용 세부 페이지에서 공통적인 헤더 컨테이너 */
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { LinkButton } from '../components/LinkButton';

@@ -1,3 +1,4 @@
+/**NoticeWritePage 관리자용 공지사항 작성 페이지 */
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
