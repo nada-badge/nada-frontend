@@ -5,9 +5,9 @@ import {
   filterSelector,
   addField,
   deleteField,
-} from '../../../modules/redux/filter';
-import { selectAllConfig } from '../../../modules/common/AttributeData';
-import { AttributeInfoButton } from '../AttributeInfoButton';
+} from '../../modules/redux/filter';
+import { selectAllConfig } from '../../modules/common/AttributeData';
+import { AttributeInfoButton } from '../common/AttributeInfoButton';
 
 export const SelectButton = ({ text }) => {
   const dispatch = useDispatch();

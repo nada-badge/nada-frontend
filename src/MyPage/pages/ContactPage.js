@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import useModal from '../../Modal/modules/useModal';
 import styled from 'styled-components';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { applyFontStyles } from '../../styles/fontStyle';
+import { BottomButton } from '../components/BottomButton';
 
 const ContactPage = () => {
   const dispatch = useDispatch();
+  const { openModal } = useModal();
 
   useEffect(() => {
     dispatch(
@@ -17,6 +20,10 @@ const ContactPage = () => {
     );
   }, []);
 
+  const openContactModal = () => {
+    openModal({ type: 'ContactModal' });
+  };
+
   return (
     <div className="pageContainer" style={{ backgroundColor: 'white' }}>
       <Contact>
@@ -27,6 +34,10 @@ const ContactPage = () => {
           <br /> 평일 10:00 ~ 18:00 (토,일요일, 공휴일 휴무)
         </div>
       </Contact>
+      <div style={{ height: '400px' }} />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <BottomButton text={'이메일 보내기'} act={openContactModal} />
+      </div>
     </div>
   );
 };
