@@ -17,6 +17,8 @@ const BadgeContainer = styled.div`
     aspect-ratio: 1 / 1;
     justify-content: center;
     align-items: center;
+    border-radius: ${({ $layout_style }) =>
+      $layout_style?.borderRadius || '0px'};
   }
 
   & > .textWrapper {
