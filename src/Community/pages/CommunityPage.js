@@ -14,18 +14,14 @@ import { Border, Contents } from '../styles/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../Search/components/SearchInput';
 import { useGetPostList } from '../modules/queries/useGetCommunity';
+import { useGetTopPost } from '../modules/queries/useGetCommunity';
 import '../../styles/PageCommon.scss';
 import { changeField } from '../../Search/modules/redux/search';
 
 const Community = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const community_cards = [
-    { id: 1, title: '유용한 활동 사이트', category: '자유' },
-    { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
-    { id: 3, title: '팀원 모집합니다.', category: '홍보' },
-  ];
+  const { data: postData } = useGetTopPost();
 
   useEffect(() => {
     dispatch(
@@ -67,7 +63,7 @@ const Community = () => {
           title={'지금 인기 있는 게시글이에요🔥'}
           title_font={'subtitle-01'}
         >
-          <BoardCardItem cards={community_cards} />
+          {postData && <BoardCardItem cards={postData} />}
         </CardList>
         <Contents>
           <div className="content">
