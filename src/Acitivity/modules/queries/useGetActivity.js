@@ -34,9 +34,9 @@ export const useActivityList = () => {
       const { data } = await client.get('/activity/list', {
         params,
       });
-      console.log(data);
       return data;
     },
+
     staleTime: 90000,
     select: (data) =>
       (data.activities || []).map(
