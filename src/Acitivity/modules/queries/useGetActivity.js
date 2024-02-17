@@ -74,10 +74,10 @@ export const useRecommendActivities = () => {
     select: (data) =>
       (data.recommendActivity || []).map(
         ({ _id, activityName, endedAt, mainImageUrl }) => ({
-          _id: _id,
+          _id,
           activityName: activityName,
           Dday: calculateDday(endedAt),
-          imageUrl: mainImageUrl,
+          mainImageUrl,
         }),
       ),
   });
