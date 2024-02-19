@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { caption_01, caption_02 } from '../../styles/fontStyle';
 import { Link } from 'react-router-dom';
-import { MySpecLogo } from '../../icon/MySpecLogo';
+import imgNull from '../../icon/GrayLogo.png';
 
 const CardContainer = styled(Link)`
   background-color: var(--myspec-gray-scalegray-100);
@@ -14,15 +14,15 @@ const CardContainer = styled(Link)`
   text-decoration: none;
 
   & > .image-2 {
+    background-image: ${(props) => {
+      return `url(
+      ${props.$imgSrc ? props.$imgSrc : imgNull})`;
+    }};
+    background-position: 50% 50%;
+    background-size: cover;
     height: 88px;
     position: relative;
     width: 120px;
-
-    & > .img {
-      height: 88px;
-      background-position: 50% 50%;
-      background-size: cover;
-    }
   }
 
   & > .category {
@@ -46,16 +46,13 @@ const BoardCardItem = ({ cards }) => {
   return (
     <>
       {cards.map(({ _id, title, category, imageUrl }, idx) => (
-        <CardContainer key={idx} to={`/community/PostDetail/${_id}`}>
+        <CardContainer
+          key={idx}
+          to={`/community/PostDetail/${_id}`}
+          $imgSrc={imageUrl}
+        >
           <div className="image-2">
-            {imageUrl ? (
-              <div
-                className="img"
-                style={{ backgroundImage: `url(${imageUrl})` }}
-              />
-            ) : (
-              <MySpecLogo />
-            )}
+            <div className="image-2" />
           </div>
           <div className="category">{category}</div>
           <div className="title">{title}</div>
