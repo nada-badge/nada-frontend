@@ -7,17 +7,18 @@ import PostList from '../../components/postList/PostList';
 import { useGetPostList } from '../../Community/modules/queries/useGetCommunity';
 import Category from '../../Community/containers/Category';
 import Filter from '../../components/filter/Filter';
-import { ReportsButton } from '../components/ReportsButton';
 import { initializeForm } from '../../modules/redux/postData';
 import { initializeAll as initializeFilter } from '../../modules/redux/filter';
+import { CommunityReportsButton } from '../containers/CommunityReportsButton';
 
 const CommunityManagePage = () => {
   const dispatch = useDispatch();
   const filter = useSelector(({ filter }) => filter);
-  const [showReports, setShowReports] = useState(false);
   const [posts, setPosts] = useState([]);
   // 서버에서 가져온 query 결과 가져오기
   const result = useGetPostList({ filter: filter });
+  const [showPostReports, setShowPostReports] = useState(false);
+  const [showCommentReports, setShowCommentReports] = useState(false);
 
   useEffect(() => {
     dispatch(initializeForm());
@@ -32,22 +33,24 @@ const CommunityManagePage = () => {
   }, []);
 
   useEffect(() => {
-    if (result.data && showReports) {
+    if (result.data && showPostReports) {
       const filteredActivity = result.data.filter((item) => item.reports);
       setPosts({ data: filteredActivity });
     } else {
       setPosts(result);
     }
-  }, [result.data, result.isLoading, showReports]);
+  }, [result.data, result.isLoading, showPostReports]);
 
   return (
     <LayoutStyle>
       <Header text={'커뮤니티 게시글'} url={'/community/PostWrite'} />
       <Category />
       <Filter />
-      <ReportsButton
-        showReports={showReports}
-        setShowReports={setShowReports}
+      <CommunityReportsButton
+        showPostReports={showPostReports}
+        setShowPostReports={setShowPostReports}
+        showCommentReports={showCommentReports}
+        setShowCommentReports={setShowCommentReports}
       />
       <PostList type={'community'} result={posts} />
     </LayoutStyle>

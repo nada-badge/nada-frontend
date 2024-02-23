@@ -60,6 +60,7 @@ const ActivityManagePage = () => {
     <LayoutStyle>
       <Header text={'활동 게시글'} url={'/activity/ActWrite'} />
       <ReportsButton
+        text="게시글"
         showReports={showReports}
         setShowReports={setShowReports}
       />
