@@ -72,7 +72,8 @@ const badgeSlice = createSlice({
 
     changeIssueList: (state, { payload: { index, name, teamName, value } }) => {
       let idx = state.teams.indexOf(teamName);
-      if (state.issueList[idx]) {
+      if (idx !== -1 && state.issueList[idx]) {
+        // teamName에 해당하는 요소가 존재하고 issueList의 인덱스가 유효한 경우에만 값을 설정합니다.
         state.issueList[idx][index][name] = value;
       }
     },

@@ -8,7 +8,7 @@ import {
   changeIssueList,
   deleteIssueList,
 } from '../modules/redux/badge';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const InputGrid = styled(InputBox)`
   width: 100%;
@@ -33,14 +33,22 @@ const InputGrid = styled(InputBox)`
 
 const IssueListInputItem = ({ index, content, teamName }) => {
   const dispatch = useDispatch();
-  const { name, role, birth, number, email } = content;
+
+  const [info, setInfo] = useState(content);
 
   const onChange = (e) => {
     const { value, name } = e.target;
+    setInfo((prevInfo) => ({
+      ...prevInfo,
+      ...{ [name]: value },
+    }));
+
     if (teamName) {
-      dispatch(changeIssueList({ index, name, teamName, value }));
+      dispatch(changeIssueList({ index, name: name, teamName, value }));
     } else {
-      dispatch(changeIndexField({ type: 'issueList', index, name, value }));
+      dispatch(
+        changeIndexField({ type: 'issueList', index, name: name, value }),
+      );
     }
   };
 
@@ -58,34 +66,34 @@ const IssueListInputItem = ({ index, content, teamName }) => {
         className="name"
         name={'name'}
         onChange={onChange}
-        value={name}
+        value={info.name}
         placeholder={'이름'}
         onClose={onClose}
       />
       <input
         onChange={onChange}
-        value={role}
+        value={info.role}
         name={'role'}
         placeholder="직책"
         required
       />
       <input
         onChange={onChange}
-        value={birth}
+        value={info.birth}
         name={'birth'}
         placeholder="생년월일"
         required
       />
       <input
         onChange={onChange}
-        value={number}
+        value={info.number}
         name={'number'}
         placeholder="전화번호"
         required
       />
       <input
         onChange={onChange}
-        value={email}
+        value={info.email}
         name={'email'}
         placeholder="E-mail"
         required
