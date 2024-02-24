@@ -41,7 +41,7 @@ const PreviewBadge = () => {
           isPreview={true}
         />
       </div>
-      <MarginBtn>
+      <MarginBtn style={{ bottom: '0px' }}>
         <div style={{ padding: '14px 0px' }}>뱃지 발급하기</div>
       </MarginBtn>
     </>
