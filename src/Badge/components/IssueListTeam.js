@@ -36,11 +36,11 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
       addIssueList({
         teamName,
         value: {
-          name: '',
+          userName: '',
           role: '',
-          birth: '',
+          birthday: '',
           email: '',
-          number: '',
+          phoneNumber: '',
           team: teamName,
         },
       }),

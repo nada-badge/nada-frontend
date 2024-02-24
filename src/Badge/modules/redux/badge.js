@@ -17,11 +17,11 @@ const initialState = {
   teams: [],
   issueList: [
     {
-      name: '',
+      userName: '',
       role: '',
-      birth: '',
+      birthday: '',
       email: '',
-      number: '',
+      phoneNumber: '',
       team: '',
     },
   ],
@@ -60,11 +60,11 @@ const badgeSlice = createSlice({
     changeIssueListFormat: (state) => {
       state.issueList = state.teams.map((team) => [
         {
-          name: '',
+          userName: '',
           role: '',
-          birth: '',
+          birthday: '',
           email: '',
-          number: '',
+          phoneNumber: '',
           team: team,
         },
       ]);

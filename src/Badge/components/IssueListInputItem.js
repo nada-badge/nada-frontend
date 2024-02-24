@@ -64,9 +64,9 @@ const IssueListInputItem = ({ index, content, teamName }) => {
     <InputGrid>
       <InputBoxWithX
         className="name"
-        name={'name'}
+        name={'userName'}
         onChange={onChange}
-        value={info.name}
+        value={info.userName}
         placeholder={'이름'}
         onClose={onClose}
       />
@@ -79,15 +79,15 @@ const IssueListInputItem = ({ index, content, teamName }) => {
       />
       <input
         onChange={onChange}
-        value={info.birth}
-        name={'birth'}
+        value={info.birthday}
+        name={'birthday'}
         placeholder="생년월일"
         required
       />
       <input
         onChange={onChange}
-        value={info.number}
-        name={'number'}
+        value={info.phoneNumber}
+        name={'phoneNumber'}
         placeholder="전화번호"
         required
       />
