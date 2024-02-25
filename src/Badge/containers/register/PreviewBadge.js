@@ -4,7 +4,7 @@ import BadgeDetailsView from '../BadgeDetailsView';
 import { useSelector } from 'react-redux';
 import { MarginBtn } from './NameForm';
 
-const PreviewBadge = () => {
+const PreviewBadge = ({ order, onSubmit }) => {
   const { name, explain, shape, activities, teams, issueList } = useSelector(
     ({ badge }) => badge,
   );
@@ -24,7 +24,11 @@ const PreviewBadge = () => {
 
   return (
     <>
-      <div style={{ width: 'calc(375px - 32px)', boxSizing: 'border-box' }}>
+      <form
+        style={{ width: 'calc(375px - 32px)', boxSizing: 'border-box' }}
+        onSubmit={onSubmit}
+        id={order}
+      >
         <div>
           <TitleBox>
             발급할 뱃지의 미리보기예요
@@ -40,8 +44,9 @@ const PreviewBadge = () => {
           data={data}
           isPreview={true}
         />
-      </div>
-      <MarginBtn style={{ bottom: '0px' }}>
+      </form>
+
+      <MarginBtn form={order} style={{ bottom: '0px' }}>
         <div style={{ padding: '14px 0px' }}>뱃지 발급하기</div>
       </MarginBtn>
     </>
