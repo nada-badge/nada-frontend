@@ -3,8 +3,9 @@ import '../../../styles/PageCommon.scss';
 import BadgeDetailsView from '../BadgeDetailsView';
 import { useSelector } from 'react-redux';
 import { MarginBtn } from './NameForm';
+import useMutateBadge from '../../modules/query/useMutateBadge';
 
-const PreviewBadge = ({ order, onSubmit }) => {
+const PreviewBadge = () => {
   const { name, explain, shape, activities, teams, issueList } = useSelector(
     ({ badge }) => badge,
   );
@@ -22,13 +23,15 @@ const PreviewBadge = ({ order, onSubmit }) => {
     activity_info: activities,
   };
 
+  // 뱃지 발급하기 (서버에 전송)
+  const { mutate } = useMutateBadge();
+  const onClick = () => {
+    mutate();
+  };
+
   return (
     <>
-      <form
-        style={{ width: 'calc(375px - 32px)', boxSizing: 'border-box' }}
-        onSubmit={onSubmit}
-        id={order}
-      >
+      <div style={{ width: 'calc(375px - 32px)', boxSizing: 'border-box' }}>
         <div>
           <TitleBox>
             발급할 뱃지의 미리보기예요
@@ -44,9 +47,9 @@ const PreviewBadge = ({ order, onSubmit }) => {
           data={data}
           isPreview={true}
         />
-      </form>
+      </div>
 
-      <MarginBtn form={order} style={{ bottom: '0px' }}>
+      <MarginBtn style={{ bottom: '0px' }} onClick={onClick}>
         <div style={{ padding: '14px 0px' }}>뱃지 발급하기</div>
       </MarginBtn>
     </>

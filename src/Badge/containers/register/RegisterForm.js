@@ -57,14 +57,13 @@ const RegisterForm = () => {
     TeamForm,
     ActivityForm,
     PeopleForm,
-    PriviewBadge,
+    PriviewBadge, // 뱃지 발급 로직
   ];
   const Components = forms[order];
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (order === forms.length) {
-    } else setOrder(order + 1);
+    if (order !== forms.length) setOrder(order + 1);
   };
 
   const dispatch = useDispatch();
