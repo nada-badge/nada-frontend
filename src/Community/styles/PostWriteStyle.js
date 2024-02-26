@@ -130,9 +130,10 @@ export const ContentStyle = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px 10px;
-  height: 466px;
+
   padding: 12px 15px;
   position: relative;
+  box-sizing: border-box;
 
   & > .text {
     ${applyFontStyles({
