@@ -4,9 +4,11 @@ import { Content } from '../../containers/common/postInput/Content';
 import { Image } from '../../containers/common/postInput/Image';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
+import usePostContact from '../modules/queries/usePostContact';
 
 const ContactWritePage = () => {
   const dispatch = useDispatch();
+  const { mutate: post } = usePostContact();
   const [inputValue, setInputValue] = useState({
     title: '',
     content: '',
@@ -37,11 +39,12 @@ const ContactWritePage = () => {
     e.preventDefault();
 
     const formData = {
+      sender: 'maintest01@gmail.com',
       title: inputValue.title,
       content: inputValue.content,
       imageUrl: imgFiles,
     };
-    console.log('제출되었습니다.');
+    post(formData);
   };
 
   return (
