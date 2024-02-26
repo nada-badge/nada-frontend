@@ -2,6 +2,13 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
+export const useGetContact = ({ _id }) => {
+  return useQuery(['getContact'], async () => {
+    const { data } = await client.get(`/contact/${_id}`, {});
+    return data.contact;
+  });
+};
+
 export const useGetContactList = () => {
   return useQuery(['getContactList'], async () => {
     const { data } = await client.get(`/contact/list`);
