@@ -12,7 +12,6 @@ const ButtonSelectModal = lazy(() => import('./ButtonSelectModal'));
 const MenuModal = lazy(() => import('./MenuModal'));
 const CalendarModal = lazy(() => import('./CalendarModal'));
 const MonthModal = lazy(() => import('./MonthModal'));
-const ContactModal = lazy(() => import('./ContactModal'));
 
 const MODAL_COMPONENTS = {
   MainCategoryModal: MainCategoryModal,
@@ -23,7 +22,6 @@ const MODAL_COMPONENTS = {
   ButtonSelectModal: ButtonSelectModal,
   CalendarModal: CalendarModal,
   MonthModal: MonthModal,
-  ContactModal: ContactModal,
 };
 
 const ModalContainer = () => {

@@ -20,9 +20,7 @@ const ContactPage = () => {
     );
   }, []);
 
-  const openContactModal = () => {
-    openModal({ type: 'ContactModal' });
-  };
+  const openContactModal = () => {};
 
   return (
     <div className="pageContainer" style={{ backgroundColor: 'white' }}>
