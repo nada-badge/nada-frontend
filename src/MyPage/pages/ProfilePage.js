@@ -13,7 +13,11 @@ import usePostImage from '../../modules/queries/usePostImage';
 const LinkContent = styled(LinkWrapper)`
   ${applyFontStyles({ font: 'subtitle-01' })}
 
-  & >  .rightBox {
+  &:hover {
+    cursor: ${({ isHover }) => (isHover ? 'pointer' : 'auto')};
+  }
+
+  & > .rightBox {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -35,22 +39,27 @@ const Profile = () => {
   }, []);
 
   const ContentWrapper = ({ text, version }) => {
-    const urlText = {
-      이메일: 'email',
+    // URL 텍스트 매핑 상수
+    const URL_TEXT_MAPPING = {
       닉네임: 'userName',
       '휴대폰 번호': 'phoneNumber',
       비밀번호: 'password',
-      단체이름: 'teamName',
+      단체이름: 'groupName',
       단체종류: 'teamType',
       대표자: 'represent',
     };
 
+    // 링크 대상 URL 설정
+    const linkTarget =
+      text !== '이메일' ? `/myPage/profile/edit/${URL_TEXT_MAPPING[text]}` : '';
+
     return (
-      <LinkContent to={`/myPage/profile/edit/${urlText[text]}`}>
+      <LinkContent to={linkTarget} isHover={text !== '이메일'}>
         <div>{text}</div>
         <div className="rightBox">
           <div className="info">{version}</div>
-          <RightArrowSvg width={10} height={19} />
+          {/* '이메일'인 경우 링크 화살표 표시하지 않음 */}
+          {text !== '이메일' && <RightArrowSvg width={10} height={19} />}
         </div>
       </LinkContent>
     );

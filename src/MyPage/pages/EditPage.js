@@ -2,12 +2,11 @@ import React, { useEffect, useCallback, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useParams } from 'react-router-dom';
-import { changeField } from '../../Auth/modules/redux/auth';
 import { RegisterBox } from '../../styles/Survey';
+import usePatchInfo from '../modules/queries/usePatchInfo';
+import { useState } from 'react';
+import { changeField } from '../../Auth/modules/redux/auth';
 
-const EmailForm = React.lazy(
-  () => import('../../Auth/containers/register/EmailForm'),
-);
 const PasswordForm = React.lazy(
   () => import('../../Auth/containers/register/PasswordForm'),
 );
@@ -32,11 +31,10 @@ const EditPage = () => {
   const type = params._type;
 
   const mapContainer = {
-    email: EmailForm,
     userName: UserNameForm,
     phoneNumber: PhoneNumberForm,
     password: PasswordForm,
-    teamName: TeamNameForm,
+    groupName: TeamNameForm,
     teamType: TeamTypeForm,
     represent: RepresentForm,
   };
@@ -55,12 +53,22 @@ const EditPage = () => {
 
   const Component = mapContainer[type];
 
+  const [value, setValue] = useState('');
+
   // 입력 값을 상태에 반영하기
   const dispatchField = useCallback((e) => {
-    const { value, name } = e.target;
+    const { value: inputValue, name } = e.target;
     const fieldType = `${'personal'}_register`;
-    dispatch(changeField({ form: fieldType, key: name, value }));
+    dispatch(changeField({ form: fieldType, key: name, value: inputValue }));
+    setValue(inputValue);
   }, []);
+
+  const { mutate: update } = usePatchInfo();
+
+  const patchInfo = () => {
+    alert('submit');
+    update({ type, value });
+  };
 
   return (
     <div>
@@ -68,7 +76,9 @@ const EditPage = () => {
         <Suspense fallback={<div></div>}>
           <Component
             dispatchField={dispatchField}
-            onSubmit={() => {}} // 서버 업데이트, 뒤로 가기
+            onSubmit={() => {
+              patchInfo();
+            }} // 서버 업데이트, 뒤로 가기
             order={0}
             type={'personal'}
           />
