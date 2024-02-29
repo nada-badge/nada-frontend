@@ -6,6 +6,7 @@ import { Content } from '../components/Content';
 import { ProfileStyle } from '../../Community/styles/CommentStyle';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
+import useGetUserInfo from '../modules/queries/useGetUserInfo';
 
 export const MyPageProfile = styled(ProfileStyle)`
   & > .image {
@@ -31,13 +32,16 @@ const MyPage = () => {
     );
   }, []);
 
+  const { data: info } = useGetUserInfo();
+  console.log(info);
+
   return (
     <div className="pageContainer">
       <div>
         <Content url={'/myPage/profile'}>
           <MyPageProfile imgSize={54}>
             <div className="image" width={'54px'} height={'54px'} />
-            <div className="name">{'김나다'}</div>
+            {info && <div className="name">{info.profile.userName}</div>}
           </MyPageProfile>
         </Content>
       </div>

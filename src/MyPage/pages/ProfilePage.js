@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import CameraSvg from '../icon/CameraSvg';
-import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
+import useGetUserInfo from '../modules/queries/useGetUserInfo';
 
 const LinkContent = styled(LinkWrapper)`
   ${applyFontStyles({ font: 'subtitle-01' })}
@@ -55,7 +55,7 @@ const Profile = () => {
     );
   };
 
-  const { userType } = decodeJwtToken(localStorage.getItem('token'));
+  const { data: info } = useGetUserInfo();
 
   return (
     <div className="pageContainer">
@@ -65,7 +65,10 @@ const Profile = () => {
             <CameraSvg />
           </div>
           <BadgeItem
-            cards={{ img_src: '', badgeType: '개인회원', title: '김나다' }}
+            cards={{
+              img_src: '',
+              badgeType: '개인회원',
+            }}
             $layout_style={{
               textAlign: 'center',
               width: '100px',
@@ -76,22 +79,28 @@ const Profile = () => {
         </div>
       </div>
       <div>
-        {userType === 1 && (
+        {info && info.userType === 1 && (
           <>
-            <ContentWrapper text="이메일" version={'nada@gmail.com'} />
-            <ContentWrapper text="닉네임" version={'김나다'} />
-            <ContentWrapper text="휴대폰 번호" version={'010-1234-5678'} />
+            <ContentWrapper text="이메일" version={info.email} />
+            <ContentWrapper text="닉네임" version={info.profile.userName} />
+            <ContentWrapper
+              text="휴대폰 번호"
+              version={info.profile.phoneNumber}
+            />
             <ContentWrapper text="비밀번호" version={'*******'} />
           </>
         )}
 
-        {userType === 2 && (
+        {info && info.userType === 2 && (
           <>
-            <ContentWrapper text="이메일" version={'myspec@gmail.com'} />
+            <ContentWrapper text="이메일" version={info.email} />
             <ContentWrapper text="단체이름" version={'myspec'} />
             <ContentWrapper text="단체종류" version={'교내동아리'} />
             <ContentWrapper text="대표자" version={'김나다'} />
-            <ContentWrapper text="휴대폰 번호" version={'010-1234-5678'} />
+            <ContentWrapper
+              text="휴대폰 번호"
+              version={info.profile.phoneNumber}
+            />
             <ContentWrapper text="비밀번호" version={'*******'} />
           </>
         )}
