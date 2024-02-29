@@ -8,6 +8,7 @@ import { applyFontStyles } from '../../styles/fontStyle';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import CameraSvg from '../icon/CameraSvg';
 import useGetUserInfo from '../modules/queries/useGetUserInfo';
+import usePostImage from '../../modules/queries/usePostImage';
 
 const LinkContent = styled(LinkWrapper)`
   ${applyFontStyles({ font: 'subtitle-01' })}
@@ -56,13 +57,30 @@ const Profile = () => {
   };
 
   const { data: info } = useGetUserInfo();
+  const { mutateAsync } = usePostImage();
+
+  const saveImgFile = async (e) => {
+    const files = Array.from(e.target.files);
+    const result = await mutateAsync({ section: 'profile', files: files });
+  };
 
   return (
     <div className="pageContainer">
       <div style={{ width: '100%' }}>
         <div style={{ margin: '0 auto', width: 'fit-content' }}>
           <div style={{ position: 'relative', top: '120px', left: '70px' }}>
-            <CameraSvg />
+            <label htmlFor="upload-photo">
+              <CameraSvg />
+            </label>
+            <input
+              style={{ display: 'none' }}
+              multiple
+              type="file"
+              accept="image/*"
+              id="upload-photo"
+              name="img"
+              onChange={saveImgFile}
+            ></input>
           </div>
           <BadgeItem
             cards={{
