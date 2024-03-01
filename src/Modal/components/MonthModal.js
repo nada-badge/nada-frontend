@@ -79,6 +79,8 @@ const MonthModal = () => {
         locale={'ko'}
         minDate={minMonth}
         maxDate={maxMonth}
+        previousYearButtonLabel={'<'}
+        nextYearButtonLabel={'>'}
       >
         <BottomButton actText={'확인'} act={setStatus} />
       </DatePicker>

@@ -113,3 +113,23 @@
   }
   color: black;
 }
+
+.react-datepicker__aria-live {
+  display: none;
+}
+
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+  position: fixed;
+  top: 10px;
+  left: 50px;
+  background: none;
+  border: none;
+
+  font-family: var(--subtitle-02-font-family);
+  font-size: 30px;
+}
+
+.react-datepicker__navigation--next {
+  left: 300px;
+}
