@@ -46,6 +46,7 @@ const BoardCardItem = ({ cards }) => {
     <>
       {cards.map(({ _id, title, category, imageUrl }, idx) => (
         <CardContainer
+          className="itemContainer"
           key={idx}
           to={`/community/PostDetail/${_id}`}
           $imgSrc={imageUrl}
