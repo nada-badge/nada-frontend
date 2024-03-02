@@ -68,7 +68,7 @@ export const SearchInput = ({ onSubmit, isMaincategory }) => {
   };
 
   return (
-    <div style={InputWrapper}>
+    <div style={InputWrapper} className="activity-inputWrapper">
       {isMaincategory && <MainCategoryButton />}
       <Form onSubmit={onSubmit} id={'search'}>
         <input

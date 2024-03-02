@@ -24,7 +24,7 @@ export const FilterItems = ({ text, position }) => {
   };
 
   return (
-    <Items>
+    <Items className="filterItem">
       <Item>
         <SelectAllButton />
         {output(text)}
