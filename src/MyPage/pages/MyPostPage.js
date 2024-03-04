@@ -8,7 +8,7 @@ import { Contents } from '../../Community/styles/CommunityStyle';
 const MyPostPage = () => {
   const dispatch = useDispatch();
   const result = useGetMyPost({ email: `maintest01@gmail.com` });
-  console.log('data : ', result);
+
   useEffect(() => {
     dispatch(
       changeBarStatus({

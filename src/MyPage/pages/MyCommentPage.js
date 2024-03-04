@@ -8,7 +8,7 @@ import { Contents } from '../../Community/styles/CommunityStyle';
 const MyCommentPage = () => {
   const dispatch = useDispatch();
   const result = useGetMyComment({ email: `maintest01@gmail.com` });
-  console.log('data : ', result);
+
   useEffect(() => {
     dispatch(
       changeBarStatus({
