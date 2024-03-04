@@ -6,7 +6,7 @@ export const useGetMyPost = ({ email }) => {
   return useQuery(
     ['getMyPost'],
     async () => {
-      const { data } = await client.get(`/community/post/mylist`, {
+      const { data } = await client.get(`/community/post/myPost`, {
         params: { email: email },
       });
       return data.posts.reverse();
