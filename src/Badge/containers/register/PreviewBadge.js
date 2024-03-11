@@ -3,6 +3,7 @@ import '../../../styles/PageCommon.scss';
 import BadgeDetailsView from '../BadgeDetailsView';
 import { useSelector } from 'react-redux';
 import { MarginBtn } from './NameForm';
+import useMutateBadge from '../../modules/query/useMutateBadge';
 
 const PreviewBadge = () => {
   const { name, explain, shape, activities, teams, issueList } = useSelector(
@@ -13,13 +14,19 @@ const PreviewBadge = () => {
     img_src: shape.src,
     badgeType: '교내 동아리', // 수정 필요
     title: name,
-    team: issueList[0].team,
-    role: issueList[0].role, // team[0] 의 소속된 사람들 중에서 가져와야함
+    team: issueList[0][0].team,
+    role: issueList[0][0].role, // team[0] 의 소속된 사람들 중에서 가져와야함
   };
 
   const data = {
     content: explain,
     activity_info: activities,
+  };
+
+  // 뱃지 발급하기 (서버에 전송)
+  const { mutate } = useMutateBadge();
+  const onClick = () => {
+    mutate();
   };
 
   return (
@@ -41,7 +48,8 @@ const PreviewBadge = () => {
           isPreview={true}
         />
       </div>
-      <MarginBtn disabled={!(name.length > 0)}>
+
+      <MarginBtn style={{ bottom: '0px' }} onClick={onClick}>
         <div style={{ padding: '14px 0px' }}>뱃지 발급하기</div>
       </MarginBtn>
     </>

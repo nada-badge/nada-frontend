@@ -2,8 +2,13 @@ import styled from 'styled-components';
 import { InputBox } from '../../styles/Survey';
 import { useDispatch } from 'react-redux';
 import InputBoxWithX from './InputBoxWithX';
-import { changeIndexField, deleteList } from '../modules/redux/badge';
-import { useEffect } from 'react';
+import {
+  changeIndexField,
+  deleteList,
+  changeIssueList,
+  deleteIssueList,
+} from '../modules/redux/badge';
+import { useState } from 'react';
 
 const InputGrid = styled(InputBox)`
   width: 100%;
@@ -28,62 +33,67 @@ const InputGrid = styled(InputBox)`
 
 const IssueListInputItem = ({ index, content, teamName }) => {
   const dispatch = useDispatch();
-  const { name, role, birth, number, email } = content;
+
+  const [info, setInfo] = useState(content);
 
   const onChange = (e) => {
     const { value, name } = e.target;
-    dispatch(changeIndexField({ type: 'issueList', index, name, value }));
+    setInfo((prevInfo) => ({
+      ...prevInfo,
+      ...{ [name]: value },
+    }));
+
+    if (teamName) {
+      dispatch(changeIssueList({ index, name: name, teamName, value }));
+    } else {
+      dispatch(
+        changeIndexField({ type: 'issueList', index, name: name, value }),
+      );
+    }
   };
 
   const onClose = () => {
-    dispatch(deleteList({ type: 'issueList', index }));
+    if (teamName) {
+      dispatch(deleteIssueList({ teamName, index }));
+    } else {
+      dispatch(deleteList({ type: 'issueList', index }));
+    }
   };
-
-  useEffect(() => {
-    dispatch(
-      changeIndexField({
-        type: 'issueList',
-        index,
-        name: 'team',
-        value: teamName,
-      }),
-    );
-  }, [teamName]);
 
   return (
     <InputGrid>
       <InputBoxWithX
         className="name"
-        name={'name'}
+        name={'userName'}
         onChange={onChange}
-        value={name}
+        value={info.userName}
         placeholder={'이름'}
         onClose={onClose}
       />
       <input
         onChange={onChange}
-        value={role}
+        value={info.role}
         name={'role'}
         placeholder="직책"
         required
       />
       <input
         onChange={onChange}
-        value={birth}
-        name={'birth'}
+        value={info.birthday}
+        name={'birthday'}
         placeholder="생년월일"
         required
       />
       <input
         onChange={onChange}
-        value={number}
-        name={'number'}
+        value={info.phoneNumber}
+        name={'phoneNumber'}
         placeholder="전화번호"
         required
       />
       <input
         onChange={onChange}
-        value={email}
+        value={info.email}
         name={'email'}
         placeholder="E-mail"
         required

@@ -4,7 +4,12 @@ import { AddOperator } from '../../../icon/AddOperator';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { addList, changeTeam, deleteList } from '../../modules/redux/badge';
+import {
+  addList,
+  changeIssueListFormat,
+  changeTeam,
+  deleteList,
+} from '../../modules/redux/badge';
 import InputBoxWithX from '../../components/InputBoxWithX';
 import { useState, useEffect } from 'react';
 import BottomButton from '../../components/BottomButton';
@@ -40,6 +45,12 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
     dispatch(deleteList({ type: 'teams', index }));
   };
   const teams = useSelector(({ badge }) => badge.teams);
+
+  // issueList format 수정하기
+  const handleSubmit = (e) => {
+    dispatch(changeIssueListFormat());
+    onSubmit(e);
+  };
 
   useEffect(() => {
     // 배열 안에 빈 요소가 하나라도 있으면 true를 반환
@@ -89,7 +100,7 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
         grayAct={(e) => onSubmit(e)}
         grayText={'건너뛰기'}
         actText={'다음'}
-        act={(e) => onSubmit(e)}
+        act={(e) => handleSubmit(e)}
         isDisabled={disabled}
       />
     </>

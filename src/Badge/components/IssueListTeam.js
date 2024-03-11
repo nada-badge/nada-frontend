@@ -3,12 +3,13 @@ import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import { FixedLoginBtn } from '../containers/register/ShapeForm';
 import { TextWithSvg } from '../../styles/Survey';
 import IssueListInputItem from './IssueListInputItem';
-import { addList } from '../modules/redux/badge';
+import { addIssueList } from '../modules/redux/badge';
 import { useState, useEffect } from 'react';
 
 const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
   const issueList = useSelector(({ badge }) => badge.issueList);
   const teams = useSelector(({ badge }) => badge.teams);
+  const [people, setPeople] = useState(issueList);
 
   const [disabled, setDisabled] = useState(true);
 
@@ -18,28 +19,29 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
       Object.values(obj).some((value) => value === ''),
     );
   };
-
   useEffect(() => {
     if (hasEmptyValue()) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
+    setPeople(issueList[teams.indexOf(teamName)]);
   }, [issueList]);
 
   const dispatch = useDispatch();
 
+  // 수정
   const dispatchAddList = () => {
     dispatch(
-      addList({
-        type: 'issueList',
+      addIssueList({
+        teamName,
         value: {
-          name: '',
+          userName: '',
           role: '',
-          birth: '',
+          birthday: '',
           email: '',
-          number: '',
-          team: '',
+          phoneNumber: '',
+          team: teamName,
         },
       }),
     );
@@ -57,6 +59,7 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
               <TextWithSvg
                 onClick={() => {
                   setTeamName(team);
+                  setPeople(issueList[teams.indexOf(team)]);
                 }}
               >
                 <div>{team}</div>
@@ -81,7 +84,7 @@ const IssueListTeam = ({ onSubmit, teamName, setTeamName }) => {
               gap: '24px',
             }}
           >
-            {issueList.map((el, index) => (
+            {people.map((el, index) => (
               <IssueListInputItem
                 key={index}
                 content={el}

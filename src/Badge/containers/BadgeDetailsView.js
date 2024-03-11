@@ -27,13 +27,15 @@ const BadgeDetailsView = ({ badge_info, data, isPreview, hide }) => {
           <RightArrowSvg width={10} />
         </SpaceBetween>
       )}
-      <ContentBox title={'활동 사진'}>
-        <CardList>
-          {Array.from({ length: 4 }, () => 1).map((item, idx) => (
-            <div style={imgItem} key={idx} />
-          ))}
-        </CardList>
-      </ContentBox>
+      {!isPreview && (
+        <ContentBox title={'활동 사진'}>
+          <CardList>
+            {Array.from({ length: 4 }, () => 1).map((item, idx) => (
+              <div style={imgItem} key={idx} />
+            ))}
+          </CardList>
+        </ContentBox>
+      )}
       {!isPreview && (
         <div style={hideBadgeBox} onClick={hide}>
           이 뱃지 숨기기

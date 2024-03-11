@@ -17,11 +17,11 @@ const initialState = {
   teams: [],
   issueList: [
     {
-      name: '',
+      userName: '',
       role: '',
-      birth: '',
+      birthday: '',
       email: '',
-      number: '',
+      phoneNumber: '',
       team: '',
     },
   ],
@@ -55,6 +55,40 @@ const badgeSlice = createSlice({
     changeTeam: (state, { payload: { index, value } }) => {
       state.teams[index] = value;
     },
+
+    // team or notTeam
+    changeIssueListFormat: (state) => {
+      state.issueList = state.teams.map((team) => [
+        {
+          userName: '',
+          role: '',
+          birthday: '',
+          email: '',
+          phoneNumber: '',
+          team: team,
+        },
+      ]);
+    },
+
+    changeIssueList: (state, { payload: { index, name, teamName, value } }) => {
+      let idx = state.teams.indexOf(teamName);
+      if (idx !== -1 && state.issueList[idx]) {
+        // teamName에 해당하는 요소가 존재하고 issueList의 인덱스가 유효한 경우에만 값을 설정합니다.
+        state.issueList[idx][index][name] = value;
+      }
+    },
+
+    addIssueList: (state, { payload: { teamName, value } }) => {
+      const idx = state.teams.indexOf(teamName);
+      if (state.issueList[idx]) {
+        state.issueList[idx].push(value); // 값 추가
+      }
+    },
+
+    deleteIssueList: (state, { payload: { teamName, index } }) => {
+      let idx = state.teams.indexOf(teamName);
+      state.issueList[idx] = state.issueList[idx].filter((_, i) => i !== index);
+    },
   },
 });
 
@@ -67,4 +101,8 @@ export const {
   changeIndexField,
   addTeam,
   changeTeam,
+  changeIssueListFormat,
+  changeIssueList,
+  addIssueList,
+  deleteIssueList,
 } = badgeSlice.actions;
