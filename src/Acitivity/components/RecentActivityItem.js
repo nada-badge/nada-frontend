@@ -88,6 +88,7 @@ const CardContainer = styled.div`
           font: 'caption-01',
           color: 'var(--myspec-gray-scalegray-600)',
         })};
+        overflow: visible;
       }
 
       & > div {

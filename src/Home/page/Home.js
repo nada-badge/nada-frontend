@@ -10,6 +10,7 @@ import { useRecommendActivities } from '../../Acitivity/modules/queries/useGetAc
 import '../../styles/PageCommon.scss';
 import { RecommendList } from '../components/RecommendList';
 import { useGetTopPost } from '../../Community/modules/queries/useGetCommunity';
+import '../Home.scss';
 
 const Home = () => {
   const BannerSlider = React.lazy(() => import('../components/BannerSlider'));

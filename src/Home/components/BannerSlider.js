@@ -12,13 +12,13 @@ const SliderWrapper = styled.div`
   left: 0;
   position: relative;
   width: 100%;
-  height: 118px;
+  height: fit-content;
 
   // '1/5' 와 같은 페이징 표시
   & > div > .custom_paging {
     position: absolute;
-    top: 84px;
-    left: 326px;
+    bottom: 14px;
+    right: 24px;
     margin: 0;
     padding: 0;
 
@@ -71,15 +71,16 @@ const BannerSlider = () => {
   return (
     <>
       {data && (
-        <SliderWrapper>
+        <SliderWrapper className="sliderWrapper">
           <Slider {...settings}>
             {data.map(({ imageUrl, linkedPageUrl }, idx) => (
               <div key={idx}>
                 <a href={linkedPageUrl}>
                   <img
+                    className="bannerImg"
                     alt="banner"
                     src={imageUrl}
-                    style={{ height: '118px', margin: '0px auto' }}
+                    style={{ height: '200px', margin: '0px auto' }}
                   />
                 </a>
               </div>

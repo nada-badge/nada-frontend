@@ -27,6 +27,7 @@ export const RecommendList = ({ activities }) => {
         추천 대외활동
       </div>
       <List
+        className="windowList"
         height={250}
         itemCount={activities.length}
         itemSize={182}
