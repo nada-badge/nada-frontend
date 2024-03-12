@@ -24,6 +24,7 @@ export const myBadge = Object.assign(
     paddingBottom: '0px',
     alignItems: 'center',
     gap: '20px',
+    paddingTop: '80px',
   },
 );
 

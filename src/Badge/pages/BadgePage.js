@@ -8,9 +8,12 @@ import { BadgeList } from '../containers/BadgeList';
 import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import IssueBadgeBtn from '../components/IssueBadgeBtn';
 import { useNavigate } from 'react-router-dom';
+import { useBadgeList } from '../modules/query/useGetBadge';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
+
+  const { data: badge_info } = useBadgeList();
 
   useEffect(() => {
     dispatch(
@@ -43,69 +46,43 @@ const BadgePage = () => {
 
   useEffect(() => {
     // badgeType 종류들을 추출
-    const badgeTypes = [
-      ...new Set(
-        badge_info.map((item) =>
-          align === '종류별' ? item.badgeType : item.year,
+    if (badge_info) {
+      const badgeTypes = [
+        ...new Set(
+          badge_info.map((item) =>
+            align === '종류별' ? item.badgeType : item.year,
+          ),
         ),
-      ),
-    ];
-    setCategory(badgeTypes);
-  }, [align]);
+      ];
+      setCategory(badgeTypes);
+    }
+  }, [align, badge_info]);
 
   const navigate = useNavigate();
-
-  const badge_info = [
-    {
-      id: 1,
-      year: 2023,
-      img_src: '',
-      badgeType: '교내 동아리',
-      title: 'TEAM NADA 2기',
-      team: '디자인팀',
-      role: '팀원',
-    },
-    {
-      id: 2,
-      year: 2023,
-      img_src: '',
-      badgeType: '학회',
-      title: '성신여대 융합학부 학회',
-      team: '',
-      role: '발표',
-    },
-    {
-      id: 3,
-      year: 2023,
-      img_src: '',
-      badgeType: '컨퍼런스',
-      title: '연합디자인컨퍼런스',
-      team: '',
-      role: '운영진',
-    },
-  ];
 
   return (
     <div style={pageContainer}>
       <div style={myBadge}>
-        {title.map((el, idx) => (
-          <div key={idx} style={textWrapper}>
-            {el} {badge_info.length}
-          </div>
-        ))}
+        {badge_info &&
+          title.map((el, idx) => (
+            <div key={idx} style={textWrapper}>
+              {el} {badge_info.length}
+            </div>
+          ))}
       </div>
       <div style={alignBox}>
         <AlignBox text={`${align} 정렬`} onClick={onClick} />
       </div>
-      {category.map((el, idx) => (
-        <BadgeList
-          key={idx}
-          title={el}
-          badge_info={badge_info.filter((item) =>
-            Object.values(item).includes(el),
-          )}
-        />
-      ))}
+      {badge_info &&
+        category.map((el, idx) => (
+          <BadgeList
+            key={idx}
+            title={el}
+            badge_info={badge_info.filter((item) =>
+              Object.values(item).includes(el),
+            )}
+          />
+        ))}
       {userType === 2 && (
         <div
           onClick={() => {
