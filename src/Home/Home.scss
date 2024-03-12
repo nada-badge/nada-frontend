@@ -106,6 +106,12 @@
   nav {
     width: 100% !important;
   }
+
+  // ------------------------------------------ 활동 화면
+
+  .ListContainer {
+    width: 100% !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -201,5 +207,17 @@
   // 하단바
   nav {
     width: 992px !important;
+  }
+}
+
+// ------------------------------------------ 활동 화면
+
+.ListContainer {
+  display: flex;
+  width: 100% !important;
+  justify-content: center;
+
+  & > div {
+    position: relative;
   }
 }

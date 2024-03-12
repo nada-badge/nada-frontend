@@ -61,7 +61,7 @@ const BadgePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={pageContainer}>
+    <div className="pageContainer" style={pageContainer}>
       <div style={myBadge}>
         {badge_info &&
           title.map((el, idx) => (
@@ -76,6 +76,7 @@ const BadgePage = () => {
       {badge_info &&
         category.map((el, idx) => (
           <BadgeList
+          
             key={idx}
             title={el}
             badge_info={badge_info.filter((item) =>

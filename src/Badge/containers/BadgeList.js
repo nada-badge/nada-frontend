@@ -28,6 +28,7 @@ export const BadgeList = ({ title, badge_info }) => {
         {title}
       </div>
       <List
+        className="ListContainer"
         height={195}
         itemCount={badge_info.length}
         itemSize={132 + 20} // width + paddingRight

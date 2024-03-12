@@ -9,7 +9,6 @@ export const pageContainer = {
   margin: '0px auto',
   padding: '16px 15px',
   flexDirection: 'column',
-  alignItems: 'flex-start',
   flexShrink: '0',
   background: 'var(--myspec-gray-scale-white, #FFF)',
   paddingBottom: '88px',
