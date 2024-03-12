@@ -1,27 +1,27 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import useModal from '../../Modal/modules/useModal';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { BottomButton } from '../components/BottomButton';
 
 const ContactPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { openModal } = useModal();
 
   useEffect(() => {
     dispatch(
       changeBarStatus({
         headerState: 'back',
-        text: '문의사항',
+        text: '문의',
         isShowBottom: false,
       }),
     );
   }, []);
 
   const openContactModal = () => {
-    openModal({ type: 'ContactModal' });
+    navigate('/myPage/contact/write');
   };
 
   return (

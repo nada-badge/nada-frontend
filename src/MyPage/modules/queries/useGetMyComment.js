@@ -1,12 +1,12 @@
-/* useGetMyPost community Comment 정보를 가져오는 쿼리 */
+/* useGetMyComment community 에서 작성한 댓글/답글이 속해있는 게시글 정보를 가져오는 쿼리 */
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
 
-export const useGetMyPost = ({ email }) => {
+export const useGetMyComment = ({ email }) => {
   return useQuery(
-    ['getMyPost'],
+    ['getMyComment'],
     async () => {
-      const { data } = await client.get(`/community/post/myPost`, {
+      const { data } = await client.get(`/community/post/myComment`, {
         params: { email: email },
       });
       return data.posts.reverse();

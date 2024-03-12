@@ -29,7 +29,9 @@ import NoticePage from './MyPage/pages/NoticePage';
 import NoticeDetailPage from './MyPage/pages/NoticeDetailPage';
 import AlarmSettingPage from './MyPage/pages/AlarmSettingPage';
 import ContactPage from './MyPage/pages/ContactPage';
+import ContactWritePage from './MyPage/pages/ContactWritePage';
 import MyPostPage from './MyPage/pages/MyPostPage';
+import MyCommentPage from './MyPage/pages/MyCommentPage';
 import TermsOfUsePage from './MyPage/pages/TermsOfUsePage';
 import Profile from './MyPage/pages/ProfilePage';
 
@@ -74,7 +76,9 @@ const App = () => {
         <Route path="/myPage/notice/:_id" element={<NoticeDetailPage />} />
         <Route path="/myPage/alarmSetting" element={<AlarmSettingPage />} />
         <Route path="/myPage/contact" element={<ContactPage />} />
+        <Route path="/myPage/contact/write" element={<ContactWritePage />} />
         <Route path="/myPage/myPost" element={<MyPostPage />} />
+        <Route path="/myPage/myComment" element={<MyCommentPage />} />
         <Route path="/myPage/termsOfUse" element={<TermsOfUsePage />} />
 
         <Route path="/myPage/profile" element={<Profile />} />
