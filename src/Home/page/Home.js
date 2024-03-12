@@ -10,6 +10,7 @@ import { useRecommendActivities } from '../../Acitivity/modules/queries/useGetAc
 import '../../styles/PageCommon.scss';
 import { RecommendList } from '../components/RecommendList';
 import { useGetTopPost } from '../../Community/modules/queries/useGetCommunity';
+import '../Home.scss';
 
 const Home = () => {
   const BannerSlider = React.lazy(() => import('../components/BannerSlider'));
@@ -18,7 +19,6 @@ const Home = () => {
 
   // 활동글 불러오기
   const { data: activityData } = useRecommendActivities();
-  console.log(activityData);
 
   // 인기글 불러오기
   const { data: postData } = useGetTopPost();

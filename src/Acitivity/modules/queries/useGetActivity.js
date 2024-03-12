@@ -34,9 +34,9 @@ export const useActivityList = () => {
       const { data } = await client.get('/activity/list', {
         params,
       });
-      console.log(data);
       return data;
     },
+
     staleTime: 90000,
     select: (data) =>
       (data.activities || []).map(
@@ -74,10 +74,10 @@ export const useRecommendActivities = () => {
     select: (data) =>
       (data.recommendActivity || []).map(
         ({ _id, activityName, endedAt, mainImageUrl }) => ({
-          _id: _id,
-          activityName: activityName,
+          _id,
+          activityName,
           Dday: calculateDday(endedAt),
-          imageUrl: mainImageUrl,
+          mainImageUrl,
         }),
       ),
   });

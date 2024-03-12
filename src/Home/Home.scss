@@ -1,0 +1,205 @@
+@media (max-width: 600px) {
+  .sliderWrapper {
+    height: 118px !important;
+  }
+
+  .bannerImg {
+    height: 118px !important;
+  }
+
+  .gridContainer {
+    width: calc(375px - 16px) !important;
+    overflow-x: hidden !important;
+
+    .cellItem:nth-child(even) {
+      padding-right: 0px !important;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 992px) {
+  body {
+    width: 100%;
+
+    // 상단바
+    & > #root > :nth-child(1) {
+      width: 100% !important;
+      display: flex;
+      justify-content: space-between;
+
+      & > div {
+        position: relative !important;
+
+        & > .Bell {
+          left: -15px;
+        }
+      }
+    }
+
+    & > & > div {
+      width: 100%;
+    }
+  }
+
+  .pageContainer {
+    width: 100% !important;
+  }
+
+  .bannerImg {
+    width: 100%;
+    height: 15% !important;
+  }
+
+  // 인기 게시글
+  .card-container {
+    width: 100%;
+    height: fit-content;
+    overflow-x: hidden !important;
+
+    & > div {
+      width: 100%;
+
+      & > a,
+      div {
+        max-width: 25vw;
+        width: 100%;
+        height: 100%;
+
+        & > .image-2 {
+          height: 110px;
+          width: 100%;
+        }
+
+        & > .title {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // 추천 게시글
+  .windowList {
+    width: 100% !important;
+    height: 250px !important;
+  }
+
+  .recommand-item {
+    width: 200px !important;
+    height: 100% !important;
+  }
+
+  // -----------------------------------------홈 화면
+
+  .gridContainer {
+    width: 100% !important;
+  }
+
+  .filterItem {
+    width: 100% !important;
+  }
+
+  .activity-inputWrapper {
+    width: 100% !important;
+  }
+
+  // 하단바
+  nav {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    // 상단바
+    & > #root > :nth-child(1) {
+      width: 992px !important;
+      display: flex;
+      justify-content: space-between;
+
+      & > div {
+        position: relative !important;
+
+        & > .Bell {
+          left: -15px;
+        }
+      }
+    }
+
+    & > & > div {
+      width: 992px;
+    }
+  }
+
+  .pageContainer {
+    width: 992px !important;
+  }
+
+  .bannerImg {
+    height: 236px !important;
+    width: 100%;
+  }
+
+  // 인기 게시글
+  .card-container {
+    width: 992px;
+    height: fit-content;
+    overflow-x: hidden !important;
+
+    & > div {
+      width: 100%;
+
+      & > a,
+      div {
+        max-width: 25vw;
+        width: 100%;
+        height: 100%;
+
+        & > .image-2 {
+          height: 160px;
+          width: 100%;
+        }
+
+        & > .title {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // 추천 게시글
+  .windowList {
+    width: 100% !important;
+    height: 250px !important;
+  }
+
+  .recommand-item {
+    width: 200px !important;
+    height: 100% !important;
+  }
+
+  // -----------------------------------------홈 화면
+
+  .gridContainer {
+    display: flex;
+    width: 100% !important;
+    height: 60vh !important;
+    justify-content: center;
+
+    & > div {
+      position: relative;
+    }
+  }
+
+  .filterItem {
+    width: 100% !important;
+  }
+
+  .activity-inputWrapper {
+    width: 100% !important;
+  }
+
+  // 하단바
+  nav {
+    width: 992px !important;
+  }
+}
