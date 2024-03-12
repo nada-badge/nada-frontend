@@ -9,6 +9,7 @@ import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import CameraSvg from '../icon/CameraSvg';
 import useGetUserInfo from '../modules/queries/useGetUserInfo';
 import usePostImage from '../../modules/queries/usePostImage';
+import { useState } from 'react';
 
 const LinkContent = styled(LinkWrapper)`
   ${applyFontStyles({ font: 'subtitle-01' })}
@@ -68,9 +69,15 @@ const Profile = () => {
   const { data: info } = useGetUserInfo();
   const { mutateAsync } = usePostImage();
 
+  const [imgSrc, setImg] = useState('');
+
   const saveImgFile = async (e) => {
     const files = Array.from(e.target.files);
-    const result = await mutateAsync({ section: 'profile', files: files });
+    const result = await mutateAsync({
+      section: 'profileImageUrl',
+      files: files,
+    });
+    setImg(result);
   };
 
   return (
@@ -93,7 +100,7 @@ const Profile = () => {
           </div>
           <BadgeItem
             cards={{
-              img_src: '',
+              img_src: imgSrc,
               badgeType: '개인회원',
             }}
             $layout_style={{
