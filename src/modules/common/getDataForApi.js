@@ -3,10 +3,10 @@
 const getDataForApi = ({ position, postData, comment, isReport = false }) => {
   const reportUrl = isReport ? '/report' : '';
   const positionsConfig = {
-    activity: { url: `/activity${reportUrl}`, idData: postData.data._id },
+    activity: { url: `/activity${reportUrl}`, idData: postData?.data?._id },
     post: {
       url: `/community/post${reportUrl}`,
-      idData: postData ? postData.data._id : '',
+      idData: postData?.data?._id || '',
     },
     comment: {
       url: `/community/comment${reportUrl}/${comment.post_id}`,
