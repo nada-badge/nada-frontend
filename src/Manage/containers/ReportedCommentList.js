@@ -1,18 +1,12 @@
 import { Profile } from '../../Community/components/comment/Profile';
 import { Layout } from '../components/NoticeContent';
-import useDeleteId from '../../modules/queries/useDeleteId';
+import { useNavigate } from 'react-router-dom';
 
 export const ReportedCommentList = ({ data }) => {
-  console.log('data :', data.data);
+  const navigate = useNavigate();
 
-  const { mutate } = useDeleteId();
-
-  const onDelete = (comment) => {
-    //API 추가 수정되면 수정 필요
-    // mutate({
-    //   url: '/community/comment/${comment.?},
-    //   _id: comment._id,
-    // });
+  const onClick = (comment) => {
+    navigate(`/community/PostDetail/${comment.post_id}`);
   };
 
   return (
@@ -23,7 +17,9 @@ export const ReportedCommentList = ({ data }) => {
             <Profile comment={comment} />
             {comment.content}
             <div className="bottom">
-              <button onClick={() => onDelete(comment)}>삭제</button>
+              <button onClick={() => onClick(comment)}>
+                댓글이 포함된 게시글 보러가기
+              </button>
             </div>
           </Layout>
         ))}
