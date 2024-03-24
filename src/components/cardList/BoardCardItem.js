@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { caption_01, caption_02 } from '../../styles/fontStyle';
 import { Link } from 'react-router-dom';
+import imgNull from '../../icon/GrayLogo.png';
 
 const CardContainer = styled(Link)`
   background-color: var(--myspec-gray-scalegray-100);
@@ -15,7 +16,7 @@ const CardContainer = styled(Link)`
   & > .image-2 {
     background-image: ${(props) => {
       return `url(
-      ${props.$imgSrc ? props.$imgSrc : 'https://generation-sessions.s3.amazonaws.com/34294950d7167123fb2eefcf02c0f744/img/image-2@2x.png'})`;
+      ${props.$imgSrc ? props.$imgSrc : imgNull})`;
     }};
     background-position: 50% 50%;
     background-size: cover;
@@ -51,7 +52,9 @@ const BoardCardItem = ({ cards }) => {
           to={`/community/PostDetail/${_id}`}
           $imgSrc={imageUrl}
         >
-          <div className="image-2" />
+          <div className="image-2">
+            <div className="image-2" />
+          </div>
           <div className="category">{category}</div>
           <div className="title">{title}</div>
         </CardContainer>
