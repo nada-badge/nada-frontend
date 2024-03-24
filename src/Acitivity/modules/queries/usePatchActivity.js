@@ -1,4 +1,4 @@
-/* usePatchManage 관리자 게시물 등록을 수행하는 쿼리 */
+/* usePatchActivity 활동 게시물 업데이트를 수행하는 쿼리 */
 import client from '../../../lib/api/client';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';

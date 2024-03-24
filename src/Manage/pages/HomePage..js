@@ -31,6 +31,7 @@ const ManageHome = () => {
           text={'커뮤니티 게시글 관리하기'}
         />
         <LinkButton url={'/manage/notice'} text={'공지사항 게시글 관리하기'} />
+        <LinkButton url={'/manage/contact'} text={'문의사항 관리하기'} />
       </List>
     </LayoutStyle>
   );

@@ -1,3 +1,4 @@
+/**LinkButton 특정 링크로 넘어가는 버튼 컴포넌트 */
 import { Link } from 'react-router-dom';
 import { AngleBracket } from '../../icon/AngleBracket';
 import { applyFontStyles } from '../../styles/fontStyle';

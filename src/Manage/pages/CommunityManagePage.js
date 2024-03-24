@@ -5,19 +5,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import PostList from '../../components/postList/PostList';
 import { useGetPostList } from '../../Community/modules/queries/useGetCommunity';
+import {
+  useGetReportedPost,
+  useGetReportedComment,
+} from '../modules/queries/useGetReported';
 import Category from '../../Community/containers/Category';
 import Filter from '../../components/filter/Filter';
-import { ReportsButton } from '../components/ReportsButton';
 import { initializeForm } from '../../modules/redux/postData';
 import { initializeAll as initializeFilter } from '../../modules/redux/filter';
+import { CommunityReportsButton } from '../containers/CommunityReportsButton';
+import { ReportedCommentList } from '../containers/ReportedCommentList';
 
 const CommunityManagePage = () => {
   const dispatch = useDispatch();
   const filter = useSelector(({ filter }) => filter);
-  const [showReports, setShowReports] = useState(false);
   const [posts, setPosts] = useState([]);
   // 서버에서 가져온 query 결과 가져오기
   const result = useGetPostList({ filter: filter });
+  const reportedPost = useGetReportedPost().data;
+  const reportedComment = useGetReportedComment().data;
+  const [showPostReports, setShowPostReports] = useState(false);
+  const [showCommentReports, setShowCommentReports] = useState(false);
 
   useEffect(() => {
     dispatch(initializeForm());
@@ -32,24 +40,35 @@ const CommunityManagePage = () => {
   }, []);
 
   useEffect(() => {
-    if (result.data && showReports) {
-      const filteredActivity = result.data.filter((item) => item.reports);
-      setPosts({ data: filteredActivity });
+    if (showPostReports) {
+      setPosts({ data: reportedPost });
+    } else if (showCommentReports) {
+      setPosts({ data: reportedComment });
     } else {
       setPosts(result);
     }
-  }, [result.data, result.isLoading, showReports]);
+  }, [result.data, result.isLoading, showPostReports, showCommentReports]);
 
   return (
     <LayoutStyle>
       <Header text={'커뮤니티 게시글'} url={'/community/PostWrite'} />
       <Category />
       <Filter />
-      <ReportsButton
-        showReports={showReports}
-        setShowReports={setShowReports}
+      <CommunityReportsButton
+        showPostReports={showPostReports}
+        setShowPostReports={setShowPostReports}
+        showCommentReports={showCommentReports}
+        setShowCommentReports={setShowCommentReports}
       />
-      <PostList type={'community'} result={posts} />
+      <div>
+        신고된 게시글 및 답글은 모집/홍보/자유와 상관없이 전체 게시글이
+        출력됩니다.
+      </div>
+      {showCommentReports ? (
+        <ReportedCommentList data={posts} />
+      ) : (
+        <PostList type={'community'} result={posts} />
+      )}
     </LayoutStyle>
   );
 };
