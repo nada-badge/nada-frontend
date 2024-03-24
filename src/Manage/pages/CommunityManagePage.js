@@ -26,7 +26,7 @@ const CommunityManagePage = () => {
   const reportedComment = useGetReportedComment().data;
   const [showPostReports, setShowPostReports] = useState(false);
   const [showCommentReports, setShowCommentReports] = useState(false);
-  console.log('reportedComment : ', reportedComment);
+
   useEffect(() => {
     dispatch(initializeForm());
     dispatch(
